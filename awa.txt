@@ -1,0 +1,10 @@
+<tbody>
+    <tr>
+      <td><a href="/zh/chess.html"><img src="/images/icon/SPM.jpg" style="min-width:160px;width:160px" /></a></td>
+      <td><a href="/zh/chess.html">烤地瓜模组介绍</a> <br /> 农业与魔法的完美结合！</td>
+    </tr>
+    <tr>
+      <td><a href="/zh/amoeba.html"><img src="/images/icon/G.jpg" alt="" /></a></td>
+      <td><a href="/zh/amoeba.html">烤地瓜模组百科</a> <br /> 烤地瓜模组Wikipedia！</td>
+    </tr>
+  </tbody>
