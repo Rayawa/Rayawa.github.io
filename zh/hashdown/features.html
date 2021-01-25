@@ -12,7 +12,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title> Rick's Deep Mess </title>
+    <title> Hashdown </title>
   </head>
 
   <body>
@@ -38,55 +38,52 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-  <h2>Rick's Deep Mess</h2>
-  <hr />
-<script>
-(()=>{
-  let lan = window.localStorage.language;
-  if (lan) {
-      if (lan === 'en') {
-        window.location.replace("/en/");
-      }
-  } else {
-    let hasZh = window.navigator.language.startsWith('zh');
-    let hasOther = false;
-    if (!hasZh) {
-      for (let str of window.navigator.languages) {
-        if (str.startsWith('zh')) {
-          hasZh = true;
-        } else if (!str.startsWith('en')) {
-          hasOther = true;
-        }
-      }
-      if (!hasZh || hasOther) {
-        window.location.replace("/en/");
-      }
-    }
-  }
-})();
-</script>
+  <h2>Hashdown</h2>
+  <h2 id="section">密码</h2>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="/zh/chess.html"><img src="/images/icon/chess.png" style="min-width:160px;width:160px" /></a></td>
-      <td><a href="/zh/chess.html">乐高国际象棋设计</a> <br /> 用乐高设计的国际象棋棋子</td>
-    </tr>
-    <tr>
-      <td><a href="/zh/amoeba.html"><img src="/images/icon/amoeba.png" alt="" /></a></td>
-      <td><a href="/zh/amoeba.html">变形虫自动机</a> <br /> 基于GLSL的细胞自动机模拟</td>
-    </tr>
-    <tr>
-      <td><a href="/zh/namerena/"><img src="/images/icon/namerena.png" alt="" /></a></td>
-      <td><a href="/zh/namerena/">名字竞技场</a> <br /> 基于文本的对战游戏，战斗的过程由输入的名字决定，固定的输入有固定的对战结果</td>
-    </tr>
-    <tr>
-      <td><a href="/zh/hashdown/"><img src="/images/icon/hashdown.png" style="min-width:160px" /></a></td>
-      <td><a href="/zh/hashdown/">Hashdown</a> <br /> 文本编码和压缩的工具，可以在有限的字符内储存更多的文本信息</td>
-    </tr>
-  </tbody>
-</table>
+<p><a href="index.html">Hashdown</a>的密码输入框可以用来给信息加密，解码的时候必须输入相同密码。</p>
 
+<h3 id="section-1">特殊密码</h3>
+
+<p>用特殊密码时，编码结果并不会被加密，解码时也不用输入密码。</p>
+
+<ul>
+  <li><strong>0</strong>
+    <ul>
+      <li>当密码是0，编码内容强制不加密不压缩。可以看到原始的UTF8编码结构。</li>
+    </ul>
+  </li>
+  <li><strong>1</strong>
+    <ul>
+      <li>当密码是1，编码结果会进行1字节加盐，同一个输入会有256种不同输出，可以用来防止过滤。</li>
+    </ul>
+  </li>
+  <li><strong>4</strong>
+    <ul>
+      <li>当密码是4，编码结果会进行4字节加盐，同一个输入会有4294967296种不同输出。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="markdown">Markdown</h2>
+
+<p>Markdown标记语言可以用来快速排版超文本内容</p>
+
+<p>Markdown语法示例： <a href="https://hashdown.github.io/edit.html#markdown_basis.zh.md">markdown_basis.zh.md</a></p>
+
+<p>在Marddown中嵌入HTML: <a href="https://hashdown.github.io/edit.html#markdown_style.zh.md">markdown_style.zh.md</a></p>
+
+<h3 id="section-2">编辑模式</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">A</code> : 纯文本模式</li>
+  <li><code class="highlighter-rouge">#</code> : Markdown预览</li>
+  <li><code class="highlighter-rouge">A|#</code> : Markdown编辑模式，文本和Markdown同时显示
+    <ul>
+      <li>多次点击<code class="highlighter-rouge">A|#</code>按钮可以进入纯净Markdown编辑模式，不显示解码框。</li>
+    </ul>
+  </li>
+</ul>
 
 
 </section>

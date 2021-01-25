@@ -12,7 +12,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title> Rick's Deep Mess </title>
+    <title> MD5大作战 </title>
   </head>
 
   <body>
@@ -38,54 +38,17 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-  <h2>Rick's Deep Mess</h2>
-  <hr />
-<script>
-(()=>{
-  let lan = window.localStorage.language;
-  if (lan) {
-      if (lan === 'en') {
-        window.location.replace("/en/");
-      }
-  } else {
-    let hasZh = window.navigator.language.startsWith('zh');
-    let hasOther = false;
-    if (!hasZh) {
-      for (let str of window.navigator.languages) {
-        if (str.startsWith('zh')) {
-          hasZh = true;
-        } else if (!str.startsWith('en')) {
-          hasOther = true;
-        }
-      }
-      if (!hasZh || hasOther) {
-        window.location.replace("/en/");
-      }
-    }
-  }
-})();
-</script>
+  <h2>MD5大作战</h2>
+  <p>MDS大作战是十年期做的Flash小游戏，已经被新版游戏<a href="http://namerena.github.io/help/">名字竞技场</a>取代</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="/zh/chess.html"><img src="/images/icon/chess.png" style="min-width:160px;width:160px" /></a></td>
-      <td><a href="/zh/chess.html">乐高国际象棋设计</a> <br /> 用乐高设计的国际象棋棋子</td>
-    </tr>
-    <tr>
-      <td><a href="/zh/amoeba.html"><img src="/images/icon/amoeba.png" alt="" /></a></td>
-      <td><a href="/zh/amoeba.html">变形虫自动机</a> <br /> 基于GLSL的细胞自动机模拟</td>
-    </tr>
-    <tr>
-      <td><a href="/zh/namerena/"><img src="/images/icon/namerena.png" alt="" /></a></td>
-      <td><a href="/zh/namerena/">名字竞技场</a> <br /> 基于文本的对战游戏，战斗的过程由输入的名字决定，固定的输入有固定的对战结果</td>
-    </tr>
-    <tr>
-      <td><a href="/zh/hashdown/"><img src="/images/icon/hashdown.png" style="min-width:160px" /></a></td>
-      <td><a href="/zh/hashdown/">Hashdown</a> <br /> 文本编码和压缩的工具，可以在有限的字符内储存更多的文本信息</td>
-    </tr>
-  </tbody>
-</table>
+<hr />
+
+<p><span class="postbody"><script src="/js/swfobject.js" type="text/javascript"></script></span></p>
+<div id="flashcontent" style="width:700px;height:500px">MD5大作战</div>
+<script type="text/javascript"> 
+var so = new SWFObject('/swf/md5war.swf', 'mymovie', '700', '500', '9', '#FFFFFF'); 
+so.write('flashcontent'); 
+</script>
 
 
 
