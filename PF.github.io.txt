@@ -1,0 +1,13 @@
+zh/ (move into / if default-language)
+	index.html (Webpage Biggest Title & Index) (Same as rayawa.github.io 202101261549+08:00)
+	spm/
+		wiki/
+			...
+		index.html
+en/
+	<same as /zh/, translated>
+.gitignore
+PF.ico
+static/
+	images/
+	css/
