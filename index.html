@@ -8,96 +8,83 @@
     <link rel="stylesheet" type="text/css" href="/static/css/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="/static/css/print.css" media="print" />
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title> Rick's Deep Mess </title>
+    <title> Pigeonia Featurehouse </title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h2 class="innerTitle">Deep Mess</h2>
+        <h2 class="innerTitle"> Home Page </h2>
         
-      </div>
-      <div class="ad">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- deepmess -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3283235194066083"
-     data-ad-slot="4224473058"
-     data-ad-format="auto"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
       </div>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-  <h2>Rick's Deep Mess</h2>
+  <h2> Sweet Potato Mod </h2>
   <hr />
+<script>
+(()=>{
+  let lan = window.localStorage.language;
+  if (lan) {
+      if (lan === 'en') {
+        window.location.replace("/");
+      }
+  } else {
+    let hasZh = window.navigator.language.startsWith('zh');
+    let hasOther = false;
+    if (!hasZh) {
+      for (let str of window.navigator.languages) {
+        if (str.startsWith('zh')) {
+          hasZh = true;
+        } else if (!str.startsWith('en')) {
+          hasOther = true;
+        }
+      }
+      if (!hasZh || hasOther) {
+        window.location.replace("/");
+      }
+    }
+  }
+})();
+</script>
 
 <table>
   <tbody>
     <tr>
-      <td><a href="/en/chess.html"><img src="/static/images/icon/chess.png" style="min-width:160px;width:160px" /></a></td>
-      <td><a href="/en/chess.html">Lego Chess Pieces Design</a> <br /> My customized design of Lego chess pieces.</td>
+      <td><a href="/spm/desc.html"><img src="/images/icon/SPM.jpg" /></a></td>
+      <td><a href="/spm/desc.html"> Mod Description </a> <br /> Try every kinds of Food and Magic in Sweet Potato Mod! </td>
     </tr>
     <tr>
-      <td><a href="/en/amoeba.html"><img src="/static/images/icon/amoeba.png" alt="" /></a></td>
-      <td><a href="/en/amoeba.html">Rick's Game of Amoeba</a> <br /> A Cellular automaton web app base on Game of Life.</td>
-    </tr>
-    <tr>
-      <td><a href="/en/hashdown/"><img src="/static/images/icon/hashdown.png" /></a></td>
-      <td><a href="/en/hashdown/">Hashdown</a> <br /> Text encoding and compression tool.</td>
-    </tr>
-    <tr>
-      <td><a href="https://namerena.github.io/en.html"><img src="/static/images/icon/namerena.png" alt="" /></a></td>
-      <td><a href="https://namerena.github.io/en.html">Namerena</a> <br /> A Text based fighting game, game result is determined by input names.</td>
+      <td><a href="/spm/wiki/"><img src="/images/icon/G.jpg" /></a></td>
+      <td><a href="/spm/wiki/"> Mod Wikipedia </a> <br /> Sweet Potato Mod Wikipedia！</td>
     </tr>
   </tbody>
 </table>
+
 
 
 </section>
 
 <aside id="sidebar">
 
-<p>
-  
-</p>
-
-<a href="https://twitter.com/rinickzhou" class="link" target="_blank">
-  <div style="background-image: url(https://twitter.com/favicon.ico);"></div>
-  twitter
-</a>
-<a href="https://github.com/rinick" class="link" target="_blank">
+<a href="https://github.com/Featurehouse" class="link" target="_blank">
   <div style="background-image: url(https://github.com/favicon.ico);"></div>
   GitHub
 </a>
 
-
 <ul>
-  <li><a href="/en/" ><img src="/images/us.png"></img> Home</a></li>
-  <li><a href="/" onClick="window.localStorage.language='zh'" ><img src="/images/cn.png"></img> 中文首页</a></li>
+  <li><a href="/" ><img src="/images/cn.png"></img> 首页 </a></li>
+  <li> <a href="/en/" onClick="window.localStorage.language='en'" ><img src="/images/us.png"></img> English Home Page </a></li>
   <br/>
-  <li>Projects</li>
+  <li> Sweet Potato Mod </li>
   <ul>
-    <li><a href="/en/amoeba.html">Game of Amoeba</a></li>
-    <li><a href="https://namerena.github.io/en.html">Namerena</a></li>
-    <li><a href="/en/hashdown/" >Hashdown</a></li>
+    <li><a href="/spm/desc.html" > Mod Description </a></li>
+    <li><a href="/spm/wiki/" > Mod Wikipedia </a></li>
   </ul>
   <br/>
-  <li>Others</li>
-  <ul>
-    <li><a href="/en/chess.html" >Lego Chess Design</a></li>
-    <li><a href="/en/unicode/emoji.html" >Unicode Emoji</a></li>
-    <li><a href="/arithmetic/" >Arithmetic Practice</a></li>
-  </ul>
+ 
 </ul>
 <!--p></p>
 <p></p>
