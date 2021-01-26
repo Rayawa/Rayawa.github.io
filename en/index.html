@@ -28,17 +28,17 @@
 (()=>{
   let lan = window.localStorage.language;
   if (lan) {
-      if (lan === 'en') {
+      if (lan === 'zh') {
         window.location.replace("/");
       }
   } else {
-    let hasZh = window.navigator.language.startsWith('zh');
+    let hasZh = window.navigator.language.startsWith('en');
     let hasOther = false;
     if (!hasZh) {
       for (let str of window.navigator.languages) {
-        if (str.startsWith('zh')) {
+        if (str.startsWith('en')) {
           hasZh = true;
-        } else if (!str.startsWith('en')) {
+        } else if (!str.startsWith('zh')) {
           hasOther = true;
         }
       }
