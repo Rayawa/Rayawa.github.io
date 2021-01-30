@@ -1,0 +1,42 @@
+                                       Pigeonia联动标准
+                                   2020年1月25日, 版本v1.0.0
+
+1. 介绍
+
+Pigeonia Linkakge Standard是在Minecraft（我的世界）Java版Fabric 1.16+模组中进行联动的标准。
+这使得在Fabric中的模组联动更加方便。我们建议所有Fabric模组都遵循此标准。
+
+2. 内容
+
+您需要在您的模组的主包中添加一个名为`linkage`（如：com.example.mymod.linkage）的包以遵循该
+标准。在此包中，您须添加两个接口类：`<模组名称缩写>Linkage`（如：MyModLinkage）与
+`<模组名称缩写>LinkageClient`。您须向两个接口类同时添加@FunctionalInterface注解，分别添加
+`void init()`与`void initClient()`，并向后者类中添加`@Environment(EnvType.CLIENT)`注解。
+向模组主类的`onInitialize()`中添加一行
+`FabricLoader.getInstance().getEntrypoints("<mymod_id>", <ModShortName>Linkage.class).forEach(<ModShortName>Linkage::init);`，
+并向模组客户端主类中的`onInitializeClient()`中添加一行
+`FabricLoader.getInstance().getEntrypoints("<mymod_id>.client", <ModShortName>LinkageClient.class).forEach(<ModShortName>LinkageClient::initClient);`。
+
+3. 如何与遵循本标准的模组联动
+
+将联动内容写在`<被联动模组包>.linkage.<主动联动模组ID>`
+（如：net.another.othermod.linkage.mymodid）。联动内容的主类应命名为
+`<被联动模组名称缩写><主动联动模组名称缩写>Linkage`（如OtherModMyModLinkage），并将其添加
+至`fabric.mod.json`->`entrypoint`->`<被联动模组ID>`中。联动内容的客户端主类应命名为
+`<被联动模组名称缩写><主动联动模组名称缩写>LinkageClient`（如OtherModMyModLinkageClient），
+并将其添加至`fabric.mod.json`->`entrypoint`->`<被联动模组ID>`中。
+
+不要在您的模组主包中的任何地方（包括Javadoc）调用联动内容！这会使得您的联动内容被加载，如果
+您没有安装被联动模组，游戏会崩溃！然而您可以在联动内容中调用模组主包，因为这一般情况下都是
+必需的。
+
+4. 如何将本标准添加至您的模组中
+
+您无需将本文本文件添加至您的模组中。您只需在`fabric.mod.json`->`custom`中添加一个JSON对象：
+
+	"custom": {
+		"Pigeonia Linkage Standard": {
+			"url": "https://featurehouse.github.io/pigeonia-linkage-standard/v1.0.0/STANDARD.txt",
+			"version": "v1.0.0"
+		}
+	}
