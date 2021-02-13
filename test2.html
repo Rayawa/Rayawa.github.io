@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>select 右边下拉箭头 demo ... 简单的56个民族</title>
+    <style type="text/css">
+        select {
+          /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+          border: solid 1px red;
+          /*很关键：将默认的select选择框样式清除*/
+          appearance:none;
+          -moz-appearance:none;
+          -webkit-appearance:none;
+          /*在选择框的最右侧中间显示小箭头图片*/
+          /*background: url("./arrow.jpg") no-repeat scroll right center transparent;*/
+          /*background: url("./arrow.jpg") no-repeat scroll 170px 15px transparent;*/
+          /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+          padding-right: 35px;
+          padding-left:  4px;
+          border-radius: 4px;
+        }
+        /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+        select::-ms-expand { display: none; }
+        
+        .test{
+            width:200px;
+            height:40px;
+            background: url("./arrow.jpg") no-repeat scroll 170px 15px transparent;
+            /*padding-right:20px;*/
+        }
+        .test option{
+            height:30px;
+            width: 200px;
+            padding-left:5px;
+
+        }
+    </style>
+</head>
+<body>
+    <select class="test">
+      <option value='1'>汉族</option>
+      <option value='2'>蒙古族</option>
+      <option value='3'>回族</option>
+      <option value='4'>藏族</option>
+      <option value='5'>维吾尔族</option>
+      <option value='6'>苗族</option>
+      <option value='7'>彝族</option>
+      <option value='8'>壮族</option>
+      <option value='9'>布依族</option>
+      <option value='10'>朝鲜族</option>
+      <option value='11'>满族</option>
+      <option value='12'>侗族</option>
+      <option value='13'>瑶族</option>
+      <option value='14'>白族</option>
+      <option value='15'>土家族</option>
+      <option value='16'>哈尼族</option>
+      <option value='17'>哈萨克族</option>
+      <option value='18'>傣族</option>
+      <option value='19'>黎族</option>
+      <option value='20'>傈僳族</option>
+      <option value='21'>佤族</option>
+      <option value='22'>畲族</option>
+      <option value='23'>高山族</option>
+      <option value='24'>拉祜族</option>
+      <option value='25'>水族</option>
+      <option value='26'>东乡族</option>
+      <option value='27'>纳西族</option>
+      <option value='28'>景颇族</option>
+      <option value='29'>柯尔克孜族</option>
+      <option value='30'>土族</option>
+      <option value='31'>达斡尔族</option>
+      <option value='32'>仫佬族</option>
+      <option value='33'>羌族</option>
+      <option value='34'>布朗族</option>
+      <option value='35'>撒拉族</option>
+      <option value='36'>毛南族</option>
+      <option value='37'>仡佬族</option>
+      <option value='38'>锡伯族</option>
+      <option value='39'>阿昌族</option>
+      <option value='40'>普米族</option>
+      <option value='41'>塔吉克族</option>
+      <option value='42'>怒族</option>
+      <option value='43'>乌孜别克族</option>
+      <option value='44'>俄罗斯族</option>
+      <option value='45'>鄂温克族</option>
+      <option value='46'>德昂族</option>
+      <option value='47'>保安族</option>
+      <option value='48'>裕固族</option>
+      <option value='49'>京族</option>
+      <option value='50'>塔塔尔族</option>
+      <option value='51'>独龙族</option>
+      <option value='52'>鄂伦春族</option>
+      <option value='53'>赫哲族</option>
+      <option value='54'>门巴族</option>
+      <option value='55'>珞巴族</option>
+      <option value='56'>基诺族</option>
+    </select>
+</body>
+</html>
