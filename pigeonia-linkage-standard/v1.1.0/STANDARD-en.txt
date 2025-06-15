@@ -1,0 +1,63 @@
+                                  Pigeonia Linkage Standard
+                                 25 Jan 2020, Version v1.0.1
+
+1. What's This
+
+Pigeonia Linkakge Standard is a standard for making linkage in 1.16-or-above Fabric mods.
+It makes making linkage in Fabric more convenient. We suggest all mods follow this
+standard.
+
+2. Context
+
+To follow this standard, you should add a package into your main package in your mod
+called `linkage` (e.g. com.example.mymod.linkage). In this package, you should add two
+interfaces: `<ModShortName>Linkage` (e.g. MyModLinkage) and `<ModShortName>LinkageClient`
+(e.g. MyModLinkageClient). Add @FunctionalInterface in both interfaces, `void init()` and
+`void initClient()` respectively, and `@Environment(EnvType.CLIENT)` in the latter
+interface. Add
+`FabricLoader.getInstance().getEntrypoints("<mymod_id>", <ModShortName>Linkage.class).forEach(<ModShortName>Linkage::init);`
+into method `onInitialize()` of your main class, and
+`FabricLoader.getInstance().getEntrypoints("<mymod_id>.client", <ModShortName>LinkageClient.class).forEach(<ModShortName>LinkageClient::initClient);`
+into method `onInitializeClient()` of your client class.
+
+3. How to make linkage with other mod follows this standard
+
+For the linkage context, write them in `<othermod_package>.linkage.<mymod_id>` (e.g.
+net.another.othermod.linkage.mymodid). The main entrypoint class should be named as
+`<OtherModShortName><MyModShortName>Linkage` (e.g. OtherModMyModLinkage), and be added
+into entrypoint `<othermod_id>` in your `fabric.mod.json`. The client entrypoint class
+should be named as `<OtherModShortName><MyModShortName>LinkageClient` (e.g.
+OtherModMyModLinkageClient), and be added into entrypoint `<othermod_id>.client` in your
+`fabric.mod.json`.
+
+Do not use linkage classes in the main package, even in javadocs! That'll cause loading
+linkage classes even the linkage mod isn't installed, and the result is CRASHES! However,
+in the linkage clases, you can use the classes in the main package, because it is
+necessary most of the time.
+
+4. "Non-strict"
+
+You can choose to follow this standard strictly or non-strictly. If you choose the latter,
+then you do not need to strictly follow these context below:
+
+a) Interface classes defined in Article 2 do not need to be named as the definition in
+this article. For example, `MyModLinkage` can be named as `MyModLinkageApi` non-strictly.
+
+b) The main and client entrypoint of the linkage context defined in Article 3 do not need
+to be named as the definition in this article.
+
+5. How to append this standard into your mod
+
+You do not need to put this text file into your mod. Just add an object in `custom` in
+`fabric.mod.json`:
+
+	"custom": {
+		"Pigeonia Linkage Standard": {
+			"url": "https://featurehouse.github.io/pigeonia-linkage-standard/v1.0.1/STANDARD.txt",
+			"version": "v1.0.1",
+            "strict": $boolean
+		}
+	}
+
+`strict` refers to whether your mod follows this standard strictly (see Article 4). It
+should be expressed as a boolean value.

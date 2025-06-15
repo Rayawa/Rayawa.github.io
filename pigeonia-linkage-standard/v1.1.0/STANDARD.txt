@@ -1,0 +1,165 @@
+                                       Pigeonia联动标准
+                                   2021年8月30日, 版本v1.1.0
+
+1. 介绍
+
+Pigeonia Linkakge Standard 是在 Minecraft（我的世界）Java版 Fabric Mod 中进行联动的一种标准，适用 Minecraft 版本为 20w06a 及以上。
+这使得在Fabric中的模组联动更加方便。我们建议所有Fabric模组都遵循此标准。
+
+
+2. 本文档中使用的名称与符号
+
+MyMod, my_mod, mymod - 用于指代提供联动接口的 Mod
+OtherMod, other_mod, othermod - 用于指代实现联动接口的 Mod
+
+使用时请自行对应。
+
+本文档的示例代码中，默认导入的类如下：
+
+Environment - Fabric Loader 中的 net.fabricmc.api.Environment 注解
+EnvType - Fabric Loader 中的 net.fabricmc.api.EnvType 枚举类
+FabricLoader - Fabric Loader 中的 net.fabricmc.loader.api.FabricLoader 接口
+
+
+3. 内容
+
+a. 您需要在您的 Mod 的主包中添加一个包，名为 `linkage`，即 `mymod.linkage`。
+   
+   在这个包中，您需要添加以下接口类：
+   （以下为 Java 代码，其它编程语言同理）
+
+   > mymod.linkage.MyModLinkage
+
+   package mymod.linkage;
+
+   public interface MyModLinkage {
+      void init();
+   }
+
+   > mymod.linkage.MyModLinkageClient
+
+   package mymod.linkage;
+
+   @Environment(EnvType.CLIENT)
+   public interface MyModLinkageClient {
+      void initClient();
+   }
+
+   > mymod.linkage.MyModLinkageServer
+
+   package mymod.linkage;
+
+   @Environment(EnvType.SERVER)
+   public interface MyModLinkageServer {
+      void initServer();
+   }
+
+b. 在您的 Mod 对应的调用点中，添加代码，使得您的 Mod 可以加载实现联动接口的类。示例如下：
+
+   > fabric.mod.json
+
+   {
+     "schemaVersion": 1,
+     "id": "my_mod",
+     "version": "1.0.0",
+
+     "entrypoints": {
+       "main": [
+         "mymod.MyMod"
+       ],
+       "client": [
+         "mymod.MyModClient"
+       ],
+       "server": [
+         "mymod.MyModServer"
+       ]
+     },
+
+     "custom:" {
+       "Pigeonia Linkage Standard" {
+         "url": "https://featurehouse.github.io/pigeonia-linkage-standard/v1.1.0/STANDARD.txt",
+         "version": "v1.1.0",
+         "strict": true
+       }
+     }
+   }
+
+   > mymod/MyMod.java
+
+   package mymod;
+
+   import mymod.linkage.MyModLinkage;
+
+   public class MyMod implements net.fabricmc.api.ModInitializer {
+      @Override
+      public void onInitialize() {
+        FabricLoader.getInstance().getEntrypoints("my_mod", MyModLinkage.class).forEach(MyModLinkage::init);
+      }
+   }
+
+   > mymod/MyModClient.java
+
+   package mymod;
+
+   import mymod.linkage.MyModLinkageClient;
+
+   @Environment(EnvType.CLIENT)
+   public class MyModClient implements net.fabricmc.api.ClientModInitializer {
+      @Override
+      public void onInitializeClient() {
+        FabricLoader.getInstance().getEntrypoints("my_mod.client", MyModLinkageClient.class).forEach(MyModLinkageClient::initClient);
+      }
+   }
+
+   > mymod/MyModServer.java
+
+   package mymod;
+
+   import mymod.linkage.MyModLinkageServer;
+
+   @Environment(EnvType.SERVER)
+   public class MyModServer implements net.fabricmc.api.DedicatedServerModInitializer {
+      @Override
+      public void onInitializeServer() {
+        FabricLoader.getInstance().getEntrypoints("my_mod.server", MyModLinkageServer.class).forEach(MyModLinkageServer::initServer);
+      }
+   }
+
+
+4. 如何与遵循本标准的 Mod 联动
+
+尽管您的 Mod 大部分类都在 othermod 包下，您主动联动 my_mod 的内容相关类和接口应放在 mymod.linkage.othermod 下。
+
+以下是联动内容主类与一般内容主类的对比表格，其中普通主类、普通客户端主类、普通服务端主类的类名仅供参考。在不同的浏览环境下制表符可能不对齐，敬请谅解。
+|             |全限定名 (*: 可在子包)                              |实现的接口                                     |调用点
+|普通主类     |othermod.*.OtherMod                                |net.fabricmc.api.ModInitializer               |main
+|普通客户端主类|othermod.*.OtherModClient                          |net.fabricmc.api.ClientModInitializer         |client
+|普通服务端主类|othermod.*.OtherModServer                          |net.fabricmc.api.DedicatedServerModInitializer|server
+|联动主类     |mymod.linkage.othermod.*.OtherModMyModLinkage      |othermod.linkage.OtherModLinkage              |mymod
+|联动客户端主类|mymod.linkage.othermod.*.OtherModMyModLinkageClient|othermod.linkage.OtherModLinkageClient        |mymod.client
+|联动服务端主类|mymod.linkage.othermod.*.OtherModMyModLinkageServer|othermod.linkage.OtherModLinkageServer        |mymod.server
+
+
+5. 宽泛机制
+
+您可以选择严格或宽泛遵守本标准。若您选择宽泛遵守本标准，那么下述内容您不必严格遵守：
+
+   a. 本标准第三条中接口类的不必按照规定名称命名（如 MyModLinkage 可以宽泛命名为 MyModLinkageApi）。
+
+   b. 本标准第四条中联动内容的主类和客户端类不必按照规定命名。
+
+
+6. 如何表明您的 Mod 遵循了本标准
+
+您无需将本文本文件添加至您的模组中。您只需在 fabric.mod.json 的 custom 键下添加一个 JSON 对象：
+{
+   "custom": {
+      "Pigeonia Linkage Standard": {
+         "url": "https://featurehouse.github.io/pigeonia-linkage-standard/v1.1.0/STANDARD.txt",
+         "version": "v1.1.0",
+         "strict": $boolean
+      }
+   }
+}
+    
+其中 strict 表示是否严格遵守本标准（见本标准第五条），用布尔值表示。
