@@ -23,9 +23,9 @@
             'idv-bronze': '#cd7f32',
             'idv-silver': '#c0c0c0',
             'idv-gold': '#ffd700',
-            'rank-4': '#715931', // 四阶棕色
-            'rank-5': '#8a6d3b', // 五阶银色
-            'rank-6': '#f39c12', // 六阶金色
+            'rank-4': '#765d32', // 四阶
+            'rank-5': '#8a6d3b', // 五阶
+            'rank-6': '#f39c12', // 六阶
             'rank-star': '#ffcc00', // 星星颜色
             'rank-progress': '#3498db', // 进度条颜色
             'rank-completed': '#2ecc71' // 已完成颜色
@@ -116,11 +116,11 @@
       }
       
       .rank-4 .rank-circle {
-        background: linear-gradient(135deg, #8a6d3b, #d4a76a);
+        background: linear-gradient(135deg, #765d32, #d4a76a);
       }
       
       .rank-5 .rank-circle {
-        background: linear-gradient(135deg, #95a5a6, #ecf0f1);
+        background: linear-gradient(135deg, #8a6d3b, #ecf0f1);
       }
       
       .rank-6 .rank-circle {
@@ -456,35 +456,7 @@
             </div>
             
             <!-- 快速调整按钮 -->
-            <div class="space-y-2">
-              <p class="text-sm text-gray-400">快速调整:</p>
-              <div class="grid grid-cols-2 gap-2">
-                <button 
-                  class="adjust-quick-btn bg-rank-5 hover:bg-rank-4/80 text-white py-2 rounded btn-hover"
-                  data-value="+5"
-                >
-                  +5 积分
-                </button>
-                <button 
-                  class="adjust-quick-btn bg-rank-5 hover:bg-rank-5/80 text-white py-2 rounded btn-hover"
-                  data-value="+10"
-                >
-                  +10 积分
-                </button>
-                <button 
-                  class="adjust-quick-btn bg-idv-accent hover:bg-idv-accent/80 text-white py-2 rounded btn-hover"
-                  data-value="-3"
-                >
-                  -3 积分
-                </button>
-                <button 
-                  class="adjust-quick-btn bg-idv-accent hover:bg-idv-secondary/80 text-white py-2 rounded btn-hover"
-                  data-value="-1"
-                >
-                  -1 积分
-                </button>
-              </div>
-            </div>
+   
             
             <!-- 提交按钮 -->
             <div class="flex space-x-3 pt-2">
