@@ -23,7 +23,7 @@
             'idv-bronze': '#cd7f32',
             'idv-silver': '#c0c0c0',
             'idv-gold': '#ffd700',
-            'rank-4': '#7c5e29', // 四阶棕色
+            'rank-4': '#715931', // 四阶棕色
             'rank-5': '#8a6d3b', // 五阶银色
             'rank-6': '#f39c12', // 六阶金色
             'rank-star': '#ffcc00', // 星星颜色
@@ -180,7 +180,7 @@
               <i class="fa fa-flag text-lg"></i>
             </div>
             <p class="text-sm text-gray-300 mb-1">目标积分</p>
-            <p id="totalPoints" class="text-2xl font-bold text-white number-animation">1000</p>
+            <p id="totalPoints" class="text-2xl font-bold text-white number-animation">1250</p>
           </div>
         </div>
         
@@ -201,7 +201,7 @@
           </div>
           <div class="flex justify-between mt-2">
             <span class="text-xs text-gray-400">0</span>
-            <span class="text-xs text-gray-400">目标积分 (1000)</span>
+            <span class="text-xs text-gray-400">目标积分 (1250)</span>
           </div>
         </div>
       </div>
@@ -321,7 +321,7 @@
                 </div>
               </div>
               <span class="text-xs text-gray-300 font-medium">五阶V</span>
-              <span class="text-xs text-gray-400">501-600</span>
+              <span class="text-xs text-gray-400">501-650</span>
             </div>
             
             <!-- 五阶IV -->
@@ -337,7 +337,7 @@
                 </div>
               </div>
               <span class="text-xs text-gray-300 font-medium">五阶IV</span>
-              <span class="text-xs text-gray-400">601-700</span>
+              <span class="text-xs text-gray-400">651-800</span>
             </div>
             
             <!-- 五阶III -->
@@ -353,7 +353,7 @@
                 </div>
               </div>
               <span class="text-xs text-gray-300 font-medium">五阶III</span>
-              <span class="text-xs text-gray-400">701-800</span>
+              <span class="text-xs text-gray-400">801-950</span>
             </div>
             
             <!-- 五阶II -->
@@ -369,7 +369,7 @@
                 </div>
               </div>
               <span class="text-xs text-gray-300 font-medium">五阶II</span>
-              <span class="text-xs text-gray-400">801-900</span>
+              <span class="text-xs text-gray-400">951-1100</span>
             </div>
             
             <!-- 五阶I -->
@@ -385,7 +385,7 @@
                 </div>
               </div>
               <span class="text-xs text-gray-300 font-medium">五阶I</span>
-              <span class="text-xs text-gray-400">901-1000</span>
+              <span class="text-xs text-gray-400">1101-1250</span>
             </div>
             
             <!-- 六阶V (终点) -->
@@ -440,7 +440,7 @@
           <!-- 积分调整操作 -->
           <div class="space-y-4">
             <div class="space-y-3">
-              <label for="adjustInput" class="block text-sm font-medium text-gray-300">积分调整</label>
+              <label for="adjustInput" class="block text-sm font-medium text-gray-300">段位分输入</label>
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                   <i class="fa fa-edit"></i>
@@ -449,7 +449,7 @@
                   type="number" 
                   id="adjustInput" 
                   class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus" 
-                  placeholder="输入调整值，如 +50 或 -20"
+                  placeholder="输入调整值，如 +10 或 -3"
                   value="+50"
                 >
               </div>
@@ -460,13 +460,13 @@
               <p class="text-sm text-gray-400">快速调整:</p>
               <div class="grid grid-cols-2 gap-2">
                 <button 
-                  class="adjust-quick-btn bg-rank-4 hover:bg-rank-4/80 text-white py-2 rounded btn-hover"
+                  class="adjust-quick-btn bg-rank-5 hover:bg-rank-4/80 text-white py-2 rounded btn-hover"
                   data-value="+5"
                 >
                   +5 积分
                 </button>
                 <button 
-                  class="adjust-quick-btn bg-rank-4 hover:bg-rank-5/80 text-white py-2 rounded btn-hover"
+                  class="adjust-quick-btn bg-rank-5 hover:bg-rank-5/80 text-white py-2 rounded btn-hover"
                   data-value="+10"
                 >
                   +10 积分
@@ -479,9 +479,9 @@
                 </button>
                 <button 
                   class="adjust-quick-btn bg-idv-accent hover:bg-idv-secondary/80 text-white py-2 rounded btn-hover"
-                  data-value="-5"
+                  data-value="-1"
                 >
-                  -5 积分
+                  -1 积分
                 </button>
               </div>
             </div>
@@ -577,7 +577,7 @@
               class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus" 
               placeholder="输入目标积分" 
               min="0"
-              value="1000"
+              value="1250"
             >
           </div>
         </div>
@@ -641,17 +641,17 @@
     
     // 段位定义
     const rankDefinitions = [
-      { name: "四阶V", min: 0, max: 100, stars: 5, color: "rank-4" },
-      { name: "四阶IV", min: 101, max: 200, stars: 5, color: "rank-4" },
-      { name: "四阶III", min: 201, max: 300, stars: 5, color: "rank-4" },
-      { name: "四阶II", min: 301, max: 400, stars: 5, color: "rank-4" },
-      { name: "四阶I", min: 401, max: 500, stars: 5, color: "rank-4" },
-      { name: "五阶V", min: 501, max: 600, stars: 5, color: "rank-5" },
-      { name: "五阶IV", min: 601, max: 700, stars: 5, color: "rank-5" },
-      { name: "五阶III", min: 701, max: 800, stars: 5, color: "rank-5" },
-      { name: "五阶II", min: 801, max: 900, stars: 5, color: "rank-5" },
-      { name: "五阶I", min: 901, max: 1000, stars: 5, color: "rank-5" },
-      { name: "六阶V", min: 1001, max: Infinity, stars: 5, color: "rank-6" }
+      { name: "四阶V", min: 0, max: 100, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "四阶IV", min: 101, max: 200, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "四阶III", min: 201, max: 300, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "四阶II", min: 301, max: 400, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "四阶I", min: 401, max: 500, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "五阶V", min: 501, max: 650, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "五阶IV", min: 651, max: 800, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "五阶III", min: 801, max: 950, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "五阶II", min: 951, max: 1100, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "五阶I", min: 1101, max: 1250, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "六阶V", min: 1251, max: Infinity, stars: 5, starValue: 30, color: "rank-6" }
     ];
     
     // 初始化日期和计算
@@ -697,8 +697,8 @@
       const endDate = new Date('2026-02-05');
       endDateInput.valueAsDate = endDate;
       
-      // 设置目标积分为1000
-      targetPointsInput.value = 1000;
+      // 设置目标积分为1250
+      targetPointsInput.value = 1250;
     }
     
     // 应用调整
@@ -924,7 +924,7 @@
       const startDate = new Date(startDateInput.value);
       const endDate = new Date(endDateInput.value);
       const today = new Date();
-      const targetPoints = parseInt(targetPointsInput.value) || 1000;
+      const targetPoints = parseInt(targetPointsInput.value) || 1250;
       
       // 验证日期
       if (endDate <= startDate) {
