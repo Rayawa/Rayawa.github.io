@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第五人格段位计算器</title>
+  <title>第五人格，启动！</title>
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome -->
@@ -103,8 +103,8 @@
   <div class="container mx-auto px-4 py-8 md:py-12">
     <!-- 标题区域 -->
     <div class="text-center mb-8 md:mb-12 animate-fade-in">
-      <h1 class="text-3xl md:text-5xl font-bold text-light-accent mb-2">第五人格段位计算器</h1>
-      <p class="text-text-secondary max-w-md mx-auto">本赛季目标：从四阶V到六阶V (1250积分)</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-light-accent mb-2">第五人格，启动！</h1>
+      <p class="text-text-secondary max-w-md mx-auto">本赛季目标：从四阶V到六阶V (1250积分/50星)</p>
     </div>
     
     <!-- 主卡片 -->
@@ -419,7 +419,7 @@
                   <i class="fa fa-edit"></i>
                 </span>
                 <input 
-                  type="number" 
+                  type="text" 
                   id="adjustInput" 
                   class="w-full pl-10 pr-4 py-3 rounded-lg bg-white border border-light-border text-text-primary input-focus" 
                   placeholder="输入调整值，如 +50 或 -20"
@@ -557,15 +557,12 @@
     function applyAdjustment() {
       let adjustValue = adjustInput.value.trim();
       
-      // 如果输入包含加减号，解析它
-      if (adjustValue.startsWith('+') || adjustValue.startsWith('-')) {
-        adjustValue = parseInt(adjustValue);
-      } else {
-        adjustValue = parseInt(adjustValue);
-      }
+      // 解析调整值，支持+50或-20这样的格式
+      // 使用Number()而不是parseInt，因为parseInt会忽略+/-号后的数字
+      adjustValue = Number(adjustValue);
       
       if (isNaN(adjustValue) || adjustValue === 0) {
-        showNotification('请输入有效的调整值', 'error');
+        showNotification('请输入有效的调整值，如 +50 或 -20', 'error');
         return;
       }
       
@@ -588,7 +585,7 @@
       const action = adjustValue > 0 ? '增加' : '减少';
       showNotification(`成功${action} ${Math.abs(adjustValue)} 积分`, 'success');
       
-      // 重置输入框
+      // 重置输入框为默认值
       adjustInput.value = adjustValue > 0 ? '+50' : '-30';
       
       // 保存历史记录到本地存储
