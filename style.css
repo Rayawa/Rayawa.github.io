@@ -16,10 +16,12 @@
         transform: rotate(0deg) scale(1);
         opacity: 0.8;
     }
+
     50% {
         transform: rotate(180deg) scale(1.15);
         opacity: 1;
     }
+
     100% {
         transform: rotate(360deg) scale(1);
         opacity: 0.8;
@@ -31,22 +33,46 @@
 }
 
 @keyframes scaleUp {
-    0% { transform: scale(0); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 @keyframes extract-bt {
-    0% { transform: translate(0, 0); opacity: 1; }
-    100% { transform: translate(140px, -200px) scale(1.5); }
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(140px, -200px) scale(1.5);
+    }
 }
 
 @keyframes extract-ti {
-    0% { transform: translate(0, 0); opacity: 1; }
-    100% { transform: translate(-140px, -200px) scale(1.5); }
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-140px, -200px) scale(1.5);
+    }
 }
 
-.extract-bt-anim { animation: extract-bt 1s forwards cubic-bezier(0.175,0.885,0.32,1.275); }
-.extract-ti-anim { animation: extract-ti 1s forwards cubic-bezier(0.175,0.885,0.32,1.275); }
+.extract-bt-anim {
+    animation: extract-bt 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.extract-ti-anim {
+    animation: extract-ti 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 /* -------- 流程导航优化 -------- */
 .flow-step {
@@ -87,7 +113,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-width: 4px;
     background-color: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .bacteria:hover {
@@ -106,7 +132,7 @@
     justify-content: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 }
 
 .plasmid-in-cell {
@@ -167,7 +193,7 @@
     border-radius: 0 8px 8px 0;
     font-size: 13px;
     line-height: 1.4;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* -------- 培养物和检测 -------- */
@@ -229,7 +255,7 @@
     max-width: 400px;
     width: 90%;
     border: 2px solid #3b82f6;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* -------- 响应式优化 -------- */
@@ -237,7 +263,7 @@
     .stage-content {
         padding: 1rem;
     }
-    
+
     #ti-plasmid-container {
         transform: scale(0.8);
     }
