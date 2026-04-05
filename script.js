@@ -54,7 +54,7 @@ window.onload = () => {
     }, 1000);
 
     // 初始页面引导
-    typeWriter("欢迎来到转基因抗虫棉实验。第一步：我们需要分别从苏云金芽孢杆菌和农杆菌中提取Bt基因与Ti质粒。请点击下方的细菌细胞。");
+    typeWriter("欢迎来到构建转基因抗虫棉实验。第一步：我们需要从相关细菌内获取基因和载体，请点击细胞进行获取。");
 };
 
 function stopTimer() {
@@ -69,7 +69,13 @@ function extractBt() {
     res.classList.remove('hidden');
     res.classList.add('extract-bt-anim');
     state[1].bt = true;
-    typeWriter("成功提取Bt抗虫基因！它将被用作抗虫特性的供体。");
+    typeWriter("已成功获取 Bt 抗虫基因，即将通过 PCR 技术完成扩增...");
+    
+    // 模拟等待 2 秒
+    setTimeout(()=>{
+        typeWriter("Bt 基因扩增成功！");
+        checkS1();
+    }, 2000);
     checkS1();
 }
 
@@ -79,16 +85,24 @@ function extractTi() {
     res.classList.remove('hidden');
     res.classList.add('extract-ti-anim');
     state[1].ti = true;
-    typeWriter("成功提取Ti质粒！它是理想的植物基因表达载体。");
+    typeWriter("已成功获取 Ti 质粒，即将通过 PCR 技术完成扩增...");
+    
+    setTimeout(()=>{
+        typeWriter("Ti 质粒扩增成功！");
+        checkS1();
+    }, 2000);
     checkS1();
 }
 
-function checkS1() {
-    if (state[1].bt && state[1].ti) {
+function checkS1(){
+    if(state[1].bt && state[1].ti){
+        setTimeout(() => {
+        typeWriter("两种 PCR 扩增完成，点击“下一步”开始构建重组质粒！");
+        }, 2000);
         document.getElementById('submit-btn').disabled = false;
-        typeWriter("关键基因与载体已就绪！点击“下一步”开始构建重组质粒。");
     }
 }
+
 
 /* --- STAGE 2 --- */
 const s2SelectedComps = new Set();
@@ -297,7 +311,7 @@ function startInfection() {
             chr.classList.replace('bg-slate-200', 'bg-orange-500');
             chr.classList.add('shadow-[0_0_10px_#f59e0b]');
 
-            typeWriter("✨ 转化完成！含Bt基因的T-DNA已成功整合至植物染色体。植物现在具备了抗虫特性！");
+            typeWriter("✨ 转化完成！我们已获得含有重组Ti质粒的农杆菌！接下来将会发生什么？");
             document.getElementById('submit-btn').disabled = false;
         };
     }, 1000);
@@ -401,7 +415,7 @@ function jumpTo(n) {
     // 阶段切换引导
     if (n === 1) typeWriter("第一步：提取目的基因与质粒。点击细菌内部的遗传物质进行提取。");
     if (n === 2) typeWriter("第二步：构建基因表达载体。请将Bt基因拖入Ti质粒的橙色T-DNA区段，并选出构建所需的酶。");
-    if (n === 3) typeWriter("第三步：转化与侵染。将重组质粒导入农杆菌，再利用农杆菌侵染棉花细胞。");
+    if (n === 3) typeWriter("第三步：我们需要将重组Ti质粒导入受体细胞。请选择下一步最合适的受体细胞。请以拖拽的方式将抗虫基因导入植物细胞！");
     if (n === 4) {
         typeWriter("第四步：组织培养与筛选。棉花细胞正在通过脱分化形成愈伤组织，随后再分化成完整植株...");
         const leaf = document.getElementById('p4-leaf');

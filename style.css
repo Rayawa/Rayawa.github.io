@@ -266,4 +266,6 @@
 
 footer {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    background: rgba(248, 250, 252, 0.9);
+    backdrop-filter: blur(8px);
 }
