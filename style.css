@@ -1,6 +1,7 @@
-/* style.css */
+/* style.css (优化版) */
 @import url('https://cdn.tailwindcss.com');
 
+/* -------- 动画和关键帧保持原样 -------- */
 .bt-inserted {
     animation: scaleUp 0.5s ease forwards;
 }
@@ -15,12 +16,10 @@
         transform: rotate(0deg) scale(1);
         opacity: 0.8;
     }
-
     50% {
         transform: rotate(180deg) scale(1.15);
         opacity: 1;
     }
-
     100% {
         transform: rotate(360deg) scale(1);
         opacity: 0.8;
@@ -32,17 +31,24 @@
 }
 
 @keyframes scaleUp {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes extract-bt {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(140px, -200px) scale(1.5); }
+}
+
+@keyframes extract-ti {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(-140px, -200px) scale(1.5); }
+}
+
+.extract-bt-anim { animation: extract-bt 1s forwards cubic-bezier(0.175,0.885,0.32,1.275); }
+.extract-ti-anim { animation: extract-ti 1s forwards cubic-bezier(0.175,0.885,0.32,1.275); }
+
+/* -------- 流程导航优化 -------- */
 .flow-step {
     flex: 1;
     text-align: center;
@@ -52,6 +58,7 @@
     font-size: 0.75rem;
     color: #94a3b8;
     cursor: pointer;
+    background-clip: padding-box;
 }
 
 .flow-step.active {
@@ -66,6 +73,7 @@
     color: #065f46;
 }
 
+/* -------- 细菌和植物细胞 -------- */
 .bacteria {
     width: 100px;
     height: 160px;
@@ -76,9 +84,14 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-width: 4px;
     background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.bacteria:hover {
+    transform: scale(1.05);
 }
 
 .plant-cell {
@@ -92,20 +105,19 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: all 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.06);
 }
 
 .plasmid-in-cell {
     position: absolute;
     bottom: 12px;
-    /* 👈 放到细菌下面 */
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
-    /* 防止挡点击 */
 }
 
-
+/* 核酸缠绕效果保持原样 */
 .nucleoid-tangle {
     position: absolute;
     top: 30px;
@@ -115,43 +127,14 @@
     pointer-events: none;
 }
 
-/* 动画 */
-@keyframes extract-bt {
-    0% {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(140px, -200px) scale(1.5);
-    }
-}
-
-@keyframes extract-ti {
-    0% {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(-140px, -200px) scale(1.5);
-    }
-}
-
-.extract-bt-anim {
-    animation: extract-bt 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.extract-ti-anim {
-    animation: extract-ti 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
+/* -------- 工具和组件按钮优化 -------- */
 .tool-btn {
     padding: 4px 10px;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
     font-size: 11px;
     background: white;
+    transition: all 0.2s ease;
 }
 
 .tool-btn.selected {
@@ -166,6 +149,7 @@
     font-size: 12px;
     cursor: pointer;
     background: white;
+    transition: all 0.2s ease;
 }
 
 .component-btn.selected {
@@ -174,6 +158,7 @@
     color: white;
 }
 
+/* -------- 引导框优化 -------- */
 .guide-box {
     background: #f8fafc;
     border-left: 4px solid #3b82f6;
@@ -181,24 +166,17 @@
     margin-top: 10px;
     border-radius: 0 8px 8px 0;
     font-size: 13px;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
+/* -------- 培养物和检测 -------- */
 .callus {
     width: 80px;
     height: 60px;
     background: #fde68a;
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     animation: blob 3s infinite alternate;
-}
-
-@keyframes blob {
-    from {
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    }
-
-    to {
-        border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%;
-    }
 }
 
 .check-item {
@@ -208,6 +186,7 @@
     background: #f8fafc;
     border-left: 4px solid #cbd5e1;
     opacity: 0.4;
+    transition: all 0.3s ease;
 }
 
 .check-item.done {
@@ -216,6 +195,7 @@
     background: #f0fdf4;
 }
 
+/* -------- 模态框和提示 -------- */
 .modal-overlay {
     position: absolute;
     inset: 0;
@@ -238,7 +218,7 @@
     border-radius: 12px;
     font-size: 13px;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
     z-index: 200;
 }
 
@@ -249,23 +229,33 @@
     max-width: 400px;
     width: 90%;
     border: 2px solid #3b82f6;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
+
+/* -------- 响应式优化 -------- */
 @media (max-width: 768px) {
     .stage-content {
         padding: 1rem;
     }
     
     #ti-plasmid-container {
-        transform: scale(0.8); 
+        transform: scale(0.8);
     }
 
     .bacteria {
         transform: scale(0.9);
     }
+
+    .flow-step {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+    }
 }
 
+/* -------- Footer 优化 -------- */
 footer {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-    background: rgba(248, 250, 252, 0.9);
+    background: rgba(248, 250, 252, 0.95);
     backdrop-filter: blur(8px);
+    border-top: 1px solid #e5e7eb;
 }

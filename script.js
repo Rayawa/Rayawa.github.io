@@ -1,8 +1,16 @@
 let currentStep = 1;
 let s2SelectedTools = new Set();
+let s2SelectedComps = new Set();
 let timeElapsed = 0;
 let timerId = null;
 let isTimerRunning = true;
+
+let state = {
+    1: { bt: false, ti: false },
+    2: { inserted: false, validated: false, dragErrors: 0, selectErrors: 0 },
+    3: { agroConverted: false, plantInfected: false, dragErrors: 0 },
+    4: { done: false }
+};
 
 function showToast(text) {
     const toast = document.getElementById('toast-msg');
@@ -69,14 +77,13 @@ function extractBt() {
     res.classList.remove('hidden');
     res.classList.add('extract-bt-anim');
     state[1].bt = true;
+
     typeWriter("已成功获取 Bt 抗虫基因，即将通过 PCR 技术完成扩增...");
-    
-    // 模拟等待 2 秒
-    setTimeout(()=>{
+
+    setTimeout(() => {
         typeWriter("Bt 基因扩增成功！");
         checkS1();
     }, 2000);
-    checkS1();
 }
 
 function extractTi() {
@@ -85,19 +92,19 @@ function extractTi() {
     res.classList.remove('hidden');
     res.classList.add('extract-ti-anim');
     state[1].ti = true;
+
     typeWriter("已成功获取 Ti 质粒，即将通过 PCR 技术完成扩增...");
-    
-    setTimeout(()=>{
+
+    setTimeout(() => {
         typeWriter("Ti 质粒扩增成功！");
         checkS1();
     }, 2000);
-    checkS1();
 }
 
-function checkS1(){
-    if(state[1].bt && state[1].ti){
+function checkS1() {
+    if (state[1].bt && state[1].ti) {
         setTimeout(() => {
-        typeWriter("两种 PCR 扩增完成，点击“下一步”开始构建重组质粒！");
+            typeWriter("两种 PCR 扩增完成，点击“下一步”开始构建重组质粒！");
         }, 2000);
         document.getElementById('submit-btn').disabled = false;
     }
@@ -105,22 +112,7 @@ function checkS1(){
 
 
 /* --- STAGE 2 --- */
-const s2SelectedComps = new Set();
-let state = {
-    1: { bt: false, ti: false },
-    2: {
-        inserted: false,
-        validated: false,
-        dragErrors: 0,    // 第二阶段：拖拽错误次数
-        selectErrors: 0   // 第二阶段：组件选择错误次数
-    },
-    3: {
-        agroConverted: false,
-        plantInfected: false,
-        dragErrors: 0     // 第三阶段：拖拽错误次数
-    },
-    4: { done: false }
-};
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -202,27 +194,7 @@ function handleS2WrongDrop(ev) {
     }
 }
 
-function initS2Components() {
-    const comps = ["启动子", "终止子", "标记基因", "复制原点", "内含子", "起始密码子"];
-    const container = document.getElementById('comp-container');
-    container.innerHTML = '';
-    comps.forEach(c => {
-        const btn = document.createElement('button');
-        btn.className = "component-btn";
-        btn.innerText = c;
-        btn.onclick = () => {
-            if (s2SelectedComps.has(c)) {
-                s2SelectedComps.delete(c);
-                btn.classList.remove('selected');
-            } else {
-                s2SelectedComps.add(c);
-                btn.classList.add('selected');
-            }
-        };
-        container.appendChild(btn);
-    });
-}
-
+function initS2Components() { const comps = ["启动子", "终止子", "标记基因", "复制原点", "内含子", "起始密码子"]; const container = document.getElementById('comp-container'); container.innerHTML = ''; comps.forEach(c => { const btn = document.createElement('button'); btn.className = "component-btn"; btn.innerText = c; btn.onclick = () => { if (s2SelectedComps.has(c)) { s2SelectedComps.delete(c); btn.classList.remove('selected'); } else { s2SelectedComps.add(c); btn.classList.add('selected'); } }; container.appendChild(btn); }); }
 
 function checkFinalS2() {
     const required = ["启动子", "终止子", "标记基因", "复制原点"];
@@ -461,10 +433,10 @@ function handleQuiz(btn, correct) {
 function finishAll() {
     document.getElementById('quiz-modal').classList.add('hidden');
     document.getElementById('final-modal').classList.remove('hidden');
-    
+
     // 获取计时
     const finalTime = document.getElementById('display-time').innerText;
-    
+
     // 渲染最终得分报告
     const statsHtml = `
         <div class="space-y-2 text-sm text-slate-600 border-t border-b py-4 my-4">
@@ -474,6 +446,6 @@ function finishAll() {
             <p>🔄 转化路径操作错误：<span class="text-orange-500">${state[3].dragErrors}</span> 次</p>
         </div>
     `;
-    
+
     document.getElementById('time-stats').innerHTML = statsHtml;
 }
