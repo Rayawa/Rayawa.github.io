@@ -15,7 +15,7 @@ let typingTimer = null;
 function typeWriter(text, speed = 20) {
     const textBox = document.getElementById('hint-text');
     const icon = document.getElementById('hint-svg');
-    if (!textBox || !icon) return; 
+    if (!textBox || !icon) return;
 
     clearTimeout(typingTimer);
     textBox.innerHTML = "";
@@ -94,14 +94,14 @@ function checkS1() {
 const s2SelectedComps = new Set();
 let state = {
     1: { bt: false, ti: false },
-    2: { 
-        inserted: false, 
-        validated: false, 
+    2: {
+        inserted: false,
+        validated: false,
         dragErrors: 0,    // 第二阶段：拖拽错误次数
         selectErrors: 0   // 第二阶段：组件选择错误次数
     },
-    3: { 
-        agroConverted: false, 
+    3: {
+        agroConverted: false,
         plantInfected: false,
         dragErrors: 0     // 第三阶段：拖拽错误次数
     },
@@ -130,11 +130,11 @@ function handleS2Insertion(ev) {
 
         const svgns = "http://www.w3.org/2000/svg";
         const svgElement = tdnaCore.ownerSVGElement;
-        
+
         if (document.getElementById('bt-inserted-segment')) return;
 
         const originalDashArray = tdnaCore.getAttribute('stroke-dasharray').split(' ');
-        const originalSolidLength = parseFloat(originalDashArray[0]); 
+        const originalSolidLength = parseFloat(originalDashArray[0]);
         const originalDashOffset = parseFloat(tdnaCore.getAttribute('stroke-dashoffset'));
 
         const greenPercent = 0.4;
@@ -152,7 +152,7 @@ function handleS2Insertion(ev) {
         btSegment.setAttribute("stroke-dashoffset", greenDashOffset.toString());
         btSegment.setAttribute("id", "bt-inserted-segment");
         btSegment.classList.add('animate-pulse');
-        
+
         svgElement.appendChild(btSegment);
 
         const guide = document.getElementById('s2-guide');
@@ -214,25 +214,25 @@ function checkFinalS2() {
     const required = ["启动子", "终止子", "标记基因", "复制原点"];
     const missing = required.filter(x => !s2SelectedComps.has(x));
     const extra = Array.from(s2SelectedComps).filter(x => !required.includes(x));
-    
+
     const guide = document.getElementById('s2-guide');
     guide.classList.remove('hidden');
 
     if (missing.length === 0 && extra.length === 0) {
-                typeWriter("工具选择完全正确！重组Ti质粒构建完成。现在可以进入转化阶段。");
+        typeWriter("工具选择完全正确！重组Ti质粒构建完成。现在可以进入转化阶段。");
 
         state[2].validated = true;
         const submitBtn = document.getElementById('submit-btn');
         if (submitBtn) submitBtn.disabled = false;
-        
+
     } else if (missing.length > 0) {
         state[2].selectErrors++;
-                typeWriter(`还差一点！你似乎漏掉了关键的工具：${missing.join('、')}。请重新检查。`);
+        typeWriter(`还差一点！你似乎漏掉了关键的工具：${missing.join('、')}。请重新检查。`);
 
         state[2].validated = false;
     } else if (extra.length > 0) {
         state[2].selectErrors++;
-                typeWriter(`工具选多了！${extra.join('、')}在这个过程中是不需要的，请取消勾选。`);
+        typeWriter(`工具选多了！${extra.join('、')}在这个过程中是不需要的，请取消勾选。`);
         state[2].validated = false;
     }
 }
@@ -247,7 +247,6 @@ function onS3Drop(ev, target) {
     const type = ev.dataTransfer.getData("type");
 
     // 错误处理：直接选植物
-    
     if (target === 'plant') {
         state[3].dragErrors++;
         typeWriter("❌ 操作失败！重组Ti质粒无法直接进入植物细胞。必须先通过农杆菌进行转化。");
@@ -263,9 +262,9 @@ function onS3Drop(ev, target) {
         document.getElementById('agro-plasmid-inner').classList.remove('hidden');
         document.getElementById('target-agro').classList.replace('border-dashed', 'border-solid');
         document.getElementById('target-agro').classList.add('bg-emerald-100');
-        
+
         typeWriter("✅ 成功！重组Ti质粒已进入农杆菌。现在利用农杆菌的侵染特性，将基因送入植物细胞。");
-        
+
         setTimeout(() => {
             document.getElementById('btn-infect').classList.remove('hidden');
         }, 800);
@@ -276,16 +275,13 @@ function startInfection() {
     document.getElementById('btn-infect').classList.add('hidden');
     const tdna = document.getElementById('flying-tdna');
     const agroInner = document.getElementById('agro-plasmid-inner');
-    
-    // 1. 模拟质粒在农杆菌内“激活”，准备释放 T-DNA
+
     agroInner.classList.add('animate-pulse');
     typeWriter("农杆菌正在感应植物信号... 注意！只有 T-DNA（橙色部分）会脱离质粒进入植物。");
 
     setTimeout(() => {
-        // 2. 显示橙色 T-DNA 飞出
         tdna.classList.remove('hidden');
-        
-        // 3. 执行平移动画
+
         tdna.animate([
             { left: '-120px', opacity: 1, transform: 'scale(1.2)' },
             { left: '40px', opacity: 1, transform: 'scale(0.8)' }
@@ -297,11 +293,10 @@ function startInfection() {
             // 4. 最终状态：橙色整合进染色体
             tdna.style.display = 'none';
             const chr = document.getElementById('chromosome');
-            
-            // 结果：染色体变为橙色（代表 T-DNA 整合）
+
             chr.classList.replace('bg-slate-200', 'bg-orange-500');
             chr.classList.add('shadow-[0_0_10px_#f59e0b]');
-            
+
             typeWriter("✨ 转化完成！含Bt基因的T-DNA已成功整合至植物染色体。植物现在具备了抗虫特性！");
             document.getElementById('submit-btn').disabled = false;
         };
@@ -325,7 +320,7 @@ function runChecks() {
         </div>
     `;
     typeWriter("正在进行分子水平检测，通过PCR确认基因存在，通过抗体检测确认杀虫蛋白已表达...");
-    
+
     setTimeout(() => {
         document.getElementById('pcr-status').innerText = "检测结果：阳性 (基因已整合)";
         document.getElementById('pcr-status').classList.replace('text-blue-500', 'text-green-600');
@@ -363,7 +358,7 @@ function runChecks() {
         let step = 0;
         const interval = setInterval(() => {
             step += 3;
-            const wiggle = Math.sin(step / 5) * 3; 
+            const wiggle = Math.sin(step / 5) * 3;
             wormNormal.style.transform = `translateY(-${step}px) translateX(${wiggle}px)`;
             wormGM.style.transform = `translateY(-${step}px) translateX(${wiggle}px)`;
         }, 100);
@@ -428,7 +423,7 @@ function jumpTo(n) {
         setTimeout(() => {
             callus.classList.add('hidden');
             plantlet.classList.remove('hidden');
-            plantlet.style.transform = "scale(0.7)"; 
+            plantlet.style.transform = "scale(0.7)";
             status.innerText = "获得再生植株";
         }, 3200);
         setTimeout(() => {
@@ -451,23 +446,20 @@ function handleQuiz(btn, correct) {
 
 function finishAll() {
     document.getElementById('quiz-modal').classList.add('hidden');
-    const finalModal = document.getElementById('final-modal');
-    finalModal.classList.remove('hidden');
-
-    // 格式化得分报告
-    const scoreReport = `
-        <div class="text-left mt-4 p-4 bg-slate-50 rounded-xl text-sm leading-relaxed">
-            <p><strong>实验用时：</strong> ${document.getElementById('display-time').innerText}</p>
-            <hr class="my-2">
-            <p class="font-bold text-blue-700">【阶段二：载体构建】</p>
-            <p>拖拽位置错误：${state[2].dragErrors} 次</p>
-            <p>组件选择错误：${state[2].selectErrors} 次</p>
-            <p class="font-bold text-emerald-700 mt-2">【阶段三：转化检测】</p>
-            <p>转化顺序错误：${state[3].dragErrors} 次</p>
+    document.getElementById('final-modal').classList.remove('hidden');
+    
+    // 获取计时
+    const finalTime = document.getElementById('display-time').innerText;
+    
+    // 渲染最终得分报告
+    const statsHtml = `
+        <div class="space-y-2 text-sm text-slate-600 border-t border-b py-4 my-4">
+            <p>⏱️ 实验总用时：<span class="text-blue-600 font-bold">${finalTime}</span></p>
+            <p>❌ 载体构建拖拽错误：<span class="text-red-500">${state[2].dragErrors}</span> 次</p>
+            <p>📝 载体组件选择错误：<span class="text-red-500">${state[2].selectErrors}</span> 次</p>
+            <p>🔄 转化路径操作错误：<span class="text-orange-500">${state[3].dragErrors}</span> 次</p>
         </div>
     `;
-
-    // 假设 final-modal 中有一个专门放统计的容器，或者直接替换 text-stats
-    document.getElementById('time-stats').innerHTML = scoreReport;
-    typeWriter("实验报告已生成，再接再厉！");
+    
+    document.getElementById('time-stats').innerHTML = statsHtml;
 }

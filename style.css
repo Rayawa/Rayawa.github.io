@@ -4,32 +4,30 @@
 .bt-inserted {
     animation: scaleUp 0.5s ease forwards;
 }
-/* 基础静态样式，确保图标居中且有平滑过渡 */
+
 #hint-svg {
     transform-origin: center;
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
-/* 模拟 Gemini 生成时的“转圈思考”动画 */
 @keyframes gemini-thinking {
     0% {
         transform: rotate(0deg) scale(1);
         opacity: 0.8;
     }
+
     50% {
-        /* 转到一半时稍微放大，并变得完全不透明，产生“闪耀”感 */
         transform: rotate(180deg) scale(1.15);
         opacity: 1;
     }
+
     100% {
         transform: rotate(360deg) scale(1);
         opacity: 0.8;
     }
 }
 
-/* 当此类名被 JS 添加时触发动画 */
 .gemini-loading {
-    /* 1.5秒一圈，无限循环，线性速度（转圈更匀速） */
     animation: gemini-thinking 1.5s linear infinite;
 }
 
@@ -251,4 +249,21 @@
     max-width: 400px;
     width: 90%;
     border: 2px solid #3b82f6;
+}
+@media (max-width: 768px) {
+    .stage-content {
+        padding: 1rem;
+    }
+    
+    #ti-plasmid-container {
+        transform: scale(0.8); 
+    }
+
+    .bacteria {
+        transform: scale(0.9);
+    }
+}
+
+footer {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }
