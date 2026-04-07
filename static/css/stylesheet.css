@@ -128,7 +128,7 @@ body {
 .site-shell {
   position: relative;
   z-index: 2;
-  width: min(1320px, calc(100% - 24px));
+  width: min(1600px, calc(100% - 24px)); /* 提高最大宽度 */
   margin: 0 auto;
   padding: 26px 0 24px;
 }
@@ -184,6 +184,7 @@ body {
   backdrop-filter: blur(4px);
   box-shadow: var(--shadow);
   animation: rise 0.65s ease;
+  max-width: none; /* 移除最大宽度限制 */
 }
 
 .module-title-wrap h2 {
@@ -261,7 +262,7 @@ body {
 .main-projects {
   margin-top: 12px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 提高最小宽度 */
   gap: 10px;
 }
 
@@ -460,7 +461,7 @@ body {
 .link-grid {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* 提高最小宽度 */
   gap: 10px;
 }
 
@@ -828,7 +829,7 @@ html {
 
 @media (max-width: 1200px) {
   .site-shell {
-    width: min(1100px, calc(100% - 20px));
+    width: min(1400px, calc(100% - 20px)); /* 提高最大宽度 */
     padding-top: 18px;
   }
 
@@ -848,7 +849,7 @@ html {
 /* 平板设备优化 (768px - 900px) */
 @media (max-width: 900px) and (min-width: 768px) {
   .site-shell {
-    width: min(760px, calc(100% - 20px));
+    width: min(900px, calc(100% - 20px)); /* 提高最大宽度 */
     padding: 16px 0;
   }
 
@@ -1013,9 +1014,15 @@ html {
     gap: 16px;
   }
 
+  /* 确保个人简介块在移动端正常显示 */
+  .intro-module {
+    display: block; /* 覆盖桌面端的 flex 布局 */
+  }
+
   .module {
     padding: 20px;
     border-radius: 16px;
+    max-width: 100%; /* 移除最大宽度限制 */
   }
 
   .module-title-wrap h2 {
