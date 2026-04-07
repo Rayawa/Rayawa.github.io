@@ -1145,42 +1145,122 @@ html {
     font-size: 15px;
   }
 
-  /* 针对非常小的屏幕优化 */
-  @media (max-width: 375px) {
+  /* 针对小屏幕优化 (375px-480px) */
+  @media (max-width: 480px) and (min-width: 376px) {
     .site-shell {
-      width: calc(100% - 12px);
+      width: calc(100% - 16px);
     }
 
     .hero {
-      padding: 16px;
+      padding: 18px;
     }
 
     .avatar {
-      width: 80px;
-      height: 80px;
+      width: 84px;
+      height: 84px;
     }
 
     .hero h1 {
-      font-size: 28px;
+      font-size: 30px;
     }
 
     .module {
-      padding: 16px;
-    }
-
-    .quick-nav,
-    .language-switch {
-      gap: 6px;
+      padding: 18px;
     }
 
     .quick-link,
     .lang-btn {
-      padding: 10px 6px;
-      font-size: 13px;
+      font-size: 14px;
+      padding: 10px 8px;
     }
 
     .home-gallery-box {
-      height: 180px;
+      height: 190px;
+    }
+  }
+
+  /* 针对非常小的屏幕优化 (≤375px) */
+  @media (max-width: 375px) {
+    .site-shell {
+      width: calc(100% - 12px);
+      padding: 8px 0 16px;
+    }
+
+    .hero {
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+    }
+
+    .module {
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .quick-nav,
+    .language-switch {
+      gap: 4px;
+    }
+
+    .quick-link,
+    .lang-btn {
+      padding: 8px 4px;
+      font-size: 12px;
+      min-height: 40px;
+    }
+
+    .home-gallery-box {
+      height: 160px;
+    }
+
+    .module-title-wrap h2 {
+      font-size: 22px;
+    }
+
+    .module-title-wrap p {
+      font-size: 14px;
+    }
+
+    .intro-copy {
+      font-size: 14px;
+    }
+
+    .stat-label,
+    .stat-value {
+      font-size: 13px;
+    }
+
+    .project-card h3 {
+      font-size: 18px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+    }
+
+    .link-card {
+      padding: 12px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .link-card strong {
+      font-size: 16px;
+    }
+
+    .link-card p {
+      font-size: 14px;
     }
   }
 
@@ -1220,32 +1300,226 @@ html {
   }
 }
 
-/* 超小屏幕设备 (小于320px) */
+/* 超窄屏幕设备 (≤320px) - 确保布局正确 */
 @media (max-width: 320px) {
+  body {
+    font-size: 15px;
+  }
+
   .site-shell {
     width: calc(100% - 8px);
-    padding: 8px 0 16px;
+    padding: 6px 0 12px;
+  }
+
+  .topbar {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .quick-nav {
+    grid-template-columns: 1fr; /* 改为单列 */
+    gap: 6px;
+  }
+
+  .quick-link {
+    padding: 10px 8px;
+    font-size: 13px;
+    min-height: 42px;
+    border-radius: 10px;
+  }
+
+  .language-switch {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .lang-btn {
+    padding: 8px 4px;
+    font-size: 11px;
+    min-height: 38px;
+    border-radius: 10px;
+  }
+
+  .flag-icon {
+    width: 16px;
+    height: 16px;
   }
 
   .hero {
-    padding: 14px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 14px;
   }
 
-  .module {
-    padding: 14px;
-  }
-
-  .quick-link,
-  .lang-btn {
-    font-size: 12px;
-    padding: 8px 4px;
+  .avatar {
+    width: 64px;
+    height: 64px;
   }
 
   .hero h1 {
-    font-size: 26px;
+    font-size: 24px;
+  }
+
+  .dashboard-grid {
+    gap: 12px;
+  }
+
+  .module {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 14px;
   }
 
   .module-title-wrap h2 {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  .module-title-wrap p {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  .intro-copy {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .stat-list {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .stat-list li {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .main-projects {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .project-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .project-card h3 {
+    font-size: 17px;
+  }
+
+  .project-card p {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .other-projects {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .simple-link {
+    padding: 10px 12px;
+    font-size: 14px;
+    min-height: 42px;
+    border-radius: 10px;
+  }
+
+  .home-gallery-grid {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .home-gallery-box {
+    height: 140px;
+    border-radius: 14px;
+  }
+
+  .home-gallery-mask {
+    padding: 10px 12px;
+  }
+
+  .home-gallery-mask strong {
+    font-size: 15px;
+  }
+
+  .home-gallery-mask p {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  .link-grid {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .link-card {
+    padding: 12px;
+    border-radius: 12px;
+    min-height: 64px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .link-card strong {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .link-card p {
+    font-size: 13px;
+  }
+
+  /* 确保所有内容都是单列排列 */
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro-module,
+  .project-module,
+  .gallery-module,
+  .links-module {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  /* 覆盖网格布局，确保在超窄屏幕上单列显示 */
+  .main-projects,
+  .other-projects,
+  .link-grid {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card,
+  .simple-link,
+  .link-card {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .home-gallery-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-gallery-link {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

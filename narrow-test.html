@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1325">
+    <title>超窄屏幕测试 - Rayawa.github.io</title>
+    <link rel="stylesheet" type="text/css" href="static/css/stylesheet.css" media="screen">
+    <style>
+        .test-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 1px solid rgba(136, 187, 255, 0.25);
+            border-radius: 16px;
+            background: rgba(15, 22, 40, 0.78);
+        }
+        
+        .breakpoint-test {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .breakpoint-card {
+            border: 2px solid rgba(89, 212, 255, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            background: rgba(15, 22, 40, 0.4);
+        }
+        
+        .breakpoint-card h3 {
+            color: #59d4ff;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .breakpoint-card .icon {
+            width: 24px;
+            height: 24px;
+            background: #59d4ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b1325;
+            font-weight: bold;
+        }
+        
+        .width-range {
+            font-size: 18px;
+            font-weight: bold;
+            color: #90f4c7;
+            margin: 10px 0;
+            padding: 8px;
+            background: rgba(144, 244, 199, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .layout-desc {
+            font-size: 14px;
+            color: #9eb6d8;
+            line-height: 1.5;
+        }
+        
+        .visual-guide {
+            border: 1px solid rgba(136, 187, 255, 0.25);
+            border-radius: 16px;
+            padding: 30px;
+            background: rgba(15, 22, 40, 0.6);
+            margin-bottom: 40px;
+        }
+        
+        .screen-simulator {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border: 3px solid rgba(136, 187, 255, 0.3);
+            border-radius: 20px;
+            background: #0b1325;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .screen-simulator::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: rgba(136, 187, 255, 0.3);
+            border-radius: 2px;
+        }
+        
+        .screen-content {
+            padding: 20px;
+            height: 600px;
+            overflow-y: auto;
+        }
+        
+        .sim-module {
+            border: 1px solid rgba(136, 187, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(15, 22, 40, 0.4);
+            text-align: center;
+            color: #9eb6d8;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #59d4ff;
+            color: #0b1325;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            background: #90f4c7;
+            transform: translateY(-2px);
+        }
+        
+        .test-instructions {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid rgba(255, 195, 89, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 195, 89, 0.1);
+        }
+        
+        .test-instructions h3 {
+            color: #ffc359;
+        }
+        
+        @media (max-width: 767px) {
+            .test-container {
+                padding: 10px;
+            }
+            
+            .test-header {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .breakpoint-test {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .visual-guide {
+                padding: 20px;
+            }
+            
+            .screen-simulator {
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .test-header h1 {
+                font-size: 24px;
+            }
+            
+            .width-range {
+                font-size: 16px;
+            }
+            
+            .screen-simulator {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    
+    <main class="site-shell">
+        <div class="test-container">
+            <div class="test-header">
+                <h1>📱 超窄屏幕布局测试</h1>
+                <p>测试网页在非常窄的屏幕上的布局表现</p>
+            </div>
+            
+            <div class="breakpoint-test">
+                <div class="breakpoint-card">
+                    <h3><span class="icon">1</span> 桌面布局</h3>
+                    <div class="width-range">＞900px</div>
+                    <div class="layout-desc">
+                        <strong>三列网格布局：</strong><br>
+                        • 个人简介 (左侧)<br>
+                        • 项目展示 (中间)<br>
+                        • 摄影画廊 (右侧)<br>
+                        • 链接模块 (全宽度)
+                    </div>
+                </div>
+                
+                <div class="breakpoint-card">
+                    <h3><span class="icon">2</span> 平板布局</h3>
+                    <div class="width-range">768px-900px</div>
+                    <div class="layout-desc">
+                        <strong>两列网格布局：</strong><br>
+                        • 个人简介 (全宽度)<br>
+                        • 项目展示 (左侧)<br>
+                        • 摄影画廊 (右侧)<br>
+                        • 链接模块 (全宽度)
+                    </div>
+                </div>
+                
+                <div class="breakpoint-card">
+                    <h3><span class="icon">3</span> 移动布局</h3>
+                    <div class="width-range">480px-767px</div>
+                    <div class="layout-desc">
+                        <strong>单列纵向布局：</strong><br>
+                        • 所有模块纵向排列<br>
+                        • 导航改为网格布局<br>
+                        • 触摸目标优化<br>
+                        • 字体大小调整
+                    </div>
+                </div>
+                
+                <div class="breakpoint-card">
+                    <h3><span class="icon">4</span> 小屏布局</h3>
+                    <div class="width-range">376px-480px</div>
+                    <div class="layout-desc">
+                        <strong>紧凑单列布局：</strong><br>
+                        • 进一步减少内边距<br>
+                        • 缩小头像尺寸<br>
+                        • 调整字体大小<br>
+                        • 优化间距
+                    </div>
+                </div>
+                
+                <div class="breakpoint-card">
+                    <h3><span class="icon">5</span> 超窄布局</h3>
+                    <div class="width-range">≤375px</div>
+                    <div class="layout-desc">
+                        <strong>极简单列布局：</strong><br>
+                        • 最小化内边距<br>
+                        • 使用flex替代grid<br>
+                        • 确保纵向排列<br>
+                        • 防止元素溢出
+                    </div>
+                </div>
+                
+                <div class="breakpoint-card">
+                    <h3><span class="icon">6</span> 超超窄布局</h3>
+                    <div class="width-range">≤320px</div>
+                    <div class="layout-desc">
+                        <strong>极端窄屏优化：</strong><br>
+                        • 强制单列flex布局<br>
+                        • 覆盖所有网格设置<br>
+                        • 最小化所有尺寸<br>
+                        • 确保内容不溢出
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visual-guide">
+                <h3>🔄 响应式布局变化</h3>
+                <p>当屏幕宽度变化时，布局应该平滑过渡：</p>
+                
+                <div class="screen-simulator">
+                    <div class="screen-content">
+                        <div class="sim-module" style="background: rgba(89, 212, 255, 0.1);">顶部导航</div>
+                        <div class="sim-module" style="background: rgba(144, 244, 199, 0.1);">个人简介</div>
+                        <div class="sim-module" style="background: rgba(255, 195, 89, 0.1);">项目展示</div>
+                        <div class="sim-module" style="background: rgba(255, 89, 195, 0.1);">摄影画廊</div>
+                        <div class="sim-module" style="background: rgba(195, 89, 255, 0.1);">链接模块</div>
+                        
+                        <div style="text-align: center; margin-top: 20px; color: #9eb6d8; font-size: 12px;">
+                            ← 拖动浏览器边缘调整宽度 →
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 14px; color: #9eb6d8;">
+                    <strong>测试目标：</strong>从宽屏幕慢慢缩小窗口，观察布局如何从三列→两列→单列变化，确保在超窄屏幕下所有元素仍然正确排列。
+                </p>
+            </div>
+            
+            <div class="test-instructions">
+                <h3>🧪 测试方法</h3>
+                <ol>
+                    <li>打开主页面 <code>index.html</code></li>
+                    <li>将浏览器窗口调整到不同宽度：<br>
+                        - ＞900px (桌面)<br>
+                        - 768px-900px (平板)<br>
+                        - 480px-767px (移动)<br>
+                        - 376px-480px (小屏)<br>
+                        - ≤375px (超窄)<br>
+                        - ≤320px (超超窄)</li>
+                    <li>观察布局变化，确保：<br>
+                        - 所有模块都正确排列<br>
+                        - 没有元素溢出或错位<br>
+                        - 触摸目标大小合适<br>
+                        - 文字可读性良好</li>
+                </ol>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html" class="back-link">返回主页面进行实际测试 →</a>
+                <p style="margin-top: 20px; color: #9eb6d8; font-size: 14px;">
+                    <strong>提示：</strong>使用浏览器开发者工具的"响应式设计模式"可以快速测试不同屏幕尺寸
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <script src="static/js/mobile-enhancements.js"></script>
+</body>
+</html>
