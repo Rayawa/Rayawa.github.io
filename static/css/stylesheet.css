@@ -220,15 +220,30 @@ body {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .stat-list li {
   border: 1px solid rgba(127, 181, 255, 0.24);
-  border-radius: 10px;
-  padding: 8px 10px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(145deg, rgba(16, 25, 44, 0.9), rgba(10, 17, 30, 0.88));
+}
+
+.stat-label {
+  display: block;
+  color: #d8e9ff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.stat-value {
+  display: block;
+  margin-top: 4px;
   color: var(--text-sub);
   font-size: 13px;
+  line-height: 1.5;
 }
 
 .project-module {
@@ -355,9 +370,15 @@ body {
   text-decoration: none;
 }
 
+.home-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
 .home-gallery-box {
   position: relative;
-  height: 280px;
+  height: 190px;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(137, 188, 255, 0.3);
@@ -393,6 +414,29 @@ body {
   background-image: url("../gallery/2026 Chinese GP Desktop Wallpaper 2.jpg");
 }
 
+.video-gallery .home-gallery-item {
+  filter: saturate(0.8) brightness(0.8);
+}
+
+.home-gallery-box.video-gallery::before {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(8, 14, 26, 0.72);
+  border: 1px solid rgba(161, 213, 255, 0.5);
+  color: #f0f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
 .home-gallery-mask {
   position: absolute;
   left: 0;
@@ -405,6 +449,12 @@ body {
 
 .home-gallery-mask strong {
   font-size: 15px;
+}
+
+.home-gallery-mask p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: #d0ddf2;
 }
 
 .link-grid {
@@ -789,6 +839,6 @@ body {
   }
 
   .home-gallery-box {
-    height: 220px;
+    height: 180px;
   }
 }
