@@ -36,60 +36,73 @@
             <p class="hero-sub">Projects, photography, and personal links in one place</p>
         </header>
 
-        <section class="module" id="projects">
-            <div class="module-title-wrap">
-                <h2>My Projects</h2>
-                <p>Main projects include details, other projects keep name-only entries</p>
-            </div>
+        <div class="dashboard-grid">
+            <section class="module intro-module">
+                <div class="module-title-wrap">
+                    <h2>Site Overview</h2>
+                    <p>One-screen overview of my ecosystem</p>
+                </div>
+                <p class="intro-copy">Projects stay in the center column, gallery stays on the right, and all external links are grouped at the bottom for fast access.</p>
+                <ul class="stat-list">
+                    <li>Core projects: 3</li>
+                    <li>Other projects: 2</li>
+                    <li>Gallery: photo episodes + yearly videos</li>
+                </ul>
+            </section>
 
-            <div class="main-projects">
-                <a class="project-card" href="projects/sweet-potato-mod.html">
-                    <h3>Sweet Potoato Mod</h3>
-                    <p>A Minecraft mod expansion with gameplay systems, content assets, and long-term release notes for future updates.</p>
-                </a>
-                <a class="project-card" href="projects/harmony-dashboard.html">
-                    <h3>HarmonyOS App Dashboard</h3>
-                    <p>Progress board for HarmonyOS app development, UI iteration, technical experiments, and compatibility tracking.</p>
-                </a>
-                <a class="project-card" href="projects/bio-project.html">
-                    <h3>Biology Project</h3>
-                    <p>Interactive content around genes and biotechnology, planned with documentation, simulations, and workflow demos.</p>
-                </a>
-            </div>
+            <section class="module project-module" id="projects">
+                <div class="module-title-wrap">
+                    <h2>My Projects</h2>
+                    <p>Main projects include details, other projects keep name-only entries</p>
+                </div>
+                <div class="main-projects">
+                    <a class="project-card" href="https://featurehouse.github.io" target="_blank" rel="noopener">
+                        <h3>Sweet Potoato Mod</h3>
+                        <p>A Minecraft mod expansion with gameplay systems, content assets, and long-term release notes for future updates.</p>
+                    </a>
+                    <a class="project-card" href="projects/harmony-dashboard.html">
+                        <h3>HarmonyOS App Dashboard</h3>
+                        <p>Progress board for HarmonyOS app development, UI iteration, technical experiments, and compatibility tracking.</p>
+                    </a>
+                    <a class="project-card" href="projects/bio-project.html">
+                        <h3>Biology Project</h3>
+                        <p>Interactive content around genes and biotechnology, planned with documentation, simulations, and workflow demos.</p>
+                    </a>
+                </div>
+                <div class="other-projects">
+                    <a class="simple-link" href="https://idv.rayawa.top" target="_blank" rel="noopener">IDV Project</a>
+                    <a class="simple-link" href="projects/gene.html">Gene Project</a>
+                </div>
+            </section>
 
-            <div class="other-projects">
-                <a class="simple-link" href="projects/idv.html">IDV Project</a>
-                <a class="simple-link" href="projects/gene.html">Gene Project</a>
-            </div>
-        </section>
+            <section class="module gallery-module" id="gallery">
+                <div class="module-title-wrap">
+                    <h2>Photography Gallery</h2>
+                    <p>Photo episodes + yearly video collections</p>
+                </div>
+                <div class="gallery-entry">
+                    <a class="gallery-link" href="gallery/index.html">
+                        <div class="gallery-preview"></div>
+                        <div class="gallery-copy">
+                            <strong>Enter Gallery</strong>
+                            <p>Browse photos by episode and videos by year.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
 
-        <section class="module" id="gallery">
-            <div class="module-title-wrap">
-                <h2>Photography Gallery</h2>
-                <p>Open the gallery page for photo episodes and yearly video collections</p>
-            </div>
-            <div class="gallery-entry">
-                <a class="gallery-link" href="gallery/index.html">
-                    <div class="gallery-preview"></div>
-                    <div class="gallery-copy">
-                        <strong>Enter Gallery</strong>
-                        <p>Photos are grouped by episodes, videos are grouped by year (4-5 each year).</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="module" id="links">
-            <div class="module-title-wrap">
-                <h2>Related Links</h2>
-                <p>Click each card for direct link jump</p>
-            </div>
-            <div class="link-grid">
-                <a class="link-card" href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"><span>B</span><div><strong>Bilibili</strong><p>Video channel</p></div></a>
-                <a class="link-card" href="https://github.com/Rayawa" target="_blank" rel="noopener"><span>G</span><div><strong>GitHub</strong><p>Code and repositories</p></div></a>
-                <a class="link-card" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195" target="_blank" rel="noopener"><span>X</span><div><strong>Xiaohongshu</strong><p>Life and creative content</p></div></a>
-            </div>
-        </section>
+            <section class="module links-module" id="links">
+                <div class="module-title-wrap">
+                    <h2>Related Links</h2>
+                    <p>Click each card for direct link jump</p>
+                </div>
+                <div class="link-grid">
+                    <a class="link-card" href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"><span>B</span><div><strong>Bilibili</strong><p>Video channel</p></div></a>
+                    <a class="link-card" href="https://github.com/Rayawa" target="_blank" rel="noopener"><span>G</span><div><strong>GitHub</strong><p>Code and repositories</p></div></a>
+                    <a class="link-card" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195" target="_blank" rel="noopener"><span>X</span><div><strong>Xiaohongshu</strong><p>Life and creative content</p></div></a>
+                </div>
+            </section>
+        </div>
     </main>
 </body>
 

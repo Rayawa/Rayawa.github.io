@@ -36,76 +36,73 @@
             <p class="hero-sub">项目、摄影与个人链接集中展示</p>
         </header>
 
-        <section class="module" id="projects">
-            <div class="module-title-wrap">
-                <h2>我的项目</h2>
-                <p>核心项目展示详细信息，其他项目仅保留名称入口</p>
-            </div>
+        <div class="dashboard-grid">
+            <section class="module intro-module">
+                <div class="module-title-wrap">
+                    <h2>站点导览</h2>
+                    <p>单页快速查看我的创作版图</p>
+                </div>
+                <p class="intro-copy">中间是主要项目，右侧是摄影入口，底部是一键跳转的外部链接。整体结构压缩为一屏内可扫读的布局。</p>
+                <ul class="stat-list">
+                    <li>核心项目：3</li>
+                    <li>其他项目：2</li>
+                    <li>画廊：照片分期 + 年度视频</li>
+                </ul>
+            </section>
 
-            <div class="main-projects">
-                <a class="project-card" href="projects/harmony-dashboard.html">
-                    <h3>鸿蒙应用看板</h3>
-                    <p>展示 HarmonyOS 方向的应用开发进展，包括功能演示、UI 迭代、技术实验和设备兼容性追踪。</p>
-                </a>
-                <a class="project-card" href="projects/bio-project.html">
-                    <h3>生物相关项目</h3>
-                    <p>聚焦基因可视化与生物技术交互实验，后续将整合项目文档、模拟演示和实验流程的展示页面。</p>
-                </a>
-                <a class="project-card" href="projects/sweet-potato-mod.html">
-                    <h3>Sweet Potoato Mod</h3>
-                    <p>围绕 Minecraft 的模组内容扩展，包含玩法机制、素材迭代与专题页面规划。这里会持续更新版本记录、开发日志和玩法展示。</p>
-                </a>
+            <section class="module project-module" id="projects">
+                <div class="module-title-wrap">
+                    <h2>我的项目</h2>
+                    <p>核心项目展示详细信息，其他项目仅保留名称入口</p>
+                </div>
+                <div class="main-projects">
+                    <a class="project-card" href="projects/harmony-dashboard.html">
+                        <h3>鸿蒙应用看板</h3>
+                        <p>展示 HarmonyOS 方向的应用开发进展，包括功能演示、UI 迭代、技术实验和设备兼容性追踪。</p>
+                    </a>
+                    <a class="project-card" href="projects/bio-project.html">
+                        <h3>生物相关项目</h3>
+                        <p>聚焦基因可视化与生物技术交互实验，后续将整合项目文档、模拟演示和实验流程的展示页面。</p>
+                    </a>
+                    <a class="project-card" href="https://featurehouse.github.io" target="_blank" rel="noopener">
+                        <h3>Sweet Potoato Mod</h3>
+                        <p>围绕 Minecraft 的模组内容扩展，包含玩法机制、素材迭代与专题页面规划。</p>
+                    </a>
+                </div>
+                <div class="other-projects">
+                    <a class="simple-link" href="https://idv.rayawa.top" target="_blank" rel="noopener">IDV Project</a>
+                    <a class="simple-link" href="projects/gene.html">Gene Project</a>
+                </div>
+            </section>
 
+            <section class="module gallery-module" id="gallery">
+                <div class="module-title-wrap">
+                    <h2>摄影画廊</h2>
+                    <p>照片分期 + 年度视频合集</p>
+                </div>
+                <div class="gallery-entry">
+                    <a class="gallery-link" href="gallery/index.html">
+                        <div class="gallery-preview"></div>
+                        <div class="gallery-copy">
+                            <strong>进入画廊</strong>
+                            <p>按期浏览照片，按年查看视频更新。</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
 
-            </div>
-
-            <div class="other-projects">
-                <a class="simple-link" href="projects/idv.html">IDV Project</a>
-                <a class="simple-link" href="projects/gene.html">Gene Project</a>
-            </div>
-        </section>
-
-        <section class="module" id="gallery">
-            <div class="module-title-wrap">
-                <h2>摄影画廊</h2>
-                <p>点击进入照片分期与年度视频展示页</p>
-            </div>
-            <div class="gallery-entry">
-                <a class="gallery-link" href="gallery/index.html">
-                    <div class="gallery-copy">
-                        <strong>进入画廊</strong>
-                        <p>照片按期整理，视频按年份归档（每年 4-5 条）。</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="module" id="links">
-            <div class="module-title-wrap">
-                <h2>相关链接</h2>
-                <p>点击卡片直接跳转</p>
-            </div>
-            <div class="link-grid">
-                <a class="link-card" href="https://space.bilibili.com/3546835039815692" target="_blank"
-                    rel="noopener"><span>B</span>
-                    <div><strong>Bilibili</strong>
-                        <p>视频频道入口</p>
-                    </div>
-                </a>
-                <a class="link-card" href="https://github.com/Rayawa" target="_blank" rel="noopener"><span>G</span>
-                    <div><strong>GitHub</strong>
-                        <p>代码与仓库入口</p>
-                    </div>
-                </a>
-                <a class="link-card"
-                    href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195"
-                    target="_blank" rel="noopener"><span>X</span>
-                    <div><strong>小红书</strong>
-                        <p>生活与创作内容</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+            <section class="module links-module" id="links">
+                <div class="module-title-wrap">
+                    <h2>相关链接</h2>
+                    <p>点击卡片直接跳转</p>
+                </div>
+                <div class="link-grid">
+                    <a class="link-card" href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"><span>B</span><div><strong>Bilibili</strong><p>视频频道入口</p></div></a>
+                    <a class="link-card" href="https://github.com/Rayawa" target="_blank" rel="noopener"><span>G</span><div><strong>GitHub</strong><p>代码与仓库入口</p></div></a>
+                    <a class="link-card" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195" target="_blank" rel="noopener"><span>X</span><div><strong>小红书</strong><p>生活与创作内容</p></div></a>
+                </div>
+            </section>
+        </div>
     </main>
 </body>
 
