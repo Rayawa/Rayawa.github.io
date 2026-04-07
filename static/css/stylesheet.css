@@ -56,24 +56,45 @@ body {
   left: -110px;
 }
 
-.language-rail {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  z-index: 12;
+.topbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.quick-nav {
+  display: flex;
   gap: 10px;
 }
 
+.quick-link {
+  text-decoration: none;
+  color: var(--text-sub);
+  border: 1px solid rgba(130, 185, 255, 0.24);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.quick-link:hover {
+  color: var(--text-main);
+  border-color: var(--accent);
+}
+
+.language-switch {
+  display: flex;
+  gap: 8px;
+}
+
 .lang-btn {
-  width: 72px;
+  width: 70px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 12px;
   background: rgba(7, 12, 22, 0.75);
   color: var(--text-main);
-  padding: 9px 8px;
+  padding: 8px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,10 +103,14 @@ body {
   transition: all 0.2s ease;
 }
 
-.lang-btn img {
+.flag-icon {
   width: 18px;
   height: 18px;
   border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 18px;
+  display: block;
+  max-width: 18px;
 }
 
 .lang-btn span {
@@ -96,14 +121,14 @@ body {
 .lang-btn:hover,
 .lang-btn.active {
   border-color: var(--accent);
-  transform: translateX(2px);
+  transform: translateY(-1px);
   box-shadow: 0 6px 24px rgba(89, 212, 255, 0.22);
 }
 
 .site-shell {
   position: relative;
   z-index: 2;
-  width: min(1120px, calc(100% - 180px));
+  width: min(1120px, calc(100% - 48px));
   margin: 0 auto;
   padding: 52px 0 72px;
 }
@@ -451,17 +476,23 @@ body {
 }
 
 @media (max-width: 860px) {
-  .language-rail {
-    position: static;
-    transform: none;
-    flex-direction: row;
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .quick-nav {
+    flex-wrap: wrap;
+  }
+
+  .language-switch {
     justify-content: center;
-    padding-top: 18px;
   }
 
   .site-shell {
     width: min(760px, calc(100% - 34px));
-    padding-top: 16px;
+    padding-top: 22px;
   }
 
   .hero {
