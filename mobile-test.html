@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1325">
+    <title>移动端优化测试 - Rayawa.github.io</title>
+    <link rel="stylesheet" type="text/css" href="static/css/stylesheet.css" media="screen">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 1px solid rgba(136, 187, 255, 0.25);
+            border-radius: 16px;
+            background: rgba(15, 22, 40, 0.78);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .test-card {
+            border: 1px solid rgba(136, 187, 255, 0.25);
+            border-radius: 12px;
+            padding: 20px;
+            background: rgba(15, 22, 40, 0.6);
+        }
+        
+        .test-card h3 {
+            color: #59d4ff;
+            margin-top: 0;
+        }
+        
+        .test-feature {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(8, 14, 27, 0.3);
+        }
+        
+        .test-feature .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            background: #59d4ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b1325;
+            font-weight: bold;
+        }
+        
+        .device-preview {
+            border: 2px solid rgba(136, 187, 255, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            background: #0b1325;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .device-preview::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: rgba(136, 187, 255, 0.3);
+            border-radius: 2px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #59d4ff;
+            color: #0b1325;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            background: #90f4c7;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 767px) {
+            .test-container {
+                padding: 10px;
+            }
+            
+            .test-header {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .test-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .device-preview {
+                border-radius: 16px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    
+    <main class="site-shell">
+        <div class="test-container">
+            <div class="test-header">
+                <h1>📱 移动端优化测试</h1>
+                <p>Rayawa.github.io 移动端体验优化成果展示</p>
+            </div>
+            
+            <div class="test-grid">
+                <div class="test-card">
+                    <h3>✅ 已实现的优化</h3>
+                    <div class="test-feature">
+                        <div class="icon">1</div>
+                        <div>响应式网格布局</div>
+                    </div>
+                    <div class="test-feature">
+                        <div class="icon">2</div>
+                        <div>触摸友好的按钮尺寸</div>
+                    </div>
+                    <div class="test-feature">
+                        <div class="icon">3</div>
+                        <div>移动端专属导航</div>
+                    </div>
+                    <div class="test-feature">
+                        <div class="icon">4</div>
+                        <div>横竖屏适配</div>
+                    </div>
+                    <div class="test-feature">
+                        <div class="icon">5</div>
+                        <div>性能优化动画</div>
+                    </div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>📱 设备适配</h3>
+                    <div class="device-preview">
+                        <h4>移动端预览</h4>
+                        <p>网站在不同设备上的表现：</p>
+                        <ul>
+                            <li>手机 (＜768px)：单列布局，大触摸目标</li>
+                            <li>平板 (768px-900px)：自适应网格</li>
+                            <li>桌面 (＞900px)：三列专业布局</li>
+                            <li>横屏模式：优化导航和内容排列</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>🎯 技术改进</h3>
+                    <p><strong>CSS 优化：</strong></p>
+                    <ul>
+                        <li>精细化的媒体查询断点</li>
+                        <li>移动端专属样式覆盖</li>
+                        <li>性能优化的动画效果</li>
+                        <li>触摸反馈视觉效果</li>
+                    </ul>
+                    
+                    <p><strong>JavaScript 增强：</strong></p>
+                    <ul>
+                        <li>设备类型检测</li>
+                        <li>触摸交互优化</li>
+                        <li>横竖屏监听</li>
+                        <li>加载状态管理</li>
+                    </ul>
+                </div>
+                
+                <div class="test-card">
+                    <h3>📊 用户体验提升</h3>
+                    <p><strong>导航改进：</strong></p>
+                    <ul>
+                        <li>快速导航网格布局</li>
+                        <li>语言切换器触摸优化</li>
+                        <li>最小触摸目标 44px</li>
+                    </ul>
+                    
+                    <p><strong>内容展示：</strong></p>
+                    <ul>
+                        <li>移动端优化的字体大小</li>
+                        <li>画廊交互改进</li>
+                        <li>卡片布局响应式调整</li>
+                        <li>平滑滚动体验</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="index.html" class="back-link">返回主页面测试效果 →</a>
+                <p style="margin-top: 20px; color: #9eb6d8; font-size: 14px;">
+                    提示：请使用手机或浏览器开发者工具的移动端模式查看最佳效果
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <script src="static/js/mobile-enhancements.js"></script>
+</body>
+</html>

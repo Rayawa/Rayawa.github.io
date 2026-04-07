@@ -755,77 +755,6 @@ body {
   }
 }
 
-/* 移动端增强样式 */
-.is-mobile .quick-link,
-.is-mobile .lang-btn,
-.is-mobile .project-card,
-.is-mobile .simple-link,
-.is-mobile .link-card {
-  -webkit-tap-highlight-color: rgba(89, 212, 255, 0.3);
-  tap-highlight-color: rgba(89, 212, 255, 0.3);
-}
-
-.is-mobile .home-gallery-box {
-  cursor: pointer;
-}
-
-/* 加载完成状态 */
-body:not(.loaded) .site-shell {
-  opacity: 0;
-}
-
-body.loaded .site-shell {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-/* 横屏优化 */
-body.landscape .topbar {
-  flex-direction: row !important;
-}
-
-body.landscape .quick-nav {
-  grid-template-columns: repeat(3, auto) !important;
-}
-
-body.landscape .language-switch {
-  grid-template-columns: repeat(3, auto) !important;
-  width: auto !important;
-}
-
-body.landscape .hero-profile {
-  flex-direction: row !important;
-  text-align: left !important;
-}
-
-body.landscape .main-projects {
-  grid-template-columns: repeat(2, 1fr) !important;
-}
-
-/* 防止iOS输入框缩放 */
-input, textarea, select {
-  font-size: 16px !important;
-}
-
-/* 平滑滚动 */
-html {
-  scroll-behavior: smooth;
-}
-
-/* 优化移动端滚动性能 */
-.module, .hero, .home-gallery-box {
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-}
-
-/* 防止文本选择 */
-.quick-link, .lang-btn, .project-card, .simple-link, .link-card {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
 @media (max-width: 1200px) {
   .site-shell {
     width: min(1100px, calc(100% - 20px));
@@ -845,400 +774,71 @@ html {
   }
 }
 
-/* 平板设备优化 (768px - 900px) */
-@media (max-width: 900px) and (min-width: 768px) {
-  .site-shell {
-    width: min(760px, calc(100% - 20px));
-    padding: 16px 0;
-  }
-
+@media (max-width: 900px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
 
-  .hero {
-    padding: 24px;
-    margin-bottom: 20px;
-  }
-
-  .hero-profile {
-    align-items: center;
-  }
-
-  .avatar {
-    width: 80px;
-    height: 80px;
-  }
-
-  .module {
-    padding: 20px;
-  }
-
-  .topbar {
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 24px;
-  }
-
-  .quick-nav {
-    gap: 8px;
-  }
-
-  .quick-link {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-
-  .language-switch {
-    gap: 6px;
-  }
-
-  .lang-btn {
-    width: 65px;
-    padding: 8px;
-  }
-
-  .main-projects {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .home-gallery-box {
-    height: 200px;
-  }
-
-  .link-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 移动设备优化 (小于768px) */
-@media (max-width: 767px) {
-  body {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .site-shell {
-    width: calc(100% - 16px);
-    padding: 12px 0 24px;
-  }
-
-  .orb-a {
-    width: 200px;
-    height: 200px;
-    top: -60px;
-    right: -40px;
-  }
-
-  .orb-b {
-    width: 250px;
-    height: 250px;
-    bottom: -100px;
-    left: -80px;
+  .intro-module,
+  .project-module,
+  .gallery-module,
+  .links-module {
+    grid-column: auto;
   }
 
   .topbar {
     flex-direction: column;
     align-items: stretch;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: 10px;
   }
 
   .quick-nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .quick-link {
-    text-align: center;
-    padding: 12px 8px;
-    font-size: 14px;
-    border-radius: 12px;
-    min-height: 44px; /* 最小触摸目标尺寸 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .language-switch {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .lang-btn {
-    width: 100%;
-    padding: 10px 8px;
-    min-height: 44px; /* 最小触摸目标尺寸 */
-    border-radius: 12px;
-  }
-
-  .flag-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .lang-btn span {
-    font-size: 13px;
-  }
-
-  .hero {
-    padding: 20px;
-    margin-bottom: 16px;
-    border-radius: 16px;
-  }
-
-  .hero-profile {
-    flex-direction: column;
-    text-align: center;
-    gap: 16px;
-  }
-
-  .avatar {
-    width: 96px;
-    height: 96px;
-    border-width: 3px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-    letter-spacing: -0.5px;
-  }
-
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .module {
-    padding: 20px;
-    border-radius: 16px;
-  }
-
-  .module-title-wrap h2 {
-    font-size: 24px;
-  }
-
-  .module-title-wrap p {
-    font-size: 15px;
-    margin-top: 6px;
-  }
-
-  .intro-copy {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .stat-list {
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .stat-list li {
-    padding: 12px 14px;
-    border-radius: 14px;
-  }
-
-  .stat-label {
-    font-size: 14px;
-  }
-
-  .stat-value {
-    font-size: 14px;
-    margin-top: 6px;
-  }
-
-  .main-projects {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .project-card {
-    padding: 18px;
-    min-height: auto;
-    border-radius: 14px;
-  }
-
-  .project-card h3 {
-    font-size: 20px;
-  }
-
-  .project-card p {
-    font-size: 15px;
-    margin-top: 10px;
-  }
-
-  .other-projects {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .simple-link {
-    padding: 14px 16px;
-    font-size: 16px;
-    border-radius: 12px;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
     justify-content: center;
   }
 
-  .home-gallery-grid {
-    gap: 16px;
-    margin-top: 16px;
-  }
-
-  .home-gallery-box {
-    height: 220px;
-    border-radius: 16px;
-  }
-
-  .home-gallery-mask {
-    padding: 14px 16px;
-  }
-
-  .home-gallery-mask strong {
-    font-size: 17px;
-  }
-
-  .home-gallery-mask p {
-    font-size: 14px;
-    margin-top: 4px;
-  }
-
-  .link-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .link-card {
-    padding: 16px;
-    border-radius: 14px;
-    min-height: 72px;
-  }
-
-  .social-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-  }
-
-  .link-card strong {
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
-
-  .link-card p {
-    font-size: 15px;
-  }
-
-  /* 针对非常小的屏幕优化 */
-  @media (max-width: 375px) {
-    .site-shell {
-      width: calc(100% - 12px);
-    }
-
-    .hero {
-      padding: 16px;
-    }
-
-    .avatar {
-      width: 80px;
-      height: 80px;
-    }
-
-    .hero h1 {
-      font-size: 28px;
-    }
-
-    .module {
-      padding: 16px;
-    }
-
-    .quick-nav,
-    .language-switch {
-      gap: 6px;
-    }
-
-    .quick-link,
-    .lang-btn {
-      padding: 10px 6px;
-      font-size: 13px;
-    }
-
-    .home-gallery-box {
-      height: 180px;
-    }
-  }
-
-  /* 横屏模式优化 */
-  @media (max-height: 500px) and (orientation: landscape) {
-    .topbar {
-      flex-direction: row;
-      gap: 12px;
-    }
-
-    .quick-nav {
-      grid-template-columns: repeat(3, auto);
-    }
-
-    .language-switch {
-      grid-template-columns: repeat(3, auto);
-      width: auto;
-    }
-
-    .hero-profile {
-      flex-direction: row;
-      text-align: left;
-    }
-
-    .avatar {
-      width: 64px;
-      height: 64px;
-    }
-
-    .hero h1 {
-      font-size: 28px;
-    }
-
-    .main-projects {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-/* 超小屏幕设备 (小于320px) */
-@media (max-width: 320px) {
   .site-shell {
-    width: calc(100% - 8px);
-    padding: 8px 0 16px;
+    width: min(760px, calc(100% - 12px));
+    padding-top: 14px;
   }
 
   .hero {
-    padding: 14px;
+    padding: 28px;
   }
 
-  .module {
-    padding: 14px;
+  .hero-profile {
+    align-items: flex-start;
   }
 
-  .quick-link,
-  .lang-btn {
-    font-size: 12px;
-    padding: 8px 4px;
+  .avatar {
+    width: 68px;
+    height: 68px;
   }
 
-  .hero h1 {
-    font-size: 26px;
+  .module,
+  .gallery-page,
+  .placeholder-page {
+    padding: 16px;
   }
 
-  .module-title-wrap h2 {
-    font-size: 22px;
+  .main-projects,
+  .other-projects,
+  .link-grid,
+  .subpage-grid,
+  .download-grid,
+  .photo-series-grid,
+  .video-year-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-box {
+    min-height: 280px;
+  }
+
+  .home-gallery-box {
+    height: 180px;
   }
 }
