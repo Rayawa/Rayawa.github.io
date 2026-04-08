@@ -64,10 +64,7 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ ok: false, error: 'invalid_email' });
   }
 
-  const to = process.env.MAIL_TO || process.env.SMTP_USER;
-  if (!to) {
-    return res.status(500).json({ ok: false, error: 'mail_target_not_configured' });
-  }
+  const to = 'rayawa.work@outlook.com';
 
   const subject = `[Rayawa Contact] ${name} <${email}>`;
   const text = [

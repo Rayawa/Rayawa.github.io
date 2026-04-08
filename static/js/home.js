@@ -313,7 +313,7 @@ function initParticleMagnetEffect() {
         const pointer = { x: 0, y: 0, active: false };
         const radius = 236;
         const strength = 0.00148;
-        const damping = 0.984;
+        const damping = 0.988;
         const maxSpeed = 4.25;
         const sparseRadius = 96;
         const sparseThreshold = 1;
@@ -344,7 +344,7 @@ function initParticleMagnetEffect() {
             if (!p) return;
             p.__generated = true;
             p.__fadeIn = true;
-            p.__ttl = 360 + Math.floor(Math.random() * 420);
+            p.__ttl = 520 + Math.floor(Math.random() * 520);
             p.__fadeOut = false;
             p.vx = (Math.random() - 0.5) * 0.8;
             p.vy = (Math.random() - 0.5) * 0.8;
@@ -374,7 +374,7 @@ function initParticleMagnetEffect() {
                 }
             }
 
-            if (particles.length > minParticles && Math.random() < 0.32) {
+            if (particles.length > minParticles && Math.random() < 0.1) {
                 const idx = Math.floor(Math.random() * particles.length);
                 const p = particles[idx];
                 if (p && !p.__fadeOut && !p.__fadeIn) {
@@ -422,8 +422,8 @@ function initParticleMagnetEffect() {
         function tick() {
             frame += 1;
             magneticPower += pointer.active
-                ? (1 - magneticPower) * 0.18
-                : (0 - magneticPower) * 0.045;
+                ? (1 - magneticPower) * 0.14
+                : (0 - magneticPower) * 0.012;
 
             if (magneticPower > 0.001 && particles.length) {
                 for (let i = 0; i < particles.length; i += 1) {
@@ -463,14 +463,14 @@ function initParticleMagnetEffect() {
                 }
 
                 if (p.__fadeIn) {
-                    const next = getOpacityValue(p) + 0.028;
+                    const next = getOpacityValue(p) + 0.011;
                     setOpacityValue(p, next);
-                    if (next >= 0.48) p.__fadeIn = false;
+                    if (next >= 0.5) p.__fadeIn = false;
                 }
 
                 if (p.__fadeOut) {
-                    const next = getOpacityValue(p) - 0.016;
-                    if (next <= 0.02) {
+                    const next = getOpacityValue(p) - 0.004;
+                    if (next <= 0.008) {
                         particles.splice(i, 1);
                         continue;
                     }
