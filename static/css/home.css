@@ -440,7 +440,7 @@
             bottom: -16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 112px;
+            width: 156px;
             height: 4px;
             background: var(--primary);
             border-radius: 2px;
@@ -677,6 +677,10 @@
             text-decoration: none;
             font-weight: 650;
             white-space: nowrap;
+        }
+
+        .tag.tag-award.award-link {
+            cursor: pointer;
         }
 
         .tag.tag-award:hover {
