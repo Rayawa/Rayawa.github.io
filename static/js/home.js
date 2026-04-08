@@ -582,7 +582,7 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    const URL_INTIMATE = "https://formspree.io/f/maqlkkbg"; // 亲密地址
+    const URL_INTIMATE = "https://formspree.io/f/mnjorrro"; // 亲密地址
     const URL_GENERAL = "https://formspree.io/f/mqegjjgr";  // 一般人地址 
 
     const SECRET_CODE = "#sweet"; 
@@ -593,22 +593,29 @@ function initContactForm() {
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn ? submitBtn.innerHTML : "发送";
         
+        const nameValue = document.getElementById('name')?.value || '';
+        const emailValue = document.getElementById('email')?.value || '';
+        const messageValue = document.getElementById('message')?.value || '';
+        
+        const isIntimate = messageValue.toLowerCase().includes(SECRET_CODE.toLowerCase());
+        
+        const targetUrl = isIntimate ? URL_INTIMATE : URL_GENERAL;
+        const subject = isIntimate ? "【核心频道】收到一条亲密私信" : "【常规频道】收到一条网页留言";
+
+        console.log("--- 准备发送邮件 ---");
+        console.log("检测到暗号:", isIntimate);
+        console.log("目标地址:", targetUrl);
+
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.innerHTML = "发送中...";
         }
 
-        const messageValue = document.getElementById('message')?.value || '';
-        
-        const isIntimate = messageValue.includes(SECRET_CODE);
-        
-        let targetUrl = isIntimate ? URL_INTIMATE : URL_GENERAL;
-
         const payload = {
-            name: document.getElementById('name')?.value || '',
-            email: document.getElementById('email')?.value || '',
+            name: nameValue,
+            email: emailValue,
             message: messageValue,
-            _subject: isIntimate ? "【特殊邮件】来自网页的亲密消息" : "【一般】来自网页的留言"
+            _subject: subject
         };
 
         try {
@@ -623,17 +630,16 @@ function initContactForm() {
 
             if (response.ok) {
                 if (isIntimate) {
-                    alert("暗号已确认！消息已成功发送到亲密邮箱。");
+                    alert("💗 暗号认证成功！已发送至亲密邮箱✨");
                 } else {
-                    alert("消息已成功发送！");
+                    alert("消息发送成功！。");
                 }
-                
                 form.reset();
             } else {
                 throw new Error('Response error');
             }
         } catch (err) {
-            console.error('Submit failed:', err);
+            console.error('发送过程中出错:', err);
             alert("发送失败，请检查网络");
         } finally {
             if (submitBtn) {
@@ -643,6 +649,7 @@ function initContactForm() {
         }
     });
 }
+
 function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.querySelector('.nav-links');
