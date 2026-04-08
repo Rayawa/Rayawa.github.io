@@ -35,89 +35,6 @@
             overflow-x: hidden;
             min-height: 100vh;
             overscroll-behavior-y: none;
-            opacity: 1;
-            transition: opacity 0.42s ease, transform 0.42s ease, filter 0.42s ease;
-        }
-
-        body.page-preload {
-            opacity: 0;
-            transform: translateY(12px);
-        }
-
-        body.page-leaving {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        body.transition-freeze .navbar,
-        body.transition-freeze section,
-        body.transition-freeze .footer,
-        body.transition-freeze .fab-tools {
-            filter: blur(3px);
-            transform: scale(0.992);
-            transition: filter 0.34s ease, transform 0.34s ease;
-        }
-
-        .app-transition-layer {
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            overflow: hidden;
-        }
-
-        .app-transition-layer::before {
-            content: '';
-            position: absolute;
-            inset: -12%;
-            background:
-                radial-gradient(circle at 28% 22%, rgba(129, 140, 248, 0.32), transparent 40%),
-                radial-gradient(circle at 75% 68%, rgba(56, 189, 248, 0.28), transparent 36%),
-                linear-gradient(135deg, rgba(11, 19, 37, 0.9), rgba(27, 47, 80, 0.84));
-            transform: scale(1.06);
-        }
-
-        .app-transition-layer::after {
-            content: '';
-            position: absolute;
-            top: -18%;
-            left: -35%;
-            width: 46%;
-            height: 140%;
-            background: linear-gradient(100deg, transparent 0%, rgba(196, 233, 255, 0.46) 52%, transparent 100%);
-            filter: blur(1px);
-            transform: skewX(-14deg);
-            opacity: 0;
-        }
-
-        .app-transition-layer.is-playing {
-            opacity: 1;
-        }
-
-        .app-transition-layer.is-playing::before {
-            animation: transitionBloom 0.82s cubic-bezier(0.23, 1, 0.32, 1) both;
-        }
-
-        .app-transition-layer.is-playing::after {
-            animation: transitionSweep 0.74s cubic-bezier(0.23, 1, 0.32, 1) both 70ms;
-        }
-
-        .app-transition-layer.is-out {
-            opacity: 0;
-        }
-
-        @keyframes transitionBloom {
-            0% { transform: scale(1.18); filter: blur(6px); opacity: 0.7; }
-            45% { transform: scale(1.03); filter: blur(0); opacity: 1; }
-            100% { transform: scale(1); filter: blur(0); opacity: 1; }
-        }
-
-        @keyframes transitionSweep {
-            0% { left: -42%; opacity: 0; }
-            26% { opacity: 0.85; }
-            100% { left: 122%; opacity: 0; }
         }
 
         .container {
@@ -1455,18 +1372,32 @@
         }
 
         .lang-fade-target {
-            transition: opacity 0.32s ease, transform 0.32s ease, filter 0.32s ease;
+            transition: opacity 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.56s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: opacity, transform, filter;
         }
 
         .lang-fade-target.is-leaving {
             opacity: 0;
-            transform: translateY(-6px);
-            filter: blur(2px);
+            transform: translateY(-10px);
+            filter: blur(3px);
         }
 
         .lang-fade-target.is-entering {
             opacity: 1;
             transform: translateY(0);
             filter: blur(0);
+        }
+
+        .intro-block {
+            opacity: 0;
+            transform: translateY(22px);
+            filter: blur(4px);
+        }
+
+        body.intro-ready .intro-block {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+            transition: opacity 1.12s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.12s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition-delay: var(--intro-delay, 0ms);
         }

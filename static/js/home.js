@@ -230,8 +230,6 @@ const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
 const localeHtmlMap = { en: 'index_en.html', fr: 'index_fr.html' };
 const localeFragmentsCache = {};
 let localeFragmentToken = 0;
-let transitionLayer = null;
-let isSceneTransitioning = false;
 
 const aboutBlocks = {
     about: null,
@@ -242,14 +240,6 @@ const aboutBlocks = {
 
 function sleep(ms) {
     return new Promise((resolve) => window.setTimeout(resolve, ms));
-}
-
-function initTransitionLayer() {
-    if (transitionLayer) return transitionLayer;
-    transitionLayer = document.createElement('div');
-    transitionLayer.className = 'app-transition-layer';
-    document.body.appendChild(transitionLayer);
-    return transitionLayer;
 }
 
 function collectLayoutLocks() {
@@ -314,33 +304,6 @@ async function stabilizeLayoutDuring(task) {
 
     await sleep(680);
     endLayoutLock(locks);
-}
-
-async function runSceneTransition(action, options = {}) {
-    if (isSceneTransitioning) return;
-    isSceneTransitioning = true;
-
-    const holdMs = options.holdMs ?? 620;
-    const outMs = options.outMs ?? 900;
-    const freeze = options.freeze !== false;
-    const layer = initTransitionLayer();
-
-    layer.classList.remove('is-playing', 'is-out');
-    void layer.offsetWidth;
-    if (freeze) document.body.classList.add('transition-freeze');
-    layer.classList.add('is-playing');
-
-    await sleep(holdMs);
-    if (typeof action === 'function') {
-        await Promise.resolve(action());
-    }
-
-    if (freeze) document.body.classList.remove('transition-freeze');
-    layer.classList.add('is-out');
-    await sleep(outMs);
-    layer.classList.remove('is-playing', 'is-out');
-
-    isSceneTransitioning = false;
 }
 
 function detectInitialLocale() {
@@ -488,24 +451,30 @@ async function setLocale(nextLocale, { persist = true } = {}) {
 
 function getLanguageFadeTargets() {
     return Array.from(document.querySelectorAll([
-        '.navbar .nav-links a',
-        '.hero .hero-text h1',
-        '.hero .hero-aliases',
-        '.hero .hero-tags p',
-        '.hero .btn-group .btn',
-        '.section-header .section-title',
-        '.section-header .section-subtitle',
+        '.navbar',
+        '.hero-content',
+        '.section-header',
+        '.about-content',
+        '.projects-grid',
+        '.other-projects',
+        '.gallery-carousel',
+        '.gallery-more',
+        '.social-grid',
+        '.contact-content',
+        '.footer-content',
+        '.copyright',
+        '.fab-tools',
     ].join(',')));
 }
 
 async function runLanguageTextTransition(changeAction) {
     const targets = getLanguageFadeTargets();
     targets.forEach((el) => el.classList.add('lang-fade-target', 'is-leaving'));
-    await sleep(280);
+    await sleep(420);
     await changeAction();
     targets.forEach((el) => el.classList.remove('is-leaving'));
     targets.forEach((el) => el.classList.add('is-entering'));
-    await sleep(420);
+    await sleep(720);
     targets.forEach((el) => el.classList.remove('lang-fade-target', 'is-entering'));
 }
 
@@ -755,11 +724,30 @@ function initGalleryCarousel() {
 }
 
 function initPageLoadAnimation() {
-    window.addEventListener('load', async () => {
-        window.requestAnimationFrame(async () => {
-            document.body.classList.remove('page-preload');
-            await runSceneTransition(null, { holdMs: 760, outMs: 1100, freeze: false });
-            document.body.classList.add('app-entered');
+    const introTargets = document.querySelectorAll([
+        '.navbar',
+        '.hero',
+        '.about',
+        '.projects',
+        '.gallery',
+        '.social',
+        '.contact',
+        '.footer',
+        '.fab-tools',
+    ].join(','));
+
+    introTargets.forEach((el, idx) => {
+        el.classList.add('intro-block');
+        const delay = 80 + idx * 120;
+        el.style.setProperty('--intro-delay', `${delay}ms`);
+    });
+
+    window.addEventListener('load', () => {
+        window.requestAnimationFrame(() => {
+            document.body.classList.add('intro-ready');
+            window.setTimeout(() => {
+                document.body.classList.add('app-entered');
+            }, 980);
         });
     });
 }
@@ -1060,10 +1048,12 @@ function initFloatingTools() {
     refreshBtn.setAttribute('aria-label', t.refresh);
     refreshBtn.setAttribute('title', t.refresh);
     refreshBtn.innerHTML = '<i class="fas fa-rotate-right"></i>';
-    refreshBtn.addEventListener('click', async () => {
-        await runSceneTransition(() => {
+    refreshBtn.addEventListener('click', () => {
+        const fadeTargets = getLanguageFadeTargets();
+        fadeTargets.forEach((el) => el.classList.add('lang-fade-target', 'is-leaving'));
+        window.setTimeout(() => {
             window.location.reload();
-        }, { holdMs: 700, outMs: 220, freeze: true });
+        }, 460);
     });
 
     const topBtn = document.createElement('button');
