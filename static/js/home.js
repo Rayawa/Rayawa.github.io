@@ -587,6 +587,30 @@ function initHeroStarInteraction() {
     syncState();
 }
 
+function initHeroEntranceAnimation() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const sequence = [
+        hero.querySelector('.hero-text h1'),
+        hero.querySelector('.hero-aliases'),
+        hero.querySelector('.hero-tags'),
+        hero.querySelector('.btn-group'),
+        hero.querySelector('.hero-image .profile-img'),
+        hero.querySelector('.hero-image .avatar-quote'),
+        hero.querySelector('.hero-image .floating-elements'),
+    ].filter(Boolean);
+
+    sequence.forEach((el, idx) => {
+        el.classList.add('reveal-item');
+        el.style.setProperty('--reveal-delay', `${120 + idx * 110}ms`);
+    });
+
+    window.setTimeout(() => {
+        hero.classList.add('is-entrance-ready');
+    }, 120);
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -597,4 +621,5 @@ initPageLoadAnimation();
 initParticlePointerFollow();
 initParticleMagnetEffect();
 initHeroStarInteraction();
+initHeroEntranceAnimation();
 initFloatingTools();
