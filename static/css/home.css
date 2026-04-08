@@ -428,7 +428,7 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.45rem;
             position: relative;
             display: inline-block;
             color: white;
@@ -437,10 +437,10 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 112px;
             height: 4px;
             background: var(--primary);
             border-radius: 2px;
@@ -452,7 +452,7 @@
             font-weight: 600;
             letter-spacing: 0.015em;
             max-width: 880px;
-            margin: 0 auto;
+            margin: 1.3rem auto 0;
             line-height: 1.45;
         }
 
@@ -646,8 +646,16 @@
         .project-tags {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             gap: 0.5rem;
             margin-bottom: 1rem;
+        }
+
+        .project-award-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.2rem 0 0.9rem;
         }
 
         .tag {
@@ -661,11 +669,14 @@
         }
 
         .tag.tag-award {
+            display: inline-flex;
+            align-items: center;
             color: #d8f2ff;
             border-color: rgba(145, 222, 255, 0.55);
             background: rgba(145, 222, 255, 0.14);
             text-decoration: none;
             font-weight: 650;
+            white-space: nowrap;
         }
 
         .tag.tag-award:hover {
@@ -733,7 +744,7 @@
         .gallery-track {
             position: relative;
             width: 100%;
-            min-height: 520px;
+            min-height: 580px;
         }
 
         .gallery-slide {
@@ -751,7 +762,7 @@
         .gallery-slide img {
             width: 100%;
             height: 100%;
-            min-height: 520px;
+            min-height: 580px;
             object-fit: cover;
             display: block;
         }
@@ -1215,7 +1226,7 @@
 
             .gallery-track,
             .gallery-slide img {
-                min-height: 340px;
+                min-height: 380px;
             }
 
             .language-switch {
