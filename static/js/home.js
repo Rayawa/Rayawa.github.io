@@ -38,23 +38,23 @@ function initParticles() {
     if (typeof particlesJS !== 'function') return;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 68, density: { enable: true, value_area: 900 } },
+            number: { value: 80, density: { enable: true, value_area: 800 } },
             color: { value: '#6366f1' },
             shape: { type: 'circle' },
-            opacity: { value: 0.42, random: true },
+            opacity: { value: 0.5, random: true },
             size: { value: 3, random: true },
             line_linked: {
                 enable: true,
-                distance: 132,
+                distance: 150,
                 color: '#6366f1',
-                opacity: 0.14,
+                opacity: 0.2,
                 width: 1,
             },
             move: {
                 enable: true,
-                speed: 1.15,
+                speed: 2,
                 direction: 'none',
-                random: false,
+                random: true,
                 straight: false,
                 out_mode: 'out',
                 bounce: false,
@@ -64,13 +64,13 @@ function initParticles() {
             detect_on: 'canvas',
             events: {
                 onhover: { enable: true, mode: 'grab' },
-                onclick: { enable: false, mode: 'push' },
+                onclick: { enable: true, mode: 'push' },
             },
             modes: {
                 grab: {
-                    distance: 170,
+                    distance: 210,
                     line_linked: {
-                        opacity: 0.22,
+                        opacity: 0.45,
                     },
                 },
             },
@@ -258,7 +258,7 @@ function initParticlePointerFollow() {
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
-    const maxOffset = 8;
+    const maxOffset = 26;
 
     function updateTarget(clientX, clientY) {
         const cx = window.innerWidth / 2;
@@ -268,8 +268,8 @@ function initParticlePointerFollow() {
     }
 
     function animate() {
-        currentX += (targetX - currentX) * 0.04;
-        currentY += (targetY - currentY) * 0.04;
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
         layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
         window.requestAnimationFrame(animate);
     }
@@ -298,7 +298,7 @@ function initParticlePointerFollow() {
 }
 
 function initParticleMagnetEffect() {
-    const maxRetry = 24;
+    const maxRetry = 30;
     let retry = 0;
 
     function boot() {
@@ -311,11 +311,77 @@ function initParticleMagnetEffect() {
         const particles = instance.particles.array;
         const canvasEl = instance.canvas.el;
         const pointer = { x: 0, y: 0, active: false };
-        const radius = 165;
-        const strength = 0.00034;
-        const maxSpeed = 1.12;
-        const damping = 0.972;
+        const radius = 236;
+        const strength = 0.00148;
+        const damping = 0.988;
+        const maxSpeed = 4.25;
+        const sparseRadius = 96;
+        const sparseThreshold = 1;
+        const minParticles = 58;
         let magneticPower = 0;
+        let frame = 0;
+
+        function getOpacityValue(particle) {
+            if (particle && particle.opacity && typeof particle.opacity.value === 'number') return particle.opacity.value;
+            if (particle && typeof particle.opacity === 'number') return particle.opacity;
+            return 0.5;
+        }
+
+        function setOpacityValue(particle, value) {
+            const next = Math.max(0, Math.min(1, value));
+            if (particle && particle.opacity && typeof particle.opacity.value === 'number') {
+                particle.opacity.value = next;
+                return;
+            }
+            if (particle) particle.opacity = next;
+        }
+
+        function spawnParticleAt(x, y) {
+            if (!instance.fn || !instance.fn.modes || typeof instance.fn.modes.pushParticles !== 'function') return;
+            instance.fn.modes.pushParticles(1, { pos_x: x, pos_y: y });
+
+            const p = particles[particles.length - 1];
+            if (!p) return;
+            p.__generated = true;
+            p.__fadeIn = true;
+            p.__ttl = 520 + Math.floor(Math.random() * 520);
+            p.__fadeOut = false;
+            p.vx = (Math.random() - 0.5) * 0.8;
+            p.vy = (Math.random() - 0.5) * 0.8;
+            setOpacityValue(p, 0.04);
+        }
+
+        function countParticlesNear(x, y, r) {
+            let count = 0;
+            const rSq = r * r;
+            for (let i = 0; i < particles.length; i += 1) {
+                const p = particles[i];
+                const dx = p.x - x;
+                const dy = p.y - y;
+                if (dx * dx + dy * dy <= rSq) count += 1;
+            }
+            return count;
+        }
+
+        function maintainSparseRegions() {
+            const width = instance.canvas.w || canvasEl.width || window.innerWidth;
+            const height = instance.canvas.h || canvasEl.height || window.innerHeight;
+            for (let i = 0; i < 2; i += 1) {
+                const x = Math.random() * width;
+                const y = Math.random() * height;
+                if (countParticlesNear(x, y, sparseRadius) <= sparseThreshold) {
+                    spawnParticleAt(x, y);
+                }
+            }
+
+            if (particles.length > minParticles && Math.random() < 0.1) {
+                const idx = Math.floor(Math.random() * particles.length);
+                const p = particles[idx];
+                if (p && !p.__fadeOut && !p.__fadeIn) {
+                    p.__fadeOut = true;
+                }
+            }
+        }
 
         function setPointer(clientX, clientY) {
             const rect = canvasEl.getBoundingClientRect();
@@ -353,9 +419,10 @@ function initParticleMagnetEffect() {
         }, { passive: true });
 
         function tick() {
+            frame += 1;
             magneticPower += pointer.active
-                ? (1 - magneticPower) * 0.06
-                : (0 - magneticPower) * 0.02;
+                ? (1 - magneticPower) * 0.14
+                : (0 - magneticPower) * 0.012;
 
             if (magneticPower > 0.001 && particles.length) {
                 for (let i = 0; i < particles.length; i += 1) {
@@ -368,25 +435,50 @@ function initParticleMagnetEffect() {
                     const dist = Math.sqrt(distSq);
                     if (dist > radius) continue;
 
-                    const pull = (1 - dist / radius) * strength * magneticPower;
+                    const normalized = 1 - dist / radius;
+                    const pull = normalized * normalized * strength * magneticPower;
                     p.vx += dx * pull;
                     p.vy += dy * pull;
+
+                    const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (speed > maxSpeed) {
+                        const scale = maxSpeed / speed;
+                        p.vx *= scale;
+                        p.vy *= scale;
+                    }
                 }
             }
 
-            for (let i = 0; i < particles.length; i += 1) {
+            for (let i = particles.length - 1; i >= 0; i -= 1) {
                 const p = particles[i];
                 if (typeof p.vx !== 'number') p.vx = 0;
                 if (typeof p.vy !== 'number') p.vy = 0;
                 p.vx *= damping;
                 p.vy *= damping;
 
-                const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-                if (speed > maxSpeed) {
-                    const scale = maxSpeed / speed;
-                    p.vx *= scale;
-                    p.vy *= scale;
+                if (p.__generated && typeof p.__ttl === 'number') {
+                    p.__ttl -= 1;
+                    if (p.__ttl <= 0) p.__fadeOut = true;
                 }
+
+                if (p.__fadeIn) {
+                    const next = getOpacityValue(p) + 0.011;
+                    setOpacityValue(p, next);
+                    if (next >= 0.5) p.__fadeIn = false;
+                }
+
+                if (p.__fadeOut) {
+                    const next = getOpacityValue(p) - 0.004;
+                    if (next <= 0.008) {
+                        particles.splice(i, 1);
+                        continue;
+                    }
+                    setOpacityValue(p, next);
+                }
+            }
+
+            if (frame % 12 === 0) {
+                maintainSparseRegions();
             }
 
             window.requestAnimationFrame(tick);
@@ -403,7 +495,7 @@ function initParticleMagnetEffect() {
         if (boot() || retry >= maxRetry) {
             window.clearInterval(timer);
         }
-    }, 140);
+    }, 120);
 }
 
 function initFloatingTools() {

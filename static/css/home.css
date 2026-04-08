@@ -192,13 +192,6 @@
             color: white;
         }
 
-        .hero-motto {
-            margin-bottom: 0.7rem !important;
-            color: rgba(202, 236, 255, 0.96) !important;
-            letter-spacing: 0.02em;
-            font-size: 1.05rem !important;
-        }
-
         .hero-aliases {
             display: inline-block;
             margin-bottom: 1.25rem;
@@ -231,9 +224,32 @@
 
         .hero-tags p {
             margin-bottom: 0.7rem;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.83);
+            font-size: 0.965rem;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .hero-tags .tag-intro {
+            margin-bottom: 0.95rem;
+            color: rgba(202, 236, 255, 0.96);
+            letter-spacing: 0.02em;
+            font-size: 1.02rem;
+        }
+
+        .hero-tags .tag-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 3.4em;
+            margin-right: 0.55rem;
+            padding: 0.12rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(89, 212, 255, 0.55);
+            background: rgba(89, 212, 255, 0.14);
+            color: #caecff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
         }
 
         .hero-image {
@@ -275,9 +291,9 @@
 
         .avatar-quote {
             position: absolute;
-            top: 36px;
-            left: -48px;
-            max-width: 250px;
+            right: -72px;
+            bottom: 86px;
+            max-width: 240px;
             padding: 0.8rem 1rem;
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.26);
@@ -287,26 +303,28 @@
             line-height: 1.45;
             backdrop-filter: blur(8px);
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
-            animation: quoteFloat 5.8s ease-in-out infinite;
+            animation: quoteFloat 5.2s ease-in-out infinite;
             z-index: 3;
         }
 
         .avatar-quote::after {
             content: '';
             position: absolute;
-            right: -9px;
-            top: 22px;
+            left: -9px;
+            top: 58%;
             width: 16px;
             height: 16px;
             transform: rotate(45deg);
             background: rgba(10, 22, 42, 0.78);
-            border-top: 1px solid rgba(255, 255, 255, 0.26);
-            border-right: 1px solid rgba(255, 255, 255, 0.26);
+            border-left: 1px solid rgba(255, 255, 255, 0.26);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.26);
         }
 
         @keyframes quoteFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            0%, 100% { transform: translateY(0) rotate(-0.2deg); }
+            25% { transform: translateY(-3px) rotate(0.45deg); }
+            50% { transform: translateY(-7px) rotate(0.1deg); }
+            75% { transform: translateY(-2px) rotate(-0.35deg); }
         }
 
         /* 按钮样式 */
@@ -358,22 +376,7 @@
             margin-bottom: 4rem;
         }
 
-        .keynote-banner {
-            width: 100%;
-            margin: 0 auto 1.2rem;
-            padding: 0.4rem 0;
-            text-align: center;
-            font-size: clamp(1.05rem, 2vw, 1.38rem);
-            font-weight: 600;
-            line-height: 1.45;
-            color: rgba(182, 224, 255, 0.9);
-            letter-spacing: 0.02em;
-            border: none;
-            background: transparent;
-            text-shadow: none;
-            box-shadow: none;
-            opacity: 0.95;
-        }
+        .keynote-banner { display: none; }
 
         .section-title {
             font-size: 2.5rem;
@@ -397,10 +400,13 @@
         }
 
         .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.125rem;
-            max-width: 600px;
+            color: rgba(182, 224, 255, 0.92);
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            font-weight: 600;
+            letter-spacing: 0.015em;
+            max-width: 880px;
             margin: 0 auto;
+            line-height: 1.45;
         }
 
         /* 玻璃态卡片 */
@@ -1062,10 +1068,7 @@
                 font-size: 2rem;
             }
 
-            .keynote-banner {
-                font-size: 0.98rem;
-                margin-bottom: 1rem;
-            }
+            .section-subtitle { font-size: 1.02rem; }
 
             .skills-grid {
                 grid-template-columns: 1fr;
@@ -1123,10 +1126,6 @@
 
             .hero-tags p {
                 font-size: 0.93rem;
-            }
-
-            .hero-motto {
-                font-size: 0.95rem !important;
             }
 
             .avatar-quote {
