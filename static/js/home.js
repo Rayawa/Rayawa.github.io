@@ -1,9 +1,5 @@
-const locale = (() => {
-    const lang = (document.documentElement.lang || 'zh').toLowerCase();
-    if (lang.startsWith('en')) return 'en';
-    if (lang.startsWith('fr')) return 'fr';
-    return 'zh';
-})();
+const supportedLocales = ['zh', 'en', 'fr'];
+let locale = 'zh';
 
 const i18n = {
     zh: {
@@ -13,6 +9,68 @@ const i18n = {
         top: '回到顶部',
         refresh: '刷新页面',
         dotLabel: '跳转到第 {n} 张',
+        nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
+        hero: {
+            title: '你好，我是 <span class="gradient-text">Ray</span>',
+            intro: '通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者',
+            core: '专注 HarmonyOS 应用开发与 Hi3861 嵌入式实践。',
+            side: 'Web构建、Difficult Rocket 与 Minecraft 模组开发、生物学相关研究。',
+            photo: '风景摄影与无人机航拍，用快门捕捉通信之外的频率。',
+            life: "J'apprends le français，跑步骑行中，也在提瓦特、塔卫二与罗德岛的世界里切换；音游节奏在线，每天赚费沉底石头人（）。",
+            tag: { core: '核心', side: '支线', photo: '摄影', life: '生活' },
+            btn: { projects: '查看项目', contact: '联系我' },
+            quote: 'Everything is possible by code.',
+        },
+        about: {
+            title: '关于我',
+            subtitle: '跨越学科的边界，只为连接更广阔的世界。',
+            profile: '个人简介',
+        },
+        projects: {
+            title: '我的项目',
+            subtitle: '把热爱写成项目，把项目做成长期作品。',
+            other: '其他项目',
+        },
+        gallery: {
+            title: '摄影作品',
+            subtitle: '以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。',
+            more: '查看更多作品',
+        },
+        social: {
+            title: '我的链接',
+            subtitle: '在公开平台持续输出，也在协作中持续成长。',
+            bili: { title: 'Bilibili', desc: '摄影作品与项目更新进度' },
+            github: { title: 'GitHub', desc: '代码与仓库入口' },
+            xhs: { title: '小红书', desc: '我的全部摄影作品' },
+        },
+        contact: {
+            title: '联系我',
+            subtitle: '如果方向一致，我们就一起把它做成。',
+            email: '电子邮件',
+            website: '网站',
+            qq: 'QQ',
+            location: '位置',
+            locationValue: '北京，中国',
+        },
+        form: {
+            name: '姓名',
+            email: '邮箱',
+            message: '消息',
+            namePh: '请输入您的姓名',
+            emailPh: '请输入您的邮箱',
+            messagePh: '请输入您的消息...',
+            send: '发送消息',
+        },
+        footer: { quick: '快速链接', projects: '项目', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
+        project: {
+            hmdb: { title: '华为应用市场看板', desc: '基于鸿蒙生态的数据看板项目，聚焦应用市场信息聚合、展示与分析。当前主线项目，持续更新中。', award: '开放原子大赛三等奖作品' },
+            bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。' },
+            spm: { title: 'Sweet Potato Mod', desc: '与@teddyxlandlee协作开发的Minecraft模组项目，围绕玩法拓展、内容设计与开源协作推进。' },
+            dr: { title: 'Difficlut Rocket（协作开发）', desc: '与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。' },
+            idv: { title: '第五人格', desc: '当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（' },
+            xiaodou: { title: '小豆英语启蒙', desc: '轻量起步、长期迭代的小豆英语启蒙项目，主打可坚持的学习节奏。' },
+        },
+        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源' },
     },
     en: {
         sending: 'Sending...',
@@ -21,6 +79,68 @@ const i18n = {
         top: 'Back to top',
         refresh: 'Refresh page',
         dotLabel: 'Go to slide {n}',
+        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        hero: {
+            title: 'Hi, I am <span class="gradient-text">Ray</span>',
+            intro: 'Communication Student | HarmonyOS Builder | Cross-domain Geek | Visual Storyteller',
+            core: 'Building HarmonyOS experiences while going deep on Hi3861 embedded fundamentals.',
+            side: 'Shipping web projects, collaborating on Difficult Rocket and Minecraft mods, and exploring biology with code.',
+            photo: 'Shooting landscapes and drone footage to capture frequencies beyond telecom.',
+            life: "Learning French, running and cycling, drifting between Teyvat, Talos-II and Rhodes Island, then ending the day with rhythm games and a Golem deck grind.",
+            tag: { core: 'Core', side: 'Side', photo: 'Photo', life: 'Life' },
+            btn: { projects: 'View Projects', contact: 'Contact Me' },
+            quote: 'Everything is possible by code.',
+        },
+        about: {
+            title: 'About Me',
+            subtitle: 'I cross disciplines to build things that are both useful and alive.',
+            profile: 'Profile',
+        },
+        projects: {
+            title: 'My Projects',
+            subtitle: 'Turning curiosity into shipped work, and shipped work into lasting craft.',
+            other: 'Other Projects',
+        },
+        gallery: {
+            title: 'Gallery',
+            subtitle: 'Aerial angles, grounded texture, and moments that live outside the signal band.',
+            more: 'View More',
+        },
+        social: {
+            title: 'My Links',
+            subtitle: 'Public output, open collaboration, steady growth.',
+            bili: { title: 'Bilibili', desc: 'Photography and project update logs' },
+            github: { title: 'GitHub', desc: 'Code, repos, and ongoing work' },
+            xhs: { title: 'Xiaohongshu', desc: 'Full photography collection' },
+        },
+        contact: {
+            title: 'Contact',
+            subtitle: 'If we aim in the same direction, let us build it together.',
+            email: 'Email',
+            website: 'Website',
+            qq: 'QQ',
+            location: 'Location',
+            locationValue: 'Beijing, China',
+        },
+        form: {
+            name: 'Name',
+            email: 'Email',
+            message: 'Message',
+            namePh: 'Your name',
+            emailPh: 'Your email',
+            messagePh: 'Your message...',
+            send: 'Send',
+        },
+        footer: { quick: 'Quick Links', projects: 'Projects', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
+        project: {
+            hmdb: { title: 'HmDashboard', desc: 'A Harmony ecosystem dashboard focused on market data aggregation, insight display, and analysis.', award: 'Third Prize, OpenAtom Competition' },
+            bio: { title: 'Biology Projects', desc: 'Papers and experiment records, including PCR practice, protein hypotheses, carbon assimilation review, orange-plate experiments, and Agrobacterium web demos.' },
+            spm: { title: 'Sweet Potato Mod', desc: 'A Minecraft mod collaboration with @teddyxlandlee focused on gameplay expansion, content design, and open-source teamwork.' },
+            dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developed with @shenjackyuanjie through steady feature iteration and engineering polish.' },
+            idv: { title: 'Identity V', desc: 'An Identity V web project built with friends, kept as a small but meaningful timestamp.' },
+            xiaodou: { title: 'Xiaodou English Starter', desc: 'A lightweight English learning starter designed for a sustainable daily pace.' },
+        },
+        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source' },
     },
     fr: {
         sending: 'Envoi...',
@@ -29,24 +149,261 @@ const i18n = {
         top: 'Retour en haut',
         refresh: 'Rafraichir la page',
         dotLabel: 'Aller a la diapositive {n}',
+        nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        hero: {
+            title: 'Bonjour, je suis <span class="gradient-text">Ray</span>',
+            intro: 'Etudiant en communication | Createur HarmonyOS | Geek transdisciplinaire | Auteur visuel',
+            core: 'Je construis des applications HarmonyOS tout en approfondissant l embarque Hi3861.',
+            side: 'Je livre des projets web, je collabore sur Difficult Rocket et des mods Minecraft, et j explore la biologie par le code.',
+            photo: 'Photo de paysage et drone pour capter des frequences hors du spectre telecom.',
+            life: "J apprends le francais, je cours, je fais du velo, je passe de Teyvat a Rhodes Island, puis je termine en jeux de rythme et deck Golem.",
+            tag: { core: 'Noyau', side: 'Pistes', photo: 'Photo', life: 'Vie' },
+            btn: { projects: 'Voir les projets', contact: 'Me contacter' },
+            quote: 'Everything is possible by code.',
+        },
+        about: {
+            title: 'A propos de moi',
+            subtitle: 'Je traverse les disciplines pour construire des choses utiles, sensibles et durables.',
+            profile: 'Profil',
+        },
+        projects: {
+            title: 'Mes projets',
+            subtitle: 'Transformer la curiosite en projets, puis les projets en travail qui reste.',
+            other: 'Autres projets',
+        },
+        gallery: {
+            title: 'Galerie',
+            subtitle: 'Angles aeriens, textures du sol, et instants hors de la bande de signal.',
+            more: 'Voir plus',
+        },
+        social: {
+            title: 'Mes liens',
+            subtitle: 'Publier en public, collaborer en ouvert, progresser sans pause.',
+            bili: { title: 'Bilibili', desc: 'Photos et journal de progression projet' },
+            github: { title: 'GitHub', desc: 'Code, depots et chantiers en cours' },
+            xhs: { title: 'Xiaohongshu', desc: 'Collection photo complete' },
+        },
+        contact: {
+            title: 'Contact',
+            subtitle: 'Si nous visons la meme direction, construisons-le ensemble.',
+            email: 'Email',
+            website: 'Site',
+            qq: 'QQ',
+            location: 'Localisation',
+            locationValue: 'Pekin, Chine',
+        },
+        form: {
+            name: 'Nom',
+            email: 'Email',
+            message: 'Message',
+            namePh: 'Votre nom',
+            emailPh: 'Votre email',
+            messagePh: 'Votre message...',
+            send: 'Envoyer',
+        },
+        footer: { quick: 'Liens rapides', projects: 'Projets', copy: '&copy; 2026 Ray Chen. Tous droits reserves.' },
+        project: {
+            hmdb: { title: 'HmDashboard', desc: 'Un tableau de bord de l ecosysteme Harmony, axe sur l agregation, la lecture et l analyse de donnees applicatives.', award: 'Troisieme prix, concours OpenAtom' },
+            bio: { title: 'Projets de biologie', desc: 'Papiers et traces experimentales: PCR, hypotheses proteiques, revue d assimilation du carbone, orange-plate et demos web Agrobacterium.' },
+            spm: { title: 'Sweet Potato Mod', desc: 'Collaboration mod Minecraft avec @teddyxlandlee, orientee gameplay, contenu et dynamique open-source.' },
+            dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developpe avec @shenjackyuanjie, avec iterations fonctionnelles continues et consolidation technique.' },
+            idv: { title: 'Identity V', desc: 'Un site Identity V cree avec des amis, garde comme capsule de memoire.' },
+            xiaodou: { title: 'Xiaodou English Starter', desc: 'Une initiation a l anglais, legere au depart et pensee pour durer au quotidien.' },
+        },
+        tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source' },
     },
 };
 
-const t = i18n[locale];
+function getI18nValue(path, lang = locale) {
+    return path.split('.').reduce((acc, key) => (acc && typeof acc === 'object' ? acc[key] : undefined), i18n[lang]);
+}
+
+function getCurrentText(path, fallback = '') {
+    const value = getI18nValue(path);
+    return value == null ? fallback : value;
+}
+
+let t = i18n.zh;
+let galleryA11yUpdater = null;
+const floatingTools = { refreshBtn: null, topBtn: null };
+const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
+const localeHtmlMap = { en: 'index_en.html', fr: 'index_fr.html' };
+const localeFragmentsCache = {};
+let localeFragmentToken = 0;
+
+const aboutBlocks = {
+    about: null,
+    status: null,
+    capability: null,
+    zhSnapshot: null,
+};
+
+function detectInitialLocale() {
+    const fromQuery = new URLSearchParams(window.location.search).get('lang');
+    if (fromQuery && supportedLocales.includes(fromQuery)) return fromQuery;
+    const fromStorage = window.localStorage.getItem('site_lang');
+    if (fromStorage && supportedLocales.includes(fromStorage)) return fromStorage;
+    const fromDoc = (document.documentElement.lang || '').toLowerCase();
+    if (fromDoc.startsWith('en')) return 'en';
+    if (fromDoc.startsWith('fr')) return 'fr';
+    return 'zh';
+}
+
+function applyLanguageButtons() {
+    document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
+        const isActive = btn.dataset.lang === locale;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+}
+
+function applyTextNodes() {
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        const value = getCurrentText(key, el.textContent || '');
+        el.innerHTML = value;
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-html');
+        const value = getCurrentText(key, el.innerHTML);
+        el.innerHTML = value;
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const value = getCurrentText(key, el.getAttribute('placeholder') || '');
+        el.setAttribute('placeholder', value);
+    });
+
+    const quote = document.querySelector('.avatar-quote');
+    if (quote) quote.textContent = getCurrentText('hero.quote', quote.textContent || '');
+}
+
+function initLocaleBlockSnapshots() {
+    aboutBlocks.about = document.getElementById('aboutTextBlock');
+    aboutBlocks.status = document.getElementById('statusCardBlock');
+    aboutBlocks.capability = document.getElementById('capabilityCardBlock');
+    if (!aboutBlocks.about || !aboutBlocks.status || !aboutBlocks.capability) return;
+    aboutBlocks.zhSnapshot = {
+        about: aboutBlocks.about.innerHTML,
+        status: aboutBlocks.status.innerHTML,
+        capability: aboutBlocks.capability.innerHTML,
+    };
+}
+
+async function loadLocaleFragments(lang) {
+    if (!localeHtmlMap[lang]) return null;
+    if (localeFragmentsCache[lang]) return localeFragmentsCache[lang];
+
+    const res = await fetch(localeHtmlMap[lang], { cache: 'force-cache' });
+    if (!res.ok) throw new Error(`failed to load locale source ${lang}`);
+    const html = await res.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+
+    const about = doc.querySelector('#about .about-text');
+    const status = doc.querySelector('#about .status-card');
+    const capability = doc.querySelector('#about .side-card');
+    if (!about || !status || !capability) return null;
+
+    const fragments = {
+        about: about.innerHTML,
+        status: status.innerHTML,
+        capability: capability.innerHTML,
+    };
+    localeFragmentsCache[lang] = fragments;
+    return fragments;
+}
+
+async function applyLocaleBlocks(lang) {
+    if (!aboutBlocks.about || !aboutBlocks.status || !aboutBlocks.capability || !aboutBlocks.zhSnapshot) return;
+    const currentToken = ++localeFragmentToken;
+
+    if (lang === 'zh') {
+        aboutBlocks.about.innerHTML = aboutBlocks.zhSnapshot.about;
+        aboutBlocks.status.innerHTML = aboutBlocks.zhSnapshot.status;
+        aboutBlocks.capability.innerHTML = aboutBlocks.zhSnapshot.capability;
+        hydrateRevealItems();
+        return;
+    }
+
+    try {
+        const fragments = await loadLocaleFragments(lang);
+        if (!fragments || currentToken !== localeFragmentToken) return;
+        aboutBlocks.about.innerHTML = fragments.about;
+        aboutBlocks.status.innerHTML = fragments.status;
+        aboutBlocks.capability.innerHTML = fragments.capability;
+        hydrateRevealItems();
+    } catch (err) {
+        console.warn('locale fragment load failed', err);
+    }
+}
+
+function hydrateRevealItems() {
+    const targets = document.querySelectorAll([
+        '.projects .project-card',
+        '.social .social-card',
+        '.contact .contact-item',
+        '.contact .contact-form',
+        '.gallery .gallery-carousel',
+        '.about .glass-card',
+        '.about .about-text > h3',
+        '.about .about-text > p',
+    ].join(','));
+
+    let index = 0;
+    targets.forEach((el) => {
+        if (!el.classList.contains('reveal-item')) {
+            el.classList.add('reveal-item');
+        }
+        const delay = 90 + (index % 8) * 70;
+        el.style.setProperty('--reveal-delay', `${delay}ms`);
+        index += 1;
+    });
+}
+
+function setLocale(nextLocale, { persist = true } = {}) {
+    if (!supportedLocales.includes(nextLocale)) return;
+    locale = nextLocale;
+    t = i18n[locale];
+    document.documentElement.lang = langToHtmlLang[locale] || 'zh-CN';
+
+    applyTextNodes();
+    applyLocaleBlocks(locale);
+    applyLanguageButtons();
+    if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
+    if (floatingTools.refreshBtn && floatingTools.topBtn) {
+        floatingTools.refreshBtn.setAttribute('aria-label', t.refresh);
+        floatingTools.refreshBtn.setAttribute('title', t.refresh);
+        floatingTools.topBtn.setAttribute('aria-label', t.top);
+        floatingTools.topBtn.setAttribute('title', t.top);
+    }
+    if (persist) window.localStorage.setItem('site_lang', locale);
+}
+
+function initLanguageSwitcher() {
+    document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const nextLocale = btn.dataset.lang;
+            if (!nextLocale || nextLocale === locale) return;
+            setLocale(nextLocale);
+        });
+    });
+}
 
 function initParticles() {
     if (typeof particlesJS !== 'function') return;
     particlesJS('particles-js', {
         particles: {
             number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: '#6366f1' },
+            color: { value: '#ff8a1f' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
             size: { value: 3, random: true },
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: '#6366f1',
+                color: '#ff8a1f',
                 opacity: 0.2,
                 width: 1,
             },
@@ -200,6 +557,7 @@ function initGalleryCarousel() {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'gallery-dot' + (idx === 0 ? ' active' : '');
+        dot.dataset.index = String(idx + 1);
         dot.setAttribute('aria-label', t.dotLabel.replace('{n}', String(idx + 1)));
         dot.addEventListener('click', () => {
             goTo(idx);
@@ -208,6 +566,16 @@ function initGalleryCarousel() {
         dotsWrap.appendChild(dot);
         return dot;
     });
+
+    galleryA11yUpdater = () => {
+        dots.forEach((dot) => {
+            const idx = dot.dataset.index || '1';
+            dot.setAttribute('aria-label', t.dotLabel.replace('{n}', idx));
+        });
+        prevBtn.setAttribute('aria-label', locale === 'zh' ? '上一张' : locale === 'fr' ? 'Precedent' : 'Previous');
+        nextBtn.setAttribute('aria-label', locale === 'zh' ? '下一张' : locale === 'fr' ? 'Suivant' : 'Next');
+    };
+    galleryA11yUpdater();
 
     function goTo(index) {
         slides[current].classList.remove('active');
@@ -256,12 +624,47 @@ function initGalleryCarousel() {
 
 function initPageLoadAnimation() {
     window.addEventListener('load', () => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        window.setTimeout(() => {
+        window.requestAnimationFrame(() => {
+            document.body.classList.remove('page-preload');
+        });
+    });
+}
+
+function initSectionReveal() {
+    const sections = Array.from(document.querySelectorAll('.reveal-section'));
+    if (!sections.length) return;
+
+    const hero = document.querySelector('.hero');
+    if (hero) hero.classList.add('is-visible');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+    sections.forEach((section) => observer.observe(section));
+}
+
+function initPageLeaveTransitions() {
+    document.querySelectorAll('a[href]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+            if (e.defaultPrevented) return;
+            const href = anchor.getAttribute('href') || '';
+            if (!href || href.startsWith('#')) return;
+            if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+
+            const destination = new URL(anchor.href, window.location.href);
+            if (destination.origin !== window.location.origin) return;
+
+            e.preventDefault();
+            document.body.classList.add('page-leaving');
             window.setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        }, 100);
+                window.location.href = destination.href;
+            }, 280);
+        });
     });
 }
 
@@ -549,6 +952,8 @@ function initFloatingTools() {
     wrapper.appendChild(refreshBtn);
     wrapper.appendChild(topBtn);
     document.body.appendChild(wrapper);
+    floatingTools.refreshBtn = refreshBtn;
+    floatingTools.topBtn = topBtn;
 
     const toggleTop = () => {
         const show = window.scrollY > 260;
@@ -612,6 +1017,13 @@ function initAwardLinks() {
     });
 }
 
+locale = detectInitialLocale();
+t = i18n[locale] || i18n.zh;
+
+initLocaleBlockSnapshots();
+initLanguageSwitcher();
+setLocale(locale, { persist: false });
+hydrateRevealItems();
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -619,6 +1031,8 @@ initContactForm();
 initMobileMenu();
 initGalleryCarousel();
 initPageLoadAnimation();
+initSectionReveal();
+initPageLeaveTransitions();
 initParticlePointerFollow();
 initParticleMagnetEffect();
 initHeroStarInteraction();
