@@ -257,6 +257,123 @@ function initParticlePointerFollow() {
     animate();
 }
 
+function initScrollShowcase() {
+    const sections = Array.from(document.querySelectorAll('body > section[id]'));
+    if (!sections.length) return;
+
+    const mediaQuery = window.matchMedia('(min-width: 901px) and (prefers-reduced-motion: no-preference)');
+    const navMap = new Map(
+        Array.from(document.querySelectorAll('.nav-links a[href^="#"]')).map((link) => [link.getAttribute('href'), link.textContent.trim()])
+    );
+
+    let dock = null;
+    let dockButtons = [];
+    let ticking = false;
+
+    function scrollToSection(section) {
+        window.scrollTo({
+            top: section.offsetTop - 24,
+            behavior: 'smooth',
+        });
+    }
+
+    function buildDock() {
+        if (dock) return;
+        dock = document.createElement('div');
+        dock.className = 'section-dock';
+
+        dockButtons = sections.map((section) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'section-dock-dot';
+            button.setAttribute('aria-label', navMap.get(`#${section.id}`) || section.id);
+            button.addEventListener('click', () => scrollToSection(section));
+            dock.appendChild(button);
+            return button;
+        });
+
+        document.body.appendChild(dock);
+    }
+
+    function destroyDock() {
+        if (!dock) return;
+        dock.remove();
+        dock = null;
+        dockButtons = [];
+    }
+
+    function clearState() {
+        sections.forEach((section) => {
+            section.classList.remove('is-current');
+            section.style.removeProperty('--section-progress');
+            section.style.removeProperty('--section-focus');
+        });
+    }
+
+    function updateSections() {
+        ticking = false;
+        if (!mediaQuery.matches) return;
+
+        const viewportHeight = window.innerHeight;
+        let currentIndex = 0;
+        let smallestDistance = Number.POSITIVE_INFINITY;
+
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            const centerOffset = rect.top + rect.height / 2 - viewportHeight / 2;
+            const normalized = Math.max(-1.15, Math.min(1.15, centerOffset / viewportHeight));
+            const focus = Math.max(0, 1 - Math.min(Math.abs(normalized), 1));
+
+            section.style.setProperty('--section-progress', normalized.toFixed(4));
+            section.style.setProperty('--section-focus', focus.toFixed(4));
+
+            const distance = Math.abs(centerOffset);
+            if (distance < smallestDistance) {
+                smallestDistance = distance;
+                currentIndex = index;
+            }
+        });
+
+        sections.forEach((section, index) => {
+            section.classList.toggle('is-current', index === currentIndex);
+        });
+
+        dockButtons.forEach((button, index) => {
+            button.classList.toggle('is-active', index === currentIndex);
+        });
+    }
+
+    function requestUpdate() {
+        if (ticking || !mediaQuery.matches) return;
+        ticking = true;
+        window.requestAnimationFrame(updateSections);
+    }
+
+    function syncMode() {
+        const enabled = mediaQuery.matches;
+        document.documentElement.classList.toggle('has-scroll-showcase', enabled);
+        document.body.classList.toggle('has-scroll-showcase', enabled);
+
+        if (!enabled) {
+            destroyDock();
+            clearState();
+            return;
+        }
+
+        buildDock();
+        updateSections();
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+    if (typeof mediaQuery.addEventListener === 'function') {
+        mediaQuery.addEventListener('change', syncMode);
+    } else if (typeof mediaQuery.addListener === 'function') {
+        mediaQuery.addListener(syncMode);
+    }
+    syncMode();
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -265,3 +382,4 @@ initMobileMenu();
 initGalleryCarousel();
 initPageLoadAnimation();
 initParticlePointerFollow();
+initScrollShowcase();

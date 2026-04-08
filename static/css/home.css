@@ -273,6 +273,112 @@
             padding: 6rem 0;
         }
 
+        @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+            html.has-scroll-showcase {
+                scroll-snap-type: y proximity;
+            }
+
+            body.has-scroll-showcase section {
+                position: relative;
+                min-height: 100svh;
+                display: flex;
+                align-items: center;
+                padding: 8.5rem 0 4rem;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+                overflow: clip;
+                isolation: isolate;
+            }
+
+            body.has-scroll-showcase section::before {
+                content: '';
+                position: absolute;
+                inset: 10% 6%;
+                border-radius: 36px;
+                background:
+                    radial-gradient(circle at 20% 18%, rgba(89, 212, 255, 0.18), transparent 28%),
+                    radial-gradient(circle at 82% 74%, rgba(144, 244, 199, 0.18), transparent 30%),
+                    linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+                opacity: calc(0.18 + var(--section-focus, 0) * 0.32);
+                transform:
+                    translate3d(calc(var(--section-progress, 0) * -64px), calc(var(--section-progress, 0) * 36px), 0)
+                    scale(calc(0.96 + var(--section-focus, 0) * 0.08));
+                filter: blur(16px);
+                transition: opacity 0.35s ease;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            body.has-scroll-showcase section > .container {
+                width: 100%;
+                transform:
+                    translate3d(0, calc(var(--section-progress, 0) * -82px), 0)
+                    scale(calc(0.9 + var(--section-focus, 0) * 0.1));
+                opacity: calc(0.26 + var(--section-focus, 0) * 0.74);
+                filter: blur(calc((1 - var(--section-focus, 0)) * 10px));
+                transform-origin: center center;
+                will-change: transform, opacity, filter;
+            }
+
+            body.has-scroll-showcase section.is-current > .container {
+                pointer-events: auto;
+            }
+
+            body.has-scroll-showcase .hero > .container {
+                transform:
+                    translate3d(0, calc(var(--section-progress, 0) * -56px), 0)
+                    scale(calc(0.92 + var(--section-focus, 0) * 0.08));
+            }
+
+            body.has-scroll-showcase .project-card,
+            body.has-scroll-showcase .skill-item,
+            body.has-scroll-showcase .social-card,
+            body.has-scroll-showcase .contact-form,
+            body.has-scroll-showcase .contact-item,
+            body.has-scroll-showcase .gallery-carousel,
+            body.has-scroll-showcase .glass-card {
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+                backdrop-filter: blur(14px);
+            }
+
+            body.has-scroll-showcase .section-dock {
+                position: fixed;
+                top: 50%;
+                right: 22px;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                z-index: 1002;
+                padding: 12px 10px;
+                border-radius: 999px;
+                background: rgba(7, 13, 28, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(14px);
+            }
+
+            body.has-scroll-showcase .section-dock-dot {
+                width: 11px;
+                height: 11px;
+                border: none;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.28);
+                cursor: pointer;
+                transition: transform 0.25s ease, background 0.25s ease;
+                padding: 0;
+            }
+
+            body.has-scroll-showcase .section-dock-dot:hover {
+                background: rgba(255, 255, 255, 0.75);
+                transform: scale(1.14);
+            }
+
+            body.has-scroll-showcase .section-dock-dot.is-active {
+                background: linear-gradient(135deg, #59d4ff 0%, #90f4c7 100%);
+                transform: scale(1.28);
+            }
+        }
+
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
