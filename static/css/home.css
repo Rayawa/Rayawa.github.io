@@ -1423,7 +1423,7 @@
             will-change: transform, opacity;
         }
 
-        .reveal-section.is-visible .reveal-item {
+        .reveal-section:not(.hero).is-visible .reveal-item {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
@@ -1452,4 +1452,21 @@
             0% { opacity: 0; transform: translateY(38px) scale(0.9) rotate(-1.8deg); filter: blur(4px); }
             70% { opacity: 1; transform: translateY(-3px) scale(1.01) rotate(0.25deg); filter: blur(0); }
             100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); filter: blur(0); }
+        }
+
+        .lang-fade-target {
+            transition: opacity 0.32s ease, transform 0.32s ease, filter 0.32s ease;
+            will-change: opacity, transform, filter;
+        }
+
+        .lang-fade-target.is-leaving {
+            opacity: 0;
+            transform: translateY(-6px);
+            filter: blur(2px);
+        }
+
+        .lang-fade-target.is-entering {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
         }

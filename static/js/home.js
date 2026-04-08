@@ -232,7 +232,6 @@ const localeFragmentsCache = {};
 let localeFragmentToken = 0;
 let transitionLayer = null;
 let isSceneTransitioning = false;
-let particleOriginalBoot = null;
 
 const aboutBlocks = {
     about: null,
@@ -321,8 +320,8 @@ async function runSceneTransition(action, options = {}) {
     if (isSceneTransitioning) return;
     isSceneTransitioning = true;
 
-    const holdMs = options.holdMs ?? 420;
-    const outMs = options.outMs ?? 620;
+    const holdMs = options.holdMs ?? 620;
+    const outMs = options.outMs ?? 900;
     const freeze = options.freeze !== false;
     const layer = initTransitionLayer();
 
@@ -487,23 +486,46 @@ async function setLocale(nextLocale, { persist = true } = {}) {
     if (persist) window.localStorage.setItem('site_lang', locale);
 }
 
+function getLanguageFadeTargets() {
+    return Array.from(document.querySelectorAll([
+        '.navbar .nav-links a',
+        '.hero .hero-text h1',
+        '.hero .hero-aliases',
+        '.hero .hero-tags p',
+        '.hero .btn-group .btn',
+        '.section-header .section-title',
+        '.section-header .section-subtitle',
+    ].join(',')));
+}
+
+async function runLanguageTextTransition(changeAction) {
+    const targets = getLanguageFadeTargets();
+    targets.forEach((el) => el.classList.add('lang-fade-target', 'is-leaving'));
+    await sleep(280);
+    await changeAction();
+    targets.forEach((el) => el.classList.remove('is-leaving'));
+    targets.forEach((el) => el.classList.add('is-entering'));
+    await sleep(420);
+    targets.forEach((el) => el.classList.remove('lang-fade-target', 'is-entering'));
+}
+
 function initLanguageSwitcher() {
     document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
         btn.addEventListener('click', async () => {
             const nextLocale = btn.dataset.lang;
             if (!nextLocale || nextLocale === locale) return;
-            await runSceneTransition(async () => {
+            await runLanguageTextTransition(async () => {
                 await stabilizeLayoutDuring(async () => {
                     await setLocale(nextLocale);
                 });
-            }, { holdMs: 420, outMs: 620, freeze: true });
+            });
         });
     });
 }
 
 function initParticles() {
     if (typeof particlesJS !== 'function') return;
-    particleOriginalBoot = () => particlesJS('particles-js', {
+    particlesJS('particles-js', {
         particles: {
             number: { value: 80, density: { enable: true, value_area: 800 } },
             color: { value: '#6366f1' },
@@ -543,7 +565,6 @@ function initParticles() {
             },
         },
     });
-    particleOriginalBoot();
 }
 
 function initNavbarScroll() {
@@ -737,7 +758,7 @@ function initPageLoadAnimation() {
     window.addEventListener('load', async () => {
         window.requestAnimationFrame(async () => {
             document.body.classList.remove('page-preload');
-            await runSceneTransition(null, { holdMs: 520, outMs: 760, freeze: false });
+            await runSceneTransition(null, { holdMs: 760, outMs: 1100, freeze: false });
             document.body.classList.add('app-entered');
         });
     });
@@ -782,7 +803,6 @@ function initPageLeaveTransitions() {
 }
 
 function initParticlePointerFollow() {
-    if (typeof particleOriginalBoot === 'function') return;
     const layer = document.getElementById('particles-js');
     if (!layer) return;
 
@@ -830,7 +850,6 @@ function initParticlePointerFollow() {
 }
 
 function initParticleMagnetEffect() {
-    if (typeof particleOriginalBoot === 'function') return;
     const maxRetry = 30;
     let retry = 0;
 
@@ -1044,7 +1063,7 @@ function initFloatingTools() {
     refreshBtn.addEventListener('click', async () => {
         await runSceneTransition(() => {
             window.location.reload();
-        }, { holdMs: 420, outMs: 180, freeze: true });
+        }, { holdMs: 700, outMs: 220, freeze: true });
     });
 
     const topBtn = document.createElement('button');
