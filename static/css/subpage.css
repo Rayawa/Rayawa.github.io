@@ -8,6 +8,11 @@
     --glass-border: rgba(255, 255, 255, 0.18);
     --radius: 14px;
     --transition: all 0.3s ease;
+    color-scheme: light dark;
+}
+
+.lang-flag {
+    isolation: isolate;
 }
 
 * {

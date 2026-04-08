@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             --bg-b: #1b2f50;
             --panel: rgba(10, 20, 38, 0.72);
             --panel-border: rgba(202, 236, 255, 0.36);
+            color-scheme: light dark;
         }
 
         * {
@@ -37,9 +39,11 @@
 
         #particles-js {
             position: fixed;
-            inset: 0;
+            inset: -5%;
+            width: 110%;
+            height: 110%;
             z-index: 0;
-            pointer-events: none;
+            pointer-events: all;
         }
 
         .wrap {
@@ -68,41 +72,50 @@
             letter-spacing: 0.02em;
         }
 
-/* 语言块容器：改为垂直布局 */
-.lang-block {
-    display: flex;
-    flex-direction: column; /* 纵向排列 */
-    align-items: flex-start;
-    gap: 0.8rem; /* 国旗和文字之间的间距 */
-    padding: 1.5rem 0; /* 增加上下内边距 */
-}
+        .lang-block {
+            display: flex;
+            flex-direction: row;
+            /* 改回横向 */
+            flex-wrap: wrap;
+            /* 允许换行 */
+            align-items: center;
+            /* 国旗和“悖论”垂直居中对齐 */
+            gap: 0.8rem;
+            padding: 1.5rem 0;
+        }
 
-/* 强制第一个块顶部没有边距 */
-.lang-block:first-of-type {
-    padding-top: 0.5rem;
-}
+        .lang-block strong {
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
 
-/* 段落之间的隔断线：优化样式 */
-.lang-block + .lang-block {
-    margin-top: 0; /* 移除之前的 margin */
-    border-top: 1px solid rgba(202, 236, 255, 0.15); /* 更淡的分割线 */
-}
+        .lang-block p {
+            flex-basis: 100%;
+            /* 强制段落占据 100% 宽度，从而实现自动换行到下一行 */
+            color: rgba(245, 251, 255, 0.85);
+            line-height: 1.8;
+            margin: 0;
+        }
 
-/* 国旗图标：小巧且精致 */
-.lang-flag {
-    width: 32px;         /* 固定宽度，你可以根据喜好调整 */
-    height: auto;
-    border-radius: 4px;  /* 轻微圆角 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 悬浮感阴影 */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* 细边框防止在深色背景下看不清 */
-}
+        .lang-block:first-of-type {
+            padding-top: 0.5rem;
+        }
 
-/* 段落文字：稍微增加行高，提升阅读体验 */
-.lang-block p {
-    color: rgba(245, 251, 255, 0.85);
-    line-height: 1.8;
-    margin: 0;
-}
+        .lang-block+.lang-block {
+            margin-top: 0;
+            border-top: 1px solid rgba(202, 236, 255, 0.42);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .lang-flag {
+            width: 32px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            isolation: isolate;
+        }
+
 
         h2 {
             font-size: clamp(1rem, 3vw, 1.25rem);
@@ -131,6 +144,7 @@
             background: rgba(99, 102, 241, 0.24);
             transition: 0.24s ease;
             -webkit-tap-highlight-color: transparent;
+            white-space: nowrap;
         }
 
         .home-link:hover {
@@ -138,31 +152,65 @@
             background: rgba(99, 102, 241, 0.4);
             border-color: rgba(202, 236, 255, 0.85);
         }
+
+        @media (max-width: 640px) {
+            .wrap {
+                padding: 1.2rem 0.85rem;
+            }
+
+            .card {
+                padding: 0.95rem 0.9rem;
+                border-radius: 12px;
+            }
+
+            .lang-block {
+                gap: 0.65rem;
+                padding: 1rem 0;
+            }
+
+            .lang-block p {
+                line-height: 1.65;
+                font-size: 0.95rem;
+                overflow-wrap: anywhere;
+            }
+
+            .home-link {
+                display: flex;
+                width: 100%;
+                font-size: 0.88rem;
+                padding: 0.62rem 0.68rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div id="particles-js"></div>
 
     <main class="wrap">
         <section class="card" aria-labelledby="title404">
             <h1 id="title404">404</h1>
-
             <div class="lang-block">
                 <img src="static/images/cn.svg" alt="" class="lang-flag">
-                <p>悖论：当你进入https://rayawa.top/404.html，请你思考一个问题：是你的浏览器真的在访问404页面，还是因为它找不到404.html才给你显示404页面呢？</p>
+                <strong>悖论</strong>
+                <p>当你进入https://rayawa.top/404.html，请你思考一个问题：是你的浏览器真的在访问404页面，还是因为它找不到404.html才给你显示404页面呢？</p>
             </div>
 
             <div class="lang-block">
                 <img src="static/images/uk.svg" alt="" class="lang-flag">
-                <p>Paradox: when you open https://rayawa.top/404.html, think about this: is your browser truly visiting a 404 page, or is it showing you a 404 page because it cannot find 404.html?</p>
+                <strong>Paradox</strong>
+                <p>when you open https://rayawa.top/404.html, think about this: is your browser truly visiting a 404
+                    page, or is it showing you a 404 page because it cannot find 404.html?</p>
             </div>
 
             <div class="lang-block">
                 <img src="static/images/fr.svg" alt="" class="lang-flag">
-                <p>Paradoxe : lorsque vous ouvrez https://rayawa.top/404.html, reflechissez a ceci : votre navigateur visite-t-il vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?</p>
+                <strong>Paradoxe</strong>
+                <p>lorsque vous ouvrez https://rayawa.top/404.html, reflechissez a ceci : votre navigateur visite-t-il
+                    vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?</p>
             </div>
 
-            <a class="home-link" href="/">返回首页 / Back Home / Retour a l'accueil</a>
+            <a class="home-link" href="/">返回首页 / Home / Accueil</a>
         </section>
     </main>
 
@@ -193,46 +241,257 @@
             retina_detect: true
         });
 
-        (function initPointerFollow() {
+        function initParticlePointerFollow() {
             const layer = document.getElementById('particles-js');
             if (!layer) return;
+
             let targetX = 0;
             let targetY = 0;
             let currentX = 0;
             let currentY = 0;
-            const maxOffset = 24;
+            const maxOffset = 26;
 
-            function update(clientX, clientY) {
+            function updateTarget(clientX, clientY) {
                 const cx = window.innerWidth / 2;
                 const cy = window.innerHeight / 2;
                 targetX = ((clientX - cx) / cx) * maxOffset;
                 targetY = ((clientY - cy) / cy) * maxOffset;
             }
 
-            function tick() {
+            function animate() {
                 currentX += (targetX - currentX) * 0.08;
                 currentY += (targetY - currentY) * 0.08;
                 layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-                requestAnimationFrame(tick);
+                window.requestAnimationFrame(animate);
             }
 
-            window.addEventListener('pointermove', (e) => update(e.clientX, e.clientY), { passive: true });
-            window.addEventListener('touchmove', (e) => {
-                const t = e.touches && e.touches[0];
-                if (!t) return;
-                update(t.clientX, t.clientY);
+            window.addEventListener('pointermove', (e) => {
+                updateTarget(e.clientX, e.clientY);
             }, { passive: true });
+
+            window.addEventListener('touchmove', (e) => {
+                const touch = e.touches && e.touches[0];
+                if (!touch) return;
+                updateTarget(touch.clientX, touch.clientY);
+            }, { passive: true });
+
             window.addEventListener('pointerleave', () => {
                 targetX = 0;
                 targetY = 0;
-            }, { passive: true });
+            });
+
             window.addEventListener('touchend', () => {
                 targetX = 0;
                 targetY = 0;
             }, { passive: true });
 
-            tick();
-        })();
+            animate();
+        }
+
+        function initParticleMagnetEffect() {
+            const maxRetry = 30;
+            let retry = 0;
+
+            function boot() {
+                if (!window.pJSDom || !window.pJSDom.length) return false;
+                const instance = window.pJSDom[0] && window.pJSDom[0].pJS;
+                if (!instance || !instance.particles || !instance.particles.array || !instance.canvas || !instance.canvas.el) {
+                    return false;
+                }
+
+                const particles = instance.particles.array;
+                const canvasEl = instance.canvas.el;
+                const pointer = { x: 0, y: 0, active: false };
+                const radius = 236;
+                const strength = 0.00126;
+                const damping = 0.988;
+                const maxSpeed = 4.25;
+                const sparseRadius = 96;
+                const sparseThreshold = 1;
+                const minParticles = 58;
+                let magneticPower = 0;
+                let frame = 0;
+
+                function getOpacityValue(particle) {
+                    if (particle && particle.opacity && typeof particle.opacity.value === 'number') return particle.opacity.value;
+                    if (particle && typeof particle.opacity === 'number') return particle.opacity;
+                    return 0.5;
+                }
+
+                function setOpacityValue(particle, value) {
+                    const next = Math.max(0, Math.min(1, value));
+                    if (particle && particle.opacity && typeof particle.opacity.value === 'number') {
+                        particle.opacity.value = next;
+                        return;
+                    }
+                    if (particle) particle.opacity = next;
+                }
+
+                function spawnParticleAt(x, y) {
+                    if (!instance.fn || !instance.fn.modes || typeof instance.fn.modes.pushParticles !== 'function') return;
+                    instance.fn.modes.pushParticles(1, { pos_x: x, pos_y: y });
+
+                    const p = particles[particles.length - 1];
+                    if (!p) return;
+                    p.__generated = true;
+                    p.__fadeIn = true;
+                    p.__ttl = 520 + Math.floor(Math.random() * 520);
+                    p.__fadeOut = false;
+                    p.vx = (Math.random() - 0.5) * 0.8;
+                    p.vy = (Math.random() - 0.5) * 0.8;
+                    setOpacityValue(p, 0.04);
+                }
+
+                function countParticlesNear(x, y, r) {
+                    let count = 0;
+                    const rSq = r * r;
+                    for (let i = 0; i < particles.length; i += 1) {
+                        const p = particles[i];
+                        const dx = p.x - x;
+                        const dy = p.y - y;
+                        if (dx * dx + dy * dy <= rSq) count += 1;
+                    }
+                    return count;
+                }
+
+                function maintainSparseRegions() {
+                    const width = instance.canvas.w || canvasEl.width || window.innerWidth;
+                    const height = instance.canvas.h || canvasEl.height || window.innerHeight;
+                    for (let i = 0; i < 2; i += 1) {
+                        const x = Math.random() * width;
+                        const y = Math.random() * height;
+                        if (countParticlesNear(x, y, sparseRadius) <= sparseThreshold) {
+                            spawnParticleAt(x, y);
+                        }
+                    }
+
+                    if (particles.length > minParticles && Math.random() < 0.1) {
+                        const idx = Math.floor(Math.random() * particles.length);
+                        const p = particles[idx];
+                        if (p && !p.__fadeOut && !p.__fadeIn) {
+                            p.__fadeOut = true;
+                        }
+                    }
+                }
+
+                function setPointer(clientX, clientY) {
+                    const rect = canvasEl.getBoundingClientRect();
+                    if (rect.width <= 0 || rect.height <= 0) return;
+                    if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
+                        pointer.active = false;
+                        return;
+                    }
+
+                    const pxWidth = instance.canvas.w || canvasEl.width || rect.width;
+                    const pxHeight = instance.canvas.h || canvasEl.height || rect.height;
+                    const scaleX = pxWidth / rect.width;
+                    const scaleY = pxHeight / rect.height;
+                    pointer.x = (clientX - rect.left) * scaleX;
+                    pointer.y = (clientY - rect.top) * scaleY;
+                    pointer.active = true;
+                }
+
+                window.addEventListener('pointermove', (e) => {
+                    setPointer(e.clientX, e.clientY);
+                }, { passive: true });
+
+                window.addEventListener('touchmove', (e) => {
+                    const touch = e.touches && e.touches[0];
+                    if (!touch) return;
+                    setPointer(touch.clientX, touch.clientY);
+                }, { passive: true });
+
+                window.addEventListener('pointerleave', () => {
+                    pointer.active = false;
+                }, { passive: true });
+
+                window.addEventListener('touchend', () => {
+                    pointer.active = false;
+                }, { passive: true });
+
+                function tick() {
+                    frame += 1;
+                    magneticPower += pointer.active
+                        ? (1 - magneticPower) * 0.14
+                        : (0 - magneticPower) * 0.012;
+
+                    if (magneticPower > 0.001 && particles.length) {
+                        for (let i = 0; i < particles.length; i += 1) {
+                            const p = particles[i];
+                            const dx = pointer.x - p.x;
+                            const dy = pointer.y - p.y;
+                            const distSq = dx * dx + dy * dy;
+                            if (distSq <= 1) continue;
+
+                            const dist = Math.sqrt(distSq);
+                            if (dist > radius) continue;
+
+                            const normalized = 1 - dist / radius;
+                            const pull = normalized * normalized * strength * magneticPower;
+                            p.vx += dx * pull;
+                            p.vy += dy * pull;
+
+                            const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                            if (speed > maxSpeed) {
+                                const scale = maxSpeed / speed;
+                                p.vx *= scale;
+                                p.vy *= scale;
+                            }
+                        }
+                    }
+
+                    for (let i = particles.length - 1; i >= 0; i -= 1) {
+                        const p = particles[i];
+                        if (typeof p.vx !== 'number') p.vx = 0;
+                        if (typeof p.vy !== 'number') p.vy = 0;
+                        p.vx *= damping;
+                        p.vy *= damping;
+
+                        if (p.__generated && typeof p.__ttl === 'number') {
+                            p.__ttl -= 1;
+                            if (p.__ttl <= 0) p.__fadeOut = true;
+                        }
+
+                        if (p.__fadeIn) {
+                            const next = getOpacityValue(p) + 0.011;
+                            setOpacityValue(p, next);
+                            if (next >= 0.5) p.__fadeIn = false;
+                        }
+
+                        if (p.__fadeOut) {
+                            const next = getOpacityValue(p) - 0.004;
+                            if (next <= 0.008) {
+                                particles.splice(i, 1);
+                                continue;
+                            }
+                            setOpacityValue(p, next);
+                        }
+                    }
+
+                    if (frame % 12 === 0) {
+                        maintainSparseRegions();
+                    }
+
+                    window.requestAnimationFrame(tick);
+                }
+
+                tick();
+                return true;
+            }
+
+            if (boot()) return;
+
+            const timer = window.setInterval(() => {
+                retry += 1;
+                if (boot() || retry >= maxRetry) {
+                    window.clearInterval(timer);
+                }
+            }, 120);
+        }
+
+        initParticlePointerFollow();
+        initParticleMagnetEffect();
     </script>
 </body>
+
 </html>

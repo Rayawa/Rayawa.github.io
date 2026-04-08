@@ -9,6 +9,11 @@
   --accent: #59d4ff;
   --accent-2: #90f4c7;
   --shadow: 0 18px 50px rgba(5, 10, 20, 0.46);
+  color-scheme: light dark;
+}
+
+.lang-flag {
+  isolation: isolate;
 }
 
 * {

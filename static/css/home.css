@@ -13,6 +13,11 @@
             --radius: 12px;
             --glass: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
+            color-scheme: light dark;
+        }
+
+        .lang-flag {
+            isolation: isolate;
         }
 
         * {
@@ -1247,9 +1252,9 @@
             }
 
             .lang-btn {
-                min-width: 40px;
-                min-height: 40px;
-                padding: 0.42rem;
+                min-width: 38px;
+                min-height: 38px;
+                padding: 0.34rem;
                 justify-content: center;
                 border-radius: 999px;
             }
@@ -1259,8 +1264,8 @@
             }
 
             .lang-flag {
-                width: 18px;
-                height: 18px;
+                width: 20px;
+                height: 20px;
             }
 
             .hero-image {
@@ -1390,9 +1395,14 @@
             }
 
             .lang-btn {
-                min-width: 38px;
-                min-height: 38px;
-                padding: 0.38rem;
+                min-width: 36px;
+                min-height: 36px;
+                padding: 0.3rem;
+            }
+
+            .lang-flag {
+                width: 19px;
+                height: 19px;
             }
 
             .fab-tools {
