@@ -2,6 +2,7 @@
             --primary: #6366f1;
             --primary-dark: #4f46e5;
             --secondary: #10b981;
+            --unified-accent: #caecff;
             --dark: #0f172a;
             --light: #f8fafc;
             --gray: #64748b;
@@ -37,7 +38,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1320px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -179,17 +180,19 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 4.8rem;
             align-items: center;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: clamp(3.3rem, 5.8vw, 5rem);
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+            line-height: 1.08;
+            margin-bottom: 1.2rem;
             color: white;
+            letter-spacing: 0.01em;
+            text-shadow: 0 14px 34px rgba(3, 9, 24, 0.44);
         }
 
         .hero-aliases {
@@ -214,24 +217,34 @@
             font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 620px;
         }
 
         .hero-tags {
             margin-bottom: 2rem;
-            max-width: 720px;
+            max-width: 760px;
+            padding: 1rem 1.15rem;
+            border-radius: 14px;
+            border: 1px solid rgba(202, 236, 255, 0.2);
+            background: linear-gradient(145deg, rgba(15, 29, 53, 0.56), rgba(10, 20, 38, 0.42));
+            backdrop-filter: blur(6px);
         }
 
         .hero-tags p {
-            margin-bottom: 0.7rem;
+            margin-bottom: 0;
             font-size: 0.965rem;
-            line-height: 1.55;
+            line-height: 1.78;
             color: rgba(255, 255, 255, 0.82);
         }
 
+        .hero-tags p + p {
+            margin-top: 0.72rem;
+            padding-top: 0.72rem;
+            border-top: 1px solid rgba(202, 236, 255, 0.14);
+        }
+
         .hero-tags .tag-intro {
-            margin-bottom: 0.95rem;
-            color: rgba(202, 236, 255, 0.96);
+            color: rgba(202, 236, 255, 0.98);
             letter-spacing: 0.02em;
             font-size: 1.02rem;
         }
@@ -244,9 +257,9 @@
             margin-right: 0.55rem;
             padding: 0.12rem 0.6rem;
             border-radius: 999px;
-            border: 1px solid rgba(89, 212, 255, 0.55);
-            background: rgba(89, 212, 255, 0.14);
-            color: #caecff;
+            border: 1px solid rgba(202, 236, 255, 0.56);
+            background: rgba(202, 236, 255, 0.14);
+            color: var(--unified-accent);
             font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 0.01em;
@@ -287,11 +300,38 @@
             font-size: 2rem;
             animation: float 6s ease-in-out infinite 1s;
             box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+            outline: none;
+        }
+
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 999px;
+            border: 1px solid rgba(202, 236, 255, 0.42);
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .floating-elements:hover,
+        .floating-elements.is-active {
+            background: #1dc79a;
+            box-shadow: 0 0 0 4px rgba(29, 199, 154, 0.2), 0 12px 28px rgba(0, 0, 0, 0.32);
+            transform: translateY(-2px);
+        }
+
+        .floating-elements:hover::after,
+        .floating-elements.is-active::after {
+            opacity: 1;
+            transform: scale(1.06);
         }
 
         .avatar-quote {
             position: absolute;
-            right: -72px;
+            right: -132px;
             bottom: 86px;
             max-width: 240px;
             padding: 0.8rem 1rem;
@@ -305,6 +345,13 @@
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
             animation: quoteFloat 5.2s ease-in-out infinite;
             z-index: 3;
+            transition: opacity 0.28s ease, transform 0.28s ease;
+        }
+
+        .avatar-quote.is-hidden {
+            opacity: 0;
+            transform: translateY(6px) scale(0.98);
+            pointer-events: none;
         }
 
         .avatar-quote::after {
@@ -400,7 +447,7 @@
         }
 
         .section-subtitle {
-            color: rgba(182, 224, 255, 0.92);
+            color: rgba(202, 236, 255, 0.96);
             font-size: clamp(1.05rem, 2vw, 1.35rem);
             font-weight: 600;
             letter-spacing: 0.015em;
@@ -431,6 +478,8 @@
 
         .status-card-title {
             margin-bottom: 1rem;
+            color: var(--unified-accent);
+            letter-spacing: 0.01em;
         }
 
         /* 关于我 */
@@ -499,7 +548,7 @@
         .skill-name {
             font-weight: 600;
             font-size: 1.125rem;
-            color: white;
+            color: rgba(218, 240, 255, 0.95);
         }
 
         .skill-description {
@@ -525,7 +574,7 @@
         }
 
         .project-card.project-card-text {
-            min-height: 220px;
+            min-height: 196px;
             display: flex;
             align-items: stretch;
         }
@@ -669,7 +718,7 @@
         .gallery-track {
             position: relative;
             width: 100%;
-            min-height: 420px;
+            min-height: 520px;
         }
 
         .gallery-slide {
@@ -687,7 +736,7 @@
         .gallery-slide img {
             width: 100%;
             height: 100%;
-            min-height: 420px;
+            min-height: 520px;
             object-fit: cover;
             display: block;
         }
@@ -1126,6 +1175,7 @@
 
             .hero-tags p {
                 font-size: 0.93rem;
+                line-height: 1.72;
             }
 
             .avatar-quote {
@@ -1150,7 +1200,7 @@
 
             .gallery-track,
             .gallery-slide img {
-                min-height: 280px;
+                min-height: 340px;
             }
 
             .language-switch {
