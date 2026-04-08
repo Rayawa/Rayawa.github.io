@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>鸿蒙应用看板</title>
-  <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/subpage.css">
 </head>
-
 <body>
-  <div class="orb orb-a"></div>
-  <div class="orb orb-b"></div>
+  <main class="page">
+    <header class="topbar">
+      <a class="back-link" href="../index.html">← 返回主页</a>
+      <a class="home-link" href="../index.html#projects">回到项目区</a>
+    </header>
 
-  <main class="placeholder-page">
-    <a class="back-home" href="../index.html">← 返回主页</a>
-    <h1>鸿蒙应用看板</h1>
-
-    <section class="sub-block">
-      <h2>欢迎</h2>
+    <section class="hero-card">
+      <h1>鸿蒙应用看板</h1>
       <p>欢迎来到应用看板页面，这里会持续更新版本信息、功能进展与平台发布状态。</p>
     </section>
 
-    <section class="sub-block">
-      <h2>项目介绍</h2>
-      <p>该项目聚焦多端体验一致性，围绕鸿蒙平台开发，并同步维护网页、iOS、安卓端能力与文档。</p>
+    <section class="card-grid">
+      <article class="card">
+        <h2>欢迎</h2>
+        <p>这是应用看板项目的独立介绍页，集中展示项目目标、当前阶段以及后续迭代节奏。</p>
+      </article>
+
+      <article class="card">
+        <h2>项目介绍</h2>
+        <p>项目聚焦鸿蒙应用市场数据采集与展示，围绕统一体验构建网页端和多平台版本。</p>
+      </article>
     </section>
 
-    <section class="sub-block">
+    <section class="hero-card">
       <h2>下载链接</h2>
-      <div class="download-grid">
-        <a class="download-item" href="https://hmos.rayawa.top" target="_blank" rel="noopener">网页</a>
-        <a class="download-item" href="https://hmos.rayawa.top" target="_blank" rel="noopener">鸿蒙</a>
-        <a class="download-item" href="https://hmos.rayawa.top" target="_blank" rel="noopener">苹果</a>
-        <a class="download-item" href="https://hmos.rayawa.top" target="_blank" rel="noopener">安卓</a>
+      <div class="button-row">
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">网页</a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">鸿蒙</a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">苹果</a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">安卓</a>
       </div>
     </section>
   </main>
 </body>
-
 </html>
