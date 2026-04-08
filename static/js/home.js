@@ -232,6 +232,7 @@ const localeFragmentsCache = {};
 let localeFragmentToken = 0;
 let transitionLayer = null;
 let isSceneTransitioning = false;
+let particleOriginalBoot = null;
 
 const aboutBlocks = {
     about: null,
@@ -252,12 +253,76 @@ function initTransitionLayer() {
     return transitionLayer;
 }
 
+function collectLayoutLocks() {
+    const selectors = [
+        '.hero-content',
+        '#about .about-content',
+        '#projects .projects-grid',
+        '#projects .other-projects .projects-grid',
+        '#social .social-grid',
+        '#contact .contact-content',
+    ];
+
+    return selectors
+        .map((selector) => document.querySelector(selector))
+        .filter(Boolean)
+        .map((el) => ({
+            el,
+            from: el.offsetHeight,
+        }));
+}
+
+function beginLayoutLock(locks) {
+    locks.forEach((item) => {
+        const { el, from } = item;
+        el.style.height = `${from}px`;
+        el.style.minHeight = `${from}px`;
+        el.style.overflow = 'hidden';
+        el.style.transition = 'height 620ms cubic-bezier(0.2, 0.8, 0.2, 1), min-height 620ms cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+}
+
+function endLayoutLock(locks) {
+    locks.forEach((item) => {
+        const { el } = item;
+        el.style.height = '';
+        el.style.minHeight = '';
+        el.style.overflow = '';
+        el.style.transition = '';
+    });
+}
+
+async function stabilizeLayoutDuring(task) {
+    const locks = collectLayoutLocks();
+    if (!locks.length) {
+        await task();
+        return;
+    }
+
+    beginLayoutLock(locks);
+    await task();
+
+    await new Promise((resolve) => {
+        window.requestAnimationFrame(() => {
+            locks.forEach((item) => {
+                item.to = item.el.scrollHeight;
+                item.el.style.height = `${item.to}px`;
+                item.el.style.minHeight = `${item.to}px`;
+            });
+            resolve();
+        });
+    });
+
+    await sleep(680);
+    endLayoutLock(locks);
+}
+
 async function runSceneTransition(action, options = {}) {
     if (isSceneTransitioning) return;
     isSceneTransitioning = true;
 
-    const holdMs = options.holdMs ?? 240;
-    const outMs = options.outMs ?? 400;
+    const holdMs = options.holdMs ?? 420;
+    const outMs = options.outMs ?? 620;
     const freeze = options.freeze !== false;
     const layer = initTransitionLayer();
 
@@ -403,14 +468,14 @@ function hydrateRevealItems() {
     });
 }
 
-function setLocale(nextLocale, { persist = true } = {}) {
+async function setLocale(nextLocale, { persist = true } = {}) {
     if (!supportedLocales.includes(nextLocale)) return;
     locale = nextLocale;
     t = i18n[locale];
     document.documentElement.lang = langToHtmlLang[locale] || 'zh-CN';
 
     applyTextNodes();
-    applyLocaleBlocks(locale);
+    await applyLocaleBlocks(locale);
     applyLanguageButtons();
     if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
     if (floatingTools.refreshBtn && floatingTools.topBtn) {
@@ -427,16 +492,18 @@ function initLanguageSwitcher() {
         btn.addEventListener('click', async () => {
             const nextLocale = btn.dataset.lang;
             if (!nextLocale || nextLocale === locale) return;
-            await runSceneTransition(() => {
-                setLocale(nextLocale);
-            }, { holdMs: 220, outMs: 360, freeze: true });
+            await runSceneTransition(async () => {
+                await stabilizeLayoutDuring(async () => {
+                    await setLocale(nextLocale);
+                });
+            }, { holdMs: 420, outMs: 620, freeze: true });
         });
     });
 }
 
 function initParticles() {
     if (typeof particlesJS !== 'function') return;
-    particlesJS('particles-js', {
+    particleOriginalBoot = () => particlesJS('particles-js', {
         particles: {
             number: { value: 80, density: { enable: true, value_area: 800 } },
             color: { value: '#6366f1' },
@@ -476,6 +543,7 @@ function initParticles() {
             },
         },
     });
+    particleOriginalBoot();
 }
 
 function initNavbarScroll() {
@@ -669,7 +737,7 @@ function initPageLoadAnimation() {
     window.addEventListener('load', async () => {
         window.requestAnimationFrame(async () => {
             document.body.classList.remove('page-preload');
-            await runSceneTransition(null, { holdMs: 300, outMs: 520, freeze: false });
+            await runSceneTransition(null, { holdMs: 520, outMs: 760, freeze: false });
             document.body.classList.add('app-entered');
         });
     });
@@ -714,6 +782,7 @@ function initPageLeaveTransitions() {
 }
 
 function initParticlePointerFollow() {
+    if (typeof particleOriginalBoot === 'function') return;
     const layer = document.getElementById('particles-js');
     if (!layer) return;
 
@@ -761,6 +830,7 @@ function initParticlePointerFollow() {
 }
 
 function initParticleMagnetEffect() {
+    if (typeof particleOriginalBoot === 'function') return;
     const maxRetry = 30;
     let retry = 0;
 
@@ -974,7 +1044,7 @@ function initFloatingTools() {
     refreshBtn.addEventListener('click', async () => {
         await runSceneTransition(() => {
             window.location.reload();
-        }, { holdMs: 220, outMs: 120, freeze: true });
+        }, { holdMs: 420, outMs: 180, freeze: true });
     });
 
     const topBtn = document.createElement('button');
