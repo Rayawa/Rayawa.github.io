@@ -298,7 +298,112 @@ function initParticlePointerFollow() {
 }
 
 function initParticleMagnetEffect() {
-    // Disabled intentionally: original magnet/spawn effect was too active when idle.
+    const maxRetry = 24;
+    let retry = 0;
+
+    function boot() {
+        if (!window.pJSDom || !window.pJSDom.length) return false;
+        const instance = window.pJSDom[0] && window.pJSDom[0].pJS;
+        if (!instance || !instance.particles || !instance.particles.array || !instance.canvas || !instance.canvas.el) {
+            return false;
+        }
+
+        const particles = instance.particles.array;
+        const canvasEl = instance.canvas.el;
+        const pointer = { x: 0, y: 0, active: false };
+        const radius = 165;
+        const strength = 0.00034;
+        const maxSpeed = 1.12;
+        const damping = 0.972;
+        let magneticPower = 0;
+
+        function setPointer(clientX, clientY) {
+            const rect = canvasEl.getBoundingClientRect();
+            if (rect.width <= 0 || rect.height <= 0) return;
+            if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
+                pointer.active = false;
+                return;
+            }
+
+            const pxWidth = instance.canvas.w || canvasEl.width || rect.width;
+            const pxHeight = instance.canvas.h || canvasEl.height || rect.height;
+            const scaleX = pxWidth / rect.width;
+            const scaleY = pxHeight / rect.height;
+            pointer.x = (clientX - rect.left) * scaleX;
+            pointer.y = (clientY - rect.top) * scaleY;
+            pointer.active = true;
+        }
+
+        window.addEventListener('pointermove', (e) => {
+            setPointer(e.clientX, e.clientY);
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            const touch = e.touches && e.touches[0];
+            if (!touch) return;
+            setPointer(touch.clientX, touch.clientY);
+        }, { passive: true });
+
+        window.addEventListener('pointerleave', () => {
+            pointer.active = false;
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            pointer.active = false;
+        }, { passive: true });
+
+        function tick() {
+            magneticPower += pointer.active
+                ? (1 - magneticPower) * 0.06
+                : (0 - magneticPower) * 0.02;
+
+            if (magneticPower > 0.001 && particles.length) {
+                for (let i = 0; i < particles.length; i += 1) {
+                    const p = particles[i];
+                    const dx = pointer.x - p.x;
+                    const dy = pointer.y - p.y;
+                    const distSq = dx * dx + dy * dy;
+                    if (distSq <= 1) continue;
+
+                    const dist = Math.sqrt(distSq);
+                    if (dist > radius) continue;
+
+                    const pull = (1 - dist / radius) * strength * magneticPower;
+                    p.vx += dx * pull;
+                    p.vy += dy * pull;
+                }
+            }
+
+            for (let i = 0; i < particles.length; i += 1) {
+                const p = particles[i];
+                if (typeof p.vx !== 'number') p.vx = 0;
+                if (typeof p.vy !== 'number') p.vy = 0;
+                p.vx *= damping;
+                p.vy *= damping;
+
+                const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                if (speed > maxSpeed) {
+                    const scale = maxSpeed / speed;
+                    p.vx *= scale;
+                    p.vy *= scale;
+                }
+            }
+
+            window.requestAnimationFrame(tick);
+        }
+
+        tick();
+        return true;
+    }
+
+    if (boot()) return;
+
+    const timer = window.setInterval(() => {
+        retry += 1;
+        if (boot() || retry >= maxRetry) {
+            window.clearInterval(timer);
+        }
+    }, 140);
 }
 
 function initFloatingTools() {
@@ -346,4 +451,5 @@ initMobileMenu();
 initGalleryCarousel();
 initPageLoadAnimation();
 initParticlePointerFollow();
+initParticleMagnetEffect();
 initFloatingTools();
