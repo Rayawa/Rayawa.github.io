@@ -1,134 +1,456 @@
 <!DOCTYPE html>
-<html lang="en-GB">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <meta name="theme-color" content="#0b1325">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Ray Chen (Rayawa)</title>
-    <link rel="stylesheet" type="text/css" href="static/css/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="static/css/print.css" media="print">
-    <script src="static/js/mobile-enhancements.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Chen | Advanced Personal Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 16px;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0b1325 0%, #1b2f50 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* 粒子背景 */
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(11, 19, 37, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+        .navbar.scrolled { padding: 0.8rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; }
+        .logo i { color: var(--primary); margin-right: 0.5rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition); }
+        .nav-links a:hover { color: white; }
+        .language-switch { display: flex; gap: 0.5rem; }
+        .lang-btn { padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; 
+                   background: transparent; color: rgba(255,255,255,0.7); text-decoration: none; }
+        .lang-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* 英雄区域 */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 0 4rem; }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-text h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+        .gradient-text { background: linear-gradient(135deg, #59d4ff, #90f4c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-text p { font-size: 1.25rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+        .profile-img { width: 100%; max-width: 400px; height: 400px; border-radius: 50%; object-fit: cover;
+                      border: 4px solid var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem;
+               background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius);
+               font-weight: 600; transition: var(--transition); margin-right: 1rem; }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* About Me */
+        section { padding: 6rem 0; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .glass-card { background: var(--glass); backdrop-filter: blur(10px); border-radius: var(--radius);
+                     padding: 2rem; border: 1px solid rgba(255,255,255,0.1); }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .skill-item { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius);
+                     border: 1px solid rgba(255,255,255,0.1); }
+        .skill-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .skill-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                     border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; }
+
+        /* 项目展示 */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .project-card { background: rgba(255,255,255,0.05); border-radius: var(--radius); overflow: hidden;
+                       border: 1px solid rgba(255,255,255,0.1); transition: var(--transition); text-decoration: none; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .project-image { height: 200px; width: 100%; object-fit: cover; }
+        .project-content { padding: 1.5rem; }
+        .project-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+        /* 摄影轮播 */
+        .gallery-carousel { display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0; scroll-snap-type: x mandatory; }
+        .gallery-slide { flex: 0 0 auto; width: 300px; scroll-snap-align: start; border-radius: var(--radius); overflow: hidden; }
+        .gallery-slide img { width: 100%; height: 200px; object-fit: cover; }
+
+        /* 联系表单 */
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+        .contact-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                       border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
+        .form-control { width: 100%; padding: 0.875rem 1rem; background: rgba(255,255,255,0.1);
+                       border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); color: white; }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-content, .about-content, .contact-content { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .profile-img { max-width: 300px; height: 300px; }
+            .nav-links { display: none; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
 <body>
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
+    <!-- 粒子背景 -->
+    <div id="particles-js"></div>
 
-    <main class="site-shell">
-        <div class="topbar">
-            <nav class="quick-nav" aria-label="Quick modules">
-                <a class="quick-link" href="#projects">Projects</a>
-                <a class="quick-link" href="#gallery">Gallery</a>
-                <a class="quick-link" href="#links">Links</a>
-            </nav>
-            <div class="language-switch" aria-label="Language switcher">
-                <a class="lang-btn" href="index.html" aria-label="Chinese"><img class="flag-icon" src="static/images/cn.svg" alt="CN"><span>CN</span></a>
-                <a class="lang-btn active" href="index_en.html" aria-label="English"><img class="flag-icon" src="static/images/uk.svg" alt="UK"><span>UK</span></a>
-                <a class="lang-btn" href="index_fr.html" aria-label="French"><img class="flag-icon" src="static/images/fr.svg" alt="FR"><span>FR</span></a>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><i class="fas fa-code"></i>Ray Chen</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#gallery">摄影</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <div class="language-switch">
+                <a href="index.html" class="lang-btn active">English</a>
+                <a href="index_en.html" class="lang-btn">EN</a>
+                <a href="index_fr.html" class="lang-btn">FR</a>
             </div>
         </div>
+    </nav>
 
-        <header class="hero">
-            <div class="hero-profile">
-                <img class="avatar" src="ray.jpg" alt="Rayawa avatar">
-                <h1>Ray Chen</h1>
-            </div>
-        </header>
-
-        <div class="dashboard-grid">
-            <section class="module intro-module">
-                <div class="module-title-wrap">
-                    <h2>Profile</h2>
-                    <p>Welcome to my homepage. This is Rayawa.</p>
-                </div>
-                <p class="intro-copy">I am a Communication Engineering student at North China University of Technology, currently focused on multi-device software and embedded development.</p>
-                <p class="intro-copy">This homepage gathers my personal projects, collaborative work, and technical notes. Top-level domain: rayawa.top</p>
-                <ul class="stat-list">
-                    <li><span class="stat-label">Current Focus</span><span class="stat-value">HarmonyOS app development for the App Board project</span></li>
-                    <li><span class="stat-label">Parallel Track</span><span class="stat-value">OpenHarmony embedded development on Hi3861</span></li>
-                    <li><span class="stat-label">Roadmap</span><span class="stat-value">macOS and Android versions of App Board</span></li>
-                    <li><span class="stat-label">Contact</span><span class="stat-value">rayawa.work@outlook.com / rayawa.work@gmail.com</span></li>
-                </ul>
-            </section>
-
-            <section class="module project-module" id="projects">
-                <div class="module-title-wrap">
-                    <h2>My Projects</h2>
-                </div>
-                <div class="main-projects">
-                    <a class="project-card" href="projects/harmony-dashboard.html">
-                        <h3>Harmony Gallery</h3>
-                        <p>Powered by shenjack. A project that collects and visualizes HarmonyOS app market data.</p>
-                    </a>
-                    <a class="project-card" href="projects/bio-project.html">
-                        <h3>Biology</h3>
-                        <p>Rayawa's biology papers, completed projects, and ongoing ideas.</p>
-                    </a>
-                    <a class="project-card" href="https://featurehouse.github.io" target="_blank" rel="noopener">
-                        <h3>Sweet Potato Mod</h3>
-                        <p>With @teddyxlandlee. Agriculture and magic, combined into one mod.</p>
-                    </a>
-                </div>
-                <div class="other-projects">
-                    <a class="simple-link" href="https://idv.rayawa.top" target="_blank" rel="noopener">Identity V</a>
-                    <a class="simple-link" href="https://gene.rayawa.top" target="_blank" rel="noopener">Agrobacterium Transformation Web</a>
-                </div>
-            </section>
-
-            <section class="module gallery-module" id="gallery">
-                <div class="module-title-wrap">
-                    <h2>Photography Gallery</h2>
-                </div>
-                <div class="gallery-entry">
-                    <div class="home-gallery-grid">
-                        <a class="home-gallery-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195" target="_blank" rel="noopener">
-                            <div class="home-gallery-box">
-                                <div class="home-gallery-track">
-                                    <div class="home-gallery-item hg-1"></div>
-                                    <div class="home-gallery-item hg-2"></div>
-                                    <div class="home-gallery-item hg-3"></div>
-                                    <div class="home-gallery-item hg-4"></div>
-                                </div>
-                                <div class="home-gallery-mask">
-                                    <strong>Photo Slideshow</strong>
-                                    <p>Open Xiaohongshu for full photo sets</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="home-gallery-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195" target="_blank" rel="noopener">
-                            <div class="home-gallery-box video-gallery">
-                                <div class="home-gallery-track">
-                                    <div class="home-gallery-item hg-2"></div>
-                                    <div class="home-gallery-item hg-4"></div>
-                                    <div class="home-gallery-item hg-1"></div>
-                                    <div class="home-gallery-item hg-3"></div>
-                                </div>
-                                <div class="home-gallery-mask">
-                                    <strong>Video Slideshow</strong>
-                                    <p>Open Xiaohongshu for video content</p>
-                                </div>
-                            </div>
-                        </a>
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I am  <span class="gradient-text">Ray Chen</span></h1>
+                    <p>北方工业大学通信工程专业在读，专注于多设备软件开发与嵌入式开发。探索技术与艺术的交汇点。</p>
+                    <div>
+                        <a href="#projects" class="btn"><i class="fas fa-rocket"></i>View Projects</a>
+                        <a href="#contact" class="btn"><i class="fas fa-envelope"></i>Contact Me</a>
                     </div>
                 </div>
-            </section>
-
-            <section class="module links-module" id="links">
-                <div class="module-title-wrap">
-                    <h2>My Links</h2>
+                <div>
+                    <img src="ray.jpg" alt="Ray Chen" class="profile-img">
                 </div>
-                <div class="link-grid">
-                    <a class="link-card" href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"><span class="social-icon"><img src="static/images/bilibili.jpeg" alt="Bilibili"></span><div><strong>Bilibili</strong><p>Photography updates and project progress</p></div></a>
-                    <a class="link-card" href="https://github.com/Rayawa" target="_blank" rel="noopener"><span class="social-icon"><img src="static/images/github.jpeg" alt="GitHub"></span><div><strong>GitHub</strong><p>Code and repositories</p></div></a>
-                    <a class="link-card" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990?xsec_token=YBA5AApJK0KIhA1jJ9c-YAa--tATS5H13PUoEkTOKcsTk=&xsec_source=app_share&xhsshare=WeixinSession&appuid=682f14c8000000000d0083f9&apptime=1775529219&share_id=51f26c6406544b92a9cf0406c9cf8195" target="_blank" rel="noopener"><span class="social-icon"><img src="static/images/xhs.jpg" alt="Xiaohongshu"></span><div><strong>Xiaohongshu</strong><p>All my photography works</p></div></a>
-                </div>
-            </section>
+            </div>
         </div>
-    </main>
-</body>
+    </section>
 
+    <!-- About Me -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">探索我的技能、热情与未来规划</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>个人简介</h3>
+                    <p>欢迎来到我的主页，这里是Rayawa！北方工业大学通信工程专业在读，目前主要方向是多设备软件开发与嵌入式开发。</p>
+                    <p>主页集成了我的个人项目、协作项目以及一些技术分享。顶级域名: rayawa.top</p>
+                    <div class="glass-card" style="margin-top: 2rem;">
+                        <h3 style="margin-bottom: 1rem;">当前状态</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
+                                    <div class="skill-name">当前重点</div>
+                                </div>
+                                <p class="skill-description">应用看板项目 HarmonyOS 应用开发</p>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                                    <div class="skill-name">并行方向</div>
+                                </div>
+                                <p class="skill-description">OpenHarmony（Hi3861）嵌入式开发</p>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-icon"><i class="fas fa-road"></i></div>
+                                    <div class="skill-name">未来规划</div>
+                                </div>
+                                <p class="skill-description">应用看板项目的 macOS 与 Android 版本</p>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-icon"><i class="fas fa-envelope"></i></div>
+                                    <div class="skill-name">联系方式</div>
+                                </div>
+                                <p class="skill-description">rayawa.work@outlook.com / rayawa.work@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <div class="skill-name">前端开发</div>
+                        </div>
+                        <p class="skill-description">HTML5, CSS3, JavaScript, React, Vue.js</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="skill-name">移动开发</div>
+                        </div>
+                        <p class="skill-description">HarmonyOS, Android, iOS 应用开发</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="skill-name">嵌入式开发</div>
+                        </div>
+                        <p class="skill-description">OpenHarmony, Hi3861, 物联网设备</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+                            <div class="skill-name">摄影与设计</div>
+                        </div>
+                        <p class="skill-description">Photography、UI/UX 设计、视觉艺术</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">探索我的技术项目与实践成果</p>
+            </div>
+            <div class="projects-grid">
+                <a href="projects/harmony-dashboard.html" class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="HarmonyOS" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">华为应用市场看板</h3>
+                        <p class="project-description">Powered by shenjack! 一个收集并展示鸿蒙应用市场应用数据的项目。</p>
+                        <div class="project-tags">
+                            <span class="tag">HarmonyOS</span>
+                            <span class="tag">数据分析</span>
+                            <span class="tag">Web开发</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="projects/bio-project.html" class="project-card">
+                    <img src="https://images.unsplash.com/photo-1530026405186-1d5d58d50e5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biology" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">生物学项目</h3>
+                        <p class="project-description">所有生物学相关论文、做过的项目与一些想法。</p>
+                        <div class="project-tags">
+                            <span class="tag">生物学</span>
+                            <span class="tag">研究</span>
+                            <span class="tag">文档</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://featurehouse.github.io" target="_blank" class="project-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Minecraft" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Sweet Potato Mod</h3>
+                        <p class="project-description">@teddyxlandlee 烤地瓜模组！农业与魔法的完美结合。</p>
+                        <div class="project-tags">
+                            <span class="tag">Minecraft</span>
+                            <span class="tag">模组开发</span                            <span class="tag">游戏开发</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 摄影轮播 -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Photography</h2>
+                <p class="section-subtitle">使用 static/gallery 文件夹中的图片展示</p>
+            </div>
+            <div class="gallery-carousel">
+                <div class="gallery-slide">
+                    <img src="static/gallery/Italian GP 2025 Desktop Wallpaper 2.jpg" alt="Italian GP 2025">
+                </div>
+                <div class="gallery-slide">
+                    <img src="static/gallery/2026 Chinese GP Desktop Wallpaper 2.jpg" alt="Chinese GP 2026">
+                </div>
+                <div class="gallery-slide">
+                    <img src="static/gallery/W17 On Track Desktop Wallpaper 1.jpg" alt="W17 On Track">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-subtitle">欢迎与我交流技术、项目合作或任何想法</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>rayawa.work@outlook.com</p>
+                            <p>rayawa.work@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>位置</h4>
+                            <p>北京，中国</p>
+                            <p>北方工业大学</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-details">
+                            <h4>响应时间</h4>
+                            <p>通常在24小时内回复</p>
+                            <p>工作日：9:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>发送Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="footer-logo"><i class="fas fa-code"></i>Ray Chen</a>
+                    <p class="footer-description">专注于多设备软件开发与嵌入式开发，探索技术与艺术的交汇点。</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/Rayawa" class="footer-social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://space.bilibili.com/你的B站ID" class="footer-social-link"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://www.xiaohongshu.com/user/profile/你的小红书ID" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#projects">项目</a></li>
+                        <li><a href="#gallery">摄影</a></li>
+                        <li><a href="#contact">联系</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">技术栈</h4>
+                    <ul class="footer-links">
+                        <li><a>HarmonyOS 开发</a></li>
+                        <li><a>嵌入式系统</a></li>
+                        <li><a>Web 前端</a></li>
+                        <li><a>UI/UX 设计</a></li>
+                        <li><a>摄影与视觉</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Ray Chen. All rights reserved. | Website: rayawa.top | Email: rayawa.work@outlook.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 粒子背景配置
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#6366f1" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#6366f1", opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            }
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 页面切换动画
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 联系表单提交
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message已发送！我会尽快回复。');
+            this.reset();
+        });
+
+        // 确保页面立即显示
+        document.body.style.opacity = '1';
+    </script>
+</body>
 </html>
