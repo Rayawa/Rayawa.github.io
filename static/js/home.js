@@ -290,11 +290,11 @@ function initScrollShowcase() {
             const layers = Array.from(section.querySelectorAll(layerSelector));
             layers.forEach((layer, index) => {
                 layer.dataset.scrollLayer = '';
-                layer.style.setProperty('--layer-shift-x', `${(index % 2 === 0 ? -1 : 1) * (12 + index * 4)}px`);
-                layer.style.setProperty('--layer-shift-y', `${22 + index * 14}px`);
-                layer.style.setProperty('--layer-depth', `${-120 - index * 55}px`);
-                layer.style.setProperty('--layer-tilt', `${-4 - index * 1.4}deg`);
-                layer.style.setProperty('--layer-blur', `${5 + index * 1.2}px`);
+                layer.style.setProperty('--layer-shift-x', `${(index % 2 === 0 ? -1 : 1) * (8 + index * 3)}px`);
+                layer.style.setProperty('--layer-shift-y', `${12 + index * 8}px`);
+                layer.style.setProperty('--layer-depth', `${-36 - index * 22}px`);
+                layer.style.setProperty('--layer-tilt', `${-1.8 - index * 0.8}deg`);
+                layer.style.setProperty('--layer-blur', `${1.2 + index * 0.7}px`);
             });
 
             const children = Array.from(
@@ -361,9 +361,13 @@ function initScrollShowcase() {
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
             const stickyRange = Math.max(1, rect.height - viewportHeight);
-            const progress = Math.max(0, Math.min(1, (viewportHeight * 0.5 - rect.top) / stickyRange));
+            const progress = Math.max(0, Math.min(1, (viewportHeight * 0.58 - rect.top) / stickyRange));
             const signed = progress * 2 - 1;
-            const focus = Math.max(0, 1 - Math.pow(Math.min(Math.abs(signed), 1), 0.72));
+            const distance = Math.min(Math.abs(signed), 1);
+            const plateau = 0.52;
+            const focus = distance <= plateau
+                ? 1
+                : Math.max(0, 1 - Math.pow((distance - plateau) / (1 - plateau), 1.35));
             const depth = 1 - focus;
             const centerOffset = (progress - 0.5) * stickyRange;
 
@@ -372,9 +376,9 @@ function initScrollShowcase() {
             section.style.setProperty('--section-focus', focus.toFixed(4));
             section.style.setProperty('--section-depth', depth.toFixed(4));
 
-            const distance = Math.abs(centerOffset);
-            if (distance < smallestDistance) {
-                smallestDistance = distance;
+            const centerDistance = Math.abs(centerOffset);
+            if (centerDistance < smallestDistance) {
+                smallestDistance = centerDistance;
                 currentIndex = index;
             }
         });

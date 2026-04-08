@@ -276,14 +276,17 @@
         @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
             html.has-scroll-showcase {
                 scroll-behavior: smooth;
+                scroll-snap-type: y proximity;
             }
 
             body.has-scroll-showcase section {
                 position: relative;
-                min-height: 185svh;
+                min-height: 150svh;
                 padding: 0;
                 overflow: clip;
                 isolation: isolate;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
                 --section-progress: 0;
                 --section-signed: 0;
                 --section-focus: 0;
@@ -307,13 +310,13 @@
                     radial-gradient(circle at 84% 20%, rgba(255, 255, 255, 0.12), transparent 18%),
                     radial-gradient(circle at 78% 78%, rgba(144, 244, 199, 0.24), transparent 26%),
                     linear-gradient(160deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.01));
-                opacity: calc(0.12 + var(--section-focus, 0) * 0.5);
+                opacity: calc(0.08 + var(--section-focus, 0) * 0.24);
                 transform:
                     perspective(1800px)
-                    translate3d(calc(var(--section-signed, 0) * -120px), calc(var(--section-signed, 0) * 70px), calc(var(--section-depth, 1) * -220px))
-                    rotateX(calc(var(--section-signed, 0) * -11deg))
-                    scale(calc(0.86 + var(--section-focus, 0) * 0.2));
-                filter: blur(calc(18px + var(--section-depth, 1) * 20px));
+                    translate3d(calc(var(--section-signed, 0) * -64px), calc(var(--section-signed, 0) * 38px), calc(var(--section-depth, 1) * -140px))
+                    rotateX(calc(var(--section-signed, 0) * -6deg))
+                    scale(calc(0.92 + var(--section-focus, 0) * 0.1));
+                filter: blur(calc(10px + var(--section-depth, 1) * 8px));
             }
 
             body.has-scroll-showcase section::after {
@@ -322,11 +325,11 @@
                 border-radius: 999px;
                 background:
                     radial-gradient(circle, rgba(99, 102, 241, 0.18), transparent 62%);
-                opacity: calc(0.08 + var(--section-focus, 0) * 0.28);
+                opacity: calc(0.04 + var(--section-focus, 0) * 0.14);
                 transform:
-                    translate3d(calc(var(--section-signed, 0) * 90px), calc(var(--section-signed, 0) * -30px), 0)
-                    scale(calc(0.7 + var(--section-focus, 0) * 0.45));
-                filter: blur(36px);
+                    translate3d(calc(var(--section-signed, 0) * 48px), calc(var(--section-signed, 0) * -18px), 0)
+                    scale(calc(0.82 + var(--section-focus, 0) * 0.25));
+                filter: blur(28px);
                 z-index: -3;
             }
 
@@ -341,14 +344,14 @@
                 transform-origin: center center;
                 will-change: transform, opacity, filter;
                 transform:
-                    perspective(2200px)
-                    translate3d(0, calc(var(--section-signed, 0) * -140px), calc(var(--section-depth, 1) * -260px))
-                    rotateX(calc(var(--section-signed, 0) * -18deg))
-                    scale(calc(0.72 + var(--section-focus, 0) * 0.28));
-                opacity: calc(0.12 + var(--section-focus, 0) * 0.88);
+                    perspective(1800px)
+                    translate3d(0, calc(var(--section-signed, 0) * -64px), calc(var(--section-depth, 1) * -110px))
+                    rotateX(calc(var(--section-signed, 0) * -7deg))
+                    scale(calc(0.9 + var(--section-focus, 0) * 0.1));
+                opacity: calc(0.68 + var(--section-focus, 0) * 0.32);
                 filter:
-                    blur(calc((1 - var(--section-focus, 0)) * 18px))
-                    saturate(calc(0.68 + var(--section-focus, 0) * 0.62));
+                    blur(calc((1 - var(--section-focus, 0)) * 4px))
+                    saturate(calc(0.92 + var(--section-focus, 0) * 0.18));
             }
 
             body.has-scroll-showcase section.is-current > .container {
@@ -365,9 +368,9 @@
                         calc((1 - var(--section-focus, 0)) * var(--layer-depth, -140px))
                     )
                     rotateX(calc(var(--section-signed, 0) * var(--layer-tilt, -8deg)))
-                    scale(calc(0.88 + var(--section-focus, 0) * 0.12));
-                opacity: calc(0.18 + var(--section-focus, 0) * 0.82);
-                filter: blur(calc((1 - var(--section-focus, 0)) * var(--layer-blur, 8px)));
+                    scale(calc(0.96 + var(--section-focus, 0) * 0.04));
+                opacity: calc(0.72 + var(--section-focus, 0) * 0.28);
+                filter: blur(calc((1 - var(--section-focus, 0)) * var(--layer-blur, 3px)));
             }
 
             body.has-scroll-showcase [data-scroll-child] {
@@ -375,13 +378,13 @@
                 transform:
                     translate3d(
                         0,
-                        calc((1 - var(--section-focus, 0)) * (38px + var(--child-index, 0) * 10px)),
-                        calc((1 - var(--section-focus, 0)) * (-40px - var(--child-index, 0) * 18px))
+                        calc((1 - var(--section-focus, 0)) * (16px + var(--child-index, 0) * 4px)),
+                        calc((1 - var(--section-focus, 0)) * (-14px - var(--child-index, 0) * 8px))
                     )
-                    rotateX(calc(var(--section-signed, 0) * (-5deg - var(--child-index, 0) * 1deg)))
-                    scale(calc(0.92 + var(--section-focus, 0) * 0.08));
-                opacity: calc(0.22 + var(--section-focus, 0) * (0.8 - var(--child-index, 0) * 0.05));
-                filter: blur(calc((1 - var(--section-focus, 0)) * (4px + var(--child-index, 0) * 1.5px)));
+                    rotateX(calc(var(--section-signed, 0) * (-2.4deg - var(--child-index, 0) * 0.5deg)))
+                    scale(calc(0.97 + var(--section-focus, 0) * 0.03));
+                opacity: calc(0.74 + var(--section-focus, 0) * 0.26);
+                filter: blur(calc((1 - var(--section-focus, 0)) * (1.2px + var(--child-index, 0) * 0.5px)));
             }
 
             body.has-scroll-showcase .section-header {
@@ -421,7 +424,7 @@
 
             body.has-scroll-showcase .gallery-track,
             body.has-scroll-showcase .gallery-slide img {
-                min-height: 52svh;
+                min-height: 48svh;
             }
 
             body.has-scroll-showcase .section-dock {
