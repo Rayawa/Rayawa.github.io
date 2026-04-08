@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ray Chen (Rayawa)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="static/css/home.css">
 </head>
+
 <body>
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
@@ -19,7 +23,7 @@
                 <i class="fas fa-code"></i>
                 <span>Ray Chen</span>
             </a>
-            
+
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#about">关于我</a></li>
@@ -27,13 +31,13 @@
                 <li><a href="#gallery">摄影</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
-            
+
             <div class="language-switch">
                 <a href="index.html" class="lang-btn active">中文</a>
                 <a href="index_en.html" class="lang-btn">EN</a>
                 <a href="index_fr.html" class="lang-btn">FR</a>
             </div>
-            
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -46,13 +50,13 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>你好，我是 <span class="gradient-text">Ray</span></h1>
-                    <p class="hero-aliases">Ray Chen · Ray汐 · 清霁Ray · 清霁戚汐 · Rayawa</p>
+                    <p class="hero-aliases">Ray汐 · 清霁Ray · Rayawa</p>
                     <div class="hero-tags">
                         <p class="tag-intro"><strong>通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者</strong></p>
                         <p><span class="tag-label">核心</span>专注 HarmonyOS 应用开发与 Hi3861 嵌入式实践。</p>
-                        <p><span class="tag-label">支线</span>MC 模组开发、生物信息研究（覆盖 PCR 流程建模与蛋白质功能假说推演）、Web 构建。</p>
+                        <p><span class="tag-label">支线</span>Web构建、 Difficult Rocket & Minecraft模组开发、生物学相关研究。</p>
                         <p><span class="tag-label">审美</span>风景摄影 &amp; 无人机航拍，用快门捕捉通信之外的频率。</p>
-                        <p><span class="tag-label">生活</span>跑步骑行中，<span lang="fr">J'apprends le francais.</span>，也在提瓦特、终末地与罗德岛切换频道，音游节奏在线，沉底石头人持续修炼。</p>
+                        <p><span class="tag-label">生活</span><span lang="fr">J'apprends le français</span>，跑步骑行ing，也在提瓦特、塔卫二与罗德岛的世界中切换；音游节奏在线，每天赚费沉底石头人（）。</p>
                     </div>
                     <div class="btn-group">
                         <a href="#projects" class="btn">
@@ -68,7 +72,7 @@
                 <div class="hero-image">
                     <img src="ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
                     <div class="avatar-quote">Everything is possible by code.</div>
-                    <div class="floating-elements">
+                    <div class="floating-elements" id="heroStar" role="button" tabindex="0" aria-label="切换座右铭气泡">
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
@@ -83,22 +87,21 @@
                 <h2 class="section-title">关于我</h2>
                 <p class="section-subtitle">跨越学科的边界，只为连接更广阔的世界。</p>
             </div>
-            
+
             <div class="about-content">
                 <div class="about-text">
                     <h3>个人简介</h3>
-                    <p>我目前就读于北方工业大学通信工程专业，但当前投入最多的是软件开发与产品落地。正在持续推进的核心项目是 HarmonyOS 应用看板 App，目前已进入邀请测试阶段，并已经开始规划后续 macOS 与 Android 版本的统一能力设计。</p>
-                    <p>除应用开发外，我也在做独立的 OpenHarmony Hi3861 嵌入式开发实践，这条线与应用看板分开推进，重点在设备侧能力、系统理解与工程实现。我的目标不是只做一个 App，而是建立从应用到设备端都能串联的完整技术路径。</p>
-                    <p>我长期参与开源协作：在 Sweet Potato Mod 中与 @teddyxlandlee 协作，在 Difficlut Rocket 项目中与 @shenjackyuanjie 协作；我的 Minecraft Java ID 是 Rayawa。对我来说，协作项目不仅是代码提交，更是与不同开发者对齐工程标准与沟通方式的过程。</p>
-                    <p>学术与跨学科方面，我完成并整理过 PCR 相关项目、蛋白质研究设想、碳同化综述，以及橙色平板实验记录，并把一部分实验内容做成网页化项目，方便后续复盘、教学展示与知识迁移。</p>
-                    <p>网页开发上，我做过个人网站、模组网站、第五人格相关站点、农杆菌转化法实验站点；程序相关涉猎包括 C、C++、Java、Rust、HTML、ArkTS、Swift 与 openGauss。学习策略上，我会在产品开发、算法理解与工程表达之间做均衡推进。</p>
-                    <p>兴趣层面，我长期跑步与骑行，摄影以风景为主，视频以无人机航拍为主。对我而言，影像不是“额外爱好”，而是帮助我训练观察力和叙事能力的另一种工程实践。</p>
-                    <p>游戏社群方面，我长期接触 Minecraft、原神、明日方舟、明日方舟终末地，以及 Phigros、Arcaea、舞萌、Milthm、Lanota、Rizline 等音游；也玩皇室战争并长期使用石头人体系，主力卡组是我自己打磨过的“克隆石”。</p>
-                    <p>第五人格方向，我曾拿过三个疯眼，最高到 A47，另有若干 B 牌，过去打到过巅峰七阶 31 星；目前已退游。即使如此，这些竞技类与协作类经历依然会反向影响我做产品时对反馈节奏和用户行为的判断。</p>
-                    <p>最近我也在学习法语。技术、研究、创作和生活对我来说并不是分裂的模块，而是同一条长期路线的不同切面。</p>
-                    
+                    <p>我目前就读于北方工业大学通信工程专业，但投入精力最多的是软件开发。目前正持续推进的核心项目是HarmonyOS平台的鸿蒙应用看板App，项目已进入邀请测试阶段，并计划开始后续macOS与Android平台的跨开发。</p>
+                    <p>除了软件层面，我还在学习OpenHarmony Hi3861嵌入式开发。对我来说，这不只是在调硬件，更是为了从底层逻辑上把设备侧的能力和系统工程彻底摸透。</p>
+                    <p>我参与开源协作：在Sweet Potato Mod中与@teddyxlandlee配合，在Difficult Rocket项目中与@shenjackyuanjie协作；我的Minecraft Java ID 是Rayawa。对我来说，参与协作不仅是提交代码，更是与不同背景的开发者对齐工程标准与沟通方式的过程。</p>
+                    <p>在我比较感兴趣的生物学领域，我带领过高中开创首届的PCR实验，把高等的实验内容带到了高中课堂，我和同学撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去实现生物学教学的小工具非常有意思，未来也想往生物信息学方向探路。</p>
+                    <p>在网页开发上，我先后搭建了个人网站、模组站、第五人格站及农杆菌转化法实验站点；程序方面涉猎 C、C++、Java、Rust、HTML、ArkTS、Swift与openGauss数据库。我不太喜欢死学，更倾向于在产品做出来、算法想通了、工程讲清楚了这三者之间找个舒服的平衡点。</p>
+                    <p>平时我喜欢跑步和骑行，相机和无人机也是出门必备。我觉得摄影的乐趣不止在最后的出片，换个视角去构图、尝试用不同的叙事风格、在原来的基础上做出创新……这种创作过程十分有乐趣。</p>
+                    <p>游戏方面，我是Minecraft的老玩家，也是一名“原学家”（大概），近期正在玩明日方舟和终末地；我同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline等音游；在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）与若干B牌（虽然目前已退游）；皇室战争中我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
+                    <p>最近我也在学习法语。 Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
+
                 </div>
-                
+
                 <div class="about-side">
                     <div class="glass-card status-card">
                         <h3 class="status-card-title">现在进行时</h3>
@@ -119,7 +122,7 @@
                                     </div>
                                     <div class="skill-name">独立研发线</div>
                                 </div>
-                                <p class="skill-description">OpenHarmony（Hi3861）嵌入式开发（与应用看板并行独立）</p>
+                                <p class="skill-description">OpenHarmony（Hi3861）嵌入式开发</p>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-header">
@@ -128,7 +131,7 @@
                                     </div>
                                     <div class="skill-name">多端规划</div>
                                 </div>
-                                <p class="skill-description">应用看板后续推进 macOS 与 Android 版本</p>
+                                <p class="skill-description">鸿蒙应用看板后续推进macOS与Android版本</p>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-header">
@@ -137,7 +140,7 @@
                                     </div>
                                     <div class="skill-name">学习进度</div>
                                 </div>
-                                <p class="skill-description">深化 Java、Rust；准备开始仓颉开发；法语持续学习中</p>
+                                <p class="skill-description">深化Java、Rust；准备开始仓颉开发；<br>法语持续学习中...</p>
                             </div>
                         </div>
                     </div>
@@ -161,7 +164,7 @@
                                     </div>
                                     <div class="skill-name">产品与工程</div>
                                 </div>
-                                <p class="skill-description">HarmonyOS 应用、OpenHarmony 嵌入式、Web 全栈与数据展示、多端版本规划</p>
+                                <p class="skill-description">HarmonyOS应用、OpenHarmony嵌入式、Web全栈与数据展示、多端版本规划</p>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-header">
@@ -170,7 +173,7 @@
                                     </div>
                                     <div class="skill-name">协作与研究</div>
                                 </div>
-                                <p class="skill-description">Sweet Potato Mod、Difficlut Rocket、PCR 项目、蛋白质研究设想、碳同化综述、橙色平板实验</p>
+                                <p class="skill-description">Sweet Potato Mod、Difficlut Rocket、PCR项目、蛋白质猜想、碳同化综述、橙色平板实验</p>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-header">
@@ -179,7 +182,7 @@
                                     </div>
                                     <div class="skill-name">创作与兴趣</div>
                                 </div>
-                                <p class="skill-description">跑步、骑行、风景摄影与无人机影像；Minecraft、原神、明日方舟、音游与竞技游戏社群体验</p>
+                                <p class="skill-description">跑步、骑行、风景摄影与无人机影像；Minecraft、原神、第五人格、明日方舟、终末地、皇室战争、音游。</p>
                             </div>
                         </div>
                     </div>
@@ -195,7 +198,7 @@
                 <h2 class="section-title">我的项目</h2>
                 <p class="section-subtitle">把热爱写成项目，把项目做成长期作品。</p>
             </div>
-            
+
             <div class="projects-grid">
                 <a href="projects/harmony-dashboard.html" class="project-card">
                     <div class="project-image harmony"></div>
@@ -209,12 +212,12 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="projects/bio-project.html" class="project-card">
                     <div class="project-image bio"></div>
                     <div class="project-content">
                         <h3 class="project-title">生物学项目</h3>
-                        <p class="project-description">收录生物学方向论文与实验记录，包括 PCR、蛋白质设想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。</p>
+                        <p class="project-description">收录我生物学方向论文与实验记录，包括我的PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。</p>
                         <div class="project-tags">
                             <span class="tag">生物学</span>
                             <span class="tag">研究</span>
@@ -222,12 +225,12 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="https://featurehouse.github.io" target="_blank" rel="noopener" class="project-card">
                     <div class="project-image spm"></div>
                     <div class="project-content">
                         <h3 class="project-title">Sweet Potato Mod</h3>
-                        <p class="project-description">与 @teddyxlandlee 协作开发的 Minecraft 模组项目，围绕玩法拓展、内容设计与开源协作推进。</p>
+                        <p class="project-description">与@teddyxlandlee协作开发的Minecraft模组项目，围绕玩法拓展、内容设计与开源协作推进。</p>
                         <div class="project-tags">
                             <span class="tag">Minecraft</span>
                             <span class="tag">游戏模组</span>
@@ -236,26 +239,28 @@
                     </div>
                 </a>
             </div>
-            
+
             <div class="other-projects">
                 <h3 class="other-projects-title">其他项目</h3>
                 <div class="projects-grid">
-                    <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="project-card project-card-text">
+                    <a href="https://github.com/Rayawa" target="_blank" rel="noopener"
+                        class="project-card project-card-text">
                         <div class="project-content">
                             <h3 class="project-title">Difficlut Rocket（协作开发）</h3>
-                            <p class="project-description">与 @shenjackyuanjie 协作推进的项目，持续进行功能迭代与工程完善。</p>
+                            <p class="project-description">与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。</p>
                         </div>
                     </a>
-                    <a href="https://idv.rayawa.top" target="_blank" rel="noopener" class="project-card project-card-text">
+                    <a href="https://idv.rayawa.top" target="_blank" rel="noopener"
+                        class="project-card project-card-text">
                         <div class="project-content">
                             <h3 class="project-title">第五人格</h3>
-                            <p class="project-description">第五人格主题站点，整理玩法与内容展示，作为兴趣向网页项目长期维护。</p>
+                            <p class="project-description">当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（</p>
                         </div>
                     </a>
                     <a href="projects/xiaodou-english.html" class="project-card project-card-text">
                         <div class="project-content">
                             <h3 class="project-title">小豆英语启蒙</h3>
-                            <p class="project-description">启蒙英语方向项目，聚焦轻量内容结构与日常学习节奏的可持续设计。</p>
+                            <p class="project-description">内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符</p>
                         </div>
                     </a>
                 </div>
@@ -269,54 +274,79 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">摄影作品</h2>
-                <p class="section-subtitle">理科生的严谨，也可以在光影里生长。</p>
+                <p class="section-subtitle">以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
             </div>
-            
+
             <div class="gallery-carousel" id="galleryCarousel">
                 <div class="gallery-track">
                     <div class="gallery-slide active">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
                             <img src="static/gallery/DJI_0733.jpg" alt="摄影作品 1" decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
                             <img src="static/gallery/DJI_0942.jpg" alt="摄影作品 2" loading="lazy" decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/IMG_20250701_181148.jpg" alt="摄影作品 3" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/IMG_20250701_181148.jpg" alt="摄影作品 3" loading="lazy"
+                                decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/IMG_20250723_174511.jpg" alt="摄影作品 4" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/IMG_20250723_174511.jpg" alt="摄影作品 4" loading="lazy"
+                                decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/IMG_20260210_171544.jpg" alt="摄影作品 5" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/IMG_20260210_171544.jpg" alt="摄影作品 5" loading="lazy"
+                                decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/IMG_20260212_155345.jpg" alt="摄影作品 6" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/IMG_20260212_155345.jpg" alt="摄影作品 6" loading="lazy"
+                                decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg" alt="摄影作品 7" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg"
+                                alt="摄影作品 7" loading="lazy" decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg" alt="摄影作品 8" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg"
+                                alt="摄影作品 8" loading="lazy" decoding="async">
                         </a>
                     </div>
                     <div class="gallery-slide">
-                        <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
-                            <img src="static/gallery/微信图片_20240529100845.jpg" alt="摄影作品 9" loading="lazy" decoding="async">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/gallery/微信图片_20240529100845.jpg" alt="摄影作品 9" loading="lazy"
+                                decoding="async">
                         </a>
                     </div>
                 </div>
@@ -324,9 +354,10 @@
                 <button class="gallery-nav next" type="button" aria-label="下一张">›</button>
                 <div class="gallery-dots" id="galleryDots"></div>
             </div>
-            
+
             <div class="gallery-more">
-                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener" class="btn">
+                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                    rel="noopener" class="btn">
                     <i class="fas fa-external-link-alt"></i>
                     查看更多作品
                 </a>
@@ -341,9 +372,10 @@
                 <h2 class="section-title">我的链接</h2>
                 <p class="section-subtitle">在公开平台持续输出，也在协作中持续成长。</p>
             </div>
-            
+
             <div class="social-grid">
-                <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener" class="social-card bilibili">
+                <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
+                    class="social-card bilibili">
                     <div class="social-icon">
                         <i class="fab fa-bilibili"></i>
                     </div>
@@ -352,7 +384,7 @@
                         <p>摄影作品与项目更新进度</p>
                     </div>
                 </a>
-                
+
                 <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="social-card github">
                     <div class="social-icon">
                         <i class="fab fa-github"></i>
@@ -362,8 +394,9 @@
                         <p>代码与仓库入口</p>
                     </div>
                 </a>
-                
-                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener" class="social-card xiaohongshu">
+
+                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                    rel="noopener" class="social-card xiaohongshu">
                     <div class="social-icon">
                         <i class="fas fa-camera"></i>
                     </div>
@@ -383,7 +416,7 @@
                 <h2 class="section-title">联系我</h2>
                 <p class="section-subtitle">如果方向一致，我们就一起把它做成。</p>
             </div>
-            
+
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -396,7 +429,7 @@
                             <p>rayawa.work@gmail.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-globe"></i>
@@ -406,7 +439,7 @@
                             <p>rayawa.top</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -417,23 +450,23 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">姓名</label>
                         <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">邮箱</label>
                         <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">消息</label>
                         <textarea id="message" class="form-control" placeholder="请输入您的消息..." required></textarea>
                     </div>
-                    
+
                     <button type="submit" class="btn contact-submit">
                         <i class="fas fa-paper-plane"></i>
                         发送消息
@@ -449,20 +482,23 @@
             <div class="footer-content">
                 <div>
                     <a href="#" class="footer-logo">Ray Chen</a>
-                    <p class="footer-description">Ray Chen / Rayawa / 清霁Ray / 清霁戚汐<br>Everything is possible by code.</p>
+                    <p class="footer-description">Ray Chen / Rayawa / 清霁Ray / 清霁戚汐<br>Everything is possible by code.
+                    </p>
                     <div class="footer-social">
                         <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="footer-social-link">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener" class="footer-social-link">
+                        <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
+                            class="footer-social-link">
                             <i class="fab fa-bilibili"></i>
                         </a>
-                        <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener" class="footer-social-link">
+                        <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener" class="footer-social-link">
                             <i class="fas fa-camera"></i>
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 class="footer-heading">快速链接</h3>
                     <ul class="footer-links">
@@ -473,21 +509,21 @@
                         <li><a href="#contact">联系</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="footer-heading">项目</h3>
                     <ul class="footer-links">
                         <li><a href="projects/harmony-dashboard.html">华为应用市场看板</a></li>
                         <li><a href="projects/bio-project.html">生物学项目</a></li>
                         <li><a href="projects/xiaodou-english.html">小豆英语启蒙</a></li>
-                        <li><a href="https://featurehouse.github.io" target="_blank" rel="noopener">Sweet Potato Mod</a></li>
+                        <li><a href="https://featurehouse.github.io" target="_blank" rel="noopener">Sweet Potato Mod</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="copyright">
-                <p>&copy; 2026 Ray Chen. 保留所有权利。</p>
-                <p>设计灵感来自现代网页设计趋势</p>
+                <p>&copy; 2026 Ray Chen. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -496,4 +532,5 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="static/js/home.js"></script>
 </body>
+
 </html>

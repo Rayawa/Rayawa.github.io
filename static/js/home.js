@@ -87,6 +87,24 @@ function initNavbarScroll() {
 }
 
 function initSmoothScroll() {
+    const easeInOutCubic = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+
+    function smoothScrollTo(targetTop, duration = 620) {
+        const startTop = window.scrollY || window.pageYOffset;
+        const delta = targetTop - startTop;
+        if (Math.abs(delta) < 2) return;
+
+        const startTime = performance.now();
+        function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeInOutCubic(progress);
+            window.scrollTo(0, startTop + delta * eased);
+            if (progress < 1) window.requestAnimationFrame(step);
+        }
+        window.requestAnimationFrame(step);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', (e) => {
             const targetId = anchor.getAttribute('href');
@@ -94,10 +112,7 @@ function initSmoothScroll() {
             e.preventDefault();
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth',
-            });
+            smoothScrollTo(targetElement.offsetTop - 80);
         });
     });
 }
@@ -312,7 +327,7 @@ function initParticleMagnetEffect() {
         const canvasEl = instance.canvas.el;
         const pointer = { x: 0, y: 0, active: false };
         const radius = 236;
-        const strength = 0.00148;
+        const strength = 0.00126;
         const damping = 0.988;
         const maxSpeed = 4.25;
         const sparseRadius = 96;
@@ -519,7 +534,16 @@ function initFloatingTools() {
     topBtn.setAttribute('title', t.top);
     topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     topBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const startTop = window.scrollY || window.pageYOffset;
+        const startTime = performance.now();
+        const duration = 560;
+        const easeOut = (x) => 1 - Math.pow(1 - x, 3);
+        function step(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            window.scrollTo(0, startTop * (1 - easeOut(progress)));
+            if (progress < 1) window.requestAnimationFrame(step);
+        }
+        window.requestAnimationFrame(step);
     });
 
     wrapper.appendChild(refreshBtn);
@@ -535,6 +559,34 @@ function initFloatingTools() {
     toggleTop();
 }
 
+function initHeroStarInteraction() {
+    const star = document.getElementById('heroStar');
+    const quote = document.querySelector('.avatar-quote');
+    if (!star || !quote) return;
+
+    let visible = true;
+
+    function syncState() {
+        quote.classList.toggle('is-hidden', !visible);
+        star.classList.toggle('is-active', visible);
+    }
+
+    function toggle() {
+        visible = !visible;
+        syncState();
+    }
+
+    star.addEventListener('click', toggle);
+    star.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+        }
+    });
+
+    syncState();
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -544,4 +596,5 @@ initGalleryCarousel();
 initPageLoadAnimation();
 initParticlePointerFollow();
 initParticleMagnetEffect();
+initHeroStarInteraction();
 initFloatingTools();
