@@ -9,16 +9,25 @@ const i18n = {
     zh: {
         sending: '发送中...',
         sent: '消息发送成功！我会尽快回复您。',
+        sendFailed: '发送失败，请稍后重试。',
+        top: '回到顶部',
+        refresh: '刷新页面',
         dotLabel: '跳转到第 {n} 张',
     },
     en: {
         sending: 'Sending...',
         sent: 'Message sent successfully. I will reply soon.',
+        sendFailed: 'Failed to send. Please try again later.',
+        top: 'Back to top',
+        refresh: 'Refresh page',
         dotLabel: 'Go to slide {n}',
     },
     fr: {
         sending: 'Envoi...',
         sent: 'Message envoye. Je vous repondrai bientot.',
+        sendFailed: 'Echec de l envoi. Veuillez reessayer plus tard.',
+        top: 'Retour en haut',
+        refresh: 'Rafraichir la page',
         dotLabel: 'Aller a la diapositive {n}',
     },
 };
@@ -96,19 +105,42 @@ function initSmoothScroll() {
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = form.querySelector('button[type="submit"]');
         if (!submitBtn) return;
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = `<span class="loading"></span> ${t.sending}`;
         submitBtn.disabled = true;
-        window.setTimeout(() => {
+
+        const payload = {
+            name: (document.getElementById('name') || {}).value || '',
+            email: (document.getElementById('email') || {}).value || '',
+            message: (document.getElementById('message') || {}).value || '',
+            lang: locale,
+        };
+
+        const apiBase = window.CONTACT_API_URL || 'http://localhost:8787';
+        try {
+            const res = await fetch(`${apiBase}/api/contact`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}`);
+            }
+
             alert(t.sent);
             form.reset();
+        } catch (err) {
+            console.error('contact submit failed', err);
+            alert(t.sendFailed);
+        } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+        }
     });
 }
 
@@ -467,6 +499,43 @@ function initParticleMagnetEffect() {
     }, 120);
 }
 
+function initFloatingTools() {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'fab-tools';
+
+    const refreshBtn = document.createElement('button');
+    refreshBtn.type = 'button';
+    refreshBtn.className = 'fab-tool';
+    refreshBtn.setAttribute('aria-label', t.refresh);
+    refreshBtn.setAttribute('title', t.refresh);
+    refreshBtn.innerHTML = '<i class="fas fa-rotate-right"></i>';
+    refreshBtn.addEventListener('click', () => {
+        window.location.reload();
+    });
+
+    const topBtn = document.createElement('button');
+    topBtn.type = 'button';
+    topBtn.className = 'fab-tool fab-top is-hidden';
+    topBtn.setAttribute('aria-label', t.top);
+    topBtn.setAttribute('title', t.top);
+    topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    wrapper.appendChild(refreshBtn);
+    wrapper.appendChild(topBtn);
+    document.body.appendChild(wrapper);
+
+    const toggleTop = () => {
+        const show = window.scrollY > 260;
+        topBtn.classList.toggle('is-hidden', !show);
+    };
+
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toggleTop();
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -476,3 +545,4 @@ initGalleryCarousel();
 initPageLoadAnimation();
 initParticlePointerFollow();
 initParticleMagnetEffect();
+initFloatingTools();
