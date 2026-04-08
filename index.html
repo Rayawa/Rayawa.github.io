@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="static/css/home.css">
 </head>
 
-<body>
+<body class="page-preload">
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
@@ -25,17 +25,26 @@
             </a>
 
             <ul class="nav-links">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#gallery">摄影</a></li>
-                <li><a href="#contact">联系</a></li>
+                <li><a href="#home" data-i18n="nav.home">首页</a></li>
+                <li><a href="#about" data-i18n="nav.about">关于我</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">项目</a></li>
+                <li><a href="#gallery" data-i18n="nav.gallery">摄影</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
             </ul>
 
             <div class="language-switch">
-                <a href="index.html" class="lang-btn active">中文</a>
-                <a href="index_en.html" class="lang-btn">EN</a>
-                <a href="index_fr.html" class="lang-btn">FR</a>
+                <button type="button" class="lang-btn active" data-lang="zh" aria-label="切换到中文">
+                    <img src="static/images/cn.svg" alt="" class="lang-flag">
+                    <span>中文</span>
+                </button>
+                <button type="button" class="lang-btn" data-lang="en" aria-label="Switch to English">
+                    <img src="static/images/uk.svg" alt="" class="lang-flag">
+                    <span>EN</span>
+                </button>
+                <button type="button" class="lang-btn" data-lang="fr" aria-label="Basculer en francais">
+                    <img src="static/images/fr.svg" alt="" class="lang-flag">
+                    <span>FR</span>
+                </button>
             </div>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -45,27 +54,27 @@
     </nav>
 
     <!-- 英雄区域 -->
-    <section class="hero" id="home">
+    <section class="hero reveal-section" id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>你好，我是 <span class="gradient-text">Ray</span></h1>
-                    <p class="hero-aliases">Ray汐 · 清霁Ray · Rayawa · Ray Chen</p>
+                <div class="hero-text reveal-seq">
+                    <h1 class="reveal-item" data-i18n-html="hero.title">你好，我是 <span class="gradient-text">Ray</span></h1>
+                    <p class="hero-aliases reveal-item">Ray汐 · 清霁Ray · Rayawa · Ray Chen</p>
                     <div class="hero-tags">
-                        <p class="tag-intro"><strong>通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者</strong></p>
-                        <p><span class="tag-label">核心</span>专注 HarmonyOS 应用开发与 Hi3861 嵌入式实践。</p>
-                        <p><span class="tag-label">支线</span>Web构建、 Difficult Rocket & Minecraft模组开发、生物学相关研究。</p>
-                        <p><span class="tag-label">摄影</span>风景摄影 &amp; 无人机航拍，用快门捕捉通信之外的频率。</p>
-                        <p><span class="tag-label">生活</span><span lang="fr">J'apprends le français</span>，跑步骑行ing，也在提瓦特、塔卫二与罗德岛的世界中切换；音游节奏在线，每天赚费沉底石头人（）。</p>
+                        <p class="tag-intro reveal-item"><strong data-i18n="hero.intro">通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者</strong></p>
+                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.core">核心</span><span data-i18n="hero.core">专注 HarmonyOS 应用开发与 Hi3861 嵌入式实践。</span></p>
+                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.side">支线</span><span data-i18n="hero.side">Web构建、 Difficult Rocket & Minecraft模组开发、生物学相关研究。</span></p>
+                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.photo">摄影</span><span data-i18n="hero.photo">风景摄影 &amp; 无人机航拍，用快门捕捉通信之外的频率。</span></p>
+                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.life">生活</span><span data-i18n="hero.life">J'apprends le français，跑步骑行ing，也在提瓦特、塔卫二与罗德岛的世界中切换；音游节奏在线，每天赚费沉底石头人（）。</span></p>
                     </div>
-                    <div class="btn-group">
+                    <div class="btn-group reveal-item">
                         <a href="#projects" class="btn">
                             <i class="fas fa-rocket"></i>
-                            查看项目
+                            <span data-i18n="hero.btn.projects">查看项目</span>
                         </a>
                         <a href="#contact" class="btn btn-outline">
                             <i class="fas fa-envelope"></i>
-                            联系我
+                            <span data-i18n="hero.btn.contact">联系我</span>
                         </a>
                     </div>
                 </div>
@@ -81,16 +90,16 @@
     </section>
 
     <!-- 关于我 -->
-    <section class="about" id="about">
+    <section class="about reveal-section" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">关于我</h2>
-                <p class="section-subtitle">跨越学科的边界，只为连接更广阔的世界。</p>
+                <h2 class="section-title reveal-item" data-i18n="about.title">关于我</h2>
+                <p class="section-subtitle reveal-item" data-i18n="about.subtitle">跨越学科的边界，只为连接更广阔的世界。</p>
             </div>
 
             <div class="about-content">
-                <div class="about-text">
-                    <h3>个人简介</h3>
+                <div class="about-text" id="aboutTextBlock">
+                    <h3 data-i18n="about.profile">个人简介</h3>
                     <p>我目前就读于北方工业大学通信工程专业，但投入精力最多的是软件开发。目前正持续推进的核心项目是HarmonyOS平台的鸿蒙应用看板App，项目已进入邀请测试阶段，并计划开始后续macOS与Android平台的跨开发。</p>
                     <p>除了软件层面，我还在学习OpenHarmony Hi3861嵌入式开发。对我来说，这不只是在调硬件，更是为了从底层逻辑上把设备侧的能力和系统工程彻底摸透。</p>
                     <p>我参与开源协作：在Sweet Potato Mod中与@teddyxlandlee配合，在Difficult Rocket项目中与@shenjackyuanjie协作；我的Minecraft Java ID 是Rayawa。对我来说，参与协作不仅是提交代码，更是与不同背景的开发者对齐工程标准与沟通方式的过程。</p>
@@ -98,12 +107,12 @@
                     <p>在网页开发上，我先后搭建了个人网站、模组站、第五人格站及农杆菌转化法实验站点；程序方面涉猎 C、C++、Java、Rust、HTML、ArkTS、Swift与openGauss数据库。我不太喜欢死学，更倾向于在产品做出来、算法想通了、工程讲清楚了这三者之间找个舒服的平衡点。</p>
                     <p>平时我喜欢跑步和骑行，相机和无人机也是出门必备。我觉得摄影的乐趣不止在最后的出片，换个视角去构图、尝试用不同的叙事风格、在原来的基础上做出创新……这种创作过程十分有乐趣。</p>
                     <p>游戏方面，我是Minecraft的老玩家，也是一名“原学家”（大概），近期正在玩明日方舟和终末地；我同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline等音游；在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）与若干B牌（虽然目前已退游）；皇室战争中我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
-                    <p>最近我也在学习法语。 Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
+                    <p>最近我也在学习法语。 从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
 
                 </div>
 
                 <div class="about-side">
-                    <div class="glass-card status-card">
+                    <div class="glass-card status-card" id="statusCardBlock">
                         <h3 class="status-card-title">现在进行时</h3>
                         <div class="skills-grid">
                             <div class="skill-item">
@@ -145,7 +154,7 @@
                         </div>
                     </div>
 
-                    <div class="glass-card side-card">
+                    <div class="glass-card side-card" id="capabilityCardBlock">
                         <h3 class="status-card-title">能力与方向</h3>
                         <div class="skills-grid">
                             <div class="skill-item">
@@ -192,26 +201,26 @@
     </section>
 
     <!-- 项目展示 -->
-    <section class="projects" id="projects">
+    <section class="projects reveal-section" id="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">我的项目</h2>
-                <p class="section-subtitle">把热爱写成项目，把项目做成长期作品。</p>
+                <h2 class="section-title reveal-item" data-i18n="projects.title">我的项目</h2>
+                <p class="section-subtitle reveal-item" data-i18n="projects.subtitle">把热爱写成项目，把项目做成长期作品。</p>
             </div>
 
             <div class="projects-grid">
                 <a href="projects/harmony-dashboard.html" class="project-card">
                     <div class="project-image harmony"></div>
                     <div class="project-content">
-                        <h3 class="project-title">华为应用市场看板</h3>
-                        <p class="project-description">基于鸿蒙生态的数据看板项目，聚焦应用市场信息聚合、展示与分析。当前主线项目，持续更新中。</p>
+                        <h3 class="project-title" data-i18n="project.hmdb.title">华为应用市场看板</h3>
+                        <p class="project-description" data-i18n="project.hmdb.desc">基于鸿蒙生态的数据看板项目，聚焦应用市场信息聚合、展示与分析。当前主线项目，持续更新中。</p>
                         <div class="project-award-row">
-                            <span class="tag tag-award award-link" role="link" tabindex="0" data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛三等奖</span>
+                            <span class="tag tag-award award-link" role="link" tabindex="0" data-i18n="project.hmdb.award" data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛三等奖作品</span>
                         </div>
                         <div class="project-tags">
                             <span class="tag">HarmonyOS</span>
-                            <span class="tag">数据可视化</span>
-                            <span class="tag">Web 应用</span>
+                            <span class="tag" data-i18n="tag.dataVis">数据可视化</span>
+                            <span class="tag" data-i18n="tag.webApp">Web 应用</span>
                         </div>
                     </div>
                 </a>
@@ -219,12 +228,12 @@
                 <a href="projects/bio-project.html" class="project-card">
                     <div class="project-image bio"></div>
                     <div class="project-content">
-                        <h3 class="project-title">生物学项目</h3>
-                        <p class="project-description">收录我生物学方向论文与实验记录，包括我的PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。</p>
+                        <h3 class="project-title" data-i18n="project.bio.title">生物学项目</h3>
+                        <p class="project-description" data-i18n="project.bio.desc">收录我生物学方向论文与实验记录，包括我的PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。</p>
                         <div class="project-tags">
-                            <span class="tag">生物学</span>
-                            <span class="tag">研究</span>
-                            <span class="tag">学术</span>
+                            <span class="tag" data-i18n="tag.biology">生物学</span>
+                            <span class="tag" data-i18n="tag.research">研究</span>
+                            <span class="tag" data-i18n="tag.academic">学术</span>
                         </div>
                     </div>
                 </a>
@@ -232,38 +241,38 @@
                 <a href="https://featurehouse.github.io" target="_blank" rel="noopener" class="project-card">
                     <div class="project-image spm"></div>
                     <div class="project-content">
-                        <h3 class="project-title">Sweet Potato Mod</h3>
-                        <p class="project-description">与@teddyxlandlee协作开发的Minecraft模组项目，围绕玩法拓展、内容设计与开源协作推进。</p>
+                        <h3 class="project-title" data-i18n="project.spm.title">Sweet Potato Mod</h3>
+                        <p class="project-description" data-i18n="project.spm.desc">与@teddyxlandlee协作开发的Minecraft模组项目，围绕玩法拓展、内容设计与开源协作推进。</p>
                         <div class="project-tags">
                             <span class="tag">Minecraft</span>
-                            <span class="tag">游戏模组</span>
-                            <span class="tag">开源</span>
+                            <span class="tag" data-i18n="tag.gameMod">游戏模组</span>
+                            <span class="tag" data-i18n="tag.openSource">开源</span>
                         </div>
                     </div>
                 </a>
             </div>
 
             <div class="other-projects">
-                <h3 class="other-projects-title">其他项目</h3>
+                <h3 class="other-projects-title" data-i18n="projects.other">其他项目</h3>
                 <div class="projects-grid">
                     <a href="https://github.com/Rayawa" target="_blank" rel="noopener"
                         class="project-card project-card-text">
                         <div class="project-content">
-                            <h3 class="project-title">Difficlut Rocket（协作开发）</h3>
-                            <p class="project-description">与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。</p>
+                            <h3 class="project-title" data-i18n="project.dr.title">Difficlut Rocket（协作开发）</h3>
+                            <p class="project-description" data-i18n="project.dr.desc">与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。</p>
                         </div>
                     </a>
                     <a href="https://idv.rayawa.top" target="_blank" rel="noopener"
                         class="project-card project-card-text">
                         <div class="project-content">
-                            <h3 class="project-title">第五人格</h3>
-                            <p class="project-description">当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（</p>
+                            <h3 class="project-title" data-i18n="project.idv.title">第五人格</h3>
+                            <p class="project-description" data-i18n="project.idv.desc">当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（</p>
                         </div>
                     </a>
                     <a href="projects/xiaodou-english.html" class="project-card project-card-text">
                         <div class="project-content">
-                            <h3 class="project-title">小豆英语启蒙</h3>
-                            <p class="project-description">内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符</p>
+                            <h3 class="project-title" data-i18n="project.xiaodou.title">小豆英语启蒙</h3>
+                            <p class="project-description" data-i18n="project.xiaodou.desc">内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符</p>
                         </div>
                     </a>
                 </div>
@@ -273,11 +282,11 @@
 
 
     <!-- 摄影画廊 -->
-    <section class="gallery" id="gallery">
+    <section class="gallery reveal-section" id="gallery">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">摄影作品</h2>
-                <p class="section-subtitle">以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
+                <h2 class="section-title reveal-item" data-i18n="gallery.title">摄影作品</h2>
+                <p class="section-subtitle reveal-item" data-i18n="gallery.subtitle">以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
             </div>
 
             <div class="gallery-carousel" id="galleryCarousel">
@@ -358,22 +367,22 @@
                 <div class="gallery-dots" id="galleryDots"></div>
             </div>
 
-            <div class="gallery-more">
+            <div class="gallery-more reveal-item">
                 <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
                     rel="noopener" class="btn">
                     <i class="fas fa-external-link-alt"></i>
-                    查看更多作品
+                    <span data-i18n="gallery.more">查看更多作品</span>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- 社交链接 -->
-    <section class="social" id="social">
+    <section class="social reveal-section" id="social">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">我的链接</h2>
-                <p class="section-subtitle">在公开平台持续输出，也在协作中持续成长。</p>
+                <h2 class="section-title reveal-item" data-i18n="social.title">我的链接</h2>
+                <p class="section-subtitle reveal-item" data-i18n="social.subtitle">在公开平台持续输出，也在协作中持续成长。</p>
             </div>
 
             <div class="social-grid">
@@ -383,8 +392,8 @@
                         <i class="fab fa-bilibili"></i>
                     </div>
                     <div class="social-details">
-                        <h4>Bilibili</h4>
-                        <p>摄影作品与项目更新进度</p>
+                        <h4 data-i18n="social.bili.title">Bilibili</h4>
+                        <p data-i18n="social.bili.desc">摄影作品与项目更新进度</p>
                     </div>
                 </a>
 
@@ -393,8 +402,8 @@
                         <i class="fab fa-github"></i>
                     </div>
                     <div class="social-details">
-                        <h4>GitHub</h4>
-                        <p>代码与仓库入口</p>
+                        <h4 data-i18n="social.github.title">GitHub</h4>
+                        <p data-i18n="social.github.desc">代码与仓库入口</p>
                     </div>
                 </a>
 
@@ -404,8 +413,8 @@
                         <i class="fas fa-camera"></i>
                     </div>
                     <div class="social-details">
-                        <h4>小红书</h4>
-                        <p>我的全部摄影作品</p>
+                        <h4 data-i18n="social.xhs.title">小红书</h4>
+                        <p data-i18n="social.xhs.desc">我的全部摄影作品</p>
                     </div>
                 </a>
             </div>
@@ -413,11 +422,11 @@
     </section>
 
     <!-- 联系我 -->
-    <section class="contact" id="contact">
+    <section class="contact reveal-section" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">联系我</h2>
-                <p class="section-subtitle">如果方向一致，我们就一起把它做成。</p>
+                <h2 class="section-title reveal-item" data-i18n="contact.title">联系我</h2>
+                <p class="section-subtitle reveal-item" data-i18n="contact.subtitle">如果方向一致，我们就一起把它做成。</p>
             </div>
 
             <div class="contact-content">
@@ -427,7 +436,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>电子邮件</h4>
+                            <h4 data-i18n="contact.email">电子邮件</h4>
                             <p>rayawa.work@outlook.com</p>
                             <p>rayawa.work@gmail.com</p>
                         </div>
@@ -438,7 +447,7 @@
                             <i class="fas fa-globe"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>网站</h4>
+                            <h4 data-i18n="contact.website">网站</h4>
                             <p>rayawa.top</p>
                         </div>
                     </div>
@@ -448,7 +457,7 @@
                             <i class="fab fa-qq"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>QQ</h4>
+                            <h4 data-i18n="contact.qq">QQ</h4>
                             <p>2265695808</p>
                         </div>
                     </div>
@@ -458,31 +467,31 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>位置</h4>
-                            <p>北京，中国</p>
+                            <h4 data-i18n="contact.location">位置</h4>
+                            <p data-i18n="contact.locationValue">北京，中国</p>
                         </div>
                     </div>
                 </div>
 
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <label for="name">姓名</label>
-                        <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
+                        <label for="name" data-i18n="form.name">姓名</label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" data-i18n-placeholder="form.namePh" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">邮箱</label>
-                        <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" required>
+                        <label for="email" data-i18n="form.email">邮箱</label>
+                        <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" data-i18n-placeholder="form.emailPh" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">消息</label>
-                        <textarea id="message" class="form-control" placeholder="请输入您的消息..." required></textarea>
+                        <label for="message" data-i18n="form.message">消息</label>
+                        <textarea id="message" class="form-control" placeholder="请输入您的消息..." data-i18n-placeholder="form.messagePh" required></textarea>
                     </div>
 
                     <button type="submit" class="btn contact-submit">
                         <i class="fas fa-paper-plane"></i>
-                        发送消息
+                        <span data-i18n="form.send">发送消息</span>
                     </button>
                 </form>
             </div>
@@ -495,7 +504,7 @@
             <div class="footer-content">
                 <div>
                     <a href="#" class="footer-logo">Ray Chen</a>
-                    <p class="footer-description">Ray Chen / Rayawa / 清霁Ray / 清霁戚汐<br>Everything is possible by code.
+                    <p class="footer-description">Ray汐 / 清霁Ray / Rayawa /Ray Chen<br>Everything is possible by code.
                     </p>
                     <div class="footer-social">
                         <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="footer-social-link">
@@ -513,22 +522,22 @@
                 </div>
 
                 <div>
-                    <h3 class="footer-heading">快速链接</h3>
+                    <h3 class="footer-heading" data-i18n="footer.quick">快速链接</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#about">关于我</a></li>
-                        <li><a href="#projects">项目</a></li>
-                        <li><a href="#gallery">摄影</a></li>
-                        <li><a href="#contact">联系</a></li>
+                        <li><a href="#home" data-i18n="nav.home">首页</a></li>
+                        <li><a href="#about" data-i18n="nav.about">关于我</a></li>
+                        <li><a href="#projects" data-i18n="nav.projects">项目</a></li>
+                        <li><a href="#gallery" data-i18n="nav.gallery">摄影</a></li>
+                        <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="footer-heading">项目</h3>
+                    <h3 class="footer-heading" data-i18n="footer.projects">项目</h3>
                     <ul class="footer-links">
-                        <li><a href="projects/harmony-dashboard.html">华为应用市场看板</a></li>
-                        <li><a href="projects/bio-project.html">生物学项目</a></li>
-                        <li><a href="projects/xiaodou-english.html">小豆英语启蒙</a></li>
+                        <li><a href="projects/harmony-dashboard.html" data-i18n="project.hmdb.title">华为应用市场看板</a></li>
+                        <li><a href="projects/bio-project.html" data-i18n="project.bio.title">生物学项目</a></li>
+                        <li><a href="projects/xiaodou-english.html" data-i18n="project.xiaodou.title">小豆英语启蒙</a></li>
                         <li><a href="https://featurehouse.github.io" target="_blank" rel="noopener">Sweet Potato Mod</a>
                         </li>
                     </ul>
@@ -536,7 +545,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2026 Ray Chen. All rights reserved.</p>
+                <p data-i18n="footer.copy">&copy; 2026 Ray Chen. All rights reserved.</p>
             </div>
         </div>
     </footer>
