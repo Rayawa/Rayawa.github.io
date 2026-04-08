@@ -580,54 +580,61 @@ function initSmoothScroll() {
 
 function initContactForm() {
     const form = document.getElementById('contactForm');
-    if (!form) return;
+    if (!form) {
+        console.error("找不到 ID 为 contactForm 的表单");
+        return;
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
         const submitBtn = form.querySelector('button[type="submit"]');
-        if (!submitBtn) return;
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = `<span class="loading"></span> ${t.sending}`;
-        submitBtn.disabled = true;
+        const originalText = submitBtn ? submitBtn.innerHTML : "发送";
+        
+        // 1. 防止重复点击
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "发送中...";
+        }
+
+        // 2. 采集数据 (增加容错判断)
+        const nameEl = document.getElementById('name');
+        const emailEl = document.getElementById('email');
+        const messageEl = document.getElementById('message');
 
         const payload = {
-            name: (document.getElementById('name') || {}).value || '',
-            email: (document.getElementById('email') || {}).value || '',
-            message: (document.getElementById('message') || {}).value || '',
-            lang: locale,
+            name: nameEl ? nameEl.value : "未填写姓名",
+            email: emailEl ? emailEl.value : "",
+            message: messageEl ? messageEl.value : ""
         };
 
-        const isFileProtocol = window.location.protocol === 'file:';
-        const apiBase = window.CONTACT_API_URL || (isFileProtocol ? 'http://localhost:8787' : window.location.origin);
         try {
-            const res = await fetch(`${apiBase}/api/contact`, {
+            // 3. 发送请求
+            const response = await fetch('https://formspree.io/f/maqlkkbg', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
             });
 
-            if (!res.ok) {
-                let errorCode = `HTTP_${res.status}`;
-                try {
-                    const json = await res.json();
-                    if (json?.error) errorCode = json.error;
-                } catch (_e) {}
-                throw new Error(errorCode);
-            }
-
-            alert(t.sent);
-            form.reset();
-        } catch (err) {
-            console.error('contact submit failed', err);
-            if (String(err?.message || '').includes('too_many_requests')) {
-                alert(locale === 'zh' ? '提交过于频繁，请稍后再试。' : locale === 'fr' ? 'Vous envoyez trop vite, veuillez reessayer plus tard.' : 'You are sending too frequently. Please try again later.');
-            } else if (String(err?.message || '').includes('smtp_not_configured')) {
-                alert(locale === 'zh' ? '邮件服务暂未配置完成，请稍后联系我。' : locale === 'fr' ? 'Le service email n est pas configure pour le moment.' : 'Mail service is not configured yet.');
+            if (response.ok) {
+                alert("消息已成功发送！"); 
+                form.reset();
             } else {
-                alert(t.sendFailed);
+                const errorData = await response.json();
+                alert("发送失败: " + (errorData.error || "未知错误"));
             }
+        } catch (err) {
+            console.error('提交出错:', err);
+            alert("提交失败，请检查网络连接");
         } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+            // 4. 恢复按钮
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         }
     });
 }
