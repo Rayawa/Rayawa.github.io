@@ -275,59 +275,133 @@
 
         @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
             html.has-scroll-showcase {
-                scroll-snap-type: y proximity;
+                scroll-behavior: smooth;
             }
 
             body.has-scroll-showcase section {
                 position: relative;
-                min-height: 100svh;
-                display: flex;
-                align-items: center;
-                padding: 8.5rem 0 4rem;
-                scroll-snap-align: start;
-                scroll-snap-stop: always;
+                min-height: 185svh;
+                padding: 0;
                 overflow: clip;
                 isolation: isolate;
+                --section-progress: 0;
+                --section-signed: 0;
+                --section-focus: 0;
+                --section-depth: 1;
+            }
+
+            body.has-scroll-showcase section::before,
+            body.has-scroll-showcase section::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                z-index: -2;
             }
 
             body.has-scroll-showcase section::before {
-                content: '';
-                position: absolute;
-                inset: 10% 6%;
-                border-radius: 36px;
+                inset: 10% 4% 10%;
+                border-radius: 42px;
                 background:
-                    radial-gradient(circle at 20% 18%, rgba(89, 212, 255, 0.18), transparent 28%),
-                    radial-gradient(circle at 82% 74%, rgba(144, 244, 199, 0.18), transparent 30%),
-                    linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-                opacity: calc(0.18 + var(--section-focus, 0) * 0.32);
+                    radial-gradient(circle at 12% 18%, rgba(89, 212, 255, 0.28), transparent 24%),
+                    radial-gradient(circle at 84% 20%, rgba(255, 255, 255, 0.12), transparent 18%),
+                    radial-gradient(circle at 78% 78%, rgba(144, 244, 199, 0.24), transparent 26%),
+                    linear-gradient(160deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.01));
+                opacity: calc(0.12 + var(--section-focus, 0) * 0.5);
                 transform:
-                    translate3d(calc(var(--section-progress, 0) * -64px), calc(var(--section-progress, 0) * 36px), 0)
-                    scale(calc(0.96 + var(--section-focus, 0) * 0.08));
-                filter: blur(16px);
-                transition: opacity 0.35s ease;
-                pointer-events: none;
-                z-index: -1;
+                    perspective(1800px)
+                    translate3d(calc(var(--section-signed, 0) * -120px), calc(var(--section-signed, 0) * 70px), calc(var(--section-depth, 1) * -220px))
+                    rotateX(calc(var(--section-signed, 0) * -11deg))
+                    scale(calc(0.86 + var(--section-focus, 0) * 0.2));
+                filter: blur(calc(18px + var(--section-depth, 1) * 20px));
+            }
+
+            body.has-scroll-showcase section::after {
+                inset: 8% 8% auto;
+                height: 62svh;
+                border-radius: 999px;
+                background:
+                    radial-gradient(circle, rgba(99, 102, 241, 0.18), transparent 62%);
+                opacity: calc(0.08 + var(--section-focus, 0) * 0.28);
+                transform:
+                    translate3d(calc(var(--section-signed, 0) * 90px), calc(var(--section-signed, 0) * -30px), 0)
+                    scale(calc(0.7 + var(--section-focus, 0) * 0.45));
+                filter: blur(36px);
+                z-index: -3;
             }
 
             body.has-scroll-showcase section > .container {
-                width: 100%;
-                transform:
-                    translate3d(0, calc(var(--section-progress, 0) * -82px), 0)
-                    scale(calc(0.9 + var(--section-focus, 0) * 0.1));
-                opacity: calc(0.26 + var(--section-focus, 0) * 0.74);
-                filter: blur(calc((1 - var(--section-focus, 0)) * 10px));
+                position: sticky;
+                top: clamp(84px, 8svh, 116px);
+                min-height: calc(100svh - clamp(120px, 12svh, 160px));
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transform-style: preserve-3d;
                 transform-origin: center center;
                 will-change: transform, opacity, filter;
+                transform:
+                    perspective(2200px)
+                    translate3d(0, calc(var(--section-signed, 0) * -140px), calc(var(--section-depth, 1) * -260px))
+                    rotateX(calc(var(--section-signed, 0) * -18deg))
+                    scale(calc(0.72 + var(--section-focus, 0) * 0.28));
+                opacity: calc(0.12 + var(--section-focus, 0) * 0.88);
+                filter:
+                    blur(calc((1 - var(--section-focus, 0)) * 18px))
+                    saturate(calc(0.68 + var(--section-focus, 0) * 0.62));
             }
 
             body.has-scroll-showcase section.is-current > .container {
                 pointer-events: auto;
             }
 
-            body.has-scroll-showcase .hero > .container {
+            body.has-scroll-showcase [data-scroll-layer] {
+                transform-style: preserve-3d;
+                will-change: transform, opacity, filter;
                 transform:
-                    translate3d(0, calc(var(--section-progress, 0) * -56px), 0)
+                    translate3d(
+                        calc(var(--section-signed, 0) * var(--layer-shift-x, 0px)),
+                        calc(var(--section-signed, 0) * var(--layer-shift-y, 0px)),
+                        calc((1 - var(--section-focus, 0)) * var(--layer-depth, -140px))
+                    )
+                    rotateX(calc(var(--section-signed, 0) * var(--layer-tilt, -8deg)))
+                    scale(calc(0.88 + var(--section-focus, 0) * 0.12));
+                opacity: calc(0.18 + var(--section-focus, 0) * 0.82);
+                filter: blur(calc((1 - var(--section-focus, 0)) * var(--layer-blur, 8px)));
+            }
+
+            body.has-scroll-showcase [data-scroll-child] {
+                will-change: transform, opacity, filter;
+                transform:
+                    translate3d(
+                        0,
+                        calc((1 - var(--section-focus, 0)) * (38px + var(--child-index, 0) * 10px)),
+                        calc((1 - var(--section-focus, 0)) * (-40px - var(--child-index, 0) * 18px))
+                    )
+                    rotateX(calc(var(--section-signed, 0) * (-5deg - var(--child-index, 0) * 1deg)))
                     scale(calc(0.92 + var(--section-focus, 0) * 0.08));
+                opacity: calc(0.22 + var(--section-focus, 0) * (0.8 - var(--child-index, 0) * 0.05));
+                filter: blur(calc((1 - var(--section-focus, 0)) * (4px + var(--child-index, 0) * 1.5px)));
+            }
+
+            body.has-scroll-showcase .section-header {
+                margin-bottom: 4.5rem;
+            }
+
+            body.has-scroll-showcase .hero {
+                min-height: 210svh;
+            }
+
+            body.has-scroll-showcase .hero-content {
+                align-items: center;
+            }
+
+            body.has-scroll-showcase .hero-image {
+                transform-origin: center center;
+            }
+
+            body.has-scroll-showcase .profile-img {
+                box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42);
             }
 
             body.has-scroll-showcase .project-card,
@@ -337,8 +411,17 @@
             body.has-scroll-showcase .contact-item,
             body.has-scroll-showcase .gallery-carousel,
             body.has-scroll-showcase .glass-card {
-                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
-                backdrop-filter: blur(14px);
+                box-shadow: 0 28px 90px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(16px);
+            }
+
+            body.has-scroll-showcase .gallery-carousel {
+                overflow: visible;
+            }
+
+            body.has-scroll-showcase .gallery-track,
+            body.has-scroll-showcase .gallery-slide img {
+                min-height: 52svh;
             }
 
             body.has-scroll-showcase .section-dock {
@@ -350,11 +433,12 @@
                 flex-direction: column;
                 gap: 12px;
                 z-index: 1002;
-                padding: 12px 10px;
+                padding: 14px 10px;
                 border-radius: 999px;
-                background: rgba(7, 13, 28, 0.5);
+                background: rgba(7, 13, 28, 0.44);
                 border: 1px solid rgba(255, 255, 255, 0.12);
-                backdrop-filter: blur(14px);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(18px);
             }
 
             body.has-scroll-showcase .section-dock-dot {
@@ -362,20 +446,21 @@
                 height: 11px;
                 border: none;
                 border-radius: 999px;
-                background: rgba(255, 255, 255, 0.28);
+                background: rgba(255, 255, 255, 0.24);
                 cursor: pointer;
-                transition: transform 0.25s ease, background 0.25s ease;
+                transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
                 padding: 0;
             }
 
             body.has-scroll-showcase .section-dock-dot:hover {
-                background: rgba(255, 255, 255, 0.75);
-                transform: scale(1.14);
+                background: rgba(255, 255, 255, 0.78);
+                transform: scale(1.16);
             }
 
             body.has-scroll-showcase .section-dock-dot.is-active {
                 background: linear-gradient(135deg, #59d4ff 0%, #90f4c7 100%);
-                transform: scale(1.28);
+                box-shadow: 0 0 16px rgba(89, 212, 255, 0.4);
+                transform: scale(1.34);
             }
         }
 
