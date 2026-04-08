@@ -270,6 +270,44 @@ function initScrollShowcase() {
     let dockButtons = [];
     let ticking = false;
 
+    function assignLayers() {
+        const layerSelector = [
+            '.section-header',
+            '.hero-text',
+            '.hero-image',
+            '.about-text',
+            '.skills-grid',
+            '.projects-grid',
+            '.other-projects',
+            '.gallery-carousel',
+            '.gallery-more',
+            '.social-grid',
+            '.contact-info',
+            '.contact-form',
+        ].join(', ');
+
+        sections.forEach((section) => {
+            const layers = Array.from(section.querySelectorAll(layerSelector));
+            layers.forEach((layer, index) => {
+                layer.dataset.scrollLayer = '';
+                layer.style.setProperty('--layer-shift-x', `${(index % 2 === 0 ? -1 : 1) * (12 + index * 4)}px`);
+                layer.style.setProperty('--layer-shift-y', `${22 + index * 14}px`);
+                layer.style.setProperty('--layer-depth', `${-120 - index * 55}px`);
+                layer.style.setProperty('--layer-tilt', `${-4 - index * 1.4}deg`);
+                layer.style.setProperty('--layer-blur', `${5 + index * 1.2}px`);
+            });
+
+            const children = Array.from(
+                section.querySelectorAll('.skill-item, .project-card, .social-card, .contact-item, .tag, .btn, .btn-outline')
+            );
+
+            children.forEach((child, index) => {
+                child.dataset.scrollChild = '';
+                child.style.setProperty('--child-index', String(index % 5));
+            });
+        });
+    }
+
     function scrollToSection(section) {
         window.scrollTo({
             top: section.offsetTop - 24,
@@ -306,7 +344,9 @@ function initScrollShowcase() {
         sections.forEach((section) => {
             section.classList.remove('is-current');
             section.style.removeProperty('--section-progress');
+            section.style.removeProperty('--section-signed');
             section.style.removeProperty('--section-focus');
+            section.style.removeProperty('--section-depth');
         });
     }
 
@@ -320,12 +360,17 @@ function initScrollShowcase() {
 
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
-            const centerOffset = rect.top + rect.height / 2 - viewportHeight / 2;
-            const normalized = Math.max(-1.15, Math.min(1.15, centerOffset / viewportHeight));
-            const focus = Math.max(0, 1 - Math.min(Math.abs(normalized), 1));
+            const stickyRange = Math.max(1, rect.height - viewportHeight);
+            const progress = Math.max(0, Math.min(1, (viewportHeight * 0.5 - rect.top) / stickyRange));
+            const signed = progress * 2 - 1;
+            const focus = Math.max(0, 1 - Math.pow(Math.min(Math.abs(signed), 1), 0.72));
+            const depth = 1 - focus;
+            const centerOffset = (progress - 0.5) * stickyRange;
 
-            section.style.setProperty('--section-progress', normalized.toFixed(4));
+            section.style.setProperty('--section-progress', progress.toFixed(4));
+            section.style.setProperty('--section-signed', signed.toFixed(4));
             section.style.setProperty('--section-focus', focus.toFixed(4));
+            section.style.setProperty('--section-depth', depth.toFixed(4));
 
             const distance = Math.abs(centerOffset);
             if (distance < smallestDistance) {
@@ -371,6 +416,7 @@ function initScrollShowcase() {
     } else if (typeof mediaQuery.addListener === 'function') {
         mediaQuery.addListener(syncMode);
     }
+    assignLayers();
     syncMode();
 }
 
