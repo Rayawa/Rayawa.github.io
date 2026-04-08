@@ -452,6 +452,9 @@ async function setLocale(nextLocale, { persist = true } = {}) {
 function getLanguageFadeTargets() {
     return Array.from(document.querySelectorAll([
         '.navbar',
+        '.nav-container',
+        '.nav-links',
+        '.language-switch',
         '.hero-content',
         '.section-header',
         '.about-content',
@@ -496,7 +499,7 @@ function initParticles() {
     if (typeof particlesJS !== 'function') return;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
+            number: { value: 96, density: { enable: true, value_area: 800 } },
             color: { value: '#6366f1' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
@@ -593,7 +596,8 @@ function initContactForm() {
             lang: locale,
         };
 
-        const apiBase = window.CONTACT_API_URL || 'http://localhost:8787';
+        const isFileProtocol = window.location.protocol === 'file:';
+        const apiBase = window.CONTACT_API_URL || (isFileProtocol ? 'http://localhost:8787' : window.location.origin);
         try {
             const res = await fetch(`${apiBase}/api/contact`, {
                 method: 'POST',
@@ -602,14 +606,25 @@ function initContactForm() {
             });
 
             if (!res.ok) {
-                throw new Error(`HTTP ${res.status}`);
+                let errorCode = `HTTP_${res.status}`;
+                try {
+                    const json = await res.json();
+                    if (json?.error) errorCode = json.error;
+                } catch (_e) {}
+                throw new Error(errorCode);
             }
 
             alert(t.sent);
             form.reset();
         } catch (err) {
             console.error('contact submit failed', err);
-            alert(t.sendFailed);
+            if (String(err?.message || '').includes('too_many_requests')) {
+                alert(locale === 'zh' ? '提交过于频繁，请稍后再试。' : locale === 'fr' ? 'Vous envoyez trop vite, veuillez reessayer plus tard.' : 'You are sending too frequently. Please try again later.');
+            } else if (String(err?.message || '').includes('smtp_not_configured')) {
+                alert(locale === 'zh' ? '邮件服务暂未配置完成，请稍后联系我。' : locale === 'fr' ? 'Le service email n est pas configure pour le moment.' : 'Mail service is not configured yet.');
+            } else {
+                alert(t.sendFailed);
+            }
         } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
@@ -650,6 +665,10 @@ function initGalleryCarousel() {
     const nextBtn = carousel.querySelector('.gallery-nav.next');
     const dotsWrap = carousel.querySelector('#galleryDots');
     if (!slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const slideImages = slides
+        .map((slide) => slide.querySelector('img'))
+        .filter(Boolean);
 
     let current = 0;
     let timer = null;
@@ -678,12 +697,33 @@ function initGalleryCarousel() {
     };
     galleryA11yUpdater();
 
+    function ensureImageReady(index) {
+        const img = slideImages[(index + slideImages.length) % slideImages.length];
+        if (!img) return;
+        img.loading = 'eager';
+        if (typeof img.decode === 'function') {
+            img.decode().catch(() => {});
+        }
+    }
+
+    if (isMobile) {
+        slideImages.forEach((img, idx) => {
+            img.loading = 'eager';
+            if (idx < 2) img.fetchPriority = 'high';
+        });
+    } else {
+        ensureImageReady(0);
+        ensureImageReady(1);
+    }
+
     function goTo(index) {
         slides[current].classList.remove('active');
         dots[current].classList.remove('active');
         current = (index + slides.length) % slides.length;
         slides[current].classList.add('active');
         dots[current].classList.add('active');
+        ensureImageReady(current + 1);
+        ensureImageReady(current - 1);
     }
 
     function next() {
@@ -724,6 +764,7 @@ function initGalleryCarousel() {
 }
 
 function initPageLoadAnimation() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     const introTargets = document.querySelectorAll([
         '.navbar',
         '.hero',
@@ -736,20 +777,40 @@ function initPageLoadAnimation() {
         '.fab-tools',
     ].join(','));
 
+    if (isMobile) {
+        document.body.classList.add('intro-ready', 'app-entered');
+        return;
+    }
+
     introTargets.forEach((el, idx) => {
         el.classList.add('intro-block');
         const delay = 80 + idx * 120;
         el.style.setProperty('--intro-delay', `${delay}ms`);
     });
 
+    let introDone = false;
+    function finishIntro() {
+        if (introDone) return;
+        introDone = true;
+        document.body.classList.add('intro-ready');
+        window.setTimeout(() => {
+            document.body.classList.add('app-entered');
+        }, 980);
+    }
+
     window.addEventListener('load', () => {
         window.requestAnimationFrame(() => {
-            document.body.classList.add('intro-ready');
-            window.setTimeout(() => {
-                document.body.classList.add('app-entered');
-            }, 980);
+            finishIntro();
         });
     });
+
+    window.addEventListener('pageshow', () => {
+        finishIntro();
+    });
+
+    window.setTimeout(() => {
+        finishIntro();
+    }, 1800);
 }
 
 function initSectionReveal() {
