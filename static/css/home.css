@@ -157,6 +157,7 @@
             cursor: pointer;
             font-family: inherit;
             appearance: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .lang-btn:hover, .lang-btn.active {
@@ -180,6 +181,7 @@
             font-size: 1.5rem;
             color: white;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* 英雄区域 */
@@ -318,6 +320,7 @@
             cursor: pointer;
             transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
             outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .floating-elements::after {
@@ -813,6 +816,7 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .gallery-nav:hover {
@@ -1121,6 +1125,7 @@
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .fab-tool:hover {
@@ -1153,6 +1158,11 @@
         }
 
         @media (max-width: 768px) {
+            a,
+            button {
+                -webkit-tap-highlight-color: transparent;
+            }
+
             .container {
                 padding: 0 1.2rem;
             }
@@ -1237,9 +1247,9 @@
             }
 
             .lang-btn {
-                min-width: 34px;
-                min-height: 34px;
-                padding: 0.32rem;
+                min-width: 40px;
+                min-height: 40px;
+                padding: 0.42rem;
                 justify-content: center;
                 border-radius: 999px;
             }
@@ -1249,8 +1259,8 @@
             }
 
             .lang-flag {
-                width: 15px;
-                height: 15px;
+                width: 18px;
+                height: 18px;
             }
 
             .hero-image {
@@ -1264,6 +1274,7 @@
                 top: 8px;
                 right: 6px;
                 font-size: 1.2rem;
+                -webkit-tap-highlight-color: transparent;
             }
 
             .avatar-quote {
@@ -1279,15 +1290,34 @@
 
             .about-text {
                 padding: 1.1rem 1rem;
-                border: 1px solid rgba(202, 236, 255, 0.2);
+                border: 1px solid rgba(202, 236, 255, 0.34);
                 border-radius: 14px;
-                background: rgba(10, 20, 38, 0.38);
+                background: rgba(10, 20, 38, 0.56);
                 backdrop-filter: blur(5px);
             }
 
             .hero-tags {
                 padding: 0.9rem 0.95rem;
-                border-color: rgba(202, 236, 255, 0.28);
+                border-color: rgba(202, 236, 255, 0.42);
+                background: linear-gradient(145deg, rgba(15, 29, 53, 0.78), rgba(10, 20, 38, 0.64));
+            }
+
+            .glass-card,
+            .project-card,
+            .social-card,
+            .contact-form,
+            .skill-item {
+                border-color: rgba(202, 236, 255, 0.32);
+                background: rgba(13, 26, 47, 0.56);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                height: auto;
+                aspect-ratio: 16 / 9;
             }
 
             .footer-content {
@@ -1360,14 +1390,25 @@
             }
 
             .lang-btn {
-                min-width: 32px;
-                min-height: 32px;
-                padding: 0.28rem;
+                min-width: 38px;
+                min-height: 38px;
+                padding: 0.38rem;
             }
 
             .fab-tools {
                 right: 12px;
                 bottom: 16px;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) and (max-width: 950px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                height: auto;
+                aspect-ratio: 16 / 9;
             }
         }
 
