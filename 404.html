@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Ray Chen (Rayawa)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #caecff;
+            --bg-a: #0b1325;
+            --bg-b: #1b2f50;
+            --panel: rgba(10, 20, 38, 0.72);
+            --panel-border: rgba(202, 236, 255, 0.36);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-a) 0%, var(--bg-b) 100%);
+            color: #f3fbff;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2.4rem 1.2rem;
+        }
+
+        .card {
+            width: min(920px, 100%);
+            padding: clamp(1.1rem, 3.8vw, 2rem);
+            border-radius: 16px;
+            border: 1px solid var(--panel-border);
+            background: var(--panel);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 7vw, 3.3rem);
+            margin-bottom: 1rem;
+            color: white;
+            letter-spacing: 0.02em;
+        }
+
+/* 语言块容器：改为垂直布局 */
+.lang-block {
+    display: flex;
+    flex-direction: column; /* 纵向排列 */
+    align-items: flex-start;
+    gap: 0.8rem; /* 国旗和文字之间的间距 */
+    padding: 1.5rem 0; /* 增加上下内边距 */
+}
+
+/* 强制第一个块顶部没有边距 */
+.lang-block:first-of-type {
+    padding-top: 0.5rem;
+}
+
+/* 段落之间的隔断线：优化样式 */
+.lang-block + .lang-block {
+    margin-top: 0; /* 移除之前的 margin */
+    border-top: 1px solid rgba(202, 236, 255, 0.15); /* 更淡的分割线 */
+}
+
+/* 国旗图标：小巧且精致 */
+.lang-flag {
+    width: 32px;         /* 固定宽度，你可以根据喜好调整 */
+    height: auto;
+    border-radius: 4px;  /* 轻微圆角 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 悬浮感阴影 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 细边框防止在深色背景下看不清 */
+}
+
+/* 段落文字：稍微增加行高，提升阅读体验 */
+.lang-block p {
+    color: rgba(245, 251, 255, 0.85);
+    line-height: 1.8;
+    margin: 0;
+}
+
+        h2 {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            margin-bottom: 0.55rem;
+            color: var(--accent);
+        }
+
+        p {
+            color: rgba(245, 251, 255, 0.94);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            word-break: break-word;
+        }
+
+        .home-link {
+            margin-top: 1.45rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0.65rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(202, 236, 255, 0.5);
+            color: #f6fbff;
+            text-decoration: none;
+            background: rgba(99, 102, 241, 0.24);
+            transition: 0.24s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .home-link:hover {
+            transform: translateY(-1px);
+            background: rgba(99, 102, 241, 0.4);
+            border-color: rgba(202, 236, 255, 0.85);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <main class="wrap">
+        <section class="card" aria-labelledby="title404">
+            <h1 id="title404">404</h1>
+
+            <div class="lang-block">
+                <img src="static/images/cn.svg" alt="" class="lang-flag">
+                <p>悖论：当你进入https://rayawa.top/404.html，请你思考一个问题：是你的浏览器真的在访问404页面，还是因为它找不到404.html才给你显示404页面呢？</p>
+            </div>
+
+            <div class="lang-block">
+                <img src="static/images/uk.svg" alt="" class="lang-flag">
+                <p>Paradox: when you open https://rayawa.top/404.html, think about this: is your browser truly visiting a 404 page, or is it showing you a 404 page because it cannot find 404.html?</p>
+            </div>
+
+            <div class="lang-block">
+                <img src="static/images/fr.svg" alt="" class="lang-flag">
+                <p>Paradoxe : lorsque vous ouvrez https://rayawa.top/404.html, reflechissez a ceci : votre navigateur visite-t-il vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?</p>
+            </div>
+
+            <a class="home-link" href="/">返回首页 / Back Home / Retour a l'accueil</a>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 55, density: { enable: true, value_area: 900 } },
+                color: { value: ['#90f4c7', '#59d4ff', '#8fd3ff'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.55, random: true },
+                size: { value: 3.2, random: true },
+                line_linked: { enable: true, distance: 150, color: '#9edbff', opacity: 0.25, width: 1 },
+                move: { enable: true, speed: 1.8, direction: 'none', random: false, straight: false, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'repulse' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 190, line_linked: { opacity: 0.52 } },
+                    repulse: { distance: 130, duration: 0.42 }
+                }
+            },
+            retina_detect: true
+        });
+
+        (function initPointerFollow() {
+            const layer = document.getElementById('particles-js');
+            if (!layer) return;
+            let targetX = 0;
+            let targetY = 0;
+            let currentX = 0;
+            let currentY = 0;
+            const maxOffset = 24;
+
+            function update(clientX, clientY) {
+                const cx = window.innerWidth / 2;
+                const cy = window.innerHeight / 2;
+                targetX = ((clientX - cx) / cx) * maxOffset;
+                targetY = ((clientY - cy) / cy) * maxOffset;
+            }
+
+            function tick() {
+                currentX += (targetX - currentX) * 0.08;
+                currentY += (targetY - currentY) * 0.08;
+                layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+                requestAnimationFrame(tick);
+            }
+
+            window.addEventListener('pointermove', (e) => update(e.clientX, e.clientY), { passive: true });
+            window.addEventListener('touchmove', (e) => {
+                const t = e.touches && e.touches[0];
+                if (!t) return;
+                update(t.clientX, t.clientY);
+            }, { passive: true });
+            window.addEventListener('pointerleave', () => {
+                targetX = 0;
+                targetY = 0;
+            }, { passive: true });
+            window.addEventListener('touchend', () => {
+                targetX = 0;
+                targetY = 0;
+            }, { passive: true });
+
+            tick();
+        })();
+    </script>
+</body>
+</html>
