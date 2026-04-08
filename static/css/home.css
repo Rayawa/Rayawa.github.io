@@ -185,24 +185,6 @@
             align-items: center;
         }
 
-        .hero .reveal-item {
-            opacity: 0;
-            transform: translateY(22px) scale(0.992);
-            filter: blur(10px);
-            transition:
-                opacity 0.82s cubic-bezier(0.2, 0.65, 0.2, 1),
-                transform 0.82s cubic-bezier(0.2, 0.65, 0.2, 1),
-                filter 0.82s cubic-bezier(0.2, 0.65, 0.2, 1);
-            transition-delay: var(--reveal-delay, 0ms);
-            will-change: transform, opacity, filter;
-        }
-
-        .hero.is-entrance-ready .reveal-item {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-        }
-
         .hero-text h1 {
             font-size: clamp(3.3rem, 5.8vw, 5rem);
             font-weight: 800;
@@ -611,7 +593,8 @@
             transition: var(--transition);
             text-decoration: none;
             color: inherit;
-            display: block;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -644,6 +627,7 @@
 
         .project-content {
             padding: 1.5rem;
+            flex: 1;
         }
 
         .project-title {
@@ -666,31 +650,6 @@
             margin-bottom: 1rem;
         }
 
-        .project-award {
-            margin-bottom: 0.9rem;
-        }
-
-        .project-award a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.3rem 0.68rem;
-            border-radius: 999px;
-            border: 1px solid rgba(202, 236, 255, 0.44);
-            background: rgba(202, 236, 255, 0.1);
-            color: var(--unified-accent);
-            text-decoration: none;
-            font-size: 0.83rem;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .project-award a:hover {
-            background: rgba(202, 236, 255, 0.18);
-            border-color: rgba(202, 236, 255, 0.7);
-            transform: translateY(-1px);
-        }
-
         .tag {
             background: rgba(99, 102, 241, 0.2);
             color: var(--primary);
@@ -699,6 +658,19 @@
             font-size: 0.875rem;
             font-weight: 500;
             border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .tag.tag-award {
+            color: #d8f2ff;
+            border-color: rgba(145, 222, 255, 0.55);
+            background: rgba(145, 222, 255, 0.14);
+            text-decoration: none;
+            font-weight: 650;
+        }
+
+        .tag.tag-award:hover {
+            background: rgba(145, 222, 255, 0.22);
+            border-color: rgba(145, 222, 255, 0.8);
         }
 
         /* 画廊 */
