@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ray Chen | Page Personnelle Avancée</title>
+    <title>Ray Chen | 高级个人主页</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
     <style>
@@ -464,75 +464,6 @@
             border: 1px solid rgba(99, 102, 241, 0.3);
         }
 
-        /* 时间线 */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            width: 50%;
-            padding-right: 3rem;
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-left: 50%;
-            padding-right: 0;
-            padding-left: 3rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            right: -6px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 3px solid var(--dark);
-            box-shadow: 0 0 0 3px var(--primary);
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            right: auto;
-            left: -6px;
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-date {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-        }
-
-        .timeline-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .timeline-description {
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
         }
@@ -830,27 +761,22 @@
                 margin: 0 auto;
             }
 
-            .timeline::before {
                 left: 30px;
             }
 
-            .timeline-item {
                 width: 100%;
                 padding-right: 0;
                 padding-left: 4rem;
             }
 
-            .timeline-item:nth-child(even) {
                 margin-left: 0;
                 padding-left: 4rem;
             }
 
-            .timeline-dot {
                 left: 24px;
                 right: auto;
             }
 
-            .timeline-item:nth-child(even) .timeline-dot {
                 left: 24px;
             }
         }
@@ -899,27 +825,6 @@
                 width: 100%;
                 justify-content: center;
             }
-        }
-
-        /* 工具提示 */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltip-text {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            border-radius: var(--radius);
-            padding: 0.5rem;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 0.875rem;
@@ -981,15 +886,14 @@
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#about">À Propos</a></li>
                 <li><a href="#projects">项目</a></li>
-                <li><a href="#timeline">时间线</a></li>
                 <li><a href="#gallery">摄影</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
             
             <div class="language-switch">
-                <a href="index.html" class="lang-btn active">Français</a>
+                <a href="index.html" class="lang-btn">Chinese</a>
                 <a href="index_en.html" class="lang-btn">EN</a>
-                <a href="index_fr.html" class="lang-btn">FR</a>
+                <a href="index_fr.html" class="lang-btn active">FR</a>
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1188,53 +1092,6 @@
         </div>
     </section>
 
-    <!-- 时间线 -->
-    <section class="timeline-section" id="timeline">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">时间线</h2>
-                <p class="section-subtitle">我的学习与成长历程</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 - 至今</div>
-                        <h3 class="timeline-title">北方工业大学</h3>
-                        <p class="timeline-description">通信工程专业在读，专注于嵌入式系统与软件开发</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
-                        <h3 class="timeline-title">HarmonyOS 应用开发</h3>
-                        <p class="timeline-description">开始深入学习 HarmonyOS 应用开发，创建应用市场看板项目</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
-                        <h3 class="timeline-title">OpenHarmony 嵌入式开发</h3>
-                        <p class="timeline-description">探索 Hi3861 开发板，进行物联网设备开发实践</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">未来规划</div>
-                        <h3 class="timeline-title">跨平台应用开发</h3>
-                        <p class="timeline-description">计划将应用看板项目扩展到 macOS 与 Android 平台</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 摄影画廊 -->
     <section class="gallery" id="gallery">
@@ -1436,7 +1293,7 @@
                 <div>
                     <h3 class="footer-heading">语言</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Français</a></li>
+                        <li><a href="index.html">中文</a></li>
                         <li><a href="index_en.html">English</a></li>
                         <li><a href="index_fr.html">Français</a></li>
                     </ul>
