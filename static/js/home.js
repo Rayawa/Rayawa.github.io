@@ -598,7 +598,7 @@ function initContactForm() {
         const messageValue = document.getElementById('message')?.value || '';
         
         const isIntimate = messageValue.toLowerCase().includes(SECRET_CODE.toLowerCase());
-        const displayName = nameValue.trim() || "匿名用户"; // 如果没填名字，显示为匿名用户
+        const displayName = nameValue.trim() || "匿名用户";
 
         const targetUrl = isIntimate ? URL_INTIMATE : URL_GENERAL;
         const subject = isIntimate 
