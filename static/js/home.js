@@ -210,6 +210,53 @@ function initPageLoadAnimation() {
     });
 }
 
+function initParticlePointerFollow() {
+    const layer = document.getElementById('particles-js');
+    if (!layer) return;
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    const maxOffset = 26;
+
+    function updateTarget(clientX, clientY) {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        targetX = ((clientX - cx) / cx) * maxOffset;
+        targetY = ((clientY - cy) / cy) * maxOffset;
+    }
+
+    function animate() {
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+        layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+        window.requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('pointermove', (e) => {
+        updateTarget(e.clientX, e.clientY);
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+        const touch = e.touches && e.touches[0];
+        if (!touch) return;
+        updateTarget(touch.clientX, touch.clientY);
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', () => {
+        targetX = 0;
+        targetY = 0;
+    });
+
+    window.addEventListener('touchend', () => {
+        targetX = 0;
+        targetY = 0;
+    }, { passive: true });
+
+    animate();
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -217,3 +264,4 @@ initContactForm();
 initMobileMenu();
 initGalleryCarousel();
 initPageLoadAnimation();
+initParticlePointerFollow();
