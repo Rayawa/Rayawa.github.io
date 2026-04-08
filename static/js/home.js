@@ -587,6 +587,31 @@ function initHeroStarInteraction() {
     syncState();
 }
 
+function initAwardLinks() {
+    const awardLinks = document.querySelectorAll('.award-link[data-award-url]');
+    if (!awardLinks.length) return;
+
+    function openAward(url) {
+        if (!url) return;
+        window.open(url, '_blank', 'noopener');
+    }
+
+    awardLinks.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openAward(el.dataset.awardUrl);
+        });
+
+        el.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            e.preventDefault();
+            e.stopPropagation();
+            openAward(el.dataset.awardUrl);
+        });
+    });
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -597,4 +622,5 @@ initPageLoadAnimation();
 initParticlePointerFollow();
 initParticleMagnetEffect();
 initHeroStarInteraction();
+initAwardLinks();
 initFloatingTools();
