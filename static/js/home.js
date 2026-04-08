@@ -580,10 +580,12 @@ function initSmoothScroll() {
 
 function initContactForm() {
     const form = document.getElementById('contactForm');
-    if (!form) {
-        console.error("找不到 ID 为 contactForm 的表单");
-        return;
-    }
+    if (!form) return;
+
+    const URL_INTIMATE = "https://formspree.io/f/maqlkkbg"; // 亲密地址
+    const URL_GENERAL = "https://formspree.io/f/mqegjjgr";  // 一般人地址 
+
+    const SECRET_CODE = "#sweet"; 
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -591,26 +593,26 @@ function initContactForm() {
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn ? submitBtn.innerHTML : "发送";
         
-        // 1. 防止重复点击
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.innerHTML = "发送中...";
         }
 
-        // 2. 采集数据 (增加容错判断)
-        const nameEl = document.getElementById('name');
-        const emailEl = document.getElementById('email');
-        const messageEl = document.getElementById('message');
+        const messageValue = document.getElementById('message')?.value || '';
+        
+        const isIntimate = messageValue.includes(SECRET_CODE);
+        
+        let targetUrl = isIntimate ? URL_INTIMATE : URL_GENERAL;
 
         const payload = {
-            name: nameEl ? nameEl.value : "未填写姓名",
-            email: emailEl ? emailEl.value : "",
-            message: messageEl ? messageEl.value : ""
+            name: document.getElementById('name')?.value || '',
+            email: document.getElementById('email')?.value || '',
+            message: messageValue,
+            _subject: isIntimate ? "【特殊邮件】来自网页的亲密消息" : "【一般】来自网页的留言"
         };
 
         try {
-            // 3. 发送请求
-            const response = await fetch('https://formspree.io/f/maqlkkbg', {
+            const response = await fetch(targetUrl, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -620,17 +622,20 @@ function initContactForm() {
             });
 
             if (response.ok) {
-                alert("消息已成功发送！"); 
+                if (isIntimate) {
+                    alert("暗号已确认！消息已成功发送到亲密邮箱。");
+                } else {
+                    alert("消息已成功发送！");
+                }
+                
                 form.reset();
             } else {
-                const errorData = await response.json();
-                alert("发送失败: " + (errorData.error || "未知错误"));
+                throw new Error('Response error');
             }
         } catch (err) {
-            console.error('提交出错:', err);
-            alert("提交失败，请检查网络连接");
+            console.error('Submit failed:', err);
+            alert("发送失败，请检查网络");
         } finally {
-            // 4. 恢复按钮
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
@@ -638,7 +643,6 @@ function initContactForm() {
         }
     });
 }
-
 function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.querySelector('.nav-links');
