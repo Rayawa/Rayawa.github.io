@@ -54,8 +54,16 @@ function initParticles() {
         interactivity: {
             detect_on: 'canvas',
             events: {
-                onhover: { enable: true, mode: 'repulse' },
+                onhover: { enable: true, mode: 'grab' },
                 onclick: { enable: true, mode: 'push' },
+            },
+            modes: {
+                grab: {
+                    distance: 210,
+                    line_linked: {
+                        opacity: 0.45,
+                    },
+                },
             },
         },
     });
@@ -257,6 +265,110 @@ function initParticlePointerFollow() {
     animate();
 }
 
+function initParticleMagnetEffect() {
+    const maxRetry = 30;
+    let retry = 0;
+
+    function boot() {
+        if (!window.pJSDom || !window.pJSDom.length) return false;
+        const instance = window.pJSDom[0] && window.pJSDom[0].pJS;
+        if (!instance || !instance.particles || !instance.particles.array || !instance.canvas || !instance.canvas.el) {
+            return false;
+        }
+
+        const particles = instance.particles.array;
+        const canvasEl = instance.canvas.el;
+        const pointer = { x: 0, y: 0, active: false };
+        const radius = 190;
+        const strength = 0.00072;
+        const damping = 0.986;
+        const maxSpeed = 3.1;
+
+        function setPointer(clientX, clientY) {
+            const rect = canvasEl.getBoundingClientRect();
+            if (rect.width <= 0 || rect.height <= 0) return;
+            if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
+                pointer.active = false;
+                return;
+            }
+
+            const pxWidth = instance.canvas.w || canvasEl.width || rect.width;
+            const pxHeight = instance.canvas.h || canvasEl.height || rect.height;
+            const scaleX = pxWidth / rect.width;
+            const scaleY = pxHeight / rect.height;
+
+            pointer.x = (clientX - rect.left) * scaleX;
+            pointer.y = (clientY - rect.top) * scaleY;
+            pointer.active = true;
+        }
+
+        window.addEventListener('pointermove', (e) => {
+            setPointer(e.clientX, e.clientY);
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            const touch = e.touches && e.touches[0];
+            if (!touch) return;
+            setPointer(touch.clientX, touch.clientY);
+        }, { passive: true });
+
+        window.addEventListener('pointerleave', () => {
+            pointer.active = false;
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            pointer.active = false;
+        }, { passive: true });
+
+        function tick() {
+            if (pointer.active && particles.length) {
+                for (let i = 0; i < particles.length; i += 1) {
+                    const p = particles[i];
+                    const dx = pointer.x - p.x;
+                    const dy = pointer.y - p.y;
+                    const distSq = dx * dx + dy * dy;
+                    if (distSq <= 1) continue;
+
+                    const dist = Math.sqrt(distSq);
+                    if (dist > radius) continue;
+
+                    const normalized = 1 - dist / radius;
+                    const pull = normalized * normalized * strength;
+                    p.vx += dx * pull;
+                    p.vy += dy * pull;
+
+                    const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (speed > maxSpeed) {
+                        const scale = maxSpeed / speed;
+                        p.vx *= scale;
+                        p.vy *= scale;
+                    }
+                }
+            }
+
+            for (let i = 0; i < particles.length; i += 1) {
+                const p = particles[i];
+                p.vx *= damping;
+                p.vy *= damping;
+            }
+
+            window.requestAnimationFrame(tick);
+        }
+
+        tick();
+        return true;
+    }
+
+    if (boot()) return;
+
+    const timer = window.setInterval(() => {
+        retry += 1;
+        if (boot() || retry >= maxRetry) {
+            window.clearInterval(timer);
+        }
+    }, 120);
+}
+
 initParticles();
 initNavbarScroll();
 initSmoothScroll();
@@ -265,3 +377,4 @@ initMobileMenu();
 initGalleryCarousel();
 initPageLoadAnimation();
 initParticlePointerFollow();
+initParticleMagnetEffect();
