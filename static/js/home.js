@@ -230,6 +230,8 @@ const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
 const localeHtmlMap = { en: 'index_en.html', fr: 'index_fr.html' };
 const localeFragmentsCache = {};
 let localeFragmentToken = 0;
+let transitionLayer = null;
+let isSceneTransitioning = false;
 
 const aboutBlocks = {
     about: null,
@@ -237,6 +239,45 @@ const aboutBlocks = {
     capability: null,
     zhSnapshot: null,
 };
+
+function sleep(ms) {
+    return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+function initTransitionLayer() {
+    if (transitionLayer) return transitionLayer;
+    transitionLayer = document.createElement('div');
+    transitionLayer.className = 'app-transition-layer';
+    document.body.appendChild(transitionLayer);
+    return transitionLayer;
+}
+
+async function runSceneTransition(action, options = {}) {
+    if (isSceneTransitioning) return;
+    isSceneTransitioning = true;
+
+    const holdMs = options.holdMs ?? 240;
+    const outMs = options.outMs ?? 400;
+    const freeze = options.freeze !== false;
+    const layer = initTransitionLayer();
+
+    layer.classList.remove('is-playing', 'is-out');
+    void layer.offsetWidth;
+    if (freeze) document.body.classList.add('transition-freeze');
+    layer.classList.add('is-playing');
+
+    await sleep(holdMs);
+    if (typeof action === 'function') {
+        await Promise.resolve(action());
+    }
+
+    if (freeze) document.body.classList.remove('transition-freeze');
+    layer.classList.add('is-out');
+    await sleep(outMs);
+    layer.classList.remove('is-playing', 'is-out');
+
+    isSceneTransitioning = false;
+}
 
 function detectInitialLocale() {
     const fromQuery = new URLSearchParams(window.location.search).get('lang');
@@ -383,10 +424,12 @@ function setLocale(nextLocale, { persist = true } = {}) {
 
 function initLanguageSwitcher() {
     document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', async () => {
             const nextLocale = btn.dataset.lang;
             if (!nextLocale || nextLocale === locale) return;
-            setLocale(nextLocale);
+            await runSceneTransition(() => {
+                setLocale(nextLocale);
+            }, { holdMs: 220, outMs: 360, freeze: true });
         });
     });
 }
@@ -396,14 +439,14 @@ function initParticles() {
     particlesJS('particles-js', {
         particles: {
             number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: '#ff8a1f' },
+            color: { value: '#6366f1' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
             size: { value: 3, random: true },
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: '#ff8a1f',
+                color: '#6366f1',
                 opacity: 0.2,
                 width: 1,
             },
@@ -623,9 +666,11 @@ function initGalleryCarousel() {
 }
 
 function initPageLoadAnimation() {
-    window.addEventListener('load', () => {
-        window.requestAnimationFrame(() => {
+    window.addEventListener('load', async () => {
+        window.requestAnimationFrame(async () => {
             document.body.classList.remove('page-preload');
+            await runSceneTransition(null, { holdMs: 300, outMs: 520, freeze: false });
+            document.body.classList.add('app-entered');
         });
     });
 }
@@ -926,8 +971,10 @@ function initFloatingTools() {
     refreshBtn.setAttribute('aria-label', t.refresh);
     refreshBtn.setAttribute('title', t.refresh);
     refreshBtn.innerHTML = '<i class="fas fa-rotate-right"></i>';
-    refreshBtn.addEventListener('click', () => {
-        window.location.reload();
+    refreshBtn.addEventListener('click', async () => {
+        await runSceneTransition(() => {
+            window.location.reload();
+        }, { holdMs: 220, outMs: 120, freeze: true });
     });
 
     const topBtn = document.createElement('button');
