@@ -138,6 +138,82 @@ window.SITE_I18N = {
             xiaodou: { title: 'Xiaodou English Starter', desc: 'A lightweight English learning starter designed for a sustainable daily pace.' },
         },
         tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source' },
+        aboutHtml: {
+            aboutText: `
+<h3>Profile</h3>
+<p>I am currently studying Communication Engineering at North China University of Technology, but the track I invest in most is software development. My core ongoing project is HmDashboard on HarmonyOS, now in invitation-based testing, with follow-up macOS and Android versions already planned.</p>
+<p>Beyond the software layer, I am also learning OpenHarmony Hi3861 embedded development. For me, this is not just hardware tuning; it is about understanding device-side capability and system engineering from lower-level logic.</p>
+<p>I contribute to open-source collaboration: Sweet Potato Mod with @teddyxlandlee, and Difficlut Rocket with @shenjackyuanjie. My Minecraft Java ID is Rayawa. Collaboration, to me, is not only code commits but also aligning engineering standards and communication style across teams.</p>
+<p>In biology, I once led the first PCR project in my high school and brought higher-level experimental content into class practice. I also co-authored a hypothesis paper on proteins as hereditary factors in highly special organisms. Because I currently focus on programming, my carbon assimilation review and orange-plate experiment records are paused for now, but I find it very interesting to build biology teaching tools with code and plan to explore bioinformatics further.</p>
+<p>For web development, I built my personal website, a mod website, an Identity V website, and an Agrobacterium transformation experiment website. On the programming side, I work with C, C++, Java, Rust, HTML, ArkTS, Swift, and openGauss. I do not like rote learning; I prefer finding a practical balance between shipping products, understanding algorithms, and explaining engineering decisions clearly.</p>
+<p>In daily life, I enjoy running and cycling, and I often carry both a camera and a drone when I go out. For me, photography is not only about final output: changing perspective, trying different visual storytelling styles, and pushing one more step of creative iteration is the real fun.</p>
+<p>For games, I am a long-time Minecraft player, also active in Genshin Impact, Arknights, and Arknights: Endfield. I play rhythm games such as Arcaea and Phigros, and sometimes maimai, Milthm, Lanota, and Rizline. In Identity V, I once reached Peak Tier VII with 31 stars in Season 36, earned three Mad Eyes A badges (highest A47) and several B badges, though I have already retired. In Clash Royale, I mainly play Golem, with my self-built Clone-Golem deck as the signature lineup.</p>
+<p>I also recently started learning French. From Cecile Corbel's ethereal singing to Fontaine's romantic scenery, from the flowing melody of Qinglian to the classic lines in Romeo and Juliet, the appeal of French keeps pulling me deeper into the language.</p>`,
+            statusCard: `
+<h3 class="status-card-title">Now in Progress</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="skill-name">Core App</div>
+        </div>
+        <p class="skill-description">HarmonyOS 6.1.0 HmDashboard development and invitation-test iterations</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+            <div class="skill-name">Independent Track</div>
+        </div>
+        <p class="skill-description">OpenHarmony (Hi3861) embedded development</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-road"></i></div>
+            <div class="skill-name">Multi-platform Plan</div>
+        </div>
+        <p class="skill-description">Next milestones: macOS and Android versions of HmDashboard</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-users"></i></div>
+            <div class="skill-name">Learning Status</div>
+        </div>
+        <p class="skill-description">Deepening Java and Rust, preparing Cangjie, and continuing French study</p>
+    </div>
+</div>`,
+            capabilityCard: `
+<h3 class="status-card-title">Capabilities and Direction</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fab fa-js"></i></div>
+            <div class="skill-name">Programming Stack</div>
+        </div>
+        <p class="skill-description">C, C++, Java, Rust, HTML, ArkTS, Swift, openGauss</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="skill-name">Product and Engineering</div>
+        </div>
+        <p class="skill-description">HarmonyOS apps, OpenHarmony embedded systems, full-stack web and data presentation, multi-platform planning</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+            <div class="skill-name">Collab and Research</div>
+        </div>
+        <p class="skill-description">Sweet Potato Mod, Difficlut Rocket, PCR projects, protein hypotheses, carbon assimilation review, orange-plate experiments</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+            <div class="skill-name">Creation and Interests</div>
+        </div>
+        <p class="skill-description">Running, cycling, landscape photography and drone footage; Minecraft, Genshin Impact, Arknights, Endfield, Clash Royale, rhythm games</p>
+    </div>
+</div>`,
+        },
     },
     fr: {
         sending: 'Envoi...',
@@ -208,5 +284,81 @@ window.SITE_I18N = {
             xiaodou: { title: 'Xiaodou English Starter', desc: 'Une initiation a l anglais, legere au depart et pensee pour durer au quotidien.' },
         },
         tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source' },
+        aboutHtml: {
+            aboutText: `
+<h3>Profil</h3>
+<p>Je suis actuellement etudiant en ingenierie des communications a North China University of Technology, mais je consacre aujourd'hui l'essentiel de mon energie au developpement logiciel. Mon projet principal est HmDashboard sur HarmonyOS, deja en phase de test sur invitation, avec des versions macOS et Android prevues ensuite.</p>
+<p>Au-dela du logiciel applicatif, j'apprends aussi le developpement embarque OpenHarmony Hi3861. Pour moi, ce n'est pas seulement du reglage materiel: c'est une facon de comprendre en profondeur les capacites cote appareil et l'ingenierie systeme depuis la logique de bas niveau.</p>
+<p>Je participe a la collaboration open source: Sweet Potato Mod avec @teddyxlandlee, et Difficlut Rocket avec @shenjackyuanjie. Mon ID Minecraft Java est Rayawa. Pour moi, collaborer ne signifie pas seulement pousser du code, mais aussi aligner les standards d'ingenierie et les methodes de communication entre personnes de profils differents.</p>
+<p>Dans le domaine biologique qui m'interesse, j'ai dirige le premier projet PCR de mon lycee, en introduisant des contenus experimentaux de niveau superieur en classe. Avec des camarades, j'ai aussi redige une hypothese sur les proteines comme facteurs hereditaires dans des organismes tres particuliers. Comme je me concentre actuellement sur la programmation, ma revue sur l'assimilation du carbone et certaines notes d'experiences orange-plate sont temporairement en pause, mais je trouve tres interessant de creer des outils pedagogiques de biologie avec du code et je souhaite continuer vers la bioinformatique.</p>
+<p>En developpement web, j'ai construit mon site personnel, un site de mod, un site Identity V et un site d'experience sur la transformation par Agrobacterium. Cote programmation, je travaille avec C, C++, Java, Rust, HTML, ArkTS, Swift et openGauss. Je n'aime pas l'apprentissage mecanique; je prefere trouver un equilibre concret entre construire un produit, comprendre un algorithme et expliquer clairement les choix d'ingenierie.</p>
+<p>Au quotidien, j'aime courir et faire du velo; appareil photo et drone m'accompagnent souvent en sortie. Pour moi, la photographie ne se limite pas au rendu final: changer de perspective, tester des styles narratifs differents, et pousser l'innovation sur une base existante fait partie du vrai plaisir de creation.</p>
+<p>Cote jeux, je suis un ancien joueur de Minecraft, et je joue aussi a Genshin Impact, Arknights et Arknights: Endfield. Je reste actif sur des jeux de rythme comme Arcaea et Phigros, et je joue parfois a maimai, Milthm, Lanota et Rizline. Sur Identity V, j'ai atteint le rang Pic VII avec 31 etoiles en saison 36, obtenu trois badges A pour Mad Eyes (max A47) et plusieurs badges B, meme si j'ai deja arrete le jeu. Sur Clash Royale, je joue surtout l'archetype Golem, avec mon deck signature Clone-Golem construit par moi-meme.</p>
+<p>J'ai aussi commence recemment l'apprentissage du francais. Du chant ethere de Cecile Corbel aux paysages romantiques de Fontaine, de la melodie fluide de Qinglian aux dialogues classiques de Romeo et Juliette, le charme du francais me pousse a explorer cette langue toujours plus loin.</p>`,
+            statusCard: `
+<h3 class="status-card-title">En ce moment</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="skill-name">Application coeur</div>
+        </div>
+        <p class="skill-description">Developpement HarmonyOS 6.1.0 HmDashboard et iterations de test sur invitation</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+            <div class="skill-name">Piste independante</div>
+        </div>
+        <p class="skill-description">Developpement embarque OpenHarmony (Hi3861)</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-road"></i></div>
+            <div class="skill-name">Plan multi-plateforme</div>
+        </div>
+        <p class="skill-description">Prochaines etapes: versions macOS et Android de HmDashboard</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-users"></i></div>
+            <div class="skill-name">Apprentissage</div>
+        </div>
+        <p class="skill-description">Approfondissement Java et Rust, preparation Cangjie, et etude continue du francais</p>
+    </div>
+</div>`,
+            capabilityCard: `
+<h3 class="status-card-title">Capacites et direction</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fab fa-js"></i></div>
+            <div class="skill-name">Pile de programmation</div>
+        </div>
+        <p class="skill-description">C, C++, Java, Rust, HTML, ArkTS, Swift, openGauss</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="skill-name">Produit et ingenierie</div>
+        </div>
+        <p class="skill-description">Applications HarmonyOS, embarque OpenHarmony, web full-stack et visualisation de donnees, planification multi-plateforme</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+            <div class="skill-name">Collaboration et recherche</div>
+        </div>
+        <p class="skill-description">Sweet Potato Mod, Difficlut Rocket, projets PCR, hypotheses proteiques, revue assimilation du carbone, experiences orange-plate</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+            <div class="skill-name">Creation et interets</div>
+        </div>
+        <p class="skill-description">Course, velo, photo paysage et drone; Minecraft, Genshin Impact, Arknights, Endfield, Clash Royale, jeux de rythme</p>
+    </div>
+</div>`,
+        },
     },
 };

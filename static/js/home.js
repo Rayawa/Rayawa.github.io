@@ -16,9 +16,6 @@ let t = i18n.zh || {};
 let galleryA11yUpdater = null;
 const floatingTools = { refreshBtn: null, topBtn: null };
 const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
-const localeHtmlMap = { en: 'index_en.html', fr: 'index_fr.html' };
-const localeFragmentsCache = {};
-let localeFragmentToken = 0;
 
 const aboutBlocks = {
     about: null,
@@ -149,51 +146,27 @@ function initLocaleBlockSnapshots() {
     };
 }
 
-async function loadLocaleFragments(lang) {
-    if (!localeHtmlMap[lang]) return null;
-    if (localeFragmentsCache[lang]) return localeFragmentsCache[lang];
-
-    const res = await fetch(localeHtmlMap[lang], { cache: 'force-cache' });
-    if (!res.ok) throw new Error(`failed to load locale source ${lang}`);
-    const html = await res.text();
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-
-    const about = doc.querySelector('#about .about-text');
-    const status = doc.querySelector('#about .status-card');
-    const capability = doc.querySelector('#about .side-card');
-    if (!about || !status || !capability) return null;
-
-    const fragments = {
-        about: about.innerHTML,
-        status: status.innerHTML,
-        capability: capability.innerHTML,
-    };
-    localeFragmentsCache[lang] = fragments;
-    return fragments;
-}
-
-async function applyLocaleBlocks(lang) {
+function applyLocaleBlocks(lang) {
     if (!aboutBlocks.about || !aboutBlocks.status || !aboutBlocks.capability || !aboutBlocks.zhSnapshot) return;
-    const currentToken = ++localeFragmentToken;
 
     if (lang === 'zh') {
         aboutBlocks.about.innerHTML = aboutBlocks.zhSnapshot.about;
         aboutBlocks.status.innerHTML = aboutBlocks.zhSnapshot.status;
         aboutBlocks.capability.innerHTML = aboutBlocks.zhSnapshot.capability;
-        hydrateRevealItems();
-        return;
+    } else {
+        const html = i18n[lang] && i18n[lang].aboutHtml;
+        if (!html) {
+            console.warn(`Language ${lang} not supported for about blocks, falling back to Chinese`);
+            aboutBlocks.about.innerHTML = aboutBlocks.zhSnapshot.about;
+            aboutBlocks.status.innerHTML = aboutBlocks.zhSnapshot.status;
+            aboutBlocks.capability.innerHTML = aboutBlocks.zhSnapshot.capability;
+        } else {
+            aboutBlocks.about.innerHTML = html.aboutText || aboutBlocks.zhSnapshot.about;
+            aboutBlocks.status.innerHTML = html.statusCard || aboutBlocks.zhSnapshot.status;
+            aboutBlocks.capability.innerHTML = html.capabilityCard || aboutBlocks.zhSnapshot.capability;
+        }
     }
-
-    try {
-        const fragments = await loadLocaleFragments(lang);
-        if (!fragments || currentToken !== localeFragmentToken) return;
-        aboutBlocks.about.innerHTML = fragments.about;
-        aboutBlocks.status.innerHTML = fragments.status;
-        aboutBlocks.capability.innerHTML = fragments.capability;
-        hydrateRevealItems();
-    } catch (err) {
-        console.warn('locale fragment load failed', err);
-    }
+    hydrateRevealItems();
 }
 
 function hydrateRevealItems() {
@@ -226,7 +199,7 @@ async function setLocale(nextLocale, { persist = true } = {}) {
     document.documentElement.lang = langToHtmlLang[locale] || 'zh-CN';
 
     applyTextNodes();
-    await applyLocaleBlocks(locale);
+    applyLocaleBlocks(locale);
     applyLanguageButtons();
     if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
     if (floatingTools.refreshBtn && floatingTools.topBtn) {
