@@ -419,20 +419,31 @@ function initMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     if (!mobileMenuBtn || !navLinks) return;
 
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         navLinks.classList.toggle('mobile-open');
+    });
+
+    navLinks.addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 900) {
                 navLinks.classList.remove('mobile-open');
             }
         });
     });
 
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('mobile-open');
+        }
+    });
+
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 900) {
             navLinks.classList.remove('mobile-open');
         }
     });
@@ -447,7 +458,7 @@ function initGalleryCarousel() {
     const nextBtn = carousel.querySelector('.gallery-nav.next');
     const dotsWrap = carousel.querySelector('#galleryDots');
     if (!slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
     const slideImages = slides
         .map((slide) => slide.querySelector('img'))
         .filter(Boolean);
@@ -546,7 +557,7 @@ function initGalleryCarousel() {
 }
 
 function initPageLoadAnimation() {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
     const introTargets = document.querySelectorAll([
         '.navbar',
         '.hero',
