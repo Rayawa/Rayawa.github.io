@@ -1439,8 +1439,8 @@
             }
 
             .hero-aliases {
-                font-size: clamp(0.62rem, 2.5vw, 0.85rem);
-                padding: 0.35rem 0.7rem;
+                font-size: clamp(0.55rem, 3.2vw, 0.85rem);
+                padding: 0.3rem 0.6rem;
             }
 
             .footer-content {
