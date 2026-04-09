@@ -171,11 +171,16 @@ function applyLocaleBlocks(lang) {
 
 function hydrateRevealItems() {
     const selectors = [
+        '.section-header',
+        '.projects .other-projects-title',
         '.projects .project-card',
         '.social .social-card',
         '.contact .contact-item',
+        '.contact .contact-social-divider',
+        '.contact .contact-social-title',
         '.contact .contact-form',
         '.gallery .gallery-carousel',
+        '.gallery .gallery-more',
         '.about .glass-card',
         '.about .about-text > h3',
         '.about .about-text > p',
@@ -598,18 +603,10 @@ function initSectionReveal() {
     const sections = document.querySelectorAll('.reveal-section');
     if (!sections.length) return;
 
-    let pageLoaded = !document.getElementById('loadingScreen');
-
     const observer = new IntersectionObserver((entries) => {
-        if (!pageLoaded) return;
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('is-revealed')) {
                 entry.target.classList.add('is-visible');
-                const onEnd = () => {
-                    entry.target.classList.add('is-revealed');
-                    entry.target.removeEventListener('transitionend', onEnd);
-                };
-                entry.target.addEventListener('transitionend', onEnd);
                 window.setTimeout(() => {
                     entry.target.classList.add('is-revealed');
                 }, 1200);
@@ -620,26 +617,18 @@ function initSectionReveal() {
         rootMargin: '0px 0px -40px 0px'
     });
 
-    sections.forEach(section => observer.observe(section));
-
-    function revealVisibleSections() {
-        pageLoaded = true;
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                section.classList.add('is-visible');
-                window.setTimeout(() => {
-                    section.classList.add('is-revealed');
-                }, 1200);
-            }
-        });
+    function startObserving() {
+        sections.forEach(section => observer.observe(section));
     }
 
-    window.addEventListener('loadingScreenDone', () => {
-        window.requestAnimationFrame(revealVisibleSections);
-    });
-
-    window.setTimeout(revealVisibleSections, 5000);
+    if (!document.getElementById('loadingScreen')) {
+        startObserving();
+    } else {
+        window.addEventListener('loadingScreenDone', () => {
+            window.requestAnimationFrame(startObserving);
+        });
+        window.setTimeout(startObserving, 5000);
+    }
 }
 
 function initPageLeaveTransitions() {
