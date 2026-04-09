@@ -149,7 +149,7 @@
 
 @media (max-width: 540px) {
     .page {
-        padding: 1.5rem clamp(1rem, 4vw, 1.5rem) 2rem;
+        padding: 4.5rem clamp(1rem, 4vw, 1.5rem) 2rem;
     }
 
     .hero-card {

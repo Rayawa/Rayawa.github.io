@@ -224,23 +224,24 @@ function initLanguageSwitcher() {
 
 function initParticles() {
     if (typeof particlesJS !== 'function') return;
+    var isMobile = window.innerWidth <= 900;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 72, density: { enable: true, value_area: 950 } },
+            number: { value: isMobile ? 35 : 72, density: { enable: true, value_area: isMobile ? 600 : 950 } },
             color: { value: '#6366f1' },
             shape: { type: 'circle' },
             opacity: { value: 0.42, random: true },
             size: { value: 3.2, random: true },
             line_linked: {
                 enable: true,
-                distance: 140,
+                distance: isMobile ? 110 : 140,
                 color: '#6366f1',
                 opacity: 0.15,
                 width: 1,
             },
             move: {
                 enable: true,
-                speed: 1.2,
+                speed: isMobile ? 0.8 : 1.2,
                 direction: 'none',
                 random: true,
                 straight: false,
@@ -380,9 +381,32 @@ function initMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     if (!mobileMenuBtn || !navLinks) return;
 
+    let overlay = document.querySelector('.mobile-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mobile-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove('mobile-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        overlay.classList.remove('is-visible');
+    }
+
+    function openMenu() {
+        navLinks.classList.add('mobile-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        overlay.classList.add('is-visible');
+    }
+
     mobileMenuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        navLinks.classList.toggle('mobile-open');
+        if (navLinks.classList.contains('mobile-open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 
     navLinks.addEventListener('click', (e) => {
@@ -392,20 +416,22 @@ function initMobileMenu() {
     navLinks.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 900) {
-                navLinks.classList.remove('mobile-open');
+                closeMenu();
             }
         });
     });
 
+    overlay.addEventListener('click', closeMenu);
+
     document.addEventListener('click', (e) => {
         if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            navLinks.classList.remove('mobile-open');
+            closeMenu();
         }
     });
 
     window.addEventListener('resize', () => {
         if (window.innerWidth > 900) {
-            navLinks.classList.remove('mobile-open');
+            closeMenu();
         }
     });
 }
@@ -518,6 +544,40 @@ function initGalleryCarousel() {
     carousel.addEventListener('mouseleave', () => {
         if (autoStarted) start();
     });
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isSwiping = false;
+        stop();
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+            isSwiping = true;
+        }
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+        if (!isSwiping) {
+            if (autoStarted) start();
+            return;
+        }
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) {
+            if (dx < 0) next();
+            else prev();
+            restart();
+        } else {
+            if (autoStarted) start();
+        }
+    }, { passive: true });
 
     const gallerySection = document.getElementById('gallery');
     if (gallerySection) {
