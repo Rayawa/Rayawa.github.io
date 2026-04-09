@@ -350,3 +350,20 @@ body {
         height: 24px;
     }
 }
+
+.lang-fade-target {
+    transition: opacity 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.56s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform, filter;
+}
+
+.lang-fade-target.is-leaving {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(3px);
+}
+
+.lang-fade-target.is-entering {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
