@@ -155,14 +155,36 @@ function setLocale(lang, opts) {
     });
 }
 
+function getLanguageFadeTargets() {
+    return Array.from(document.querySelectorAll([
+        '.navbar',
+        '.page',
+        '.wrap',
+        '.fab-tools',
+    ].join(',')));
+}
+
+function runLanguageFadeTransition(callback) {
+    var targets = getLanguageFadeTargets();
+    targets.forEach(function(el) { el.classList.add('lang-fade-target', 'is-leaving'); });
+    setTimeout(function() {
+        callback();
+        targets.forEach(function(el) { el.classList.remove('is-leaving'); });
+        targets.forEach(function(el) { el.classList.add('is-entering'); });
+        setTimeout(function() {
+            targets.forEach(function(el) { el.classList.remove('lang-fade-target', 'is-entering'); });
+        }, 720);
+    }, 420);
+}
+
 function initLanguageSwitcher() {
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var lang = btn.dataset.lang;
             if (lang && lang !== locale) {
-                setLocale(lang);
-                if (typeof applyLocaleBlocks === 'function') applyLocaleBlocks(lang);
-                if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
+                runLanguageFadeTransition(function() {
+                    setLocale(lang);
+                });
             }
         });
     });
