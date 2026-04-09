@@ -183,14 +183,12 @@ function hydrateRevealItems() {
 
     document.querySelectorAll('.reveal-section').forEach(section => {
         const targets = section.querySelectorAll(selectors);
-        let index = 0;
-        targets.forEach(el => {
+        targets.forEach((el, index) => {
             if (!el.classList.contains('reveal-item')) {
                 el.classList.add('reveal-item');
             }
-            const delay = 60 + (index % 8) * 70;
+            const delay = 80 + index * 100;
             el.style.setProperty('--reveal-delay', `${delay}ms`);
-            index++;
         });
     });
 }
@@ -607,8 +605,14 @@ function initSectionReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-            } else {
-                entry.target.classList.remove('is-visible');
+                const onEnd = () => {
+                    entry.target.classList.add('is-revealed');
+                    entry.target.removeEventListener('transitionend', onEnd);
+                };
+                entry.target.addEventListener('transitionend', onEnd);
+                window.setTimeout(() => {
+                    entry.target.classList.add('is-revealed');
+                }, 1200);
             }
         });
     }, {
@@ -624,6 +628,9 @@ function initSectionReveal() {
             const rect = section.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
                 section.classList.add('is-visible');
+                window.setTimeout(() => {
+                    section.classList.add('is-revealed');
+                }, 1200);
             }
         });
     }
