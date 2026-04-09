@@ -482,6 +482,9 @@ function initPageEntrance() {
     sessionStorage.removeItem('rayawa_navigating');
 
     if (isNavigating) {
+        var mainEl = document.querySelector('.page');
+        if (mainEl) mainEl.classList.add('page-entering');
+
         var overlay = document.createElement('div');
         overlay.className = 'page-transition-overlay';
         document.body.appendChild(overlay);
@@ -491,8 +494,9 @@ function initPageEntrance() {
 
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-                overlay.style.animation = 'pageOverlayOut 0.3s ease forwards';
-                setTimeout(function() { overlay.remove(); }, 350);
+                if (mainEl) mainEl.classList.add('is-visible');
+                overlay.style.animation = 'pageOverlayOut 0.35s ease forwards';
+                setTimeout(function() { overlay.remove(); }, 400);
             });
         });
         return;
@@ -502,6 +506,9 @@ function initPageEntrance() {
     entrance.className = 'page-entrance';
     document.body.appendChild(entrance);
 
+    var mainEl = document.querySelector('.page');
+    if (mainEl) mainEl.classList.add('page-entering');
+
     var done = false;
 
     function finish() {
@@ -509,6 +516,7 @@ function initPageEntrance() {
         done = true;
         setLocale(locale, { noPersist: true });
         if (navbar) navbar.classList.add('is-visible');
+        if (mainEl) mainEl.classList.add('is-visible');
         setTimeout(function() {
             entrance.classList.add('is-done');
             setTimeout(function() {
