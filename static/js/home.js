@@ -179,11 +179,12 @@ function hydrateRevealItems() {
         '.contact .contact-social-divider',
         '.contact .contact-social-title',
         '.contact .contact-form',
+        '.contact .contact-social-grid .social-card',
         '.gallery .gallery-carousel',
         '.gallery .gallery-more',
+        '.about .about-text',
         '.about .glass-card',
-        '.about .about-text > h3',
-        '.about .about-text > p',
+        '.about .about-side',
     ].join(',');
 
     document.querySelectorAll('.reveal-section').forEach(section => {
@@ -592,6 +593,7 @@ function initLoadingScreen() {
         window.setTimeout(() => {
             screen.classList.add('is-done');
             document.body.classList.remove('is-loading');
+            window.scrollTo(0, 0);
             window.setTimeout(() => {
                 window.dispatchEvent(new CustomEvent('loadingScreenDone'));
             }, 900);
