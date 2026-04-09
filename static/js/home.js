@@ -178,13 +178,15 @@ function hydrateRevealItems() {
         '.contact .contact-item',
         '.contact .contact-social-divider',
         '.contact .contact-social-title',
-        '.contact .contact-form',
         '.contact .contact-social-grid .social-card',
+        '.contact .contact-form',
         '.gallery .gallery-carousel',
         '.gallery .gallery-more',
         '.about .about-text',
         '.about .glass-card',
         '.about .about-side',
+        '.hero .hero-tags',
+        '.hero .avatar-quote',
     ].join(',');
 
     document.querySelectorAll('.reveal-section').forEach(section => {
