@@ -593,12 +593,18 @@ function initLoadingScreen() {
         window.setTimeout(() => {
             screen.classList.add('is-done');
             document.body.classList.remove('is-loading');
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'instant' });
             window.setTimeout(() => {
                 window.dispatchEvent(new CustomEvent('loadingScreenDone'));
             }, 900);
         }, 400);
     }
+
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+    });
 
     const simulatedSteps = [
         { target: 15, delay: 100 },
