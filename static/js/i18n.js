@@ -6,7 +6,7 @@ window.SITE_I18N = {
         top: '回到顶部',
         refresh: '刷新页面',
         dotLabel: '跳转到第 {n} 张',
-        nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
+        nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', social: '链接', contact: '联系' },
         hero: {
             title: '你好，我是 <span class="gradient-text">Ray</span>',
             intro: '通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者',
@@ -50,6 +50,7 @@ window.SITE_I18N = {
             qq: 'QQ',
             location: '位置',
             locationValue: '北京，中国',
+            socialTitle: '我的链接',
         },
         form: {
             quickTitle: '快捷消息',
@@ -87,7 +88,7 @@ window.SITE_I18N = {
         top: 'Back to top',
         refresh: 'Refresh page',
         dotLabel: 'Go to slide {n}',
-        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', social: 'Links', contact: 'Contact' },
         hero: {
             title: 'Hi, I am <span class="gradient-text">Ray</span>',
             intro: 'Communication Student | HarmonyOS Builder | Cross-domain Geek | Visual Storyteller',
@@ -131,6 +132,7 @@ window.SITE_I18N = {
             qq: 'QQ',
             location: 'Location',
             locationValue: 'Beijing, China',
+            socialTitle: 'My Links',
         },
         form: {
             quickTitle: 'Quick Message',
@@ -244,7 +246,7 @@ window.SITE_I18N = {
         top: 'Retour en haut',
         refresh: 'Rafraichir la page',
         dotLabel: 'Aller a la diapositive {n}',
-        nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', social: 'Liens', contact: 'Contact' },
         hero: {
             title: 'Bonjour, je suis <span class="gradient-text">Ray</span>',
             intro: 'Etudiant en communication | Createur HarmonyOS | Geek transdisciplinaire | Auteur visuel',
@@ -288,6 +290,7 @@ window.SITE_I18N = {
             qq: 'QQ',
             location: 'Localisation',
             locationValue: 'Pekin, Chine',
+            socialTitle: 'Mes liens',
         },
         form: {
             quickTitle: 'Message rapide',
