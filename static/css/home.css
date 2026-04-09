@@ -223,7 +223,7 @@
             border: 1px solid rgba(255, 255, 255, 0.22);
             background: rgba(12, 22, 42, 0.45);
             color: rgba(255, 255, 255, 0.86);
-            font-size: clamp(0.72rem, 1.6vw, 0.95rem);
+            font-size: 0.75rem;
             letter-spacing: 0.01em;
             white-space: nowrap;
             max-width: 100%;
@@ -234,6 +234,7 @@
         .hero-text .gradient-text {
             background: linear-gradient(135deg, #59d4ff 0%, #8fd3ff 48%, #90f4c7 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 10px 22px rgba(89, 212, 255, 0.3));
         }
@@ -1439,7 +1440,7 @@
             }
 
             .hero-aliases {
-                font-size: min(0.85rem, 2.8vw);
+                font-size: clamp(0.6rem, 2.5vw, 0.78rem);
                 padding: 0.3rem 0.6rem;
             }
 
