@@ -565,6 +565,12 @@ function initSubpageReveal() {
 }
 
 function initPageLeaveTransitions() {
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
+        }
+    });
+
     document.addEventListener('click', function(e) {
         var anchor = e.target.closest('a[href]');
         if (!anchor) return;

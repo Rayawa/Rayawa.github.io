@@ -1023,6 +1023,16 @@ t = i18n[locale] || i18n.zh;
 var _isNavigating = sessionStorage.getItem('rayawa_navigating') === '1';
 sessionStorage.removeItem('rayawa_navigating');
 
+window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+        document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
+        var navbar = document.querySelector('.navbar');
+        if (navbar) navbar.classList.add('is-visible');
+        var ls = document.getElementById('loadingScreen');
+        if (ls) ls.style.display = 'none';
+    }
+});
+
 if (_isNavigating && document.getElementById('loadingScreen')) {
     var _navOverlay = document.createElement('div');
     _navOverlay.className = 'page-transition-overlay';
