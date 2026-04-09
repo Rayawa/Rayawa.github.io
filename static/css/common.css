@@ -75,6 +75,25 @@ body.page-leaving {
     transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    background: #0b1325;
+    animation: pageOverlayIn 0.28s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes pageOverlayIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pageOverlayOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 .container {
     width: 100%;
     max-width: 1320px;

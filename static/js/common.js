@@ -477,12 +477,32 @@ function initPageEntrance() {
         return;
     }
 
+    var navbar = document.querySelector('.navbar');
+    var isNavigating = sessionStorage.getItem('rayawa_navigating') === '1';
+    sessionStorage.removeItem('rayawa_navigating');
+
+    if (isNavigating) {
+        var overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        document.body.appendChild(overlay);
+
+        setLocale(locale, { noPersist: true });
+        if (navbar) navbar.classList.add('is-visible');
+
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                overlay.style.animation = 'pageOverlayOut 0.3s ease forwards';
+                setTimeout(function() { overlay.remove(); }, 350);
+            });
+        });
+        return;
+    }
+
     var entrance = document.createElement('div');
     entrance.className = 'page-entrance';
     document.body.appendChild(entrance);
 
     var done = false;
-    var navbar = document.querySelector('.navbar');
 
     function finish() {
         if (done) return;
@@ -536,6 +556,34 @@ function initSubpageReveal() {
     items.forEach(function(el) { observer.observe(el); });
 }
 
+function initPageLeaveTransitions() {
+    document.addEventListener('click', function(e) {
+        var anchor = e.target.closest('a[href]');
+        if (!anchor) return;
+        if (e.defaultPrevented) return;
+        var href = anchor.getAttribute('href') || '';
+        if (!href || href.startsWith('#')) return;
+        if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+        if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+        var destination;
+        try { destination = new URL(anchor.href, window.location.href); } catch(ex) { return; }
+        if (destination.origin !== window.location.origin) return;
+
+        e.preventDefault();
+
+        var overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        document.body.appendChild(overlay);
+
+        sessionStorage.setItem('rayawa_navigating', '1');
+
+        setTimeout(function() {
+            window.location.href = destination.href;
+        }, 280);
+    });
+}
+
 function initCommon() {
     initPageEntrance();
     initParticles();
@@ -547,6 +595,7 @@ function initCommon() {
     initSmoothScroll();
     initLanguageSwitcher();
     initSubpageReveal();
+    initPageLeaveTransitions();
 }
 
 if (!window.__HOME_JS) {
