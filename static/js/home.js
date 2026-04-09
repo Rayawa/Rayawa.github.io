@@ -716,26 +716,6 @@ function initSectionReveal() {
     }
 }
 
-function initPageLeaveTransitions() {
-    document.querySelectorAll('a[href]').forEach((anchor) => {
-        anchor.addEventListener('click', (e) => {
-            if (e.defaultPrevented) return;
-            const href = anchor.getAttribute('href') || '';
-            if (!href || href.startsWith('#')) return;
-            if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
-
-            const destination = new URL(anchor.href, window.location.href);
-            if (destination.origin !== window.location.origin) return;
-
-            e.preventDefault();
-            document.body.classList.add('page-leaving');
-            window.setTimeout(() => {
-                window.location.href = destination.href;
-            }, 280);
-        });
-    });
-}
-
 function initParticlePointerFollow() {
     const layer = document.getElementById('particles-js');
     if (!layer) return;
@@ -1040,6 +1020,17 @@ function initAwardLinks() {
 locale = detectInitialLocale();
 t = i18n[locale] || i18n.zh;
 
+var _isNavigating = sessionStorage.getItem('rayawa_navigating') === '1';
+sessionStorage.removeItem('rayawa_navigating');
+
+if (_isNavigating && document.getElementById('loadingScreen')) {
+    var _navOverlay = document.createElement('div');
+    _navOverlay.className = 'page-transition-overlay';
+    document.body.appendChild(_navOverlay);
+    document.getElementById('loadingScreen').style.display = 'none';
+    sessionStorage.setItem('rayawa_loaded', '1');
+}
+
 initLoadingScreen();
 initLanguageSwitcher();
 
@@ -1050,10 +1041,15 @@ initLanguageSwitcher();
     function showNavbar() {
         requestAnimationFrame(() => {
             navbar.classList.add('is-visible');
+            var overlay = document.querySelector('.page-transition-overlay');
+            if (overlay) {
+                overlay.style.animation = 'pageOverlayOut 0.3s ease forwards';
+                setTimeout(function() { overlay.remove(); }, 350);
+            }
         });
     }
 
-    if (sessionStorage.getItem('rayawa_loaded') || !document.getElementById('loadingScreen')) {
+    if (sessionStorage.getItem('rayawa_loaded') || !document.getElementById('loadingScreen') || _isNavigating) {
         showNavbar();
     } else {
         window.addEventListener('loadingScreenDone', showNavbar);
