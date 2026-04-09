@@ -1012,14 +1012,18 @@ initLanguageSwitcher();
 
 (function() {
     const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        navbar.style.opacity = '0';
-        navbar.style.transform = 'translateY(-100%)';
-        window.addEventListener('loadingScreenDone', () => {
-            requestAnimationFrame(() => {
-                navbar.classList.add('is-visible');
-            });
+    if (!navbar) return;
+
+    function showNavbar() {
+        requestAnimationFrame(() => {
+            navbar.classList.add('is-visible');
         });
+    }
+
+    if (sessionStorage.getItem('rayawa_loaded') || !document.getElementById('loadingScreen')) {
+        showNavbar();
+    } else {
+        window.addEventListener('loadingScreenDone', showNavbar);
     }
 })();
 setLocale(locale, { persist: false });

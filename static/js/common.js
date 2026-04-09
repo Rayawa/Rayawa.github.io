@@ -379,35 +379,73 @@ function initPageEntrance() {
     if (isHomepage) {
         var navbar = document.querySelector('.navbar');
         if (navbar) {
-            navbar.style.opacity = '0';
-            navbar.style.transform = 'translateY(-100%)';
-            window.addEventListener('loadingScreenDone', function() {
+            function showNavbar() {
                 requestAnimationFrame(function() {
                     navbar.classList.add('is-visible');
                 });
-            });
+            }
+            if (sessionStorage.getItem('rayawa_loaded')) {
+                showNavbar();
+            } else {
+                window.addEventListener('loadingScreenDone', showNavbar);
+            }
         }
         return;
     }
 
     var entrance = document.createElement('div');
     entrance.className = 'page-entrance';
+    entrance.innerHTML = '<div class="page-entrance-content">' +
+        '<div class="page-entrance-logo">rayawa.top</div>' +
+        '<div class="page-entrance-bar-wrap"><div class="page-entrance-bar" id="entranceBar"></div></div>' +
+        '<div class="page-entrance-percent"><span id="entrancePercent">0</span>%</div>' +
+        '</div>';
     document.body.appendChild(entrance);
+
+    var bar = document.getElementById('entranceBar');
+    var percentEl = document.getElementById('entrancePercent');
+    var progress = 0;
+    var done = false;
+
+    function setProgress(value) {
+        if (done) return;
+        progress = Math.min(value, 100);
+        if (bar) bar.style.width = progress + '%';
+        if (percentEl) percentEl.textContent = Math.floor(progress);
+    }
+
+    var steps = [
+        { target: 20, delay: 80 },
+        { target: 45, delay: 200 },
+        { target: 70, delay: 400 },
+        { target: 88, delay: 600 },
+    ];
+
+    steps.forEach(function(step) {
+        setTimeout(function() { setProgress(step.target); }, step.delay);
+    });
 
     var navbar = document.querySelector('.navbar');
 
-    window.addEventListener('load', function() {
+    function finish() {
+        if (done) return;
+        done = true;
+        setProgress(100);
+        setLocale(locale, { noPersist: true });
+        if (navbar) navbar.classList.add('is-visible');
         setTimeout(function() {
-            setLocale(locale, { noPersist: true });
-            if (navbar) navbar.classList.add('is-visible');
+            entrance.classList.add('is-done');
             setTimeout(function() {
-                entrance.classList.add('is-done');
-                setTimeout(function() {
-                    entrance.remove();
-                }, 700);
-            }, 300);
-        }, 200);
+                entrance.remove();
+            }, 1000);
+        }, 350);
+    }
+
+    window.addEventListener('load', function() {
+        setTimeout(finish, 500);
     });
+
+    setTimeout(finish, 3000);
 
     window.addEventListener('pageshow', function(e) {
         if (e.persisted) {
