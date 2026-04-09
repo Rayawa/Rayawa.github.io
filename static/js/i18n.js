@@ -54,7 +54,7 @@ window.SITE_I18N = {
         },
         form: {
             quickTitle: '快捷消息',
-            quickSubtitle: '项目合作 / 摄影约稿',
+            quickSubtitle: '项目合作 / 技术支持 / 摄影约稿 / 碎碎念',
             name: '姓名',
             email: '邮箱',
             message: '消息',
@@ -136,7 +136,7 @@ window.SITE_I18N = {
         },
         form: {
             quickTitle: 'Quick Message',
-            quickSubtitle: 'Project Collaboration / Photography Commission',
+            quickSubtitle: 'Project Collab / Tech Support / Photography / Chitchat',
             name: 'Name',
             email: 'Email',
             message: 'Message',
@@ -294,7 +294,7 @@ window.SITE_I18N = {
         },
         form: {
             quickTitle: 'Message rapide',
-            quickSubtitle: 'Collaboration projet / Commande photo',
+            quickSubtitle: 'Collab projet / Support tech / Photo / Bavardage',
             name: 'Nom',
             email: 'Email',
             message: 'Message',
