@@ -1,5 +1,6 @@
 .hero {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     padding: 8rem 0 4rem;
@@ -1047,6 +1048,7 @@ textarea.form-control {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s;
 }
 
@@ -1156,10 +1158,41 @@ textarea.form-control {
     box-shadow: 0 0 8px rgba(89, 212, 255, 0.4);
 }
 
+@media (max-width: 480px) {
+    .loading-content {
+        gap: 1.5rem;
+    }
+
+    .loading-brand {
+        min-height: 2.4rem;
+    }
+
+    .loading-logo {
+        font-size: 1.7rem;
+    }
+
+    .loading-cursor {
+        height: 1.5rem;
+    }
+
+    .loading-ring-wrap {
+        width: 64px;
+        height: 64px;
+    }
+
+    .loading-percent {
+        font-size: 0.95rem;
+    }
+
+    .loading-bar-wrap {
+        width: 160px;
+    }
+}
+
 @media (max-width: 900px) {
     .hero {
         min-height: auto;
-        padding: 5.5rem 0 2rem;
+        padding: 6rem 0 2rem;
         overflow: hidden;
     }
 
@@ -1267,6 +1300,11 @@ textarea.form-control {
         padding: 4rem 0;
     }
 
+    .gallery-track,
+    .gallery-slide img {
+        min-height: 420px;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -1353,6 +1391,11 @@ textarea.form-control {
         gap: 0.8rem;
     }
 
+    .footer-social-link {
+        width: 44px;
+        height: 44px;
+    }
+
     .copyright {
         flex-direction: column;
         gap: 0.2rem;
@@ -1361,7 +1404,7 @@ textarea.form-control {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 5rem 0 1.5rem;
+        padding: 5.5rem 0 1.5rem;
     }
 
     .hero-text h1 {
