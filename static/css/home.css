@@ -1330,7 +1330,7 @@
 
             .hero {
                 min-height: auto;
-                padding: 5rem 0 2rem;
+                padding: calc(5rem + 10px) 0 2rem;
                 overflow: hidden;
             }
 
@@ -1620,7 +1620,7 @@
             }
 
             .hero {
-                padding: 4.5rem 0 1.5rem;
+                padding: calc(4.5rem + 10px) 0 1.5rem;
             }
 
             .hero-text h1 {
@@ -1801,43 +1801,47 @@
 
         .loading-content {
             text-align: center;
-            width: 320px;
+            width: 280px;
         }
 
         .loading-logo {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: 0.35em;
-            margin-bottom: 2.5rem;
-            background: linear-gradient(135deg, #59d4ff 0%, #8fd3ff 48%, #90f4c7 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-indent: 0.35em;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.92);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .loading-logo::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+            margin: 1.2rem auto 0;
         }
 
         .loading-bar-wrap {
             width: 100%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 1px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
             overflow: hidden;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .loading-bar {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #59d4ff, #90f4c7);
-            border-radius: 1px;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.4), rgba(99, 102, 241, 0.9));
             transition: width 0.25s ease-out;
         }
 
         .loading-text {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.45);
-            letter-spacing: 0.18em;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.25em;
         }
 
 
