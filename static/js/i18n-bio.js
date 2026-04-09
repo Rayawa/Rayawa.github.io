@@ -1,6 +1,7 @@
 window.SITE_I18N = {
     zh: {
         nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
+        navTitle: '生物学项目',
         back: '返回主页',
         projects: '回到项目区',
         refresh: '刷新页面',
@@ -16,6 +17,7 @@ window.SITE_I18N = {
     },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        navTitle: 'Biology Projects',
         back: 'Back to Home',
         projects: 'Back to Projects',
         refresh: 'Refresh',
@@ -31,6 +33,7 @@ window.SITE_I18N = {
     },
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        navTitle: 'Projets de biologie',
         back: "Retour a l'accueil",
         projects: 'Retour aux projets',
         refresh: 'Rafraichir',
