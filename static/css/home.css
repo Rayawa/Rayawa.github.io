@@ -1270,6 +1270,7 @@
             .hero {
                 min-height: auto;
                 padding: 6rem 0 3rem;
+                overflow: hidden;
             }
 
             .hero-content,
@@ -1277,6 +1278,10 @@
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 3rem;
+            }
+
+            .hero-text {
+                min-width: 0;
             }
 
             .profile-img {
