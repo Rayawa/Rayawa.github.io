@@ -115,7 +115,7 @@
                     <div class="glass-card status-card" id="statusCardBlock">
                         <h3 class="status-card-title">现在进行时</h3>
                         <div class="skills-grid">
-                            <div class="skill-item">
+                            <a href="projects/dashboard.html" class="skill-item skill-link">
                                 <div class="skill-header">
                                     <div class="skill-icon">
                                         <i class="fas fa-bullseye"></i>
@@ -123,8 +123,8 @@
                                     <div class="skill-name">核心应用</div>
                                 </div>
                                 <p class="skill-description">HarmonyOS 6.1.0 应用看板开发与邀请测试迭代</p>
-                            </div>
-                            <div class="skill-item">
+                            </a>
+                            <a href="projects/openharmony.html" class="skill-item skill-link">
                                 <div class="skill-header">
                                     <div class="skill-icon">
                                         <i class="fas fa-cogs"></i>
@@ -132,7 +132,7 @@
                                     <div class="skill-name">独立研发线</div>
                                 </div>
                                 <p class="skill-description">OpenHarmony（Hi3861）嵌入式开发</p>
-                            </div>
+                            </a>
                             <div class="skill-item">
                                 <div class="skill-header">
                                     <div class="skill-icon">
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="skill-name">多端规划</div>
                                 </div>
-                                <p class="skill-description">鸿蒙应用看板后续推进macOS与Android版本</p>
+                                <p class="skill-description">计划推进MacOS与Android软件开发。</p>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-header">
@@ -189,7 +189,7 @@
                                     <div class="skill-icon">
                                         <i class="fas fa-camera"></i>
                                     </div>
-                                    <div class="skill-name">创作与兴趣</div>
+                                    <div class="skill-name">生活与游戏</div>
                                 </div>
                                 <p class="skill-description">跑步、骑行、风景摄影与无人机影像；Minecraft、原神、第五人格、明日方舟、终末地、皇室战争、音游。</p>
                             </div>
@@ -208,110 +208,126 @@
                 <p class="section-subtitle reveal-item" data-i18n="projects.subtitle">把热爱写成项目，把项目做成长期作品。</p>
             </div>
 
+            <h3 class="other-projects-title" data-i18n="projects.more">主要项目</h3>
             <div class="projects-grid">
-                <a href="projects/harmony-dashboard.html" class="project-card">
+                <a href="projects/dashboard.html" class="project-card">
                     <div class="project-image harmony"></div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="project.hmdb.title">华为应用市场看板</h3>
                         <p class="project-description" data-i18n="project.hmdb.desc">基于鸿蒙生态的数据看板项目，聚焦应用市场信息聚合、展示与分析。当前主线项目，持续更新中。</p>
                         <div class="project-award-row">
                             <span class="tag tag-award award-link" role="link" tabindex="0" data-i18n="project.hmdb.award" data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛三等奖作品</span>
+                            <i class="fas fa-external-link-alt award-external-icon"></i>
                         </div>
                         <div class="project-tags">
                             <span class="tag">HarmonyOS</span>
                             <span class="tag" data-i18n="tag.dataVis">数据可视化</span>
-                            <span class="tag" data-i18n="tag.webApp">Web 应用</span>
+                            <span class="tag" data-i18n="tag.webApp">Web应用</span>
                         </div>
                     </div>
                 </a>
 
-                <a href="projects/bio-project.html" class="project-card">
+                <a href="projects/bio.html" class="project-card">
                     <div class="project-image bio"></div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="project.bio.title">生物学项目</h3>
                         <p class="project-description" data-i18n="project.bio.desc">收录我生物学方向论文与实验记录，包括我的PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。</p>
                         <div class="project-tags">
                             <span class="tag" data-i18n="tag.biology">生物学</span>
-                            <span class="tag" data-i18n="tag.research">研究</span>
-                            <span class="tag" data-i18n="tag.academic">学术</span>
+                            <span class="tag" data-i18n="tag.research">综述</span>
+                            <span class="tag" data-i18n="tag.academic">项目</span>
                         </div>
                     </div>
                 </a>
 
-                <a href="https://featurehouse.github.io" target="_blank" rel="noopener" class="project-card">
+                <a href="projects/openharmony.html" class="project-card">
+                    <div class="project-image ohos"></div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-i18n="project.ohos.title">OpenHarmony Hi3861</h3>
+                        <p class="project-description" data-i18n="project.ohos.desc">基于 OpenHarmony Hi3861 的嵌入式开发实践，探索设备端能力与系统工程。</p>
+                        <div class="project-tags">
+                            <span class="tag">OpenHarmony</span>
+                            <span class="tag" data-i18n="tag.research">嵌入式</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/spm.html" class="project-card">
                     <div class="project-image spm"></div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="project.spm.title">Sweet Potato Mod</h3>
                         <p class="project-description" data-i18n="project.spm.desc">与@teddyxlandlee协作开发的Minecraft模组项目，围绕玩法拓展、内容设计与开源协作推进。</p>
                         <div class="project-tags">
                             <span class="tag">Minecraft</span>
-                            <span class="tag" data-i18n="tag.gameMod">游戏模组</span>
-                            <span class="tag" data-i18n="tag.openSource">开源</span>
+                            <span class="tag" data-i18n="tag.gameMod">Java模组</span>
+                            <span class="tag" data-i18n="tag.openSource">开源项目</span>
                         </div>
                     </div>
                 </a>
             </div>
 
             <div class="other-projects">
-                <h3 class="other-projects-title" data-i18n="projects.more">更多项目</h3>
+                <h3 class="other-projects-title" data-i18n="projects.other">其他项目</h3>
                 <div class="projects-grid">
-                    <a href="https://github.com/Rayawa" target="_blank" rel="noopener"
-                        class="project-card project-card-text">
-                        <div class="project-content">
-                            <h3 class="project-title" data-i18n="project.dr.title">Difficlut Rocket（协作开发）</h3>
-                            <p class="project-description" data-i18n="project.dr.desc">与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。</p>
-                            <div class="project-tags">
-                                <span class="tag" data-i18n="tag.openSource">开源</span>
-                                <span class="tag" data-i18n="tag.gameMod">游戏模组</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://idv.rayawa.top" target="_blank" rel="noopener"
-                        class="project-card project-card-text">
-                        <div class="project-content">
-                            <h3 class="project-title" data-i18n="project.idv.title">第五人格</h3>
-                            <p class="project-description" data-i18n="project.idv.desc">当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（</p>
-                            <div class="project-tags">
-                                <span class="tag" data-i18n="tag.game">游戏</span>
-                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/xiaodou-english.html" class="project-card project-card-text">
-                        <div class="project-content">
-                            <h3 class="project-title" data-i18n="project.xiaodou.title">小豆英语启蒙</h3>
-                            <p class="project-description" data-i18n="project.xiaodou.desc">轻量起步、长期迭代的小豆英语启蒙项目，主打可坚持的学习节奏。</p>
-                            <div class="project-tags">
-                                <span class="tag" data-i18n="tag.education">教育</span>
-                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
-                            </div>
-                        </div>
-                    </a>
                     <a href="#" class="project-card project-card-text">
                         <div class="project-content">
                             <h3 class="project-title" data-i18n="project.hlm.title">红楼梦剧组</h3>
                             <p class="project-description" data-i18n="project.hlm.desc">为红楼梦剧组搭建的网站项目，用于剧组信息展示与活动管理。</p>
-                            <div class="project-tags">
-                                <span class="tag" data-i18n="tag.creative">创作</span>
-                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
-                            </div>
                         </div>
                     </a>
                     <a href="#" class="project-card project-card-text">
                         <div class="project-content">
-                            <h3 class="project-title" data-i18n="project.whn.title">WHN 生日</h3>
-                            <p class="project-description" data-i18n="project.whn.desc">为朋友 WHN 制作的生日祝福网页，一个有趣的小项目。</p>
-                            <div class="project-tags">
-                                <span class="tag" data-i18n="tag.fun">趣味</span>
-                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
-                            </div>
+                            <h3 class="project-title" data-i18n="project.whn.title">whn生日</h3>
+                            <p class="project-description" data-i18n="project.whn.desc">好男酱的2024年生日会项目</p>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card project-card-text">
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="project.thesis.title">学校论文</h3>
+                            <p class="project-description" data-i18n="project.thesis.desc">收录在校期间撰写的学术论文与课程研究报告。</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <div class="other-projects misc-projects">
-                <h3 class="other-projects-title" data-i18n="projects.other">其他项目</h3>
+                <h3 class="other-projects-title" data-i18n="projects.more">更多项目</h3>
+                <div class="projects-grid">
+                    <a href="https://github.com/shenjackyuanjie/Difficult-Rocket" target="_blank" rel="noopener"
+                        class="project-card project-card-text">
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="project.dr.title">Difficlut Rocket（协作开发）</h3>
+                            <p class="project-description" data-i18n="project.dr.desc">与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.gameMod">游戏扩展</span>
+                                <span class="tag" data-i18n="tag.openSource">开源项目</span>
+                            </div>
+                            <span class="external-link-icon"><i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://idv.rayawa.top" target="_blank" rel="noopener"
+                        class="project-card project-card-text">
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="project.idv.title">第五人格</h3>
+                            <p class="project-description" data-i18n="project.idv.desc">当年和lyx打人类排位到六阶搓出来的网页，放在这里留个纪念（</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.game">游戏</span>
+                                <span class="tag" data-i18n="tag.webApp">Web计分器</span>
+                            </div>
+                            <span class="external-link-icon"><i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="projects/dx.html" class="project-card project-card-text">
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="project.xiaodou.title">小豆英语启蒙</h3>
+                            <p class="project-description" data-i18n="project.xiaodou.desc">占位文本占位文本占位文本占位文本</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.education">教育</span>
+                                <span class="tag" data-i18n="tag.webApp">Web应用</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -517,7 +533,7 @@
                     <div class="form-group">
                         <label for="name" data-i18n="form.name">姓名</label>
                         <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" data-i18n-placeholder="form.namePh" required>
-                        <p class="form-hint" data-i18n="form.nameHint">请填写真实姓名，否则可能被后端识别为垃圾邮件</p>
+                        <p class="form-hint" data-i18n="form.nameHint">请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
                     </div>
 
                     <div class="form-group">
