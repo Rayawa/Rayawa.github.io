@@ -686,19 +686,19 @@
         }
 
         .project-image.harmony {
-            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(23, 63, 130, 0.3)), url('../images/dashboard.png');
+            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(23, 63, 130, 0.3)), url('../resources/main_page/dashboard.png');
         }
 
         .project-image.bio {
-            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(16, 185, 129, 0.28)), url('../images/bio.png');
+            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(16, 185, 129, 0.28)), url('../resources/main_page/bio.png');
         }
 
         .project-image.spm {
-            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../images/spm.png');
+            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../resources/main_page/spm.png');
         }
 
         .project-image.ohos {
-            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(0, 122, 255, 0.28)), url('../images/openharmony.png');
+            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(0, 122, 255, 0.28)), url('../resources/main_page/openharmony.png');
         }
 
         .project-content {

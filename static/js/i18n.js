@@ -66,7 +66,12 @@ window.SITE_I18N = {
             messageHint: '昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件',
             send: '发送消息',
         },
-        footer: { quick: '快速链接', projects: '项目', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
+        footer: {
+            quick: '快速链接',
+            projects: '项目',
+            copy: '&copy; 2026 Ray Chen. All rights reserved.',
+            description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+        },
         project: {
             hmdb: { title: '华为应用市场看板', desc: '基于鸿蒙生态的数据看板项目，聚焦应用市场信息聚合、展示与分析。当前主线项目，持续更新中。', award: '开放原子大赛三等奖作品' },
             bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。' },
@@ -80,6 +85,79 @@ window.SITE_I18N = {
             thesis: { title: '学校论文', desc: '收录在校期间撰写的学术论文与课程研究报告。' },
         },
         tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育' },
+        aboutHtml: {
+            aboutText: `<h3>个人简介</h3>
+<p>我目前就读于北方工业大学通信工程专业，但投入精力最多的是软件开发。目前正持续推进的核心项目是HarmonyOS平台的鸿蒙应用看板App，项目已进入邀请测试阶段，并计划开始后续macOS与Android平台的跨开发。</p>
+<p>除了软件层面，我还在学习OpenHarmony Hi3861嵌入式开发。对我来说，这不只是在调硬件，更是为了从底层逻辑上把设备侧的能力和系统工程彻底摸透。</p>
+<p>我参与开源协作：在Sweet Potato Mod中与@teddyxlandlee配合，在Difficult Rocket项目中与@shenjackyuanjie协作；我的Minecraft Java ID 是Rayawa。对我来说，参与协作不仅是提交代码，更是与不同背景的开发者对齐工程标准与沟通方式的过程。</p>
+<p>在我比较感兴趣的生物学领域，我带领过高中开创首届的PCR实验，把高等的实验内容带到了高中课堂，我和同学撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去实现生物学教学的小工具非常有意思，未来也想往生物信息学方向探路。</p>
+<p>在网页开发上，我先后搭建了个人网站、模组站、第五人格站及农杆菌转化法实验站点；程序方面涉猎 C、C++、Java、Rust、HTML、ArkTS、Swift与openGauss数据库。我不太喜欢死学，更倾向于在产品做出来、算法想通了、工程讲清楚了这三者之间找个舒服的平衡点。</p>
+<p>平时我喜欢跑步和骑行，相机和无人机也是出门必备。我觉得摄影的乐趣不止在最后的出片，换个视角去构图、尝试用不同的叙事风格、在原来的基础上做出创新……这种创作过程十分有乐趣。</p>
+<p>游戏方面，我是Minecraft的老玩家，也是一名"原学家"（大概），近期正在玩明日方舟和终末地；我同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline等音游；在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）与若干B牌（虽然目前已退游）；皇室战争中我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
+<p>最近我也在学习法语。 从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>`,
+            statusCard: `<h3 class="status-card-title">现在进行时</h3>
+<div class="skills-grid">
+    <a href="projects/dashboard.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="skill-name">核心应用</div>
+        </div>
+        <p class="skill-description">HarmonyOS 6.1.0 应用看板开发与邀请测试迭代</p>
+    </a>
+    <a href="projects/openharmony.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+            <div class="skill-name">独立研发线</div>
+        </div>
+        <p class="skill-description">OpenHarmony（Hi3861）嵌入式开发</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-road"></i></div>
+            <div class="skill-name">多端规划</div>
+        </div>
+        <p class="skill-description">计划推进MacOS与Android软件开发。</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-users"></i></div>
+            <div class="skill-name">学习进度</div>
+        </div>
+        <p class="skill-description">深化Java、Rust；准备开始仓颉开发；<br>法语持续学习中...</p>
+    </div>
+</div>`,
+            capabilityCard: `<h3 class="status-card-title">能力与方向</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fab fa-js"></i></div>
+            <div class="skill-name">程序栈</div>
+        </div>
+        <p class="skill-description">C, C++, Java, Rust, HTML, ArkTS, Swift, openGauss</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="skill-name">产品与工程</div>
+        </div>
+        <p class="skill-description">HarmonyOS应用、OpenHarmony嵌入式、Web全栈与数据展示、多端版本规划</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+            <div class="skill-name">协作与研究</div>
+        </div>
+        <p class="skill-description">Sweet Potato Mod、Difficlut Rocket、PCR项目、蛋白质猜想、碳同化综述、橙色平板实验</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+            <div class="skill-name">生活与游戏</div>
+        </div>
+        <p class="skill-description">跑步、骑行、风景摄影与无人机影像；Minecraft、原神、第五人格、明日方舟、终末地、皇室战争、音游。</p>
+    </div>
+</div>`,
+        },
     },
     en: {
         sending: 'Sending...',
@@ -148,7 +226,12 @@ window.SITE_I18N = {
             messageHint: 'If your nickname does not ring a bell, add a clue — or the spam filter might not let you through',
             send: 'Send',
         },
-        footer: { quick: 'Quick Links', projects: 'Projects', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
+        footer: {
+            quick: 'Quick Links',
+            projects: 'Projects',
+            copy: '&copy; 2026 Ray Chen. All rights reserved.',
+            description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+        },
         project: {
             hmdb: { title: 'HmDashboard', desc: 'A Harmony ecosystem dashboard focused on market data aggregation, insight display, and analysis.', award: 'Third Prize, OpenAtom Competition' },
             bio: { title: 'Biology Projects', desc: 'Papers and experiment records, including PCR practice, protein hypotheses, carbon assimilation review, orange-plate experiments, and Agrobacterium web demos.' },
@@ -242,7 +325,7 @@ window.SITE_I18N = {
     fr: {
         sending: 'Envoi...',
         sent: 'Message envoye. Je vous repondrai bientot.',
-        sendFailed: 'Echec de l envoi. Veuillez reessayer plus tard.',
+        sendFailed: "Echec de l envoi. Veuillez reessayer plus tard.",
         top: 'Retour en haut',
         refresh: 'Rafraichir la page',
         dotLabel: 'Aller a la diapositive {n}',
@@ -250,7 +333,7 @@ window.SITE_I18N = {
         hero: {
             title: 'Bonjour, je suis <span class="gradient-text">Ray</span>',
             intro: 'Etudiant en communication | Createur HarmonyOS | Geek transdisciplinaire | Auteur visuel',
-            core: 'Je construis des applications HarmonyOS tout en approfondissant l embarque Hi3861.',
+            core: "Je construis des applications HarmonyOS tout en approfondissant l'embarque Hi3861.",
             side: 'Je livre des projets web, je collabore sur Difficult Rocket et des mods Minecraft, et j explore la biologie par le code.',
             photo: 'Photo de paysage et drone pour capter des frequences hors du spectre telecom.',
             life: "J apprends le francais, je cours, je fais du velo, je passe de Teyvat a Rhodes Island, puis je termine en jeux de rythme et deck Golem.",
@@ -302,22 +385,27 @@ window.SITE_I18N = {
             emailPh: 'Votre email',
             messagePh: 'Votre message...',
             nameHint: 'Indiquez un nom reconnaissable — sinon le serveur pourrait le marquer comme spam',
-            emailHint: 'Verifiez bien votre adresse — c est le seul moyen de recevoir une reponse',
+            emailHint: "Verifiez bien votre adresse — c est le seul moyen de recevoir une reponse",
             messageHint: 'Si votre pseudo ne me dit rien, precisez — sinon le filtre anti-spam pourrait vous bloquer',
             send: 'Envoyer',
         },
-        footer: { quick: 'Liens rapides', projects: 'Projets', copy: '&copy; 2026 Ray Chen. Tous droits reserves.' },
+        footer: {
+            quick: 'Liens rapides',
+            projects: 'Projets',
+            copy: '&copy; 2026 Ray Chen. Tous droits reserves.',
+            description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+        },
         project: {
-            hmdb: { title: 'HmDashboard', desc: 'Un tableau de bord de l ecosysteme Harmony, axe sur l agregation, la lecture et l analyse de donnees applicatives.', award: 'Troisieme prix, concours OpenAtom' },
+            hmdb: { title: 'HmDashboard', desc: "Un tableau de bord de l ecosysteme Harmony, axe sur l agregation, la lecture et l analyse de donnees applicatives.", award: 'Troisieme prix, concours OpenAtom' },
             bio: { title: 'Projets de biologie', desc: 'Papiers et traces experimentales: PCR, hypotheses proteiques, revue d assimilation du carbone, orange-plate et demos web Agrobacterium.' },
             spm: { title: 'Sweet Potato Mod', desc: 'Collaboration mod Minecraft avec @teddyxlandlee, orientee gameplay, contenu et dynamique open-source.' },
-            ohos: { title: 'OpenHarmony Hi3861', desc: 'Developpement embarque avec OpenHarmony Hi3861, exploration des capacites cote appareil et de l ingenierie systeme.' },
+            ohos: { title: 'OpenHarmony Hi3861', desc: "Developpement embarque avec OpenHarmony Hi3861, exploration des capacites cote appareil et de l ingenierie systeme." },
             dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developpe avec @shenjackyuanjie, avec iterations fonctionnelles continues et consolidation technique.' },
             idv: { title: 'Identity V', desc: 'Une page web faite avec lyx quand on grindait Survivant jusqu au rang VI — gardee comme souvenir' },
             xiaodou: { title: 'Xiaodou English Starter', desc: 'Texte de remplacement texte de remplacement texte de remplacement' },
-            hlm: { title: 'Troupe du Reve Rouge', desc: 'Un site construit pour la troupe du Reve dans le Pavillon Rouge, pour affichage et gestion d evenements.' },
-            whn: { title: 'Anniversaire WHN', desc: 'Projet d anniversaire whn 2024' },
-            thesis: { title: 'Papiers scolaires', desc: 'Papiers academiques et rapports de recherche rediges a l universite.' },
+            hlm: { title: 'Troupe du Reve Rouge', desc: "Un site construit pour la troupe du Reve dans le Pavillon Rouge, pour affichage et gestion d evenements." },
+            whn: { title: "Anniversaire WHN", desc: "Projet d anniversaire whn 2024" },
+            thesis: { title: 'Papiers scolaires', desc: "Papiers academiques et rapports de recherche rediges a l universite." },
         },
         tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education' },
         aboutHtml: {
