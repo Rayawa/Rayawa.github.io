@@ -9,6 +9,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../static/css/subpage.css">
+  <style>
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.6);
+    }
+
+    .feature-card img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .feature-card-text h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card-text h3 a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .feature-card-text h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .feature-card-text p {
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    .dev-section {
+      margin-top: 1rem;
+    }
+
+    .dev-section h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .dev-list {
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.8;
+      font-size: 0.9rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .notice-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .notice-list li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.65;
+      font-size: 0.9rem;
+    }
+
+    .notice-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 1rem 0;
+      border: 1px solid var(--glass-border);
+    }
+
+    @media (max-width: 900px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="particles-js"></div>
@@ -19,22 +128,76 @@
     </header>
 
     <section class="hero-card">
-      <h1>Sweet Potato Mod</h1>
-      <p>与 @teddyxlandlee 协作开发的 Minecraft 模组，围绕农业玩法、成长机制与魔法元素持续迭代。</p>
+      <h1>Sweet Potato Mod 烤地瓜模组</h1>
+      <p>农业与魔法的完美结合！与 @teddyxlandlee 协作开发的 Minecraft 模组，围绕农业玩法、成长机制与魔法元素持续迭代。</p>
+      <img class="hero-image" src="https://featurehouse.github.io/static/images/gallery/Title%20old.png" alt="Sweet Potato Mod">
       <div class="single-action">
-        <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener">访问项目主页</a>
+        <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener">Pigeonia Featurehouse 主页</a>
+        <a class="button-outline" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener">下载链接</a>
       </div>
     </section>
 
-    <section class="card-grid">
-      <article class="card">
-        <h2>当前状态</h2>
-        <p>当前页面用于承载模块文档与更新日志，后续会补充版本说明、改动细节和下载指引。</p>
+    <h2 style="font-size:1.3rem;margin-bottom:1rem;color:var(--primary);">新的内容</h2>
+    <section class="feature-grid">
+      <article class="feature-card">
+        <img src="https://featurehouse.github.io/static/images/gallery/Sweet%20Potato%20Powder.png" alt="地瓜">
+        <div class="feature-card-text">
+          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">地瓜</a></h3>
+          <p>在本模组中添加的类食物。它分为紫薯、红薯和白薯，以及三个变种，有地瓜粉、地瓜皮等。</p>
+        </div>
       </article>
-      <article class="card">
-        <h2>协作信息</h2>
-        <p>项目持续进行中，面向开源协作；欢迎通过主页链接查看代码仓库与发布信息。</p>
+
+      <article class="feature-card">
+        <img src="https://featurehouse.github.io/static/images/gallery/Magic%20Cube%203.png" alt="魔法锅">
+        <div class="feature-card-text">
+          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">魔法锅</a></h3>
+          <p>魔法锅散发着黑色的光泽。你可以通过在它下方3×3区域内点燃灵魂火来激活魔法锅，将三个任意品类的生地瓜转换为其他品类或对其进行随机附魔。</p>
+        </div>
       </article>
+
+      <article class="feature-card">
+        <img src="https://featurehouse.github.io/static/images/gallery/Grinder.png" alt="研磨器">
+        <div class="feature-card-text">
+          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">研磨器</a></h3>
+          <p>研磨器有着一个磨盘，它的作用是将地瓜研磨为地瓜粉。</p>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <img src="https://featurehouse.github.io/static/images/gallery/Enchanted_Saplings.png" alt="附魔树苗和作物">
+        <div class="feature-card-text">
+          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">附魔树苗和作物</a></h3>
+          <p>附魔树苗和作物的生长速度要快于原版树苗或作物，且会长成附魔树或附魔作物。</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="hero-card" style="margin-top:1.5rem;">
+      <h2>开发人员</h2>
+      <div class="dev-section">
+        <h3>作者</h3>
+        <div class="dev-list">Teddy Li (teddyxlandlee) · Ray Chen (Rayawa) · Peter Yang (Peteric)</div>
+      </div>
+      <div class="dev-section">
+        <h3>贡献者</h3>
+        <div class="dev-list">Dennis Lin · Garay Shurlin · 2333tech · squid233 · YWsuoyi · Ironnoob73 · ACGaming</div>
+      </div>
+      <div class="dev-section">
+        <h3>支持者</h3>
+        <div class="dev-list">Teacher Qiu Yuting · immibis · Zn_Ar</div>
+      </div>
+    </section>
+
+    <section class="hero-card" style="margin-top:1.5rem;">
+      <h2>注意事项</h2>
+      <ul class="notice-list">
+        <li>目前该模组仅支持 Fabric 1.16+，更早版本的玩家暂时不支持。</li>
+        <li>请不要在未经作者允许的情况下擅自转载本模组至其它平台！</li>
+        <li>加载本 Mod 需要 Fabric Loader 和 Fabric API。其中 Loader 的版本不能低于 0.9.0，API 最好为最新版。</li>
+        <li>不要在未经本模组作者允许的情况下擅自把 Mod 中的内容添加到你的整合包中！</li>
+        <li>如果您想把本模组添加至你的服务器中，请同时在客户端与服务端安装该 Mod。</li>
+        <li>如果您发现了模组中的 Bug 或对本模组有建议，烦请汇报至 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>。</li>
+      </ul>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
