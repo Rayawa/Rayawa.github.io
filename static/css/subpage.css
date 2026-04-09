@@ -1,71 +1,7 @@
-:root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary: #10b981;
-    --dark: #0f172a;
-    --light: #f8fafc;
-    --glass: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --radius: 14px;
-    --transition: all 0.3s ease;
-    color-scheme: light dark;
-}
-
-.lang-flag {
-    isolation: isolate;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    background: #0b1325;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(99, 102, 241, 0.5) transparent;
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background: rgba(99, 102, 241, 0.4);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 102, 241, 0.65);
-}
-
-body {
-    font-family: 'Inter', 'JetBrains Mono', sans-serif;
-    color: #fff;
-    min-height: 100vh;
-    background: #0b1325;
-    overflow-x: hidden;
-}
-
-#particles-js {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
 .page {
-    position: relative;
-    z-index: 1;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2.5rem clamp(1.2rem, 4vw, 2.5rem) 4rem;
+    padding: 6rem clamp(1.2rem, 4vw, 2.5rem) 4rem;
 }
 
 .topbar {

@@ -17,12 +17,7 @@ let galleryA11yUpdater = null;
 const floatingTools = { refreshBtn: null, topBtn: null };
 const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
 
-const aboutBlocks = {
-    about: null,
-    status: null,
-    capability: null,
-    zhSnapshot: null,
-};
+
 
 function sleep(ms) {
     return new Promise((resolve) => window.setTimeout(resolve, ms));
@@ -129,43 +124,9 @@ function applyTextNodes() {
         const value = getCurrentText(key, el.getAttribute('placeholder') || '');
         el.setAttribute('placeholder', value);
     });
-
-    const quote = document.querySelector('.avatar-quote');
-    if (quote) quote.textContent = getCurrentText('hero.quote', quote.textContent || '');
 }
 
-function initLocaleBlockSnapshots() {
-    aboutBlocks.about = document.getElementById('aboutTextBlock');
-    aboutBlocks.status = document.getElementById('statusCardBlock');
-    aboutBlocks.capability = document.getElementById('capabilityCardBlock');
-    if (!aboutBlocks.about || !aboutBlocks.status || !aboutBlocks.capability) return;
-    aboutBlocks.zhSnapshot = {
-        about: aboutBlocks.about.innerHTML,
-        status: aboutBlocks.status.innerHTML,
-        capability: aboutBlocks.capability.innerHTML,
-    };
-}
-
-function applyLocaleBlocks(lang) {
-    if (!aboutBlocks.about || !aboutBlocks.status || !aboutBlocks.capability || !aboutBlocks.zhSnapshot) return;
-
-    if (lang === 'zh') {
-        aboutBlocks.about.innerHTML = aboutBlocks.zhSnapshot.about;
-        aboutBlocks.status.innerHTML = aboutBlocks.zhSnapshot.status;
-        aboutBlocks.capability.innerHTML = aboutBlocks.zhSnapshot.capability;
-    } else {
-        const html = i18n[lang] && i18n[lang].aboutHtml;
-        if (!html) {
-            console.warn(`Language ${lang} not supported for about blocks, falling back to Chinese`);
-            aboutBlocks.about.innerHTML = aboutBlocks.zhSnapshot.about;
-            aboutBlocks.status.innerHTML = aboutBlocks.zhSnapshot.status;
-            aboutBlocks.capability.innerHTML = aboutBlocks.zhSnapshot.capability;
-        } else {
-            aboutBlocks.about.innerHTML = html.aboutText || aboutBlocks.zhSnapshot.about;
-            aboutBlocks.status.innerHTML = html.statusCard || aboutBlocks.zhSnapshot.status;
-            aboutBlocks.capability.innerHTML = html.capabilityCard || aboutBlocks.zhSnapshot.capability;
-        }
-    }
+function applyLocaleBlocks() {
     hydrateRevealItems();
 }
 
@@ -207,7 +168,7 @@ async function setLocale(nextLocale, { persist = true } = {}) {
     document.documentElement.lang = langToHtmlLang[locale] || 'zh-CN';
 
     applyTextNodes();
-    applyLocaleBlocks(locale);
+    applyLocaleBlocks();
     applyLanguageButtons();
     if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
     if (floatingTools.refreshBtn && floatingTools.topBtn) {
@@ -1052,7 +1013,6 @@ locale = detectInitialLocale();
 t = i18n[locale] || i18n.zh;
 
 initLoadingScreen();
-initLocaleBlockSnapshots();
 initLanguageSwitcher();
 setLocale(locale, { persist: false });
 hydrateRevealItems();

@@ -1,0 +1,32 @@
+window.SITE_I18N = {
+    zh: {
+        nav: { home: '首页' },
+        back: '返回主页',
+        projects: '回到项目区',
+        refresh: '刷新页面',
+        top: '回到顶部',
+        title: '小豆英语启蒙',
+        desc: '轻量起步、长期迭代的英语启蒙项目，主打可坚持的学习节奏。',
+        wip: { title: '持续更新中', desc: '更多内容正在建设中，敬请期待。' },
+    },
+    en: {
+        nav: { home: 'Home' },
+        back: 'Back to Home',
+        projects: 'Back to Projects',
+        refresh: 'Refresh',
+        top: 'Back to top',
+        title: 'Xiaodou English',
+        desc: 'A lightweight, long-term English learning project focused on a sustainable study pace.',
+        wip: { title: 'Work in Progress', desc: 'More content is being built. Stay tuned.' },
+    },
+    fr: {
+        nav: { home: 'Accueil' },
+        back: "Retour a l'accueil",
+        projects: 'Retour aux projets',
+        refresh: 'Rafraichir',
+        top: 'Retour en haut',
+        title: 'Xiaodou Anglais',
+        desc: "Un projet d'apprentissage de l'anglais leger et a long terme, axe sur un rythme d'etude durable.",
+        wip: { title: 'En cours de construction', desc: "Plus de contenu en cours de construction. Restez a l'ecoute." },
+    },
+};

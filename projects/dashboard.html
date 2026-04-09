@@ -8,60 +8,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="../static/css/subpage.css">
 </head>
 <body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="nav.home"><!-- i18n: logo text --></span></a>
+      <div class="language-switch">
+        <button type="button" class="lang-btn active" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="en"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
+      </div>
+    </div>
+  </nav>
   <div id="particles-js"></div>
   <main class="page">
     <header class="topbar">
-      <a class="back-link" href="../index.html"><i class="fas fa-arrow-left"></i> 返回主页</a>
-      <a class="home-link" href="../index.html#projects">回到项目区</a>
+      <a class="back-link" href="../index.html"><i class="fas fa-arrow-left"></i> <span data-i18n="back"><!-- i18n: back link --></span></a>
+      <a class="home-link" href="../index.html#projects" data-i18n="projects"><!-- i18n: projects link --></a>
     </header>
-
     <section class="hero-card">
-      <h1>鸿蒙应用看板</h1>
-      <p>欢迎来到应用看板页面，这里会持续更新版本信息、功能进展与平台发布状态。</p>
+      <h1 data-i18n="title"><!-- i18n: page title --></h1>
+      <p data-i18n="desc"><!-- i18n: page description --></p>
     </section>
-
     <section class="card-grid">
       <article class="card">
-        <h2>欢迎</h2>
-        <p>这是应用看板项目的独立介绍页，集中展示项目目标、当前阶段以及后续迭代节奏。</p>
+        <h2 data-i18n="welcome.title"><!-- i18n: welcome title --></h2>
+        <p data-i18n="welcome.desc"><!-- i18n: welcome desc --></p>
       </article>
-
       <article class="card">
-        <h2>项目介绍</h2>
-        <p>项目聚焦鸿蒙应用市场数据采集与展示，围绕统一体验构建网页端和多平台版本。</p>
+        <h2 data-i18n="intro.title"><!-- i18n: intro title --></h2>
+        <p data-i18n="intro.desc"><!-- i18n: intro desc --></p>
       </article>
     </section>
-
     <section class="hero-card">
-      <h2>下载链接</h2>
+      <h2 data-i18n="download"><!-- i18n: download heading --></h2>
       <div class="button-row">
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">网页</a>
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">鸿蒙</a>
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">苹果</a>
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener">安卓</a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="web"><!-- i18n: web --></a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="harmony"><!-- i18n: harmony --></a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="apple"><!-- i18n: apple --></a>
+        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="android"><!-- i18n: android --></a>
       </div>
     </section>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 50, density: { enable: true, value_area: 1000 } },
-        color: { value: '#6366f1' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.35, random: true },
-        size: { value: 2.8, random: true },
-        line_linked: { enable: true, distance: 140, color: '#6366f1', opacity: 0.12, width: 1 },
-        move: { enable: true, speed: 1.0, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: { onhover: { enable: false }, onclick: { enable: false } }
-      }
-    });
-  </script>
+  <div class="fab-tools">
+    <button class="fab-btn refresh-btn" aria-label="刷新页面"><i class="fas fa-sync-alt"></i></button>
+    <button class="fab-btn top-btn" aria-label="回到顶部"><i class="fas fa-arrow-up"></i></button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../static/js/i18n-dashboard.js"></script>
+  <script src="../static/js/common.js"></script>
 </body>
 </html>
