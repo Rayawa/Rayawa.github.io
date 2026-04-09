@@ -370,54 +370,6 @@ section,
     pointer-events: none;
 }
 
-.page-entrance-content {
-    text-align: center;
-    width: 240px;
-}
-
-.page-entrance-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 2rem;
-    background: linear-gradient(135deg, #59d4ff 0%, #8fd3ff 40%, #90f4c7 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.page-entrance-logo::after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(89, 212, 255, 0.5), transparent);
-    margin: 1rem auto 0;
-}
-
-.page-entrance-bar-wrap {
-    width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.06);
-    overflow: hidden;
-    margin-bottom: 1rem;
-}
-
-.page-entrance-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #59d4ff, #90f4c7);
-    transition: width 0.25s ease-out;
-}
-
-.page-entrance-percent {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(255, 255, 255, 0.3);
-    letter-spacing: 0.2em;
-}
-
 @media (max-width: 900px) {
     a,
     button {
