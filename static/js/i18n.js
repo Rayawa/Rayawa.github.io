@@ -26,7 +26,7 @@ window.SITE_I18N = {
         projects: {
             title: '我的项目',
             subtitle: '把热爱写成项目，把项目做成长期作品。',
-            more: '更多项目',
+            more: '主要项目',
             other: '其他项目',
         },
         gallery: {
@@ -59,7 +59,7 @@ window.SITE_I18N = {
             namePh: '请输入您的姓名',
             emailPh: '请输入您的邮箱',
             messagePh: '请输入您的消息...',
-            nameHint: '请填写真实姓名，否则可能被后端识别为垃圾邮件',
+            nameHint: '请填写易被识别的姓名，否则可能被后端识别为垃圾邮件',
             emailHint: '请确认邮箱地址无误，这决定您能否收到回信',
             messageHint: '昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件',
             send: '发送消息',
@@ -69,11 +69,13 @@ window.SITE_I18N = {
             hmdb: { title: '华为应用市场看板', desc: '基于鸿蒙生态的数据看板项目，聚焦应用市场信息聚合、展示与分析。当前主线项目，持续更新中。', award: '开放原子大赛三等奖作品' },
             bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法网页化展示。' },
             spm: { title: 'Sweet Potato Mod', desc: '与@teddyxlandlee协作开发的Minecraft模组项目，围绕玩法拓展、内容设计与开源协作推进。' },
+            ohos: { title: 'OpenHarmony Hi3861', desc: '基于 OpenHarmony Hi3861 的嵌入式开发实践，探索设备端能力与系统工程。' },
             dr: { title: 'Difficlut Rocket（协作开发）', desc: '与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。' },
-            idv: { title: '第五人格', desc: '当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（' },
-            xiaodou: { title: '小豆英语启蒙', desc: '轻量起步、长期迭代的小豆英语启蒙项目，主打可坚持的学习节奏。' },
+            idv: { title: '第五人格', desc: '当年和lyx打人类排位到六阶搓出来的网页，放在这里留个纪念（' },
+            xiaodou: { title: '小豆英语启蒙', desc: '占位文本占位文本占位文本占位文本' },
             hlm: { title: '红楼梦剧组', desc: '为红楼梦剧组搭建的网站项目，用于剧组信息展示与活动管理。' },
-            whn: { title: 'WHN 生日', desc: '为朋友 WHN 制作的生日祝福网页，一个有趣的小项目。' },
+            whn: { title: 'whn生日', desc: '好男酱的2024年生日会项目' },
+            thesis: { title: '学校论文', desc: '收录在校期间撰写的学术论文与课程研究报告。' },
         },
         tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育' },
     },
@@ -104,7 +106,7 @@ window.SITE_I18N = {
         projects: {
             title: 'My Projects',
             subtitle: 'Turning curiosity into shipped work, and shipped work into lasting craft.',
-            more: 'More Projects',
+            more: 'Main Projects',
             other: 'Other Projects',
         },
         gallery: {
@@ -137,7 +139,7 @@ window.SITE_I18N = {
             namePh: 'Your name',
             emailPh: 'Your email',
             messagePh: 'Your message...',
-            nameHint: 'Use your real name — pseudonyms may be flagged as spam by the backend',
+            nameHint: 'Use a recognizable name — otherwise the backend may flag it as spam',
             emailHint: 'Double-check your address — it is the only way you can receive a reply',
             messageHint: 'If your nickname does not ring a bell, add a clue — or the spam filter might not let you through',
             send: 'Send',
@@ -147,11 +149,13 @@ window.SITE_I18N = {
             hmdb: { title: 'HmDashboard', desc: 'A Harmony ecosystem dashboard focused on market data aggregation, insight display, and analysis.', award: 'Third Prize, OpenAtom Competition' },
             bio: { title: 'Biology Projects', desc: 'Papers and experiment records, including PCR practice, protein hypotheses, carbon assimilation review, orange-plate experiments, and Agrobacterium web demos.' },
             spm: { title: 'Sweet Potato Mod', desc: 'A Minecraft mod collaboration with @teddyxlandlee focused on gameplay expansion, content design, and open-source teamwork.' },
+            ohos: { title: 'OpenHarmony Hi3861', desc: 'Embedded development with OpenHarmony Hi3861, exploring device-side capability and system engineering.' },
             dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developed with @shenjackyuanjie through steady feature iteration and engineering polish.' },
-            idv: { title: 'Identity V', desc: 'An Identity V web project built with friends, kept as a small but meaningful timestamp.' },
-            xiaodou: { title: 'Xiaodou English Starter', desc: 'A lightweight English learning starter designed for a sustainable daily pace.' },
+            idv: { title: 'Identity V', desc: 'A webpage built with lyx back when we grinded Survivor to Tier VI — kept here as a memento' },
+            xiaodou: { title: 'Xiaodou English Starter', desc: 'Placeholder text placeholder text placeholder text' },
             hlm: { title: 'Red Chamber Troupe', desc: 'A website built for the Red Chamber Dream troupe, for cast info display and event management.' },
-            whn: { title: 'WHN Birthday', desc: 'A birthday greeting webpage made for my friend WHN — a fun little project.' },
+            whn: { title: 'WHN Birthday', desc: 'whn 2024 birthday project' },
+            thesis: { title: 'School Papers', desc: 'Academic papers and course research reports written during university.' },
         },
         tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education' },
         aboutHtml: {
@@ -168,20 +172,20 @@ window.SITE_I18N = {
             statusCard: `
 <h3 class="status-card-title">Now in Progress</h3>
 <div class="skills-grid">
-    <div class="skill-item">
+    <a href="projects/dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
             <div class="skill-name">Core App</div>
         </div>
         <p class="skill-description">HarmonyOS 6.1.0 HmDashboard development and invitation-test iterations</p>
-    </div>
-    <div class="skill-item">
+    </a>
+    <a href="projects/openharmony.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
             <div class="skill-name">Independent Track</div>
         </div>
         <p class="skill-description">OpenHarmony (Hi3861) embedded development</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-road"></i></div>
@@ -258,7 +262,7 @@ window.SITE_I18N = {
         projects: {
             title: 'Mes projets',
             subtitle: 'Transformer la curiosite en projets, puis les projets en travail qui reste.',
-            more: 'Plus de projets',
+            more: 'Projets principaux',
             other: 'Autres projets',
         },
         gallery: {
@@ -291,7 +295,7 @@ window.SITE_I18N = {
             namePh: 'Votre nom',
             emailPh: 'Votre email',
             messagePh: 'Votre message...',
-            nameHint: 'Indiquez votre vrai nom — les pseudos risquent d etre marques comme spam par le serveur',
+            nameHint: 'Indiquez un nom reconnaissable — sinon le serveur pourrait le marquer comme spam',
             emailHint: 'Verifiez bien votre adresse — c est le seul moyen de recevoir une reponse',
             messageHint: 'Si votre pseudo ne me dit rien, precisez — sinon le filtre anti-spam pourrait vous bloquer',
             send: 'Envoyer',
@@ -301,11 +305,13 @@ window.SITE_I18N = {
             hmdb: { title: 'HmDashboard', desc: 'Un tableau de bord de l ecosysteme Harmony, axe sur l agregation, la lecture et l analyse de donnees applicatives.', award: 'Troisieme prix, concours OpenAtom' },
             bio: { title: 'Projets de biologie', desc: 'Papiers et traces experimentales: PCR, hypotheses proteiques, revue d assimilation du carbone, orange-plate et demos web Agrobacterium.' },
             spm: { title: 'Sweet Potato Mod', desc: 'Collaboration mod Minecraft avec @teddyxlandlee, orientee gameplay, contenu et dynamique open-source.' },
+            ohos: { title: 'OpenHarmony Hi3861', desc: 'Developpement embarque avec OpenHarmony Hi3861, exploration des capacites cote appareil et de l ingenierie systeme.' },
             dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developpe avec @shenjackyuanjie, avec iterations fonctionnelles continues et consolidation technique.' },
-            idv: { title: 'Identity V', desc: 'Un site Identity V cree avec des amis, garde comme capsule de memoire.' },
-            xiaodou: { title: 'Xiaodou English Starter', desc: 'Une initiation a l anglais, legere au depart et pensee pour durer au quotidien.' },
+            idv: { title: 'Identity V', desc: 'Une page web faite avec lyx quand on grindait Survivant jusqu au rang VI — gardee comme souvenir' },
+            xiaodou: { title: 'Xiaodou English Starter', desc: 'Texte de remplacement texte de remplacement texte de remplacement' },
             hlm: { title: 'Troupe du Reve Rouge', desc: 'Un site construit pour la troupe du Reve dans le Pavillon Rouge, pour affichage et gestion d evenements.' },
-            whn: { title: 'Anniversaire WHN', desc: 'Une page de voeux d anniversaire pour mon ami WHN — un petit projet amusant.' },
+            whn: { title: 'Anniversaire WHN', desc: 'Projet d anniversaire whn 2024' },
+            thesis: { title: 'Papiers scolaires', desc: 'Papiers academiques et rapports de recherche rediges a l universite.' },
         },
         tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education' },
         aboutHtml: {
@@ -322,20 +328,20 @@ window.SITE_I18N = {
             statusCard: `
 <h3 class="status-card-title">En ce moment</h3>
 <div class="skills-grid">
-    <div class="skill-item">
+    <a href="projects/dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
             <div class="skill-name">Application coeur</div>
         </div>
         <p class="skill-description">Developpement HarmonyOS 6.1.0 HmDashboard et iterations de test sur invitation</p>
-    </div>
-    <div class="skill-item">
+    </a>
+    <a href="projects/openharmony.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
             <div class="skill-name">Piste independante</div>
         </div>
         <p class="skill-description">Developpement embarque OpenHarmony (Hi3861)</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-road"></i></div>

@@ -358,7 +358,7 @@
 
         .avatar-quote {
             position: static;
-            max-width: 320px;
+            max-width: 400px;
             margin: 1rem auto 0;
             padding: 0.8rem 1rem;
             border-radius: 14px;
@@ -580,6 +580,12 @@
             border-color: var(--primary);
         }
 
+        a.skill-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
         .skill-header {
             display: flex;
             align-items: center;
@@ -623,8 +629,13 @@
         }
 
         .other-projects-title {
-            color: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
             margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
         }
 
         .project-card.project-card-text {
@@ -679,9 +690,27 @@
             background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../images/spm.png');
         }
 
+        .project-image.ohos {
+            background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(0, 122, 255, 0.28)), url('../images/openharmony.png');
+        }
+
         .project-content {
             padding: 1.5rem;
             flex: 1;
+            position: relative;
+        }
+
+        .external-link-icon {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.75rem;
+            transition: color 0.2s ease;
+        }
+
+        .project-card:hover .external-link-icon {
+            color: var(--primary);
         }
 
         .project-title {
@@ -709,8 +738,19 @@
         .project-award-row {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             gap: 0.5rem;
             margin: 0.2rem 0 0.9rem;
+        }
+
+        .award-external-icon {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.7rem;
+            transition: color 0.2s ease;
+        }
+
+        .project-card:hover .award-external-icon {
+            color: var(--primary);
         }
 
         .tag {
@@ -1215,6 +1255,11 @@
                 padding: 0 1.2rem;
             }
 
+            .hero {
+                min-height: auto;
+                padding: 6rem 0 3rem;
+            }
+
             .hero-content,
             .about-content,
             .contact-content {
@@ -1276,10 +1321,6 @@
             }
 
             .nav-links {
-                display: none;
-            }
-
-            .nav-links.mobile-open {
                 display: flex;
                 flex-direction: column;
                 position: absolute;
@@ -1288,9 +1329,19 @@
                 right: 0;
                 background: rgba(11, 19, 37, 0.95);
                 backdrop-filter: blur(10px);
-                padding: 1.5rem 1rem;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
                 z-index: 1001;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+                padding: 0 1rem;
+            }
+
+            .nav-links.mobile-open {
+                max-height: 400px;
+                opacity: 1;
+                padding: 1.5rem 1rem;
             }
 
             .mobile-menu-btn {
