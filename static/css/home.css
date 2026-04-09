@@ -28,6 +28,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
             background: #0b1325;
             overscroll-behavior-y: none;
         }
@@ -1020,6 +1021,17 @@
         .contact-details p {
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
+        }
+
+        .qq-link {
+            color: #12B7F5;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .qq-link:hover {
+            color: #4dc8f8;
+            text-decoration: underline;
         }
 
         .contact-form {
