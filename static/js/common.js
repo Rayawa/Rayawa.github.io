@@ -30,8 +30,8 @@ function initParticles() {
         interactivity: {
             detect_on: 'canvas',
             events: {
-                onhover: { enable: !isSubpage, mode: 'grab' },
-                onclick: { enable: !isSubpage, mode: 'push' },
+                onhover: { enable: true, mode: 'grab' },
+                onclick: { enable: true, mode: 'push' },
             },
             modes: {
                 grab: {
@@ -63,6 +63,187 @@ function initParticlePointerFollow() {
     window.addEventListener('pointerleave', function() { targetX = 0; targetY = 0; });
     window.addEventListener('touchend', function() { targetX = 0; targetY = 0; }, { passive: true });
     animate();
+}
+
+function initParticleMagnetEffect() {
+    var maxRetry = 30;
+    var retry = 0;
+
+    function boot() {
+        if (!window.pJSDom || !window.pJSDom.length) return false;
+        var instance = window.pJSDom[0] && window.pJSDom[0].pJS;
+        if (!instance || !instance.particles || !instance.particles.array || !instance.canvas || !instance.canvas.el) {
+            return false;
+        }
+
+        var particles = instance.particles.array;
+        var canvasEl = instance.canvas.el;
+        var pointer = { x: 0, y: 0, active: false };
+        var radius = 236;
+        var strength = 0.00126;
+        var damping = 0.988;
+        var maxSpeed = 4.25;
+        var sparseRadius = 96;
+        var sparseThreshold = 1;
+        var minParticles = 40;
+        var magneticPower = 0;
+        var frame = 0;
+
+        function getOpacityValue(p) {
+            if (p && p.opacity && typeof p.opacity.value === 'number') return p.opacity.value;
+            if (p && typeof p.opacity === 'number') return p.opacity;
+            return 0.5;
+        }
+
+        function setOpacityValue(p, value) {
+            var next = Math.max(0, Math.min(1, value));
+            if (p && p.opacity && typeof p.opacity.value === 'number') {
+                p.opacity.value = next;
+                return;
+            }
+            if (p) p.opacity = next;
+        }
+
+        function spawnParticleAt(x, y) {
+            if (!instance.fn || !instance.fn.modes || typeof instance.fn.modes.pushParticles !== 'function') return;
+            instance.fn.modes.pushParticles(1, { pos_x: x, pos_y: y });
+            var p = particles[particles.length - 1];
+            if (!p) return;
+            p.__generated = true;
+            p.__fadeIn = true;
+            p.__ttl = 520 + Math.floor(Math.random() * 520);
+            p.__fadeOut = false;
+            p.vx = (Math.random() - 0.5) * 0.8;
+            p.vy = (Math.random() - 0.5) * 0.8;
+            setOpacityValue(p, 0.04);
+        }
+
+        function countParticlesNear(x, y, r) {
+            var count = 0;
+            var rSq = r * r;
+            for (var i = 0; i < particles.length; i += 1) {
+                var p = particles[i];
+                var dx = p.x - x;
+                var dy = p.y - y;
+                if (dx * dx + dy * dy <= rSq) count += 1;
+            }
+            return count;
+        }
+
+        function maintainSparseRegions() {
+            var width = instance.canvas.w || canvasEl.width || window.innerWidth;
+            var height = instance.canvas.h || canvasEl.height || window.innerHeight;
+            for (var i = 0; i < 2; i += 1) {
+                var x = Math.random() * width;
+                var y = Math.random() * height;
+                if (countParticlesNear(x, y, sparseRadius) <= sparseThreshold) {
+                    spawnParticleAt(x, y);
+                }
+            }
+            if (particles.length > minParticles && Math.random() < 0.1) {
+                var idx = Math.floor(Math.random() * particles.length);
+                var p = particles[idx];
+                if (p && !p.__fadeOut && !p.__fadeIn) {
+                    p.__fadeOut = true;
+                }
+            }
+        }
+
+        function setPointer(clientX, clientY) {
+            var rect = canvasEl.getBoundingClientRect();
+            if (rect.width <= 0 || rect.height <= 0) return;
+            if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
+                pointer.active = false;
+                return;
+            }
+            var pxWidth = instance.canvas.w || canvasEl.width || rect.width;
+            var pxHeight = instance.canvas.h || canvasEl.height || rect.height;
+            var scaleX = pxWidth / rect.width;
+            var scaleY = pxHeight / rect.height;
+            pointer.x = (clientX - rect.left) * scaleX;
+            pointer.y = (clientY - rect.top) * scaleY;
+            pointer.active = true;
+        }
+
+        window.addEventListener('pointermove', function(e) { setPointer(e.clientX, e.clientY); }, { passive: true });
+        window.addEventListener('touchmove', function(e) { var t = e.touches && e.touches[0]; if (t) setPointer(t.clientX, t.clientY); }, { passive: true });
+        window.addEventListener('pointerleave', function() { pointer.active = false; }, { passive: true });
+        window.addEventListener('touchend', function() { pointer.active = false; }, { passive: true });
+
+        function tick() {
+            frame += 1;
+            magneticPower += pointer.active
+                ? (1 - magneticPower) * 0.14
+                : (0 - magneticPower) * 0.012;
+
+            if (magneticPower > 0.001 && particles.length) {
+                for (var i = 0; i < particles.length; i += 1) {
+                    var p = particles[i];
+                    var dx = pointer.x - p.x;
+                    var dy = pointer.y - p.y;
+                    var distSq = dx * dx + dy * dy;
+                    if (distSq <= 1) continue;
+                    var dist = Math.sqrt(distSq);
+                    if (dist > radius) continue;
+                    var normalized = 1 - dist / radius;
+                    var pull = normalized * normalized * strength * magneticPower;
+                    p.vx += dx * pull;
+                    p.vy += dy * pull;
+                    var speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (speed > maxSpeed) {
+                        var scale = maxSpeed / speed;
+                        p.vx *= scale;
+                        p.vy *= scale;
+                    }
+                }
+            }
+
+            for (var j = particles.length - 1; j >= 0; j -= 1) {
+                var pp = particles[j];
+                if (typeof pp.vx !== 'number') pp.vx = 0;
+                if (typeof pp.vy !== 'number') pp.vy = 0;
+                pp.vx *= damping;
+                pp.vy *= damping;
+
+                if (pp.__generated && typeof pp.__ttl === 'number') {
+                    pp.__ttl -= 1;
+                    if (pp.__ttl <= 0) pp.__fadeOut = true;
+                }
+
+                if (pp.__fadeIn) {
+                    var next = getOpacityValue(pp) + 0.011;
+                    setOpacityValue(pp, next);
+                    if (next >= 0.5) pp.__fadeIn = false;
+                }
+
+                if (pp.__fadeOut) {
+                    var nextVal = getOpacityValue(pp) - 0.004;
+                    if (nextVal <= 0.008) {
+                        particles.splice(j, 1);
+                        continue;
+                    }
+                    setOpacityValue(pp, nextVal);
+                }
+            }
+
+            if (frame % 12 === 0) {
+                maintainSparseRegions();
+            }
+
+            requestAnimationFrame(tick);
+        }
+
+        tick();
+        return true;
+    }
+
+    if (boot()) return;
+    var timer = setInterval(function() {
+        retry += 1;
+        if (boot() || retry >= maxRetry) {
+            clearInterval(timer);
+        }
+    }, 120);
 }
 
 function initNavbarScroll() {
@@ -193,15 +374,60 @@ function initLanguageSwitcher() {
     });
 }
 
+function initPageEntrance() {
+    var isHomepage = !!document.getElementById('loadingScreen');
+    if (isHomepage) {
+        var navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.opacity = '0';
+            navbar.style.transform = 'translateY(-100%)';
+            window.addEventListener('loadingScreenDone', function() {
+                requestAnimationFrame(function() {
+                    navbar.classList.add('is-visible');
+                });
+            });
+        }
+        return;
+    }
+
+    var entrance = document.createElement('div');
+    entrance.className = 'page-entrance';
+    document.body.appendChild(entrance);
+
+    var navbar = document.querySelector('.navbar');
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            setLocale(locale, { noPersist: true });
+            if (navbar) navbar.classList.add('is-visible');
+            setTimeout(function() {
+                entrance.classList.add('is-done');
+                setTimeout(function() {
+                    entrance.remove();
+                }, 700);
+            }, 300);
+        }, 200);
+    });
+
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            if (navbar) navbar.classList.add('is-visible');
+            if (entrance.parentNode) entrance.remove();
+        }
+    });
+}
+
 function initCommon() {
+    initPageEntrance();
     initParticles();
     initParticlePointerFollow();
+    initParticleMagnetEffect();
     initNavbarScroll();
     initMobileMenu();
     initFloatingTools();
     initSmoothScroll();
     initLanguageSwitcher();
-    setLocale(locale, { noPersist: true });
 }
 
 if (document.readyState === 'loading') {

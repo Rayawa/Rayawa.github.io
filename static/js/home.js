@@ -1009,6 +1009,19 @@ t = i18n[locale] || i18n.zh;
 
 initLoadingScreen();
 initLanguageSwitcher();
+
+(function() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.style.opacity = '0';
+        navbar.style.transform = 'translateY(-100%)';
+        window.addEventListener('loadingScreenDone', () => {
+            requestAnimationFrame(() => {
+                navbar.classList.add('is-visible');
+            });
+        });
+    }
+})();
 setLocale(locale, { persist: false });
 hydrateRevealItems();
 initParticles();
