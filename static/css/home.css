@@ -223,7 +223,7 @@
             border: 1px solid rgba(255, 255, 255, 0.22);
             background: rgba(12, 22, 42, 0.45);
             color: rgba(255, 255, 255, 0.86);
-            font-size: 0.75rem;
+            font-size: clamp(0.72rem, 1.6vw, 0.95rem);
             letter-spacing: 0.01em;
             white-space: nowrap;
             max-width: 100%;
