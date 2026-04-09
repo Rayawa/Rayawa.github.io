@@ -306,28 +306,11 @@ function initNavbarScroll() {
     if (!navbar) return;
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    }, { passive: true });
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
 }
 
 function initSmoothScroll() {
-    const easeInOutCubic = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
-
-    function smoothScrollTo(targetTop, duration = 620) {
-        const startTop = window.scrollY || window.pageYOffset;
-        const delta = targetTop - startTop;
-        if (Math.abs(delta) < 2) return;
-
-        const startTime = performance.now();
-        function step(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = easeInOutCubic(progress);
-            window.scrollTo(0, startTop + delta * eased);
-            if (progress < 1) window.requestAnimationFrame(step);
-        }
-        window.requestAnimationFrame(step);
-    }
-
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', (e) => {
             const targetId = anchor.getAttribute('href');
@@ -335,7 +318,14 @@ function initSmoothScroll() {
             e.preventDefault();
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
-            smoothScrollTo(targetElement.offsetTop - 80);
+            const isMobile = window.matchMedia('(max-width: 900px)').matches;
+            if (isMobile) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.dispatchEvent(new CustomEvent('snapToSection', {
+                    detail: { id: targetId.replace('#', '') }
+                }));
+            }
         });
     });
 }
@@ -564,7 +554,6 @@ function initPageLoadAnimation() {
         '.about',
         '.projects',
         '.gallery',
-        '.social',
         '.contact',
         '.footer',
         '.fab-tools',
@@ -591,7 +580,7 @@ function initPageLoadAnimation() {
         }, 980);
     }
 
-    window.addEventListener('load', () => {
+    window.addEventListener('loadingScreenDone', () => {
         window.requestAnimationFrame(() => {
             finishIntro();
         });
@@ -603,53 +592,373 @@ function initPageLoadAnimation() {
 
     window.setTimeout(() => {
         finishIntro();
-    }, 1800);
+    }, 6000);
+}
+
+function initLoadingScreen() {
+    const screen = document.getElementById('loadingScreen');
+    const bar = document.getElementById('loadingBar');
+    const percent = document.getElementById('loadingPercent');
+    if (!screen || !bar || !percent) {
+        window.dispatchEvent(new CustomEvent('loadingScreenDone'));
+        return;
+    }
+
+    document.body.classList.add('is-loading');
+
+    let progress = 0;
+    let done = false;
+
+    function setProgress(value) {
+        if (done) return;
+        progress = Math.min(value, 100);
+        bar.style.width = `${progress}%`;
+        percent.textContent = Math.floor(progress);
+    }
+
+    function finish() {
+        if (done) return;
+        done = true;
+        setProgress(100);
+        window.setTimeout(() => {
+            screen.classList.add('is-done');
+            document.body.classList.remove('is-loading');
+            window.setTimeout(() => {
+                window.dispatchEvent(new CustomEvent('loadingScreenDone'));
+            }, 900);
+        }, 400);
+    }
+
+    const simulatedSteps = [
+        { target: 15, delay: 100 },
+        { target: 30, delay: 300 },
+        { target: 50, delay: 500 },
+        { target: 68, delay: 800 },
+        { target: 82, delay: 1200 },
+        { target: 92, delay: 1600 },
+    ];
+
+    simulatedSteps.forEach((step) => {
+        window.setTimeout(() => setProgress(step.target), step.delay);
+    });
+
+    window.addEventListener('load', () => {
+        window.setTimeout(finish, 600);
+    });
+
+    window.setTimeout(finish, 4000);
+}
+
+function initSidebarNav() {
+    const sidebar = document.getElementById('sidebarNav');
+    if (!sidebar) return;
+
+    const dots = Array.from(sidebar.querySelectorAll('.sidebar-dot'));
+    const sectionIds = ['home', 'about', 'projects', 'gallery', 'contact'];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    function updateActiveDot() {
+        const scrollY = window.scrollY + window.innerHeight / 3;
+        let activeIndex = 0;
+
+        sections.forEach((section, idx) => {
+            if (scrollY >= section.offsetTop) {
+                activeIndex = idx;
+            }
+        });
+
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === activeIndex);
+        });
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = dot.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (!target) return;
+            const isMobile = window.matchMedia('(max-width: 900px)').matches;
+            if (isMobile) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.dispatchEvent(new CustomEvent('snapToSection', {
+                    detail: { id: targetId.replace('#', '') }
+                }));
+            }
+        });
+    });
+
+    window.addEventListener('scroll', updateActiveDot, { passive: true });
+    window.addEventListener('resize', updateActiveDot, { passive: true });
+    updateActiveDot();
+}
+
+function initFullPageScroll() {
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+    if (isMobile) return;
+
+    const sectionIds = ['home', 'about', 'projects', 'gallery', 'contact'];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return;
+
+    document.documentElement.style.scrollSnapType = 'none';
+
+    let currentIndex = 0;
+    let isAnimating = false;
+    const animDuration = 650;
+    const switchThreshold = 80;
+
+    function getCurrentIndex() {
+        const scrollY = window.scrollY + window.innerHeight / 3;
+        let idx = 0;
+        sections.forEach((section, i) => {
+            if (scrollY >= section.offsetTop) idx = i;
+        });
+        return idx;
+    }
+
+    function isAtLastSection() {
+        return currentIndex >= sections.length - 1;
+    }
+
+    function isScrolledPastLastSection() {
+        const last = sections[sections.length - 1];
+        return last && window.scrollY > last.offsetTop + 10;
+    }
+
+    function snapToSection(index, instant) {
+        if (index < 0 || index >= sections.length) return;
+        if (isAnimating && !instant) return;
+
+        currentIndex = index;
+        isAnimating = true;
+
+        const targetTop = sections[index].offsetTop;
+
+        if (instant) {
+            window.scrollTo(0, targetTop);
+            isAnimating = false;
+            return;
+        }
+
+        const startTop = window.scrollY;
+        const delta = targetTop - startTop;
+        if (Math.abs(delta) < 2) {
+            isAnimating = false;
+            return;
+        }
+
+        window.dispatchEvent(new CustomEvent('sectionEnter', {
+            detail: { id: sectionIds[index] }
+        }));
+
+        const startTime = performance.now();
+        function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / animDuration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            window.scrollTo(0, startTop + delta * eased);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                window.setTimeout(() => {
+                    isAnimating = false;
+                }, 80);
+            }
+        }
+        window.requestAnimationFrame(step);
+    }
+
+    function canScrollInternally(el, delta) {
+        if (el.scrollHeight <= el.clientHeight + 2) return false;
+        const atTop = el.scrollTop <= 1;
+        const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+        if (delta > 0 && !atBottom) return true;
+        if (delta < 0 && !atTop) return true;
+        return false;
+    }
+
+    function triggerBounce(direction) {
+        const section = sections[currentIndex];
+        if (!section) return;
+        section.style.transition = 'transform 0.2s cubic-bezier(0.2, 0, 0.2, 1)';
+        section.style.transform = direction > 0
+            ? 'translateY(-8px)'
+            : 'translateY(8px)';
+        window.setTimeout(() => {
+            section.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            section.style.transform = '';
+            window.setTimeout(() => {
+                section.style.transition = '';
+            }, 360);
+        }, 200);
+    }
+
+    window.addEventListener('wheel', (e) => {
+        if (document.body.classList.contains('is-loading')) return;
+
+        if (isScrolledPastLastSection() && e.deltaY > 0) {
+            return;
+        }
+
+        if (isScrolledPastLastSection() && e.deltaY < 0) {
+            const last = sections[sections.length - 1];
+            if (window.scrollY > last.offsetTop + 50) {
+                return;
+            }
+        }
+
+        if (isAnimating) {
+            e.preventDefault();
+            return;
+        }
+
+        const targetSection = e.target.closest('section');
+        if (targetSection && canScrollInternally(targetSection, e.deltaY)) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const absDelta = Math.abs(e.deltaY);
+        if (absDelta < switchThreshold) {
+            triggerBounce(e.deltaY);
+            return;
+        }
+
+        if (e.deltaY > 0) {
+            if (isAtLastSection()) {
+                triggerBounce(1);
+                return;
+            }
+            snapToSection(currentIndex + 1);
+        } else {
+            snapToSection(currentIndex - 1);
+        }
+    }, { passive: false });
+
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    window.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+        if (isAnimating) return;
+        if (isScrolledPastLastSection()) return;
+        const delta = touchStartY - e.changedTouches[0].clientY;
+        const elapsed = Date.now() - touchStartTime;
+        const velocity = Math.abs(delta) / (elapsed || 1);
+        if (Math.abs(delta) < 50 && velocity < 0.4) return;
+        if (delta > 0) {
+            if (isAtLastSection()) return;
+            snapToSection(currentIndex + 1);
+        } else {
+            snapToSection(currentIndex - 1);
+        }
+    }, { passive: true });
+
+    window.addEventListener('keydown', (e) => {
+        if (isAnimating) return;
+        const active = document.activeElement;
+        if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
+
+        switch (e.key) {
+            case 'ArrowDown':
+            case 'PageDown':
+                if (isAtLastSection()) return;
+                e.preventDefault();
+                snapToSection(currentIndex + 1);
+                break;
+            case 'ArrowUp':
+            case 'PageUp':
+                e.preventDefault();
+                snapToSection(currentIndex - 1);
+                break;
+            case 'Home':
+                e.preventDefault();
+                snapToSection(0);
+                break;
+            case 'End':
+                e.preventDefault();
+                snapToSection(sections.length - 1);
+                break;
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        if (!isAnimating) {
+            currentIndex = getCurrentIndex();
+        }
+    }, { passive: true });
+
+    window.addEventListener('snapToSection', (e) => {
+        const id = e.detail && e.detail.id;
+        if (!id) return;
+        const idx = sectionIds.indexOf(id);
+        if (idx === -1) return;
+        snapToSection(idx);
+    });
+
+    currentIndex = getCurrentIndex();
 }
 
 function initSectionReveal() {
     const sections = Array.from(document.querySelectorAll('.reveal-section'));
     if (!sections.length) return;
 
-    const hero = document.querySelector('.hero');
-    if (hero) hero.classList.add('is-visible');
+    let currentVisibleIndex = -1;
 
     function revealSection(section) {
-        if (!section || section.classList.contains('is-visible')) return;
+        if (!section) return;
+        section.classList.remove('is-visible');
+        void section.offsetHeight;
         section.classList.add('is-visible');
     }
 
-    function revealVisibleSectionsNow() {
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-        const earlyOffset = 20;
-        sections.forEach((section) => {
-            if (section.classList.contains('is-visible')) return;
-            const rect = section.getBoundingClientRect();
-            const isVisibleNow = rect.top <= viewportHeight + earlyOffset && rect.bottom >= -earlyOffset;
-            if (isVisibleNow) revealSection(section);
-        });
+    function hideSection(section) {
+        if (!section) return;
+        section.classList.remove('is-visible');
     }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            revealSection(entry.target);
-            observer.unobserve(entry.target);
+    function checkVisibleSection() {
+        const scrollY = window.scrollY + window.innerHeight / 2;
+        let newVisibleIndex = -1;
+
+        sections.forEach((section, idx) => {
+            if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
+                newVisibleIndex = idx;
+            }
         });
-    }, { threshold: 0.16, rootMargin: '0px 0px 20px 0px' });
 
-    sections.forEach((section) => observer.observe(section));
-    revealVisibleSectionsNow();
+        if (newVisibleIndex !== currentVisibleIndex) {
+            if (currentVisibleIndex >= 0 && currentVisibleIndex < sections.length) {
+                hideSection(sections[currentVisibleIndex]);
+            }
+            currentVisibleIndex = newVisibleIndex;
+            if (currentVisibleIndex >= 0) {
+                revealSection(sections[currentVisibleIndex]);
+            }
+        }
+    }
 
-    const scheduleRevealCheck = () => {
-        window.requestAnimationFrame(() => {
-            revealVisibleSectionsNow();
-        });
-    };
+    window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(checkVisibleSection);
+    }, { passive: true });
 
-    window.addEventListener('load', scheduleRevealCheck, { once: true });
-    window.addEventListener('pageshow', scheduleRevealCheck);
-    window.addEventListener('resize', scheduleRevealCheck, { passive: true });
-    window.setTimeout(revealVisibleSectionsNow, 180);
+    window.addEventListener('sectionEnter', (e) => {
+        const id = e.detail && e.detail.id;
+        if (!id) return;
+        const section = document.getElementById(id);
+        if (section) {
+            window.setTimeout(() => revealSection(section), 100);
+        }
+    });
+
+    checkVisibleSection();
 }
 
 function initPageLeaveTransitions() {
@@ -945,16 +1254,14 @@ function initFloatingTools() {
     topBtn.setAttribute('title', t.top);
     topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     topBtn.addEventListener('click', () => {
-        const startTop = window.scrollY || window.pageYOffset;
-        const startTime = performance.now();
-        const duration = 560;
-        const easeOut = (x) => 1 - Math.pow(1 - x, 3);
-        function step(now) {
-            const progress = Math.min((now - startTime) / duration, 1);
-            window.scrollTo(0, startTop * (1 - easeOut(progress)));
-            if (progress < 1) window.requestAnimationFrame(step);
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
+        if (isMobile) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            window.dispatchEvent(new CustomEvent('snapToSection', {
+                detail: { id: 'home' }
+            }));
         }
-        window.requestAnimationFrame(step);
     });
 
     wrapper.appendChild(refreshBtn);
@@ -1028,6 +1335,7 @@ function initAwardLinks() {
 locale = detectInitialLocale();
 t = i18n[locale] || i18n.zh;
 
+initLoadingScreen();
 initLocaleBlockSnapshots();
 initLanguageSwitcher();
 setLocale(locale, { persist: false });
@@ -1046,3 +1354,5 @@ initParticleMagnetEffect();
 initHeroStarInteraction();
 initAwardLinks();
 initFloatingTools();
+initSidebarNav();
+initFullPageScroll();

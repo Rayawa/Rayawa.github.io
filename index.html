@@ -13,6 +13,26 @@
 </head>
 
 <body>
+    <!-- 加载画面 -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">Rayawa</div>
+            <div class="loading-bar-wrap">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <div class="loading-text">LOADING - <span id="loadingPercent">0</span>%</div>
+        </div>
+    </div>
+
+    <!-- 侧边栏目录 -->
+    <nav class="sidebar-nav" id="sidebarNav">
+        <a href="#home" class="sidebar-dot active" data-index="0"><span class="sidebar-label" data-i18n="nav.home">首页</span></a>
+        <a href="#about" class="sidebar-dot" data-index="1"><span class="sidebar-label" data-i18n="nav.about">关于我</span></a>
+        <a href="#projects" class="sidebar-dot" data-index="2"><span class="sidebar-label" data-i18n="nav.projects">项目</span></a>
+        <a href="#gallery" class="sidebar-dot" data-index="3"><span class="sidebar-label" data-i18n="nav.gallery">摄影</span></a>
+        <a href="#contact" class="sidebar-dot" data-index="4"><span class="sidebar-label" data-i18n="nav.contact">联系</span></a>
+    </nav>
+
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
@@ -429,53 +449,6 @@
         </div>
     </section>
 
-    <!-- 社交链接 -->
-    <section class="social reveal-section" id="social">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title reveal-item" data-i18n="social.title">我的链接</h2>
-                <p class="section-subtitle reveal-item" data-i18n="social.subtitle">在公开平台持续输出，也在协作中持续成长。</p>
-            </div>
-
-            <div class="social-grid">
-                <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
-                    class="social-card bilibili">
-                    <div class="social-icon">
-                        <i class="fab fa-bilibili"></i>
-                    </div>
-                    <div class="social-details">
-                        <h4 data-i18n="social.bili.title">Bilibili</h4>
-                        <p data-i18n="social.bili.desc">摄影作品与项目更新进度</p>
-                    </div>
-                    <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                </a>
-
-                <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="social-card github">
-                    <div class="social-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="social-details">
-                        <h4 data-i18n="social.github.title">GitHub</h4>
-                        <p data-i18n="social.github.desc">代码与仓库入口</p>
-                    </div>
-                    <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                </a>
-
-                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                    rel="noopener" class="social-card xiaohongshu">
-                    <div class="social-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <div class="social-details">
-                        <h4 data-i18n="social.xhs.title">小红书</h4>
-                        <p data-i18n="social.xhs.desc">我的全部摄影作品</p>
-                    </div>
-                    <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- 联系我 -->
     <section class="contact reveal-section" id="contact">
         <div class="container">
@@ -485,45 +458,89 @@
             </div>
 
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                <div class="contact-left">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.email">电子邮件</h4>
+                                <p>rayawa.work@outlook.com</p>
+                                <p>rayawa.work@gmail.com</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact.email">电子邮件</h4>
-                            <p>rayawa.work@outlook.com</p>
-                            <p>rayawa.work@gmail.com</p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.website">网站</h4>
+                                <p>rayawa.top</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-qq"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.qq">QQ</h4>
+                                <p>2265695808</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.location">位置</h4>
+                                <p data-i18n="contact.locationValue">北京，中国</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact.website">网站</h4>
-                            <p>rayawa.top</p>
-                        </div>
-                    </div>
+                    <div class="contact-social-divider"></div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-qq"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact.qq">QQ</h4>
-                            <p>2265695808</p>
-                        </div>
-                    </div>
+                    <div class="contact-social">
+                        <h4 class="contact-social-title" data-i18n="contact.socialTitle">我的链接</h4>
+                        <div class="contact-social-grid">
+                            <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
+                                class="social-card bilibili">
+                                <div class="social-icon">
+                                    <i class="fab fa-bilibili"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 data-i18n="social.bili.title">Bilibili</h4>
+                                    <p data-i18n="social.bili.desc">摄影作品与项目更新进度</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact.location">位置</h4>
-                            <p data-i18n="contact.locationValue">北京，中国</p>
+                            <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="social-card github">
+                                <div class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 data-i18n="social.github.title">GitHub</h4>
+                                    <p data-i18n="social.github.desc">代码与仓库入口</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                                rel="noopener" class="social-card xiaohongshu">
+                                <div class="social-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 data-i18n="social.xhs.title">小红书</h4>
+                                    <p data-i18n="social.xhs.desc">我的全部摄影作品</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
                         </div>
                     </div>
                 </div>
