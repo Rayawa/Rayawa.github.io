@@ -63,7 +63,7 @@ window.SITE_I18N = {
             messagePh: '请输入您的消息...',
             nameHint: '请填写易被识别的姓名，否则可能被后端识别为垃圾邮件',
             emailHint: '请确认邮箱地址无误，这决定您能否收到回信',
-            messageHint: '昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件',
+            messageHint: '姓名不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件',
             send: '发送消息',
         },
         footer: {
@@ -223,7 +223,7 @@ window.SITE_I18N = {
             messagePh: 'Your message...',
             nameHint: 'Use a recognizable name — otherwise the backend may flag it as spam',
             emailHint: 'Double-check your address — it is the only way you can receive a reply',
-            messageHint: 'If your nickname does not ring a bell, add a clue — or the spam filter might not let you through',
+            messageHint: 'If your name does not ring a bell, add a clue — or the spam filter might not let you through',
             send: 'Send',
         },
         footer: {

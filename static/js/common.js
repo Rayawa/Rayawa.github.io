@@ -275,22 +275,73 @@ function initMobileMenu() {
 }
 
 function initFloatingTools() {
-    var topBtn = document.querySelector('.fab-btn.top-btn');
-    if (topBtn) {
-        window.addEventListener('scroll', function() {
-            topBtn.classList.toggle('visible', window.scrollY > 400);
-        }, { passive: true });
-        topBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    var existing = document.querySelector('.fab-tools');
+    if (existing) existing.remove();
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'fab-tools';
+
+    var refreshBtn = document.createElement('button');
+    refreshBtn.type = 'button';
+    refreshBtn.className = 'fab-btn fab-refresh';
+    refreshBtn.innerHTML = '<i class="fas fa-rotate-right"></i><span class="fab-tooltip"></span>';
+
+    var topBtn = document.createElement('button');
+    topBtn.type = 'button';
+    topBtn.className = 'fab-btn fab-top is-hidden';
+    topBtn.innerHTML = '<i class="fas fa-arrow-up"></i><span class="fab-tooltip"></span><svg class="fab-progress" viewBox="0 0 36 36"><circle class="fab-progress-bg" cx="18" cy="18" r="16"/><circle class="fab-progress-bar" cx="18" cy="18" r="16"/></svg>';
+
+    wrapper.appendChild(refreshBtn);
+    wrapper.appendChild(topBtn);
+    document.body.appendChild(wrapper);
+
+    function updateLabels() {
+        var i18n = SITE_I18N[locale];
+        var refreshText = (i18n && i18n.refresh) || '刷新页面';
+        var topText = (i18n && i18n.top) || '回到顶部';
+        refreshBtn.setAttribute('aria-label', refreshText);
+        refreshBtn.setAttribute('title', refreshText);
+        refreshBtn.querySelector('.fab-tooltip').textContent = refreshText;
+        topBtn.setAttribute('aria-label', topText);
+        topBtn.setAttribute('title', topText);
+        topBtn.querySelector('.fab-tooltip').textContent = topText;
     }
 
-    var refreshBtn = document.querySelector('.fab-btn.refresh-btn');
-    if (refreshBtn) {
-        refreshBtn.addEventListener('click', function() {
+    updateLabels();
+
+    window.addEventListener('localechange', function() {
+        updateLabels();
+    });
+
+    refreshBtn.addEventListener('click', function() {
+        refreshBtn.classList.add('is-spinning');
+        var fadeTargets = getLanguageFadeTargets();
+        fadeTargets.forEach(function(el) { el.classList.add('lang-fade-target', 'is-leaving'); });
+        window.setTimeout(function() {
             window.location.reload();
-        });
+        }, 460);
+    });
+
+    topBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    var scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+
+    function onScroll() {
+        var show = window.scrollY > 260;
+        topBtn.classList.toggle('is-hidden', !show);
+
+        scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+        if (scrollHeight > 0) {
+            var progress = Math.min(window.scrollY / scrollHeight, 1);
+            var bar = topBtn.querySelector('.fab-progress-bar');
+            if (bar) bar.style.strokeDashoffset = 100.53 - progress * 100.53;
+        }
     }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 }
 
 function initSmoothScroll() {
@@ -337,6 +388,7 @@ function setLocale(lang, opts) {
     if (i18n.navTitle) {
         document.title = i18n.navTitle + ' | Ray Chen';
     }
+    window.dispatchEvent(new CustomEvent('localechange', { detail: { lang: lang } }));
 }
 
 function getLanguageFadeTargets() {
@@ -428,6 +480,30 @@ function initPageEntrance() {
     });
 }
 
+function initSubpageReveal() {
+    var isSubpage = !document.getElementById('loadingScreen');
+    if (!isSubpage) return;
+
+    var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list');
+    if (!items.length) return;
+
+    items.forEach(function(el, idx) {
+        el.classList.add('subpage-reveal');
+        el.style.setProperty('--subpage-delay', (idx * 80) + 'ms');
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    items.forEach(function(el) { observer.observe(el); });
+}
+
 function initCommon() {
     initPageEntrance();
     initParticles();
@@ -438,10 +514,13 @@ function initCommon() {
     initFloatingTools();
     initSmoothScroll();
     initLanguageSwitcher();
+    initSubpageReveal();
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCommon);
-} else {
-    initCommon();
+if (!window.__HOME_JS) {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCommon);
+    } else {
+        initCommon();
+    }
 }

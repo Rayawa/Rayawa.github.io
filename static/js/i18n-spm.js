@@ -2,6 +2,8 @@ window.SITE_I18N = {
     zh: {
         nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
         navTitle: 'Sweet Potato Mod',
+        refresh: '刷新页面',
+        top: '回到顶部',
         back: '返回主页',
         projects: '回到项目区',
         title: 'Sweet Potato Mod 烤地瓜模组',
@@ -34,6 +36,8 @@ window.SITE_I18N = {
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
+        refresh: 'Refresh',
+        top: 'Back to top',
         back: 'Back to Home',
         projects: 'Back to Projects',
         title: 'Sweet Potato Mod',
@@ -66,6 +70,8 @@ window.SITE_I18N = {
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
+        refresh: 'Rafraichir',
+        top: 'Retour en haut',
         back: "Retour a l'accueil",
         projects: 'Retour aux projets',
         title: 'Sweet Potato Mod',

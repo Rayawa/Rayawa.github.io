@@ -1,5 +1,6 @@
+window.__HOME_JS = true;
 const supportedLocales = ['zh', 'en', 'fr'];
-let locale = 'zh';
+locale = 'zh';
 
 const i18n = window.SITE_I18N || { zh: {}, en: {}, fr: {} };
 
@@ -14,7 +15,6 @@ function getCurrentText(path, fallback = '') {
 
 let t = i18n.zh || {};
 let galleryA11yUpdater = null;
-const floatingTools = { refreshBtn: null, topBtn: null };
 const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
 
 
@@ -147,6 +147,12 @@ function hydrateRevealItems() {
         '.contact .contact-social-title',
         '.contact .contact-social-grid .social-card',
         '.social .social-card',
+        '.footer .footer-logo',
+        '.footer .footer-description',
+        '.footer .footer-social',
+        '.footer .footer-heading',
+        '.footer .footer-links',
+        '.footer .copyright',
     ];
 
     document.querySelectorAll('.reveal-section').forEach(section => {
@@ -174,13 +180,8 @@ async function setLocale(nextLocale, { persist = true } = {}) {
     applyLocaleBlocks();
     applyLanguageButtons();
     if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
-    if (floatingTools.refreshBtn && floatingTools.topBtn) {
-        floatingTools.refreshBtn.setAttribute('aria-label', t.refresh);
-        floatingTools.refreshBtn.setAttribute('title', t.refresh);
-        floatingTools.topBtn.setAttribute('aria-label', t.top);
-        floatingTools.topBtn.setAttribute('title', t.top);
-    }
     if (persist) window.localStorage.setItem('rayawa_locale', locale);
+    window.dispatchEvent(new CustomEvent('localechange', { detail: { lang: locale } }));
 }
 
 function getLanguageFadeTargets() {
@@ -539,6 +540,8 @@ function initLoadingScreen() {
     const screen = document.getElementById('loadingScreen');
     const bar = document.getElementById('loadingBar');
     const percent = document.getElementById('loadingPercent');
+    const ring = document.getElementById('loadingRing');
+    const logoEl = document.getElementById('loadingLogo');
 
     if (sessionStorage.getItem('rayawa_loaded')) {
         if (screen) screen.remove();
@@ -557,6 +560,18 @@ function initLoadingScreen() {
 
     document.body.classList.add('is-loading');
 
+    const logoText = 'rayawa.top';
+    let charIndex = 0;
+    function typeLogo() {
+        if (charIndex <= logoText.length) {
+            if (logoEl) logoEl.textContent = logoText.slice(0, charIndex);
+            charIndex++;
+            window.setTimeout(typeLogo, 80 + Math.random() * 60);
+        }
+    }
+    typeLogo();
+
+    const circumference = 2 * Math.PI * 36;
     let progress = 0;
     let done = false;
 
@@ -565,6 +580,7 @@ function initLoadingScreen() {
         progress = Math.min(value, 100);
         bar.style.width = `${progress}%`;
         percent.textContent = Math.floor(progress);
+        if (ring) ring.style.strokeDashoffset = circumference - (progress / 100) * circumference;
     }
 
     function finish() {
@@ -576,10 +592,10 @@ function initLoadingScreen() {
             screen.classList.add('is-done');
             document.body.classList.remove('is-loading');
             window.scrollTo({ top: 0, behavior: 'instant' });
-            window.setTimeout(() => {
+            window.requestAnimationFrame(() => {
                 window.dispatchEvent(new CustomEvent('loadingScreenDone'));
-            }, 900);
-        }, 400);
+            });
+        }, 350);
     }
 
     window.addEventListener('pageshow', (e) => {
@@ -906,49 +922,6 @@ function initParticleMagnetEffect() {
             window.clearInterval(timer);
         }
     }, 120);
-}
-
-function initFloatingTools() {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'fab-tools';
-
-    const refreshBtn = document.createElement('button');
-    refreshBtn.type = 'button';
-    refreshBtn.className = 'fab-tool';
-    refreshBtn.setAttribute('aria-label', t.refresh);
-    refreshBtn.setAttribute('title', t.refresh);
-    refreshBtn.innerHTML = '<i class="fas fa-rotate-right"></i>';
-    refreshBtn.addEventListener('click', () => {
-        const fadeTargets = getLanguageFadeTargets();
-        fadeTargets.forEach((el) => el.classList.add('lang-fade-target', 'is-leaving'));
-        window.setTimeout(() => {
-            window.location.reload();
-        }, 460);
-    });
-
-    const topBtn = document.createElement('button');
-    topBtn.type = 'button';
-    topBtn.className = 'fab-tool fab-top is-hidden';
-    topBtn.setAttribute('aria-label', t.top);
-    topBtn.setAttribute('title', t.top);
-    topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    topBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    wrapper.appendChild(refreshBtn);
-    wrapper.appendChild(topBtn);
-    document.body.appendChild(wrapper);
-    floatingTools.refreshBtn = refreshBtn;
-    floatingTools.topBtn = topBtn;
-
-    const toggleTop = () => {
-        const show = window.scrollY > 260;
-        topBtn.classList.toggle('is-hidden', !show);
-    };
-
-    window.addEventListener('scroll', toggleTop, { passive: true });
-    toggleTop();
 }
 
 function initHeroStarInteraction() {
