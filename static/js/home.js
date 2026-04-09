@@ -170,7 +170,7 @@ function applyLocaleBlocks(lang) {
 }
 
 function hydrateRevealItems() {
-    const targets = document.querySelectorAll([
+    const selectors = [
         '.projects .project-card',
         '.social .social-card',
         '.contact .contact-item',
@@ -179,16 +179,19 @@ function hydrateRevealItems() {
         '.about .glass-card',
         '.about .about-text > h3',
         '.about .about-text > p',
-    ].join(','));
+    ].join(',');
 
-    let index = 0;
-    targets.forEach((el) => {
-        if (!el.classList.contains('reveal-item')) {
-            el.classList.add('reveal-item');
-        }
-        const delay = 90 + (index % 8) * 70;
-        el.style.setProperty('--reveal-delay', `${delay}ms`);
-        index += 1;
+    document.querySelectorAll('.reveal-section').forEach(section => {
+        const targets = section.querySelectorAll(selectors);
+        let index = 0;
+        targets.forEach(el => {
+            if (!el.classList.contains('reveal-item')) {
+                el.classList.add('reveal-item');
+            }
+            const delay = 60 + (index % 8) * 70;
+            el.style.setProperty('--reveal-delay', `${delay}ms`);
+            index++;
+        });
     });
 }
 
@@ -318,14 +321,7 @@ function initSmoothScroll() {
             e.preventDefault();
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
-            const isMobile = window.matchMedia('(max-width: 900px)').matches;
-            if (isMobile) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.dispatchEvent(new CustomEvent('snapToSection', {
-                    detail: { id: targetId.replace('#', '') }
-                }));
-            }
+            targetElement.scrollIntoView({ behavior: 'smooth' });
         });
     });
 }
@@ -546,55 +542,6 @@ function initGalleryCarousel() {
     start();
 }
 
-function initPageLoadAnimation() {
-    const isMobile = window.matchMedia('(max-width: 900px)').matches;
-    const introTargets = document.querySelectorAll([
-        '.navbar',
-        '.hero',
-        '.about',
-        '.projects',
-        '.gallery',
-        '.contact',
-        '.footer',
-        '.fab-tools',
-    ].join(','));
-
-    if (isMobile) {
-        document.body.classList.add('intro-ready', 'app-entered');
-        return;
-    }
-
-    introTargets.forEach((el, idx) => {
-        el.classList.add('intro-block');
-        const delay = 80 + idx * 120;
-        el.style.setProperty('--intro-delay', `${delay}ms`);
-    });
-
-    let introDone = false;
-    function finishIntro() {
-        if (introDone) return;
-        introDone = true;
-        document.body.classList.add('intro-ready');
-        window.setTimeout(() => {
-            document.body.classList.add('app-entered');
-        }, 980);
-    }
-
-    window.addEventListener('loadingScreenDone', () => {
-        window.requestAnimationFrame(() => {
-            finishIntro();
-        });
-    });
-
-    window.addEventListener('pageshow', () => {
-        finishIntro();
-    });
-
-    window.setTimeout(() => {
-        finishIntro();
-    }, 6000);
-}
-
 function initLoadingScreen() {
     const screen = document.getElementById('loadingScreen');
     const bar = document.getElementById('loadingBar');
@@ -649,314 +596,43 @@ function initLoadingScreen() {
     window.setTimeout(finish, 4000);
 }
 
-function initSidebarNav() {
-    const sidebar = document.getElementById('sidebarNav');
-    if (!sidebar) return;
-
-    const dots = Array.from(sidebar.querySelectorAll('.sidebar-dot'));
-    const sectionIds = ['home', 'about', 'projects', 'gallery', 'contact'];
-    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
-
-    function updateActiveDot() {
-        const scrollY = window.scrollY + window.innerHeight / 3;
-        let activeIndex = 0;
-
-        sections.forEach((section, idx) => {
-            if (scrollY >= section.offsetTop) {
-                activeIndex = idx;
-            }
-        });
-
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === activeIndex);
-        });
-    }
-
-    dots.forEach((dot) => {
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = dot.getAttribute('href');
-            if (!targetId || targetId === '#') return;
-            const target = document.querySelector(targetId);
-            if (!target) return;
-            const isMobile = window.matchMedia('(max-width: 900px)').matches;
-            if (isMobile) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.dispatchEvent(new CustomEvent('snapToSection', {
-                    detail: { id: targetId.replace('#', '') }
-                }));
-            }
-        });
-    });
-
-    window.addEventListener('scroll', updateActiveDot, { passive: true });
-    window.addEventListener('resize', updateActiveDot, { passive: true });
-    updateActiveDot();
-}
-
-function initFullPageScroll() {
-    const isMobile = window.matchMedia('(max-width: 900px)').matches;
-    if (isMobile) return;
-
-    const sectionIds = ['home', 'about', 'projects', 'gallery', 'contact'];
-    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
-    if (!sections.length) return;
-
-    document.documentElement.style.scrollSnapType = 'none';
-
-    let currentIndex = 0;
-    let isAnimating = false;
-    const animDuration = 650;
-    const switchThreshold = 80;
-
-    function getCurrentIndex() {
-        const scrollY = window.scrollY + window.innerHeight / 3;
-        let idx = 0;
-        sections.forEach((section, i) => {
-            if (scrollY >= section.offsetTop) idx = i;
-        });
-        return idx;
-    }
-
-    function isAtLastSection() {
-        return currentIndex >= sections.length - 1;
-    }
-
-    function isScrolledPastLastSection() {
-        const last = sections[sections.length - 1];
-        return last && window.scrollY > last.offsetTop + 10;
-    }
-
-    function snapToSection(index, instant) {
-        if (index < 0 || index >= sections.length) return;
-        if (isAnimating && !instant) return;
-
-        currentIndex = index;
-        isAnimating = true;
-
-        const targetSection = sections[index];
-        targetSection.scrollTop = 0;
-
-        const targetTop = targetSection.offsetTop;
-
-        if (instant) {
-            window.scrollTo(0, targetTop);
-            isAnimating = false;
-            return;
-        }
-
-        const startTop = window.scrollY;
-        const delta = targetTop - startTop;
-        if (Math.abs(delta) < 2) {
-            isAnimating = false;
-            return;
-        }
-
-        window.dispatchEvent(new CustomEvent('sectionEnter', {
-            detail: { id: sectionIds[index] }
-        }));
-
-        const startTime = performance.now();
-        function step(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / animDuration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            window.scrollTo(0, startTop + delta * eased);
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            } else {
-                window.setTimeout(() => {
-                    isAnimating = false;
-                }, 80);
-            }
-        }
-        window.requestAnimationFrame(step);
-    }
-
-    function canScrollInternally(el, delta) {
-        if (el.scrollHeight <= el.clientHeight + 2) return false;
-        const atTop = el.scrollTop <= 1;
-        const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
-        if (delta > 0 && !atBottom) return true;
-        if (delta < 0 && !atTop) return true;
-        return false;
-    }
-
-    window.addEventListener('wheel', (e) => {
-        if (document.body.classList.contains('is-loading')) return;
-
-        if (isScrolledPastLastSection() && e.deltaY > 0) {
-            return;
-        }
-
-        if (isScrolledPastLastSection() && e.deltaY < 0) {
-            const last = sections[sections.length - 1];
-            if (window.scrollY > last.offsetTop + 50) {
-                return;
-            }
-        }
-
-        if (isAnimating) {
-            e.preventDefault();
-            return;
-        }
-
-        const targetSection = e.target.closest('section');
-        if (targetSection && canScrollInternally(targetSection, e.deltaY)) {
-            return;
-        }
-
-        e.preventDefault();
-
-        const absDelta = Math.abs(e.deltaY);
-        if (absDelta < switchThreshold) {
-            return;
-        }
-
-        if (e.deltaY > 0) {
-            if (isAtLastSection()) {
-                return;
-            }
-            snapToSection(currentIndex + 1);
-        } else {
-            snapToSection(currentIndex - 1);
-        }
-    }, { passive: false });
-
-    let touchStartY = 0;
-    let touchStartTime = 0;
-    window.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-        touchStartTime = Date.now();
-    }, { passive: true });
-
-    window.addEventListener('touchend', (e) => {
-        if (isAnimating) return;
-        if (isScrolledPastLastSection()) return;
-        const delta = touchStartY - e.changedTouches[0].clientY;
-        const elapsed = Date.now() - touchStartTime;
-        const velocity = Math.abs(delta) / (elapsed || 1);
-        if (Math.abs(delta) < 50 && velocity < 0.4) return;
-        if (delta > 0) {
-            if (isAtLastSection()) return;
-            snapToSection(currentIndex + 1);
-        } else {
-            snapToSection(currentIndex - 1);
-        }
-    }, { passive: true });
-
-    window.addEventListener('keydown', (e) => {
-        if (isAnimating) return;
-        const active = document.activeElement;
-        if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
-
-        switch (e.key) {
-            case 'ArrowDown':
-            case 'PageDown':
-                if (isAtLastSection()) return;
-                e.preventDefault();
-                snapToSection(currentIndex + 1);
-                break;
-            case 'ArrowUp':
-            case 'PageUp':
-                e.preventDefault();
-                snapToSection(currentIndex - 1);
-                break;
-            case 'Home':
-                e.preventDefault();
-                snapToSection(0);
-                break;
-            case 'End':
-                e.preventDefault();
-                snapToSection(sections.length - 1);
-                break;
-        }
-    });
-
-    window.addEventListener('scroll', () => {
-        if (!isAnimating) {
-            currentIndex = getCurrentIndex();
-        }
-    }, { passive: true });
-
-    window.addEventListener('snapToSection', (e) => {
-        const id = e.detail && e.detail.id;
-        if (!id) return;
-        const idx = sectionIds.indexOf(id);
-        if (idx === -1) return;
-        snapToSection(idx);
-    });
-
-    currentIndex = getCurrentIndex();
-}
-
 function initSectionReveal() {
-    const sections = Array.from(document.querySelectorAll('.reveal-section'));
+    const sections = document.querySelectorAll('.reveal-section');
     if (!sections.length) return;
 
-    let currentVisibleIndex = -1;
-    let skipScrollCheck = false;
+    let pageLoaded = !document.getElementById('loadingScreen');
 
-    function revealSection(section) {
-        if (!section) return;
-        section.classList.remove('is-visible');
-        void section.offsetHeight;
-        section.classList.add('is-visible');
-    }
-
-    function hideSection(section) {
-        if (!section) return;
-        section.classList.remove('is-visible');
-    }
-
-    function checkVisibleSection() {
-        if (skipScrollCheck) return;
-        const scrollY = window.scrollY + window.innerHeight / 2;
-        let newVisibleIndex = -1;
-
-        sections.forEach((section, idx) => {
-            if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
-                newVisibleIndex = idx;
+    const observer = new IntersectionObserver((entries) => {
+        if (!pageLoaded) return;
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
             }
         });
-
-        if (newVisibleIndex !== currentVisibleIndex) {
-            if (currentVisibleIndex >= 0 && currentVisibleIndex < sections.length) {
-                hideSection(sections[currentVisibleIndex]);
-            }
-            currentVisibleIndex = newVisibleIndex;
-            if (currentVisibleIndex >= 0) {
-                revealSection(sections[currentVisibleIndex]);
-            }
-        }
-    }
-
-    window.addEventListener('scroll', () => {
-        window.requestAnimationFrame(checkVisibleSection);
-    }, { passive: true });
-
-    window.addEventListener('sectionEnter', (e) => {
-        const id = e.detail && e.detail.id;
-        if (!id) return;
-        const section = document.getElementById(id);
-        if (section) {
-            skipScrollCheck = true;
-            const idx = sections.indexOf(section);
-            if (idx >= 0 && idx !== currentVisibleIndex) {
-                if (currentVisibleIndex >= 0 && currentVisibleIndex < sections.length) {
-                    hideSection(sections[currentVisibleIndex]);
-                }
-                currentVisibleIndex = idx;
-            }
-            window.setTimeout(() => {
-                revealSection(section);
-                skipScrollCheck = false;
-            }, 50);
-        }
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
     });
 
-    checkVisibleSection();
+    sections.forEach(section => observer.observe(section));
+
+    function revealVisibleSections() {
+        pageLoaded = true;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                section.classList.add('is-visible');
+            }
+        });
+    }
+
+    window.addEventListener('loadingScreenDone', () => {
+        window.requestAnimationFrame(revealVisibleSections);
+    });
+
+    window.setTimeout(revealVisibleSections, 5000);
 }
 
 function initPageLeaveTransitions() {
@@ -1252,14 +928,7 @@ function initFloatingTools() {
     topBtn.setAttribute('title', t.top);
     topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     topBtn.addEventListener('click', () => {
-        const isMobile = window.matchMedia('(max-width: 900px)').matches;
-        if (isMobile) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            window.dispatchEvent(new CustomEvent('snapToSection', {
-                detail: { id: 'home' }
-            }));
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     wrapper.appendChild(refreshBtn);
@@ -1344,7 +1013,6 @@ initSmoothScroll();
 initContactForm();
 initMobileMenu();
 initGalleryCarousel();
-initPageLoadAnimation();
 initSectionReveal();
 initPageLeaveTransitions();
 initParticlePointerFollow();
@@ -1352,5 +1020,3 @@ initParticleMagnetEffect();
 initHeroStarInteraction();
 initAwardLinks();
 initFloatingTools();
-initSidebarNav();
-initFullPageScroll();
