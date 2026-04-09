@@ -267,21 +267,21 @@ function initParticles() {
     if (typeof particlesJS !== 'function') return;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 96, density: { enable: true, value_area: 800 } },
+            number: { value: 80, density: { enable: true, value_area: 900 } },
             color: { value: '#6366f1' },
             shape: { type: 'circle' },
-            opacity: { value: 0.5, random: true },
+            opacity: { value: 0.35, random: true },
             size: { value: 3, random: true },
             line_linked: {
                 enable: true,
                 distance: 150,
                 color: '#6366f1',
-                opacity: 0.2,
+                opacity: 0.12,
                 width: 1,
             },
             move: {
                 enable: true,
-                speed: 2,
+                speed: 0.8,
                 direction: 'none',
                 random: true,
                 straight: false,
@@ -447,13 +447,13 @@ function initGalleryCarousel() {
     const nextBtn = carousel.querySelector('.gallery-nav.next');
     const dotsWrap = carousel.querySelector('#galleryDots');
     if (!slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
-    const isMobile = window.matchMedia('(max-width: 900px)').matches;
     const slideImages = slides
         .map((slide) => slide.querySelector('img'))
         .filter(Boolean);
 
     let current = 0;
     let timer = null;
+    let autoStarted = false;
 
     const dots = slides.map((_, idx) => {
         const dot = document.createElement('button');
@@ -479,6 +479,16 @@ function initGalleryCarousel() {
     };
     galleryA11yUpdater();
 
+    function preloadAllImages() {
+        slideImages.forEach((img, idx) => {
+            img.loading = 'eager';
+            if (idx < 2) img.fetchPriority = 'high';
+            if (typeof img.decode === 'function') {
+                img.decode().catch(() => {});
+            }
+        });
+    }
+
     function ensureImageReady(index) {
         const img = slideImages[(index + slideImages.length) % slideImages.length];
         if (!img) return;
@@ -486,16 +496,6 @@ function initGalleryCarousel() {
         if (typeof img.decode === 'function') {
             img.decode().catch(() => {});
         }
-    }
-
-    if (isMobile) {
-        slideImages.forEach((img, idx) => {
-            img.loading = 'eager';
-            if (idx < 2) img.fetchPriority = 'high';
-        });
-    } else {
-        ensureImageReady(0);
-        ensureImageReady(1);
     }
 
     function goTo(index) {
@@ -517,6 +517,7 @@ function initGalleryCarousel() {
     }
 
     function start() {
+        if (timer) return;
         timer = window.setInterval(next, 4200);
     }
 
@@ -540,9 +541,26 @@ function initGalleryCarousel() {
         restart();
     });
     carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('mouseleave', () => {
+        if (autoStarted) start();
+    });
 
-    start();
+    const gallerySection = document.getElementById('gallery');
+    if (gallerySection) {
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !autoStarted) {
+                    autoStarted = true;
+                    preloadAllImages();
+                    start();
+                    galleryObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        galleryObserver.observe(gallerySection);
+    }
+
+    ensureImageReady(0);
 }
 
 function initLoadingScreen() {

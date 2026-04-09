@@ -1325,12 +1325,12 @@
             }
 
             .container {
-                padding: 0 1.2rem;
+                padding: 0 1.5rem;
             }
 
             .hero {
                 min-height: auto;
-                padding: 6rem 0 3rem;
+                padding: 5rem 0 2rem;
                 overflow: hidden;
             }
 
@@ -1338,16 +1338,76 @@
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2rem;
             }
 
             .hero-text {
                 min-width: 0;
             }
 
+            .hero-text h1 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .hero-aliases {
+                font-size: clamp(0.6rem, 2.5vw, 0.78rem);
+                padding: 0.3rem 0.6rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero-tags {
+                padding: 0.75rem 0.85rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .hero-tags p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .hero-tags p + p {
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
+            }
+
+            .hero-tags .tag-label {
+                font-size: 0.72rem;
+                min-width: 2.8em;
+                margin-right: 0.4rem;
+                padding: 0.08rem 0.45rem;
+            }
+
+            .btn-group {
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
             .profile-img {
-                max-width: 300px;
+                max-width: 220px;
                 margin: 0 auto;
+            }
+
+            .avatar-quote {
+                font-size: 0.82rem;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .floating-elements {
+                width: 50px;
+                height: 50px;
+                top: 6px;
+                right: 4px;
+                font-size: 1rem;
             }
 
             .navbar {
@@ -1380,19 +1440,26 @@
                 text-overflow: ellipsis;
             }
 
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
             .section-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
             }
 
             .section-title::after {
-                width: 180px;
+                width: 140px;
             }
 
-            .section-subtitle { font-size: 1.02rem; }
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
 
             .skills-grid {
                 grid-template-columns: 1fr;
@@ -1453,31 +1520,26 @@
             }
 
             .hero-image {
-                width: min(100%, 320px);
+                width: min(100%, 280px);
                 margin: 0 auto;
             }
 
-            .floating-elements {
-                width: 62px;
-                height: 62px;
-                top: 8px;
-                right: 6px;
-                font-size: 1.2rem;
-                -webkit-tap-highlight-color: transparent;
-            }
-
             .about-text {
-                padding: 1.1rem 1rem;
+                padding: 1rem;
                 border: 1px solid rgba(202, 236, 255, 0.34);
                 border-radius: 14px;
                 background: rgba(10, 20, 38, 0.56);
                 backdrop-filter: blur(5px);
             }
 
-            .hero-tags {
-                padding: 0.9rem 0.95rem;
-                border-color: rgba(202, 236, 255, 0.42);
-                background: linear-gradient(145deg, rgba(15, 29, 53, 0.78), rgba(10, 20, 38, 0.64));
+            .about-text h3 {
+                font-size: 1.35rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-text p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
             }
 
             .glass-card,
@@ -1496,12 +1558,47 @@
             .project-image {
                 height: auto;
                 aspect-ratio: 16 / 9;
-                max-height: 200px;
+                max-height: 180px;
             }
 
-            .hero-aliases {
-                font-size: clamp(0.6rem, 2.5vw, 0.78rem);
-                padding: 0.3rem 0.6rem;
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .project-description {
+                font-size: 0.88rem;
+            }
+
+            .project-content {
+                padding: 1.2rem;
+            }
+
+            .other-projects-title {
+                font-size: 1rem;
+            }
+
+            .skill-name {
+                font-size: 1rem;
+            }
+
+            .skill-description {
+                font-size: 0.85rem;
+            }
+
+            .skill-item {
+                padding: 1.1rem;
+            }
+
+            .status-card-title {
+                font-size: 1.1rem;
+            }
+
+            .contact-details h4 {
+                font-size: 1rem;
+            }
+
+            .contact-details p {
+                font-size: 0.88rem;
             }
 
             .footer-content {
@@ -1516,27 +1613,44 @@
         }
 
         @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
             .container {
-                padding: 0 1rem;
+                padding: 0 1.2rem;
             }
 
-            .section-title::after {
-                width: 148px;
-                height: 4px;
+            .hero {
+                padding: 4.5rem 0 1.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.75rem;
             }
 
             .hero-tags p {
-                font-size: 0.93rem;
-                line-height: 1.72;
+                font-size: 0.82rem;
+                line-height: 1.55;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title::after {
+                width: 120px;
+                height: 4px;
+            }
+
+            .section-subtitle {
+                font-size: 0.88rem;
+            }
+
+            .profile-img {
+                max-width: 180px;
             }
 
             .avatar-quote {
                 max-width: none;
-                margin: 0.8rem auto 0;
+                margin: 0.6rem auto 0;
+                font-size: 0.78rem;
             }
 
             .btn-group {
@@ -1547,11 +1661,13 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
             }
 
             .gallery-track,
             .gallery-slide img {
-                min-height: 430px;
+                min-height: 320px;
             }
 
             .language-switch {
