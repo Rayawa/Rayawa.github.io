@@ -1439,7 +1439,7 @@
             }
 
             .hero-aliases {
-                font-size: clamp(0.55rem, 3.2vw, 0.85rem);
+                font-size: min(0.85rem, 2.8vw);
                 padding: 0.3rem 0.6rem;
             }
 
