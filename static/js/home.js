@@ -328,6 +328,19 @@ function initSmoothScroll() {
             targetElement.scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    function scrollToHash() {
+        const hash = window.location.hash;
+        if (!hash || hash === '#') return;
+        const target = document.querySelector(hash);
+        if (!target) return;
+        window.setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    }
+
+    window.addEventListener('loadingScreenDone', scrollToHash);
+    window.setTimeout(scrollToHash, 3000);
 }
 
 function initContactForm() {
@@ -569,6 +582,17 @@ function initLoadingScreen() {
     const screen = document.getElementById('loadingScreen');
     const bar = document.getElementById('loadingBar');
     const percent = document.getElementById('loadingPercent');
+
+    if (sessionStorage.getItem('rayawa_loaded')) {
+        if (screen) screen.remove();
+        document.body.classList.remove('is-loading');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.requestAnimationFrame(() => {
+            window.dispatchEvent(new CustomEvent('loadingScreenDone'));
+        });
+        return;
+    }
+
     if (!screen || !bar || !percent) {
         window.dispatchEvent(new CustomEvent('loadingScreenDone'));
         return;
@@ -590,6 +614,7 @@ function initLoadingScreen() {
         if (done) return;
         done = true;
         setProgress(100);
+        sessionStorage.setItem('rayawa_loaded', '1');
         window.setTimeout(() => {
             screen.classList.add('is-done');
             document.body.classList.remove('is-loading');
@@ -686,7 +711,7 @@ function initParticlePointerFollow() {
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
-    const maxOffset = 26;
+    const maxOffset = 38;
 
     function updateTarget(clientX, clientY) {
         const cx = window.innerWidth / 2;
