@@ -26,6 +26,7 @@ window.SITE_I18N = {
         projects: {
             title: '我的项目',
             subtitle: '把热爱写成项目，把项目做成长期作品。',
+            more: '更多项目',
             other: '其他项目',
         },
         gallery: {
@@ -50,12 +51,17 @@ window.SITE_I18N = {
             locationValue: '北京，中国',
         },
         form: {
+            quickTitle: '快捷消息',
+            quickSubtitle: '项目合作 / 摄影约稿',
             name: '姓名',
             email: '邮箱',
             message: '消息',
             namePh: '请输入您的姓名',
             emailPh: '请输入您的邮箱',
             messagePh: '请输入您的消息...',
+            nameHint: '请填写真实姓名，否则可能被后端识别为垃圾邮件',
+            emailHint: '请确认邮箱地址无误，这决定您能否收到回信',
+            messageHint: '昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件',
             send: '发送消息',
         },
         footer: { quick: '快速链接', projects: '项目', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
@@ -66,8 +72,10 @@ window.SITE_I18N = {
             dr: { title: 'Difficlut Rocket（协作开发）', desc: '与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。' },
             idv: { title: '第五人格', desc: '当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（' },
             xiaodou: { title: '小豆英语启蒙', desc: '轻量起步、长期迭代的小豆英语启蒙项目，主打可坚持的学习节奏。' },
+            hlm: { title: '红楼梦剧组', desc: '为红楼梦剧组搭建的网站项目，用于剧组信息展示与活动管理。' },
+            whn: { title: 'WHN 生日', desc: '为朋友 WHN 制作的生日祝福网页，一个有趣的小项目。' },
         },
-        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源' },
+        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育' },
     },
     en: {
         sending: 'Sending...',
@@ -96,6 +104,7 @@ window.SITE_I18N = {
         projects: {
             title: 'My Projects',
             subtitle: 'Turning curiosity into shipped work, and shipped work into lasting craft.',
+            more: 'More Projects',
             other: 'Other Projects',
         },
         gallery: {
@@ -120,12 +129,17 @@ window.SITE_I18N = {
             locationValue: 'Beijing, China',
         },
         form: {
+            quickTitle: 'Quick Message',
+            quickSubtitle: 'Project Collaboration / Photography Commission',
             name: 'Name',
             email: 'Email',
             message: 'Message',
             namePh: 'Your name',
             emailPh: 'Your email',
             messagePh: 'Your message...',
+            nameHint: 'Use your real name — pseudonyms may be flagged as spam by the backend',
+            emailHint: 'Double-check your address — it is the only way you can receive a reply',
+            messageHint: 'If your nickname does not ring a bell, add a clue — or the spam filter might not let you through',
             send: 'Send',
         },
         footer: { quick: 'Quick Links', projects: 'Projects', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
@@ -136,8 +150,10 @@ window.SITE_I18N = {
             dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developed with @shenjackyuanjie through steady feature iteration and engineering polish.' },
             idv: { title: 'Identity V', desc: 'An Identity V web project built with friends, kept as a small but meaningful timestamp.' },
             xiaodou: { title: 'Xiaodou English Starter', desc: 'A lightweight English learning starter designed for a sustainable daily pace.' },
+            hlm: { title: 'Red Chamber Troupe', desc: 'A website built for the Red Chamber Dream troupe, for cast info display and event management.' },
+            whn: { title: 'WHN Birthday', desc: 'A birthday greeting webpage made for my friend WHN — a fun little project.' },
         },
-        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source' },
+        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education' },
         aboutHtml: {
             aboutText: `
 <h3>Profile</h3>
@@ -242,6 +258,7 @@ window.SITE_I18N = {
         projects: {
             title: 'Mes projets',
             subtitle: 'Transformer la curiosite en projets, puis les projets en travail qui reste.',
+            more: 'Plus de projets',
             other: 'Autres projets',
         },
         gallery: {
@@ -266,12 +283,17 @@ window.SITE_I18N = {
             locationValue: 'Pekin, Chine',
         },
         form: {
+            quickTitle: 'Message rapide',
+            quickSubtitle: 'Collaboration projet / Commande photo',
             name: 'Nom',
             email: 'Email',
             message: 'Message',
             namePh: 'Votre nom',
             emailPh: 'Votre email',
             messagePh: 'Votre message...',
+            nameHint: 'Indiquez votre vrai nom — les pseudos risquent d etre marques comme spam par le serveur',
+            emailHint: 'Verifiez bien votre adresse — c est le seul moyen de recevoir une reponse',
+            messageHint: 'Si votre pseudo ne me dit rien, precisez — sinon le filtre anti-spam pourrait vous bloquer',
             send: 'Envoyer',
         },
         footer: { quick: 'Liens rapides', projects: 'Projets', copy: '&copy; 2026 Ray Chen. Tous droits reserves.' },
@@ -282,8 +304,10 @@ window.SITE_I18N = {
             dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Co-developpe avec @shenjackyuanjie, avec iterations fonctionnelles continues et consolidation technique.' },
             idv: { title: 'Identity V', desc: 'Un site Identity V cree avec des amis, garde comme capsule de memoire.' },
             xiaodou: { title: 'Xiaodou English Starter', desc: 'Une initiation a l anglais, legere au depart et pensee pour durer au quotidien.' },
+            hlm: { title: 'Troupe du Reve Rouge', desc: 'Un site construit pour la troupe du Reve dans le Pavillon Rouge, pour affichage et gestion d evenements.' },
+            whn: { title: 'Anniversaire WHN', desc: 'Une page de voeux d anniversaire pour mon ami WHN — un petit projet amusant.' },
         },
-        tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source' },
+        tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education' },
         aboutHtml: {
             aboutText: `
 <h3>Profil</h3>

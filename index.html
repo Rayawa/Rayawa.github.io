@@ -253,13 +253,17 @@
             </div>
 
             <div class="other-projects">
-                <h3 class="other-projects-title" data-i18n="projects.other">其他项目</h3>
+                <h3 class="other-projects-title" data-i18n="projects.more">更多项目</h3>
                 <div class="projects-grid">
                     <a href="https://github.com/Rayawa" target="_blank" rel="noopener"
                         class="project-card project-card-text">
                         <div class="project-content">
                             <h3 class="project-title" data-i18n="project.dr.title">Difficlut Rocket（协作开发）</h3>
                             <p class="project-description" data-i18n="project.dr.desc">与@shenjackyuanjie协作推进的项目，持续进行功能迭代与工程完善。</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.openSource">开源</span>
+                                <span class="tag" data-i18n="tag.gameMod">游戏模组</span>
+                            </div>
                         </div>
                     </a>
                     <a href="https://idv.rayawa.top" target="_blank" rel="noopener"
@@ -267,15 +271,47 @@
                         <div class="project-content">
                             <h3 class="project-title" data-i18n="project.idv.title">第五人格</h3>
                             <p class="project-description" data-i18n="project.idv.desc">当年和秀秀打人类排位到六节搓出来的网页，放在这里留个纪念（</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.game">游戏</span>
+                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
+                            </div>
                         </div>
                     </a>
                     <a href="projects/xiaodou-english.html" class="project-card project-card-text">
                         <div class="project-content">
                             <h3 class="project-title" data-i18n="project.xiaodou.title">小豆英语启蒙</h3>
-                            <p class="project-description" data-i18n="project.xiaodou.desc">内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符内容占位符</p>
+                            <p class="project-description" data-i18n="project.xiaodou.desc">轻量起步、长期迭代的小豆英语启蒙项目，主打可坚持的学习节奏。</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.education">教育</span>
+                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card project-card-text">
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="project.hlm.title">红楼梦剧组</h3>
+                            <p class="project-description" data-i18n="project.hlm.desc">为红楼梦剧组搭建的网站项目，用于剧组信息展示与活动管理。</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.creative">创作</span>
+                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card project-card-text">
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="project.whn.title">WHN 生日</h3>
+                            <p class="project-description" data-i18n="project.whn.desc">为朋友 WHN 制作的生日祝福网页，一个有趣的小项目。</p>
+                            <div class="project-tags">
+                                <span class="tag" data-i18n="tag.fun">趣味</span>
+                                <span class="tag" data-i18n="tag.webApp">Web 应用</span>
+                            </div>
                         </div>
                     </a>
                 </div>
+            </div>
+
+            <div class="other-projects misc-projects">
+                <h3 class="other-projects-title" data-i18n="projects.other">其他项目</h3>
             </div>
         </div>
     </section>
@@ -474,19 +510,26 @@
                 </div>
 
                 <form class="contact-form" id="contactForm">
+                    <div class="form-header">
+                        <h3 class="form-title" data-i18n="form.quickTitle">快捷消息</h3>
+                        <p class="form-subtitle" data-i18n="form.quickSubtitle">项目合作 / 摄影约稿</p>
+                    </div>
                     <div class="form-group">
                         <label for="name" data-i18n="form.name">姓名</label>
                         <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" data-i18n-placeholder="form.namePh" required>
+                        <p class="form-hint" data-i18n="form.nameHint">请填写真实姓名，否则可能被后端识别为垃圾邮件</p>
                     </div>
 
                     <div class="form-group">
                         <label for="email" data-i18n="form.email">邮箱</label>
                         <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" data-i18n-placeholder="form.emailPh" required>
+                        <p class="form-hint" data-i18n="form.emailHint">请确认邮箱地址无误，这决定您能否收到回信</p>
                     </div>
 
                     <div class="form-group">
                         <label for="message" data-i18n="form.message">消息</label>
                         <textarea id="message" class="form-control" placeholder="请输入您的消息..." data-i18n-placeholder="form.messagePh" required></textarea>
+                        <p class="form-hint" data-i18n="form.messageHint">昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
                     </div>
 
                     <button type="submit" class="btn contact-submit">

@@ -196,7 +196,6 @@
             align-items: center;
             padding: 8rem 0 4rem;
             position: relative;
-            overflow: hidden;
         }
 
         .hero-content {
@@ -224,8 +223,12 @@
             border: 1px solid rgba(255, 255, 255, 0.22);
             background: rgba(12, 22, 42, 0.45);
             color: rgba(255, 255, 255, 0.86);
-            font-size: 0.95rem;
+            font-size: clamp(0.72rem, 1.6vw, 0.95rem);
             letter-spacing: 0.01em;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .hero-text .gradient-text {
@@ -294,12 +297,13 @@
         .profile-img {
             width: 100%;
             max-width: 400px;
-            height: 400px;
+            aspect-ratio: 1;
             border-radius: 50%;
             object-fit: cover;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border: 4px solid var(--primary);
             animation: float 6s ease-in-out infinite;
+            margin: 0 auto;
         }
 
         @keyframes float {
@@ -353,10 +357,9 @@
         }
 
         .avatar-quote {
-            position: absolute;
-            right: -132px;
-            bottom: 86px;
-            max-width: 240px;
+            position: static;
+            max-width: 320px;
+            margin: 1rem auto 0;
             padding: 0.8rem 1rem;
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.26);
@@ -366,7 +369,6 @@
             line-height: 1.45;
             backdrop-filter: blur(8px);
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
-            animation: quoteFloat 5.2s ease-in-out infinite;
             z-index: 3;
             transition: opacity 0.28s ease, transform 0.28s ease;
         }
@@ -380,14 +382,40 @@
         .avatar-quote::after {
             content: '';
             position: absolute;
-            left: -9px;
-            top: 58%;
+            left: 50%;
+            top: -9px;
             width: 16px;
             height: 16px;
-            transform: rotate(45deg);
+            transform: translateX(-50%) rotate(45deg);
             background: rgba(10, 22, 42, 0.78);
             border-left: 1px solid rgba(255, 255, 255, 0.26);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.26);
+            border-top: 1px solid rgba(255, 255, 255, 0.26);
+        }
+
+        @media (min-width: 1701px) {
+            .avatar-quote {
+                position: absolute;
+                right: -132px;
+                bottom: 86px;
+                max-width: 260px;
+                margin: 0;
+                padding: 0.8rem 1.3rem;
+                white-space: nowrap;
+                animation: quoteFloat 5.2s ease-in-out infinite;
+            }
+
+            .avatar-quote::after {
+                left: -8px;
+                top: 58%;
+                width: 16px;
+                height: 16px;
+                transform: rotate(45deg);
+                background: rgba(10, 22, 42, 0.78);
+                border-left: 1px solid rgba(255, 255, 255, 0.26);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.26);
+                border-top: none;
+                border-right: none;
+            }
         }
 
         @keyframes quoteFloat {
@@ -671,7 +699,8 @@
 
         .project-tags {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto;
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 1rem;
@@ -692,6 +721,8 @@
             font-size: 0.875rem;
             font-weight: 500;
             border: 1px solid rgba(99, 102, 241, 0.3);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .tag.tag-award {
@@ -907,6 +938,34 @@
             padding: 2rem;
             border-radius: var(--radius);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .form-subtitle {
+            color: var(--unified-accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .form-hint {
+            color: var(--unified-accent);
+            font-size: 0.8rem;
+            margin-top: 0.35rem;
+            line-height: 1.45;
+            opacity: 0.85;
         }
 
         .form-group {
@@ -1146,7 +1205,16 @@
         }
 
         /* 响应式设计 */
-        @media (max-width: 992px) {
+        @media (max-width: 900px) {
+            a,
+            button {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .container {
+                padding: 0 1.2rem;
+            }
+
             .hero-content,
             .about-content,
             .contact-content {
@@ -1156,20 +1224,7 @@
 
             .profile-img {
                 max-width: 300px;
-                height: 300px;
                 margin: 0 auto;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            a,
-            button {
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .container {
-                padding: 0 1.2rem;
             }
 
             .navbar {
@@ -1254,7 +1309,7 @@
             .lang-btn {
                 min-width: 38px;
                 min-height: 38px;
-                padding: 0.34rem;
+                padding: 0.3rem;
                 justify-content: center;
                 border-radius: 999px;
             }
@@ -1264,8 +1319,8 @@
             }
 
             .lang-flag {
-                width: 20px;
-                height: 20px;
+                width: 26px;
+                height: 26px;
             }
 
             .hero-image {
@@ -1280,17 +1335,6 @@
                 right: 6px;
                 font-size: 1.2rem;
                 -webkit-tap-highlight-color: transparent;
-            }
-
-            .avatar-quote {
-                position: static;
-                max-width: 320px;
-                margin: 0.9rem auto 0;
-                animation: none;
-            }
-
-            .avatar-quote::after {
-                display: none;
             }
 
             .about-text {
@@ -1350,27 +1394,14 @@
                 height: 4px;
             }
 
-            .hero-aliases {
-                width: 100%;
-                font-size: 0.82rem;
-                text-align: center;
-                line-height: 1.5;
-                border-radius: 14px;
-            }
-
             .hero-tags p {
                 font-size: 0.93rem;
                 line-height: 1.72;
             }
 
             .avatar-quote {
-                position: static;
                 max-width: none;
                 margin: 0.8rem auto 0;
-            }
-
-            .avatar-quote::after {
-                display: none;
             }
 
             .btn-group {
@@ -1397,28 +1428,17 @@
             .lang-btn {
                 min-width: 36px;
                 min-height: 36px;
-                padding: 0.3rem;
+                padding: 0.2rem;
             }
 
             .lang-flag {
-                width: 19px;
-                height: 19px;
+                width: 24px;
+                height: 24px;
             }
 
             .fab-tools {
                 right: 12px;
                 bottom: 16px;
-            }
-        }
-
-        @media (hover: none) and (pointer: coarse) and (max-width: 950px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-image {
-                height: auto;
-                aspect-ratio: 16 / 9;
             }
         }
 
