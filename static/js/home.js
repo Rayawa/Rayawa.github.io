@@ -482,7 +482,7 @@ function initGalleryCarousel() {
     function preloadAllImages() {
         slideImages.forEach((img, idx) => {
             img.loading = 'eager';
-            if (idx < 2) img.fetchPriority = 'high';
+            if (idx < 3) img.fetchPriority = 'high';
             if (typeof img.decode === 'function') {
                 img.decode().catch(() => {});
             }
@@ -497,6 +497,8 @@ function initGalleryCarousel() {
             img.decode().catch(() => {});
         }
     }
+
+    preloadAllImages();
 
     function goTo(index) {
         slides[current].classList.remove('active');
@@ -551,7 +553,6 @@ function initGalleryCarousel() {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !autoStarted) {
                     autoStarted = true;
-                    preloadAllImages();
                     start();
                     galleryObserver.unobserve(entry.target);
                 }
