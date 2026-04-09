@@ -76,7 +76,7 @@ function initNavbarScroll() {
 
 function initMobileMenu() {
     var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    var navLinks = document.getElementById('navLinks');
+    var navLinks = document.querySelector('.nav-links');
     if (!mobileMenuBtn || !navLinks) return;
 
     mobileMenuBtn.addEventListener('click', function(e) {

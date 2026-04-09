@@ -90,7 +90,7 @@ async function stabilizeLayoutDuring(task) {
 function detectInitialLocale() {
     const fromQuery = new URLSearchParams(window.location.search).get('lang');
     if (fromQuery && supportedLocales.includes(fromQuery)) return fromQuery;
-    const fromStorage = window.localStorage.getItem('site_lang');
+    const fromStorage = window.localStorage.getItem('rayawa_locale');
     if (fromStorage && supportedLocales.includes(fromStorage)) return fromStorage;
     const fromDoc = (document.documentElement.lang || '').toLowerCase();
     if (fromDoc.startsWith('en')) return 'en';
@@ -131,32 +131,35 @@ function applyLocaleBlocks() {
 }
 
 function hydrateRevealItems() {
-    const selectors = [
+    const orderedGroups = [
         '.section-header',
         '.projects .other-projects-title',
         '.projects .project-card',
+        '.about .about-text',
+        '.about .about-side',
+        '.hero .hero-tags',
+        '.hero .avatar-quote',
+        '.gallery .gallery-carousel',
+        '.gallery .gallery-more',
         '.contact .contact-item',
         '.contact .contact-form',
         '.contact .contact-social-divider',
         '.contact .contact-social-title',
         '.contact .contact-social-grid .social-card',
         '.social .social-card',
-        '.gallery .gallery-carousel',
-        '.gallery .gallery-more',
-        '.about .about-text',
-        '.about .about-side',
-        '.hero .hero-tags',
-        '.hero .avatar-quote',
-    ].join(',');
+    ];
 
     document.querySelectorAll('.reveal-section').forEach(section => {
-        const targets = section.querySelectorAll(selectors);
-        targets.forEach((el, index) => {
-            if (!el.classList.contains('reveal-item')) {
-                el.classList.add('reveal-item');
-            }
-            const delay = 80 + index * 100;
-            el.style.setProperty('--reveal-delay', `${delay}ms`);
+        let globalIndex = 0;
+        orderedGroups.forEach(selector => {
+            section.querySelectorAll(selector).forEach(el => {
+                if (!el.classList.contains('reveal-item')) {
+                    el.classList.add('reveal-item');
+                }
+                const delay = 80 + globalIndex * 100;
+                el.style.setProperty('--reveal-delay', `${delay}ms`);
+                globalIndex++;
+            });
         });
     });
 }
@@ -177,26 +180,18 @@ async function setLocale(nextLocale, { persist = true } = {}) {
         floatingTools.topBtn.setAttribute('aria-label', t.top);
         floatingTools.topBtn.setAttribute('title', t.top);
     }
-    if (persist) window.localStorage.setItem('site_lang', locale);
+    if (persist) window.localStorage.setItem('rayawa_locale', locale);
 }
 
 function getLanguageFadeTargets() {
     return Array.from(document.querySelectorAll([
         '.navbar',
-        '.nav-container',
-        '.nav-links',
-        '.language-switch',
-        '.hero-content',
-        '.section-header',
-        '.about-content',
-        '.projects-grid',
-        '.other-projects',
-        '.gallery-carousel',
-        '.gallery-more',
-        '.social-grid',
-        '.contact-content',
-        '.footer-content',
-        '.copyright',
+        '.hero',
+        '.about',
+        '.projects',
+        '.gallery',
+        '.contact',
+        '.footer',
         '.fab-tools',
     ].join(',')));
 }
