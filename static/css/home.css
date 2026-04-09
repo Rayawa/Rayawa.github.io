@@ -27,15 +27,9 @@
         }
 
         html {
-            scroll-behavior: auto;
+            scroll-behavior: smooth;
             background: #0b1325;
             overscroll-behavior-y: none;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        html::-webkit-scrollbar {
-            display: none;
         }
 
         body {
@@ -478,15 +472,6 @@
         /* 章节样式 */
         section {
             padding: 6rem 0;
-            min-height: 100vh;
-            max-height: 100vh;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        section::-webkit-scrollbar {
-            display: none;
         }
 
         .section-header {
@@ -1600,7 +1585,43 @@
             to { transform: rotate(360deg); }
         }
 
-        /* 滚动条样式 - 已隐藏，由侧边栏替代 */
+        /* 滚动条样式 */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(114, 228, 255, 0.82) rgba(255, 255, 255, 0.08);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 999px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            background-image: linear-gradient(180deg, rgba(144, 244, 199, 0.92), rgba(89, 212, 255, 0.9));
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+                0 2px 10px rgba(89, 212, 255, 0.28);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-image: linear-gradient(180deg, rgba(188, 255, 223, 0.96), rgba(104, 221, 255, 0.94));
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+                0 0 0 1px rgba(120, 227, 255, 0.35),
+                0 3px 14px rgba(89, 212, 255, 0.38);
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-image: linear-gradient(180deg, rgba(104, 221, 255, 0.98), rgba(77, 177, 255, 0.92));
+        }
+
         .reveal-item {
             opacity: 0;
             transform: translateY(20px);
@@ -1615,7 +1636,7 @@
         }
 
         .reveal-section:not(.is-visible) .reveal-item {
-            transition-duration: 0.12s;
+            transition-duration: 0.01s;
             transition-delay: 0ms;
         }
 
@@ -1625,49 +1646,6 @@
         .reveal-seq .reveal-item:nth-child(4) { --reveal-delay: 300ms; }
         .reveal-seq .reveal-item:nth-child(5) { --reveal-delay: 380ms; }
         .reveal-seq .reveal-item:nth-child(6) { --reveal-delay: 460ms; }
-
-        body.app-entered .hero.is-visible .reveal-item {
-            animation: heroIntroRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-            animation-delay: var(--reveal-delay, 0ms);
-        }
-
-        .hero.is-visible .reveal-item {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-            transition-delay: var(--reveal-delay, 0ms);
-        }
-
-        .hero:not(.is-visible) .reveal-item {
-            transition-duration: 0.12s;
-            transition-delay: 0ms;
-        }
-
-        body.app-entered .hero-image {
-            animation: heroIntroImage 1s cubic-bezier(0.16, 1, 0.3, 1) both 180ms;
-        }
-
-        .hero.is-visible .hero-image {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .hero:not(.is-visible) .hero-image {
-            opacity: 0;
-            transform: translateY(20px);
-            transition-duration: 0.12s;
-        }
-
-        @keyframes heroIntroRise {
-            0% { opacity: 0; transform: translateY(24px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes heroIntroImage {
-            0% { opacity: 0; transform: translateY(28px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
 
         .lang-fade-target {
             transition: opacity 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.56s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -1684,20 +1662,6 @@
             opacity: 1;
             transform: translateY(0);
             filter: blur(0);
-        }
-
-        .intro-block {
-            opacity: 0;
-            transform: translateY(22px);
-            filter: blur(4px);
-        }
-
-        body.intro-ready .intro-block {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-            transition: opacity 1.12s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.12s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.12s cubic-bezier(0.2, 0.8, 0.2, 1);
-            transition-delay: var(--intro-delay, 0ms);
         }
 
         /* ===== 加载画面 ===== */
@@ -1759,116 +1723,4 @@
             letter-spacing: 0.18em;
         }
 
-        /* ===== 侧边栏目录 ===== */
-        .sidebar-nav {
-            position: fixed;
-            right: 22px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            align-items: flex-end;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
 
-        body.app-entered .sidebar-nav {
-            opacity: 1;
-        }
-
-        .sidebar-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            display: block;
-            text-decoration: none;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .sidebar-dot:hover {
-            border-color: rgba(89, 212, 255, 0.8);
-            transform: scale(1.3);
-        }
-
-        .sidebar-dot.active {
-            border-color: #59d4ff;
-            background: #59d4ff;
-            box-shadow: 0 0 10px rgba(89, 212, 255, 0.45), 0 0 24px rgba(89, 212, 255, 0.15);
-            transform: scale(1.2);
-        }
-
-        .sidebar-label {
-            position: absolute;
-            right: 22px;
-            top: 50%;
-            transform: translateY(-50%) translateX(6px);
-            white-space: nowrap;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.28s ease, transform 0.28s ease;
-            padding: 4px 10px;
-            border-radius: 4px;
-            background: rgba(11, 19, 37, 0.85);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .sidebar-dot:hover .sidebar-label {
-            opacity: 1;
-            transform: translateY(-50%) translateX(0);
-        }
-
-        /* ===== 响应式调整 ===== */
-        @media (max-width: 900px) {
-            .sidebar-nav {
-                right: 10px;
-                gap: 14px;
-            }
-
-            .sidebar-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .sidebar-label {
-                display: none;
-            }
-
-            .loading-logo {
-                font-size: 2rem;
-            }
-
-            .loading-content {
-                width: 260px;
-            }
-
-            section {
-                max-height: none;
-                overflow-y: visible;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sidebar-nav {
-                right: 8px;
-                gap: 12px;
-            }
-
-            .sidebar-dot {
-                width: 7px;
-                height: 7px;
-                border-width: 1px;
-            }
-        }
