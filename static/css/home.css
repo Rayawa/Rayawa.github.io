@@ -1343,16 +1343,23 @@
 
             .hero-text {
                 min-width: 0;
+                order: 2;
+            }
+
+            .hero-image {
+                width: min(100%, 280px);
+                margin: 0 auto;
+                order: 1;
             }
 
             .hero-text h1 {
-                font-size: 2rem;
-                margin-bottom: 0.8rem;
+                font-size: 1.75rem;
+                margin-bottom: 0.6rem;
             }
 
             .hero-text p {
-                font-size: 1rem;
-                margin-bottom: 1.2rem;
+                font-size: 0.92rem;
+                margin-bottom: 1rem;
             }
 
             .hero-aliases {
@@ -1367,8 +1374,8 @@
             }
 
             .hero-tags p {
-                font-size: 0.85rem;
-                line-height: 1.6;
+                font-size: 0.82rem;
+                line-height: 1.55;
             }
 
             .hero-tags p + p {
@@ -1441,16 +1448,16 @@
             }
 
             .section-title {
-                font-size: 1.75rem;
-                margin-bottom: 1rem;
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
             }
 
             .section-title::after {
-                width: 140px;
+                width: 120px;
             }
 
             .section-subtitle {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             .section-header {
@@ -1519,11 +1526,6 @@
                 height: 26px;
             }
 
-            .hero-image {
-                width: min(100%, 280px);
-                margin: 0 auto;
-            }
-
             .about-text {
                 padding: 1rem;
                 border: 1px solid rgba(202, 236, 255, 0.34);
@@ -1533,13 +1535,13 @@
             }
 
             .about-text h3 {
-                font-size: 1.35rem;
-                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
             }
 
             .about-text p {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
+                font-size: 0.85rem;
+                margin-bottom: 0.8rem;
             }
 
             .glass-card,
@@ -1562,11 +1564,11 @@
             }
 
             .project-title {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
 
             .project-description {
-                font-size: 0.88rem;
+                font-size: 0.82rem;
             }
 
             .project-content {
@@ -1578,11 +1580,11 @@
             }
 
             .skill-name {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .skill-description {
-                font-size: 0.85rem;
+                font-size: 0.82rem;
             }
 
             .skill-item {
@@ -1590,15 +1592,15 @@
             }
 
             .status-card-title {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
 
             .contact-details h4 {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .contact-details p {
-                font-size: 0.88rem;
+                font-size: 0.82rem;
             }
 
             .footer-content {
