@@ -717,7 +717,7 @@
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: white;
+            color: var(--primary);
         }
 
         .project-description {
@@ -1107,6 +1107,18 @@
             font-size: 0.95rem;
         }
 
+        .social-external-icon {
+            margin-left: auto;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+            transition: color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .social-card:hover .social-external-icon {
+            color: var(--primary);
+        }
+
         /* 页脚 */
         .footer {
             background: rgba(11, 19, 37, 0.95);
@@ -1418,6 +1430,12 @@
             .project-image {
                 height: auto;
                 aspect-ratio: 16 / 9;
+                max-height: 200px;
+            }
+
+            .hero-aliases {
+                font-size: clamp(0.62rem, 2.5vw, 0.85rem);
+                padding: 0.35rem 0.7rem;
             }
 
             .footer-content {

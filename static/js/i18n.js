@@ -27,6 +27,7 @@ window.SITE_I18N = {
             title: '我的项目',
             subtitle: '把热爱写成项目，把项目做成长期作品。',
             more: '主要项目',
+            extra: '更多项目',
             other: '其他项目',
         },
         gallery: {
@@ -107,6 +108,7 @@ window.SITE_I18N = {
             title: 'My Projects',
             subtitle: 'Turning curiosity into shipped work, and shipped work into lasting craft.',
             more: 'Main Projects',
+            extra: 'More Projects',
             other: 'Other Projects',
         },
         gallery: {
@@ -263,6 +265,7 @@ window.SITE_I18N = {
             title: 'Mes projets',
             subtitle: 'Transformer la curiosite en projets, puis les projets en travail qui reste.',
             more: 'Projets principaux',
+            extra: 'Plus de projets',
             other: 'Autres projets',
         },
         gallery: {
