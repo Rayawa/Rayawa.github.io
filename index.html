@@ -449,34 +449,48 @@
 
             <div class="contact-content">
                 <div class="contact-left">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-header">
-                            <h3 class="form-title" data-i18n="form.quickTitle">快捷消息</h3>
-                            <p class="form-subtitle" data-i18n="form.quickSubtitle">项目合作 / 技术支持 / 摄影约稿 / 碎碎念</p>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" data-i18n="form.name">姓名</label>
-                            <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" data-i18n-placeholder="form.namePh" required>
-                            <p class="form-hint" data-i18n="form.nameHint">请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" data-i18n="form.email">邮箱</label>
-                            <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" data-i18n-placeholder="form.emailPh" required>
-                            <p class="form-hint" data-i18n="form.emailHint">请确认邮箱地址无误，这决定您能否收到回信</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.email">电子邮件</h4>
+                                <p>rayawa.work@outlook.com</p>
+                                <p>rayawa.work@gmail.com</p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="message" data-i18n="form.message">消息</label>
-                            <textarea id="message" class="form-control" placeholder="请输入您的消息..." data-i18n-placeholder="form.messagePh" required></textarea>
-                            <p class="form-hint" data-i18n="form.messageHint">昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.website">网站</h4>
+                                <p>rayawa.top</p>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn contact-submit">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-i18n="form.send">发送消息</span>
-                        </button>
-                    </form>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-qq"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.qq">QQ</h4>
+                                <p><a href="tencent://message/?uin=2265695808" class="qq-link">2265695808</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.location">位置</h4>
+                                <p data-i18n="contact.locationValue">北京，中国</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="contact-social-divider"></div>
 
@@ -521,50 +535,34 @@
                     </div>
                 </div>
 
-                <div class="contact-right">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-i18n="contact.email">电子邮件</h4>
-                                <p>rayawa.work@outlook.com</p>
-                                <p>rayawa.work@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-i18n="contact.website">网站</h4>
-                                <p>rayawa.top</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-qq"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-i18n="contact.qq">QQ</h4>
-                                <p><a href="tencent://message/?uin=2265695808" class="qq-link">2265695808</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 data-i18n="contact.location">位置</h4>
-                                <p data-i18n="contact.locationValue">北京，中国</p>
-                            </div>
-                        </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-header">
+                        <h3 class="form-title" data-i18n="form.quickTitle">快捷消息</h3>
+                        <p class="form-subtitle" data-i18n="form.quickSubtitle">项目合作 / 技术支持 / 摄影约稿 / 碎碎念</p>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="name" data-i18n="form.name">姓名</label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" data-i18n-placeholder="form.namePh" required>
+                        <p class="form-hint" data-i18n="form.nameHint">请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-i18n="form.email">邮箱</label>
+                        <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" data-i18n-placeholder="form.emailPh" required>
+                        <p class="form-hint" data-i18n="form.emailHint">请确认邮箱地址无误，这决定您能否收到回信</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="form.message">消息</label>
+                        <textarea id="message" class="form-control" placeholder="请输入您的消息..." data-i18n-placeholder="form.messagePh" required></textarea>
+                        <p class="form-hint" data-i18n="form.messageHint">昵称不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
+                    </div>
+
+                    <button type="submit" class="btn contact-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-i18n="form.send">发送消息</span>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
