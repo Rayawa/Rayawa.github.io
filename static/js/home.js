@@ -735,7 +735,10 @@ function initFullPageScroll() {
         currentIndex = index;
         isAnimating = true;
 
-        const targetTop = sections[index].offsetTop;
+        const targetSection = sections[index];
+        targetSection.scrollTop = 0;
+
+        const targetTop = targetSection.offsetTop;
 
         if (instant) {
             window.scrollTo(0, targetTop);
@@ -780,22 +783,6 @@ function initFullPageScroll() {
         return false;
     }
 
-    function triggerBounce(direction) {
-        const section = sections[currentIndex];
-        if (!section) return;
-        section.style.transition = 'transform 0.2s cubic-bezier(0.2, 0, 0.2, 1)';
-        section.style.transform = direction > 0
-            ? 'translateY(-8px)'
-            : 'translateY(8px)';
-        window.setTimeout(() => {
-            section.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
-            section.style.transform = '';
-            window.setTimeout(() => {
-                section.style.transition = '';
-            }, 360);
-        }, 200);
-    }
-
     window.addEventListener('wheel', (e) => {
         if (document.body.classList.contains('is-loading')) return;
 
@@ -824,13 +811,11 @@ function initFullPageScroll() {
 
         const absDelta = Math.abs(e.deltaY);
         if (absDelta < switchThreshold) {
-            triggerBounce(e.deltaY);
             return;
         }
 
         if (e.deltaY > 0) {
             if (isAtLastSection()) {
-                triggerBounce(1);
                 return;
             }
             snapToSection(currentIndex + 1);
@@ -911,6 +896,7 @@ function initSectionReveal() {
     if (!sections.length) return;
 
     let currentVisibleIndex = -1;
+    let skipScrollCheck = false;
 
     function revealSection(section) {
         if (!section) return;
@@ -925,6 +911,7 @@ function initSectionReveal() {
     }
 
     function checkVisibleSection() {
+        if (skipScrollCheck) return;
         const scrollY = window.scrollY + window.innerHeight / 2;
         let newVisibleIndex = -1;
 
@@ -954,7 +941,18 @@ function initSectionReveal() {
         if (!id) return;
         const section = document.getElementById(id);
         if (section) {
-            window.setTimeout(() => revealSection(section), 100);
+            skipScrollCheck = true;
+            const idx = sections.indexOf(section);
+            if (idx >= 0 && idx !== currentVisibleIndex) {
+                if (currentVisibleIndex >= 0 && currentVisibleIndex < sections.length) {
+                    hideSection(sections[currentVisibleIndex]);
+                }
+                currentVisibleIndex = idx;
+            }
+            window.setTimeout(() => {
+                revealSection(section);
+                skipScrollCheck = false;
+            }, 50);
         }
     });
 

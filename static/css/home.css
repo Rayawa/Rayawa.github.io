@@ -1603,70 +1603,70 @@
         /* 滚动条样式 - 已隐藏，由侧边栏替代 */
         .reveal-item {
             opacity: 0;
-            transform: translateY(26px) scale(0.985);
-            transition: opacity 0.78s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.78s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             transition-delay: var(--reveal-delay, 0ms);
             will-change: transform, opacity;
         }
 
-        .reveal-section:not(.hero).is-visible .reveal-item {
+        .reveal-section.is-visible .reveal-item {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
-        .reveal-section:not(.hero):not(.is-visible) .reveal-item {
-            transition-duration: 0.15s;
+        .reveal-section:not(.is-visible) .reveal-item {
+            transition-duration: 0.12s;
             transition-delay: 0ms;
         }
 
-        .reveal-seq .reveal-item:nth-child(1) { --reveal-delay: 80ms; }
-        .reveal-seq .reveal-item:nth-child(2) { --reveal-delay: 190ms; }
-        .reveal-seq .reveal-item:nth-child(3) { --reveal-delay: 300ms; }
-        .reveal-seq .reveal-item:nth-child(4) { --reveal-delay: 420ms; }
+        .reveal-seq .reveal-item:nth-child(1) { --reveal-delay: 60ms; }
+        .reveal-seq .reveal-item:nth-child(2) { --reveal-delay: 140ms; }
+        .reveal-seq .reveal-item:nth-child(3) { --reveal-delay: 220ms; }
+        .reveal-seq .reveal-item:nth-child(4) { --reveal-delay: 300ms; }
+        .reveal-seq .reveal-item:nth-child(5) { --reveal-delay: 380ms; }
+        .reveal-seq .reveal-item:nth-child(6) { --reveal-delay: 460ms; }
 
         body.app-entered .hero.is-visible .reveal-item {
-            animation: heroIntroRise 1.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+            animation: heroIntroRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
             animation-delay: var(--reveal-delay, 0ms);
         }
 
         .hero.is-visible .reveal-item {
             opacity: 1;
-            transform: translateY(0) scale(1);
-            transition: opacity 0.78s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.78s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(0);
+            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             transition-delay: var(--reveal-delay, 0ms);
         }
 
         .hero:not(.is-visible) .reveal-item {
-            transition-duration: 0.15s;
+            transition-duration: 0.12s;
             transition-delay: 0ms;
         }
 
         body.app-entered .hero-image {
-            animation: heroIntroImage 1.45s cubic-bezier(0.16, 1, 0.3, 1) both 220ms;
+            animation: heroIntroImage 1s cubic-bezier(0.16, 1, 0.3, 1) both 180ms;
         }
 
         .hero.is-visible .hero-image {
             opacity: 1;
-            transform: translateY(0) scale(1) rotate(0);
-            transition: opacity 0.78s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.78s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(0);
+            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .hero:not(.is-visible) .hero-image {
             opacity: 0;
-            transform: translateY(20px) scale(0.95);
-            transition-duration: 0.15s;
+            transform: translateY(20px);
+            transition-duration: 0.12s;
         }
 
         @keyframes heroIntroRise {
-            0% { opacity: 0; transform: translateY(34px) scale(0.97); filter: blur(5px); }
-            68% { opacity: 1; transform: translateY(-4px) scale(1.01); filter: blur(0); }
-            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+            0% { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes heroIntroImage {
-            0% { opacity: 0; transform: translateY(38px) scale(0.9) rotate(-1.8deg); filter: blur(4px); }
-            70% { opacity: 1; transform: translateY(-3px) scale(1.01) rotate(0.25deg); filter: blur(0); }
-            100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); filter: blur(0); }
+            0% { opacity: 0; transform: translateY(28px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .lang-fade-target {
