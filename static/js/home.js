@@ -268,21 +268,21 @@ function initParticles() {
     if (typeof particlesJS !== 'function') return;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 80, density: { enable: true, value_area: 900 } },
+            number: { value: 72, density: { enable: true, value_area: 950 } },
             color: { value: '#6366f1' },
             shape: { type: 'circle' },
-            opacity: { value: 0.35, random: true },
-            size: { value: 3, random: true },
+            opacity: { value: 0.42, random: true },
+            size: { value: 3.2, random: true },
             line_linked: {
                 enable: true,
-                distance: 150,
+                distance: 140,
                 color: '#6366f1',
-                opacity: 0.12,
+                opacity: 0.15,
                 width: 1,
             },
             move: {
                 enable: true,
-                speed: 0.8,
+                speed: 1.2,
                 direction: 'none',
                 random: true,
                 straight: false,

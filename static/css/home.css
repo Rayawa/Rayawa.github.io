@@ -48,9 +48,10 @@
         }
 
         .container {
+            width: 100%;
             max-width: 1320px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 clamp(1.2rem, 4vw, 2.5rem);
         }
 
         /* 粒子背景 */
@@ -1324,13 +1325,9 @@
                 -webkit-tap-highlight-color: transparent;
             }
 
-            .container {
-                padding: 0 1.5rem;
-            }
-
             .hero {
                 min-height: auto;
-                padding: calc(5rem + 10px) 0 2rem;
+                padding: 5.5rem 0 2rem;
                 overflow: hidden;
             }
 
@@ -1615,12 +1612,8 @@
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 1.2rem;
-            }
-
             .hero {
-                padding: calc(4.5rem + 10px) 0 1.5rem;
+                padding: 5rem 0 1.5rem;
             }
 
             .hero-text h1 {
