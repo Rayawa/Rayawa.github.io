@@ -17,11 +17,19 @@
     <!-- 加载画面 -->
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">rayawa.top</div>
+            <div class="loading-brand">
+                <span class="loading-logo" id="loadingLogo"></span><span class="loading-cursor"></span>
+            </div>
+            <div class="loading-ring-wrap">
+                <svg class="loading-ring" viewBox="0 0 80 80">
+                    <circle class="loading-ring-bg" cx="40" cy="40" r="36"/>
+                    <circle class="loading-ring-bar" id="loadingRing" cx="40" cy="40" r="36"/>
+                </svg>
+                <div class="loading-percent" id="loadingPercent">0</div>
+            </div>
             <div class="loading-bar-wrap">
                 <div class="loading-bar" id="loadingBar"></div>
             </div>
-            <div class="loading-text"><span id="loadingPercent">0</span>%</div>
         </div>
     </div>
 
@@ -478,7 +486,7 @@
     </section>
 
     <!-- 页脚 -->
-    <footer class="footer">
+    <footer class="footer reveal-section">
         <div class="container">
             <div class="footer-content">
                 <div>
@@ -531,6 +539,7 @@
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="static/js/i18n.js"></script>
+    <script src="static/js/common.js"></script>
     <script src="static/js/home.js"></script>
 </body>
 

@@ -160,3 +160,15 @@
         grid-template-columns: 1fr;
     }
 }
+
+.subpage-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: var(--subpage-delay, 0ms);
+}
+
+.subpage-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
