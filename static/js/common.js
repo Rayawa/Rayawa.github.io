@@ -441,6 +441,11 @@ function setLocale(lang, opts) {
         var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
         if (val !== undefined && val !== null) el.placeholder = val;
     });
+    document.querySelectorAll('[data-i18n-tooltip]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-tooltip');
+        var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
+        if (val !== undefined && val !== null) el.setAttribute('data-tooltip', val);
+    });
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'fr' ? 'fr' : 'en';
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.lang === lang);

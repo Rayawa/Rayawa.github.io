@@ -34,6 +34,7 @@ window.SITE_I18N = {
             '如果您发现了模组中的 Bug 或对本模组有建议，烦请汇报至 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>。',
         ],
     },
+        footer: { quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
@@ -69,6 +70,7 @@ window.SITE_I18N = {
             'Report bugs or suggestions to <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>.',
         ],
     },
+        footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
@@ -104,4 +106,5 @@ window.SITE_I18N = {
             "Signalez les bugs ou suggestions sur <a href=\"https://github.com/Featurehouse/sweet_potato-issueTracker/issues\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--primary)\">GitHub Issues</a>.",
         ],
     },
+        footer: { quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits reserves.' },
 };

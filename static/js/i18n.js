@@ -77,6 +77,9 @@ window.SITE_I18N = {
             thanks: '致谢',
             thanksLink: '查看致谢',
         },
+        tooltip: {
+            starThanks: '致谢',
+        },
         project: {
             hmdb: { title: '华为应用市场看板', desc: ' Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……', award: '开放原子大赛三等奖作品' },
             bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（' },
@@ -312,6 +315,9 @@ window.SITE_I18N = {
             description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
             thanks: 'Acknowledgements',
             thanksLink: 'View Acknowledgements',
+        },
+        tooltip: {
+            starThanks: 'Acknowledgements',
         },
         project: {
             hmdb: { title: 'HmDashboard', desc: ' Powered by Shenjack!<br>A full-stack project that fetches, processes, analyzes, and displays all app and meta-service data from the HarmonyOS AppGallery.<br>I mainly work on the frontend web development and software development. Current main project, continuously updating…', award: 'Third Prize, OpenAtom Competition' },
@@ -551,6 +557,9 @@ window.SITE_I18N = {
             description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
             thanks: 'Remerciements',
             thanksLink: 'Voir les remerciements',
+        },
+        tooltip: {
+            starThanks: 'Remerciements',
         },
         project: {
             hmdb: { title: 'HmDashboard', desc: " Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…", award: 'Troisième prix, concours OpenAtom' },

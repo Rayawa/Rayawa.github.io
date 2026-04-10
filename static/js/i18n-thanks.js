@@ -39,6 +39,7 @@ window.SITE_I18N = {
             }
         }
     },
+        footer: { quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Acknowledgements',
@@ -79,6 +80,7 @@ window.SITE_I18N = {
             }
         }
     },
+        footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Remerciements',
