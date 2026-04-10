@@ -12,6 +12,7 @@ window.SITE_I18N = {
         embedded: { title: '嵌入式开发', desc: 'Hi3861 芯片开发实践，从底层逻辑理解设备端能力与系统架构。' },
         wip: { title: '持续更新中', desc: '更多内容正在建设中，敬请期待。' },
     },
+        footer: { quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'OpenHarmony Hi3861',
@@ -25,6 +26,7 @@ window.SITE_I18N = {
         embedded: { title: 'Embedded Development', desc: 'Hi3861 chip development practice, understanding device capabilities and system architecture from the ground up.' },
         wip: { title: 'Work in Progress', desc: 'More content is being built. Stay tuned.' },
     },
+        footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'OpenHarmony Hi3861',
@@ -38,4 +40,5 @@ window.SITE_I18N = {
         embedded: { title: 'Developpement embarque', desc: "Pratique de developpement de la puce Hi3861, comprehension des capacites de l'appareil et de l'architecture systeme depuis la base." },
         wip: { title: 'En cours de construction', desc: 'Plus de contenu en cours de construction. Restez a l\'ecoute.' },
     },
+        footer: { quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits reserves.' },
 };

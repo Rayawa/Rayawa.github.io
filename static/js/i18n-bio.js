@@ -61,6 +61,7 @@ window.SITE_I18N = {
             abstract: '针对微生物培养中偶发的培养基异常变色现象，本文通过严密的对照实验成功溯源了环境污染因子。该项研究不仅解决了具体的实验技术难题，其核心意义在于建立了标准化的误差分析与实验室质量控制流程，强调了科研实践中严谨态度与程序规范的重要性。'
         }
     },
+        footer: { quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Biology Projects',
@@ -122,6 +123,7 @@ window.SITE_I18N = {
             abstract: 'Addressing the occasional abnormal color change of culture media in microbial cultivation, this paper successfully traced the source of environmental contamination factors through rigorous controlled experiments. This research not only solved a specific experimental technical problem, but its core significance lies in establishing standardized error analysis and laboratory quality control procedures, emphasizing the importance of rigorous attitude and procedural compliance in scientific practice.'
         }
     },
+        footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Projets de biologie',
