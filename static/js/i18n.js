@@ -84,6 +84,7 @@ window.SITE_I18N = {
             whn: { title: 'whn生日', desc: '好男酱的2024年生日会项目' },
             thesis: { title: '学校论文', desc: '收录在校期间撰写的学术论文与课程研究报告。' },
             xxh: { title: '情感契合度测试', desc: '双人匿名答题，三大维度量化你们的情感匹配度。' },
+            gene: { title: '基因工程交互实验室', desc: '拖拽式交互实验，模拟农杆菌转化法将抗虫基因导入棉花细胞。' },
         },
         tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试', wip: '施工中' },
         aboutHtml: {
@@ -245,6 +246,7 @@ window.SITE_I18N = {
             whn: { title: 'WHN Birthday', desc: 'whn 2024 birthday project' },
             thesis: { title: 'School Papers', desc: 'Academic papers and course research reports written during university.' },
             xxh: { title: 'Compatibility Test', desc: 'Two-person anonymous quiz — quantify your emotional match across three dimensions.' },
+            gene: { title: 'Gene Engineering Lab', desc: 'Drag-and-drop interactive lab simulating Agrobacterium-mediated gene transfer into cotton cells.' },
         },
         tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education', test: 'Test', wip: 'WIP' },
         aboutHtml: {
@@ -409,6 +411,7 @@ window.SITE_I18N = {
             whn: { title: "Anniversaire WHN", desc: "Projet d anniversaire whn 2024" },
             thesis: { title: 'Papiers scolaires', desc: "Papiers academiques et rapports de recherche rediges a l universite." },
             xxh: { title: 'Test de compatibilité', desc: 'Quiz anonymé à deux — quantifiez votre compatibilité émotionnelle en trois dimensions.' },
+            gene: { title: 'Labo de génie génétique', desc: 'Labo interactif glisser-déposer simulant le transfert de gènes par Agrobacterium dans les cellules de coton.' },
         },
         tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education', test: 'Test', wip: 'En construction' },
         aboutHtml: {

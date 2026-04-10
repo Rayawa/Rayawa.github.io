@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>第五人格，启动！ | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'idv-dark': '#1a1a2e',
+            'idv-primary': '#16213e',
+            'idv-secondary': '#0f3460',
+            'idv-accent': '#e94560',
+            'idv-highlight': '#f9a826',
+            'idv-bronze': '#cd7f32',
+            'idv-silver': '#c0c0c0',
+            'idv-gold': '#ffd700',
+            'rank-4': '#765d32',
+            'rank-5': '#8a6d3b',
+            'rank-6': '#f39c12',
+            'rank-star': '#ffcc00',
+            'rank-progress': '#3498db',
+            'rank-completed': '#2ecc71'
+          },
+          animation: {
+            'bounce-slow': 'bounce 2s infinite',
+            'pulse-slow': 'pulse 3s infinite',
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'slide-in': 'slideIn 0.3s ease-out',
+            'star-glow': 'starGlow 1.5s ease-in-out infinite'
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            slideIn: { '0%': { opacity: '0', transform: 'translateX(-10px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+            starGlow: { '0%, 100%': { opacity: 1, transform: 'scale(1)' }, '50%': { opacity: 0.8, transform: 'scale(1.1)' } }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../static/css/subpage.css">
+  <style>
+    .glass { background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(15, 52, 96, 0.3); }
+    .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+    .btn-hover { transition: all 0.3s; transform: scale(1); }
+    .btn-hover:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .btn-hover:active { transform: scale(0.95); }
+    .input-focus:focus { ring: 2px; ring-color: #e94560; border-color: #e94560; outline: none; box-shadow: 0 0 0 2px rgba(233,69,96,0.3); }
+    .number-animation { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .progress-gradient { background: linear-gradient(90deg, #0f3460 0%, #3498db 50%, #2ecc71 100%); }
+    .history-item { transition: all 0.3s; }
+    .history-item:hover { background: #16213e; }
+    .rank-star { color: #ffcc00; text-shadow: 0 0 5px rgba(255, 204, 0, 0.5); }
+    .star-empty { color: #555; }
+    .rank-node { transition: all 0.3s ease; }
+    .current-rank-node { box-shadow: 0 0 15px rgba(233, 69, 96, 0.5); border: 2px solid #e94560; }
+    .completed-rank-node { box-shadow: 0 0 10px rgba(46, 204, 113, 0.3); }
+    .rank-4 .rank-circle { background: linear-gradient(135deg, #765d32, #d4a99a); }
+    .rank-5 .rank-circle { background: linear-gradient(135deg, #8a6d3b, #e2c46a); }
+    .rank-6 .rank-circle { background: linear-gradient(135deg, #f39c12, #f9a826); }
+    .page { background: transparent; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"><!-- i18n --></span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html" data-i18n="nav.home"><!-- i18n --></a></li>
+        <li><a href="../index.html#about" data-i18n="nav.about"><!-- i18n --></a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects"><!-- i18n --></a></li>
+        <li><a href="../index.html#gallery" data-i18n="nav.gallery"><!-- i18n --></a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact"><!-- i18n --></a></li>
+      </ul>
+      <div class="language-switch">
+        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="en"><img src="../static/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+  <div id="particles-js"></div>
+  <main class="page">
+    <div class="bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white pt-20">
+      <div class="container mx-auto px-4 py-8 md:py-12">
+        <div class="text-center mb-8 md:mb-12 animate-fade-in">
+          <h1 class="text-3xl md:text-5xl font-bold text-idv-highlight mb-2">第五人格，启动！</h1>
+          <p class="text-gray-300 max-w-md mx-auto">本赛季目标：从四阶V到六阶V (1250积分)</p>
+        </div>
+        <div class="max-w-6xl mx-auto glass rounded-2xl card-shadow p-6 md:p-8 animate-fade-in">
+          <div class="space-y-6 mb-8">
+            <h2 class="text-xl font-semibold text-center mb-4 flex items-center justify-center">
+              <i class="fa fa-calculator mr-3 text-idv-accent"></i>计算结果
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+              <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-idv-highlight mb-2"><i class="fa fa-clock-o text-lg"></i></div>
+                <p class="text-sm text-gray-300 mb-1">剩余天数</p>
+                <p id="daysRemaining" class="text-2xl font-bold text-white number-animation">70</p>
+              </div>
+              <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-rank-completed mb-2"><i class="fa fa-calendar text-lg"></i></div>
+                <p class="text-sm text-gray-300 mb-1">日均所需积分</p>
+                <p id="dailyPoints" class="text-2xl font-bold text-white number-animation">14</p>
+              </div>
+              <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-idv-highlight mb-2"><i class="fa fa-star text-lg"></i></div>
+                <p class="text-sm text-gray-300 mb-1">当前积分</p>
+                <p id="currentPointsDisplay" class="text-2xl font-bold text-idv-highlight number-animation">0</p>
+              </div>
+              <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-rank-progress mb-2"><i class="fa fa-flag text-lg"></i></div>
+                <p class="text-sm text-gray-300 mb-1">目标积分</p>
+                <p id="totalPoints" class="text-2xl font-bold text-white number-animation">1250</p>
+              </div>
+            </div>
+            <div class="bg-idv-primary/70 rounded-xl p-4">
+              <div class="flex justify-between items-center mb-2">
+                <div><span class="text-sm font-medium text-gray-300">积分进度</span><span class="text-xs text-gray-400 ml-2">(当前积分/目标积分)</span></div>
+                <div class="flex items-center"><span id="progressPoints" class="text-sm font-medium text-gray-300 mr-2">0/1000</span><span id="progressPercentage" class="text-sm font-medium text-idv-accent">0%</span></div>
+              </div>
+              <div class="w-full bg-idv-secondary rounded-full h-4 overflow-hidden"><div id="progressBar" class="progress-gradient h-4 rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div></div>
+              <div class="flex justify-between mt-2"><span class="text-xs text-gray-400">0</span><span class="text-xs text-gray-400">目标积分 (1250)</span></div>
+            </div>
+          </div>
+          <div class="bg-idv-primary/70 rounded-xl p-6 mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-300"><i class="fa fa-trophy mr-3 text-idv-highlight"></i>当前段位进度</h3>
+              <div class="text-right"><span id="currentRankDisplay" class="text-xl font-bold text-idv-highlight">四阶V</span><div class="text-sm text-gray-400">当前积分: <span id="rankPointsDisplay" class="font-medium">0</span></div></div>
+            </div>
+            <div class="relative mb-8">
+              <div class="absolute top-1/2 left-0 right-0 h-2 bg-idv-secondary transform -translate-y-1/2 rounded-full"></div>
+              <div id="rankProgressBar" class="absolute top-1/2 left-0 h-2 bg-rank-progress transform -translate-y-1/2 rounded-full" style="width: 0%"></div>
+              <div class="relative flex justify-between">
+                <div class="rank-node rank-4 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">4V</span><div class="text-xs mt-1"><span class="rank-star">★</span><span class="rank-star">★</span><span class="rank-star">★</span><span class="rank-star">★</span><span class="rank-star">★</span></div></div><span class="text-xs text-gray-300 font-medium">四阶V</span><span class="text-xs text-gray-400">0-100</span></div>
+                <div class="rank-node rank-4 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">4IV</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">四阶IV</span><span class="text-xs text-gray-400">101-200</span></div>
+                <div class="rank-node rank-4 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">4III</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">四阶III</span><span class="text-xs text-gray-400">201-300</span></div>
+                <div class="rank-node rank-4 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">4II</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">四阶II</span><span class="text-xs text-gray-400">301-400</span></div>
+                <div class="rank-node rank-4 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">4I</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">四阶I</span><span class="text-xs text-gray-400">401-500</span></div>
+                <div class="rank-node rank-5 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">5V</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">五阶V</span><span class="text-xs text-gray-400">501-650</span></div>
+                <div class="rank-node rank-5 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">5IV</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">五阶IV</span><span class="text-xs text-gray-400">651-800</span></div>
+                <div class="rank-node rank-5 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">5III</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">五阶III</span><span class="text-xs text-gray-400">801-950</span></div>
+                <div class="rank-node rank-5 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">5II</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">五阶II</span><span class="text-xs text-gray-400">951-1100</span></div>
+                <div class="rank-node rank-5 flex flex-col items-center w-20"><div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-xs font-bold text-white">5I</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">五阶I</span><span class="text-xs text-gray-400">1101-1250</span></div>
+                <div class="rank-node rank-6 flex flex-col items-center w-20"><div class="rank-circle w-16 h-16 rounded-full flex flex-col items-center justify-center mb-2 relative"><span class="text-sm font-bold text-white">6V</span><div class="text-xs mt-1"><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span><span class="star-empty">☆</span></div></div><span class="text-xs text-gray-300 font-medium">六阶V</span><span class="text-xs text-gray-400">目标</span></div>
+              </div>
+            </div>
+            <div class="text-center text-sm text-gray-400">
+              <p>每个段位需要100积分，每20积分点亮一颗星星 (共5星)</p>
+              <p>当前进度: <span id="currentRankProgress" class="text-idv-highlight font-medium">0% (0/100)</span></p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-idv-primary/70 rounded-xl p-6">
+              <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center"><i class="fa fa-line-chart mr-3 text-idv-accent"></i>积分调整</h3>
+              <div class="mb-6"><div class="flex items-center justify-between bg-idv-secondary rounded-lg p-4"><div><h4 class="text-sm font-medium text-gray-300 mb-1"><i class="fa fa-star mr-2 text-idv-highlight"></i>当前积分</h4><p class="text-xs text-gray-400">手动调整当前积分</p></div><div class="text-right"><div class="text-3xl font-bold text-idv-highlight" id="manualPointsDisplay">0</div><div class="text-xs text-gray-400">积分</div></div></div></div>
+              <div class="space-y-4">
+                <div class="space-y-3"><label for="adjustInput" class="block text-sm font-medium text-gray-300">段位分输入</label><div class="relative"><span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa fa-edit"></i></span><input type="number" id="adjustInput" class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus" placeholder="输入调整值，如 +10 或 -3" value="+50"></div></div>
+                <div class="flex space-x-3 pt-2"><button id="applyAdjustBtn" class="flex-1 bg-idv-accent hover:bg-idv-accent/90 text-white px-4 py-3 rounded-lg btn-hover flex items-center justify-center"><i class="fa fa-check mr-2"></i>提交调整</button><button id="resetManualBtn" class="bg-idv-secondary hover:bg-idv-primary text-white px-4 py-3 rounded-lg btn-hover flex items-center justify-center"><i class="fa fa-refresh"></i></button></div>
+              </div>
+            </div>
+            <div class="bg-idv-primary/70 rounded-xl p-6">
+              <div class="flex justify-between items-center mb-4"><h3 class="text-lg font-semibold text-gray-300 flex items-center"><i class="fa fa-history mr-3 text-idv-accent"></i>调整历史记录</h3><div class="text-sm text-gray-400">共 <span id="historyCount">0</span> 条记录</div></div>
+              <div id="historyList" class="space-y-3 max-h-80 overflow-y-auto p-1"><div class="text-center py-8 text-gray-500" id="emptyHistoryMessage"><i class="fa fa-history text-3xl mb-3"></i><p>暂无调整记录</p><p class="text-xs mt-2">调整积分后，记录将显示在这里</p></div></div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="space-y-4"><label for="startDate" class="block text-sm font-medium text-gray-300"><i class="fa fa-calendar-check-o mr-2 text-rank-completed"></i>开始日期</label><div class="relative"><span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa fa-play-circle"></i></span><input type="date" id="startDate" class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus"></div></div>
+            <div class="space-y-4"><label for="endDate" class="block text-sm font-medium text-gray-300"><i class="fa fa-calendar-times-o mr-2 text-idv-accent"></i>结束日期</label><div class="relative"><span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa fa-flag-checkered"></i></span><input type="date" id="endDate" class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus"></div></div>
+            <div class="space-y-4"><label for="targetPoints" class="block text-sm font-medium text-gray-300"><i class="fa fa-bullseye mr-2 text-idv-highlight"></i>目标积分</label><div class="relative"><span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa fa-trophy"></i></span><input type="number" id="targetPoints" class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus" placeholder="输入目标积分" min="0" value="1250"></div></div>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"><button id="resetBtn" class="bg-idv-secondary hover:bg-idv-primary text-white px-6 py-3 rounded-lg btn-hover flex items-center justify-center"><i class="fa fa-refresh mr-2"></i>重置计算器</button></div>
+        </div>
+        <div id="notification" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-idv-primary rounded-lg shadow-lg px-6 py-3 hidden z-50 border-l-4"><div class="flex items-center"><i id="notificationIcon" class="fa fa-info-circle mr-3"></i><p id="notificationText" class="text-center"></p></div></div>
+      </div>
+    </div>
+  </main>
+  <div class="fab-tools">
+    <button class="fab-btn refresh-btn" aria-label="刷新页面"><i class="fas fa-sync-alt"></i></button>
+    <button class="fab-btn top-btn" aria-label="回到顶部"><i class="fas fa-arrow-up"></i></button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../static/js/i18n-idv.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script>
+    const startDateInput=document.getElementById('startDate'),endDateInput=document.getElementById('endDate'),targetPointsInput=document.getElementById('targetPoints'),adjustInput=document.getElementById('adjustInput'),applyAdjustBtn=document.getElementById('applyAdjustBtn'),resetManualBtn=document.getElementById('resetManualBtn'),historyList=document.getElementById('historyList'),emptyHistoryMessage=document.getElementById('emptyHistoryMessage'),historyCount=document.getElementById('historyCount'),daysRemainingDisplay=document.getElementById('daysRemaining'),dailyPointsDisplay=document.getElementById('dailyPoints'),currentPointsDisplay=document.getElementById('currentPointsDisplay'),manualPointsDisplay=document.getElementById('manualPointsDisplay'),totalPointsDisplay=document.getElementById('totalPoints'),progressBar=document.getElementById('progressBar'),progressPercentage=document.getElementById('progressPercentage'),progressPoints=document.getElementById('progressPoints'),resetBtn=document.getElementById('resetBtn'),notification=document.getElementById('notification'),notificationText=document.getElementById('notificationText'),notificationIcon=document.getElementById('notificationIcon'),currentRankDisplay=document.getElementById('currentRankDisplay'),rankPointsDisplay=document.getElementById('rankPointsDisplay'),rankProgressBar=document.getElementById('rankProgressBar'),currentRankProgress=document.getElementById('currentRankProgress');
+    let history=[],currentPoints=0;
+    const rankDefinitions=[{name:"四阶V",min:0,max:100,stars:5,starValue:20,color:"rank-4"},{name:"四阶IV",min:101,max:200,stars:5,starValue:20,color:"rank-4"},{name:"四阶III",min:201,max:300,stars:5,starValue:20,color:"rank-4"},{name:"四阶II",min:301,max:400,stars:5,starValue:20,color:"rank-4"},{name:"四阶I",min:401,max:500,stars:5,starValue:20,color:"rank-4"},{name:"五阶V",min:501,max:650,stars:5,starValue:30,color:"rank-5"},{name:"五阶IV",min:651,max:800,stars:5,starValue:30,color:"rank-5"},{name:"五阶III",min:801,max:950,stars:5,starValue:30,color:"rank-5"},{name:"五阶II",min:951,max:1100,stars:5,starValue:30,color:"rank-5"},{name:"五阶I",min:1101,max:1250,stars:5,starValue:30,color:"rank-5"},{name:"六阶V",min:1251,max:Infinity,stars:5,starValue:30,color:"rank-6"}];
+    initializeDates();loadHistory();calculatePoints();
+    startDateInput.addEventListener('change',calculatePoints);endDateInput.addEventListener('change',calculatePoints);targetPointsInput.addEventListener('input',calculatePoints);applyAdjustBtn.addEventListener('click',applyAdjustment);resetManualBtn.addEventListener('click',resetManualPoints);resetBtn.addEventListener('click',resetCalculator);adjustInput.addEventListener('keypress',e=>{if(e.key==='Enter')applyAdjustment()});
+    document.querySelectorAll('.adjust-quick-btn').forEach(btn=>{btn.addEventListener('click',()=>{adjustInput.value=btn.getAttribute('data-value')})});
+    function initializeDates(){startDateInput.valueAsDate=new Date('2025-11-27');endDateInput.valueAsDate=new Date('2026-02-05');targetPointsInput.value=1250}
+    function applyAdjustment(){const v=parseInt(adjustInput.value)||0;const note=v>0?'积分增加':'积分减少';if(v===0){showNotification('请输入非零的调整值','error');return}const np=Math.max(0,currentPoints+v);const pc=np-currentPoints;addHistoryRecord(pc,note,np);currentPoints=np;updatePointsDisplay();calculatePoints();showNotification(`成功${v>0?'增加':'减少'} ${Math.abs(v)} 积分`,'success');adjustInput.value=v>0?'+50':'-30';saveHistory()}
+    function addHistoryRecord(av,note,nt){const r={id:Date.now(),timestamp:new Date(),adjustValue:av,note:note,newTotal:nt};history.unshift(r);updateHistoryDisplay()}
+    function updateHistoryDisplay(){historyList.innerHTML='';if(history.length===0){historyList.appendChild(emptyHistoryMessage);emptyHistoryMessage.classList.remove('hidden');historyCount.textContent='0';return}emptyHistoryMessage.classList.add('hidden');historyCount.textContent=history.length;history.forEach(record=>{const hi=document.createElement('div');hi.className='history-item bg-idv-secondary/50 rounded-lg p-3 animate-slide-in';hi.innerHTML=`<div class="flex justify-between items-center"><div class="flex items-center"><div class="w-10 h-10 rounded-full flex items-center justify-center ${record.adjustValue>0?'bg-green-900/30 text-green-400':'bg-red-900/30 text-red-400'} mr-3"><i class="fa ${record.adjustValue>0?'fa-plus':'fa-minus'}"></i></div><div><p class="text-sm font-medium ${record.adjustValue>0?'text-green-300':'text-red-300'}">${record.adjustValue>0?'+':''}${record.adjustValue} 积分</p><p class="text-xs text-gray-400">${record.note}</p></div></div><div class="text-right flex items-center"><div class="mr-3"><p class="text-sm font-medium text-gray-300">${record.newTotal} 积分</p><p class="text-xs text-gray-500">${formatTime(record.timestamp)}</p></div><button class="delete-history-btn text-gray-400 hover:text-idv-accent p-1" data-id="${record.id}"><i class="fa fa-trash"></i></button></div></div>`;historyList.appendChild(hi)});document.querySelectorAll('.delete-history-btn').forEach(btn=>{btn.addEventListener('click',function(){deleteHistoryRecord(parseInt(this.getAttribute('data-id')))})})}
+    function deleteHistoryRecord(rid){if(!confirm('确定要删除这条记录吗？删除后积分将相应调整。'))return;const ri=history.findIndex(r=>r.id===rid);if(ri===-1)return;const av=history[ri].adjustValue;history.splice(ri,1);let rp=0;history.forEach(r=>{rp+=r.adjustValue});currentPoints=Math.max(0,rp);updatePointsDisplay();updateHistoryDisplay();calculatePoints();showNotification(`已删除记录，积分调整 ${av>0?'减少':'增加'} ${Math.abs(av)} 积分`,'info');saveHistory()}
+    function formatTime(date){const now=new Date(),rd=new Date(date);if(rd.toDateString()===now.toDateString())return`今天 ${rd.getHours().toString().padStart(2,'0')}:${rd.getMinutes().toString().padStart(2,'0')}`;const y=new Date(now);y.setDate(y.getDate()-1);if(rd.toDateString()===y.toDateString())return`昨天 ${rd.getHours().toString().padStart(2,'0')}:${rd.getMinutes().toString().padStart(2,'0')}`;return`${rd.getMonth()+1}/${rd.getDate()} ${rd.getHours().toString().padStart(2,'0')}:${rd.getMinutes().toString().padStart(2,'0')}`}
+    function resetManualPoints(){currentPoints=0;updatePointsDisplay();calculatePoints();showNotification('当前积分已重置为0','success')}
+    function saveHistory(){try{localStorage.setItem('idvRankHistory',JSON.stringify(history))}catch(e){}}
+    function loadHistory(){try{const sh=localStorage.getItem('idvRankHistory');if(sh){history=JSON.parse(sh);history.forEach(r=>{r.timestamp=new Date(r.timestamp)});currentPoints=0;history.forEach(r=>{currentPoints+=r.adjustValue});currentPoints=Math.max(0,currentPoints);updatePointsDisplay();updateHistoryDisplay()}}catch(e){}}
+    function updatePointsDisplay(){animateNumber(currentPointsDisplay,currentPoints);animateNumber(manualPointsDisplay,currentPoints);rankPointsDisplay.textContent=currentPoints}
+    function calculatePoints(){const sd=new Date(startDateInput.value),ed=new Date(endDateInput.value),today=new Date(),tp=parseInt(targetPointsInput.value)||1250;if(ed<=sd){showNotification('结束日期必须晚于开始日期','error');return}const td=ed.getTime()-Math.max(sd.getTime(),today.getTime()),dr=Math.max(1,Math.ceil(td/(1000*3600*24))),rp=Math.max(0,tp-currentPoints),dp=Math.ceil(rp/dr);let pp=0;if(tp>0)pp=Math.min(100,(currentPoints/tp)*100);animateNumber(daysRemainingDisplay,dr);animateNumber(dailyPointsDisplay,dp);animateNumber(totalPointsDisplay,tp);updatePointsDisplay();progressBar.style.width=`${pp}%`;progressPercentage.textContent=`${Math.round(pp)}%`;progressPoints.textContent=`${currentPoints.toLocaleString()}/${tp.toLocaleString()}`;updateRankDisplay(currentPoints)}
+    function animateNumber(el,tn){const sn=parseInt(el.textContent.replace(/,/g,''))||0,dur=800,st=performance.now();function up(ct){const et=ct-st,pr=Math.min(et/dur,1),eo=1-Math.pow(1-pr,4),cn=Math.floor(sn+(tn-sn)*eo);el.textContent=cn.toLocaleString();if(pr<1)requestAnimationFrame(up)}requestAnimationFrame(up)}
+    function resetCalculator(){initializeDates();currentPoints=0;updatePointsDisplay();history=[];updateHistoryDisplay();saveHistory();calculatePoints();showNotification('计算器已重置','success')}
+    function calculateCurrentRank(pts){for(const r of rankDefinitions){if(pts>=r.min&&pts<=r.max)return r}return rankDefinitions[0]}
+    function updateRankDisplay(pts){const cr=calculateCurrentRank(pts);currentRankDisplay.textContent=cr.name;const rr=cr.max-cr.min,rp=Math.min(100,Math.max(0,((pts-cr.min)/rr)*100)),sts=Math.min(5,Math.floor(rp/20)+(rp>0?1:0)),tpp=(pts/1000)*100;rankProgressBar.style.width=`${Math.min(100,tpp)}%`;currentRankProgress.textContent=`${Math.round(rp)}% (${pts-cr.min}/${rr})`;updateAllRankStars(pts);updateCurrentRankNode(cr.name)}
+    function updateAllRankStars(pts){document.querySelectorAll('.rank-node').forEach(node=>{const rn=node.querySelector('span.text-gray-300.font-medium').textContent,rank=rankDefinitions.find(r=>r.name===rn);if(!rank)return;const sc=node.querySelector('.text-xs.mt-1');sc.innerHTML='';if(pts>=rank.max){for(let i=0;i<5;i++){const s=document.createElement('span');s.className='rank-star animate-star-glow';s.textContent='★';sc.appendChild(s)}node.classList.add('completed-rank-node')}else if(pts>=rank.min){const rr=rank.max-r.min,rp=((pts-rank.min)/rr)*100,sts=Math.min(5,Math.floor(rp/20)+(rp>0?1:0));for(let i=0;i<5;i++){const s=document.createElement('span');s.className=i<sts?'rank-star animate-star-glow':'star-empty';s.textContent=i<sts?'★':'☆';sc.appendChild(s)}node.classList.remove('completed-rank-node')}else{for(let i=0;i<5;i++){const s=document.createElement('span');s.className='star-empty';s.textContent='☆';sc.appendChild(s)}node.classList.remove('completed-rank-node')}})}
+    function updateCurrentRankNode(rn){document.querySelectorAll('.rank-node').forEach(node=>{node.classList.remove('current-rank-node');if(node.querySelector('span.text-gray-300.font-medium').textContent===rn)node.classList.add('current-rank-node')})}
+    function showNotification(msg,type='info'){notificationText.textContent=msg;notification.className='fixed bottom-4 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg px-6 py-3 transition-all duration-300 z-50 border-l-4';if(type==='error'){notification.classList.add('bg-red-900/80','text-red-100','border-red-500');notificationIcon.className='fa fa-exclamation-circle mr-3 text-red-300'}else if(type==='success'){notification.classList.add('bg-green-900/80','text-green-100','border-green-500');notificationIcon.className='fa fa-check-circle mr-3 text-green-300'}else{notification.classList.add('bg-idv-primary','text-white','border-idv-accent');notificationIcon.className='fa fa-info-circle mr-3 text-idv-accent'}notification.classList.remove('hidden','opacity-0','translate-y-4');notification.classList.add('opacity-100');setTimeout(()=>{notification.classList.add('opacity-0','translate-y-4');setTimeout(()=>{notification.classList.add('hidden')},300)},3000)}
+    updateRankDisplay(currentPoints);
+  </script>
+</body>
+</html>
