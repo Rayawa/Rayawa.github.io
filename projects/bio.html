@@ -23,9 +23,9 @@
         <li><a href="../index.html#contact" data-i18n="nav.contact"><!-- i18n: nav contact --></a></li>
       </ul>
       <div class="language-switch">
-        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
-        <button type="button" class="lang-btn" data-lang="en"><img src="../static/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
-        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
+        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="en"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
@@ -36,30 +36,123 @@
       <h1 data-i18n="title"><!-- i18n: page title --></h1>
       <p data-i18n="desc"><!-- i18n: page description --></p>
     </section>
-    <section class="card-grid">
-      <article class="card">
-        <h2 data-i18n="protein.title"><!-- i18n: protein title --></h2>
-        <p data-i18n="protein.desc"><!-- i18n: protein desc --></p>
-      </article>
-      <article class="card">
-        <h2 data-i18n="pcr.title"><!-- i18n: pcr title --></h2>
-        <p data-i18n="pcr.desc"><!-- i18n: pcr desc --></p>
-      </article>
-      <article class="card">
-        <h2 data-i18n="photosynthesis.title"><!-- i18n: photosynthesis title --></h2>
-        <p data-i18n="photosynthesis.desc"><!-- i18n: photosynthesis desc --></p>
-      </article>
-      <article class="card">
-        <h2 data-i18n="orange.title"><!-- i18n: orange plate title --></h2>
-        <p data-i18n="orange.desc"><!-- i18n: orange plate desc --></p>
-      </article>
-      <article class="card">
-        <h2 data-i18n="agrobacterium.title"><!-- i18n: agrobacterium title --></h2>
-        <p data-i18n="agrobacterium.desc"><!-- i18n: agrobacterium desc --></p>
-        <div class="single-action">
-          <a class="button" href="gene.html" data-i18n="agrobacteriumBtn"><!-- i18n: agrobacterium button --></a>
+
+    <section class="pcr-lab">
+      <div class="section-header">
+        <h2 data-i18n="pcrLab.title"><!-- i18n: pcr lab title --></h2>
+        <p data-i18n="pcrLab.subtitle"><!-- i18n: pcr lab subtitle --></p>
+      </div>
+      <div class="pcr-content">
+        <div class="pcr-result">
+          <div class="gel-display">
+            <div class="display-frame">
+              <img src="../static/resources/bio/pcr.jpg" alt="PCR凝胶电泳结果" loading="lazy">
+              <div class="display-overlay">
+                <div class="result-text">
+                  <i class="fas fa-dna"></i>
+                  <span data-i18n="pcrResult.text"><!-- i18n: pcr result text --></span>
+                </div>
+              </div>
+            </div>
+            <div class="gel-caption" data-i18n="pcrResult.caption"><!-- i18n: pcr result caption --></div>
+          </div>
         </div>
-      </article>
+        <div class="pcr-docs">
+          <div class="doc-card">
+            <div class="doc-icon">
+              <i class="fas fa-drafting-compass"></i>
+            </div>
+            <div class="doc-content">
+              <h3 data-i18n="pcrDesign.title"><!-- i18n: pcr design title --></h3>
+              <p data-i18n="pcrDesign.desc"><!-- i18n: pcr design desc --></p>
+              <a href="../static/resources/bio/pcr_design.pdf" class="button button-outline" target="_blank" data-i18n="viewDesign">实验设计</a>
+            </div>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div class="doc-content">
+              <h3 data-i18n="pcrReport.title"><!-- i18n: pcr report title --></h3>
+              <p data-i18n="pcrReport.desc"><!-- i18n: pcr report desc --></p>
+              <a href="../static/resources/bio/pcr_report.pdf" class="button" target="_blank" data-i18n="viewReport">实验报告</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="thesis-archive">
+      <div class="section-header">
+        <h2 data-i18n="thesis.title"><!-- i18n: thesis title --></h2>
+        <p data-i18n="thesis.subtitle"><!-- i18n: thesis subtitle --></p>
+      </div>
+      <div class="thesis-featured">
+        <article class="thesis-card thesis-published thesis-with-image">
+          <div class="thesis-image-wrap">
+            <img src="../static/resources/bio/prion.jpeg" alt="朊病毒蛋白论文" loading="lazy">
+          </div>
+          <div class="thesis-body">
+            <div class="thesis-header">
+              <span class="thesis-badge" data-i18n="thesis.published"><!-- i18n: thesis published --></span>
+              <span class="thesis-date">2026.03.15</span>
+            </div>
+            <h3 data-i18n="thesisPrion.title"><!-- i18n: thesis prion title --></h3>
+            <p class="thesis-abstract" data-i18n="thesisPrion.abstract"><!-- i18n: thesis prion abstract --></p>
+            <div class="thesis-actions">
+              <a href="../static/resources/bio/prion.pdf" class="button" target="_blank" data-i18n="readPaper">阅读论文</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-draft thesis-with-image">
+          <div class="thesis-image-wrap">
+            <img src="../static/resources/bio/c3.png" alt="C3植物光合作用论文" loading="lazy">
+          </div>
+          <div class="thesis-body">
+            <div class="thesis-header">
+              <span class="thesis-badge" data-i18n="thesis.draft"><!-- i18n: thesis draft --></span>
+              <span class="thesis-date">2026.03.10</span>
+            </div>
+            <h3 data-i18n="thesisC3.title"><!-- i18n: thesis c3 title --></h3>
+            <p class="thesis-abstract" data-i18n="thesisC3.abstract"><!-- i18n: thesis c3 abstract --></p>
+            <div class="thesis-actions">
+              <a href="../static/resources/bio/c3.pdf" class="button button-outline" target="_blank" data-i18n="viewDraft">查看草稿</a>
+            </div>
+          </div>
+        </article>
+        <article class="thesis-card thesis-draft thesis-with-image">
+          <div class="thesis-image-wrap">
+            <img src="../static/resources/bio/saccharomyces.jpg" alt="酿酒酵母橙色平板实验论文" loading="lazy">
+          </div>
+          <div class="thesis-body">
+            <div class="thesis-header">
+              <span class="thesis-badge" data-i18n="thesis.draft"><!-- i18n: thesis draft --></span>
+              <span class="thesis-date">2026.03.08</span>
+            </div>
+            <h3 data-i18n="thesisSaccharomyces.title"><!-- i18n: thesis saccharomyces title --></h3>
+            <p class="thesis-abstract" data-i18n="thesisSaccharomyces.abstract"><!-- i18n: thesis saccharomyces abstract --></p>
+            <div class="thesis-actions">
+              <a href="../static/resources/bio/saccharomyces.pdf" class="button button-outline" target="_blank" data-i18n="viewDraft">查看草稿</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="hero-interactive">
+      <div class="interactive-content">
+        <div class="interactive-image">
+          <img src="../static/resources/bio/agrobacterium.jpg" alt="农杆菌转化示意图" loading="lazy">
+          <div class="image-frame"></div>
+        </div>
+        <div class="interactive-text">
+          <h1 data-i18n="interactive.title"><!-- i18n: interactive title --></h1>
+          <p class="interactive-desc" data-i18n="interactive.desc"><!-- i18n: interactive desc --></p>
+          <a class="button button-large" href="gene.html" data-i18n="interactive.button"><!-- i18n: interactive button --></a>
+        </div>
+      </div>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

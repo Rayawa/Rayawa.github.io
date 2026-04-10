@@ -144,7 +144,7 @@
         <section class="card" aria-labelledby="title404">
             <h1 id="title404" data-i18n="title"><!-- i18n: 404 title --></h1>
             <div class="lang-block">
-                <img src="static/cn.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
+                <img src="static/resources/cn.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
                 <strong data-i18n="label"><!-- i18n: paradox label --></strong>
                 <p data-i18n="text"><!-- i18n: paradox text --></p>
             </div>
@@ -167,7 +167,7 @@
         var flagMap = { zh: 'cn.svg', en: 'uk.svg', fr: 'fr.svg' };
         var flagEl = document.querySelector('.lang-block .lang-flag');
         function updateFlag(lang) {
-            if (flagEl && flagMap[lang]) flagEl.src = 'static/' + flagMap[lang];
+            if (flagEl && flagMap[lang]) flagEl.src = 'static/resources/' + flagMap[lang];
         }
         document.querySelectorAll('.lang-switch-inline .lang-btn').forEach(function(btn) {
             btn.addEventListener('click', function() { updateFlag(btn.dataset.lang); });
