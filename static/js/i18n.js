@@ -11,8 +11,8 @@ window.SITE_I18N = {
         hero: {
             title: '你好，我是 <span class="gradient-text">Ray</span>',
             intro: '通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者',
-            core: '专注 HarmonyOS 应用开发与 Hi3861 嵌入式实践。',
-            side: 'Web构建、Difficult Rocket 与 Minecraft 模组开发、生物学相关研究。',
+            core: '目前专注HarmonyOS应用开发与Hi3861嵌入式实践。',
+            side: 'Web构建、Difficult Rocket与Minecraft模组开发、生物学相关研究。',
             photo: '风景摄影与无人机航拍，用快门捕捉通信之外的频率。',
             life: "J'apprends le français，跑步骑行中，也在提瓦特、塔卫二与罗德岛切换；音游节奏在线，每天赚费沉底石头人（）。",
             tag: { core: '核心', side: '支线', photo: '摄影', life: '生活' },
@@ -41,6 +41,7 @@ window.SITE_I18N = {
             title: '我的链接',
             subtitle: '在公开平台持续输出，也在协作中持续成长。',
             bili: { title: 'Bilibili', desc: '摄影作品与项目更新进度' },
+            biliGame: { title: 'Bilibili', desc: '游戏与日常' },
             github: { title: 'GitHub', desc: '代码与仓库入口' },
             xhs: { title: '小红书', desc: '我的全部摄影作品' },
         },
@@ -76,18 +77,15 @@ window.SITE_I18N = {
         },
         project: {
             hmdb: { title: '华为应用市场看板', desc: ' Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……', award: '开放原子大赛三等奖作品' },
-            bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（' },
+            bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（' },
             spm: { title: 'Sweet Potato Mod', desc: '农业与魔法的完美结合！<br>与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。<br>这是我最早的项目之一，不过好久没有维护了。' },
             ohos: { title: 'OpenHarmony Hi3861', desc: '基于OpenHarmony Hi3861开发板的嵌入式开发实践。<br>除了小时候玩的Arduino之外的第一个正经嵌入式开发项目，正在探索中……' },
-            dr: { title: 'Difficlut Rocket（协作开发）', desc: '主要是@shenjack的项目，我就是过来玩玩的（不是。' },
+            dr: { title: 'Difficlut Rocket（协作开发）', desc: '主要是@shenjack的项目，我就是过来玩玩的（不是）。<br>一个用Python制作的类Simple Rocket游戏（简称：火箭模拟器）。相对于原版SR，它更加轻量。' },
             idv: { title: '第五人格，启动！', desc: '当年和秀秀打人类排位到六阶搓出来的网页，页面还要很多很多bug也不管了，放在这里留个纪念（' },
             xiaodou: { title: '小豆英语启蒙', desc: '占位文本占位文本占位文本占位文本' },
             hlm: { title: '红楼梦剧组', desc: '2023年底的翻拍《寿怡红群芳开夜宴》项目的活动，作为导演摄影和剪辑（这么看也算是“全栈开发”了）产出的一些文件。' },
             whn: { title: 'whn生日', desc: '2024/11/11 好男将的生日会项目，非常难忘的一段经历，从分镜到拍摄再到剪辑，最后的效果还挺好的！' },
             thesis: { title: '学校论文', desc: '学校各种课程要求写的各种大作业或者结课论文，大部分都很水而且没啥用。' },
-            prion: { title: '朊病毒蛋白猜想', desc: '探讨高度特化生物中蛋白质作为遗传因子的可能性，提出创新性假设。' },
-            c3: { title: 'C3植物光合作用', desc: '系统综述C3植物光合作用机制，分析光反应与暗反应的协同作用。' },
-            saccharomyces: { title: '酿酒酵母研究', desc: '橙色平板实验记录与分析，探索酵母菌在不同条件下的生长特性。' },
             xxh: { title: 'xxh的情感契合度测试', desc: '同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。' },
         },
         tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试', wip: '施工中' },
@@ -96,9 +94,9 @@ window.SITE_I18N = {
 <p>我目前就读于北方工业大学通信工程专业，但投入精力最多的是软件开发。目前正持续推进的核心项目是HarmonyOS平台的鸿蒙应用看板App，项目已进入邀请测试阶段，并计划开始后续macOS与Android平台的跨开发。</p>
 <p>除了软件层面，我还在学习OpenHarmony Hi3861嵌入式开发。对我来说，这不只是在调硬件，更是为了从底层逻辑上把设备侧的能力和系统工程彻底摸透。</p>
 <p>我参与开源协作：在Sweet Potato Mod中与@teddyxlandlee配合，在Difficult Rocket项目中与@shenjackyuanjie协作；我的Minecraft Java ID 是Rayawa。对我来说，参与协作不仅是提交代码，更是与不同背景的开发者对齐工程标准与沟通方式的过程。</p>
-<p>在我比较感兴趣的生物学领域，我带领过高中开创首届的PCR实验，把高等的实验内容带到了高中课堂，我和同学撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去实现生物学教学的小工具非常有意思，未来也想往生物信息学方向探路。</p>
-<p>在网页开发上，我先后搭建了个人网站、模组站、第五人格站及农杆菌转化法实验站点；程序方面涉猎 C、C++、Java、Rust、HTML、ArkTS、Swift与openGauss数据库。我不太喜欢死学，更倾向于在产品做出来、算法想通了、工程讲清楚了这三者之间找个舒服的平衡点。</p>
-<p>平时我喜欢跑步和骑行，相机和无人机也是出门必备。我觉得摄影的乐趣不止在最后的出片，换个视角去构图、尝试用不同的叙事风格、在原来的基础上做出创新……这种创作过程十分有乐趣。</p>
+<p>在我比较感兴趣的生物学领域，我带领过高中开创首届的PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇我感兴趣话题的小论文，还和同学撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去实现生物学教学的小工具非常有意思，未来也想往生物信息学方向探路。</p>
+<p>在网页开发上，我搭建了个人网站、模组站、第五人格站及农杆菌转化法实验站点；程序方面涉猎 C、C++、Java、Rust、HTML、ArkTS、Swift与openGauss数据库。我不太喜欢死学，更倾向于在产品做出来、算法想通了、工程讲清楚了这三者之间找个舒服的平衡点。</p>
+<p>平时我喜欢跑步和骑行，相机和无人机也是出门必备。我觉得摄影的乐趣不止在最后的出片，换个视角去构图、尝试用不同的叙事风格、在原来的基础上做出创新……这种创作过程十分有乐趣。我原来有小号六级证书但是很明显现在不会吹了（），初中的时候自己学了钢琴现在能弹一点点曲子。我还很喜欢玩魔方，最喜欢的就是四阶，其次就是五魔方。</p>
 <p>游戏方面，我是Minecraft的老玩家，也是一名"原学家"（大概），近期正在玩明日方舟和终末地；我同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline等音游；在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）与若干B牌（虽然目前已退游）；皇室战争中我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
 <p>最近我也在学习法语。 从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>`,
             statusCard: `<h3 class="status-card-title">现在进行时</h3>
@@ -208,6 +206,7 @@ window.SITE_I18N = {
             title: 'My Links',
             subtitle: 'Public output, open collaboration, steady growth.',
             bili: { title: 'Bilibili', desc: 'Photography and project update logs' },
+            biliGame: { title: 'Bilibili', desc: 'Gaming and daily life' },
             github: { title: 'GitHub', desc: 'Code, repos, and ongoing work' },
             xhs: { title: 'Xiaohongshu', desc: 'Full photography collection' },
         },
@@ -378,6 +377,7 @@ window.SITE_I18N = {
             title: 'Mes liens',
             subtitle: 'Publier en public, collaborer en ouvert, progresser sans pause.',
             bili: { title: 'Bilibili', desc: 'Photos et journal de progression projet' },
+            biliGame: { title: 'Bilibili', desc: 'Jeux et quotidien' },
             github: { title: 'GitHub', desc: 'Code, depots et chantiers en cours' },
             xhs: { title: 'Xiaohongshu', desc: 'Collection photo complete' },
         },

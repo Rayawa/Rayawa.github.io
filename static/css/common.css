@@ -140,6 +140,11 @@ section,
     transform: translateY(0);
 }
 
+.navbar.navbar-leaving {
+    opacity: 0;
+    transition: opacity 0.18s ease;
+}
+
 .navbar.scrolled {
     padding: 1rem 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -363,6 +368,18 @@ section,
 .fab-btn:active {
     transform: translateY(-1px) scale(0.97);
     transition-duration: 0.1s;
+}
+
+.fab-btn:focus {
+    outline: none;
+}
+
+.fab-btn:focus:not(:focus-visible) {
+    background: rgba(15, 23, 42, 0.72);
+    border-color: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.85);
+    transform: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .fab-btn.is-hidden {
@@ -644,6 +661,13 @@ section,
     .fab-btn:active {
         transform: scale(0.92);
         background: rgba(99, 102, 241, 0.7);
+        transition-duration: 0.08s;
+    }
+
+    .fab-btn.is-hidden {
+        transform: translateY(12px) scale(0.85);
+        opacity: 0;
+        pointer-events: none;
     }
 
     .glass-card:active {

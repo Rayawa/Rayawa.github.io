@@ -360,7 +360,24 @@ function initFloatingTools() {
     });
 
     topBtn.addEventListener('click', function() {
+        topBtn.classList.add('is-hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(function() {
+            topBtn.blur();
+        }, 100);
+        var checkScroll = function() {
+            if (window.scrollY <= 10) {
+                topBtn.classList.remove('is-hidden');
+                window.removeEventListener('scroll', checkScroll);
+            }
+        };
+        window.addEventListener('scroll', checkScroll, { passive: true });
+        setTimeout(function() {
+            window.removeEventListener('scroll', checkScroll);
+            if (window.scrollY > 260) {
+                topBtn.classList.remove('is-hidden');
+            }
+        }, 1500);
     });
 
     var scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
@@ -506,8 +523,8 @@ function initPageEntrance() {
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
                 if (mainEl) mainEl.classList.add('is-visible');
-                overlay.style.animation = 'pageOverlayOut 0.35s ease forwards';
-                setTimeout(function() { overlay.remove(); }, 400);
+                overlay.style.animation = 'pageOverlayOut 0.4s ease forwards';
+                setTimeout(function() { overlay.remove(); }, 450);
             });
         });
         return;
@@ -597,6 +614,12 @@ function initPageLeaveTransitions() {
 
         e.preventDefault();
 
+        var pageEl = document.querySelector('.page') || document.querySelector('.wrap');
+        if (pageEl) pageEl.classList.add('page-leaving');
+
+        var navbar = document.querySelector('.navbar');
+        if (navbar) navbar.classList.add('navbar-leaving');
+
         var overlay = document.createElement('div');
         overlay.className = 'page-transition-overlay';
         document.body.appendChild(overlay);
@@ -605,7 +628,7 @@ function initPageLeaveTransitions() {
 
         setTimeout(function() {
             window.location.href = destination.href;
-        }, 280);
+        }, 300);
     });
 }
 

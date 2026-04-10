@@ -1,24 +1,39 @@
 .page {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 6rem clamp(1.2rem, 4vw, 2.5rem) 4rem;
+    padding: 8rem clamp(1.2rem, 4vw, 2.5rem) 4rem;
 }
 
 .hero-card {
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    padding: 2.5rem;
-    margin-bottom: 2rem;
+    position: relative;
+    margin-bottom: 3.5rem;
+    padding: 0;
+    border: none;
+    background: none;
+    backdrop-filter: none;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
 }
 
 .hero-card h1 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
     margin-bottom: 1rem;
     color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    font-weight: 700;
 }
 
 .hero-card h2 {
@@ -28,8 +43,25 @@
 }
 
 .hero-card p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    max-width: 680px;
+}
+
+.hero-card::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-top: 2rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.hero-card .button-row ~ ::after,
+.hero-card:has(.button-row)::after {
+    display: none;
 }
 
 .card-grid {
@@ -79,6 +111,10 @@
     padding: 0.75rem 0.9rem;
     font-weight: 600;
     transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .button {
@@ -135,7 +171,7 @@
     }
 
     .hero-card h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .hero-card h2 {
@@ -154,11 +190,7 @@
 
 @media (max-width: 540px) {
     .page {
-        padding: 4.5rem clamp(1rem, 4vw, 1.5rem) 2rem;
-    }
-
-    .hero-card {
-        padding: 1.2rem;
+        padding: 6rem clamp(1rem, 4vw, 1.5rem) 2rem;
     }
 
     .button-row {
@@ -181,12 +213,18 @@
 .page-entering {
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .page-entering.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.page-leaving {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
 .card-image {
@@ -652,6 +690,102 @@
     margin-top: auto;
 }
 
+/* ===== PDF Modal ===== */
+
+.pdf-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.pdf-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pdf-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.2rem;
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.pdf-modal-title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.pdf-modal-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.pdf-ctrl-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.pdf-ctrl-btn:hover {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #fff;
+}
+
+.pdf-close-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.5);
+}
+
+.pdf-page-info {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'JetBrains Mono', monospace;
+    min-width: 60px;
+    text-align: center;
+}
+
+.pdf-modal-body {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pdf-modal-body canvas {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
 @media (max-width: 900px) {
     .interactive-content {
         grid-template-columns: 1fr;
@@ -676,6 +810,10 @@
 
     .thesis-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pdf-modal-title {
+        max-width: 150px;
     }
 }
 
@@ -711,5 +849,17 @@
     .button-large {
         width: 100%;
         justify-content: center;
+    }
+
+    .pdf-modal-header {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .pdf-modal-title {
+        display: none;
+    }
+
+    .pdf-modal-body {
+        padding: 0.8rem;
     }
 }
