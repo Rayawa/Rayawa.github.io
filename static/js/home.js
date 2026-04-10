@@ -923,30 +923,15 @@ function initParticleMagnetEffect() {
 
 function initHeroStarInteraction() {
     const star = document.getElementById('heroStar');
-    const quote = document.querySelector('.avatar-quote');
-    if (!star || !quote) return;
+    if (!star) return;
 
-    let visible = true;
-
-    function syncState() {
-        quote.classList.toggle('is-hidden', !visible);
-        star.classList.toggle('is-active', visible);
-    }
-
-    function toggle() {
-        visible = !visible;
-        syncState();
-    }
-
-    star.addEventListener('click', toggle);
-    star.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggle();
-        }
+    star.addEventListener('mouseenter', function() {
+        star.classList.add('is-hovered');
     });
 
-    syncState();
+    star.addEventListener('mouseleave', function() {
+        star.classList.remove('is-hovered');
+    });
 }
 
 function initAwardLinks() {

@@ -74,6 +74,8 @@ window.SITE_I18N = {
             projects: '项目',
             copy: '&copy; 2026 Ray Chen. All rights reserved.',
             description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+            thanks: '致谢',
+            thanksLink: '查看致谢',
         },
         project: {
             hmdb: { title: '华为应用市场看板', desc: ' Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……', award: '开放原子大赛三等奖作品' },
@@ -239,6 +241,8 @@ window.SITE_I18N = {
             projects: 'Projects',
             copy: '&copy; 2026 Ray Chen. All rights reserved.',
             description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+            thanks: 'Acknowledgements',
+            thanksLink: 'View Acknowledgements',
         },
         project: {
             hmdb: { title: 'HmDashboard', desc: ' Powered by Shenjack!<br>A full-stack project that fetches, processes, analyzes, and displays all app and meta-service data from the HarmonyOS AppGallery.<br>I mainly work on the frontend web development and software development. Current main project, continuously updating…', award: 'Third Prize, OpenAtom Competition' },
@@ -410,6 +414,8 @@ window.SITE_I18N = {
             projects: 'Projets',
             copy: '&copy; 2026 Ray Chen. Tous droits reserves.',
             description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+            thanks: 'Remerciements',
+            thanksLink: 'Voir les remerciements',
         },
         project: {
             hmdb: { title: 'HmDashboard', desc: " Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…", award: 'Troisième prix, concours OpenAtom' },
