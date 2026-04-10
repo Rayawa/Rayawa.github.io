@@ -40,8 +40,8 @@ window.SITE_I18N = {
         social: {
             title: '我的链接',
             subtitle: '在公开平台持续输出，也在协作中持续成长。',
-            bili: { title: 'Bilibili', desc: '摄影作品与项目更新进度' },
-            biliGame: { title: 'Bilibili', desc: '游戏与日常' },
+            bili: { title: 'Bilibili (Rayawa)', desc: '摄影作品与项目更新进度' },
+            biliGame: { title: 'Bilibili (Ray汐)', desc: '游戏与日常' },
             github: { title: 'GitHub', desc: '代码与仓库入口' },
             xhs: { title: '小红书', desc: '我的全部摄影作品' },
         },
@@ -279,8 +279,8 @@ window.SITE_I18N = {
         social: {
             title: 'My Links',
             subtitle: 'Public output, open collaboration, steady growth.',
-            bili: { title: 'Bilibili', desc: 'Photography and project update logs' },
-            biliGame: { title: 'Bilibili', desc: 'Gaming and daily life' },
+            bili: { title: 'Bilibili (Rayawa)', desc: 'Photography and project update logs' },
+            biliGame: { title: 'Bilibili (Ray汐)', desc: 'Gaming and daily life' },
             github: { title: 'GitHub', desc: 'Code, repos, and ongoing work' },
             xhs: { title: 'Xiaohongshu', desc: 'Full photography collection' },
         },
@@ -521,8 +521,8 @@ window.SITE_I18N = {
         social: {
             title: 'Mes liens',
             subtitle: 'Publier en public, collaborer en ouvert, progresser sans pause.',
-            bili: { title: 'Bilibili', desc: 'Photos et journal de progression projet' },
-            biliGame: { title: 'Bilibili', desc: 'Jeux et quotidien' },
+            bili: { title: 'Bilibili (Rayawa)', desc: 'Photos et journal de progression projet' },
+            biliGame: { title: 'Bilibili (Ray汐)', desc: 'Jeux et quotidien' },
             github: { title: 'GitHub', desc: 'Code, depots et chantiers en cours' },
             xhs: { title: 'Xiaohongshu', desc: 'Collection photo complete' },
         },
