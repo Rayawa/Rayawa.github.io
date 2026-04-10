@@ -572,7 +572,7 @@ function initSubpageReveal() {
     var isSubpage = !document.getElementById('loadingScreen');
     if (!isSubpage) return;
 
-    var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list, .pcr-lab, .thesis-archive, .hero-interactive, .thesis-featured, .thesis-grid, .section-header');
+    var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list, .pcr-lab, .thesis-archive, .hero-interactive, .thesis-featured, .thesis-grid, .section-header, .thanks-group');
     if (!items.length) return;
 
     items.forEach(function(el, idx) {
