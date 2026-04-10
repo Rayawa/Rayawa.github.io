@@ -1,0 +1,104 @@
+window.SITE_I18N = {
+    zh: {
+        nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
+        navTitle: '致谢',
+        pageTitle: '致谢 | Ray Chen',
+        back: '返回主页',
+        refresh: '刷新页面',
+        top: '回到顶部',
+        title: '致谢',
+        desc: '感谢每一位在我成长路上给予帮助与启发的人。',
+        groups: {
+            family: '父母、我的所有亲属',
+            teacher: {
+                title: '老师',
+                content: '<div class="thanks-sub"><span class="thanks-label">大学</span>高等数学张老师、鸿蒙开发王老师、英语牟老师</div><div class="thanks-sub"><span class="thanks-label">高中</span>班主任王老师、班主任孙老师、生物学贾老师与甄老师、化学肖老师、英语王老师、数学时老师与司老师、地理王老师</div><div class="thanks-sub"><span class="thanks-label">初中</span>班主任吕老师、班主任张老师</div><div class="thanks-sub"><span class="thanks-label">小学</span>班主任郭老师、科学课武老师、模拟飞行薛老师</div>'
+            },
+            classmate: {
+                title: '同学',
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>Andy、bzy、秀秀、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
+            },
+            special: 'Tracy (Serenity清霁)、颜、yxh',
+            collab: {
+                title: '项目合作',
+                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、贡献开源项目的所有人'
+            },
+            tech: {
+                title: '技术',
+                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">设备</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LOGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">软件</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, 网易云音乐, ToDesk, 微信, QQ, 幕布</div>'
+            },
+            life: {
+                title: '生活',
+                content: 'GAN Cube、SPECIALIZED Tarmac SL6<br>生活平安稳定和充满发展机遇的中国、所有为社会作出贡献的人们、北京119（救过我的命（不是<br>以及 发现这个菜单并正在读这里的你'
+            }
+        }
+    },
+    en: {
+        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        navTitle: 'Acknowledgements',
+        pageTitle: 'Acknowledgements | Ray Chen',
+        back: 'Back to Home',
+        refresh: 'Refresh',
+        top: 'Back to top',
+        title: 'Acknowledgements',
+        desc: 'Thank you to everyone who has helped and inspired me along the way.',
+        groups: {
+            family: 'My parents, all my relatives',
+            teacher: {
+                title: 'Teachers',
+                content: '<div class="thanks-sub"><span class="thanks-label">University</span>Advanced Mathematics - Prof. Zhang, HarmonyOS Development - Prof. Wang, English - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">High School</span>Homeroom - Prof. Wang, Homeroom - Prof. Sun, Biology - Prof. Jia & Prof. Zhen, Chemistry - Prof. Xiao, English - Prof. Wang, Mathematics - Prof. Shi & Prof. Si, Geography - Prof. Wang</div><div class="thanks-sub"><span class="thanks-label">Middle School</span>Homeroom - Prof. Lv, Homeroom - Prof. Zhang</div><div class="thanks-sub"><span class="thanks-label">Primary School</span>Homeroom - Prof. Guo, Science - Prof. Wu, Flight Simulation - Prof. Xue</div>'
+            },
+            classmate: {
+                title: 'Classmates',
+                content: '<div class="thanks-sub"><span class="thanks-label">Yiwu Society</span>zrq, hjz, lzq, ljy, wth, jdh, wyx, yyzy, zxy</div><div class="thanks-sub"><span class="thanks-label">Good Friends</span>Andy, bzy, Xiuxiu, ywx, lxr, wjy, ydx, lmd, lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh, rjp, ldy, ddk</div>'
+            },
+            special: 'Tracy (Serenity), Yan, yxh',
+            collab: {
+                title: 'Project Collaborators',
+                content: 'shenjack, teddyxlandlee, tianxiu2b2t, Xiaoxiao, and everyone who contributes to open source'
+            },
+            tech: {
+                title: 'Technology',
+                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Devices</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LOGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Software</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
+            },
+            life: {
+                title: 'Life',
+                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>China, where life is peaceful, stable, and full of opportunities; all those who contribute to society; Beijing 119 (saved my life (jk<br>And you, who found this menu and are reading this right now'
+            }
+        }
+    },
+    fr: {
+        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        navTitle: 'Remerciements',
+        pageTitle: 'Remerciements | Ray Chen',
+        back: "Retour à l'accueil",
+        refresh: 'Rafraîchir',
+        top: 'Retour en haut',
+        title: 'Remerciements',
+        desc: 'Merci à tous ceux qui m\'ont aidé et inspiré sur mon chemin.',
+        groups: {
+            family: 'Mes parents, tous mes proches',
+            teacher: {
+                title: 'Professeurs',
+                content: '<div class="thanks-sub"><span class="thanks-label">Université</span>Mathématiques supérieures - Prof. Zhang, Développement HarmonyOS - Prof. Wang, Anglais - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">Lycée</span>Prof. principal Wang, Prof. principal Sun, Biologie - Prof. Jia & Prof. Zhen, Chimie - Prof. Xiao, Anglais - Prof. Wang, Mathématiques - Prof. Shi & Prof. Si, Géographie - Prof. Wang</div><div class="thanks-sub"><span class="thanks-label">Collège</span>Prof. principal Lv, Prof. principal Zhang</div><div class="thanks-sub"><span class="thanks-label">École primaire</span>Prof. principal Guo, Sciences - Prof. Wu, Simulation de vol - Prof. Xue</div>'
+            },
+            classmate: {
+                title: 'Camarades',
+                content: '<div class="thanks-sub"><span class="thanks-label">Société Yiwu</span>zrq, hjz, lzq, ljy, wth, jdh, wyx, yyzy, zxy</div><div class="thanks-sub"><span class="thanks-label">Bons amis</span>Andy, bzy, Xiuxiu, ywx, lxr, wjy, ydx, lmd, lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh, rjp, ldy, ddk</div>'
+            },
+            special: 'Tracy (Serenity), Yan, yxh',
+            collab: {
+                title: 'Collaborateurs de projet',
+                content: 'shenjack, teddyxlandlee, tianxiu2b2t, Xiaoxiao, et tous ceux qui contribuent à l\'open source'
+            },
+            tech: {
+                title: 'Technologie',
+                content: '<div class="thanks-sub"><span class="thanks-label">IA</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Appareils</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LOGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Logiciels</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
+            },
+            life: {
+                title: 'Vie',
+                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>La Chine, où la vie est paisible, stable et pleine d\'opportunités ; tous ceux qui contribuent à la société ; Beijing 119 (m\'a sauvé la vie (non<br>Et vous, qui avez trouvé ce menu et lisez ceci en ce moment'
+            }
+        }
+    }
+};
