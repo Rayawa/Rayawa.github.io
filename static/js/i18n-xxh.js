@@ -2,6 +2,7 @@ window.SITE_I18N = {
     zh: {
         nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
         navTitle: 'XXH测试',
+        pageTitle: 'XXH测试 | Ray Chen',
         heroTitle: '情感契合度测试',
         heroDesc: '两轮答题全程互不可见，三大维度权重：价值观40% + 生活方式40% + 附加测试20%，满分100分。',
         startBtn: '开始测试',
@@ -64,6 +65,7 @@ window.SITE_I18N = {
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'XXH Test',
+        pageTitle: 'XXH Test | Ray Chen',
         heroTitle: 'Relationship Compatibility Test',
         heroDesc: 'Two rounds of answers are invisible to each other. Three dimensions: Values 40% + Lifestyle 40% + Additional 20%, max 100 points.',
         startBtn: 'Start Test',
@@ -126,6 +128,7 @@ window.SITE_I18N = {
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Test XXH',
+        pageTitle: 'Test XXH | Ray Chen',
         heroTitle: 'Test de compatibilité amoureuse',
         heroDesc: 'Deux tours de réponses invisibles l\'un à l\'autre. Trois dimensions : Valeurs 40% + Mode de vie 40% + Supplémentaire 20%, max 100 points.',
         startBtn: 'Commencer',

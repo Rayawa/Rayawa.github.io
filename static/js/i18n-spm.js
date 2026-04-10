@@ -2,6 +2,7 @@ window.SITE_I18N = {
     zh: {
         nav: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
         navTitle: 'Sweet Potato Mod',
+        pageTitle: 'Sweet Potato Mod | Ray Chen',
         refresh: '刷新页面',
         top: '回到顶部',
         back: '返回主页',
@@ -36,6 +37,7 @@ window.SITE_I18N = {
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
+        pageTitle: 'Sweet Potato Mod | Ray Chen',
         refresh: 'Refresh',
         top: 'Back to top',
         back: 'Back to Home',
@@ -70,6 +72,7 @@ window.SITE_I18N = {
     fr: {
         nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
+        pageTitle: 'Sweet Potato Mod | Ray Chen',
         refresh: 'Rafraichir',
         top: 'Retour en haut',
         back: "Retour a l'accueil",

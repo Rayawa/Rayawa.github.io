@@ -428,8 +428,8 @@ function setLocale(lang, opts) {
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    if (i18n.navTitle) {
-        document.title = i18n.navTitle + ' | Ray Chen';
+    if (i18n.pageTitle) {
+        document.title = i18n.pageTitle;
     }
     window.dispatchEvent(new CustomEvent('localechange', { detail: { lang: lang } }));
 }

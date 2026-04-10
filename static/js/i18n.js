@@ -1,5 +1,6 @@
 window.SITE_I18N = {
     zh: {
+        pageTitle: '首页 | Ray Chen',
         sending: '发送中...',
         sent: '消息发送成功！我会尽快回复您。',
         sendFailed: '发送失败，请稍后重试。',
@@ -162,6 +163,7 @@ window.SITE_I18N = {
         },
     },
     en: {
+        pageTitle: 'Home | Ray Chen',
         sending: 'Sending...',
         sent: 'Message sent successfully. I will reply soon.',
         sendFailed: 'Failed to send. Please try again later.',
@@ -328,6 +330,7 @@ window.SITE_I18N = {
         },
     },
     fr: {
+        pageTitle: 'Accueil | Ray Chen',
         sending: 'Envoi...',
         sent: 'Message envoye. Je vous repondrai bientot.',
         sendFailed: "Echec de l envoi. Veuillez reessayer plus tard.",
