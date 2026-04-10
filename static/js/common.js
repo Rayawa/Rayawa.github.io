@@ -2,26 +2,24 @@ function initParticles() {
     if (typeof particlesJS === 'undefined') return;
     var el = document.getElementById('particles-js');
     if (!el) return;
-    var isSubpage = !document.getElementById('loadingScreen');
     var isMobile = window.innerWidth <= 900;
-    var baseCount = isSubpage ? 50 : 72;
     particlesJS('particles-js', {
         particles: {
-            number: { value: isMobile ? Math.floor(baseCount * 0.5) : baseCount, density: { enable: true, value_area: isMobile ? 600 : (isSubpage ? 1000 : 950) } },
+            number: { value: isMobile ? 35 : 72, density: { enable: true, value_area: isMobile ? 600 : 950 } },
             color: { value: '#6366f1' },
             shape: { type: 'circle' },
-            opacity: { value: isSubpage ? 0.35 : 0.42, random: true },
-            size: { value: isSubpage ? 2.8 : 3.2, random: true },
+            opacity: { value: 0.42, random: true },
+            size: { value: 3.2, random: true },
             line_linked: {
                 enable: true,
                 distance: isMobile ? 110 : 140,
                 color: '#6366f1',
-                opacity: isSubpage ? 0.12 : 0.15,
+                opacity: 0.15,
                 width: 1,
             },
             move: {
                 enable: true,
-                speed: isMobile ? 0.7 : (isSubpage ? 1.0 : 1.2),
+                speed: isMobile ? 0.8 : 1.2,
                 direction: 'none',
                 random: true,
                 straight: false,

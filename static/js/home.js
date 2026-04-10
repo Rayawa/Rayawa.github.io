@@ -222,51 +222,6 @@ function initLanguageSwitcher() {
     });
 }
 
-function initParticles() {
-    if (typeof particlesJS !== 'function') return;
-    var isMobile = window.innerWidth <= 900;
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: isMobile ? 35 : 72, density: { enable: true, value_area: isMobile ? 600 : 950 } },
-            color: { value: '#6366f1' },
-            shape: { type: 'circle' },
-            opacity: { value: 0.42, random: true },
-            size: { value: 3.2, random: true },
-            line_linked: {
-                enable: true,
-                distance: isMobile ? 110 : 140,
-                color: '#6366f1',
-                opacity: 0.15,
-                width: 1,
-            },
-            move: {
-                enable: true,
-                speed: isMobile ? 0.8 : 1.2,
-                direction: 'none',
-                random: true,
-                straight: false,
-                out_mode: 'out',
-                bounce: false,
-            },
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onhover: { enable: true, mode: 'grab' },
-                onclick: { enable: true, mode: 'push' },
-            },
-            modes: {
-                grab: {
-                    distance: 210,
-                    line_linked: {
-                        opacity: 0.45,
-                    },
-                },
-            },
-        },
-    });
-}
-
 function initNavbarScroll() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
