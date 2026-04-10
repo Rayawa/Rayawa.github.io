@@ -123,17 +123,17 @@
 
 .floating-elements {
     position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
+    top: -24px;
+    right: -24px;
+    width: 110px;
+    height: 110px;
     background: var(--secondary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2rem;
+    font-size: 2.2rem;
     animation: float 6s ease-in-out infinite 1s;
     box-shadow: var(--shadow);
     cursor: pointer;
