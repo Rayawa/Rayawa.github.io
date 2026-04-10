@@ -375,19 +375,36 @@ a.skill-link {
     gap: 2rem;
 }
 
-.other-projects {
+.projects-group {
     margin-top: 3rem;
-    text-align: left;
 }
 
-.other-projects-title {
+.projects-group:first-of-type {
+    margin-top: 2rem;
+}
+
+.projects-group-header {
+    margin-bottom: 1.5rem;
+}
+
+.projects-group-title {
     color: var(--primary);
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 700;
     letter-spacing: 0.02em;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    margin-bottom: 0.4rem;
+}
+
+.projects-group-desc {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.projects-grid-compact {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
 }
 
 .project-card.project-card-text {
@@ -400,6 +417,38 @@ a.skill-link {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.project-card.project-card-mini {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-card.project-card-mini:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.project-card.project-card-mini .project-content {
+    padding: 1.2rem 1.4rem;
+}
+
+.project-card.project-card-mini .project-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+}
+
+.project-card.project-card-mini .project-description {
+    margin-bottom: 0;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .project-card {
@@ -506,21 +555,21 @@ a.skill-link {
 }
 
 .tag {
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--primary);
-    padding: 0.25rem 0.75rem;
+    background: rgba(99, 102, 241, 0.15);
+    color: rgba(165, 180, 252, 0.9);
+    padding: 0.2rem 0.65rem;
     border-radius: 20px;
-    font-size: 0.875rem;
+    font-size: 0.78rem;
     font-weight: 500;
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.2);
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .tag-wip {
-    background: rgba(251, 191, 36, 0.15) !important;
+    background: rgba(251, 191, 36, 0.12) !important;
     color: #fbbf24 !important;
-    border-color: rgba(251, 191, 36, 0.35) !important;
+    border-color: rgba(251, 191, 36, 0.25) !important;
     animation: wip-pulse 2s ease-in-out infinite;
 }
 
