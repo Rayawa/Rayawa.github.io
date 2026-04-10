@@ -948,6 +948,23 @@
         renderLanding();
       }
     });
+
+    window.addEventListener('beforeunload', function (e) {
+      if (state.phase === 'round1' || state.phase === 'round2') {
+        e.preventDefault();
+      }
+    });
+
+    window.addEventListener('xxh-refresh-check', function (e) {
+      if (state.phase === 'round1' || state.phase === 'round2') {
+        var lang = getLang();
+        var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+        var msg = i18n.confirmRefresh || 'Current answers will be lost. Are you sure you want to refresh?';
+        if (!window.confirm(msg)) {
+          e.detail && e.detail.cancel && e.detail.cancel();
+        }
+      }
+    });
   }
 
   if (document.readyState === 'loading') {

@@ -517,6 +517,18 @@ a.skill-link {
     flex-shrink: 0;
 }
 
+.tag-wip {
+    background: rgba(251, 191, 36, 0.15) !important;
+    color: #fbbf24 !important;
+    border-color: rgba(251, 191, 36, 0.35) !important;
+    animation: wip-pulse 2s ease-in-out infinite;
+}
+
+@keyframes wip-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
 .tag.tag-award {
     display: inline-flex;
     align-items: center;
