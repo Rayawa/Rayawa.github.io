@@ -9,7 +9,10 @@ window.SITE_I18N = {
         title: '致谢',
         desc: '感谢每一位在我成长路上给予帮助与启发的人。',
         groups: {
-            family: '父母、我的所有亲属',
+            family: {
+                title: '家庭',
+                content: '<div class="thanks-sub">父母</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. 与我的所有亲属</div>'
+            },
             teacher: {
                 title: '老师',
                 content: '<div class="thanks-sub"><span class="thanks-label">大学</span>高等数学张老师、鸿蒙开发王老师、英语牟老师</div><div class="thanks-sub"><span class="thanks-label">高中</span>班主任王老师、班主任孙老师、生物学贾老师与甄老师、化学肖老师、英语王老师、数学时老师与司老师、地理王老师</div><div class="thanks-sub"><span class="thanks-label">初中</span>班主任吕老师、班主任张老师</div><div class="thanks-sub"><span class="thanks-label">小学</span>班主任郭老师、科学课武老师、模拟飞行薛老师</div>'
@@ -18,7 +21,10 @@ window.SITE_I18N = {
                 title: '同学',
                 content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>Andy、bzy、秀秀、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
-            special: 'Tracy (Serenity清霁)、颜、yxh',
+            special: {
+                title: '特别致谢',
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
+            },
             collab: {
                 title: '项目合作',
                 content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、贡献开源项目的所有人'
@@ -29,7 +35,7 @@ window.SITE_I18N = {
             },
             life: {
                 title: '生活',
-                content: 'GAN Cube、SPECIALIZED Tarmac SL6<br>生活平安稳定和充满发展机遇的中国、所有为社会作出贡献的人们、北京119（救过我的命（不是<br>以及 发现这个菜单并正在读这里的你'
+                content: 'GAN Cube、SPECIALIZED Tarmac SL6<br>生活平安稳定和充满发展机遇的中国、所有为社会作出贡献的人们、北京119（救过我的命（不是<br>以及 发现这个彩蛋页面并读到这里的你'
             }
         }
     },
@@ -43,7 +49,10 @@ window.SITE_I18N = {
         title: 'Acknowledgements',
         desc: 'Thank you to everyone who has helped and inspired me along the way.',
         groups: {
-            family: 'My parents, all my relatives',
+            family: {
+                title: 'Family',
+                content: '<div class="thanks-sub">My parents</div><div class="thanks-sub">Qinghe, Shifu, neurodong, Dr. Lv</div><div class="thanks-sub">Charles, Ziwei, Feng, L.E. and all my relatives</div>'
+            },
             teacher: {
                 title: 'Teachers',
                 content: '<div class="thanks-sub"><span class="thanks-label">University</span>Advanced Mathematics - Prof. Zhang, HarmonyOS Development - Prof. Wang, English - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">High School</span>Homeroom - Prof. Wang, Homeroom - Prof. Sun, Biology - Prof. Jia & Prof. Zhen, Chemistry - Prof. Xiao, English - Prof. Wang, Mathematics - Prof. Shi & Prof. Si, Geography - Prof. Wang</div><div class="thanks-sub"><span class="thanks-label">Middle School</span>Homeroom - Prof. Lv, Homeroom - Prof. Zhang</div><div class="thanks-sub"><span class="thanks-label">Primary School</span>Homeroom - Prof. Guo, Science - Prof. Wu, Flight Simulation - Prof. Xue</div>'
@@ -52,7 +61,10 @@ window.SITE_I18N = {
                 title: 'Classmates',
                 content: '<div class="thanks-sub"><span class="thanks-label">Yiwu Society</span>zrq, hjz, lzq, ljy, wth, jdh, wyx, yyzy, zxy</div><div class="thanks-sub"><span class="thanks-label">Good Friends</span>Andy, bzy, Xiuxiu, ywx, lxr, wjy, ydx, lmd, lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh, rjp, ldy, ddk</div>'
             },
-            special: 'Tracy (Serenity), Yan, yxh',
+            special: {
+                title: 'Special Thanks',
+                content: '<div class="thanks-sub">Tracy (Serenity)</div><div class="thanks-sub">Yan</div><div class="thanks-sub">yxh</div>'
+            },
             collab: {
                 title: 'Project Collaborators',
                 content: 'shenjack, teddyxlandlee, tianxiu2b2t, Xiaoxiao, and everyone who contributes to open source'
@@ -63,7 +75,7 @@ window.SITE_I18N = {
             },
             life: {
                 title: 'Life',
-                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>China, where life is peaceful, stable, and full of opportunities; all those who contribute to society; Beijing 119 (saved my life (jk<br>And you, who found this menu and are reading this right now'
+                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>China, where life is peaceful, stable, and full of opportunities; all those who contribute to society; Beijing 119 (saved my life (jk<br>And finally, you who found this easter egg page and read all the way to here'
             }
         }
     },
@@ -77,7 +89,10 @@ window.SITE_I18N = {
         title: 'Remerciements',
         desc: 'Merci à tous ceux qui m\'ont aidé et inspiré sur mon chemin.',
         groups: {
-            family: 'Mes parents, tous mes proches',
+            family: {
+                title: 'Famille',
+                content: '<div class="thanks-sub">Mes parents</div><div class="thanks-sub">Qinghe, Shifu, neurodong, Dr. Lv</div><div class="thanks-sub">Charles, Ziwei, Feng, L.E. et tous mes proches</div>'
+            },
             teacher: {
                 title: 'Professeurs',
                 content: '<div class="thanks-sub"><span class="thanks-label">Université</span>Mathématiques supérieures - Prof. Zhang, Développement HarmonyOS - Prof. Wang, Anglais - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">Lycée</span>Prof. principal Wang, Prof. principal Sun, Biologie - Prof. Jia & Prof. Zhen, Chimie - Prof. Xiao, Anglais - Prof. Wang, Mathématiques - Prof. Shi & Prof. Si, Géographie - Prof. Wang</div><div class="thanks-sub"><span class="thanks-label">Collège</span>Prof. principal Lv, Prof. principal Zhang</div><div class="thanks-sub"><span class="thanks-label">École primaire</span>Prof. principal Guo, Sciences - Prof. Wu, Simulation de vol - Prof. Xue</div>'
@@ -86,7 +101,10 @@ window.SITE_I18N = {
                 title: 'Camarades',
                 content: '<div class="thanks-sub"><span class="thanks-label">Société Yiwu</span>zrq, hjz, lzq, ljy, wth, jdh, wyx, yyzy, zxy</div><div class="thanks-sub"><span class="thanks-label">Bons amis</span>Andy, bzy, Xiuxiu, ywx, lxr, wjy, ydx, lmd, lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh, rjp, ldy, ddk</div>'
             },
-            special: 'Tracy (Serenity), Yan, yxh',
+            special: {
+                title: 'Remerciements spéciaux',
+                content: '<div class="thanks-sub">Tracy (Serenity)</div><div class="thanks-sub">Yan</div><div class="thanks-sub">yxh</div>'
+            },
             collab: {
                 title: 'Collaborateurs de projet',
                 content: 'shenjack, teddyxlandlee, tianxiu2b2t, Xiaoxiao, et tous ceux qui contribuent à l\'open source'
@@ -97,7 +115,7 @@ window.SITE_I18N = {
             },
             life: {
                 title: 'Vie',
-                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>La Chine, où la vie est paisible, stable et pleine d\'opportunités ; tous ceux qui contribuent à la société ; Beijing 119 (m\'a sauvé la vie (non<br>Et vous, qui avez trouvé ce menu et lisez ceci en ce moment'
+                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>La Chine, où la vie est paisible, stable et pleine d\'opportunités ; tous ceux qui contribuent à la société ; Beijing 119 (m\'a sauvé la vie (non<br>Et enfin, vous qui avez trouvé cette page cachée et avez lu jusqu\'ici'
             }
         }
     }

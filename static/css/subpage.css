@@ -883,16 +883,18 @@
     font-size: 1.3rem;
     color: #fff;
     margin-bottom: 1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     letter-spacing: -0.01em;
     font-weight: 700;
 }
 
+.thanks-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 1rem;
+}
+
 .thanks-heading-solo {
     margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
 }
 
 .thanks-names {
