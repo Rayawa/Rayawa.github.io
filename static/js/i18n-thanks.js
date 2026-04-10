@@ -56,7 +56,7 @@ window.SITE_I18N = {
             },
             teacher: {
                 title: 'Teachers',
-                content: '<div class="thanks-sub"><span class="thanks-label">University</span>Advanced Mathematics - Prof. Zhang, HarmonyOS Development - Prof. Wang, English - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">High School</span>Homeroom - Prof. Wang, Homeroom - Prof. Sun, Biology - Prof. Jia & Prof. Zhen, Chemistry - Prof. Xiao, English - Prof. Wang, Mathematics - Prof. Shi & Prof. Si, Geography - Prof. Wang</div><div class="thanks-sub"><span class="thanks-label">Middle School</span>Homeroom - Prof. Lv, Homeroom - Prof. Zhang</div><div class="thanks-sub"><span class="thanks-label">Primary School</span>Homeroom - Prof. Guo, Science - Prof. Wu, Flight Simulation - Prof. Xue</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">University</span>Advanced Mathematics - Prof. Zhang, HarmonyOS Development - Prof. Wang, English - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">High School</span>Homeroom - Mrs. Wang, Homeroom - Mrs. Sun, Biology - Mrs. Jia & Mrs. Zhen, Chemistry - Mrs. Xiao, English - Mrs. Wang, Mathematics - Mrs. Shi & Mrs. Si, Geography - Mr. Wang</div><div class="thanks-sub"><span class="thanks-label">Middle School</span>Homeroom - Mrs. Lv, Homeroom - Mrs. Zhang</div><div class="thanks-sub"><span class="thanks-label">Primary School</span>Homeroom - Mrs. Guo, Science - Mrs. Wu, Flight Simulation - Mr. Xue</div>'
             },
             classmate: {
                 title: 'Classmates',
@@ -97,7 +97,7 @@ window.SITE_I18N = {
             },
             teacher: {
                 title: 'Professeurs',
-                content: '<div class="thanks-sub"><span class="thanks-label">Université</span>Mathématiques supérieures - Prof. Zhang, Développement HarmonyOS - Prof. Wang, Anglais - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">Lycée</span>Prof. principal Wang, Prof. principal Sun, Biologie - Prof. Jia & Prof. Zhen, Chimie - Prof. Xiao, Anglais - Prof. Wang, Mathématiques - Prof. Shi & Prof. Si, Géographie - Prof. Wang</div><div class="thanks-sub"><span class="thanks-label">Collège</span>Prof. principal Lv, Prof. principal Zhang</div><div class="thanks-sub"><span class="thanks-label">École primaire</span>Prof. principal Guo, Sciences - Prof. Wu, Simulation de vol - Prof. Xue</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">Université</span>Mathématiques supérieures - Prof. Zhang, Développement HarmonyOS - Prof. Wang, Anglais - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">Lycée</span>Prof. principale Mme Wang, Prof. principale Mme Sun, Biologie - Mme Jia & Mme Zhen, Chimie - Mme Xiao, Anglais - Mme Wang, Mathématiques - Mme Shi & Mme Si, Géographie - M. Wang</div><div class="thanks-sub"><span class="thanks-label">Collège</span>Prof. principale Mme Lv, Prof. principale Mme Zhang</div><div class="thanks-sub"><span class="thanks-label">École primaire</span>Prof. principale Mme Guo, Sciences - Mme Wu, Simulation de vol - M. Xue</div>'
             },
             classmate: {
                 title: 'Camarades',

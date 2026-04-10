@@ -133,10 +133,12 @@ function applyLocaleBlocks() {
 function hydrateRevealItems() {
     const orderedGroups = [
         '.section-header',
-        '.projects .other-projects-title',
-        '.projects .project-card',
+        '.projects-group:first-child .projects-group-header',
+        '.projects-group:first-child .project-card',
+        '.projects-group:last-child .projects-group-header',
+        '.projects-group:last-child .project-card',
         '.about .about-text',
-        '.about .about-side',
+        '.about .about-side .glass-card',
         '.hero .hero-tags',
         '.hero .avatar-quote',
         '.gallery .gallery-carousel',
@@ -1006,6 +1008,12 @@ initLanguageSwitcher();
     } else {
         window.addEventListener('loadingScreenDone', showNavbar);
     }
+
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            navbar.classList.add('is-visible');
+        }
+    });
 })();
 setLocale(locale, { persist: false });
 hydrateRevealItems();
