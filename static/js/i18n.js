@@ -83,9 +83,9 @@ window.SITE_I18N = {
             hlm: { title: '红楼梦剧组', desc: '为红楼梦剧组搭建的网站项目，用于剧组信息展示与活动管理。' },
             whn: { title: 'whn生日', desc: '好男酱的2024年生日会项目' },
             thesis: { title: '学校论文', desc: '收录在校期间撰写的学术论文与课程研究报告。' },
-            xxh: { title: 'XXH测试', desc: '用于开发测试、功能验证与实验性原型搭建的测试模块。' },
+            xxh: { title: '情感契合度测试', desc: '双人匿名答题，三大维度量化你们的情感匹配度。' },
         },
-        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试' },
+        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试', wip: '施工中' },
         aboutHtml: {
             aboutText: `<h3>个人简介</h3>
 <p>我目前就读于北方工业大学通信工程专业，但投入精力最多的是软件开发。目前正持续推进的核心项目是HarmonyOS平台的鸿蒙应用看板App，项目已进入邀请测试阶段，并计划开始后续macOS与Android平台的跨开发。</p>
@@ -244,9 +244,9 @@ window.SITE_I18N = {
             hlm: { title: 'Red Chamber Troupe', desc: 'A website built for the Red Chamber Dream troupe, for cast info display and event management.' },
             whn: { title: 'WHN Birthday', desc: 'whn 2024 birthday project' },
             thesis: { title: 'School Papers', desc: 'Academic papers and course research reports written during university.' },
-            xxh: { title: 'XXH Test', desc: 'A test module for development testing, feature validation, and experimental prototyping.' },
+            xxh: { title: 'Compatibility Test', desc: 'Two-person anonymous quiz — quantify your emotional match across three dimensions.' },
         },
-        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education', test: 'Test' },
+        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education', test: 'Test', wip: 'WIP' },
         aboutHtml: {
             aboutText: `
 <h3>Profile</h3>
@@ -408,9 +408,9 @@ window.SITE_I18N = {
             hlm: { title: 'Troupe du Reve Rouge', desc: "Un site construit pour la troupe du Reve dans le Pavillon Rouge, pour affichage et gestion d evenements." },
             whn: { title: "Anniversaire WHN", desc: "Projet d anniversaire whn 2024" },
             thesis: { title: 'Papiers scolaires', desc: "Papiers academiques et rapports de recherche rediges a l universite." },
-            xxh: { title: 'Test XXH', desc: 'Un module de test pour les tests de developpement, la validation de fonctionnalites et le prototypage experimental.' },
+            xxh: { title: 'Test de compatibilité', desc: 'Quiz anonymé à deux — quantifiez votre compatibilité émotionnelle en trois dimensions.' },
         },
-        tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education', test: 'Test' },
+        tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education', test: 'Test', wip: 'En construction' },
         aboutHtml: {
             aboutText: `
 <h3>Profil</h3>

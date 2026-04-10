@@ -344,6 +344,13 @@ function initFloatingTools() {
     });
 
     refreshBtn.addEventListener('click', function() {
+        var cancelled = false;
+        var checkEvent = new CustomEvent('xxh-refresh-check', {
+            detail: { cancel: function() { cancelled = true; } }
+        });
+        window.dispatchEvent(checkEvent);
+        if (cancelled) return;
+
         refreshBtn.classList.add('is-spinning');
         var fadeTargets = getLanguageFadeTargets();
         fadeTargets.forEach(function(el) { el.classList.add('lang-fade-target', 'is-leaving'); });

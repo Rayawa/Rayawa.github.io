@@ -30,6 +30,7 @@ window.SITE_I18N = {
         validationNumSingle: '请输入非负整数',
         validationTextLen: '请输入简短回答（不超过50字）',
         validationNonNegative: '请输入非负数',
+        confirmRefresh: '当前答题内容将会丢失，确定要刷新页面吗？',
         inputPlaceholder: {
             keyword: '请输入你的回答...',
             numSingle: '请输入数字',
@@ -91,6 +92,7 @@ window.SITE_I18N = {
         validationNumSingle: 'Please enter a non-negative integer',
         validationTextLen: 'Please enter a brief answer (max 50 characters)',
         validationNonNegative: 'Please enter a non-negative number',
+        confirmRefresh: 'Current answers will be lost. Are you sure you want to refresh?',
         inputPlaceholder: {
             keyword: 'Enter your answer...',
             numSingle: 'Enter a number',
@@ -152,6 +154,7 @@ window.SITE_I18N = {
         validationNumSingle: 'Veuillez entrer un entier non négatif',
         validationTextLen: 'Veuillez entrer une réponse brève (max 50 caractères)',
         validationNonNegative: 'Veuillez entrer un nombre non négatif',
+        confirmRefresh: 'Les réponses actuelles seront perdues. Voulez-vous vraiment rafraîchir ?',
         inputPlaceholder: {
             keyword: 'Entrez votre réponse...',
             numSingle: 'Entrez un nombre',
