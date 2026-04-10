@@ -180,6 +180,8 @@ async function setLocale(nextLocale, { persist = true } = {}) {
     applyLocaleBlocks();
     applyLanguageButtons();
     if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
+    var titleVal = i18n[locale] && i18n[locale].pageTitle;
+    if (titleVal) document.title = titleVal;
     if (persist) window.localStorage.setItem('rayawa_locale', locale);
     window.dispatchEvent(new CustomEvent('localechange', { detail: { lang: locale } }));
 }
@@ -1030,8 +1032,10 @@ initMobileMenu();
 initGalleryCarousel();
 initSectionReveal();
 initPageLeaveTransitions();
-initParticlePointerFollow();
-initParticleMagnetEffect();
+requestAnimationFrame(() => {
+    initParticlePointerFollow();
+    initParticleMagnetEffect();
+});
 initHeroStarInteraction();
 initAwardLinks();
 initFloatingTools();
