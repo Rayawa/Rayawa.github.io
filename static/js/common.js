@@ -406,7 +406,13 @@ function setLocale(lang, opts) {
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
         var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
-        if (val !== undefined && val !== null) el.textContent = val;
+        if (val !== undefined && val !== null) {
+            if (typeof val === 'string' && val.indexOf('\n') >= 0) {
+                el.innerHTML = val.replace(/\n/g, '<br>');
+            } else {
+                el.textContent = val;
+            }
+        }
     });
     document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
         var key = el.getAttribute('data-i18n-html');
