@@ -661,8 +661,7 @@ function initPageLeaveTransitions() {
 
         e.preventDefault();
 
-        var pageEl = document.querySelector('.page') || document.querySelector('.wrap');
-        if (pageEl) pageEl.classList.add('page-leaving');
+        document.body.classList.add('page-leaving');
 
         var navbar = document.querySelector('.navbar');
         if (navbar) navbar.classList.add('navbar-leaving');

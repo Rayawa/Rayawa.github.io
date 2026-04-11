@@ -6,6 +6,14 @@
     var inProjects = window.location.pathname.indexOf('/projects/') !== -1;
     var prefix = inProjects ? '../' : '';
 
+    var locale = localStorage.getItem('rayawa_locale') || 'zh';
+    var i18n = window.SITE_I18N && window.SITE_I18N[locale];
+
+    function t(key) {
+        if (!i18n) return '';
+        return key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n) || '';
+    }
+
     var quickLinks = [
         { href: prefix + 'index.html', i18n: 'nav.home' },
         { href: prefix + 'index.html#about', i18n: 'nav.about' },
@@ -29,18 +37,19 @@
 
     function buildLinkList(links) {
         return '<ul class="footer-links">' + links.map(function(l) {
-            return '<li><a href="' + l.href + '" data-i18n="' + l.i18n + '"></a></li>';
+            return '<li><a href="' + l.href + '" data-i18n="' + l.i18n + '">' + t(l.i18n) + '</a></li>';
         }).join('') + '</ul>';
     }
 
     var footerClass = isHomepage ? 'footer reveal-section' : 'footer';
+    var desc = t('footer.description');
 
     var html = '<footer class="' + footerClass + '">' +
         '<div class="container">' +
             '<div class="footer-content">' +
                 '<div>' +
                     '<a href="' + prefix + 'index.html" class="footer-logo">Ray Chen</a>' +
-                    '<p class="footer-description" data-i18n-html="footer.description"></p>' +
+                    '<p class="footer-description" data-i18n-html="footer.description">' + desc + '</p>' +
                     '<div class="footer-social">' +
                         '<a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="footer-social-link"><i class="fab fa-github"></i></a>' +
                         '<a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener" class="footer-social-link" title="Bilibili (Rayawa)"><i class="fab fa-bilibili"></i></a>' +
@@ -49,20 +58,20 @@
                     '</div>' +
                 '</div>' +
                 '<div>' +
-                    '<h3 class="footer-heading" data-i18n="footer.quick"></h3>' +
+                    '<h3 class="footer-heading" data-i18n="footer.quick">' + t('footer.quick') + '</h3>' +
                     buildLinkList(quickLinks) +
                 '</div>' +
                 '<div>' +
-                    '<h3 class="footer-heading" data-i18n="footer.projects"></h3>' +
+                    '<h3 class="footer-heading" data-i18n="footer.projects">' + t('footer.projects') + '</h3>' +
                     buildLinkList(projectLinks) +
                 '</div>' +
                 '<div>' +
-                    '<h3 class="footer-heading" data-i18n="footer.thanks"></h3>' +
+                    '<h3 class="footer-heading" data-i18n="footer.thanks">' + t('footer.thanks') + '</h3>' +
                     buildLinkList(thanksLinks) +
                 '</div>' +
             '</div>' +
             '<div class="copyright">' +
-                '<p data-i18n-html="footer.copy"></p>' +
+                '<p data-i18n-html="footer.copy">' + t('footer.copy') + '</p>' +
             '</div>' +
         '</div>' +
     '</footer>';
