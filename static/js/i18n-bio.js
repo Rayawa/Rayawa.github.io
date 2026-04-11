@@ -31,8 +31,7 @@ window.SITE_I18N = {
             subtitle: '在高中首届开创PCR实验，将高等生物实验带入高中生物课堂。\n通过预实验与模板量实验探索最适合课堂实验的试剂剂量。'
         },
         pcrResult: {
-            text: '结果：目标基因成功扩增（约600bp）',
-            caption: '凝胶电泳结果显示清晰的条带，证明PCR反应成功，条带扩增长度符合实验预期。'
+            caption: '凝胶电泳结果显示清晰条带，目的基因扩增成功。\n与标准样对比长度约600bp，符合实验预期'
         },
         pcrDesign: {
             title: '实验设计方案',
@@ -94,8 +93,7 @@ window.SITE_I18N = {
             subtitle: 'Pioneering the first PCR experiment in high school, bringing advanced biology experiments into the classroom.\nExploring optimal reagent dosages for classroom experiments through pre-experiments and template quantity experiments.'
         },
         pcrResult: {
-            text: 'Result: Target gene successfully amplified (approx. 600bp)',
-            caption: 'Gel electrophoresis shows clear bands, confirming successful PCR reaction. The amplified band length matches experimental expectations.'
+            caption: 'Gel electrophoresis shows clear bands, confirming successful target gene amplification.\nCompared with the standard marker, the length is approximately 600bp, matching experimental expectations.'
         },
         pcrDesign: {
             title: 'Experimental Design',
@@ -157,8 +155,7 @@ window.SITE_I18N = {
             subtitle: "Pionnier de la première expérience PCR au lycée, introduisant des expériences de biologie avancées en classe.\nExploration des dosages optimaux de réactifs pour les expériences en classe grâce à des pré-expériences et des expériences de quantité de matrice."
         },
         pcrResult: {
-            text: 'Résultat : Gène cible amplifié avec succès (env. 600 pb)',
-            caption: "L'électrophorèse sur gel montre des bandes claires, confirmant la réussite de la réaction PCR. La longueur de bande amplifiée correspond aux attentes expérimentales."
+            caption: "L'électrophorèse sur gel montre des bandes claires, confirmant l'amplification réussie du gène cible.\nComparé au marqueur standard, la longueur est d'environ 600 pb, conforme aux attentes expérimentales."
         },
         pcrDesign: {
             title: 'Conception expérimentale',

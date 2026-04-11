@@ -522,36 +522,17 @@
     display: block;
 }
 
-.display-overlay {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    right: 2rem;
+.gel-caption {
     background: rgba(0, 0, 0, 0.75);
     padding: 0.8rem 1rem;
     border-radius: 8px;
     border-left: 3px solid var(--secondary);
     backdrop-filter: blur(4px);
-}
-
-.result-text {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.88rem;
     color: #fff;
-}
-
-.result-text i {
-    color: var(--secondary);
-}
-
-.gel-caption {
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.55);
-    text-align: center;
-    font-style: italic;
+    text-align: left;
+    line-height: 1.6;
 }
 
 .pcr-docs {
