@@ -487,9 +487,14 @@ function runLanguageFadeTransition(callback) {
         callback();
         targets.forEach(function(el) { el.classList.remove('is-leaving'); });
         targets.forEach(function(el) { el.classList.add('is-entering'); });
-        setTimeout(function() {
-            targets.forEach(function(el) { el.classList.remove('lang-fade-target', 'is-entering'); });
-        }, TRANSITION_MS);
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                targets.forEach(function(el) { el.classList.add('is-arriving'); });
+                setTimeout(function() {
+                    targets.forEach(function(el) { el.classList.remove('lang-fade-target', 'is-entering', 'is-arriving'); });
+                }, TRANSITION_MS);
+            });
+        });
     }, TRANSITION_MS);
 }
 
@@ -530,19 +535,15 @@ function initPageEntrance() {
     sessionStorage.removeItem('rayawa_navigating');
 
     if (isNavigating) {
-        var mainEl = document.querySelector('.page');
-        if (mainEl) mainEl.classList.add('page-entering');
+        setLocale(locale, { noPersist: true });
+        if (navbar) navbar.classList.add('is-visible');
 
         var overlay = document.createElement('div');
         overlay.className = 'page-transition-overlay';
         document.body.appendChild(overlay);
 
-        setLocale(locale, { noPersist: true });
-        if (navbar) navbar.classList.add('is-visible');
-
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-                if (mainEl) mainEl.classList.add('is-visible');
                 overlay.style.animation = 'pageOverlayOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
                 setTimeout(function() { overlay.remove(); }, TRANSITION_MS + 40);
             });
@@ -554,9 +555,6 @@ function initPageEntrance() {
     entrance.className = 'page-entrance';
     document.body.appendChild(entrance);
 
-    var mainEl = document.querySelector('.page');
-    if (mainEl) mainEl.classList.add('page-entering');
-
     var done = false;
 
     function finish() {
@@ -564,7 +562,6 @@ function initPageEntrance() {
         done = true;
         setLocale(locale, { noPersist: true });
         if (navbar) navbar.classList.add('is-visible');
-        if (mainEl) mainEl.classList.add('is-visible');
         setTimeout(function() {
             entrance.classList.add('is-done');
             setTimeout(function() {
@@ -592,14 +589,38 @@ function initSubpageReveal() {
     var isSubpage = !document.getElementById('loadingScreen');
     if (!isSubpage) return;
 
-    var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list, .pcr-lab, .thesis-archive, .hero-interactive, .thesis-featured, .thesis-grid, .section-header, .thanks-group, .doc-card, .interactive-content, .pcr-result, .pcr-docs');
-    if (!items.length) return;
+    var isThanks = !!document.querySelector('.thanks-section');
+    var isBio = !!document.querySelector('.pcr-lab');
 
-    var ordered = sortByVisualFlow(Array.from(items));
-    ordered.forEach(function(el, idx) {
-        el.classList.add('subpage-reveal');
-        el.style.setProperty('--subpage-delay', (idx * 80) + 'ms');
-    });
+    if (isThanks) {
+        var groups = document.querySelectorAll('.thanks-group');
+        groups.forEach(function(el) {
+            el.classList.add('subpage-reveal');
+        });
+    } else if (isBio) {
+        var heroCard = document.querySelector('.hero-card');
+        if (heroCard) {
+            heroCard.classList.add('subpage-reveal');
+        }
+        var parts = document.querySelectorAll('.pcr-lab, .thesis-archive, .hero-interactive');
+        parts.forEach(function(part, partIdx) {
+            var delay = (partIdx + 1) * 150;
+            var children = part.querySelectorAll('.section-header, .pcr-result, .pcr-docs, .doc-card, .thesis-featured, .thesis-grid, .thesis-card, .interactive-content');
+            children.forEach(function(child) {
+                child.classList.add('subpage-reveal');
+                child.style.setProperty('--subpage-delay', delay + 'ms');
+            });
+        });
+    } else {
+        var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list, .section-header');
+        if (!items.length) return;
+
+        var ordered = sortByVisualFlow(Array.from(items));
+        ordered.forEach(function(el, idx) {
+            el.classList.add('subpage-reveal');
+            el.style.setProperty('--subpage-delay', (idx * 80) + 'ms');
+        });
+    }
 
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -610,7 +631,7 @@ function initSubpageReveal() {
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-    ordered.forEach(function(el) { observer.observe(el); });
+    document.querySelectorAll('.subpage-reveal').forEach(function(el) { observer.observe(el); });
 }
 
 function initPageLeaveTransitions() {

@@ -15,7 +15,7 @@ window.SITE_I18N = {
             },
             special: {
                 title: '特别致谢',
-                content: '<div class="thanks-sub">Tracy Serenity清霁</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
             },
             teacher: {
                 title: '老师',
@@ -31,7 +31,7 @@ window.SITE_I18N = {
             },
             tech: {
                 title: '技术',
-                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">设备</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LOGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">软件</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, 网易云音乐, ToDesk, 微信, QQ, 幕布</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">设备</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">软件</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, 网易云音乐, ToDesk, 微信, QQ, 幕布</div>'
             },
             life: {
                 title: '生活',
@@ -56,7 +56,7 @@ window.SITE_I18N = {
             },
             special: {
                 title: 'Special Thanks',
-                content: '<div class="thanks-sub">Tracy Serenity清霁</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
             },
             teacher: {
                 title: 'Teachers',
@@ -64,7 +64,7 @@ window.SITE_I18N = {
             },
             classmate: {
                 title: 'Classmates',
-                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">My Best Friends</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: 'Project Collaborators',
@@ -72,7 +72,7 @@ window.SITE_I18N = {
             },
             tech: {
                 title: 'Technology',
-                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Devices</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LOGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Software</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Devices</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Software</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
             },
             life: {
                 title: 'Life',
@@ -97,7 +97,7 @@ window.SITE_I18N = {
             },
             special: {
                 title: 'Remerciements spéciaux',
-                content: '<div class="thanks-sub">Tracy Serenity清霁</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
             },
             teacher: {
                 title: 'Professeurs',
@@ -105,7 +105,7 @@ window.SITE_I18N = {
             },
             classmate: {
                 title: 'Camarades',
-                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">Mes amis</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: 'Collaborateurs de projet',
@@ -113,7 +113,7 @@ window.SITE_I18N = {
             },
             tech: {
                 title: 'Technologie',
-                content: '<div class="thanks-sub"><span class="thanks-label">IA</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Appareils</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LOGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Logiciels</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">IA</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Appareils</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Logiciels</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
             },
             life: {
                 title: 'Vie',
