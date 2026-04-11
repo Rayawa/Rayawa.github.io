@@ -16,7 +16,7 @@ function getCurrentText(path, fallback = '') {
 let t = i18n.zh || {};
 let galleryA11yUpdater = null;
 const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
-const TRANSITION_MS = 420;
+const HOME_TRANSITION_MS = 420;
 const REVEAL_ROW_TOLERANCE = 14;
 
 
@@ -218,11 +218,11 @@ function getLanguageFadeTargets() {
 async function runLanguageTextTransition(changeAction) {
     const targets = getLanguageFadeTargets();
     targets.forEach((el) => el.classList.add('lang-fade-target', 'is-leaving'));
-    await sleep(TRANSITION_MS);
+    await sleep(HOME_TRANSITION_MS);
     await changeAction();
     targets.forEach((el) => el.classList.remove('is-leaving'));
     targets.forEach((el) => el.classList.add('is-entering'));
-    await sleep(TRANSITION_MS);
+    await sleep(HOME_TRANSITION_MS);
     targets.forEach((el) => el.classList.remove('lang-fade-target', 'is-entering'));
 }
 
@@ -1012,7 +1012,7 @@ initLanguageSwitcher();
             var overlay = document.querySelector('.page-transition-overlay');
             if (overlay) {
                 overlay.style.animation = 'pageOverlayOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
-                setTimeout(function() { overlay.remove(); }, TRANSITION_MS + 40);
+                setTimeout(function() { overlay.remove(); }, HOME_TRANSITION_MS + 40);
             }
         });
     }
