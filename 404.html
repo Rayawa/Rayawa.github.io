@@ -42,11 +42,11 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 0.8rem;
-            padding: 1.5rem 0;
+            padding: 1.2rem 0;
         }
 
-        .lang-block:first-of-type {
-            padding-top: 0.5rem;
+        .lang-block + .lang-block {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .lang-block strong {
@@ -61,8 +61,14 @@
             margin: 0;
         }
 
-        .home-link {
+        .home-links {
             margin-top: 1.45rem;
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .home-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -76,39 +82,13 @@
             transition: 0.24s ease;
             -webkit-tap-highlight-color: transparent;
             white-space: nowrap;
+            font-size: 0.92rem;
         }
 
         .home-link:hover {
             transform: translateY(-1px);
             background: rgba(99, 102, 241, 0.4);
             border-color: rgba(202, 236, 255, 0.85);
-        }
-
-        .lang-switch-inline {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .lang-switch-inline .lang-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            padding: 0.3rem 0.6rem;
-            color: rgba(255, 255, 255, 0.7);
-            cursor: pointer;
-            font-size: 0.82rem;
-            transition: 0.2s;
-        }
-
-        .lang-switch-inline .lang-btn.active {
-            background: rgba(99, 102, 241, 0.3);
-            border-color: rgba(99, 102, 241, 0.6);
-            color: #fff;
-        }
-
-        .lang-switch-inline .lang-btn:hover {
-            background: rgba(99, 102, 241, 0.2);
         }
 
         @media (max-width: 640px) {
@@ -128,6 +108,11 @@
                 overflow-wrap: anywhere;
             }
 
+            .home-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
             .home-link {
                 display: flex;
                 width: 100%;
@@ -142,38 +127,32 @@
 
     <main class="wrap">
         <section class="card" aria-labelledby="title404">
-            <h1 id="title404" data-i18n="title"><!-- i18n: 404 title --></h1>
+            <h1 id="title404">404</h1>
             <div class="lang-block">
                 <img src="static/resources/cn.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
-                <strong data-i18n="label"><!-- i18n: paradox label --></strong>
-                <p data-i18n="text"><!-- i18n: paradox text --></p>
+                <strong>悖论</strong>
+                <p>当你进入 https://rayawa.top/404.html，请你思考一个问题：是你的浏览器真的在访问404页面，还是因为它找不到404.html才给你显示404页面呢？</p>
+            </div>
+            <div class="lang-block">
+                <img src="static/resources/uk.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
+                <strong>Paradox</strong>
+                <p>When you open https://rayawa.top/404.html, think about this: is your browser truly visiting a 404 page, or is it showing you a 404 page because it cannot find 404.html?</p>
+            </div>
+            <div class="lang-block">
+                <img src="static/resources/fr.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
+                <strong>Paradoxe</strong>
+                <p>Lorsque vous ouvrez https://rayawa.top/404.html, réfléchissez à ceci : votre navigateur visite-t-il vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?</p>
             </div>
 
-            <a class="home-link" href="/" data-i18n="home"><!-- i18n: home link --></a>
-
-            <div class="lang-switch-inline">
-                <button type="button" class="lang-btn" data-lang="zh">中文</button>
-                <button type="button" class="lang-btn" data-lang="en">EN</button>
-                <button type="button" class="lang-btn" data-lang="fr">FR</button>
+            <div class="home-links">
+                <a class="home-link" href="/">返回首页</a>
+                <a class="home-link" href="/">Back to Home</a>
+                <a class="home-link" href="/">Retour à l'accueil</a>
             </div>
         </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="static/js/i18n-404.js"></script>
     <script src="static/js/common.js"></script>
-    <script>
-    (function() {
-        var flagMap = { zh: 'cn.svg', en: 'uk.svg', fr: 'fr.svg' };
-        var flagEl = document.querySelector('.lang-block .lang-flag');
-        function updateFlag(lang) {
-            if (flagEl && flagMap[lang]) flagEl.src = 'static/resources/' + flagMap[lang];
-        }
-        document.querySelectorAll('.lang-switch-inline .lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() { updateFlag(btn.dataset.lang); });
-        });
-        updateFlag(localStorage.getItem('rayawa_locale') || 'zh');
-    })();
-    </script>
 </body>
 </html>

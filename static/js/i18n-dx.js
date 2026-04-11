@@ -11,7 +11,7 @@ window.SITE_I18N = {
         desc: '轻量起步、长期迭代的英语启蒙项目，主打可坚持的学习节奏。',
         wip: { title: '持续更新中', desc: '更多内容正在建设中，敬请期待。' },
     },
-        footer: { quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Xiaodou English Starter',
@@ -24,7 +24,7 @@ window.SITE_I18N = {
         desc: 'A lightweight, long-term English learning project focused on a sustainable study pace.',
         wip: { title: 'Work in Progress', desc: 'More content is being built. Stay tuned.' },
     },
-        footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Xiaodou English Starter',
@@ -37,5 +37,5 @@ window.SITE_I18N = {
         desc: "Un projet d'apprentissage de l'anglais léger et à long terme, axé sur un rythme d'étude durable.",
         wip: { title: 'En cours de construction', desc: "Plus de contenu en cours de construction. Restez à l'écoute." },
     },
-        footer: { quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' },
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' },
 };

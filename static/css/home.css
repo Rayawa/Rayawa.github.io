@@ -165,24 +165,46 @@
 }
 
 .floating-elements::after {
-    content: attr(data-tooltip);
+    display: none;
+}
+
+.star-tooltip {
     position: absolute;
-    bottom: -48px;
+    bottom: -56px;
     left: 50%;
-    transform: translateX(-50%) scale(1);
-    background: rgba(10, 22, 42, 0.82);
-    color: rgba(255, 255, 255, 0.94);
-    font-size: 0.85rem;
-    padding: 0.5rem 1.1rem;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(10, 22, 42, 0.88);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.88rem;
+    line-height: 1.4;
+    padding: 0.55rem 1.2rem;
     border-radius: 10px;
     white-space: nowrap;
-    opacity: 1;
-    transition: opacity 0.2s ease, transform 0.2s ease;
     pointer-events: none;
     border: 1px solid rgba(255, 255, 255, 0.26);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     z-index: 100;
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.star-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: rgba(10, 22, 42, 0.88);
+    border-top: 1px solid rgba(255, 255, 255, 0.26);
+    border-left: 1px solid rgba(255, 255, 255, 0.26);
+}
+
+.floating-elements.is-tooltip-visible .star-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 .floating-elements:hover {
@@ -194,11 +216,6 @@
 .floating-elements:hover::before {
     opacity: 1;
     transform: scale(1.06);
-}
-
-.floating-elements:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
 }
 
 .avatar-quote {
@@ -994,7 +1011,8 @@ textarea.form-control {
     color: white;
 }
 
-.social-card.bilibili .social-icon {
+.social-card.bilibili .social-icon,
+.social-card.bilibili-game .social-icon {
     background: linear-gradient(135deg, #fb7299 0%, #ff2d55 100%);
 }
 
@@ -1214,7 +1232,7 @@ textarea.form-control {
     .hero {
         min-height: auto;
         padding: 6rem 0 2rem;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     .hero-content,

@@ -935,6 +935,10 @@ function initHeroStarInteraction() {
     star.addEventListener('mouseleave', function() {
         star.classList.remove('is-hovered');
     });
+
+    window.setTimeout(function() {
+        star.classList.add('is-tooltip-visible');
+    }, 1000);
 }
 
 function initAwardLinks() {
