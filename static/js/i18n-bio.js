@@ -61,7 +61,7 @@ window.SITE_I18N = {
             abstract: '针对微生物培养中偶发的培养基异常变色现象，本文通过严密的对照实验成功溯源了环境污染因子。该项研究不仅解决了具体的实验技术难题，其核心意义在于建立了标准化的误差分析与实验室质量控制流程，强调了科研实践中严谨态度与程序规范的重要性。'
         }
     },
-        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, xiaodou: { title: '小豆英语启蒙' } },
+        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: '小豆英语启蒙' }, idv: { title: '第五人格，启动！' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
@@ -124,7 +124,7 @@ window.SITE_I18N = {
             abstract: 'Addressing the occasional abnormal color change of culture media in microbial cultivation, this paper successfully traced the source of environmental contamination factors through rigorous controlled experiments. This research not only solved a specific experimental technical problem, but its core significance lies in establishing standardized error analysis and laboratory quality control procedures, emphasizing the importance of rigorous attitude and procedural compliance in scientific practice.'
         }
     },
-        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, xiaodou: { title: 'Xiaodou English Starter' } },
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: 'Xiaodou English Starter' }, idv: { title: 'Identity V, Start!' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
@@ -186,7 +186,7 @@ window.SITE_I18N = {
             title: "Analyse et vérification du changement de couleur orange des plaques dans les expériences sur la levure",
             abstract: "Face au changement de couleur anormal occasionnel des milieux de culture en microbiologie, cet article a retracé avec succès l'origine des facteurs de contamination environnementale grâce à des expériences contrôlées rigoureuses. Cette recherche ne se contente pas de résoudre un problème technique expérimental spécifique ; son importance fondamentale réside dans l'établissement de procédures normalisées d'analyse des erreurs et de contrôle qualité en laboratoire, soulignant l'importance d'une attitude rigoureuse et du respect des procédures dans la pratique scientifique."
         },
-        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, xiaodou: { title: 'Xiaodou English Starter' } },
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: 'Xiaodou English Starter' }, idv: { title: 'Identity V, Start !' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
     }
 };

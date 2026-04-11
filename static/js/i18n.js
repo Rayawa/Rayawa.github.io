@@ -151,13 +151,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss数据库</p>
     </div>
-    <div class="skill-item">
+    <a href="#projects" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
             <div class="skill-name">产品与工程</div>
         </div>
         <p class="skill-description">HarmonyOS应用 · Web开发 · 生物学实验</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-microchip"></i></div>
@@ -165,13 +165,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
-    <div class="skill-item">
+    <a href="projects/bio.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">生物研究</div>
         </div>
         <p class="skill-description">PCR实验项目 · 蛋白质猜想 · 碳同化综述 · 橙色平板实验 · 农杆菌转化法交互网页</p>
-    </div>
+    </a>
 </div>`,
             roadmapCard: `<h3 class="status-card-title">部分成就</h3>
 <div class="skills-grid">
@@ -182,13 +182,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">EV3魔方机器人 · Arduino超声波避障小车 · 丝绸之路机器人大赛 · C++信息学奥赛 · Sweet Potato Mod · Difficult Rocket · 鸿蒙应用看板 · 开放原子大赛</p>
     </div>
-    <div class="skill-item">
+    <a href="projects/spm.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
             <div class="skill-name">生物学领域</div>
         </div>
         <p class="skill-description">PCR实验项目 · 《关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想》 · 《卡尔文循环的分子生物学研究》 · 《酵母菌实验中平板变橙原因的分析与验证》 · 农杆菌转化法交互网页</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
@@ -206,13 +206,13 @@ window.SITE_I18N = {
 </div>`,
             lifestyleCard: `<h3 class="status-card-title">兴趣与生活</h3>
 <div class="skills-grid">
-    <div class="skill-item">
+    <a href="#gallery" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-camera"></i></div>
             <div class="skill-name">摄影</div>
         </div>
         <p class="skill-description">风景摄影 · 无人机航拍</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-running"></i></div>
@@ -393,13 +393,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss Database</p>
     </div>
-    <div class="skill-item">
+    <a href="#projects" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
             <div class="skill-name">Products & Engineering</div>
         </div>
         <p class="skill-description">HarmonyOS Apps · Web Development · Biology Experiments</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-microchip"></i></div>
@@ -407,13 +407,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
-    <div class="skill-item">
+    <a href="projects/bio.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">Bio Research</div>
         </div>
         <p class="skill-description">PCR Project · Protein Hypothesis · Carbon Assimilation Review · Orange Plate Experiment · Agrobacterium Interactive Web</p>
-    </div>
+    </a>
 </div>`,
             roadmapCard: `<h3 class="status-card-title">Selected Achievements</h3>
 <div class="skills-grid">
@@ -424,13 +424,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">EV3 Rubik's Cube Robot · Arduino Ultrasonic Obstacle-Avoidance Car · Silk Road Robotics Competition · C++ Informatics Olympiad · Sweet Potato Mod · Difficult Rocket · HmDashboard · OpenAtom Competition</p>
     </div>
-    <div class="skill-item">
+    <a href="projects/spm.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
             <div class="skill-name">Biology</div>
         </div>
         <p class="skill-description">PCR Project · "On the Conjecture of Proteins as Genetic Material in Extremely Special Organisms" · "Molecular Biology Research on the Calvin Cycle" · "Analysis and Verification of Orange Plate Discoloration in Yeast Experiments" · Agrobacterium Interactive Web</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
@@ -448,13 +448,13 @@ window.SITE_I18N = {
 </div>`,
             lifestyleCard: `<h3 class="status-card-title">Interests & Life</h3>
 <div class="skills-grid">
-    <div class="skill-item">
+    <a href="#gallery" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-camera"></i></div>
             <div class="skill-name">Photography</div>
         </div>
         <p class="skill-description">Landscape Photography · Drone Footage</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-running"></i></div>
@@ -635,13 +635,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · Base de données openGauss</p>
     </div>
-    <div class="skill-item">
+    <a href="#projects" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
             <div class="skill-name">Produits et ingénierie</div>
         </div>
         <p class="skill-description">Applications HarmonyOS · Développement web · Expériences de biologie</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-microchip"></i></div>
@@ -649,13 +649,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
-    <div class="skill-item">
+    <a href="projects/bio.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">Recherche biologique</div>
         </div>
         <p class="skill-description">Projet PCR · Hypothèse protéique · Revue d'assimilation du carbone · Expérience plaque orange · Web interactif Agrobacterium</p>
-    </div>
+    </a>
 </div>`,
             roadmapCard: `<h3 class="status-card-title">Sélection de réalisations</h3>
 <div class="skills-grid">
@@ -666,13 +666,13 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">Robot Rubik's Cube EV3 · Voiture ultrasons Arduino · Compétition Route de la Soie · Olympiade C++ · Sweet Potato Mod · Difficult Rocket · HmDashboard · Concours OpenAtom</p>
     </div>
-    <div class="skill-item">
+    <a href="projects/spm.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
             <div class="skill-name">Biologie</div>
         </div>
         <p class="skill-description">Projet PCR · « Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement spéciaux » · « Recherche en biologie moléculaire sur le cycle de Calvin » · « Analyse et vérification du changement de couleur orange des plaques » · Web interactif Agrobacterium</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
@@ -690,13 +690,13 @@ window.SITE_I18N = {
 </div>`,
             lifestyleCard: `<h3 class="status-card-title">Intérêts et vie</h3>
 <div class="skills-grid">
-    <div class="skill-item">
+    <a href="#gallery" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-camera"></i></div>
             <div class="skill-name">Photographie</div>
         </div>
         <p class="skill-description">Photo de paysage · Images drone</p>
-    </div>
+    </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-running"></i></div>
