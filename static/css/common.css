@@ -63,6 +63,8 @@ body {
     min-height: 100vh;
     min-height: 100dvh;
     overscroll-behavior-y: none;
+    display: flex;
+    flex-direction: column;
 }
 
 body.is-loading {
@@ -684,6 +686,7 @@ section,
     color: white;
     padding: 1.8rem 0 1.1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
 }
 
 .footer-content {
@@ -792,5 +795,13 @@ section,
     .copyright {
         flex-direction: column;
         gap: 0.2rem;
+    }
+
+    body:not(.is-homepage) .footer-content > div:not(:first-child):not(:last-child) {
+        display: none;
+    }
+
+    body:not(.is-homepage) .footer-content {
+        justify-content: space-between;
     }
 }

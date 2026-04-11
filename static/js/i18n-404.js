@@ -17,7 +17,7 @@ window.SITE_I18N = {
         pageTitle: 'Page non trouvée | Ray Chen',
         title: '404',
         label: 'Paradoxe',
-        text: "Lorsque vous ouvrez https://rayawa.top/404.html, reflechissez a ceci : votre navigateur visite-t-il vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?",
-        home: "Retour a l'accueil",
+        text: "Lorsque vous ouvrez https://rayawa.top/404.html, réfléchissez à ceci : votre navigateur visite-t-il vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?",
+        home: "Retour à l'accueil",
     },
 };

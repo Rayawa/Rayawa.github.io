@@ -128,7 +128,7 @@ window.SITE_I18N = {
     },
         footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
-        nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Test XXH',
         pageTitle: 'Test XXH | Ray Chen',
         heroTitle: 'Test de compatibilité amoureuse',
@@ -190,5 +190,5 @@ window.SITE_I18N = {
         },
         retryBtn: 'Recommencer',
     },
-        footer: { quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits reserves.' },
+        footer: { quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' },
 };
