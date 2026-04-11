@@ -27,7 +27,7 @@ window.SITE_I18N = {
             button: '进入模拟网页'
         },
         pcrLab: {
-            title: 'PCR 实验室',
+            title: 'PCR实验项目',
             subtitle: '在高中首届开创PCR实验，将高等生物实验带入高中生物课堂。\n通过预实验与模板量实验探索最适合课堂实验的试剂剂量。'
         },
         pcrResult: {
@@ -61,6 +61,7 @@ window.SITE_I18N = {
             abstract: '针对微生物培养中偶发的培养基异常变色现象，本文通过严密的对照实验成功溯源了环境污染因子。该项研究不仅解决了具体的实验技术难题，其核心意义在于建立了标准化的误差分析与实验室质量控制流程，强调了科研实践中严谨态度与程序规范的重要性。'
         }
     },
+        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, xiaodou: { title: '小豆英语启蒙' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
@@ -111,7 +112,7 @@ window.SITE_I18N = {
             draft: 'Draft'
         },
         thesisPrion: {
-            title: 'On the Conjecture of Proteins as Genetic Material in Extremely Special Organisms',
+            title: 'On the Conjecture of Proteins as Genetic Material in Extremely, Extremely Special Organisms',
             abstract: 'This paper boldly challenges the absolute authority of the biological "central dogma." Based on the self-replicating properties of prions and reverse transcription mechanisms, it rigorously explores the possibility of proteins as primitive genetic carriers. This research aims to broaden the boundaries of thinking about biological evolution and the nature of heredity, providing a highly forward-looking hypothetical framework for the study of life forms in extreme environments.'
         },
         thesisC3: {
@@ -123,6 +124,7 @@ window.SITE_I18N = {
             abstract: 'Addressing the occasional abnormal color change of culture media in microbial cultivation, this paper successfully traced the source of environmental contamination factors through rigorous controlled experiments. This research not only solved a specific experimental technical problem, but its core significance lies in establishing standardized error analysis and laboratory quality control procedures, emphasizing the importance of rigorous attitude and procedural compliance in scientific practice.'
         }
     },
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, xiaodou: { title: 'Xiaodou English Starter' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
@@ -173,7 +175,7 @@ window.SITE_I18N = {
             draft: 'Brouillon'
         },
         thesisPrion: {
-            title: 'Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement spéciaux',
+            title: 'Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement, extrêmement spéciaux',
             abstract: "Cet article remet audacieusement en cause l'autorité absolue du « dogme central » de la biologie. Sur la base des propriétés d'auto-réplication des prions et des mécanismes de transcription inverse, il explore rigoureusement la possibilité des protéines comme vecteurs génétiques primitifs. Cette recherche vise à élargir les frontières de la réflexion sur l'évolution biologique et la nature de l'hérédité, fournissant un cadre hypothétique très prospectif pour l'étude des formes de vie dans des environnements extrêmes."
         },
         thesisC3: {
@@ -183,6 +185,8 @@ window.SITE_I18N = {
         thesisSaccharomyces: {
             title: "Analyse et vérification du changement de couleur orange des plaques dans les expériences sur la levure",
             abstract: "Face au changement de couleur anormal occasionnel des milieux de culture en microbiologie, cet article a retracé avec succès l'origine des facteurs de contamination environnementale grâce à des expériences contrôlées rigoureuses. Cette recherche ne se contente pas de résoudre un problème technique expérimental spécifique ; son importance fondamentale réside dans l'établissement de procédures normalisées d'analyse des erreurs et de contrôle qualité en laboratoire, soulignant l'importance d'une attitude rigoureuse et du respect des procédures dans la pratique scientifique."
-        }
+        },
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, xiaodou: { title: 'Xiaodou English Starter' } },
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
     }
 };

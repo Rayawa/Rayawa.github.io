@@ -65,7 +65,7 @@
             <div class="doc-content">
               <h3 data-i18n="pcrDesign.title"><!-- i18n: pcr design title --></h3>
               <p data-i18n="pcrDesign.desc"><!-- i18n: pcr design desc --></p>
-              <button type="button" class="button button-outline pdf-viewer-btn" data-pdf="../static/resources/bio/pcr_design.pdf" data-i18n="viewDesign">实验设计</button>
+              <a class="button button-outline" href="../static/resources/bio/pcr_design.pdf" target="_blank" rel="noopener" data-i18n="viewDesign">实验设计</a>
             </div>
           </div>
           <div class="doc-card">
@@ -75,7 +75,7 @@
             <div class="doc-content">
               <h3 data-i18n="pcrReport.title"><!-- i18n: pcr report title --></h3>
               <p data-i18n="pcrReport.desc"><!-- i18n: pcr report desc --></p>
-              <button type="button" class="button pdf-viewer-btn" data-pdf="../static/resources/bio/pcr_report.pdf" data-i18n="viewReport">实验报告</button>
+              <a class="button" href="../static/resources/bio/pcr_report.pdf" target="_blank" rel="noopener" data-i18n="viewReport">实验报告</a>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@
             <h3 data-i18n="thesisPrion.title"><!-- i18n: thesis prion title --></h3>
             <p class="thesis-abstract" data-i18n="thesisPrion.abstract"><!-- i18n: thesis prion abstract --></p>
             <div class="thesis-actions">
-              <button type="button" class="button pdf-viewer-btn" data-pdf="../static/resources/bio/prion.pdf" data-i18n="readPaper">阅读论文</button>
+              <a class="button" href="../static/resources/bio/prion.pdf" target="_blank" rel="noopener" data-i18n="readPaper">阅读论文</a>
             </div>
           </div>
         </article>
@@ -118,7 +118,7 @@
             <h3 data-i18n="thesisC3.title"><!-- i18n: thesis c3 title --></h3>
             <p class="thesis-abstract" data-i18n="thesisC3.abstract"><!-- i18n: thesis c3 abstract --></p>
             <div class="thesis-actions">
-              <button type="button" class="button button-outline pdf-viewer-btn" data-pdf="../static/resources/bio/c3.pdf" data-i18n="viewDraft">查看草稿</button>
+              <a class="button button-outline" href="../static/resources/bio/c3.pdf" target="_blank" rel="noopener" data-i18n="viewDraft">查看草稿</a>
             </div>
           </div>
         </article>
@@ -134,7 +134,7 @@
             <h3 data-i18n="thesisSaccharomyces.title"><!-- i18n: thesis saccharomyces title --></h3>
             <p class="thesis-abstract" data-i18n="thesisSaccharomyces.abstract"><!-- i18n: thesis saccharomyces abstract --></p>
             <div class="thesis-actions">
-              <button type="button" class="button button-outline pdf-viewer-btn" data-pdf="../static/resources/bio/saccharomyces.pdf" data-i18n="viewDraft">查看草稿</button>
+              <a class="button button-outline" href="../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener" data-i18n="viewDraft">查看草稿</a>
             </div>
           </div>
         </article>
@@ -155,24 +155,6 @@
       </div>
     </section>
   </main>
-
-  <div class="pdf-modal" id="pdfModal">
-    <div class="pdf-modal-header">
-      <span class="pdf-modal-title" id="pdfModalTitle"></span>
-      <div class="pdf-modal-controls">
-        <button type="button" class="pdf-ctrl-btn" id="pdfPrev" title="上一页"><i class="fas fa-chevron-left"></i></button>
-        <span class="pdf-page-info"><span id="pdfCurrentPage">1</span> / <span id="pdfTotalPages">1</span></span>
-        <button type="button" class="pdf-ctrl-btn" id="pdfNext" title="下一页"><i class="fas fa-chevron-right"></i></button>
-        <button type="button" class="pdf-ctrl-btn" id="pdfZoomOut" title="缩小"><i class="fas fa-search-minus"></i></button>
-        <button type="button" class="pdf-ctrl-btn" id="pdfZoomIn" title="放大"><i class="fas fa-search-plus"></i></button>
-        <a class="pdf-ctrl-btn pdf-download-btn" id="pdfDownload" title="下载"><i class="fas fa-download"></i></a>
-        <button type="button" class="pdf-ctrl-btn pdf-close-btn" id="pdfClose" title="关闭"><i class="fas fa-times"></i></button>
-      </div>
-    </div>
-    <div class="pdf-modal-body">
-      <canvas id="pdfCanvas"></canvas>
-    </div>
-  </div>
 
   <footer class="footer">
     <div class="container">
@@ -198,6 +180,15 @@
           </ul>
         </div>
         <div>
+          <h3 class="footer-heading" data-i18n="footer.projects"><!-- i18n: footer projects --></h3>
+          <ul class="footer-links">
+            <li><a href="dashboard.html" data-i18n="project.hmdb.title"><!-- i18n: project hmdb title --></a></li>
+            <li><a href="bio.html" data-i18n="project.bio.title"><!-- i18n: project bio title --></a></li>
+            <li><a href="dx.html" data-i18n="project.xiaodou.title"><!-- i18n: project xiaodou title --></a></li>
+            <li><a href="https://featurehouse.github.io" target="_blank" rel="noopener">Sweet Potato Mod</a></li>
+          </ul>
+        </div>
+        <div>
           <h3 class="footer-heading" data-i18n="footer.thanks"><!-- i18n: footer thanks --></h3>
           <ul class="footer-links">
             <li><a href="../thanks.html" data-i18n="footer.thanksLink"><!-- i18n: footer thanks link --></a></li>
@@ -211,10 +202,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
   <script src="../static/js/i18n-bio.js"></script>
   <script src="../static/js/common.js"></script>
-  <script src="../static/js/pdf-viewer.js"></script>
 </body>
 </html>

@@ -785,102 +785,6 @@
     margin-top: auto;
 }
 
-/* ===== PDF Modal ===== */
-
-.pdf-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.pdf-modal.is-open {
-    opacity: 1;
-    visibility: visible;
-}
-
-.pdf-modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem 1.2rem;
-    background: rgba(15, 23, 42, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    flex-shrink: 0;
-}
-
-.pdf-modal-title {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 300px;
-}
-
-.pdf-modal-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.pdf-ctrl-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    font-size: 0.85rem;
-}
-
-.pdf-ctrl-btn:hover {
-    background: rgba(99, 102, 241, 0.3);
-    border-color: rgba(99, 102, 241, 0.5);
-    color: #fff;
-}
-
-.pdf-close-btn:hover {
-    background: rgba(239, 68, 68, 0.3);
-    border-color: rgba(239, 68, 68, 0.5);
-}
-
-.pdf-page-info {
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: 'JetBrains Mono', monospace;
-    min-width: 60px;
-    text-align: center;
-}
-
-.pdf-modal-body {
-    flex: 1;
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    padding: 1.5rem;
-    -webkit-overflow-scrolling: touch;
-}
-
-.pdf-modal-body canvas {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
-}
-
 @media (max-width: 900px) {
     .interactive-content {
         grid-template-columns: 1fr;
@@ -905,10 +809,6 @@
 
     .thesis-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pdf-modal-title {
-        max-width: 150px;
     }
 }
 
@@ -944,18 +844,6 @@
     .button-large {
         width: 100%;
         justify-content: center;
-    }
-
-    .pdf-modal-header {
-        padding: 0.6rem 0.8rem;
-    }
-
-    .pdf-modal-title {
-        display: none;
-    }
-
-    .pdf-modal-body {
-        padding: 0.8rem;
     }
 }
 

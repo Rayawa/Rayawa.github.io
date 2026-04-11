@@ -34,6 +34,7 @@ window.SITE_I18N = {
             '如果您发现了模组中的 Bug 或对本模组有建议，烦请汇报至 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>。',
         ],
     },
+        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, xiaodou: { title: '小豆英语启蒙' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
@@ -50,7 +51,7 @@ window.SITE_I18N = {
         btnDownload: 'Download',
         newContent: 'New Content',
         potato: { title: 'Sweet Potato', desc: 'A food category added by this mod. It comes in purple, red, and white varieties, each with three sub-variants, plus sweet potato powder and peels.' },
-        magic: { title: 'Magic Pot', desc: 'The magic pot emanates a dark luster. Activate it by lighting soul fire in the 3×3 area below it, converting three raw sweet potatoes of any variety into other varieties or enchanting them randomly.' },
+        magic: { title: 'Magic Cube', desc: 'The magic cube emanates a dark luster. Activate it by lighting soul fire in the 3×3 area below it, converting three raw sweet potatoes of any variety into other varieties or enchanting them randomly.' },
         grinder: { title: 'Grinder', desc: 'The grinder features a millstone that grinds sweet potatoes into sweet potato powder.' },
         enchanted: { title: 'Enchanted Saplings & Crops', desc: 'Enchanted saplings and crops grow faster than vanilla ones and will grow into enchanted trees or crops.' },
         devTitle: 'Developers',
@@ -70,6 +71,7 @@ window.SITE_I18N = {
             'Report bugs or suggestions to <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>.',
         ],
     },
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, xiaodou: { title: 'Xiaodou English Starter' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
@@ -86,7 +88,7 @@ window.SITE_I18N = {
         btnDownload: 'Téléchargement',
         newContent: 'Nouveau contenu',
         potato: { title: 'Patate douce', desc: "Une catégorie d'aliments ajoutée par ce mod. Elle se décline en variétés violette, rouge et blanche, chacune avec trois sous-variantes, plus la poudre et les pelures de patate douce." },
-        magic: { title: 'Marmite magique', desc: "La marmite magique émane d'un éclat sombre. Activez-la en allumant un feu d'âmes dans la zone 3×3 en dessous, convertissant trois patates douces crues de n'importe quelle variété en d'autres variétés ou les enchanter aléatoirement." },
+        magic: { title: 'Cube magique', desc: "Le cube magique émane d'un éclat sombre. Activez-le en allumant un feu d'âmes dans la zone 3×3 en dessous, convertissant trois patates douces crues de n'importe quelle variété en d'autres variétés ou les enchanter aléatoirement." },
         grinder: { title: 'Broyeur', desc: "Le broyeur est équipé d'une meule qui broie les patates douces en poudre de patate douce." },
         enchanted: { title: 'Pousses et cultures enchantées', desc: 'Les pousses et cultures enchantées poussent plus vite que les vanilla et deviendront des arbres ou cultures enchantées.' },
         devTitle: 'Développeurs',
@@ -106,5 +108,6 @@ window.SITE_I18N = {
             "Signalez les bugs ou suggestions sur <a href=\"https://github.com/Featurehouse/sweet_potato-issueTracker/issues\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--primary)\">GitHub Issues</a>.",
         ],
     },
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, xiaodou: { title: 'Xiaodou English Starter' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' },
 };

@@ -11,10 +11,10 @@ window.SITE_I18N = {
         hero: {
             title: '你好，我是 <span class="gradient-text">Ray</span>',
             intro: '通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者',
-            core: '目前专注HarmonyOS应用开发与Hi3861嵌入式实践。',
-            side: 'Web构建、Difficult Rocket与Minecraft模组开发、生物学相关研究。',
+            core: '目前专注HarmonyOS应用开发与Hi3861嵌入式开发。',
+            side: 'Web构建、Rust与Java学习、法语进阶中，未来计划向生物信息学探路。',
             photo: '风景摄影与无人机航拍，用快门捕捉通信之外的频率。',
-            life: "J'apprends le français，跑步骑行中，也在提瓦特、塔卫二与罗德岛切换；音游节奏在线，每天赚费沉底石头人（）。",
+            life: "J'apprends le français；热爱听音乐；跑步骑行中；在提瓦特、塔卫二与罗德岛切换；音游在线，每天赚费沉底石头人（）。",
             tag: { core: '核心', side: '支线', photo: '摄影', life: '生活' },
             btn: { projects: '查看项目', contact: '联系我' },
             quote: 'Everything is possible by code.',
@@ -106,7 +106,7 @@ window.SITE_I18N = {
 <p>生物学是我探索世界的另一扇窗。高中时期遇见的两位优秀的生物老师，是我与这门学科结缘的关键。她们不仅教会了我知识，更以卓越的专业素养，将我从一个单纯的爱好者，培养成了能够独立思考的研究者。在老师的指导下，我带领高中开创了首届PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇感兴趣话题的小论文，还和同学一起撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去阐述生物学也十分有趣。生物学或许是我的一种“遗憾美”，如果有机会，未来我也希望能向生物信息学方向探路。</p>
 <p>在代码之外，我热爱跑步与骑行，相机和无人机则是出门必备。对我而言，摄影的乐趣远不止于最后那张照片，更在于切换视角时的构图巧思、尝试不同的叙事风格，以及在既有基础上推陈出新的创作过程。</p>
 <p>在兴趣爱好方面，我以前有小号六级证书，但很明显现在不会吹了（）。初中时自学的钢琴，现在也能弹几首曲子。此外，我还喜欢模拟飞行和玩魔方：最喜欢的是四阶，其次是五魔方。</p>
-<p>游戏方面，我是Minecraft的老玩家，也算一名“原学家”（大概）。近期正在玩明日方舟和终末地；同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline。在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）和若干B牌（虽然目前已退游）。皇室战争里我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
+<p>游戏方面，我是Minecraft的老玩家，也算一名“原学家”（大概）。近期正在玩明日方舟和明日方舟：终末地；同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline。在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）和若干B牌（虽然目前已退游）。皇室战争里我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
 <p>身为理科生，我却对世界文化怀有极强的好奇心，也很乐意了解各个国家的风土人情。中小学时期的英语演讲比赛与两年英国议会制辩论（BP）的经历，为我打下了坚实的语言基础。最近我也在学习法语。从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
 <p>无论是在 0 与 1 的代码世界里构建秩序，还是在双螺旋的生物蓝图中寻找规律，我始终相信，跨界的探索能让生命拥有更宽广的边界。如果你也对技术、生物或这个多元的世界充满好奇，欢迎随时与我交流。</p>
 <p>很高兴认识你，在这段名为“成长”的航程中。</p>
@@ -116,30 +116,30 @@ window.SITE_I18N = {
     <a href="projects/dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
-            <div class="skill-name">核心工程</div>
+            <div class="skill-name">核心开发</div>
         </div>
-        <p class="skill-description">HarmonyOS 6.1.0 应用看板开发（邀测迭代中）</p>
+        <p class="skill-description">HarmonyOS 6.1.0鸿蒙应用看板开发<br>个人网页开发</p>
     </a>
     <a href="projects/openharmony.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-            <div class="skill-name">核心工程</div>
+            <div class="skill-name">并行开发</div>
         </div>
         <p class="skill-description">OpenHarmony (Hi3861) 嵌入式开发与系统工程深耕</p>
     </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-road"></i></div>
-            <div class="skill-name">多端规划</div>
+            <div class="skill-name">未来目标</div>
         </div>
-        <p class="skill-description">推进 macOS 与 Android 跨平台架构设计</p>
+        <p class="skill-description">推进鸿蒙应用看板macOS与Android平台软件开发</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-users"></i></div>
-            <div class="skill-name">进化路径</div>
+            <div class="skill-name">学习路径</div>
         </div>
-        <p class="skill-description">深化 Rust & Java 异步编程<br>仓颉编程语言预研<br>法语持续进阶中...</p>
+        <p class="skill-description">深化Rust & Java<br>仓颉编程语言预研<br>法语持续进阶中...</p>
     </div>
 </div>`,
             stackCard: `<h3 class="status-card-title">技术栈与领域</h3>
@@ -149,19 +149,19 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fab fa-js"></i></div>
             <div class="skill-name">程序语言</div>
         </div>
-        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss</p>
+        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss数据库</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
             <div class="skill-name">产品与工程</div>
         </div>
-        <p class="skill-description">HarmonyOS 应用生态 · Web 全栈开发 · 嵌入式系统工程 · 多端架构规划</p>
+        <p class="skill-description">HarmonyOS应用 · Web开发 · 生物学实验</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-            <div class="skill-name">模组开发</div>
+            <div class="skill-name">开源项目</div>
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
@@ -170,55 +170,48 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">生物研究</div>
         </div>
-        <p class="skill-description">PCR 实验项目 · 蛋白质遗传因子设想 · 碳同化综述</p>
+        <p class="skill-description">PCR实验项目 · 蛋白质猜想 · 碳同化综述 · 橙色平板实验 · 农杆菌转化法交互网页</p>
     </div>
 </div>`,
-            roadmapCard: `<h3 class="status-card-title">成长轨迹</h3>
+            roadmapCard: `<h3 class="status-card-title">部分成就</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <div class="skill-name">机器人与嵌入式初探</div>
+            <div class="skill-name">编程领域</div>
         </div>
-        <p class="skill-description">Scratch · EV3 魔方机器人 · Arduino 超声波避障小车</p>
+        <p class="skill-description">EV3魔方机器人 · Arduino超声波避障小车 · 丝绸之路机器人大赛 · C++信息学奥赛 · Sweet Potato Mod · Difficult Rocket · 鸿蒙应用看板 · 开放原子大赛</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">竞技与商业初体验</div>
+            <div class="skill-name">生物学领域</div>
         </div>
-        <p class="skill-description">丝绸之路机器人大赛 · C++ 信奥赛 · 烤地瓜模组（网易版签约）</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-dna"></i></div>
-            <div class="skill-name">生物科学实验室</div>
-        </div>
-        <p class="skill-description">首届高中 PCR 实验 · 蛋白质遗传设想 · 生物信息学探路</p>
+        <p class="skill-description">PCR实验项目 · 《关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想》 · 《卡尔文循环的分子生物学研究》 · 《酵母菌实验中平板变橙原因的分析与验证》 · 农杆菌转化法交互网页</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
-            <div class="skill-name">鸿蒙生态开发者</div>
+            <div class="skill-name">鸿蒙开发者</div>
         </div>
-        <p class="skill-description">HarmonyOS 应用看板开发者 · Hi3861 底层逻辑研究</p>
+        <p class="skill-description">HarmonyOS应用开发 · OpenHarmony嵌入式开发 · OpenGauss数据库</p>
+    </div>
+        <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-dna"></i></div>
+            <div class="skill-name">其他领域</div>
+        </div>
+        <p class="skill-description">21世界英语全国中小学生英语演讲比赛 · 小号六级证书 · 英国议会制辩论比赛 · 原学家 · A疯眼 · 众多摄影与航拍作品</p>
     </div>
 </div>`,
-            lifestyleCard: `<h3 class="status-card-title">生活与沉浸</h3>
+            lifestyleCard: `<h3 class="status-card-title">兴趣与生活</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-camera"></i></div>
             <div class="skill-name">摄影</div>
         </div>
-        <p class="skill-description">风景摄影 · 无人机影像</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-music"></i></div>
-            <div class="skill-name">兴趣</div>
-        </div>
-        <p class="skill-description">钢琴 · 小号 · 魔方 · 模拟飞行</p>
+        <p class="skill-description">风景摄影 · 无人机航拍</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
@@ -227,12 +220,19 @@ window.SITE_I18N = {
         </div>
         <p class="skill-description">跑步 · 骑行</p>
     </div>
+        <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-music"></i></div>
+            <div class="skill-name">兴趣</div>
+        </div>
+        <p class="skill-description">听音乐 · 钢琴 · 小号 · 魔方 · 模拟飞行</p>
+    </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
             <div class="skill-name">游戏</div>
         </div>
-        <p class="skill-description">Minecraft · 原神 · 明日方舟 · 终末地 · 皇室战争 · 多端音游</p>
+        <p class="skill-description">Minecraft · 第五人格 · 原神 · 明日方舟 · 明日方舟：终末地 · 皇室战争 · 多端音游（Arcaea, Phigros为主）</p>
     </div>
 </div>`,
         },
@@ -250,26 +250,26 @@ window.SITE_I18N = {
             title: 'Hi, I am <span class="gradient-text">Ray</span>',
             intro: 'Communication Student | HarmonyOS Builder | Cross-domain Geek | Visual Storyteller',
             core: 'Building HarmonyOS experiences while going deep on Hi3861 embedded fundamentals.',
-            side: 'Shipping web projects, collaborating on Difficult Rocket and Minecraft mods, and exploring biology with code.',
+            side: 'Web development, learning Rust & Java, advancing in French, with future plans to explore bioinformatics.',
             photo: 'Shooting landscapes and drone footage to capture frequencies beyond telecom.',
-            life: "Learning French, running and cycling, drifting between Teyvat, Talos-II and Rhodes Island, then ending the day with rhythm games and a Golem deck grind.",
+            life: "Learning French; love listening to music; running and cycling; switching between Teyvat, Talos-II and Rhodes Island; rhythm games online, daily Golem deck grind ().",
             tag: { core: 'Core', side: 'Side', photo: 'Photo', life: 'Life' },
             btn: { projects: 'View Projects', contact: 'Contact Me' },
             quote: 'Everything is possible by code.',
         },
         about: {
             title: 'About Me',
-            subtitle: 'I cross disciplines to build things that are both useful and alive.',
+            subtitle: 'Crossing the boundaries of disciplines, only to connect to a broader world.',
             profile: 'Profile',
         },
         projects: {
             title: 'My Projects',
-            subtitle: 'Turning curiosity into shipped work, and shipped work into lasting craft.',
+            subtitle: 'Turning passion into projects, and projects into lasting works.',
             more: 'Main Projects',
             moreDesc: 'Projects I lead or contribute to — research, development, and open source.',
             extra: 'More Projects',
             other: 'Other Projects',
-            otherDesc: 'Fun little things I build for play, art, or keepsakes — no rules, just vibes.',
+            otherDesc: 'Fun little things I wrote casually or for classmates and friends ()',
         },
         gallery: {
             title: 'Gallery',
@@ -322,7 +322,7 @@ window.SITE_I18N = {
         project: {
             hmdb: { title: 'HmDashboard', desc: ' Powered by Shenjack!<br>A full-stack project that fetches, processes, analyzes, and displays all app and meta-service data from the HarmonyOS AppGallery.<br>I mainly work on the frontend web development and software development. Current main project, continuously updating…', award: 'Third Prize, OpenAtom Competition' },
             bio: { title: 'Biology Projects', desc: 'Papers and experiment records in biology, including PCR, protein hypotheses, carbon assimilation review, orange-plate experiments, and an interactive Agrobacterium web demo.<br>I really liked biology in high school, but ended up not majoring in it. Most of this stuff is honestly kind of bs lol' },
-            spm: { title: 'Sweet Potato Mod', desc: 'Farming meets magic!<br>A Minecraft mod co-developed with @teddyxlandlee, adding sweet potatoes, farming stations, grinders, magic pots, enchanted crops, and more.<br>One of my earliest projects, though it hasn\'t been maintained in a while.' },
+            spm: { title: 'Sweet Potato Mod', desc: 'Farming meets magic!<br>A Minecraft mod co-developed with @teddyxlandlee, adding sweet potatoes, farming stations, grinders, Magic Cube, enchanted crops, and more.<br>One of my earliest projects, though it hasn\'t been maintained in a while.' },
             ohos: { title: 'OpenHarmony Hi3861', desc: 'Embedded development practice based on OpenHarmony Hi3861 dev board.<br>My first serious embedded project since playing with Arduino as a kid. <br>Still exploring…' },
             dr: { title: 'Difficult Rocket (Collaboration)', desc: 'Mostly @shenjack\'s project — I\'m just here for the ride (not really). A Python-made Simple Rocket-like game (rocket simulator). Lighter than the original SR.' },
             idv: { title: 'Identity V, Start!', desc: 'A webpage I built with lyx back when we grinded Survivor to Tier VI. Still has tons of bugs but I don\'t care anymore — keeping it as a memento lol' },
@@ -358,30 +358,30 @@ window.SITE_I18N = {
     <a href="projects/dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
-            <div class="skill-name">Core Engineering</div>
+            <div class="skill-name">Core Development</div>
         </div>
-        <p class="skill-description">HarmonyOS 6.1.0 App Dashboard development (invitation testing)</p>
+        <p class="skill-description">HarmonyOS 6.1.0 App Dashboard development<br>Personal website development</p>
     </a>
     <a href="projects/openharmony.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-            <div class="skill-name">Core Engineering</div>
+            <div class="skill-name">Parallel Development</div>
         </div>
-        <p class="skill-description">OpenHarmony (Hi3861) embedded development & systems engineering</p>
+        <p class="skill-description">OpenHarmony (Hi3861) embedded development & systems engineering deep dive</p>
     </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-road"></i></div>
-            <div class="skill-name">Multi-platform Plan</div>
+            <div class="skill-name">Future Goals</div>
         </div>
-        <p class="skill-description">Advancing macOS and Android cross-platform architecture design</p>
+        <p class="skill-description">Advancing HmDashboard macOS & Android software development</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-users"></i></div>
-            <div class="skill-name">Evolution Path</div>
+            <div class="skill-name">Learning Path</div>
         </div>
-        <p class="skill-description">Deepening Rust & Java async programming<br>Cangjie language R&D<br>French continuing progress...</p>
+        <p class="skill-description">Deepening Rust & Java<br>Cangjie language R&D<br>French continuing progress...</p>
     </div>
 </div>`,
             stackCard: `<h3 class="status-card-title">Tech Stack & Domains</h3>
@@ -389,21 +389,21 @@ window.SITE_I18N = {
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fab fa-js"></i></div>
-            <div class="skill-name">Program Stack</div>
+            <div class="skill-name">Programming Languages</div>
         </div>
-        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss</p>
+        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss Database</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-            <div class="skill-name">Engineering</div>
+            <div class="skill-name">Products & Engineering</div>
         </div>
-        <p class="skill-description">HarmonyOS app ecosystem · Full-stack web · Embedded systems · Multi-platform architecture</p>
+        <p class="skill-description">HarmonyOS Apps · Web Development · Biology Experiments</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-            <div class="skill-name">Mod Development</div>
+            <div class="skill-name">Open Source Projects</div>
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
@@ -412,55 +412,48 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">Bio Research</div>
         </div>
-        <p class="skill-description">PCR project · Protein heredity hypothesis · Carbon assimilation review</p>
+        <p class="skill-description">PCR Project · Protein Hypothesis · Carbon Assimilation Review · Orange Plate Experiment · Agrobacterium Interactive Web</p>
     </div>
 </div>`,
-            roadmapCard: `<h3 class="status-card-title">Growth Roadmap</h3>
+            roadmapCard: `<h3 class="status-card-title">Selected Achievements</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <div class="skill-name">Robotics & Embedded First Steps</div>
+            <div class="skill-name">Programming</div>
         </div>
-        <p class="skill-description">Scratch · EV3 Rubik's Cube robot · Arduino ultrasonic obstacle-avoidance car</p>
+        <p class="skill-description">EV3 Rubik's Cube Robot · Arduino Ultrasonic Obstacle-Avoidance Car · Silk Road Robotics Competition · C++ Informatics Olympiad · Sweet Potato Mod · Difficult Rocket · HmDashboard · OpenAtom Competition</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">Competition & Business Debut</div>
+            <div class="skill-name">Biology</div>
         </div>
-        <p class="skill-description">Silk Road Robotics Competition · C++ Informatics Olympiad · Sweet Potato Mod (NetEase contract)</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-dna"></i></div>
-            <div class="skill-name">Biology Lab</div>
-        </div>
-        <p class="skill-description">First high school PCR experiment · Protein heredity hypothesis · Bioinformatics exploration</p>
+        <p class="skill-description">PCR Project · "On the Conjecture of Proteins as Genetic Material in Extremely Special Organisms" · "Molecular Biology Research on the Calvin Cycle" · "Analysis and Verification of Orange Plate Discoloration in Yeast Experiments" · Agrobacterium Interactive Web</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
-            <div class="skill-name">HarmonyOS Ecosystem Developer</div>
+            <div class="skill-name">HarmonyOS Developer</div>
         </div>
-        <p class="skill-description">HarmonyOS App Dashboard developer · Hi3861 low-level logic research</p>
+        <p class="skill-description">HarmonyOS App Development · OpenHarmony Embedded Development · OpenGauss Database</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-dna"></i></div>
+            <div class="skill-name">Other</div>
+        </div>
+        <p class="skill-description">21st Century English National Speech Competition · Trumpet Level 6 Certificate · British Parliamentary Debate · Genshin Lore Scholar · Mad Eyes A Badge · Numerous Photography & Aerial Works</p>
     </div>
 </div>`,
-            lifestyleCard: `<h3 class="status-card-title">Life & Immersion</h3>
+            lifestyleCard: `<h3 class="status-card-title">Interests & Life</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-camera"></i></div>
             <div class="skill-name">Photography</div>
         </div>
-        <p class="skill-description">Landscape photography · Drone footage</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-music"></i></div>
-            <div class="skill-name">Hobbies</div>
-        </div>
-        <p class="skill-description">Piano · Trumpet · Rubik's Cube · Flight simulation</p>
+        <p class="skill-description">Landscape Photography · Drone Footage</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
@@ -471,10 +464,17 @@ window.SITE_I18N = {
     </div>
     <div class="skill-item">
         <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-music"></i></div>
+            <div class="skill-name">Hobbies</div>
+        </div>
+        <p class="skill-description">Listening to Music · Piano · Trumpet · Rubik's Cube · Flight Simulation</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
             <div class="skill-name">Gaming</div>
         </div>
-        <p class="skill-description">Minecraft · Genshin Impact · Arknights · Endfield · Clash Royale · Multi-platform rhythm games</p>
+        <p class="skill-description">Minecraft · Identity V · Genshin Impact · Arknights · Endfield · Clash Royale · Multi-platform Rhythm Games (mainly Arcaea, Phigros)</p>
     </div>
 </div>`,
         },
@@ -492,26 +492,26 @@ window.SITE_I18N = {
             title: 'Bonjour, je suis <span class="gradient-text">Ray</span>',
             intro: 'Étudiant en communication | Créateur HarmonyOS | Geek transdisciplinaire | Auteur visuel',
             core: "Je construis des applications HarmonyOS tout en approfondissant l'embarqué Hi3861.",
-            side: 'Je livre des projets web, je collabore sur Difficult Rocket et des mods Minecraft, et j\'explore la biologie par le code.',
+            side: 'Développement web, apprentissage de Rust et Java, progression en français, avec des projets futurs en bio-informatique.',
             photo: 'Photo de paysage et drone pour capter des fréquences hors du spectre télécom.',
-            life: "J'apprends le français, je cours, je fais du vélo, je passe de Teyvat à Rhodes Island, puis je termine en jeux de rythme et deck Golem.",
+            life: "J'apprends le français ; j'adore écouter de la musique ; course et vélo ; je navigue entre Teyvat, Talos-II et Rhodes Island ; jeux de rythme en ligne, grind quotidien de deck Golem ().",
             tag: { core: 'Noyau', side: 'Pistes', photo: 'Photo', life: 'Vie' },
             btn: { projects: 'Voir les projets', contact: 'Me contacter' },
             quote: 'Everything is possible by code.',
         },
         about: {
             title: 'À propos de moi',
-            subtitle: 'Je traverse les disciplines pour construire des choses utiles, sensibles et durables.',
+            subtitle: 'Traverser les frontières des disciplines, pour relier un monde plus vaste.',
             profile: 'Profil',
         },
         projects: {
             title: 'Mes projets',
-            subtitle: 'Transformer la curiosité en projets, puis les projets en travail qui reste.',
+            subtitle: 'Transformer la passion en projets, et les projets en œuvres durables.',
             more: 'Projets principaux',
             moreDesc: 'Projets que je dirige ou auxquels je contribue — recherche, développement et open source.',
             extra: 'Plus de projets',
             other: 'Autres projets',
-            otherDesc: 'Des petits trucs sympas — pour le fun, l\'art ou le souvenir, sans règles.',
+            otherDesc: "Des petits trucs sympas écrits au hasard ou pour des camarades et amis ()",
         },
         gallery: {
             title: 'Galerie',
@@ -564,7 +564,7 @@ window.SITE_I18N = {
         project: {
             hmdb: { title: 'HmDashboard', desc: " Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…", award: 'Troisième prix, concours OpenAtom' },
             bio: { title: 'Projets de biologie', desc: "Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.<br>J'adorais la bio au lycée, mais je n'ai pas fait de bio à la fac. La plupart de tout ça c'est du blabla en fait mdr" },
-            spm: { title: 'Sweet Potato Mod', desc: "L'agriculture rencontre la magie !<br>Un mod Minecraft co-développé avec @teddyxlandlee, ajoutant des patates douces, des stations agricoles, des broyeurs, des marmites magiques, des cultures enchantées, etc.<br>L'un de mes premiers projets, mais plus maintenu depuis un moment." },
+            spm: { title: 'Sweet Potato Mod', desc: "L'agriculture rencontre la magie !<br>Un mod Minecraft co-développé avec @teddyxlandlee, ajoutant des patates douces, des stations agricoles, des broyeurs, des Cubes magiques, des cultures enchantées, etc.<br>L'un de mes premiers projets, mais plus maintenu depuis un moment." },
             ohos: { title: 'OpenHarmony Hi3861', desc: "Pratique de développement embarqué basée sur la carte Hi3861 d'OpenHarmony.<br>Mon premier vrai projet embarqué depuis l'Arduino quand j'étais petit. Toujours en exploration…" },
             dr: { title: 'Difficult Rocket (Collaboration)', desc: "C'est surtout le projet de @shenjack — je suis juste là pour rigoler (non pas vrai). Un jeu de type Simple Rocket en Python (simulateur de fusée). Plus léger que le SR original." },
             idv: { title: 'Identity V, Start !', desc: "Une page web faite avec lyx à l'époque où on grindait Survivant jusqu'au rang VI. Plein de bugs mais je m'en fiche — gardé comme souvenir mdr" },
@@ -600,52 +600,52 @@ window.SITE_I18N = {
     <a href="projects/dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
-            <div class="skill-name">Ingénierie principale</div>
+            <div class="skill-name">Développement principal</div>
         </div>
-        <p class="skill-description">Développement HmDashboard HarmonyOS 6.1.0 (test sur invitation)</p>
+        <p class="skill-description">Développement HmDashboard HarmonyOS 6.1.0<br>Développement du site personnel</p>
     </a>
     <a href="projects/openharmony.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-            <div class="skill-name">Ingénierie principale</div>
+            <div class="skill-name">Développement parallèle</div>
         </div>
-        <p class="skill-description">Développement embarqué OpenHarmony (Hi3861) & ingénierie système</p>
+        <p class="skill-description">Développement embarqué OpenHarmony (Hi3861) & approfondissement de l'ingénierie système</p>
     </a>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-road"></i></div>
-            <div class="skill-name">Plan multi-plateforme</div>
+            <div class="skill-name">Objectifs futurs</div>
         </div>
-        <p class="skill-description">Architecture cross-platform macOS et Android</p>
+        <p class="skill-description">Développement logiciel HmDashboard pour macOS et Android</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-users"></i></div>
-            <div class="skill-name">Parcours d'évolution</div>
+            <div class="skill-name">Parcours d'apprentissage</div>
         </div>
-        <p class="skill-description">Approfondissement Rust & Java asynchrone<br>Langage Cangjie en R&D<br>Français en progression continue...</p>
+        <p class="skill-description">Approfondissement Rust & Java<br>Langage Cangjie en R&D<br>Français en progression continue...</p>
     </div>
 </div>`,
-            stackCard: `<h3 class="status-card-title">Stack technique</h3>
+            stackCard: `<h3 class="status-card-title">Stack technique et domaines</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fab fa-js"></i></div>
-            <div class="skill-name">Langages</div>
+            <div class="skill-name">Langages de programmation</div>
         </div>
-        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss</p>
+        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · Base de données openGauss</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-            <div class="skill-name">Ingénierie</div>
+            <div class="skill-name">Produits et ingénierie</div>
         </div>
-        <p class="skill-description">Écosystème HarmonyOS · Web full-stack · Systèmes embarqués · Architecture multi-plateforme</p>
+        <p class="skill-description">Applications HarmonyOS · Développement web · Expériences de biologie</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-            <div class="skill-name">Développement de mods</div>
+            <div class="skill-name">Projets open source</div>
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
@@ -654,55 +654,48 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">Recherche biologique</div>
         </div>
-        <p class="skill-description">PCR · Hypothèse protéines · Revue assimilation du carbone</p>
+        <p class="skill-description">Projet PCR · Hypothèse protéique · Revue d'assimilation du carbone · Expérience plaque orange · Web interactif Agrobacterium</p>
     </div>
 </div>`,
-            roadmapCard: `<h3 class="status-card-title">Trajectoire</h3>
+            roadmapCard: `<h3 class="status-card-title">Sélection de réalisations</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <div class="skill-name">Robotique & embarqué</div>
+            <div class="skill-name">Programmation</div>
         </div>
-        <p class="skill-description">Scratch · Robot Rubik's Cube EV3 · Voiture ultrasons Arduino</p>
+        <p class="skill-description">Robot Rubik's Cube EV3 · Voiture ultrasons Arduino · Compétition Route de la Soie · Olympiade C++ · Sweet Potato Mod · Difficult Rocket · HmDashboard · Concours OpenAtom</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">Compétition & commerce</div>
+            <div class="skill-name">Biologie</div>
         </div>
-        <p class="skill-description">Compétition Route de la Soie · Olympiade C++ · Mod patate douce (contrat NetEase)</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-dna"></i></div>
-            <div class="skill-name">Labo de biologie</div>
-        </div>
-        <p class="skill-description">Première expérience PCR au lycée · Hypothèse protéines · Bioinformatique</p>
+        <p class="skill-description">Projet PCR · « Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement spéciaux » · « Recherche en biologie moléculaire sur le cycle de Calvin » · « Analyse et vérification du changement de couleur orange des plaques » · Web interactif Agrobacterium</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
             <div class="skill-name">Développeur HarmonyOS</div>
         </div>
-        <p class="skill-description">Développeur HmDashboard · Recherche logique bas niveau Hi3861</p>
+        <p class="skill-description">Développement d'applications HarmonyOS · Développement embarqué OpenHarmony · Base de données OpenGauss</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-dna"></i></div>
+            <div class="skill-name">Autres domaines</div>
+        </div>
+        <p class="skill-description">Concours national d'éloquence 21st Century English · Certificat de trompette niveau 6 · Débat parlementaire britannique · Érudit du lore de Genshin · Badge A Mad Eyes · Nombreuses œuvres photo et aériennes</p>
     </div>
 </div>`,
-            lifestyleCard: `<h3 class="status-card-title">Vie & immersion</h3>
+            lifestyleCard: `<h3 class="status-card-title">Intérêts et vie</h3>
 <div class="skills-grid">
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-camera"></i></div>
             <div class="skill-name">Photographie</div>
         </div>
-        <p class="skill-description">Photo paysage · Images drone</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-music"></i></div>
-            <div class="skill-name">Loisirs</div>
-        </div>
-        <p class="skill-description">Piano · Trompette · Rubik's Cube · Simulation de vol</p>
+        <p class="skill-description">Photo de paysage · Images drone</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
@@ -713,10 +706,17 @@ window.SITE_I18N = {
     </div>
     <div class="skill-item">
         <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-music"></i></div>
+            <div class="skill-name">Loisirs</div>
+        </div>
+        <p class="skill-description">Écouter de la musique · Piano · Trompette · Rubik's Cube · Simulation de vol</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
             <div class="skill-name">Jeux</div>
         </div>
-        <p class="skill-description">Minecraft · Genshin Impact · Arknights · Endfield · Clash Royale · Jeux de rythme multi-plateformes</p>
+        <p class="skill-description">Minecraft · Identity V · Genshin Impact · Arknights · Endfield · Clash Royale · Jeux de rythme multi-plateformes (principalement Arcaea, Phigros)</p>
     </div>
 </div>`,
         },
