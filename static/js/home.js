@@ -648,13 +648,18 @@ function initSectionReveal() {
     const sections = document.querySelectorAll('.reveal-section');
     if (!sections.length) return;
 
+    function revealSection(el) {
+        if (el.classList.contains('is-visible') || el.classList.contains('is-revealed')) return;
+        el.classList.add('is-visible');
+        window.setTimeout(() => {
+            el.classList.add('is-revealed');
+        }, 1200);
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('is-revealed')) {
-                entry.target.classList.add('is-visible');
-                window.setTimeout(() => {
-                    entry.target.classList.add('is-revealed');
-                }, 1200);
+            if (entry.isIntersecting) {
+                revealSection(entry.target);
             }
         });
     }, {
@@ -662,8 +667,34 @@ function initSectionReveal() {
         rootMargin: '0px 0px -40px 0px'
     });
 
+    function checkVisibleSections() {
+        const vh = window.innerHeight;
+        sections.forEach(section => {
+            if (section.classList.contains('is-visible')) return;
+            const rect = section.getBoundingClientRect();
+            if (rect.top < vh && rect.bottom > 0) {
+                revealSection(section);
+            }
+        });
+    }
+
+    let scrollCheckTimer = null;
+    function onScrollCheck() {
+        if (scrollCheckTimer) return;
+        scrollCheckTimer = window.setTimeout(() => {
+            scrollCheckTimer = null;
+            checkVisibleSections();
+            if (Array.from(sections).every(s => s.classList.contains('is-revealed'))) {
+                window.removeEventListener('scroll', onScrollCheck);
+                observer.disconnect();
+            }
+        }, 150);
+    }
+
     function startObserving() {
         sections.forEach(section => observer.observe(section));
+        checkVisibleSections();
+        window.addEventListener('scroll', onScrollCheck, { passive: true });
     }
 
     if (!document.getElementById('loadingScreen')) {
