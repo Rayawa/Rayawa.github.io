@@ -1165,6 +1165,15 @@ textarea.form-control {
     box-shadow: 0 0 8px rgba(89, 212, 255, 0.4);
 }
 
+.loading-hint {
+    margin-top: 0.45rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: rgba(202, 236, 255, 0.8);
+    text-transform: uppercase;
+}
+
 @media (max-width: 480px) {
     .loading-content {
         gap: 1.5rem;
@@ -1193,6 +1202,10 @@ textarea.form-control {
 
     .loading-bar-wrap {
         width: 160px;
+    }
+
+    .loading-hint {
+        font-size: 0.74rem;
     }
 }
 
