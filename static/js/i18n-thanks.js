@@ -23,7 +23,7 @@ window.SITE_I18N = {
             },
             classmate: {
                 title: '同学',
-                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>AndyGao、bzy、秀秀、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>hjz、jdh、ljy、lzq、whn、wth、wyx、yyzy、zrq、zxy（按姓名字母顺序排序）</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>AndyGao、bzy、秀秀、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: '项目合作',
@@ -35,10 +35,10 @@ window.SITE_I18N = {
             },
             life: {
                 title: '生活',
-                content: 'GAN Cube、SPECIALIZED Tarmac SL6<br>生活平安稳定和充满发展机遇的中国、所有为社会作出贡献的人们、北京119（救过我的命（不是<br>以及 发现这个彩蛋页面并读到这里的你'
+                content: 'GAN Cube、SPECIALIZED Tarmac SL6<br>生活平安稳定和充满发展机遇的中国<br>所有为社会作出贡献的人们<br>北京119（救过我的命（不是<br>以及 发现这个彩蛋页面并读到这里的你'
             }
         },
-        footer: { quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
     },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
@@ -52,7 +52,7 @@ window.SITE_I18N = {
         groups: {
             family: {
                 title: 'Family',
-                content: '<div class="thanks-sub">Parents</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. and all my relatives</div>'
+                content: '<div class="thanks-sub">My Parents</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. and all my relatives</div>'
             },
             special: {
                 title: 'Special Thanks',
@@ -64,7 +64,7 @@ window.SITE_I18N = {
             },
             classmate: {
                 title: 'Classmates',
-                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">My Best Friends</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>hjz、jdh、ljy、lzq、whn、wth、wyx、yyzy、zrq、zxy (in alphabetical order)</div><div class="thanks-sub"><span class="thanks-label">My Best Friends</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: 'Project Collaborators',
@@ -76,10 +76,10 @@ window.SITE_I18N = {
             },
             life: {
                 title: 'Life',
-                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>China, where life is peaceful, stable, and full of opportunities; everyone who contributes to society; Beijing 119 (saved my life (jk<br>And finally, you who found this easter egg page and read all the way to here'
+                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>China, where life is peaceful, stable, and full of opportunities<br>everyone who contributes to society<br>Beijing 119 (saved my life (jk<br>And finally, you who found this easter egg page and read all the way to here'
             }
         },
-        footer: { quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
     },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
@@ -93,7 +93,7 @@ window.SITE_I18N = {
         groups: {
             family: {
                 title: 'Famille',
-                content: '<div class="thanks-sub">Parents</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. et tous mes proches</div>'
+                content: '<div class="thanks-sub">Mes parents</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. et tous mes proches</div>'
             },
             special: {
                 title: 'Remerciements spéciaux',
@@ -105,7 +105,7 @@ window.SITE_I18N = {
             },
             classmate: {
                 title: 'Camarades',
-                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">Mes amis</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>hjz、jdh、ljy、lzq、whn、wth、wyx、yyzy、zrq、zxy (par ordre alphabétique)</div><div class="thanks-sub"><span class="thanks-label">Mes amis</span>AndyGao、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: 'Collaborateurs de projet',
@@ -117,9 +117,9 @@ window.SITE_I18N = {
             },
             life: {
                 title: 'Vie',
-                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>La Chine, où la vie est paisible, stable et pleine d\'opportunités ; toutes les personnes qui contribuent à la société ; Beijing 119 (m\'a sauvé la vie (non<br>Et enfin, vous qui avez trouvé cette page cachée et avez lu jusqu\'ici'
+                content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>La Chine, où la vie est paisible, stable et pleine d\'opportunités<br>toutes les personnes qui contribuent à la société<br>Beijing 119 (m\'a sauvé la vie (non<br>Et enfin, vous qui avez trouvé cette page cachée et avez lu jusqu\'ici'
             }
         },
-        footer: { quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
+        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
     }
 };

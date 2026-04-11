@@ -3,6 +3,100 @@
     margin: 0 auto;
     padding: 8rem clamp(1.2rem, 4vw, 2.5rem) 4rem;
     flex: 1 0 auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page.content-ready {
+    opacity: 1;
+}
+
+.page.lang-fade-target {
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+    will-change: opacity, transform;
+}
+
+.page.lang-fade-target.is-leaving {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+}
+
+.page.lang-fade-target.is-entering {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    transition: none;
+}
+
+.page.lang-fade-target.is-entering.is-arriving {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+}
+
+.navbar.lang-fade-target {
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+    will-change: opacity, transform;
+}
+
+.navbar.lang-fade-target.is-leaving {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+}
+
+.navbar.lang-fade-target.is-entering {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    transition: none;
+}
+
+.navbar.lang-fade-target.is-entering.is-arriving {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+}
+
+.footer.lang-fade-target {
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+    will-change: opacity, transform;
+}
+
+.footer.lang-fade-target.is-leaving {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+}
+
+.footer.lang-fade-target.is-entering {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    transition: none;
+}
+
+.footer.lang-fade-target.is-entering.is-arriving {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+}
+
+.fab-tools.lang-fade-target {
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
+    will-change: opacity, transform;
+}
+
+.fab-tools.lang-fade-target.is-leaving {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+}
+
+.fab-tools.lang-fade-target.is-entering {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    transition: none;
+}
+
+.fab-tools.lang-fade-target.is-entering.is-arriving {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
 }
 
 .hero-card {

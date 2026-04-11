@@ -538,6 +538,9 @@ function initPageEntrance() {
         setLocale(locale, { noPersist: true });
         if (navbar) navbar.classList.add('is-visible');
 
+        var pageEl = document.querySelector('.page');
+        if (pageEl) pageEl.classList.add('content-ready');
+
         var overlay = document.createElement('div');
         overlay.className = 'page-transition-overlay';
         document.body.appendChild(overlay);
@@ -562,6 +565,8 @@ function initPageEntrance() {
         done = true;
         setLocale(locale, { noPersist: true });
         if (navbar) navbar.classList.add('is-visible');
+        var pageEl = document.querySelector('.page');
+        if (pageEl) pageEl.classList.add('content-ready');
         setTimeout(function() {
             entrance.classList.add('is-done');
             setTimeout(function() {
