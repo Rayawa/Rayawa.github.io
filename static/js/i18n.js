@@ -73,7 +73,7 @@ window.SITE_I18N = {
             quick: '快速链接',
             projects: '项目',
             copy: '&copy; 2026 Ray Chen. All rights reserved.',
-            description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+            description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
             thanks: '致谢',
             thanksLink: '查看致谢',
         },
@@ -85,7 +85,7 @@ window.SITE_I18N = {
             bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（' },
             spm: { title: 'Sweet Potato Mod', desc: '农业与魔法的完美结合！<br>与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。<br>这是我最早的项目之一，不过好久没有维护了。' },
             ohos: { title: 'OpenHarmony Hi3861', desc: '基于OpenHarmony Hi3861开发板的嵌入式开发实践。<br>除了小时候玩的Arduino之外的第一个正经嵌入式开发项目，正在探索中……' },
-            dr: { title: 'Difficlut Rocket（协作开发）', desc: '主要是@shenjack的项目，我就是过来玩玩的（不是）。<br>一个用Python制作的类Simple Rocket游戏（简称：火箭模拟器）。相对于原版SR，它更加轻量。' },
+            dr: { title: 'Difficult Rocket（协作开发）', desc: '主要是@shenjack的项目，我就是过来玩玩的（不是）。<br>一个用Python制作的类Simple Rocket游戏（简称：火箭模拟器）。相对于原版SR，它更加轻量。' },
             idv: { title: '第五人格，启动！', desc: '当年和秀秀打人类排位到六阶搓出来的网页，页面还要很多很多bug也不管了，放在这里留个纪念（' },
             xiaodou: { title: '小豆英语启蒙', desc: '占位文本占位文本占位文本占位文本' },
             hlm: { title: '红楼梦剧组', desc: '2023年底的翻拍《寿怡红群芳开夜宴》项目的活动，作为导演摄影和剪辑（这么看也算是“全栈开发”了）产出的一些文件。' },
@@ -178,28 +178,28 @@ window.SITE_I18N = {
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <div class="skill-name">启蒙：机器人与嵌入式初探</div>
+            <div class="skill-name">机器人与嵌入式初探</div>
         </div>
         <p class="skill-description">Scratch · EV3 魔方机器人 · Arduino 超声波避障小车</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">探索：竞技与商业初体验</div>
+            <div class="skill-name">竞技与商业初体验</div>
         </div>
         <p class="skill-description">丝绸之路机器人大赛 · C++ 信奥赛 · 烤地瓜模组（网易版签约）</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-dna"></i></div>
-            <div class="skill-name">跨界：生物科学实验室</div>
+            <div class="skill-name">生物科学实验室</div>
         </div>
         <p class="skill-description">首届高中 PCR 实验 · 蛋白质遗传设想 · 生物信息学探路</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
-            <div class="skill-name">深耕：鸿蒙生态开发者</div>
+            <div class="skill-name">鸿蒙生态开发者</div>
         </div>
         <p class="skill-description">HarmonyOS 应用看板开发者 · Hi3861 底层逻辑研究</p>
     </div>
@@ -312,7 +312,7 @@ window.SITE_I18N = {
             quick: 'Quick Links',
             projects: 'Projects',
             copy: '&copy; 2026 Ray Chen. All rights reserved.',
-            description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+            description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
             thanks: 'Acknowledgements',
             thanksLink: 'View Acknowledgements',
         },
@@ -324,11 +324,11 @@ window.SITE_I18N = {
             bio: { title: 'Biology Projects', desc: 'Papers and experiment records in biology, including PCR, protein hypotheses, carbon assimilation review, orange-plate experiments, and an interactive Agrobacterium web demo.<br>I really liked biology in high school, but ended up not majoring in it. Most of this stuff is honestly kind of bs lol' },
             spm: { title: 'Sweet Potato Mod', desc: 'Farming meets magic!<br>A Minecraft mod co-developed with @teddyxlandlee, adding sweet potatoes, farming stations, grinders, magic pots, enchanted crops, and more.<br>One of my earliest projects, though it hasn\'t been maintained in a while.' },
             ohos: { title: 'OpenHarmony Hi3861', desc: 'Embedded development practice based on OpenHarmony Hi3861 dev board.<br>My first serious embedded project since playing with Arduino as a kid. <br>Still exploring…' },
-            dr: { title: 'Difficlut Rocket (Collaboration)', desc: 'Mostly @shenjack\'s project — I\'m just here for the ride (not really).' },
-            idv: { title: 'Identity V, Start!', desc: 'A webpage I built with Xiuxiu back when we grinded Survivor to Tier VI. Still has tons of bugs but I don\'t care anymore — keeping it as a memento lol' },
+            dr: { title: 'Difficult Rocket (Collaboration)', desc: 'Mostly @shenjack\'s project — I\'m just here for the ride (not really). A Python-made Simple Rocket-like game (rocket simulator). Lighter than the original SR.' },
+            idv: { title: 'Identity V, Start!', desc: 'A webpage I built with lyx back when we grinded Survivor to Tier VI. Still has tons of bugs but I don\'t care anymore — keeping it as a memento lol' },
             xiaodou: { title: 'Xiaodou English Starter', desc: 'Placeholder text placeholder text placeholder text' },
             hlm: { title: 'Red Chamber Troupe', desc: 'A 2023 year-end remake of "Birthday Banquet at Happy Red Court" — I was the director, cinematographer, and editor (guess you could call it "full-stack development" lol).' },
-            whn: { title: 'WHN Birthday', desc: '2024/11/11 Haonanjing\'s birthday party project. An unforgettable experience — from storyboarding to filming to editing, the final result was actually pretty good!' },
+            whn: { title: 'WHN Birthday', desc: '2024/11/11 whn\'s birthday party project. An unforgettable experience — from storyboarding to filming to editing, the final result was actually pretty good!' },
             thesis: { title: 'School Papers', desc: 'Various course assignments and final papers required by school. Most of them are pretty shallow and not very useful.' },
             prion: { title: 'Prion Protein Hypothesis', desc: 'Exploring the possibility of proteins as hereditary factors in highly specialized organisms, proposing innovative hypotheses.' },
             c3: { title: 'C3 Plant Photosynthesis', desc: 'Systematic review of C3 plant photosynthesis mechanisms, analyzing the synergy between light and dark reactions.' },
@@ -420,28 +420,28 @@ window.SITE_I18N = {
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <div class="skill-name">Spark: Robotics & Embedded First Steps</div>
+            <div class="skill-name">Robotics & Embedded First Steps</div>
         </div>
         <p class="skill-description">Scratch · EV3 Rubik's Cube robot · Arduino ultrasonic obstacle-avoidance car</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">Explore: Competition & Business Debut</div>
+            <div class="skill-name">Competition & Business Debut</div>
         </div>
         <p class="skill-description">Silk Road Robotics Competition · C++ Informatics Olympiad · Sweet Potato Mod (NetEase contract)</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-dna"></i></div>
-            <div class="skill-name">Cross-domain: Biology Lab</div>
+            <div class="skill-name">Biology Lab</div>
         </div>
         <p class="skill-description">First high school PCR experiment · Protein heredity hypothesis · Bioinformatics exploration</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
-            <div class="skill-name">Deep Dive: HarmonyOS Ecosystem Developer</div>
+            <div class="skill-name">HarmonyOS Ecosystem Developer</div>
         </div>
         <p class="skill-description">HarmonyOS App Dashboard developer · Hi3861 low-level logic research</p>
     </div>
@@ -482,31 +482,31 @@ window.SITE_I18N = {
     fr: {
         pageTitle: 'Accueil | Ray Chen',
         sending: 'Envoi...',
-        sent: 'Message envoye. Je vous repondrai bientot.',
-        sendFailed: "Echec de l envoi. Veuillez reessayer plus tard.",
+        sent: 'Message envoyé. Je vous répondrai bientôt.',
+        sendFailed: "Échec de l'envoi. Veuillez réessayer plus tard.",
         top: 'Retour en haut',
-        refresh: 'Rafraichir la page',
-        dotLabel: 'Aller a la diapositive {n}',
-        nav: { home: 'Accueil', about: 'A propos', projects: 'Projets', gallery: 'Galerie', social: 'Liens', contact: 'Contact' },
+        refresh: 'Rafraîchir la page',
+        dotLabel: 'Aller à la diapositive {n}',
+        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', social: 'Liens', contact: 'Contact' },
         hero: {
             title: 'Bonjour, je suis <span class="gradient-text">Ray</span>',
-            intro: 'Etudiant en communication | Createur HarmonyOS | Geek transdisciplinaire | Auteur visuel',
-            core: "Je construis des applications HarmonyOS tout en approfondissant l'embarque Hi3861.",
-            side: 'Je livre des projets web, je collabore sur Difficult Rocket et des mods Minecraft, et j explore la biologie par le code.',
-            photo: 'Photo de paysage et drone pour capter des frequences hors du spectre telecom.',
-            life: "J apprends le francais, je cours, je fais du velo, je passe de Teyvat a Rhodes Island, puis je termine en jeux de rythme et deck Golem.",
+            intro: 'Étudiant en communication | Créateur HarmonyOS | Geek transdisciplinaire | Auteur visuel',
+            core: "Je construis des applications HarmonyOS tout en approfondissant l'embarqué Hi3861.",
+            side: 'Je livre des projets web, je collabore sur Difficult Rocket et des mods Minecraft, et j\'explore la biologie par le code.',
+            photo: 'Photo de paysage et drone pour capter des fréquences hors du spectre télécom.',
+            life: "J'apprends le français, je cours, je fais du vélo, je passe de Teyvat à Rhodes Island, puis je termine en jeux de rythme et deck Golem.",
             tag: { core: 'Noyau', side: 'Pistes', photo: 'Photo', life: 'Vie' },
             btn: { projects: 'Voir les projets', contact: 'Me contacter' },
             quote: 'Everything is possible by code.',
         },
         about: {
-            title: 'A propos de moi',
+            title: 'À propos de moi',
             subtitle: 'Je traverse les disciplines pour construire des choses utiles, sensibles et durables.',
             profile: 'Profil',
         },
         projects: {
             title: 'Mes projets',
-            subtitle: 'Transformer la curiosite en projets, puis les projets en travail qui reste.',
+            subtitle: 'Transformer la curiosité en projets, puis les projets en travail qui reste.',
             more: 'Projets principaux',
             moreDesc: 'Projets que je dirige ou auxquels je contribue — recherche, développement et open source.',
             extra: 'Plus de projets',
@@ -515,7 +515,7 @@ window.SITE_I18N = {
         },
         gallery: {
             title: 'Galerie',
-            subtitle: 'Angles aeriens, textures du sol, et instants hors de la bande de signal.',
+            subtitle: 'Angles aériens, textures du sol, et instants hors de la bande de signal.',
             more: 'Voir plus',
         },
         social: {
@@ -523,17 +523,17 @@ window.SITE_I18N = {
             subtitle: 'Publier en public, collaborer en ouvert, progresser sans pause.',
             bili: { title: 'Bilibili (Rayawa)', desc: 'Photos et journal de progression projet' },
             biliGame: { title: 'Bilibili (Ray汐)', desc: 'Jeux et quotidien' },
-            github: { title: 'GitHub', desc: 'Code, depots et chantiers en cours' },
-            xhs: { title: 'Xiaohongshu', desc: 'Collection photo complete' },
+            github: { title: 'GitHub', desc: 'Code, dépôts et chantiers en cours' },
+            xhs: { title: 'Xiaohongshu', desc: 'Collection photo complète' },
         },
         contact: {
             title: 'Contact',
-            subtitle: 'Si nous visons la meme direction, construisons-le ensemble.',
+            subtitle: 'Si nous visons la même direction, construisons-le ensemble.',
             email: 'Email',
             website: 'Site',
             qq: 'QQ',
             location: 'Localisation',
-            locationValue: 'Pekin, Chine',
+            locationValue: 'Pékin, Chine',
             socialTitle: 'Mes liens',
         },
         form: {
@@ -546,15 +546,15 @@ window.SITE_I18N = {
             emailPh: 'Votre email',
             messagePh: 'Votre message...',
             nameHint: 'Indiquez un nom reconnaissable — sinon le serveur pourrait le marquer comme spam',
-            emailHint: "Verifiez bien votre adresse — c est le seul moyen de recevoir une reponse",
-            messageHint: 'Si votre pseudo ne me dit rien, precisez — sinon le filtre anti-spam pourrait vous bloquer',
+            emailHint: "Vérifiez bien votre adresse — c'est le seul moyen de recevoir une réponse",
+            messageHint: 'Si votre pseudo ne me dit rien, précisez — sinon le filtre anti-spam pourrait vous bloquer',
             send: 'Envoyer',
         },
         footer: {
             quick: 'Liens rapides',
             projects: 'Projets',
-            copy: '&copy; 2026 Ray Chen. Tous droits reserves.',
-            description: 'Ray汐 / 清霁Ray / Rayawa / Ray Chen<br>Everything is possible by code.',
+            copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
+            description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
             thanks: 'Remerciements',
             thanksLink: 'Voir les remerciements',
         },
@@ -566,8 +566,8 @@ window.SITE_I18N = {
             bio: { title: 'Projets de biologie', desc: "Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.<br>J'adorais la bio au lycée, mais je n'ai pas fait de bio à la fac. La plupart de tout ça c'est du blabla en fait mdr" },
             spm: { title: 'Sweet Potato Mod', desc: "L'agriculture rencontre la magie !<br>Un mod Minecraft co-développé avec @teddyxlandlee, ajoutant des patates douces, des stations agricoles, des broyeurs, des marmites magiques, des cultures enchantées, etc.<br>L'un de mes premiers projets, mais plus maintenu depuis un moment." },
             ohos: { title: 'OpenHarmony Hi3861', desc: "Pratique de développement embarqué basée sur la carte Hi3861 d'OpenHarmony.<br>Mon premier vrai projet embarqué depuis l'Arduino quand j'étais petit. Toujours en exploration…" },
-            dr: { title: 'Difficlut Rocket (Collaboration)', desc: "C'est surtout le projet de @shenjack — je suis juste là pour rigoler (non pas vrai)." },
-            idv: { title: 'Identity V, Start !', desc: "Une page web faite avec Xiuxiu à l'époque où on grindait Survivant jusqu'au rang VI. Plein de bugs mais je m'en fiche — gardé comme souvenir mdr" },
+            dr: { title: 'Difficult Rocket (Collaboration)', desc: "C'est surtout le projet de @shenjack — je suis juste là pour rigoler (non pas vrai). Un jeu de type Simple Rocket en Python (simulateur de fusée). Plus léger que le SR original." },
+            idv: { title: 'Identity V, Start !', desc: "Une page web faite avec lyx à l'époque où on grindait Survivant jusqu'au rang VI. Plein de bugs mais je m'en fiche — gardé comme souvenir mdr" },
             xiaodou: { title: 'Xiaodou English Starter', desc: 'Texte de remplacement texte de remplacement texte de remplacement' },
             hlm: { title: 'Troupe du Rêve Rouge', desc: 'Un remake fin 2023 du "Banquet de la Nuit au Pavillon Rouge" — j\'étais réalisateur, cadreur et monteur (on peut appeler ça du "développement full-stack" mdr).' },
             whn: { title: "Anniversaire WHN", desc: "Projet d'anniversaire de whn le 2024/11/11. Une expérience inoubliable — du storyboard au tournage au montage, le résultat final était plutôt pas mal !" },
@@ -577,7 +577,7 @@ window.SITE_I18N = {
             saccharomyces: { title: 'Recherche sur Saccharomyces', desc: "Enregistrements et analyse d'expériences sur plaque orange, explorant les caractéristiques de croissance de la levure dans différentes conditions." },
             xxh: { title: 'Test de compatibilité XXH', desc: "Un petit test inventé par un camarade — je l'ai aidé à faire le frontend web (toujours en construction). Quiz anonymé à deux, trois dimensions, quantifiant votre compatibilité émotionnelle." },
         },
-        tag: { dataVis: 'Visualisation de donnees', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Academique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Creation', fun: 'Fun', game: 'Jeu', education: 'Education', test: 'Test', wip: 'En construction' },
+        tag: { dataVis: 'Visualisation de données', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Académique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Création', fun: 'Fun', game: 'Jeu', education: 'Éducation', test: 'Test', wip: 'En construction' },
         aboutHtml: {
             aboutText: `<h3>Profil</h3>
 <p>Bienvenue sur ma page personnelle — je suis Ray~ Vous pouvez me découvrir en profondeur ici. Je ne crois pas particulièrement au MBTI, mais c'est vrai que c'est très populaire. On dit que c'est le moyen le plus rapide de comprendre la personnalité de quelqu'un — je suis actuellement INTP, à titre indicatif seulement.</p>
@@ -662,28 +662,28 @@ window.SITE_I18N = {
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-            <div class="skill-name">Éveil : Robotique & embarqué</div>
+            <div class="skill-name">Robotique & embarqué</div>
         </div>
         <p class="skill-description">Scratch · Robot Rubik's Cube EV3 · Voiture ultrasons Arduino</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">Exploration : Compétition & commerce</div>
+            <div class="skill-name">Compétition & commerce</div>
         </div>
         <p class="skill-description">Compétition Route de la Soie · Olympiade C++ · Mod patate douce (contrat NetEase)</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-dna"></i></div>
-            <div class="skill-name">Transdisciplinaire : Labo de biologie</div>
+            <div class="skill-name">Labo de biologie</div>
         </div>
         <p class="skill-description">Première expérience PCR au lycée · Hypothèse protéines · Bioinformatique</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
-            <div class="skill-name">Approfondissement : Développeur HarmonyOS</div>
+            <div class="skill-name">Développeur HarmonyOS</div>
         </div>
         <p class="skill-description">Développeur HmDashboard · Recherche logique bas niveau Hi3861</p>
     </div>

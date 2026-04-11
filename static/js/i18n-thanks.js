@@ -13,6 +13,10 @@ window.SITE_I18N = {
                 title: '家庭',
                 content: '<div class="thanks-sub">父母</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. 与我的所有亲属</div>'
             },
+            special: {
+                title: '特别致谢',
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
+            },
             teacher: {
                 title: '老师',
                 content: '<div class="thanks-sub"><span class="thanks-label">大学</span>高等数学张老师、鸿蒙开发王老师、英语牟老师</div><div class="thanks-sub"><span class="thanks-label">高中</span>班主任王老师、班主任孙老师、生物学贾老师与甄老师、化学肖老师、英语王老师、数学时老师与司老师、地理王老师</div><div class="thanks-sub"><span class="thanks-label">初中</span>班主任吕老师、班主任张老师</div><div class="thanks-sub"><span class="thanks-label">小学</span>班主任郭老师、科学课武老师、模拟飞行薛老师</div>'
@@ -20,10 +24,6 @@ window.SITE_I18N = {
             classmate: {
                 title: '同学',
                 content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>Andy、bzy、秀秀、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
-            },
-            special: {
-                title: '特别致谢',
-                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
             },
             collab: {
                 title: '项目合作',
@@ -52,7 +52,11 @@ window.SITE_I18N = {
         groups: {
             family: {
                 title: 'Family',
-                content: '<div class="thanks-sub">My parents</div><div class="thanks-sub">Qinghe, Shifu, neurodong, Dr. Lv</div><div class="thanks-sub">Charles, Ziwei, Feng, L.E. and all my relatives</div>'
+                content: '<div class="thanks-sub">父母</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. 与我的所有亲属</div>'
+            },
+            special: {
+                title: 'Special Thanks',
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
             },
             teacher: {
                 title: 'Teachers',
@@ -60,15 +64,11 @@ window.SITE_I18N = {
             },
             classmate: {
                 title: 'Classmates',
-                content: '<div class="thanks-sub"><span class="thanks-label">Yiwu Society</span>zrq, hjz, lzq, ljy, wth, jdh, wyx, yyzy, zxy</div><div class="thanks-sub"><span class="thanks-label">Good Friends</span>Andy, bzy, Xiuxiu, ywx, lxr, wjy, ydx, lmd, lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh, rjp, ldy, ddk</div>'
-            },
-            special: {
-                title: 'Special Thanks',
-                content: '<div class="thanks-sub">Tracy (Serenity)</div><div class="thanks-sub">Yan</div><div class="thanks-sub">yxh</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>Andy、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: 'Project Collaborators',
-                content: 'shenjack, teddyxlandlee, tianxiu2b2t, Xiaoxiao, and everyone who contributes to open source'
+                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、贡献开源项目的所有人'
             },
             tech: {
                 title: 'Technology',
@@ -93,23 +93,23 @@ window.SITE_I18N = {
         groups: {
             family: {
                 title: 'Famille',
-                content: '<div class="thanks-sub">Mes parents</div><div class="thanks-sub">Qinghe, Shifu, neurodong, Dr. Lv</div><div class="thanks-sub">Charles, Ziwei, Feng, L.E. et tous mes proches</div>'
-            },
-            teacher: {
-                title: 'Professeurs',
-                content: '<div class="thanks-sub"><span class="thanks-label">Université</span>Mathématiques supérieures - Prof. Zhang, Développement HarmonyOS - Prof. Wang, Anglais - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">Lycée</span>Prof. principale Mme Wang, Prof. principale Mme Sun, Biologie - Mme Jia & Mme Zhen, Chimie - Mme Xiao, Anglais - Mme Wang, Mathématiques - Mme Shi & Mme Si, Géographie - M. Wang</div><div class="thanks-sub"><span class="thanks-label">Collège</span>Prof. principale Mme Lv, Prof. principale Mme Zhang</div><div class="thanks-sub"><span class="thanks-label">École primaire</span>Prof. principale Mme Guo, Sciences - Mme Wu, Simulation de vol - M. Xue</div>'
-            },
-            classmate: {
-                title: 'Camarades',
-                content: '<div class="thanks-sub"><span class="thanks-label">Société Yiwu</span>zrq, hjz, lzq, ljy, wth, jdh, wyx, yyzy, zxy</div><div class="thanks-sub"><span class="thanks-label">Bons amis</span>Andy, bzy, Xiuxiu, ywx, lxr, wjy, ydx, lmd, lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh, rjp, ldy, ddk</div>'
+                content: '<div class="thanks-sub">父母</div><div class="thanks-sub">清荷、Shifu、neurodong、Dr.吕</div><div class="thanks-sub">Charles、子薇、枫、L.E. 与我的所有亲属</div>'
             },
             special: {
                 title: 'Remerciements spéciaux',
-                content: '<div class="thanks-sub">Tracy (Serenity)</div><div class="thanks-sub">Yan</div><div class="thanks-sub">yxh</div>'
+                content: '<div class="thanks-sub">Tracy (Serenity清霁)</div><div class="thanks-sub">颜</div><div class="thanks-sub">yxh</div>'
+            },
+            teacher: {
+                title: 'Professeurs',
+                content: '<div class="thanks-sub"><span class="thanks-label">Université</span>Mathématiques supérieures - Prof. Zhang, Développement HarmonyOS - Prof. Wang, Anglais - Prof. Mu</div><div class="thanks-sub"><span class="thanks-label">Lycée</span>Prof. principale - Mme Wang, Prof. principale - Mme Sun, Biologie - Mme Jia & Mme Zhen, Chimie - Mme Xiao, Anglais - Mme Wang, Mathématiques - Mme Shi & Mme Si, Géographie - M. Wang</div><div class="thanks-sub"><span class="thanks-label">Collège</span>Prof. principale - Mme Lv, Prof. principale - Mme Zhang</div><div class="thanks-sub"><span class="thanks-label">École primaire</span>Prof. principale - Mme Guo, Sciences - Mme Wu, Simulation de vol - M. Xue</div>'
+            },
+            classmate: {
+                title: 'Camarades',
+                content: '<div class="thanks-sub"><span class="thanks-label">义乌学社</span>zrq、hjz、lzq、ljy、wth、jdh、wyx、yyzy、zxy</div><div class="thanks-sub"><span class="thanks-label">我的好朋友</span>Andy、bzy、lyx、ywx、lxr、wjy、ydx、lmd、lyc</div><div class="thanks-sub"><span class="thanks-label">9B208</span>xxh、rjp、ldy、ddk</div>'
             },
             collab: {
                 title: 'Collaborateurs de projet',
-                content: 'shenjack, teddyxlandlee, tianxiu2b2t, Xiaoxiao, et tous ceux qui contribuent à l\'open source'
+                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、贡献开源项目的所有人'
             },
             tech: {
                 title: 'Technologie',
