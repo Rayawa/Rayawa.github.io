@@ -16,25 +16,12 @@ function getCurrentText(path, fallback = '') {
 let t = i18n.zh || {};
 let galleryA11yUpdater = null;
 const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
-const HOME_TRANSITION_MS = 420;
-const REVEAL_ROW_TOLERANCE = 14;
+const HOME_TRANSITION_MS = TRANSITION_MS;
 
 
 
 function sleep(ms) {
     return new Promise((resolve) => window.setTimeout(resolve, ms));
-}
-
-function sortByVisualFlow(elements) {
-    return elements.slice().sort((a, b) => {
-        const ra = a.getBoundingClientRect();
-        const rb = b.getBoundingClientRect();
-        const topDiff = ra.top - rb.top;
-        if (Math.abs(topDiff) > REVEAL_ROW_TOLERANCE) return topDiff;
-        const leftDiff = ra.left - rb.left;
-        if (Math.abs(leftDiff) > 1) return leftDiff;
-        return 0;
-    });
 }
 
 function collectLayoutLocks() {
