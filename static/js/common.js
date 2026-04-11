@@ -413,6 +413,20 @@ function initSmoothScroll() {
 
 var SITE_I18N = window.SITE_I18N || {};
 var locale = localStorage.getItem('rayawa_locale') || 'zh';
+var TRANSITION_MS = 420;
+var REVEAL_ROW_TOLERANCE = 14;
+
+function sortByVisualFlow(elements) {
+    return elements.slice().sort(function(a, b) {
+        var ra = a.getBoundingClientRect();
+        var rb = b.getBoundingClientRect();
+        var topDiff = ra.top - rb.top;
+        if (Math.abs(topDiff) > REVEAL_ROW_TOLERANCE) return topDiff;
+        var leftDiff = ra.left - rb.left;
+        if (Math.abs(leftDiff) > 1) return leftDiff;
+        return 0;
+    });
+}
 
 function setLocale(lang, opts) {
     opts = opts || {};
@@ -461,6 +475,7 @@ function getLanguageFadeTargets() {
         '.navbar',
         '.page',
         '.wrap',
+        '.footer',
         '.fab-tools',
     ].join(',')));
 }
@@ -474,8 +489,8 @@ function runLanguageFadeTransition(callback) {
         targets.forEach(function(el) { el.classList.add('is-entering'); });
         setTimeout(function() {
             targets.forEach(function(el) { el.classList.remove('lang-fade-target', 'is-entering'); });
-        }, 720);
-    }, 420);
+        }, TRANSITION_MS);
+    }, TRANSITION_MS);
 }
 
 function initLanguageSwitcher() {
@@ -528,8 +543,8 @@ function initPageEntrance() {
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
                 if (mainEl) mainEl.classList.add('is-visible');
-                overlay.style.animation = 'pageOverlayOut 0.4s ease forwards';
-                setTimeout(function() { overlay.remove(); }, 450);
+                overlay.style.animation = 'pageOverlayOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+                setTimeout(function() { overlay.remove(); }, TRANSITION_MS + 40);
             });
         });
         return;
@@ -580,7 +595,8 @@ function initSubpageReveal() {
     var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list, .pcr-lab, .thesis-archive, .hero-interactive, .thesis-featured, .thesis-grid, .section-header, .thanks-group, .doc-card, .interactive-content, .pcr-result, .pcr-docs');
     if (!items.length) return;
 
-    items.forEach(function(el, idx) {
+    var ordered = sortByVisualFlow(Array.from(items));
+    ordered.forEach(function(el, idx) {
         el.classList.add('subpage-reveal');
         el.style.setProperty('--subpage-delay', (idx * 80) + 'ms');
     });
@@ -594,7 +610,7 @@ function initSubpageReveal() {
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-    items.forEach(function(el) { observer.observe(el); });
+    ordered.forEach(function(el) { observer.observe(el); });
 }
 
 function initPageLeaveTransitions() {
@@ -633,7 +649,7 @@ function initPageLeaveTransitions() {
 
         setTimeout(function() {
             window.location.href = destination.href;
-        }, 300);
+        }, TRANSITION_MS);
     });
 }
 

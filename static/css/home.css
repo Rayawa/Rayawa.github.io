@@ -169,14 +169,14 @@
     position: absolute;
     bottom: -44px;
     left: 50%;
-    transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(1);
     background: rgba(10, 22, 42, 0.78);
     color: rgba(255, 255, 255, 0.94);
     font-size: 0.82rem;
     padding: 0.45rem 1rem;
     border-radius: 10px;
     white-space: nowrap;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.2s ease, transform 0.2s ease;
     pointer-events: none;
     border: 1px solid rgba(255, 255, 255, 0.26);

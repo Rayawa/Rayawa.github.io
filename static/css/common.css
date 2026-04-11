@@ -13,6 +13,9 @@
     --radius: 12px;
     --glass: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
+    --fade-duration: 0.42s;
+    --fade-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --fade-shift: 10px;
     color-scheme: light dark;
 }
 
@@ -73,8 +76,8 @@ body.is-loading {
 
 body.page-leaving {
     opacity: 0;
-    transform: scale(0.98);
-    transition: opacity 0.28s ease, transform 0.28s ease;
+    transform: translateY(calc(var(--fade-shift) * -1));
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
 }
 
 .page-transition-overlay {
@@ -82,7 +85,7 @@ body.page-leaving {
     inset: 0;
     z-index: 10001;
     background: #0b1325;
-    animation: pageOverlayIn 0.28s ease forwards;
+    animation: pageOverlayIn var(--fade-duration) var(--fade-ease) forwards;
     pointer-events: none;
 }
 
@@ -482,13 +485,13 @@ section,
 .reveal-seq .reveal-item:nth-child(6) { --reveal-delay: 580ms; }
 
 .lang-fade-target {
-    transition: opacity 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.56s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.56s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease), filter var(--fade-duration) var(--fade-ease);
     will-change: opacity, transform, filter;
 }
 
 .lang-fade-target.is-leaving {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(calc(var(--fade-shift) * -1));
     filter: blur(3px);
 }
 
@@ -687,6 +690,7 @@ section,
     padding: 1.8rem 0 1.1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
+    margin-top: auto;
 }
 
 .footer-content {
@@ -797,11 +801,11 @@ section,
         gap: 0.2rem;
     }
 
-    body:not(.is-homepage) .footer-content > div:not(:first-child):not(:last-child) {
-        display: none;
-    }
-
     body:not(.is-homepage) .footer-content {
         justify-content: space-between;
     }
+}
+
+body:not(.is-homepage) .footer-content > div:nth-child(3) {
+    display: none;
 }
