@@ -34,8 +34,6 @@ window.SITE_I18N = {
             '如果您发现了模组中的 Bug 或对本模组有建议，烦请汇报至 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>。',
         ],
     },
-        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: '小豆英语启蒙' }, idv: { title: '第五人格，启动！' } },
-        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
@@ -71,8 +69,6 @@ window.SITE_I18N = {
             'Report bugs or suggestions to <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>.',
         ],
     },
-        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: 'Xiaodou English Starter' }, idv: { title: 'Identity V, Start!' } },
-        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
         navTitle: 'Sweet Potato Mod',
@@ -107,7 +103,5 @@ window.SITE_I18N = {
             "Pour utiliser ce mod sur un serveur, installez-le côté client et côté serveur.",
             "Signalez les bugs ou suggestions sur <a href=\"https://github.com/Featurehouse/sweet_potato-issueTracker/issues\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--primary)\">GitHub Issues</a>.",
         ],
-    },
-        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, xiaodou: { title: 'Xiaodou English Starter' } },
-        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' },
+    }
 };

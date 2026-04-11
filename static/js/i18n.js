@@ -69,14 +69,6 @@ window.SITE_I18N = {
             messageHint: '姓名不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件',
             send: '发送消息',
         },
-        footer: {
-            quick: '快速链接',
-            projects: '项目',
-            copy: '&copy; 2026 Ray Chen. All rights reserved.',
-            description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
-            thanks: '致谢',
-            thanksLink: '查看致谢',
-        },
         tooltip: {
             starThanks: '致谢',
         },
@@ -307,14 +299,6 @@ window.SITE_I18N = {
             emailHint: 'Double-check your address — it is the only way you can receive a reply',
             messageHint: 'If your name does not ring a bell, add a clue — or the spam filter might not let you through',
             send: 'Send',
-        },
-        footer: {
-            quick: 'Quick Links',
-            projects: 'Projects',
-            copy: '&copy; 2026 Ray Chen. All rights reserved.',
-            description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
-            thanks: 'Acknowledgements',
-            thanksLink: 'View Acknowledgements',
         },
         tooltip: {
             starThanks: 'Acknowledgements',
@@ -549,14 +533,6 @@ window.SITE_I18N = {
             emailHint: "Vérifiez bien votre adresse — c'est le seul moyen de recevoir une réponse",
             messageHint: 'Si votre pseudo ne me dit rien, précisez — sinon le filtre anti-spam pourrait vous bloquer',
             send: 'Envoyer',
-        },
-        footer: {
-            quick: 'Liens rapides',
-            projects: 'Projets',
-            copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
-            description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
-            thanks: 'Remerciements',
-            thanksLink: 'Voir les remerciements',
         },
         tooltip: {
             starThanks: 'Remerciements',

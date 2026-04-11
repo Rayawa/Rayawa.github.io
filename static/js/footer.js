@@ -11,26 +11,8 @@
         prefix = prefix.replace('../', '');
     }
 
-    var fallbackI18n = {
-        zh: {
-            nav: { home: '首页', about: '关于', projects: '项目', gallery: '画廊', contact: '联系' },
-            project: { hmdb: { title: '鸿蒙仪表盘' }, bio: { title: '生物探究' }, spm: { title: 'SPM' }, ohos: { title: 'OpenHarmony' }, xiaodou: { title: '小豆' }, idv: { title: '第五人格' } },
-            footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
-        },
-        en: {
-            nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
-            project: { hmdb: { title: 'HarmonyOS Dashboard' }, bio: { title: 'Bio Research' }, spm: { title: 'SPM' }, ohos: { title: 'OpenHarmony' }, xiaodou: { title: 'XiaoDou' }, idv: { title: 'Identity V' } },
-            footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
-        },
-        fr: {
-            nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
-            project: { hmdb: { title: 'Tableau de bord HarmonyOS' }, bio: { title: 'Recherche bio' }, spm: { title: 'SPM' }, ohos: { title: 'OpenHarmony' }, xiaodou: { title: 'XiaoDou' }, idv: { title: 'Identity V' } },
-            footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
-        }
-    };
-
     var locale = localStorage.getItem('rayawa_locale') || 'zh';
-    var i18n = (window.SITE_I18N && window.SITE_I18N[locale]) || fallbackI18n[locale] || fallbackI18n.zh;
+    var i18n = (window.FOOTER_I18N && window.FOOTER_I18N[locale]) || {};
 
     function t(key) {
         return key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n) || '';
