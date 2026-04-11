@@ -330,13 +330,14 @@
                 <div id="toast-msg" class="toast">提示消息</div>
             </main>
 
-                <footer
-                    class="bg-slate-50 border-t p-4 flex justify-between items-center sticky bottom-0 z-50 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+                <div
+                    class="bg-slate-50 border-t p-4 flex justify-between items-center sticky bottom-0 z-50 pb-[calc(1rem+env(safe-area-inset-bottom))]"
+                    role="region" aria-label="操作控制栏">
                     <div id="hint" class="text-xs text-blue-600 font-medium">请跟随引导思考并完成利用"农杆菌转化法"将抗虫基因导入棉花细胞的流程</div>
                     <button id="submit-btn" onclick="nextStage()"
                         class="px-10 py-2 bg-blue-600 text-white rounded-full text-xs font-bold disabled:bg-slate-300"
                         disabled>下一步</button>
-                </footer>
+                </div>
         </div>
     </div>
 
