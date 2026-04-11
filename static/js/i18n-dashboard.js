@@ -14,8 +14,8 @@ window.SITE_I18N = {
         download: '下载链接',
         web: '网页',
         harmony: '鸿蒙',
-        apple: '苹果',
-        android: '安卓',
+        apple: '安卓',
+        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, xiaodou: { title: '小豆英语启蒙' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     },
     en: {
@@ -35,6 +35,7 @@ window.SITE_I18N = {
         harmony: 'HarmonyOS',
         apple: 'iOS',
         android: 'Android',
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, xiaodou: { title: 'Xiaodou English Starter' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' },
     },
     fr: {
@@ -54,6 +55,7 @@ window.SITE_I18N = {
         harmony: 'HarmonyOS',
         apple: 'iOS',
         android: 'Android',
+        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, xiaodou: { title: 'Xiaodou English Starter' } },
         footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' },
     },
 };
