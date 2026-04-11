@@ -8,6 +8,7 @@
     <title>基因工程：农杆菌转化法交互实验室</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
@@ -329,11 +330,9 @@
                 <div id="toast-msg" class="toast">提示消息</div>
             </main>
 
-            <body class="bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col">
-
                 <footer
                     class="bg-slate-50 border-t p-4 flex justify-between items-center sticky bottom-0 z-50 pb-[calc(1rem+env(safe-area-inset-bottom))]">
-                    <div id="hint" class="text-xs text-blue-600 font-medium">请跟随引导思考并完成利用“农杆菌转化法”将抗虫基因导入棉花细胞的流程</div>
+                    <div id="hint" class="text-xs text-blue-600 font-medium">请跟随引导思考并完成利用"农杆菌转化法"将抗虫基因导入棉花细胞的流程</div>
                     <button id="submit-btn" onclick="nextStage()"
                         class="px-10 py-2 bg-blue-600 text-white rounded-full text-xs font-bold disabled:bg-slate-300"
                         disabled>下一步</button>
@@ -341,6 +340,10 @@
         </div>
     </div>
 
+    <div id="site-footer"></div>
+
+    <script src="../../../js/i18n-gene.js"></script>
+    <script src="../../../js/footer.js"></script>
     <script src="script.js"></script>
 </body>
 

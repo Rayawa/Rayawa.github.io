@@ -3,15 +3,58 @@
     if (!container) return;
 
     var isHomepage = document.body.classList.contains('is-homepage');
-    var inProjects = window.location.pathname.indexOf('/projects/') !== -1;
-    var prefix = inProjects ? '../' : '';
+    var path = window.location.pathname;
+    var depth = path.split('/').length - 2;
+    var prefix = '';
+    for (var i = 0; i < depth; i++) prefix += '../';
+    if (path.endsWith('/') || path.endsWith('index.html')) {
+        prefix = prefix.replace('../', '');
+    }
+
+    var fallbackI18n = {
+        zh: {
+            nav: { home: '首页', about: '关于', projects: '项目', gallery: '画廊', contact: '联系' },
+            project: { hmdb: { title: '鸿蒙仪表盘' }, bio: { title: '生物探究' }, spm: { title: 'SPM' }, ohos: { title: 'OpenHarmony' }, xiaodou: { title: '小豆' }, idv: { title: '第五人格' } },
+            footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
+        },
+        en: {
+            nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+            project: { hmdb: { title: 'HarmonyOS Dashboard' }, bio: { title: 'Bio Research' }, spm: { title: 'SPM' }, ohos: { title: 'OpenHarmony' }, xiaodou: { title: 'XiaoDou' }, idv: { title: 'Identity V' } },
+            footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
+        },
+        fr: {
+            nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+            project: { hmdb: { title: 'Tableau de bord HarmonyOS' }, bio: { title: 'Recherche bio' }, spm: { title: 'SPM' }, ohos: { title: 'OpenHarmony' }, xiaodou: { title: 'XiaoDou' }, idv: { title: 'Identity V' } },
+            footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
+        }
+    };
 
     var locale = localStorage.getItem('rayawa_locale') || 'zh';
-    var i18n = window.SITE_I18N && window.SITE_I18N[locale];
+    var i18n = (window.SITE_I18N && window.SITE_I18N[locale]) || fallbackI18n[locale] || fallbackI18n.zh;
 
     function t(key) {
-        if (!i18n) return '';
         return key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n) || '';
+    }
+
+    if (!document.getElementById('site-footer-css')) {
+        var style = document.createElement('style');
+        style.id = 'site-footer-css';
+        style.textContent =
+            '.footer{background:rgba(11,19,37,.95);color:#fff;padding:1.8rem 0 1.1rem;border-top:1px solid rgba(255,255,255,.1);flex-shrink:0;margin-top:auto}' +
+            '.footer .container{max-width:1100px;margin:0 auto;padding:0 1.2rem}' +
+            '.footer-content{display:flex;align-items:flex-start;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.2rem}' +
+            '.footer-logo{font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none;display:inline-block;margin-bottom:.45rem}' +
+            '.footer-description{color:rgba(255,255,255,.7);margin-bottom:.75rem;max-width:360px;font-size:.9rem}' +
+            '.footer-social{display:flex;gap:.65rem}' +
+            '.footer-social-link{width:34px;height:34px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .3s,transform .3s}' +
+            '.footer-social-link:hover{background:#6366f1;transform:translateY(-3px)}' +
+            '.footer-heading{font-size:.92rem;font-weight:600;margin-bottom:.45rem;color:#fff}' +
+            '.footer-links{list-style:none;display:flex;flex-direction:column;gap:.4rem;flex-wrap:wrap;padding:0;margin:0}' +
+            '.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s,transform .3s;font-size:.9rem}' +
+            '.footer-links a:hover{color:#fff;transform:translateY(-1px)}' +
+            '.copyright{text-align:center;padding-top:.95rem;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.8rem;display:flex;justify-content:center;align-items:center;gap:1rem;flex-wrap:wrap}' +
+            '@media(max-width:768px){.footer-content{align-items:flex-start;gap:.8rem}.footer-social-link{width:44px;height:44px}.copyright{flex-direction:column;gap:.2rem}}';
+        document.head.appendChild(style);
     }
 
     var quickLinks = [
