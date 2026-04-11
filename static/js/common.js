@@ -627,16 +627,49 @@ function initSubpageReveal() {
         });
     }
 
+    var revealEls = document.querySelectorAll('.subpage-reveal');
+
+    function revealEl(el) {
+        if (el.classList.contains('is-visible')) return;
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+    }
+
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                revealEl(entry.target);
             }
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-    document.querySelectorAll('.subpage-reveal').forEach(function(el) { observer.observe(el); });
+    function checkVisibleEls() {
+        var vh = window.innerHeight;
+        revealEls.forEach(function(el) {
+            if (el.classList.contains('is-visible')) return;
+            var rect = el.getBoundingClientRect();
+            if (rect.top < vh && rect.bottom > 0) {
+                revealEl(el);
+            }
+        });
+    }
+
+    var scrollCheckTimer = null;
+    function onScrollCheck() {
+        if (scrollCheckTimer) return;
+        scrollCheckTimer = window.setTimeout(function() {
+            scrollCheckTimer = null;
+            checkVisibleEls();
+            if (Array.from(revealEls).every(function(el) { return el.classList.contains('is-visible'); })) {
+                window.removeEventListener('scroll', onScrollCheck);
+                observer.disconnect();
+            }
+        }, 150);
+    }
+
+    revealEls.forEach(function(el) { observer.observe(el); });
+    checkVisibleEls();
+    window.addEventListener('scroll', onScrollCheck, { passive: true });
 }
 
 function initPageLeaveTransitions() {
