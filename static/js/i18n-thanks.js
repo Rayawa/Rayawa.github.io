@@ -27,7 +27,7 @@ window.SITE_I18N = {
             },
             collab: {
                 title: '项目合作',
-                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、贡献开源项目的所有人'
+                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱冉、贡献开源项目的所有人'
             },
             tech: {
                 title: '技术',
@@ -37,9 +37,7 @@ window.SITE_I18N = {
                 title: '生活',
                 content: 'GAN Cube、SPECIALIZED Tarmac SL6<br>生活平安稳定和充满发展机遇的中国<br>所有为社会作出贡献的人们<br>北京119（救过我的命（不是<br>以及 发现这个彩蛋页面并读到这里的你'
             }
-        },
-        project: { hmdb: { title: '华为应用市场看板' }, bio: { title: '生物学项目' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: '小豆英语启蒙' }, idv: { title: '第五人格，启动！' } },
-        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: '快速链接', projects: '项目', thanks: '致谢', thanksLink: '查看致谢', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
+        }
     },
     en: {
         nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
@@ -69,7 +67,7 @@ window.SITE_I18N = {
             },
             collab: {
                 title: 'Project Collaborators',
-                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、everyone who contributes to open-source projects'
+                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱冉、everyone who contributes to open-source projects'
             },
             tech: {
                 title: 'Technology',
@@ -79,9 +77,7 @@ window.SITE_I18N = {
                 title: 'Life',
                 content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>China, where life is peaceful, stable, and full of opportunities<br>everyone who contributes to society<br>Beijing 119 (saved my life (jk<br>And finally, you who found this easter egg page and read all the way to here'
             }
-        },
-        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Biology Projects' }, spm: { title: 'Sweet Potato Mod' }, ohos: { title: 'OpenHarmony Hi3861' }, xiaodou: { title: 'Xiaodou English Starter' }, idv: { title: 'Identity V, Start!' } },
-        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Quick Links', projects: 'Projects', thanks: 'Acknowledgements', thanksLink: 'View Acknowledgements', copy: '&copy; 2026 Ray Chen. All rights reserved.' }
+        }
     },
     fr: {
         nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
@@ -111,7 +107,7 @@ window.SITE_I18N = {
             },
             collab: {
                 title: 'Collaborateurs de projet',
-                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱晓、toutes les personnes qui contribuent aux projets open source'
+                content: 'shenjack、teddyxlandlee、tianxiu2b2t、筱冉、toutes les personnes qui contribuent aux projets open source'
             },
             tech: {
                 title: 'Technologie',
@@ -121,8 +117,6 @@ window.SITE_I18N = {
                 title: 'Vie',
                 content: 'GAN Cube, SPECIALIZED Tarmac SL6<br>La Chine, où la vie est paisible, stable et pleine d\'opportunités<br>toutes les personnes qui contribuent à la société<br>Beijing 119 (m\'a sauvé la vie (non<br>Et enfin, vous qui avez trouvé cette page cachée et avez lu jusqu\'ici'
             }
-        },
-        project: { hmdb: { title: 'HmDashboard' }, bio: { title: 'Projets de biologie' }, xiaodou: { title: 'Xiaodou English Starter' } },
-        footer: { description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.', quick: 'Liens rapides', projects: 'Projets', thanks: 'Remerciements', thanksLink: 'Voir les remerciements', copy: '&copy; 2026 Ray Chen. Tous droits réservés.' }
+        }
     }
 };
