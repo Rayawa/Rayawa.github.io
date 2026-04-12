@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>OpenHarmony Hi3861 | Ray Chen</title>
+  <title>Hi3861 OpenHarmony 嵌入式开发项目 | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="../static/css/subpage.css">
+  <link rel="stylesheet" href="../static/css/hi3861.css">
 </head>
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"><!-- i18n: nav title --></span></a>
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"></span></a>
       <ul class="nav-links">
-        <li><a href="../index.html" data-i18n="nav.home"><!-- i18n: nav home --></a></li>
-        <li><a href="../index.html#about" data-i18n="nav.about"><!-- i18n: nav about --></a></li>
-        <li><a href="../index.html#projects" data-i18n="nav.projects"><!-- i18n: nav projects --></a></li>
-        <li><a href="../index.html#gallery" data-i18n="nav.gallery"><!-- i18n: nav gallery --></a></li>
-        <li><a href="../index.html#contact" data-i18n="nav.contact"><!-- i18n: nav contact --></a></li>
+        <li><a href="../index.html" data-i18n="nav.home"></a></li>
+        <li><a href="../index.html#about" data-i18n="nav.about"></a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects"></a></li>
+        <li><a href="../index.html#gallery" data-i18n="nav.gallery"></a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="language-switch">
         <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
@@ -30,29 +31,160 @@
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
+
   <div id="particles-js"></div>
-  <main class="page">
-    <section class="hero-card">
-      <h1 data-i18n="title"><!-- i18n: page title --></h1>
-      <p data-i18n="desc"><!-- i18n: page description --></p>
+
+  <main class="page hi-page">
+    <section class="hi-hero">
+      <div class="hi-hero-badge" data-i18n="hero.badge"></div>
+      <h1 data-i18n="hero.title"></h1>
+      <p class="hi-hero-desc" data-i18n="hero.desc"></p>
+      <div class="hi-hero-actions">
+        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener" data-i18n="hero.repo"></a>
+        <a class="button-outline" href="https://github.com/Rayawa/Hi3861/blob/master/README.md" target="_blank" rel="noopener" data-i18n="hero.readme"></a>
+      </div>
+      <div class="hi-overview-grid">
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">01</div>
+          <h2 data-i18n="overview.traffic.title"></h2>
+          <p data-i18n="overview.traffic.desc"></p>
+        </article>
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">02</div>
+          <h2 data-i18n="overview.colorful.title"></h2>
+          <p data-i18n="overview.colorful.desc"></p>
+        </article>
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">03</div>
+          <h2 data-i18n="overview.environment.title"></h2>
+          <p data-i18n="overview.environment.desc"></p>
+        </article>
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">04</div>
+          <h2 data-i18n="overview.at.title"></h2>
+          <p data-i18n="overview.at.desc"></p>
+        </article>
+      </div>
     </section>
-    <section class="card-grid">
-      <article class="card">
-        <h2 data-i18n="embedded.title"><!-- i18n: embedded title --></h2>
-        <p data-i18n="embedded.desc"><!-- i18n: embedded desc --></p>
+
+    <section class="hi-panel">
+      <div class="hi-panel-head">
+        <h2 data-i18n="structure.title"></h2>
+        <p data-i18n="structure.desc"></p>
+      </div>
+      <pre class="hi-tree" data-i18n="structure.tree"></pre>
+    </section>
+
+    <section class="hi-module hi-module-traffic">
+      <div class="hi-module-head">
+        <span class="hi-module-index">01</span>
+        <div>
+          <h2 data-i18n="traffic.title"></h2>
+          <p data-i18n="traffic.desc"></p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 data-i18n="traffic.hardwareTitle"></h3>
+          <div data-i18n-html="traffic.hardware"></div>
+        </article>
+        <article class="hi-card">
+          <h3 data-i18n="traffic.projectTitle"></h3>
+          <div data-i18n-html="traffic.projects"></div>
+        </article>
+      </div>
+      <article class="hi-card hi-path-card">
+        <h3 data-i18n="traffic.pathTitle"></h3>
+        <p data-i18n="traffic.path"></p>
       </article>
-      <article class="card">
-        <h2 data-i18n="wip.title"><!-- i18n: wip title --></h2>
-        <p data-i18n="wip.desc"><!-- i18n: wip desc --></p>
+    </section>
+
+    <section class="hi-module hi-module-colorful">
+      <div class="hi-module-head">
+        <span class="hi-module-index">02</span>
+        <div>
+          <h2 data-i18n="colorful.title"></h2>
+          <p data-i18n="colorful.desc"></p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 data-i18n="colorful.hardwareTitle"></h3>
+          <div data-i18n-html="colorful.hardware"></div>
+        </article>
+        <article class="hi-card">
+          <h3 data-i18n="colorful.projectTitle"></h3>
+          <div data-i18n-html="colorful.projects"></div>
+        </article>
+      </div>
+      <article class="hi-card hi-path-card">
+        <h3 data-i18n="colorful.pathTitle"></h3>
+        <p data-i18n="colorful.path"></p>
+      </article>
+    </section>
+
+    <section class="hi-module hi-module-environment">
+      <div class="hi-module-head">
+        <span class="hi-module-index">03</span>
+        <div>
+          <h2 data-i18n="environment.title"></h2>
+          <p data-i18n="environment.desc"></p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 data-i18n="environment.hardwareTitle"></h3>
+          <div data-i18n-html="environment.hardware"></div>
+        </article>
+        <article class="hi-card">
+          <h3 data-i18n="environment.projectTitle"></h3>
+          <div data-i18n-html="environment.projects"></div>
+        </article>
+      </div>
+      <article class="hi-card">
+        <h3 data-i18n="environment.featureTitle"></h3>
+        <div data-i18n-html="environment.features"></div>
+      </article>
+    </section>
+
+    <section class="hi-module hi-module-at">
+      <div class="hi-module-head">
+        <span class="hi-module-index">04</span>
+        <div>
+          <h2 data-i18n="at.title"></h2>
+          <p data-i18n="at.desc"></p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 data-i18n="at.projectTitle"></h3>
+          <div data-i18n-html="at.project"></div>
+        </article>
+        <article class="hi-card">
+          <h3 data-i18n="at.exampleTitle"></h3>
+          <div data-i18n-html="at.example"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="hi-panel hi-panel-double">
+      <article class="hi-card">
+        <h2 data-i18n="build.title"></h2>
+        <div data-i18n-html="build.content"></div>
+      </article>
+      <article class="hi-card">
+        <h2 data-i18n="stack.title"></h2>
+        <div data-i18n-html="stack.content"></div>
       </article>
     </section>
   </main>
-    <div id="site-footer"></div>
+
+  <div id="site-footer"></div>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="../static/js/i18n-openharmony.js"></script>
   <script src="../static/js/i18n-footer.js"></script>
   <script src="../static/js/footer.js"></script>
-    <script src="../static/js/common.js"></script>
+  <script src="../static/js/common.js"></script>
 </body>
 </html>
