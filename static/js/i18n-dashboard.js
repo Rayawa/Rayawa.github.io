@@ -153,7 +153,7 @@ window.SITE_I18N = {
                     p3: '友情链接内网站展示的任何内容均与鸿蒙应用看板无关。Harmony Gallery 项目组不负责维护友情链接内容。',
                 },
                 api_title: 'API 文档',
-                api_desc: '查看完整的 API 接口文档，了解数据接入方式',
+                api_desc: '查看完整的 API 接口文档，了解数据接入方式\n如果您有意向使用我们的数据库，请先与我们取得联系！',
                 api_button: '查看 API 文档',
                 contact_button: '联系我们',
             },
@@ -168,27 +168,27 @@ window.SITE_I18N = {
                     shenjack: {
                         name: 'shenjack',
                         contact: '邮箱：3695888@qq.com',
-                        role: '👥 主要负责人',
+                        role: '主要负责人',
                     },
                     tianxiu2b2t: {
                         name: 'tianxiu2b2t',
                         contact: '邮箱：administrator@ttb-network.top',
-                        role: '🌐 T 站网页负责人',
+                        role: 'T 站网页负责人',
                     },
                     rayawa: {
                         name: '清霁·Rayawa',
                         contact: '邮箱：rayawa.work@outlook.com',
-                        role: '📱 鸿蒙应用开发',
+                        role: '鸿蒙应用开发',
                     },
                     qqgroup: {
                         name: 'Harmony Gallery 官方交流群',
                         contact_label: '群号：757273833',
-                        role: '💬 QQ 群',
+                        role: 'QQ 群',
                     },
                 },
             },
             acknowledgments: {
-                title: '🙏 致谢',
+                title: '致谢',
                 items: {
                     huawei: '感谢华为应用市场提供数据源',
                     openatom: '感谢开放原子开源基金会的支持',
@@ -196,7 +196,7 @@ window.SITE_I18N = {
                 },
             },
             license: {
-                title: '📜 开源许可',
+                title: '开源许可',
                 name: 'GPL-3.0 License',
                 desc: '本项目采用 GPL-3.0 协议开源，允许自由使用、修改与分发，但衍生作品必须采用相同协议',
             },
@@ -372,27 +372,27 @@ window.SITE_I18N = {
                     shenjack: {
                         name: 'shenjack',
                         contact: 'Email: 3695888@qq.com',
-                        role: '👥 Lead Developer',
+                        role: 'Lead Developer',
                     },
                     tianxiu2b2t: {
                         name: 'tianxiu2b2t',
                         contact: 'Email: administrator@ttb-network.top',
-                        role: '🌐 T Site Lead',
+                        role: 'T Site Lead',
                     },
                     rayawa: {
                         name: '清霁·Rayawa',
                         contact: 'Email: rayawa.work@outlook.com',
-                        role: '📱 HarmonyOS App Developer',
+                        role: 'HarmonyOS App Developer',
                     },
                     qqgroup: {
                         name: 'Harmony Gallery Official Group',
                         contact_label: 'Group ID: 757273833',
-                        role: '💬 QQ Group',
+                        role: 'QQ Group',
                     },
                 },
             },
             acknowledgments: {
-                title: '🙏 Acknowledgments',
+                title: 'Acknowledgments',
                 items: {
                     huawei: 'Thanks to Huawei AppGallery for providing data sources',
                     openatom: 'Thanks to OpenAtom Open Source Foundation for support',
@@ -400,7 +400,7 @@ window.SITE_I18N = {
                 },
             },
             license: {
-                title: '📜 License',
+                title: 'License',
                 name: 'GPL-3.0 License',
                 desc: 'This project is open-sourced under GPL-3.0 License, allowing free use, modification, and distribution, but derivative works must use the same license',
             },
@@ -576,27 +576,27 @@ window.SITE_I18N = {
                     shenjack: {
                         name: 'shenjack',
                         contact: 'Email: 3695888@qq.com',
-                        role: '👥 Développeur Principal',
+                        role: 'Développeur Principal',
                     },
                     tianxiu2b2t: {
                         name: 'tianxiu2b2t',
                         contact: 'Email: administrator@ttb-network.top',
-                        role: '🌐 Responsable Site T',
+                        role: 'Responsable Site T',
                     },
                     rayawa: {
                         name: '清霁·Rayawa',
                         contact: 'Email: rayawa.work@outlook.com',
-                        role: '📱 Développeur HarmonyOS',
+                        role: 'Développeur HarmonyOS',
                     },
                     qqgroup: {
                         name: 'Groupe Officiel Harmony Gallery',
                         contact_label: 'ID du Groupe: 757273833',
-                        role: '💬 Groupe QQ',
+                        role: 'Groupe QQ',
                     },
                 },
             },
             acknowledgments: {
-                title: '🙏 Remerciements',
+                title: 'Remerciements',
                 items: {
                     huawei: 'Merci à Huawei AppGallery pour les sources de données',
                     openatom: 'Merci à la Fondation OpenAtom Open Source pour le soutien',
@@ -604,7 +604,7 @@ window.SITE_I18N = {
                 },
             },
             license: {
-                title: '📜 Licence',
+                title: 'Licence',
                 name: 'Licence GPL-3.0',
                 desc: 'Ce projet est open-sourcé sous licence GPL-3.0, permettant utilisation, modification et distribution gratuites',
             },
