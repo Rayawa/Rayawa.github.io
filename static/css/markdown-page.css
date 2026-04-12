@@ -1,0 +1,53 @@
+.md-page {
+  max-width: 1100px;
+}
+
+.md-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(2, 6, 23, 0.5);
+  padding: clamp(1rem, 2vw, 1.6rem);
+}
+
+.markdown-body {
+  color: #e2e8f0;
+  background: transparent;
+  font-family: Inter, sans-serif;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.markdown-body pre {
+  background: rgba(2, 6, 23, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.markdown-body table tr {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.markdown-body a {
+  color: #7dd3fc;
+}

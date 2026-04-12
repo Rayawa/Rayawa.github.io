@@ -19,6 +19,8 @@ window.SITE_I18N = {
         viewReport: '查看实验报告',
         readPaper: '阅读论文',
         viewDraft: '查看草稿',
+        downloadPdf: '下载 PDF',
+        pdfHint: '说明：PDF 在线预览可能因浏览器解析导致等待较长，建议优先下载后阅读。',
         
         /* 三段式设计翻译 */
         interactive: {
@@ -80,6 +82,8 @@ window.SITE_I18N = {
         viewReport: 'Lab Report',
         readPaper: 'Read Paper',
         viewDraft: 'View Draft',
+        downloadPdf: 'Download PDF',
+        pdfHint: 'Note: Browser PDF preview may take longer to parse. Downloading first is recommended.',
         
         interactive: {
             title: 'Exploring Biological Processes Through Interactive Development',
@@ -140,6 +144,8 @@ window.SITE_I18N = {
         viewReport: 'Rapport de laboratoire',
         readPaper: 'Lire le papier',
         viewDraft: 'Voir le brouillon',
+        downloadPdf: 'Télécharger le PDF',
+        pdfHint: "Remarque : l'aperçu PDF dans le navigateur peut être lent. Le téléchargement est recommandé.",
         
         interactive: {
             title: "Explorer les processus biologiques grâce au développement interactif",
