@@ -35,14 +35,20 @@
   <div id="particles-js"></div>
 
   <main class="page dashboard-page">
-    <section class="hero-card dashboard-hero">
-      <div class="hero-kicker" data-i18n="hero.kicker"></div>
-      <h1 data-i18n="hero.title"></h1>
-      <p class="hero-lead" data-i18n="hero.lead"></p>
+    <section class="hero-card">
+      <div class="hero-header">
+        <div class="hero-content">
+          <h1 data-i18n="hero.title"></h1>
+          <p class="hero-lead" data-i18n="hero.lead"></p>
+        </div>
+        <div class="hero-appicon">
+          <img src="../static/resources/dashboard/app_icon.png" alt="App Icon">
+        </div>
+      </div>
       <div class="hero-tags" aria-label="project identity">
         <span class="hero-tag" data-i18n="hero.tagWeb"></span>
         <span class="hero-tag" data-i18n="hero.tagHarmony"></span>
-        <span class="hero-tag" data-i18n="hero.tagFullstack"></span>
+        <span class="hero-tag" data-i18n="hero.tagAward"></span>
       </div>
     </section>
 
@@ -77,14 +83,14 @@
         <p data-i18n="access.desc"></p>
       </div>
       <div class="platform-grid">
-        <a class="platform-btn" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
+        <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
           <span class="platform-icon-wrap">
             <img class="platform-icon-img" data-platform-icon="web" alt="">
           </span>
           <span class="platform-main" data-i18n="access.sSite"></span>
           <span class="platform-sub" data-i18n="access.live"></span>
         </a>
-        <a class="platform-btn" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
+        <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
           <span class="platform-icon-wrap">
             <img class="platform-icon-img" data-platform-icon="web" alt="">
           </span>
@@ -107,7 +113,7 @@
         </button>
         <button class="platform-btn platform-disabled" type="button" aria-disabled="true">
           <span class="platform-icon-wrap">
-            <i class="fa-brands fa-apple" aria-hidden="true"></i>
+            <img class="platform-icon-img" data-platform-icon="apple" alt="">
           </span>
           <span class="platform-main" data-i18n="access.ios"></span>
           <span class="platform-sub" data-i18n="access.soon"></span>
@@ -132,27 +138,65 @@
         </div>
       </div>
 
-      <p class="detail-read-hint" data-i18n="details.readHint"></p>
+      <div class="detail-notes-first">
+        <div class="detail-note-card">
+          <div class="note-icon">⚠️</div>
+          <h3 data-i18n="details.notes.title"></h3>
+          <ul class="note-list">
+            <li data-i18n="details.notes.li1"></li>
+            <li data-i18n="details.notes.li2"></li>
+            <li data-i18n="details.notes.li3"></li>
+          </ul>
+        </div>
+      </div>
 
-      <div class="detail-accordion">
-        <details class="detail-card detail-panel" open>
-          <summary>
-            <span data-i18n="details.what.title"></span>
-            <small data-i18n="details.what.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <p data-i18n="details.what.p1"></p>
-            <p data-i18n="details.what.p2"></p>
+      <div class="detail-support-early">
+        <div class="support-card">
+          <div class="support-icon">💬</div>
+          <div class="support-content">
+            <h3 data-i18n="details.support.title"></h3>
+            <p data-i18n="details.support.p1"></p>
+            <a class="support-link" href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener" data-i18n="details.support.groupLink"></a>
           </div>
-        </details>
+        </div>
+      </div>
 
-        <details class="detail-card detail-panel" open>
-          <summary>
-            <span data-i18n="details.harmony.title"></span>
-            <small data-i18n="details.harmony.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <ul class="detail-list">
+      <div class="detail-grid-layout">
+        <div class="detail-main-content">
+          <div class="detail-content-card">
+            <div class="content-card-header">
+              <span class="card-number">01</span>
+              <h3 data-i18n="details.what.title"></h3>
+            </div>
+            <div class="content-card-body">
+              <p data-i18n="details.what.p1"></p>
+              <p data-i18n="details.what.p2"></p>
+            </div>
+          </div>
+
+          <div class="detail-content-card">
+            <div class="content-card-header">
+              <span class="card-number">02</span>
+              <h3 data-i18n="details.usage.title"></h3>
+            </div>
+            <div class="content-card-body">
+              <ul class="detail-list">
+                <li data-i18n="details.usage.li1"></li>
+                <li data-i18n="details.usage.li2"></li>
+                <li data-i18n="details.usage.li3"></li>
+                <li data-i18n="details.usage.li4"></li>
+                <li data-i18n="details.usage.li5"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="detail-highlight-card harmony-card">
+            <div class="highlight-icon">🎨</div>
+            <h3 data-i18n="details.harmony.title"></h3>
+            <p class="highlight-summary" data-i18n="details.harmony.summary"></p>
+            <ul class="highlight-list">
               <li data-i18n="details.harmony.li1"></li>
               <li data-i18n="details.harmony.li2"></li>
               <li data-i18n="details.harmony.li3"></li>
@@ -160,85 +204,19 @@
               <li data-i18n="details.harmony.li5"></li>
             </ul>
           </div>
-        </details>
+        </div>
+      </div>
 
-        <details class="detail-card detail-panel">
-          <summary>
-            <span data-i18n="details.usage.title"></span>
-            <small data-i18n="details.usage.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <ul class="detail-list">
-              <li data-i18n="details.usage.li1"></li>
-              <li data-i18n="details.usage.li2"></li>
-              <li data-i18n="details.usage.li3"></li>
-              <li data-i18n="details.usage.li4"></li>
-              <li data-i18n="details.usage.li5"></li>
-            </ul>
+      <div class="detail-full-width">
+        <div class="detail-content-card roadmap-card">
+          <div class="content-card-header">
+            <span class="card-number">03</span>
+            <h3 data-i18n="details.roadmap.title"></h3>
           </div>
-        </details>
-
-        <details class="detail-card detail-panel">
-          <summary>
-            <span data-i18n="details.submit.title"></span>
-            <small data-i18n="details.submit.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <p data-i18n="details.submit.p1"></p>
-            <p data-i18n="details.submit.p2"></p>
-          </div>
-        </details>
-
-        <details class="detail-card detail-panel">
-          <summary>
-            <span data-i18n="details.share.title"></span>
-            <small data-i18n="details.share.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <ul class="detail-list">
-              <li data-i18n="details.share.li1"></li>
-              <li data-i18n="details.share.li2"></li>
-              <li data-i18n="details.share.li3"></li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="detail-card detail-panel">
-          <summary>
-            <span data-i18n="details.notes.title"></span>
-            <small data-i18n="details.notes.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <ul class="detail-list">
-              <li data-i18n="details.notes.li1"></li>
-              <li data-i18n="details.notes.li2"></li>
-              <li data-i18n="details.notes.li3"></li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="detail-card detail-panel">
-          <summary>
-            <span data-i18n="details.roadmap.title"></span>
-            <small data-i18n="details.roadmap.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
+          <div class="content-card-body">
             <p data-i18n="details.roadmap.p1"></p>
           </div>
-        </details>
-
-        <details class="detail-card detail-panel">
-          <summary>
-            <span data-i18n="details.support.title"></span>
-            <small data-i18n="details.support.summary"></small>
-          </summary>
-          <div class="detail-panel-content">
-            <p data-i18n="details.support.p1"></p>
-            <p>
-              <a href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener" data-i18n="details.support.groupLink"></a>
-            </p>
-          </div>
-        </details>
+        </div>
       </div>
     </section>
   </main>
