@@ -16,26 +16,20 @@ window.SITE_I18N = {
         },
 
         metrics: {
-            title: '数据展示（API 开发中）',
-            desc: '这里预留未来实时统计接口展示位。当前为演示占位数据，后续将接入线上 API 自动更新。',
+            title: '📈 实时数据统计',
+            desc: '展示项目的核心数据指标，包括总浏览量、今日访问量和鸿蒙应用访问量。数据实时更新，反映项目实际使用情况。',
             totalViews: { label: '项目总浏览量' },
             todayViews: { label: '今日浏览量' },
             harmonyViews: { label: '鸿蒙应用总浏览量' },
-            note: '预留字段：totalViews / todayViews / harmonyAppViews',
+            note: '数据字段：totalViews / todayViews / harmonyAppViews',
         },
 
         access: {
-            title: '访问与下载',
-            desc: '网页端提供稳定站与测试站入口，鸿蒙版本可直接下载体验。Android 与 iOS 版本正在规划。',
-            sSite: 'S 站',
-            tSite: 'T 站',
-            harmony: '下载鸿蒙版本',
-            harmonySub: 'AppGallery 邀请测试',
+            sSite: 'S站',
+            tSite: 'T站',
+            harmony: 'HarmonyOS',
             android: 'Android',
-            ios: 'iOS',
-            live: '网页入口',
-            preview: '网页入口',
-            soon: '即将上线',
+            ios: 'Apple',
         },
 
         details: {
@@ -104,32 +98,26 @@ window.SITE_I18N = {
             kicker: 'Harmony Gallery',
             title: 'Huawei AppGallery Dashboard',
             lead: 'A full-stack data platform by Harmony Gallery that continuously tracks, analyzes, and elegantly visualizes public Huawei AppGallery data. The web side delivers global insights with intelligent search, while the HarmonyOS app brings fluid native experience and one-tap submission. Android and macOS expansions are coming to build a complete cross-platform data matrix.',
-            tagWeb: '🌐 Web:全景 Data Dashboard',
+            tagWeb: '🌐 Web: Panoramic Data Dashboard',
             tagHarmony: '📱 App: HarmonyOS Native Experience',
             tagAward: '🏆 OpenAtom Contest Award Winner',
         },
 
         metrics: {
-            title: 'Data Display (API in Development)',
-            desc: 'Reserved for future real-time statistics. Currently showing demo data, will connect to online API for auto updates.',
+            title: '📈 Real-time Statistics',
+            desc: 'Displaying core project metrics including total views, daily visits, and HarmonyOS app views. Data updates in real-time to reflect actual usage.',
             totalViews: { label: 'Total Project Views' },
             todayViews: { label: 'Today Views' },
             harmonyViews: { label: 'HarmonyOS App Views' },
-            note: 'Fields: totalViews / todayViews / harmonyAppViews',
+            note: 'Data fields: totalViews / todayViews / harmonyAppViews',
         },
 
         access: {
-            title: 'Access & Download',
-            desc: 'Web side provides stable and test sites. HarmonyOS version available for download. Android and iOS versions in planning.',
             sSite: 'S Site',
             tSite: 'T Site',
-            harmony: 'Download HarmonyOS App',
-            harmonySub: 'AppGallery Invite Test',
+            harmony: 'HarmonyOS',
             android: 'Android',
-            ios: 'iOS',
-            live: 'Web Access',
-            preview: 'Web Access',
-            soon: 'Coming Soon',
+            ios: 'Apple',
         },
 
         details: {
@@ -226,17 +214,11 @@ window.SITE_I18N = {
         },
 
         access: {
-            title: 'Accès Multi-Plateforme',
-            desc: 'Que vous préfériez la commodité du web ou la fluidité d\'une app native, trouvez votre mode d\'accès idéal. Synergie multi-appareils, expérience sans couture.',
-            sSite: 'Site S · Stable',
-            tSite: 'Site T · Aperçu',
-            harmony: 'Télécharger App HarmonyOS',
-            harmonySub: 'AppGallery Invite Limitée',
-            android: 'Version Android',
-            ios: 'Version iOS',
-            live: 'Accès Stable · Anytime',
-            preview: 'Accès Anticipé · Feedback',
-            soon: 'Restez Connecté · Bientôt',
+            sSite: 'Site S',
+            tSite: 'Site T',
+            harmony: 'HarmonyOS',
+            android: 'Android',
+            ios: 'Apple',
         },
 
         details: {

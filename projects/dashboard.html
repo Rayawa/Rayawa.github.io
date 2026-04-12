@@ -35,187 +35,152 @@
   <div id="particles-js"></div>
 
   <main class="page dashboard-page">
-    <section class="hero-card">
+    <!-- 第一部分：标题、图标和下载链接 -->
+    <section class="hero-section">
       <div class="hero-header">
-        <div class="hero-content">
-          <h1 data-i18n="hero.title"></h1>
-          <p class="hero-lead" data-i18n="hero.lead"></p>
+        <div class="app-icon-wrapper">
+          <img src="../static/resources/dashboard/app_icon.png" alt="App Icon" class="app-icon">
         </div>
-        <div class="hero-appicon">
-          <img src="../static/resources/dashboard/app_icon.png" alt="App Icon">
-        </div>
-      </div>
-      <div class="hero-tags" aria-label="project identity">
-        <span class="hero-tag" data-i18n="hero.tagWeb"></span>
-        <span class="hero-tag" data-i18n="hero.tagHarmony"></span>
-        <span class="hero-tag" data-i18n="hero.tagAward"></span>
-      </div>
-    </section>
-
-    <section class="hero-card metrics-section">
-      <div class="section-head">
-        <h2 data-i18n="metrics.title"></h2>
-        <p data-i18n="metrics.desc"></p>
-      </div>
-      <div class="metrics-grid" id="metricsGrid">
-        <article class="metric-card">
-          <div class="metric-label" data-i18n="metrics.totalViews.label"></div>
-          <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="1204388">0</div>
-          <div class="metric-field">totalViews</div>
-        </article>
-        <article class="metric-card">
-          <div class="metric-label" data-i18n="metrics.todayViews.label"></div>
-          <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="16542">0</div>
-          <div class="metric-field">todayViews</div>
-        </article>
-        <article class="metric-card">
-          <div class="metric-label" data-i18n="metrics.harmonyViews.label"></div>
-          <div class="metric-value" data-counter-key="harmonyAppViews" data-counter-fallback="426913">0</div>
-          <div class="metric-field">harmonyAppViews</div>
-        </article>
-      </div>
-      <p class="metrics-note"><i class="fa-solid fa-code"></i> <span data-i18n="metrics.note"></span></p>
-    </section>
-
-    <section class="hero-card access-section">
-      <div class="section-head">
-        <h2 data-i18n="access.title"></h2>
-        <p data-i18n="access.desc"></p>
-      </div>
-      <div class="platform-grid">
-        <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
-          <span class="platform-icon-wrap">
-            <img class="platform-icon-img" data-platform-icon="web" alt="">
-          </span>
-          <span class="platform-main" data-i18n="access.sSite"></span>
-          <span class="platform-sub" data-i18n="access.live"></span>
-        </a>
-        <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
-          <span class="platform-icon-wrap">
-            <img class="platform-icon-img" data-platform-icon="web" alt="">
-          </span>
-          <span class="platform-main" data-i18n="access.tSite"></span>
-          <span class="platform-sub" data-i18n="access.preview"></span>
-        </a>
-        <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
-          <span class="platform-icon-wrap">
-            <img class="platform-icon-img" data-platform-icon="harmony" alt="">
-          </span>
-          <span class="platform-main" data-i18n="access.harmony"></span>
-          <span class="platform-sub" data-i18n="access.harmonySub"></span>
-        </a>
-        <button class="platform-btn platform-disabled" type="button" aria-disabled="true">
-          <span class="platform-icon-wrap">
-            <img class="platform-icon-img" data-platform-icon="android" alt="">
-          </span>
-          <span class="platform-main" data-i18n="access.android"></span>
-          <span class="platform-sub" data-i18n="access.soon"></span>
-        </button>
-        <button class="platform-btn platform-disabled" type="button" aria-disabled="true">
-          <span class="platform-icon-wrap">
-            <img class="platform-icon-img" data-platform-icon="apple" alt="">
-          </span>
-          <span class="platform-main" data-i18n="access.ios"></span>
-          <span class="platform-sub" data-i18n="access.soon"></span>
-        </button>
-      </div>
-    </section>
-
-    <section class="hero-card details-section">
-      <div class="section-head">
-        <h2 data-i18n="details.title"></h2>
-        <p data-i18n="details.desc"></p>
-      </div>
-
-      <div class="detail-quick">
-        <h3 data-i18n="details.quickTitle"></h3>
-        <p data-i18n="details.quickDesc"></p>
-        <div class="quick-tags">
-          <span class="quick-tag" data-i18n="details.quickTag1"></span>
-          <span class="quick-tag" data-i18n="details.quickTag2"></span>
-          <span class="quick-tag" data-i18n="details.quickTag3"></span>
-          <span class="quick-tag" data-i18n="details.quickTag4"></span>
-        </div>
-      </div>
-
-      <div class="detail-notes-first">
-        <div class="detail-note-card">
-          <div class="note-icon">⚠️</div>
-          <h3 data-i18n="details.notes.title"></h3>
-          <ul class="note-list">
-            <li data-i18n="details.notes.li1"></li>
-            <li data-i18n="details.notes.li2"></li>
-            <li data-i18n="details.notes.li3"></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="detail-support-early">
-        <div class="support-card">
-          <div class="support-icon">💬</div>
-          <div class="support-content">
-            <h3 data-i18n="details.support.title"></h3>
-            <p data-i18n="details.support.p1"></p>
-            <a class="support-link" href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener" data-i18n="details.support.groupLink"></a>
+        <div class="hero-text">
+          <h1 data-i18n="hero.title" class="hero-title"></h1>
+          <div class="hero-tags">
+            <span class="hero-tag" data-i18n="hero.tagWeb"></span>
+            <span class="hero-tag" data-i18n="hero.tagHarmony"></span>
+            <span class="hero-tag" data-i18n="hero.tagAward"></span>
           </div>
         </div>
       </div>
+      
+      <div class="download-links">
+        <div class="platform-grid">
+          <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
+            <span class="platform-icon-wrap">
+              <img class="platform-icon-img" data-platform-icon="web" alt="">
+            </span>
+            <span class="platform-main" data-i18n="access.sSite"></span>
+          </a>
+          <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
+            <span class="platform-icon-wrap">
+              <img class="platform-icon-img" data-platform-icon="web" alt="">
+            </span>
+            <span class="platform-main" data-i18n="access.tSite"></span>
+          </a>
+          <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
+            <span class="platform-icon-wrap">
+              <img class="platform-icon-img" data-platform-icon="harmony" alt="">
+            </span>
+            <span class="platform-main" data-i18n="access.harmony"></span>
+          </a>
+          <button class="platform-btn platform-disabled platform-android" type="button" aria-disabled="true">
+            <span class="platform-icon-wrap">
+              <img class="platform-icon-img" data-platform-icon="android" alt="">
+            </span>
+            <span class="platform-main" data-i18n="access.android"></span>
+          </button>
+          <button class="platform-btn platform-disabled platform-ios" type="button" aria-disabled="true">
+            <span class="platform-icon-wrap">
+              <img class="platform-icon-img" data-platform-icon="apple" alt="">
+            </span>
+            <span class="platform-main" data-i18n="access.ios"></span>
+          </button>
+        </div>
+      </div>
+    </section>
 
-      <div class="detail-grid-layout">
-        <div class="detail-main-content">
-          <div class="detail-content-card">
-            <div class="content-card-header">
-              <span class="card-number">01</span>
-              <h3 data-i18n="details.what.title"></h3>
-            </div>
-            <div class="content-card-body">
-              <p data-i18n="details.what.p1"></p>
-              <p data-i18n="details.what.p2"></p>
-            </div>
-          </div>
+    <!-- 第二部分：数据展示 -->
+    <section class="content-section">
+      <div class="section-container metrics-container">
+        <div class="metrics-grid" id="metricsGrid">
+          <article class="metric-card">
+            <div class="metric-label" data-i18n="metrics.totalViews.label"></div>
+            <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="2000000">0</div>
+            <div class="metric-field">totalViews</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label" data-i18n="metrics.todayViews.label"></div>
+            <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="50000">0</div>
+            <div class="metric-field">todayViews</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label" data-i18n="metrics.harmonyViews.label"></div>
+            <div class="metric-value" data-counter-key="harmonyAppViews" data-counter-fallback="800000">0</div>
+            <div class="metric-field">harmonyAppViews</div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          <div class="detail-content-card">
-            <div class="content-card-header">
-              <span class="card-number">02</span>
-              <h3 data-i18n="details.usage.title"></h3>
-            </div>
-            <div class="content-card-body">
-              <ul class="detail-list">
-                <li data-i18n="details.usage.li1"></li>
-                <li data-i18n="details.usage.li2"></li>
-                <li data-i18n="details.usage.li3"></li>
-                <li data-i18n="details.usage.li4"></li>
-                <li data-i18n="details.usage.li5"></li>
+    <!-- 第三部分：详细信息 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 data-i18n="details.title"></h2>
+          <p data-i18n="details.desc"></p>
+        </div>
+
+        <div class="details-grid">
+          <div class="details-main">
+            <div class="note-card">
+              <div class="note-icon">⚠️</div>
+              <h3 data-i18n="details.notes.title"></h3>
+              <ul class="note-list">
+                <li data-i18n="details.notes.li1"></li>
+                <li data-i18n="details.notes.li2"></li>
+                <li data-i18n="details.notes.li3"></li>
               </ul>
             </div>
-          </div>
-        </div>
 
-        <div class="detail-sidebar">
-          <div class="detail-highlight-card harmony-card">
-            <div class="highlight-icon">🎨</div>
-            <h3 data-i18n="details.harmony.title"></h3>
-            <p class="highlight-summary" data-i18n="details.harmony.summary"></p>
-            <ul class="highlight-list">
-              <li data-i18n="details.harmony.li1"></li>
-              <li data-i18n="details.harmony.li2"></li>
-              <li data-i18n="details.harmony.li3"></li>
-              <li data-i18n="details.harmony.li4"></li>
-              <li data-i18n="details.harmony.li5"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+            <div class="info-card">
+              <div class="card-header">
+                <span class="card-number">01</span>
+                <h3 data-i18n="details.what.title"></h3>
+              </div>
+              <div class="card-body">
+                <p data-i18n="details.what.p1"></p>
+                <p data-i18n="details.what.p2"></p>
+              </div>
+            </div>
 
-      <div class="detail-full-width">
-        <div class="detail-content-card roadmap-card">
-          <div class="content-card-header">
-            <span class="card-number">03</span>
-            <h3 data-i18n="details.roadmap.title"></h3>
+            <div class="info-card">
+              <div class="card-header">
+                <span class="card-number">02</span>
+                <h3 data-i18n="details.usage.title"></h3>
+              </div>
+              <div class="card-body">
+                <ul class="detail-list">
+                  <li data-i18n="details.usage.li1"></li>
+                  <li data-i18n="details.usage.li2"></li>
+                  <li data-i18n="details.usage.li3"></li>
+                  <li data-i18n="details.usage.li4"></li>
+                  <li data-i18n="details.usage.li5"></li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="content-card-body">
-            <p data-i18n="details.roadmap.p1"></p>
-          </div>
+
+          <aside class="details-sidebar">
+            <div class="highlight-card harmony-card">
+              <div class="highlight-icon">🎨</div>
+              <h3 data-i18n="details.harmony.title"></h3>
+              <p class="highlight-summary" data-i18n="details.harmony.summary"></p>
+              <ul class="highlight-list">
+                <li data-i18n="details.harmony.li1"></li>
+                <li data-i18n="details.harmony.li2"></li>
+                <li data-i18n="details.harmony.li3"></li>
+                <li data-i18n="details.harmony.li4"></li>
+                <li data-i18n="details.harmony.li5"></li>
+              </ul>
+            </div>
+
+            <div class="qq-support-card">
+              <div class="support-icon">💬</div>
+              <div class="support-content">
+                <h3>技术交流</h3>
+                <p>欢迎加入 QQ 交流群</p>
+                <a class="support-link" href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener">加入 QQ 群</a>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
