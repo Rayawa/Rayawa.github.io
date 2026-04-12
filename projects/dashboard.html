@@ -35,77 +35,80 @@
   <div id="particles-js"></div>
 
   <main class="page dashboard-page">
-    <!-- 第一部分：标题、图标和下载链接 -->
+    <!-- 第一部分：标题、图标 -->
     <section class="hero-section">
       <div class="hero-header">
         <div class="app-icon-wrapper">
           <img src="../static/resources/dashboard/app_icon.png" alt="App Icon" class="app-icon">
         </div>
-        <div class="hero-text">
+        <div class="hero-content">
           <h1 data-i18n="hero.title" class="hero-title"></h1>
-          <div class="hero-tags">
-            <span class="hero-tag" data-i18n="hero.tagWeb"></span>
-            <span class="hero-tag" data-i18n="hero.tagHarmony"></span>
-            <span class="hero-tag" data-i18n="hero.tagAward"></span>
-          </div>
+          <p class="hero-lead">
+            <span data-i18n="hero.lead.part1"></span>
+            <a href="#team" class="hero-link" data-i18n="hero.lead.link"></a>
+            <span data-i18n="hero.lead.part2"></span>
+          </p>
         </div>
       </div>
       
-      <div class="download-links">
-        <div class="platform-grid">
-          <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
-            <span class="platform-icon-wrap">
-              <img class="platform-icon-img" data-platform-icon="web" alt="">
-            </span>
-            <span class="platform-main" data-i18n="access.sSite"></span>
-          </a>
-          <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
-            <span class="platform-icon-wrap">
-              <img class="platform-icon-img" data-platform-icon="web" alt="">
-            </span>
-            <span class="platform-main" data-i18n="access.tSite"></span>
-          </a>
-          <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
-            <span class="platform-icon-wrap">
-              <img class="platform-icon-img" data-platform-icon="harmony" alt="">
-            </span>
-            <span class="platform-main" data-i18n="access.harmony"></span>
-          </a>
-          <button class="platform-btn platform-disabled platform-android" type="button" aria-disabled="true">
-            <span class="platform-icon-wrap">
-              <img class="platform-icon-img" data-platform-icon="android" alt="">
-            </span>
-            <span class="platform-main" data-i18n="access.android"></span>
-          </button>
-          <button class="platform-btn platform-disabled platform-ios" type="button" aria-disabled="true">
-            <span class="platform-icon-wrap">
-              <img class="platform-icon-img" data-platform-icon="apple" alt="">
-            </span>
-            <span class="platform-main" data-i18n="access.ios"></span>
-          </button>
+      <div class="hero-tags-wrapper">
+        <div class="hero-tags">
+          <span class="hero-tag" data-i18n="hero.tagRust"></span>
+          <span class="hero-tag" data-i18n="hero.tagDatabase"></span>
+          <span class="hero-tag" data-i18n="hero.tagPlatform"></span>
+          <span class="hero-tag" data-i18n="hero.tagAward"></span>
         </div>
       </div>
     </section>
 
-    <!-- 第二部分：数据展示 -->
+    <!-- 第二部分：访问数据与下载链接 -->
     <section class="content-section">
-      <div class="section-container metrics-container">
-        <div class="metrics-grid" id="metricsGrid">
-          <article class="metric-card">
-            <div class="metric-label" data-i18n="metrics.totalViews.label"></div>
-            <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="2000000">0</div>
-            <div class="metric-field">totalViews</div>
-          </article>
-          <article class="metric-card">
-            <div class="metric-label" data-i18n="metrics.todayViews.label"></div>
-            <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="50000">0</div>
-            <div class="metric-field">todayViews</div>
-          </article>
-          <article class="metric-card">
-            <div class="metric-label" data-i18n="metrics.harmonyViews.label"></div>
-            <div class="metric-value" data-counter-key="harmonyAppViews" data-counter-fallback="800000">0</div>
-            <div class="metric-field">harmonyAppViews</div>
-          </article>
+      <div class="section-container">
+        <div class="access-metrics-card">
+          <div class="metrics-section">
+            <div class="metrics-grid-small" id="metricsGrid">
+              <article class="metric-card-small">
+                <div class="metric-label" data-i18n="metrics.totalViews.label"></div>
+                <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="2000000">0</div>
+                <div class="metric-field">totalViews</div>
+              </article>
+              <article class="metric-card-small">
+                <div class="metric-label" data-i18n="metrics.todayViews.label"></div>
+                <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="50000">0</div>
+                <div class="metric-field">todayViews</div>
+              </article>
+              <article class="metric-card-small">
+                <div class="metric-label" data-i18n="metrics.harmonyViews.label"></div>
+                <div class="metric-value" data-counter-key="harmonyAppViews" data-counter-fallback="800000">0</div>
+                <div class="metric-field">harmonyAppViews</div>
+              </article>
+            </div>
+          </div>
+
+          <div class="download-section">
+            <div class="platform-grid">
+              <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
+                  <img class="platform-icon-img" data-platform-icon="web" alt="">
+                <span class="platform-main" data-i18n="access.sSite"></span>
+              </a>
+              <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
+                  <img class="platform-icon-img" data-platform-icon="web" alt="">
+                <span class="platform-main" data-i18n="access.tSite"></span>
+              </a>
+              <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
+                  <img class="platform-icon-img" data-platform-icon="harmony" alt="">
+                <span class="platform-main" data-i18n="access.harmony"></span>
+              </a>
+              <button class="platform-btn platform-disabled platform-android" type="button" aria-disabled="true">
+                  <img class="platform-icon-img" data-platform-icon="android" alt="">
+                <span class="platform-main" data-i18n="access.android"></span>
+              </button>
+              <button class="platform-btn platform-disabled platform-ios" type="button" aria-disabled="true">
+                  <img class="platform-icon-img" data-platform-icon="apple" alt="">
+                <span class="platform-main" data-i18n="access.ios"></span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -181,6 +184,160 @@
               </div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第四部分：技术架构与数据库 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 data-i18n="details.tech.title"></h2>
+          <p data-i18n="details.tech.desc"></p>
+        </div>
+
+        <div class="tech-two-columns">
+          <div class="tech-column">
+            <div class="tech-detail-block">
+              <h3 data-i18n="details.tech.backend.title"></h3>
+              <p class="tech-summary" data-i18n="details.tech.backend.summary"></p>
+              <ul class="tech-list">
+                <li data-i18n="details.tech.backend.items.rust"></li>
+                <li data-i18n="details.tech.backend.items.axum"></li>
+                <li data-i18n="details.tech.backend.items.tokio"></li>
+                <li data-i18n="details.tech.backend.items.sqlx"></li>
+                <li data-i18n="details.tech.backend.items.reqwest"></li>
+                <li data-i18n="details.tech.backend.items.serde"></li>
+                <li data-i18n="details.tech.backend.items.tracing"></li>
+                <li data-i18n="details.tech.backend.items.compression"></li>
+              </ul>
+            </div>
+
+            <div class="tech-detail-block">
+              <h3 data-i18n="details.tech.database.title"></h3>
+              <p class="tech-summary" data-i18n="details.tech.database.summary"></p>
+              <ul class="tech-list">
+                <li data-i18n="details.tech.database.items.tables"></li>
+                <li data-i18n="details.tech.database.items.triggers"></li>
+                <li data-i18n="details.tech.database.items.indexes"></li>
+                <li data-i18n="details.tech.database.items.foreign_keys"></li>
+                <li data-i18n="details.tech.database.items.json"></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tech-column">
+            <div class="tech-detail-block">
+              <h3 data-i18n="details.tech.frontend_web.title"></h3>
+              <div class="tech-subsection">
+                <h4 data-i18n="details.tech.frontend_s.title"></h4>
+                <ul class="tech-list">
+                  <li data-i18n="details.tech.frontend_s.items.js"></li>
+                  <li data-i18n="details.tech.frontend_s.items.chart"></li>
+                  <li data-i18n="details.tech.frontend_s.items.markdown"></li>
+                  <li data-i18n="details.tech.frontend_s.items.responsive"></li>
+                </ul>
+              </div>
+              <div class="tech-subsection">
+                <h4 data-i18n="details.tech.frontend_t.title"></h4>
+                <ul class="tech-list">
+                  <li data-i18n="details.tech.frontend_t.items.vue"></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tech-detail-block">
+              <h3 data-i18n="details.tech.frontend_harmony.title"></h3>
+              <ul class="tech-list">
+                <li data-i18n="details.tech.frontend_harmony.items.language"></li>
+                <li data-i18n="details.tech.frontend_harmony.items.ui"></li>
+                <li data-i18n="details.tech.frontend_harmony.items.web"></li>
+                <li data-i18n="details.tech.frontend_harmony.items.model"></li>
+                <li data-i18n="details.tech.frontend_harmony.items.build"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据库接入板块 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 data-i18n="details.database_integration.title"></h2>
+          <p class="intro-text" data-i18n="details.database_integration.intro"></p>
+        </div>
+
+        <div class="integration-layout">
+          <div class="integration-left">
+            <h3 data-i18n="details.database_integration.cases_title"></h3>
+            <div class="integration-cases-vertical">
+              <a class="case-item" href="https://appgallery.huawei.com/app/detail?id=com.xxtstudio.accountDL" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title" data-i18n="details.database_integration.cases.case1.title"></div>
+                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case1.subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://hdc.osbdf.com/" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title" data-i18n="details.database_integration.cases.case2.title"></div>
+                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case2.subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://next.vcck.cn/#/" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title" data-i18n="details.database_integration.cases.case3.title"></div>
+                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case3.subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://dztap.com/app.html" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title" data-i18n="details.database_integration.cases.case4.title"></div>
+                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case4.subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://next.betahub.tech/" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title" data-i18n="details.database_integration.cases.case5.title"></div>
+                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case5.subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="integration-right">
+            <div class="integration-warning">
+              <h3 data-i18n="details.database_integration.warning.title"></h3>
+              <p data-i18n="details.database_integration.warning.p1"></p>
+              <p data-i18n="details.database_integration.warning.p2"></p>
+              <p data-i18n="details.database_integration.warning.p3"></p>
+            </div>
+
+            <div class="api-section">
+              <h3 data-i18n="details.database_integration.api_title"></h3>
+              <p data-i18n="details.database_integration.api_desc"></p>
+              <div class="api-buttons">
+                <a class="api-btn" href="http://shenjack.top:10003/docs" target="_blank" rel="noopener" data-i18n="details.database_integration.api_button"></a>
+                <a class="api-btn api-btn-secondary" href="#team" data-i18n="details.database_integration.contact_button"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
