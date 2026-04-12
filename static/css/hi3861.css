@@ -19,6 +19,7 @@
   box-shadow: none;
   padding: 0;
   margin-bottom: 1.6rem;
+  position: relative;
 }
 
 .hi-hero-badge {
@@ -35,18 +36,35 @@
   margin-bottom: 1rem;
 }
 
+.hi-hero-badge:empty {
+  display: none;
+}
+
 .hi-hero h1 {
   margin: 0;
-  color: #ecfeff;
-  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
-  letter-spacing: -0.025em;
+  color: #fff;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-weight: 700;
 }
 
 .hi-hero-desc {
-  color: rgba(236, 254, 255, 0.84);
-  margin-top: 0.95rem;
-  line-height: 1.82;
-  max-width: 860px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  max-width: 680px;
+}
+
+.hi-hero::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 2rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
 }
 
 .hi-hero-actions {
