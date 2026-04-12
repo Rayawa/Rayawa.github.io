@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>鸿蒙应用看板 | Ray Chen</title>
+  <title>华为应用市场看板 | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="../static/css/subpage.css">
+  <link rel="stylesheet" href="../static/css/dashboard.css">
 </head>
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"><!-- i18n: logo text --></span></a>
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"></span></a>
       <ul class="nav-links">
-        <li><a href="../index.html" data-i18n="nav.home"><!-- i18n: nav home --></a></li>
-        <li><a href="../index.html#about" data-i18n="nav.about"><!-- i18n: nav about --></a></li>
-        <li><a href="../index.html#projects" data-i18n="nav.projects"><!-- i18n: nav projects --></a></li>
-        <li><a href="../index.html#gallery" data-i18n="nav.gallery"><!-- i18n: nav gallery --></a></li>
-        <li><a href="../index.html#contact" data-i18n="nav.contact"><!-- i18n: nav contact --></a></li>
+        <li><a href="../index.html" data-i18n="nav.home"></a></li>
+        <li><a href="../index.html#about" data-i18n="nav.about"></a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects"></a></li>
+        <li><a href="../index.html#gallery" data-i18n="nav.gallery"></a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="language-switch">
         <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
@@ -30,38 +31,225 @@
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
+
   <div id="particles-js"></div>
-  <main class="page">
-    <section class="hero-card">
-      <h1 data-i18n="title"><!-- i18n: page title --></h1>
-      <p data-i18n="desc"><!-- i18n: page description --></p>
+
+  <main class="page dashboard-page">
+    <section class="hero-card dashboard-hero">
+      <div class="hero-kicker" data-i18n="hero.kicker"></div>
+      <h1 data-i18n="hero.title"></h1>
+      <p class="hero-lead" data-i18n="hero.lead"></p>
+      <div class="hero-tags" aria-label="project identity">
+        <span class="hero-tag" data-i18n="hero.tagWeb"></span>
+        <span class="hero-tag" data-i18n="hero.tagHarmony"></span>
+        <span class="hero-tag" data-i18n="hero.tagFullstack"></span>
+      </div>
     </section>
-    <section class="card-grid">
-      <article class="card">
-        <h2 data-i18n="welcome.title"><!-- i18n: welcome title --></h2>
-        <p data-i18n="welcome.desc"><!-- i18n: welcome desc --></p>
-      </article>
-      <article class="card">
-        <h2 data-i18n="intro.title"><!-- i18n: intro title --></h2>
-        <p data-i18n="intro.desc"><!-- i18n: intro desc --></p>
-      </article>
+
+    <section class="hero-card metrics-section">
+      <div class="section-head">
+        <h2 data-i18n="metrics.title"></h2>
+        <p data-i18n="metrics.desc"></p>
+      </div>
+      <div class="metrics-grid" id="metricsGrid">
+        <article class="metric-card">
+          <div class="metric-label" data-i18n="metrics.totalViews.label"></div>
+          <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="1204388">0</div>
+          <div class="metric-field">totalViews</div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label" data-i18n="metrics.todayViews.label"></div>
+          <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="16542">0</div>
+          <div class="metric-field">todayViews</div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label" data-i18n="metrics.harmonyViews.label"></div>
+          <div class="metric-value" data-counter-key="harmonyAppViews" data-counter-fallback="426913">0</div>
+          <div class="metric-field">harmonyAppViews</div>
+        </article>
+      </div>
+      <p class="metrics-note"><i class="fa-solid fa-code"></i> <span data-i18n="metrics.note"></span></p>
     </section>
-    <section class="hero-card">
-      <h2 data-i18n="download"><!-- i18n: download heading --></h2>
-      <div class="button-row">
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="web"><!-- i18n: web --></a>
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="harmony"><!-- i18n: harmony --></a>
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="apple"><!-- i18n: apple --></a>
-        <a class="button" href="https://hmos.rayawa.top" target="_blank" rel="noopener" data-i18n="android"><!-- i18n: android --></a>
+
+    <section class="hero-card access-section">
+      <div class="section-head">
+        <h2 data-i18n="access.title"></h2>
+        <p data-i18n="access.desc"></p>
+      </div>
+      <div class="platform-grid">
+        <a class="platform-btn" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
+          <span class="platform-icon-wrap">
+            <img class="platform-icon-img" data-platform-icon="web" alt="">
+          </span>
+          <span class="platform-main" data-i18n="access.sSite"></span>
+          <span class="platform-sub" data-i18n="access.live"></span>
+        </a>
+        <a class="platform-btn" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
+          <span class="platform-icon-wrap">
+            <img class="platform-icon-img" data-platform-icon="web" alt="">
+          </span>
+          <span class="platform-main" data-i18n="access.tSite"></span>
+          <span class="platform-sub" data-i18n="access.preview"></span>
+        </a>
+        <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
+          <span class="platform-icon-wrap">
+            <img class="platform-icon-img" data-platform-icon="harmony" alt="">
+          </span>
+          <span class="platform-main" data-i18n="access.harmony"></span>
+          <span class="platform-sub" data-i18n="access.harmonySub"></span>
+        </a>
+        <button class="platform-btn platform-disabled" type="button" aria-disabled="true">
+          <span class="platform-icon-wrap">
+            <img class="platform-icon-img" data-platform-icon="android" alt="">
+          </span>
+          <span class="platform-main" data-i18n="access.android"></span>
+          <span class="platform-sub" data-i18n="access.soon"></span>
+        </button>
+        <button class="platform-btn platform-disabled" type="button" aria-disabled="true">
+          <span class="platform-icon-wrap">
+            <i class="fa-brands fa-apple" aria-hidden="true"></i>
+          </span>
+          <span class="platform-main" data-i18n="access.ios"></span>
+          <span class="platform-sub" data-i18n="access.soon"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="hero-card details-section">
+      <div class="section-head">
+        <h2 data-i18n="details.title"></h2>
+        <p data-i18n="details.desc"></p>
+      </div>
+
+      <div class="detail-quick">
+        <h3 data-i18n="details.quickTitle"></h3>
+        <p data-i18n="details.quickDesc"></p>
+        <div class="quick-tags">
+          <span class="quick-tag" data-i18n="details.quickTag1"></span>
+          <span class="quick-tag" data-i18n="details.quickTag2"></span>
+          <span class="quick-tag" data-i18n="details.quickTag3"></span>
+          <span class="quick-tag" data-i18n="details.quickTag4"></span>
+        </div>
+      </div>
+
+      <p class="detail-read-hint" data-i18n="details.readHint"></p>
+
+      <div class="detail-accordion">
+        <details class="detail-card detail-panel" open>
+          <summary>
+            <span data-i18n="details.what.title"></span>
+            <small data-i18n="details.what.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <p data-i18n="details.what.p1"></p>
+            <p data-i18n="details.what.p2"></p>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel" open>
+          <summary>
+            <span data-i18n="details.harmony.title"></span>
+            <small data-i18n="details.harmony.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <ul class="detail-list">
+              <li data-i18n="details.harmony.li1"></li>
+              <li data-i18n="details.harmony.li2"></li>
+              <li data-i18n="details.harmony.li3"></li>
+              <li data-i18n="details.harmony.li4"></li>
+              <li data-i18n="details.harmony.li5"></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel">
+          <summary>
+            <span data-i18n="details.usage.title"></span>
+            <small data-i18n="details.usage.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <ul class="detail-list">
+              <li data-i18n="details.usage.li1"></li>
+              <li data-i18n="details.usage.li2"></li>
+              <li data-i18n="details.usage.li3"></li>
+              <li data-i18n="details.usage.li4"></li>
+              <li data-i18n="details.usage.li5"></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel">
+          <summary>
+            <span data-i18n="details.submit.title"></span>
+            <small data-i18n="details.submit.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <p data-i18n="details.submit.p1"></p>
+            <p data-i18n="details.submit.p2"></p>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel">
+          <summary>
+            <span data-i18n="details.share.title"></span>
+            <small data-i18n="details.share.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <ul class="detail-list">
+              <li data-i18n="details.share.li1"></li>
+              <li data-i18n="details.share.li2"></li>
+              <li data-i18n="details.share.li3"></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel">
+          <summary>
+            <span data-i18n="details.notes.title"></span>
+            <small data-i18n="details.notes.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <ul class="detail-list">
+              <li data-i18n="details.notes.li1"></li>
+              <li data-i18n="details.notes.li2"></li>
+              <li data-i18n="details.notes.li3"></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel">
+          <summary>
+            <span data-i18n="details.roadmap.title"></span>
+            <small data-i18n="details.roadmap.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <p data-i18n="details.roadmap.p1"></p>
+          </div>
+        </details>
+
+        <details class="detail-card detail-panel">
+          <summary>
+            <span data-i18n="details.support.title"></span>
+            <small data-i18n="details.support.summary"></small>
+          </summary>
+          <div class="detail-panel-content">
+            <p data-i18n="details.support.p1"></p>
+            <p>
+              <a href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener" data-i18n="details.support.groupLink"></a>
+            </p>
+          </div>
+        </details>
       </div>
     </section>
   </main>
-    <div id="site-footer"></div>
+
+  <div id="site-footer"></div>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="../static/js/i18n-dashboard.js"></script>
+  <script src="../static/js/dashboard.js"></script>
   <script src="../static/js/i18n-footer.js"></script>
   <script src="../static/js/footer.js"></script>
-    <script src="../static/js/common.js"></script>
+  <script src="../static/js/common.js"></script>
 </body>
 </html>
