@@ -650,13 +650,10 @@ button.platform-btn {
   margin-bottom: 0;
   color: rgba(148, 163, 184, 0.9);
   font-size: 0.81rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.7rem;
-  border-radius: 8px;
-  background: rgba(15, 23, 42, 0.3);
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  text-align: center;
+  padding: 0.4rem 0;
+  background: transparent;
+  border: none;
 }
 
 .metrics-note i {
@@ -1498,6 +1495,107 @@ button.platform-btn {
 }
 
 /* ==================== 
+   联系我们板块
+   ==================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.6rem;
+  margin-top: 1.5rem;
+}
+
+.contact-team {
+  border-radius: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: transparent;
+  padding: 1.6rem 1.8rem;
+  backdrop-filter: none;
+}
+
+.contact-team h3 {
+  color: #f8fafc;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.team-title-link {
+  color: #f8fafc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.team-title-link:hover {
+  color: #38bdf8;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.team-item {
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(2, 132, 199, 0.05));
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  transition: all 0.3s ease;
+}
+
+.team-item:hover {
+  border-color: rgba(148, 163, 184, 0.35);
+  background: rgba(56, 189, 248, 0.12);
+  transform: translateX(4px);
+}
+
+.team-name {
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.team-contact {
+  color: rgba(125, 211, 252, 0.9);
+  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 0.4rem;
+}
+
+.qq-link {
+  color: rgba(125, 211, 252, 0.9);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.qq-link:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+.qq-link i {
+  font-size: 0.75rem;
+}
+
+.team-role {
+  color: rgba(203, 213, 225, 0.8);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ==================== 
    响应式调整 - 新增板块
    ==================== */
 @media (max-width: 900px) {
@@ -1523,6 +1621,52 @@ button.platform-btn {
 
   .team-members {
     grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-team {
+    order: -1;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 修复移动端标题和图标布局 */
+  .card-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-number {
+    font-size: 1.2rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.05rem;
+  }
+
+  .note-icon,
+  .highlight-icon {
+    font-size: 1.5rem;
+  }
+
+  .note-card h3,
+  .highlight-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .section-container {
+    padding: 1.2rem;
+  }
+
+  .info-card,
+  .highlight-card,
+  .note-card {
+    padding: 1.3rem 1.4rem;
   }
 }
 
