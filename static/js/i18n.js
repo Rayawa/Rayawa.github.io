@@ -57,7 +57,7 @@ window.SITE_I18N = {
         },
         form: {
             quickTitle: '快捷消息',
-            quickSubtitle: '项目合作 / 技术支持 / 摄影约稿 / 碎碎念',
+            quickSubtitle: '项目合作 / 技术支持 / 摄影约稿 / Bug反馈 / 碎碎念',
             name: '姓名',
             email: '邮箱',
             message: '消息',
@@ -289,7 +289,7 @@ window.SITE_I18N = {
         },
         form: {
             quickTitle: 'Quick Message',
-            quickSubtitle: 'Project Collab / Tech Support / Photography / Chitchat',
+            quickSubtitle: 'Project Collab / Tech Support / Photography / Bug Reports / Chitchat',
             name: 'Name',
             email: 'Email',
             message: 'Message',
@@ -524,7 +524,7 @@ window.SITE_I18N = {
         },
         form: {
             quickTitle: 'Message rapide',
-            quickSubtitle: 'Collab projet / Support tech / Photo / Bavardage',
+            quickSubtitle: 'Collab projet / Support tech / Photo / Retours et bogues / Bavardage',
             name: 'Nom',
             email: 'Email',
             message: 'Message',
