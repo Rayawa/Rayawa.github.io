@@ -31,7 +31,7 @@ window.SITE_I18N = {
             },
             tech: {
                 title: '技术',
-                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">设备</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">软件</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, 网易云音乐, ToDesk, 微信, QQ, 幕布</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1, Qwen3.5-Plus</div><div class="thanks-sub"><span class="thanks-label">设备</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">软件</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, 网易云音乐, ToDesk, 微信, QQ, 幕布</div>'
             },
             life: {
                 title: '生活',
@@ -71,7 +71,7 @@ window.SITE_I18N = {
             },
             tech: {
                 title: 'Technology',
-                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Devices</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Software</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">AI</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1, Qwen3.5-Plus</div><div class="thanks-sub"><span class="thanks-label">Devices</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Software</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
             },
             life: {
                 title: 'Life',
@@ -111,7 +111,7 @@ window.SITE_I18N = {
             },
             tech: {
                 title: 'Technologie',
-                content: '<div class="thanks-sub"><span class="thanks-label">IA</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1</div><div class="thanks-sub"><span class="thanks-label">Appareils</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Logiciels</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
+                content: '<div class="thanks-sub"><span class="thanks-label">IA</span>Google Gemini, DeepSeek-Chat, OpenAI GPT-5.3-codex, GLM-5.1, Qwen3.5-Plus</div><div class="thanks-sub"><span class="thanks-label">Appareils</span>MacBook Air, HUAWEI Mate 70 Pro+, iPad Pro, iPhone 17, MatePad Pro 12.2, HUAWEI MateView GT, Hi3861, LEGO-EV3, Arduino UNO, HUAWEI P30 Pro, Magic Keyboard, Magic Touchpad, HUAWEI FreeClip2, AirPods Pro 2, Bose QC Ultra</div><div class="thanks-sub"><span class="thanks-label">Logiciels</span>Adobe Lightroom Classic, Adobe Premiere Pro, Adobe Photoshop, DevEco-Studio, VSCode, Clion, IntelliJ IDEA, Xcode, Codex, TRAE, OpenClaw, Bilibili, Safari, Chrome, NetEase Cloud Music, ToDesk, WeChat, QQ, Mubu</div>'
             },
             life: {
                 title: 'Vie',
