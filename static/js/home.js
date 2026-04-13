@@ -134,10 +134,10 @@ function applyLocaleBlocks() {
 function hydrateRevealItems() {
     const autoGroups = [
         '.section-header',
-        '.projects-group:first-child .projects-group-header',
-        '.projects-group:first-child .project-card',
-        '.projects-group:last-child .projects-group-header',
-        '.projects-group:last-child .project-card',
+        '.projects-group:first-of-type .projects-group-header',
+        '.projects-group:first-of-type .project-card',
+        '.projects-group:last-of-type .projects-group-header',
+        '.projects-group:last-of-type .project-card',
         '.about .about-text',
         '.about .about-side .glass-card',
         '.hero .hero-tags',
@@ -1003,13 +1003,23 @@ t = i18n[locale] || i18n.zh;
 var _isNavigating = sessionStorage.getItem('rayawa_navigating') === '1';
 sessionStorage.removeItem('rayawa_navigating');
 
+// 标记是否从缓存加载
+var _isFromCache = false;
+
 window.addEventListener('pageshow', function(e) {
     if (e.persisted) {
+        _isFromCache = true;
         document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
         var navbar = document.querySelector('.navbar');
         if (navbar) navbar.classList.add('is-visible');
         var ls = document.getElementById('loadingScreen');
-        if (ls) ls.style.display = 'none';
+        if (ls) {
+            ls.style.display = 'none';
+            // 确保内容可见
+            document.body.classList.remove('is-loading');
+        }
+        // 设置已加载标记
+        sessionStorage.setItem('rayawa_loaded', '1');
     }
 });
 
@@ -1039,7 +1049,7 @@ initLanguageSwitcher();
         });
     }
 
-    if (sessionStorage.getItem('rayawa_loaded') || !document.getElementById('loadingScreen') || _isNavigating) {
+    if (sessionStorage.getItem('rayawa_loaded') || !document.getElementById('loadingScreen') || _isNavigating || _isFromCache) {
         showNavbar();
     } else {
         window.addEventListener('loadingScreenDone', showNavbar);
@@ -1048,6 +1058,12 @@ initLanguageSwitcher();
     window.addEventListener('pageshow', function(e) {
         if (e.persisted) {
             navbar.classList.add('is-visible');
+            // 如果是从缓存加载，确保移除可能存在的过渡层
+            var overlay = document.querySelector('.page-transition-overlay');
+            if (overlay) {
+                overlay.style.animation = 'pageOverlayOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+                setTimeout(function() { overlay.remove(); }, HOME_TRANSITION_MS + 40);
+            }
         }
     });
 })();

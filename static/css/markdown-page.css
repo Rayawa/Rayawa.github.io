@@ -10,7 +10,7 @@
 }
 
 .markdown-body {
-  color: #e2e8f0;
+  color: #fff !important;
   background: transparent;
   font-family: Inter, sans-serif;
 }
@@ -19,17 +19,24 @@
 .markdown-body h2,
 .markdown-body h3,
 .markdown-body h4 {
-  color: #fff;
+  color: #fff !important;
   border-color: rgba(255, 255, 255, 0.18);
+}
+
+.markdown-body p,
+.markdown-body span,
+.markdown-body div {
+  color: #fff !important;
 }
 
 .markdown-body code,
 .markdown-body pre {
   font-family: "JetBrains Mono", monospace;
+  color: #bae6fd !important;
 }
 
 .markdown-body pre {
-  background: rgba(2, 6, 23, 0.72);
+  background: rgba(2, 6, 23, 0.72) !important;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
 }
@@ -46,8 +53,14 @@
 .markdown-body table th,
 .markdown-body table td {
   border-color: rgba(255, 255, 255, 0.12);
+  color: #fff !important;
 }
 
 .markdown-body a {
-  color: #7dd3fc;
+  color: #7dd3fc !important;
+}
+
+.markdown-body strong {
+  color: #fff !important;
+  font-weight: 600;
 }
