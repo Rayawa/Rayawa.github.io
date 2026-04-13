@@ -621,6 +621,13 @@ function initLoadingScreen() {
     window.addEventListener('pageshow', (e) => {
         if (e.persisted) {
             window.scrollTo({ top: 0, behavior: 'instant' });
+            // 清除所有过渡状态
+            document.body.classList.remove('page-leaving', 'is-loading');
+            document.querySelectorAll('.navbar').forEach(function(navbar) {
+                navbar.classList.remove('navbar-leaving');
+            });
+            document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
+            document.querySelectorAll('.page-entrance').forEach(function(el) { el.remove(); });
         }
     });
 
