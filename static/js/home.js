@@ -134,10 +134,10 @@ function applyLocaleBlocks() {
 function hydrateRevealItems() {
     const autoGroups = [
         '.section-header',
-        '.projects-group:first-of-type .projects-group-header',
-        '.projects-group:first-of-type .project-card',
-        '.projects-group:last-of-type .projects-group-header',
-        '.projects-group:last-of-type .project-card',
+        '.projects-group:first-child .projects-group-header',
+        '.projects-group:first-child .project-card',
+        '.projects-group:last-child .projects-group-header',
+        '.projects-group:last-child .project-card',
         '.about .about-text',
         '.about .about-side .glass-card',
         '.hero .hero-tags',
