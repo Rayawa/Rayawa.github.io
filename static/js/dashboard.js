@@ -24,17 +24,29 @@
 
     function fetchStatistics() {
         return Promise.all([
-            fetch(API_BASE + '/api/v0/statistics/today_access').then(function(res) { return res.json(); }),
-            fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(function(res) { return res.json(); }),
-            fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) { return res.json(); })
+            fetch(API_BASE + '/api/v0/statistics/today_access').then(function(res) {
+                console.log('today_access status:', res.status);
+                return res.json();
+            }),
+            fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(function(res) {
+                console.log('top_rayawa_access status:', res.status);
+                return res.json();
+            }),
+            fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
+                console.log('total_access status:', res.status);
+                return res.json();
+            })
         ]).then(function(results) {
+            console.log('API results:', results);
             var data = {
                 todayViews: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
                 harmonyTotalViews: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
                 totalViews: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0
             };
+            console.log('Parsed data:', data);
             return data;
-        }).catch(function() {
+        }).catch(function(error) {
+            console.error('API fetch error:', error);
             return null;
         });
     }
