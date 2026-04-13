@@ -20,7 +20,7 @@
 
     applyPlatformIcons();
 
-    var API_BASE = 'https://shenjack.top:10003';
+    var API_BASE = 'http://ddns.shenjack.top:10003';
 
     function fetchStatistics() {
         return Promise.all([
