@@ -30,7 +30,7 @@
         ]).then(function(results) {
             var data = {
                 todayViews: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
-                harmonyAppViews: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
+                harmonyTotalViews: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
                 totalViews: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0
             };
             return data;
