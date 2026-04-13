@@ -20,12 +20,6 @@
 
     applyPlatformIcons();
 
-    var mockData = {
-        totalViews: 1520464,
-        todayViews: 14722,
-        harmonyAppViews: 912083,
-    };
-
     var API_BASE = 'http://shenjack.top:10003';
 
     function fetchStatistics() {
@@ -39,34 +33,10 @@
                 harmonyAppViews: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
                 totalViews: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0
             };
-            mockData = data;
-            updateLastUpdatedTime();
             return data;
         }).catch(function() {
-            return mockData;
+            return null;
         });
-    }
-
-    function updateLastUpdatedTime() {
-        var noteEl = document.querySelector('.metrics-note');
-        if (!noteEl) return;
-        var now = new Date();
-        var locale = localStorage.getItem('rayawa_locale') || 'zh';
-        var i18n = window.SITE_I18N && window.SITE_I18N[locale];
-        var prefix = (i18n && i18n.metrics && i18n.metrics.lastUpdatedPrefix) || '，最后更新于 ';
-        var timeStr = now.toLocaleString(locale === 'zh' ? 'zh-CN' : locale === 'en' ? 'en-US' : 'fr-FR', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false
-        });
-        var baseText = noteEl.textContent;
-        var separatorRegex = /[，,]\s*(最后更新于|last updated at|dernière mise à jour à)\s*/;
-        var parts = baseText.split(separatorRegex);
-        noteEl.textContent = parts[0] + prefix + timeStr;
     }
 
     var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -112,7 +82,7 @@
         items.forEach(function(el, index) {
             var key = el.getAttribute('data-counter-key');
             var fallback = Number(el.getAttribute('data-counter-fallback')) || 0;
-            var target = Object.prototype.hasOwnProperty.call(data, key) ? data[key] : fallback;
+            var target = (data && Object.prototype.hasOwnProperty.call(data, key)) ? data[key] : fallback;
             el.setAttribute('data-counter-target', String(target));
             var duration = 1200 + index * 320;
             animateCounter(el, target, duration);
