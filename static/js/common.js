@@ -514,14 +514,17 @@ function initLanguageSwitcher() {
 function initPageEntrance() {
     var isHomepage = !!document.getElementById('loadingScreen');
     
+    // 页面加载时立即清除所有过渡状态
+    clearPageTransitionStates();
+    
     // 检查页面是否从缓存加载（浏览器后退/前进）
     var isFromCache = false;
     window.addEventListener('pageshow', function(e) {
         if (e.persisted) {
             isFromCache = true;
-            // 清除可能存在的过渡层
-            document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
-            document.querySelectorAll('.page-entrance').forEach(function(el) { el.remove(); });
+            // 清除所有过渡状态
+            clearPageTransitionStates();
+            sessionStorage.removeItem('rayawa_navigating');
             
             // 立即显示内容
             var navbar = document.querySelector('.navbar');
@@ -763,10 +766,32 @@ function initSubpageReveal() {
     });
 }
 
+function clearPageTransitionStates() {
+    document.body.classList.remove('page-leaving', 'is-loading');
+    document.querySelectorAll('.navbar').forEach(function(navbar) {
+        navbar.classList.remove('navbar-leaving');
+    });
+    document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
+    document.querySelectorAll('.page-entrance').forEach(function(el) { el.remove(); });
+}
+
 function initPageLeaveTransitions() {
     window.addEventListener('pageshow', function(e) {
         if (e.persisted) {
-            document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
+            clearPageTransitionStates();
+            sessionStorage.removeItem('rayawa_navigating');
+            
+            var navbar = document.querySelector('.navbar');
+            if (navbar) navbar.classList.add('is-visible');
+            
+            var pageEl = document.querySelector('.page');
+            if (pageEl) pageEl.classList.add('content-ready');
+            
+            if (typeof initSubpageReveal === 'function') {
+                setTimeout(function() {
+                    initSubpageReveal();
+                }, 100);
+            }
         }
     });
 
