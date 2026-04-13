@@ -460,19 +460,22 @@ section,
 
 .reveal-item {
     opacity: 0;
+    visibility: hidden;
     transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s;
     transition-delay: var(--reveal-delay, 0ms);
     will-change: transform, opacity;
 }
 
 .reveal-section.is-visible .reveal-item {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
 }
 
 .reveal-section.is-revealed .reveal-item {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
     transition: none;
 }
@@ -486,7 +489,7 @@ section,
 .hi-overview-card.reveal-item,
 .doc-card.reveal-item,
 .thesis-card.reveal-item {
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -572,6 +575,7 @@ section,
 .reveal-seq .reveal-item:nth-child(4) { --reveal-delay: 380ms; }
 .reveal-seq .reveal-item:nth-child(5) { --reveal-delay: 480ms; }
 .reveal-seq .reveal-item:nth-child(6) { --reveal-delay: 580ms; }
+.reveal-seq .reveal-item:nth-child(7) { --reveal-delay: 680ms; }
 
 .lang-fade-target {
     transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
