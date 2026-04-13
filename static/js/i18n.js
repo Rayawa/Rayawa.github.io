@@ -83,11 +83,11 @@ window.SITE_I18N = {
             hlm: { title: '《寿怡红群芳开夜宴》', desc: '红楼梦剧组 2023 年底的翻拍项目活动，作为导演摄影和剪辑（这么看也算是"全栈开发"了）产出的一些文件。' },
             whn: { title: 'whn 生日', desc: '2024/11/11 好男将的生日会项目，非常难忘的一段经历，从分镜到拍摄再到剪辑，最后的效果还挺好的！' },
             thesis: { title: '学校论文', desc: '学校各种课程要求写的各种大作业或者结课论文，大部分都很水而且没啥用。' },
-            signal: { title: '微小电信号的测量', desc: '物理竞赛课题' },
+            signal: { title: '微弱电信号的测量', desc: '物理竞赛课题。本实验通过跨阻放大电路将传感器感应到的纳安级微弱光电流线性转换为电压信号，并利用金属法拉第笼屏蔽与终端数字平均滤波双重抑噪技术 ，由Arduino配合16位ADC实现高信噪比的实时数据采集与物理量量化。' },
             xxh: { title: 'xxh 的情感契合度测试', desc: '同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。' },
             graduation: { title: '毕业纪念册', desc: '人生中第一个 InDesign 项目，却做的非常非常好。前后修改了好多个版本，还为纪念册贴了一个 nfc 可以访问网站，有令人印象深刻的"送你一朵小红花"和毕业集体照。' },
         },
-        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试', wip: '施工中' },
+        tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试', wip: '施工中', rust: 'Rust', arkts: 'ArkTS', pcr: 'PCR', yeast: '酵母菌', carbonAssimilation: '碳同化', protein: '蛋白质', minecraft: 'Minecraft', mod: '模组', java: 'Java', openharmony: 'OpenHarmony', embedded: '嵌入式开发', smartLife: '智慧生活', rocketSim: '火箭模拟器', arduino: 'Arduino嵌入式', communication: '通信工程', physics: '物理竞赛' },
         aboutHtml: {
             aboutText: `<h3>个人简介</h3>
 <p>欢迎来到我的个人主页，我是Ray～你可以在这里全面的了解我。我不是特别信MBTI这个东西，但是这个东西确实挺火的。听说能让人最快了解人的性格，我目前测的是INTP，仅供参考。</p>
@@ -321,7 +321,7 @@ window.SITE_I18N = {
             xxh: { title: 'XXH Compatibility Test', desc: 'A little test a classmate came up with — I helped build the web frontend (still WIP). Two-person anonymous quiz, three dimensions, quantifying your emotional match.' },
             graduation: { title: 'Graduation Yearbook', desc: 'My first InDesign project, yet executed exceptionally well. Revised through numerous versions, even added an NFC tag to the yearbook that links to a website. Features the memorable "Sending You a Little Red Flower" and our group graduation photo.' },
         },
-        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education', test: 'Test', wip: 'WIP' },
+        tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education', test: 'Test', wip: 'WIP', rust: 'Rust', arkts: 'ArkTS', pcr: 'PCR', yeast: 'Yeast', carbonAssimilation: 'Carbon Assimilation', protein: 'Protein', minecraft: 'Minecraft', mod: 'Mod', java: 'Java', openharmony: 'OpenHarmony', embedded: 'Embedded Development', smartLife: 'Smart Life', rocketSim: 'Rocket Simulator', arduino: 'Arduino Embedded', communication: 'Communication Engineering', physics: 'Physics Competition' },
         aboutHtml: {
             aboutText: `<h3>Profile</h3>
 <p>Welcome to my personal homepage — I'm Ray~ This is a place for you to get to know me comprehensively. I don't strictly subscribe to the MBTI philosophy, but given its popularity for quickly gauging personality, I'll mention that I currently test as an INTP, for reference only.</p>
@@ -555,7 +555,7 @@ window.SITE_I18N = {
             xxh: { title: 'Test de compatibilité XXH', desc: "Un petit test inventé par un camarade — je l'ai aidé à faire le frontend web (toujours en construction). Quiz anonymé à deux, trois dimensions, quantifiant votre compatibilité émotionnelle." },
             graduation: { title: 'Album de Fin d\'Études', desc: 'Mon premier projet InDesign, mais réalisé exceptionnellement bien. Révisé à de nombreuses versions, même ajouté une étiquette NFC à l\'album qui mène à un site web. Comprend l\'inoubliable "Sending You a Little Red Flower" et notre photo de groupe de fin d\'études.' },
         },
-        tag: { dataVis: 'Visualisation de données', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Académique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Création', fun: 'Fun', game: 'Jeu', education: 'Éducation', test: 'Test', wip: 'En construction' },
+        tag: { dataVis: 'Visualisation de données', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Académique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Création', fun: 'Fun', game: 'Jeu', education: 'Éducation', test: 'Test', wip: 'En construction', rust: 'Rust', arkts: 'ArkTS', pcr: 'PCR', yeast: 'Levure', carbonAssimilation: 'Assimilation du carbone', protein: 'Protéine', minecraft: 'Minecraft', mod: 'Mod', java: 'Java', openharmony: 'OpenHarmony', embedded: 'Développement embarqué', smartLife: 'Vie intelligente', rocketSim: 'Simulateur de fusée', arduino: 'Arduino embarqué', communication: 'Génie des communications', physics: 'Concours de physique' },
         aboutHtml: {
             aboutText: `<h3>Profil</h3>
 <p>Bienvenue sur ma page personnelle — je suis Ray~ Ici, vous pouvez me découvrir sous toutes mes facettes. Je ne crois pas aveuglément au MBTI, mais comme c'est un outil très en vogue pour cerner rapidement une personnalité, je précise que mes tests actuels m'indiquent comme INTP, à titre indicatif seulement.</p>
