@@ -83,7 +83,8 @@ window.SITE_I18N = {
             hlm: { title: '红楼梦剧组', desc: '2023年底的翻拍《寿怡红群芳开夜宴》项目的活动，作为导演摄影和剪辑（这么看也算是“全栈开发”了）产出的一些文件。' },
             whn: { title: 'whn生日', desc: '2024/11/11 好男将的生日会项目，非常难忘的一段经历，从分镜到拍摄再到剪辑，最后的效果还挺好的！' },
             thesis: { title: '学校论文', desc: '学校各种课程要求写的各种大作业或者结课论文，大部分都很水而且没啥用。' },
-            xxh: { title: 'xxh的情感契合度测试', desc: '同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。' },
+            xxh: { title: 'xxh 的情感契合度测试', desc: '同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。' },
+            graduation: { title: '毕业纪念册', desc: '人生中第一个 InDesign 项目，却做的非常非常好。前后修改了好多个版本，还为纪念册贴了一个 nfc 可以访问网站，有令人印象深刻的"送你一朵小红花"和毕业集体照。' },
         },
         tag: { dataVis: '数据可视化', webApp: 'Web 应用', biology: '生物学', research: '研究', academic: '学术', gameMod: '游戏模组', openSource: '开源', creative: '创作', fun: '趣味', game: '游戏', education: '教育', test: '测试', wip: '施工中' },
         aboutHtml: {
@@ -319,6 +320,7 @@ window.SITE_I18N = {
             c3: { title: 'C3 Plant Photosynthesis', desc: 'Systematic review of C3 plant photosynthesis mechanisms, analyzing the synergy between light and dark reactions.' },
             saccharomyces: { title: 'Saccharomyces Research', desc: 'Orange plate experiment records and analysis, exploring yeast growth characteristics under different conditions.' },
             xxh: { title: 'XXH Compatibility Test', desc: 'A little test a classmate came up with — I helped build the web frontend (still WIP). Two-person anonymous quiz, three dimensions, quantifying your emotional match.' },
+            graduation: { title: 'Graduation Yearbook', desc: 'My first InDesign project, yet executed exceptionally well. Revised through numerous versions, even added an NFC tag to the yearbook that links to a website. Features the memorable "Sending You a Little Red Flower" and our group graduation photo.' },
         },
         tag: { dataVis: 'Data Visualization', webApp: 'Web App', biology: 'Biology', research: 'Research', academic: 'Academic', gameMod: 'Game Mod', openSource: 'Open Source', creative: 'Creative', fun: 'Fun', game: 'Game', education: 'Education', test: 'Test', wip: 'WIP' },
         aboutHtml: {
@@ -554,6 +556,7 @@ window.SITE_I18N = {
             c3: { title: 'Photosynthèse des plantes C3', desc: "Revue systématique des mécanismes de photosynthèse des plantes C3, analysant la synergie entre les réactions claires et sombres." },
             saccharomyces: { title: 'Recherche sur Saccharomyces', desc: "Enregistrements et analyse d'expériences sur plaque orange, explorant les caractéristiques de croissance de la levure dans différentes conditions." },
             xxh: { title: 'Test de compatibilité XXH', desc: "Un petit test inventé par un camarade — je l'ai aidé à faire le frontend web (toujours en construction). Quiz anonymé à deux, trois dimensions, quantifiant votre compatibilité émotionnelle." },
+            graduation: { title: 'Album de Fin d\'Études', desc: 'Mon premier projet InDesign, mais réalisé exceptionnellement bien. Révisé à de nombreuses versions, même ajouté une étiquette NFC à l\'album qui mène à un site web. Comprend l\'inoubliable "Sending You a Little Red Flower" et notre photo de groupe de fin d\'études.' },
         },
         tag: { dataVis: 'Visualisation de données', webApp: 'Application Web', biology: 'Biologie', research: 'Recherche', academic: 'Académique', gameMod: 'Mod de jeu', openSource: 'Open Source', creative: 'Création', fun: 'Fun', game: 'Jeu', education: 'Éducation', test: 'Test', wip: 'En construction' },
         aboutHtml: {

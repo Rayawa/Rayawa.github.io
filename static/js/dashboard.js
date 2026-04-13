@@ -21,9 +21,9 @@
     applyPlatformIcons();
 
     var mockData = {
-        totalViews: 1518841,
-        todayViews: 28391,
-        harmonyAppViews: 910904,
+        totalViews: 1520464,
+        todayViews: 14722,
+        harmonyAppViews: 912083,
     };
 
     var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
