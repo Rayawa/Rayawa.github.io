@@ -513,6 +513,35 @@ function initLanguageSwitcher() {
 
 function initPageEntrance() {
     var isHomepage = !!document.getElementById('loadingScreen');
+    
+    // 检查页面是否从缓存加载（浏览器后退/前进）
+    var isFromCache = false;
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            isFromCache = true;
+            // 清除可能存在的过渡层
+            document.querySelectorAll('.page-transition-overlay').forEach(function(el) { el.remove(); });
+            document.querySelectorAll('.page-entrance').forEach(function(el) { el.remove(); });
+            
+            // 立即显示内容
+            var navbar = document.querySelector('.navbar');
+            if (navbar) navbar.classList.add('is-visible');
+            
+            var pageEl = document.querySelector('.page');
+            if (pageEl) pageEl.classList.add('content-ready');
+            
+            // 设置语言
+            setLocale(locale, { noPersist: true });
+            
+            // 触发子页面显示动画
+            setTimeout(function() {
+                if (typeof initSubpageReveal === 'function') {
+                    initSubpageReveal();
+                }
+            }, 100);
+        }
+    }, { once: true });
+
     if (isHomepage) {
         var navbar = document.querySelector('.navbar');
         if (navbar) {
@@ -521,7 +550,7 @@ function initPageEntrance() {
                     navbar.classList.add('is-visible');
                 });
             }
-            if (sessionStorage.getItem('rayawa_loaded')) {
+            if (sessionStorage.getItem('rayawa_loaded') || isFromCache) {
                 showNavbar();
             } else {
                 window.addEventListener('loadingScreenDone', showNavbar);
@@ -534,23 +563,27 @@ function initPageEntrance() {
     var isNavigating = sessionStorage.getItem('rayawa_navigating') === '1';
     sessionStorage.removeItem('rayawa_navigating');
 
-    if (isNavigating) {
+    // 如果是从缓存加载或正在导航，立即显示内容
+    if (isNavigating || isFromCache) {
         setLocale(locale, { noPersist: true });
         if (navbar) navbar.classList.add('is-visible');
 
         var pageEl = document.querySelector('.page');
         if (pageEl) pageEl.classList.add('content-ready');
 
-        var overlay = document.createElement('div');
-        overlay.className = 'page-transition-overlay';
-        document.body.appendChild(overlay);
+        // 只有在导航时显示过渡层，从缓存加载时不显示
+        if (isNavigating && !isFromCache) {
+            var overlay = document.createElement('div');
+            overlay.className = 'page-transition-overlay';
+            document.body.appendChild(overlay);
 
-        requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-                overlay.style.animation = 'pageOverlayOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
-                setTimeout(function() { overlay.remove(); }, TRANSITION_MS + 40);
+                requestAnimationFrame(function() {
+                    overlay.style.animation = 'pageOverlayOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+                    setTimeout(function() { overlay.remove(); }, TRANSITION_MS + 40);
+                });
             });
-        });
+        }
         return;
     }
 
@@ -580,14 +613,6 @@ function initPageEntrance() {
     });
 
     setTimeout(finish, 2500);
-
-    window.addEventListener('pageshow', function(e) {
-        if (e.persisted) {
-            window.scrollTo({ top: 0, behavior: 'instant' });
-            if (navbar) navbar.classList.add('is-visible');
-            if (entrance.parentNode) entrance.remove();
-        }
-    });
 }
 
 function initSubpageReveal() {
@@ -617,7 +642,19 @@ function initSubpageReveal() {
             });
         });
     } else {
-        var items = document.querySelectorAll('.hero-card, .card, .feature-card, .single-action, .button-row, .dev-section, .notice-list, .section-header');
+        var items = document.querySelectorAll(
+            '.hero-card, .card, .feature-card, .glass-card, ' +
+            '.hi-card, .hi-overview-card, .doc-card, .thesis-card, ' +
+            '.social-card, .project-card, .single-action, .button-row, ' +
+            '.dev-section, .notice-list, .section-header, ' +
+            '.interactive-content, .pcr-result, .gel-display, ' +
+            '.metric-card-small, .metric-card, .info-card, .note-card, ' +
+            '.highlight-card, .case-item, .team-item, ' +
+            '.access-metrics-card, .hero-section, .content-section, ' +
+            '.hero-tags-wrapper, .platform-grid, .download-section, ' +
+            '.api-section, .acknowledgments-section, .license-section, ' +
+            '.tech-subsection, .metrics-note, .card-image'
+        );
         if (!items.length) return;
 
         var ordered = sortByVisualFlow(Array.from(items));
@@ -628,27 +665,50 @@ function initSubpageReveal() {
     }
 
     var revealEls = document.querySelectorAll('.subpage-reveal');
+    if (!revealEls.length) return;
 
     function revealEl(el) {
         if (el.classList.contains('is-visible')) return;
         el.classList.add('is-visible');
-        observer.unobserve(el);
+        if (observer) observer.unobserve(el);
     }
 
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                revealEl(entry.target);
+    var observer = null;
+    
+    // 初始化IntersectionObserver
+    function initObserver() {
+        if (observer) observer.disconnect();
+        
+        observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    revealEl(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        revealEls.forEach(function(el) { 
+            if (!el.classList.contains('is-visible')) {
+                observer.observe(el); 
             }
         });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }
 
     function checkVisibleEls() {
         var vh = window.innerHeight;
+        var scrollY = window.scrollY;
+        
         revealEls.forEach(function(el) {
             if (el.classList.contains('is-visible')) return;
             var rect = el.getBoundingClientRect();
-            if (rect.top < vh && rect.bottom > 0) {
+            var elementTop = rect.top + scrollY;
+            var elementBottom = rect.bottom + scrollY;
+            var viewportTop = scrollY;
+            var viewportBottom = scrollY + vh;
+            
+            // 检查元素是否在视口内或接近视口
+            if ((rect.top < vh && rect.bottom > 0) || 
+                (elementTop < viewportBottom + 100 && elementBottom > viewportTop - 100)) {
                 revealEl(el);
             }
         });
@@ -660,16 +720,47 @@ function initSubpageReveal() {
         scrollCheckTimer = window.setTimeout(function() {
             scrollCheckTimer = null;
             checkVisibleEls();
-            if (Array.from(revealEls).every(function(el) { return el.classList.contains('is-visible'); })) {
+            var allVisible = Array.from(revealEls).every(function(el) { 
+                return el.classList.contains('is-visible'); 
+            });
+            if (allVisible && observer) {
                 window.removeEventListener('scroll', onScrollCheck);
                 observer.disconnect();
+                observer = null;
             }
         }, 150);
     }
 
-    revealEls.forEach(function(el) { observer.observe(el); });
+    // 初始化观察器
+    initObserver();
+    
+    // 立即检查可见元素
     checkVisibleEls();
+    
+    // 添加滚动监听
     window.addEventListener('scroll', onScrollCheck, { passive: true });
+    
+    // 添加resize监听，重新检查可见元素
+    window.addEventListener('resize', function() {
+        checkVisibleEls();
+        if (observer) {
+            observer.disconnect();
+            initObserver();
+        }
+    }, { passive: true });
+    
+    // 添加页面显示事件监听，处理从缓存加载的情况
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            setTimeout(function() {
+                checkVisibleEls();
+                if (observer) {
+                    observer.disconnect();
+                    initObserver();
+                }
+            }, 300);
+        }
+    });
 }
 
 function initPageLeaveTransitions() {

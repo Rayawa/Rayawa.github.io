@@ -479,17 +479,91 @@ section,
 
 .social-card.reveal-item,
 .project-card.reveal-item,
-.glass-card.reveal-item {
+.glass-card.reveal-item,
+.card.reveal-item,
+.feature-card.reveal-item,
+.hi-card.reveal-item,
+.hi-overview-card.reveal-item,
+.doc-card.reveal-item,
+.thesis-card.reveal-item {
     transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: var(--reveal-delay, 0ms);
 }
 
 .reveal-section.is-revealed .social-card.reveal-item,
 .reveal-section.is-revealed .project-card.reveal-item,
-.reveal-section.is-revealed .glass-card.reveal-item {
+.reveal-section.is-revealed .glass-card.reveal-item,
+.reveal-section.is-revealed .card.reveal-item,
+.reveal-section.is-revealed .feature-card.reveal-item,
+.reveal-section.is-revealed .hi-card.reveal-item,
+.reveal-section.is-revealed .hi-overview-card.reveal-item,
+.reveal-section.is-revealed .doc-card.reveal-item,
+.reveal-section.is-revealed .thesis-card.reveal-item {
     opacity: 1;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 通用卡片进入动画 */
+.subpage-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: var(--subpage-delay, 0ms);
+}
+
+.subpage-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 带有边框/背景的卡片组件需要保留hover过渡 */
+.card.subpage-reveal,
+.glass-card.subpage-reveal,
+.feature-card.subpage-reveal,
+.hi-card.subpage-reveal,
+.hi-overview-card.subpage-reveal,
+.doc-card.subpage-reveal,
+.thesis-card.subpage-reveal,
+.social-card.subpage-reveal,
+.project-card.subpage-reveal,
+.metric-card-small.subpage-reveal,
+.metric-card.subpage-reveal,
+.info-card.subpage-reveal,
+.note-card.subpage-reveal,
+.highlight-card.subpage-reveal,
+.case-item.subpage-reveal,
+.team-item.subpage-reveal {
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: var(--subpage-delay, 0ms);
+}
+
+.card.subpage-reveal.is-visible,
+.glass-card.subpage-reveal.is-visible,
+.feature-card.subpage-reveal.is-visible,
+.hi-card.subpage-reveal.is-visible,
+.hi-overview-card.subpage-reveal.is-visible,
+.doc-card.subpage-reveal.is-visible,
+.thesis-card.subpage-reveal.is-visible,
+.social-card.subpage-reveal.is-visible,
+.project-card.subpage-reveal.is-visible,
+.metric-card-small.subpage-reveal.is-visible,
+.metric-card.subpage-reveal.is-visible,
+.info-card.subpage-reveal.is-visible,
+.note-card.subpage-reveal.is-visible,
+.highlight-card.subpage-reveal.is-visible,
+.case-item.subpage-reveal.is-visible,
+.team-item.subpage-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal-seq .reveal-item:nth-child(1) { --reveal-delay: 80ms; }
