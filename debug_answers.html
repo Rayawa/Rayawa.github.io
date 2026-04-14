@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>答案调试</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .test-case { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>答案调试页面</h1>
+  
+  <div class="test-case">
+    <h2>测试答案解码</h2>
+    <button onclick="testAnswerDecoding()">测试答案解码</button>
+    <div id="decodeResult"></div>
+  </div>
+  
+  <div class="test-case">
+    <h2>测试验证逻辑</h2>
+    <button onclick="testValidationLogic()">测试验证逻辑</button>
+    <div id="validationResult"></div>
+  </div>
+  
+  <div class="test-case">
+    <h2>测试实际答案</h2>
+    <div>
+      <p>尝试以下测试用例：</p>
+      <ul>
+        <li>问题1: VIVIAN (大写) - 应该通过</li>
+        <li>问题1: vivian (小写) - 应该通过</li>
+        <li>问题1: Vivian (混合) - 应该通过</li>
+        <li>问题1: vivien - 应该失败</li>
+        <li>问题2: 杜珊 - 应该通过</li>
+        <li>问题2: 杜山 - 应该失败</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    // 复制 verify.html 中的答案解码逻辑
+    function getAnswers() {
+      const answerCodes = [
+        [118, 105, 118, 105, 97, 110],  // 'vivian'
+        [233, 135, 136, 231, 150, 139], // '杜珊' - UTF-8编码
+        [229, 188, 132, 230, 137, 169, 232, 138, 177], // '傅才艺'
+        [228, 185, 166, 229, 140, 151, 231, 154, 132, 230, 136, 144, 233, 149, 183], // '书包的成长'
+        [233, 135, 135, 229, 177, 130, 229, 178, 131], // '金山岭'
+        [228, 184, 147, 229, 174, 182, 230, 150, 176], // '万宇新'
+        [233, 146, 162, 228, 184, 128, 233, 178, 156]  // '钟一鸣'
+      ];
+      
+      return answerCodes.map(codes => String.fromCharCode(...codes));
+    }
+    
+    function testAnswerDecoding() {
+      const answers = getAnswers();
+      const expected = [
+        'vivian',
+        '杜珊',
+        '傅才艺',
+        '书包的成长',
+        '金山岭',
+        '万宇新',
+        '钟一鸣'
+      ];
+      
+      let resultHtml = '<h3>解码结果:</h3><ul>';
+      let allCorrect = true;
+      
+      for (let i = 0; i < answers.length; i++) {
+        const isCorrect = answers[i] === expected[i];
+        allCorrect = allCorrect && isCorrect;
+        
+        resultHtml += `<li>问题${i+1}: "${answers[i]}" `;
+        resultHtml += isCorrect 
+          ? `<span class="success">✓ 正确 (期望: "${expected[i]}")</span>`
+          : `<span class="error">✗ 错误 (期望: "${expected[i]}")</span>`;
+        resultHtml += '</li>';
+      }
+      
+      resultHtml += '</ul>';
+      resultHtml += allCorrect 
+        ? '<p class="success">所有答案解码正确！</p>'
+        : '<p class="error">有些答案解码错误！</p>';
+      
+      document.getElementById('decodeResult').innerHTML = resultHtml;
+    }
+    
+    function testValidationLogic() {
+      const answers = getAnswers();
+      const testCases = [
+        { q1: 'VIVIAN', q2: '杜珊', expectedCorrect: 2 },
+        { q1: 'vivian', q2: '杜珊', expectedCorrect: 2 },
+        { q1: 'Vivian', q2: '杜珊', expectedCorrect: 2 },
+        { q1: 'vivien', q2: '杜珊', expectedCorrect: 1 },
+        { q1: 'VIVIAN', q2: '杜山', expectedCorrect: 1 },
+        { q1: 'vivien', q2: '杜山', expectedCorrect: 0 },
+        { q1: 'VIVIAN', q2: '杜珊', q3: '傅才艺', expectedCorrect: 3 },
+        { q1: 'VIVIAN', q2: '杜珊', q3: '傅才义', expectedCorrect: 2 }
+      ];
+      
+      let resultHtml = '<h3>验证逻辑测试:</h3>';
+      let allPassed = true;
+      
+      testCases.forEach((testCase, index) => {
+        let correctCount = 0;
+        
+        // 测试问题1
+        if (testCase.q1) {
+          if (testCase.q1.toLowerCase() === answers[0].toLowerCase()) {
+            correctCount++;
+          }
+        }
+        
+        // 测试问题2
+        if (testCase.q2) {
+          if (testCase.q2 === answers[1]) {
+            correctCount++;
+          }
+        }
+        
+        // 测试问题3
+        if (testCase.q3) {
+          if (testCase.q3 === answers[2]) {
+            correctCount++;
+          }
+        }
+        
+        const passed = correctCount === testCase.expectedCorrect;
+        allPassed = allPassed && passed;
+        
+        resultHtml += `<div style="margin: 10px 0; padding: 10px; border: 1px solid ${passed ? 'green' : 'red'}">`;
+        resultHtml += `<strong>测试用例 ${index + 1}:</strong><br>`;
+        resultHtml += `输入: ${JSON.stringify(testCase).replace(/["{}]/g, '')}<br>`;
+        resultHtml += `正确数: ${correctCount} (期望: ${testCase.expectedCorrect})<br>`;
+        resultHtml += passed 
+          ? '<span class="success">✓ 通过</span>'
+          : '<span class="error">✗ 失败</span>';
+        resultHtml += '</div>';
+      });
+      
+      resultHtml += allPassed
+        ? '<p class="success">所有验证逻辑测试通过！</p>'
+        : '<p class="error">有些验证逻辑测试失败！</p>';
+      
+      document.getElementById('validationResult').innerHTML = resultHtml;
+    }
+    
+    // 页面加载时自动测试解码
+    window.onload = testAnswerDecoding;
+  </script>
+</body>
+</html>

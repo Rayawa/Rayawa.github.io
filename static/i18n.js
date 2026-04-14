@@ -220,7 +220,7 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fas fa-music"></i></div>
             <div class="skill-name">兴趣</div>
         </div>
-        <p class="skill-description">听音乐 · 钢琴 · 小号 · 魔方 · 模拟飞行</p>
+        <p class="skill-description">听音乐 · F1 · 钢琴 · 小号 · 魔方 · 模拟飞行</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
@@ -454,7 +454,7 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fas fa-music"></i></div>
             <div class="skill-name">Hobbies</div>
         </div>
-        <p class="skill-description">Listening to Music · Piano · Trumpet · Rubik's Cube · Flight Simulation</p>
+        <p class="skill-description">Listening to Music · F1 · Piano · Trumpet · Rubik's Cube · Flight Simulation</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
@@ -688,7 +688,7 @@ window.SITE_I18N = {
             <div class="skill-icon"><i class="fas fa-music"></i></div>
             <div class="skill-name">Loisirs</div>
         </div>
-        <p class="skill-description">Écouter de la musique · Piano · Trompette · Rubik's Cube · Simulation de vol</p>
+        <p class="skill-description">Écouter de la musique · F1 · Piano · Trompette · Rubik's Cube · Simulation de vol</p>
     </div>
     <div class="skill-item">
         <div class="skill-header">
