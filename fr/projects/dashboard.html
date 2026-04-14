@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>华为应用市场看板 | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
+  <link rel="stylesheet" href="../../static/css/dashboard.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span></span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html"></a></li>
+        <li><a href="../index.html#about"></a></li>
+        <li><a href="../index.html#projects"></a></li>
+        <li><a href="../index.html#gallery"></a></li>
+        <li><a href="../index.html#contact"></a></li>
+      </ul>
+      <div class="language-switch">
+        <a href="../../" class="lang-btn"><img src="../../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
+        <a href="../../en/" class="lang-btn"><img src="../../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
+        <a href="#" class="lang-btn"><img src="../../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <div id="particles-js"></div>
+
+  <main class="page dashboard-page">
+    <!-- 第一部分：标题、图标 -->
+    <section class="hero-section">
+      <div class="hero-header">
+        <div class="app-icon-wrapper">
+          <img src="../../static/resources/dashboard/app_icon.png" alt="App Icon" class="app-icon">
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title"></h1>
+          <p class="hero-lead">
+            <span></span>
+            <a href="#contact-us" class="hero-link"></a>
+            <span></span>
+          </p>
+        </div>
+      </div>
+      
+      <div class="hero-tags-wrapper">
+        <div class="hero-tags">
+          <span class="hero-tag"></span>
+          <span class="hero-tag"></span>
+          <span class="hero-tag"></span>
+          <span class="hero-tag"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第二部分：访问数据与下载链接 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="access-metrics-card">
+          <div class="metrics-section">
+            <div class="metrics-grid-small" id="metricsGrid">
+              <article class="metric-card-small">
+                <div class="metric-label"></div>
+                <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="{{mockData.totalViews}}"></div>
+                <div class="metric-field">totalViews</div>
+              </article>
+              <article class="metric-card-small">
+                <div class="metric-label"></div>
+                <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="{{mockData.todayTotalViews}}"></div>
+                <div class="metric-field">todayViews</div>
+              </article>
+              <article class="metric-card-small">
+                <div class="metric-label"></div>
+                <div class="metric-value" data-counter-key="harmonyTotalViews" data-counter-fallback="{{mockData.harmonyTotalViews}}"></div>
+                <div class="metric-field">harmonyTotalViews</div>
+              </article>
+            </div>
+            <div class="metrics-note"></div>
+          </div>
+
+          <div class="download-section">
+            <div class="platform-grid">
+              <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
+                  <img class="platform-icon-img" data-platform-icon="web" alt="">
+                <span class="platform-main"></span>
+              </a>
+              <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
+                  <img class="platform-icon-img" data-platform-icon="web" alt="">
+                <span class="platform-main"></span>
+              </a>
+              <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
+                  <img class="platform-icon-img" data-platform-icon="harmony" alt="">
+                <span class="platform-main"></span>
+              </a>
+              <button class="platform-btn platform-disabled platform-android" type="button" aria-disabled="true">
+                  <img class="platform-icon-img" data-platform-icon="android" alt="">
+                <span class="platform-main"></span>
+              </button>
+              <button class="platform-btn platform-disabled platform-ios" type="button" aria-disabled="true">
+                  <img class="platform-icon-img" data-platform-icon="apple" alt="">
+                <span class="platform-main"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三部分：详细信息 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2></h2>
+          <p></p>
+        </div>
+
+        <div class="details-grid">
+          <div class="details-main">
+            <div class="info-card">
+              <div class="card-header">
+                <span class="card-number">01</span>
+                <h3></h3>
+              </div>
+              <div class="card-body">
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="card-header">
+                <span class="card-number">02</span>
+                <h3></h3>
+              </div>
+              <div class="card-body">
+                <ul class="detail-list">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <aside class="details-sidebar">
+            <div class="note-card">
+              <div class="note-icon">⚠️</div>
+              <h3></h3>
+              <ul class="note-list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+
+            <div class="highlight-card harmony-card">
+              <div class="highlight-icon">🎨</div>
+              <h3></h3>
+              <p class="highlight-summary"></p>
+              <ul class="highlight-list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第四部分：技术架构与数据库 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2></h2>
+          <p></p>
+        </div>
+
+        <div class="tech-two-columns">
+          <div class="tech-column">
+            <div class="tech-detail-block">
+              <h3></h3>
+              <p class="tech-summary"></p>
+              <ul class="tech-list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+
+            <div class="tech-detail-block">
+              <h3></h3>
+              <p class="tech-summary"></p>
+              <ul class="tech-list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tech-column">
+            <div class="tech-detail-block">
+              <h3></h3>
+              <div class="tech-subsection">
+                <h4></h4>
+                <ul class="tech-list">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="tech-subsection">
+                <h4></h4>
+                <ul class="tech-list">
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tech-detail-block">
+              <h3></h3>
+              <ul class="tech-list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据库接入板块 -->
+    <section class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2></h2>
+          <p class="intro-text"></p>
+        </div>
+
+        <div class="integration-layout">
+          <div class="integration-left">
+            <h3></h3>
+            <div class="integration-cases-vertical">
+              <a class="case-item" href="https://appgallery.huawei.com/app/detail?id=com.xxtstudio.accountDL" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title"></div>
+                  <div class="case-subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://hdc.osbdf.com/" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title"></div>
+                  <div class="case-subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://next.vcck.cn/#/" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title"></div>
+                  <div class="case-subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://dztap.com/app.html" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title"></div>
+                  <div class="case-subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+              <a class="case-item" href="https://next.betahub.tech/" target="_blank" rel="noopener">
+                <div class="case-content">
+                  <div class="case-title"></div>
+                  <div class="case-subtitle"></div>
+                </div>
+                <div class="case-link-icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="integration-right">
+            <div class="integration-warning">
+              <h3></h3>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+
+            <div class="api-section">
+              <h3></h3>
+              <p></p>
+              <div class="api-buttons">
+                <a class="api-btn" href="http://shenjack.top:10003/docs" target="_blank" rel="noopener"></a>
+                <a class="api-btn api-btn-secondary" href="#contact-us"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系我们板块 -->
+    <section class="content-section" id="contact-us">
+      <div class="section-container">
+        <div class="section-header">
+          <h2></h2>
+          <p></p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-team">
+            <h3><a href="#contact-us" class="team-title-link"></a></h3>
+            <div class="team-grid">
+              <div class="team-item">
+                <div class="team-name"></div>
+                <div class="team-contact"></div>
+                <div class="team-role"></div>
+              </div>
+              <div class="team-item">
+                <div class="team-name"></div>
+                <div class="team-contact"></div>
+                <div class="team-role"></div>
+              </div>
+              <div class="team-item">
+                <div class="team-name"></div>
+                <div class="team-contact"></div>
+                <div class="team-role"></div>
+              </div>
+              <div class="team-item">
+                <div class="team-name"></div>
+                <div class="team-contact">
+                  <a href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener" class="qq-link">
+                    <span></span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+                <div class="team-role"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <div class="acknowledgments-section">
+              <h3></h3>
+              <ul class="acknowledgments-list">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+
+            <div class="license-section">
+              <h3></h3>
+              <a href="https://opensource.org/licenses/GPL-3.0" target="_blank" rel="noopener" class="license-badge-link">
+                <div class="license-badge">
+                  <span class="license-name"></span>
+                </div>
+              </a>
+              <p class="license-desc"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <script src="../../static/js/dashboard.js"></script>
+  
+  <script src="../../static/js/footer.js"></script>
+  <script src="../../static/js/common.js"></script>
+</body>
+</html>
