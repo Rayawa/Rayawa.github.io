@@ -20,7 +20,7 @@ window.SITE_I18N = {
             totalViews: { label: '项目总访问量' },
             todayViews: { label: '今日访问量' },
             harmonyViews: { label: '鸿蒙应用总访问量' },
-            note: '* 数据统计范围从2025-11-01T 04:00:00 +00:00至今，数据自动更新失败！上次更新2026-04-14T 00:06:46 +00:00。',
+            note: '* 数据统计范围从2025-11-01T 04:00:00 +00:00至今，数据自动更新失败！上次更新2026-04-14T 05:32:13 +00:00。',
         },
 
         access: {
@@ -229,7 +229,7 @@ window.SITE_I18N = {
             totalViews: { label: 'Total Project Views' },
             todayViews: { label: "Today's Views" },
             harmonyViews: { label: 'Total HarmonyOS App Views' },
-            note: '* Data statistics range from 2025-11-01T 04:00:00 +00:00 to present. Auto-update failed! Last update 2026-04-14T 00:06:46 +00:00.',
+            note: '* Data statistics range from 2025-11-01T 04:00:00 +00:00 to present. Auto-update failed! Last update 2026-04-14T 05:32:13 +00:00.',
         },
 
         access: {
@@ -438,7 +438,7 @@ window.SITE_I18N = {
             totalViews: { label: 'Vues Totales du Projet' },
             todayViews: { label: "Vues du Jour" },
             harmonyViews: { label: 'Vues Totales des Apps HarmonyOS' },
-            note: '* Plage de statistiques de données de 2025-11-01T 04:00:00 +00:00 à présent. Échec de la mise à jour automatique ! Dernière mise à jour 2026-04-14T 00:06:46 +00:00.',
+            note: '* Plage de statistiques de données de 2025-11-01T 04:00:00 +00:00 à présent. Échec de la mise à jour automatique ! Dernière mise à jour 2026-04-14T 05:32:13 +00:00.',
         },
 
         access: {
