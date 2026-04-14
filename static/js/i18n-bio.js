@@ -63,7 +63,7 @@ window.SITE_I18N = {
         }
     },
     en: {
-        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        nav: { home: 'Home', about: 'About Me', projects: 'Projects', gallery: 'Photography', contact: 'Contact' },
         navTitle: 'Biology Projects',
         pageTitle: 'Biology Projects | Ray Chen',
         back: 'Back to Home',
@@ -125,7 +125,7 @@ window.SITE_I18N = {
         }
     },
     fr: {
-        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        nav: { home: 'Accueil', about: 'À propos de moi', projects: 'Projets', gallery: 'Photographie', contact: 'Contact' },
         navTitle: 'Projets de biologie',
         pageTitle: 'Projets de biologie | Ray Chen',
         back: "Retour à l'accueil",
