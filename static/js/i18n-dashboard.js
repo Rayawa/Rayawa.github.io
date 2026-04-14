@@ -26,9 +26,9 @@ window.SITE_I18N = {
         access: {
             sSite: '浏览器 - S 站',
             tSite: '浏览器 - T 站',
-            harmony: 'HarmonyOS（邀请测试）',
-            android: 'Android（未上线）',
-            ios: 'Apple（未上线）',
+            harmony: 'HarmonyOS（内测）',
+            android: '  Android（未上线）',
+            ios: '  Apple（未上线）',
         },
 
         details: {
@@ -235,7 +235,7 @@ window.SITE_I18N = {
         access: {
             sSite: 'Browser - S Site',
             tSite: 'Browser - T Site',
-            harmony: 'HarmonyOS (Invitation Beta)',
+            harmony: 'HarmonyOS (Beta)',
             android: 'Android (Not Live)',
             ios: 'Apple (Not Live)',
         },
@@ -444,7 +444,7 @@ window.SITE_I18N = {
         access: {
             sSite: 'Navigateur - Site S',
             tSite: 'Navigateur - Site T',
-            harmony: 'HarmonyOS (Bêta sur Invitation)',
+            harmony: 'HarmonyOS (Bêta)',
             android: 'Android (Non Lancé)',
             ios: 'Apple (Non Lancé)',
         },

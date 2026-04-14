@@ -63,7 +63,7 @@ window.SITE_I18N = {
         retryBtn: '重新测试',
     },
     en: {
-        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        nav: { home: 'Home', about: 'About Me', projects: 'Projects', gallery: 'Photography', contact: 'Contact' },
         navTitle: 'XXH Test',
         pageTitle: 'XXH Test | Ray Chen',
         heroTitle: 'Relationship Compatibility Test',
@@ -126,7 +126,7 @@ window.SITE_I18N = {
         retryBtn: 'Retry',
     },
     fr: {
-        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        nav: { home: 'Accueil', about: 'À propos de moi', projects: 'Projets', gallery: 'Photographie', contact: 'Contact' },
         navTitle: 'Test XXH',
         pageTitle: 'Test XXH | Ray Chen',
         heroTitle: 'Test de compatibilité amoureuse',

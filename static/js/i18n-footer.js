@@ -6,8 +6,7 @@ window.FOOTER_I18N = {
             bio: { title: '生物学项目' },
             spm: { title: 'Sweet Potato Mod' },
             ohos: { title: 'OpenHarmony Hi3861' },
-            xiaodou: { title: '小豆英语启蒙' },
-            idv: { title: '第五人格，启动！' }
+            signal: { title: '微弱电信号的测量' }
         },
         footer: {
             description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
@@ -19,14 +18,13 @@ window.FOOTER_I18N = {
         }
     },
     en: {
-        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        nav: { home: 'Home', about: 'About Me', projects: 'Projects', gallery: 'Photography', contact: 'Contact' },
         project: {
             hmdb: { title: 'HmDashboard' },
             bio: { title: 'Biology Projects' },
             spm: { title: 'Sweet Potato Mod' },
             ohos: { title: 'OpenHarmony Hi3861' },
-            xiaodou: { title: 'Xiaodou English Starter' },
-            idv: { title: 'Identity V, Start!' }
+            signal: { title: 'Measurement of Weak Electrical Signals' }
         },
         footer: {
             description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',
@@ -38,14 +36,13 @@ window.FOOTER_I18N = {
         }
     },
     fr: {
-        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        nav: { home: 'Accueil', about: 'À propos de moi', projects: 'Projets', gallery: 'Photographie', contact: 'Contact' },
         project: {
             hmdb: { title: 'HmDashboard' },
             bio: { title: 'Projets de biologie' },
             spm: { title: 'Sweet Potato Mod' },
             ohos: { title: 'OpenHarmony Hi3861' },
-            xiaodou: { title: 'Xiaodou English Starter' },
-            idv: { title: 'Identity V, Start !' }
+            signal: { title: 'Mesure de Signaux Électriques Faibles' }
         },
         footer: {
             description: 'Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.',

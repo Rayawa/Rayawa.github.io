@@ -52,8 +52,7 @@
         { href: prefix + 'projects/bio.html', i18n: 'project.bio.title' },
         { href: prefix + 'projects/spm.html', i18n: 'project.spm.title' },
         { href: prefix + 'projects/openharmony.html', i18n: 'project.ohos.title' },
-        { href: prefix + 'projects/dx.html', i18n: 'project.xiaodou.title' },
-        { href: prefix + 'projects/idv.html', i18n: 'project.idv.title' }
+        { href: prefix + 'projects/signal.html', i18n: 'project.signal.title' }
     ];
 
     var thanksLinks = [

@@ -11,6 +11,25 @@
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="../static/css/subpage.css">
   <style>
+    .spm-section {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .spm-section:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .spm-section h2 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -23,7 +42,7 @@
       align-items: flex-start;
       border: 1px solid var(--glass-border);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.04);
       padding: 1.2rem;
       transition: var(--transition);
     }
@@ -63,6 +82,10 @@
 
     .dev-section {
       margin-top: 1rem;
+    }
+
+    .dev-section:first-child {
+      margin-top: 0;
     }
 
     .dev-section h3 {
@@ -152,42 +175,44 @@
       </div>
     </section>
 
-    <h2 style="font-size:1.3rem;margin-bottom:1rem;color:var(--primary);" data-i18n="newContent"><!-- i18n: new content heading --></h2>
-    <section class="feature-grid">
-      <article class="feature-card">
-        <img src="../static/resources/spm/sweet_potato.png" alt="地瓜">
-        <div class="feature-card-text">
-          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="potato.title"><!-- i18n: potato title --></a></h3>
-          <p data-i18n="potato.desc"><!-- i18n: potato desc --></p>
-        </div>
-      </article>
+    <section class="spm-section">
+      <h2 data-i18n="newContent"><!-- i18n: new content heading --></h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <img src="../static/resources/spm/sweet_potato.png" alt="地瓜">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="potato.title"><!-- i18n: potato title --></a></h3>
+            <p data-i18n="potato.desc"><!-- i18n: potato desc --></p>
+          </div>
+        </article>
 
-      <article class="feature-card">
-        <img src="../static/resources/spm/magic_cube.png" alt="魔法锅">
-        <div class="feature-card-text">
-          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="magic.title"><!-- i18n: magic title --></a></h3>
-          <p data-i18n="magic.desc"><!-- i18n: magic desc --></p>
-        </div>
-      </article>
+        <article class="feature-card">
+          <img src="../static/resources/spm/magic_cube.png" alt="魔法锅">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="magic.title"><!-- i18n: magic title --></a></h3>
+            <p data-i18n="magic.desc"><!-- i18n: magic desc --></p>
+          </div>
+        </article>
 
-      <article class="feature-card">
-        <img src="../static/resources/spm/Grinder.png" alt="研磨器">
-        <div class="feature-card-text">
-          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="grinder.title"><!-- i18n: grinder title --></a></h3>
-          <p data-i18n="grinder.desc"><!-- i18n: grinder desc --></p>
-        </div>
-      </article>
+        <article class="feature-card">
+          <img src="../static/resources/spm/Grinder.png" alt="研磨器">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="grinder.title"><!-- i18n: grinder title --></a></h3>
+            <p data-i18n="grinder.desc"><!-- i18n: grinder desc --></p>
+          </div>
+        </article>
 
-      <article class="feature-card">
-        <img src="../static/resources/spm/enchanted_saplings.png" alt="附魔树苗和作物">
-        <div class="feature-card-text">
-          <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="enchanted.title"><!-- i18n: enchanted title --></a></h3>
-          <p data-i18n="enchanted.desc"><!-- i18n: enchanted desc --></p>
-        </div>
-      </article>
+        <article class="feature-card">
+          <img src="../static/resources/spm/enchanted_saplings.png" alt="附魔树苗和作物">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="enchanted.title"><!-- i18n: enchanted title --></a></h3>
+            <p data-i18n="enchanted.desc"><!-- i18n: enchanted desc --></p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="hero-card" style="margin-top:1.5rem;">
+    <section class="spm-section">
       <h2 data-i18n="devTitle"><!-- i18n: dev title --></h2>
       <div class="dev-section">
         <h3 data-i18n="devAuthor"><!-- i18n: dev author --></h3>
@@ -203,7 +228,7 @@
       </div>
     </section>
 
-    <section class="hero-card" style="margin-top:1.5rem;">
+    <section class="spm-section">
       <h2 data-i18n="noticeTitle"><!-- i18n: notice title --></h2>
       <ul class="notice-list">
         <li data-i18n-html="notice.0"><!-- i18n: notice 0 --></li>

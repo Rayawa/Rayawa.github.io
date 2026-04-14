@@ -649,7 +649,7 @@ function initSubpageReveal() {
             '.hero-card, .card, .feature-card, .glass-card, ' +
             '.hi-card, .hi-overview-card, .doc-card, .thesis-card, ' +
             '.social-card, .project-card, .single-action, .button-row, ' +
-            '.dev-section, .notice-list, ' +
+            '.dev-section, .notice-list, .spm-section, ' +
             '.metric-card-small, .metric-card, .info-card, .note-card, ' +
             '.highlight-card, .case-item, .team-item, ' +
             '.access-metrics-card, .hero-section, .content-section, ' +

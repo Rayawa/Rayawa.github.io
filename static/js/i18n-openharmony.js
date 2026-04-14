@@ -83,7 +83,7 @@ window.SITE_I18N = {
         },
     },
     en: {
-        nav: { home: 'Home', about: 'About', projects: 'Projects', gallery: 'Gallery', contact: 'Contact' },
+        nav: { home: 'Home', about: 'About Me', projects: 'Projects', gallery: 'Photography', contact: 'Contact' },
         navTitle: 'Hi3861',
         pageTitle: 'Hi3861 | Ray Chen',
         refresh: 'Refresh',
@@ -154,7 +154,7 @@ window.SITE_I18N = {
         },
     },
     fr: {
-        nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', gallery: 'Galerie', contact: 'Contact' },
+        nav: { home: 'Accueil', about: 'À propos de moi', projects: 'Projets', gallery: 'Photographie', contact: 'Contact' },
         navTitle: 'Hi3861',
         pageTitle: 'Hi3861 | Ray Chen',
         refresh: 'Rafraîchir',
