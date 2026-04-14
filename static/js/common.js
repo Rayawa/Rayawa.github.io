@@ -624,8 +624,16 @@ function initSubpageReveal() {
 
     var isThanks = !!document.querySelector('.thanks-section');
     var isBio = !!document.querySelector('.pcr-lab');
+    var isDashboard = !!document.querySelector('.dashboard-page');
 
-    if (isThanks) {
+    if (isDashboard) {
+        var sections = document.querySelectorAll('.dashboard-page .hero-section, .dashboard-page .content-section');
+        sections.forEach(function(el, idx) {
+            el.style.transitionDelay = (idx * 0.1) + 's';
+            el.classList.add('reveal-in');
+        });
+        return;
+    } else if (isThanks) {
         var groups = document.querySelectorAll('.thanks-group');
         groups.forEach(function(el) {
             el.classList.add('subpage-reveal');
