@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Accueil | Ray Chen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="prefetch" href="projects/dashboard.html">
+    <link rel="prefetch" href="projects/bio.html">
+    <link rel="prefetch" href="projects/openharmony.html">
+    <link rel="prefetch" href="projects/spm.html">
+
+
+
+</head>
+
+<body class="is-homepage">
+    <!-- 加载画面 -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-brand">
+                <span class="loading-logo" id="loadingLogo"></span><span class="loading-cursor"></span>
+            </div>
+            <div class="loading-ring-wrap">
+                <svg class="loading-ring" viewBox="0 0 80 80">
+                    <circle class="loading-ring-bg" cx="40" cy="40" r="36"/>
+                    <circle class="loading-ring-bar" id="loadingRing" cx="40" cy="40" r="36"/>
+                </svg>
+                <div class="loading-percent" id="loadingPercent">0</div>
+            </div>
+            <div class="loading-bar-wrap">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <div class="loading-hint">Loading...</div>
+        </div>
+    </div>
+
+    <!-- 粒子背景 -->
+    <div id="particles-js"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>Ray Chen</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#" >Accueil</a></li>
+                <li><a href="#about" >À propos de moi</a></li>
+                <li><a href="#projects" >Projets</a></li>
+                <li><a href="#gallery" >Photographie</a></li>
+                <li><a href="#contact" >Contact</a></li>
+            </ul>
+
+            <div class="language-switch">
+                <a href="../" class="lang-btn">
+                    <img src="../static/resources/cn.svg" alt="" class="lang-flag">
+                    <span>中文</span>
+                </a>
+                <a href="../en/" class="lang-btn">
+                    <img src="../static/resources/uk.svg" alt="" class="lang-flag">
+                    <span>EN</span>
+                </a>
+                <a href="#" class="lang-btn">
+                    <img src="../static/resources/fr.svg" alt="" class="lang-flag">
+                    <span>FR</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero reveal-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text reveal-seq">
+                    <h1 class="reveal-item" >Bonjour, je suis <span class="gradient-text">Ray</span></h1>
+                    <p class="hero-aliases reveal-item">Ray汐 · 清霁Ray · Rayawa</p>
+                    <div class="hero-tags">
+                        <p class="tag-intro reveal-item"><strong >Étudiant en communication | Créateur HarmonyOS | Geek transdisciplinaire | Auteur visuel</strong></p>
+                        <p class="reveal-item"><span class="tag-label" >Noyau</span><span >Je construis des applications HarmonyOS tout en approfondissant l'embarqué Hi3861.</span></p>
+                        <p class="reveal-item"><span class="tag-label" >Pistes</span><span >Développement web, apprentissage de Rust et Java, progression en français, avec des projets futurs en bio-informatique.</span></p>
+                        <p class="reveal-item"><span class="tag-label" >Photo</span><span >Photo de paysage et drone pour capter des fréquences hors du spectre télécom.</span></p>
+                        <p class="reveal-item"><span class="tag-label" >Vie</span><span >J'apprends le français ; j'adore écouter de la musique ; course et vélo ; je navigue entre Teyvat, Talos-II et Rhodes Island ; jeux de rythme en ligne, grind quotidien de deck Golem ().</span></p>
+                    </div>
+                    <div class="btn-group reveal-item">
+                        <a href="#projects" class="btn">
+                            <i class="fas fa-rocket"></i>
+                            <span >Voir les projets</span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            <span >Me contacter</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image reveal-item">
+                    <img src="../ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
+                    <div class="avatar-quote" >Everything is possible by code.</div>
+                    <div class="floating-elements" id="heroStar" data-tooltip="Remerciements">
+                        <a href="thanks.html" class="star-link" title="致谢"><i class="fas fa-star"></i></a>
+                        <span class="star-tooltip" >Remerciements</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="about reveal-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >À propos de moi</h2>
+                <p class="section-subtitle reveal-item" >Traverser les frontières des disciplines, pour relier un monde plus vaste.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text reveal-item" id="aboutTextBlock" ><h3>Profil</h3>
+<p>Bienvenue sur ma page personnelle — je suis Ray~ Ici, vous pouvez me découvrir sous toutes mes facettes. Je ne crois pas aveuglément au MBTI, mais comme c'est un outil très en vogue pour cerner rapidement une personnalité, je précise que mes tests actuels m'indiquent comme INTP, à titre indicatif seulement.</p>
+<p>Né en 2007, je suis actuellement étudiant en génie des communications à la North China University of Technology. Bien que ma filière soit les communications, le domaine où j'investis le plus d'énergie — et qui me passionne le plus — est le développement logiciel.</p>
+<p>Mon lien avec la programmation remonte à l'enfance : des plateformes de blocs comme Scratch dès mes premiers souvenirs, puis les robots EV3 et les cartes Arduino UNO. Je me souviens avoir créé une multitude de robots EV3 — des trieurs de couleurs, des voitures grimpeuses d'escaliers et des véhicules à chenilles. Mon projet phare était un robot capable de résoudre le Rubik's Cube 3x3, même si je me rappelle que le scan des couleurs était assez instable à l'époque. Bien que cette machine ne s'allume plus et soit couverte de poussière, je l'ai gardée précieusement jusqu'à aujourd'hui.</p>
+<p>En CE2 ou CM1, le langage C d'Arduino a été mon premier "vrai" langage et mon introduction au développement embarqué. Ce qui a commencé par des projets simples comme des LED à respiration s'est transformé en une voiture d'évitement d'obstacles par ultrasons avec nacelle mobile. Cette voiture a fait la une du journal de l'école avant d'être donnée à l'établissement pour être exposée.</p>
+<p>En 2018, j'ai participé à la compétition internationale de robotique "Route de la Soie" avec un distributeur intelligent de nourriture pour poissons. Par la suite, je me suis lancé dans le C++ et les Olympiades d'Informatique (OI). Au collège, j'ai co-développé un projet de mod "Patate douce rôtie" ; on nous a même proposé un contrat pour acheter le code source et le publier sur la version NetEase de Minecraft. Bien que ce contrat ait expiré et que le projet ait été mis de côté pour les études, c'est un souvenir encore très vif.</p>
+<p>Pendant mes trois années de lycée, j'ai à peine touché au code, me consacrant entièrement à la recherche en biologie. En septembre dernier, j'ai franchi les portes de HarmonyOS, devenant développeur et contribuant au projet "HarmonyOS Application Dashboard". En six mois, le projet a acquis une belle notoriété. Je continue de le faire progresser : l'application est en phase de test sur invitation et sera bientôt publiée, avec des plans d'extension vers macOS et Android.</p>
+<p>Au-delà de la couche applicative, je me plonge dans le développement embarqué OpenHarmony Hi3861. Pour moi, il ne s'agit pas seulement de manipuler du matériel, mais de comprendre en profondeur les capacités des appareils et l'ingénierie système. En développement web, j'ai construit mon site personnel, un dépôt de mods, un site de fans pour Identity V et un site expérimental sur la transformation par Agrobacterium. Mon arsenal technique comprend le C, C++, Java, Rust, HTML, ArkTS, Swift et openGauss. Participer à divers projets est ma forme de divertissement préférée et je compte bien continuer à développer mes compétences polyglottes.</p>
+<p>La biologie est une autre fenêtre sur le monde. Deux professeurs de biologie exceptionnelles au lycée ont été les catalyseurs de ce lien. Grâce à leur expertise professionnelle remarquable, elles m'ont transformé d'un simple passionné en un chercheur indépendant. Sous leur direction, j'ai mené la toute première expérience PCR de mon lycée. J'ai écrit plusieurs articles courts et co-écrit une hypothèse sur les protéines comme facteurs héréditaires dans des organismes spécialisés. Bien que mes recherches sur l'assimilation du carbone soient en pause, je trouve que coder pour expliquer la biologie est fascinant. La biologie reste pour moi une "beauté du regret" ; si l'occasion se présente, j'espère explorer la voie de la bio-informatique.</p>
+<p>Hors du code, je suis un passionné de course à pied et de cyclisme, mon appareil photo et mon drone étant mes compagnons indispensables. Pour moi, la joie de la photographie va bien au-delà de l'image finale ; elle réside dans le processus créatif : changer de perspective, expérimenter des styles narratifs et innover sur des bases existantes.</p>
+<p>Concernant mes loisirs, j'avais un certificat de niveau 6 en trompette, bien que je ne sache plus en jouer (). J'ai appris le piano en autodidacte au collège et peux encore jouer plusieurs morceaux. J'aime aussi la simulation de vol et les Rubik's Cubes — le 4x4 est mon préféré, suivi du Megaminx. La musique est une partie inséparable de ma vie — un filtre contre le bruit et une résonance qui se synchronise avec mon inspiration quand je code. Je suis un fan absolu de F1 ; Mercedes-AMG est mon équipe de cœur et Lewis Hamilton mon pilote favori. Si j'adore les machines de performance pure comme la Porsche 911 et les AMG, je surveille aussi de près l'innovation des véhicules électriques chinois.</p>
+<p>Je suis un mordu de tech et de numérique. J'oscille constamment entre la technologie pure d'Apple et l'esthétique innovante de Huawei ; s'il y a une conférence de presse, je suis forcément sur le direct. Chez Android, vivo est ma marque préférée. Pour les ordinateurs, je suis un fidèle défenseur de l'architecture ARM et d'Apple Silicon. Malgré quelques inconvénients, l'autonomie et la portabilité du MacBook répondent parfaitement à mes exigences de productivité. Pour la photo, je privilégie Hasselblad, Sony et DJI comme extensions de ma vision.</p>
+<p>Côté jeux, je suis un vétéran de Minecraft et un "érudit du lore de Genshin". Récemment, je joue à Arknights et Arknights: Endfield, tout en restant actif sur des jeux de rythme comme Arcaea et Phigros (et parfois Milthm, maimai, Lanota et Rizline). Sur Identity V, j'ai atteint le rang Peak Tier VII (31 étoiles) en saison 36, avec trois badges A pour "Mad Eyes" (jusqu'à A47). Sur Clash Royale, j'adore l'archétype Golem, en particulier mon propre deck Clone-Golem.</p>
+<p>Bien qu'étudiant en sciences, j'ai une immense curiosité pour les cultures du monde. Mon parcours dans les concours d'éloquence en anglais et deux ans de débat parlementaire britannique (BP) m'ont donné une base linguistique solide. Récemment, j'apprends le français. Du chant éthéré de Cécile Corbel aux paysages romantiques de Fontaine ; de la mélodie de "La Vaguelette" aux dialogues classiques de "Roméo et Juliette" — le charme de la langue française me pousse à explorer ses profondeurs.</p>
+<p>Qu'il s'agisse de construire l'ordre dans le monde des 0 et des 1 ou de trouver des schémas dans la double hélice de la biologie, je crois que l'exploration transdisciplinaire élargit les frontières de la vie. Si vous partagez cette curiosité, n'hésitez pas à me contacter.</p>
+<p>Ravi de vous rencontrer dans ce voyage nommé « grandir ».</p>
+<p style="text-align:right">— Ray<br>12 avril 2026</p></div>
+
+                <div class="about-side">
+                    <div class="glass-card status-card reveal-item" id="statusCardBlock" ><h3 class="status-card-title">Focus actuel</h3>
+<div class="skills-grid">
+    <a href="projects/dashboard.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="skill-name">Développement principal</div>
+        </div>
+        <p class="skill-description">Développement HmDashboard HarmonyOS 6.1.0<br>Développement du site personnel</p>
+    </a>
+    <a href="projects/openharmony.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+            <div class="skill-name">Développement parallèle</div>
+        </div>
+        <p class="skill-description">Développement embarqué OpenHarmony (Hi3861) & approfondissement de l'ingénierie système</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-road"></i></div>
+            <div class="skill-name">Objectifs futurs</div>
+        </div>
+        <p class="skill-description">Développement logiciel HmDashboard pour macOS et Android</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-users"></i></div>
+            <div class="skill-name">Parcours d'apprentissage</div>
+        </div>
+        <p class="skill-description">Approfondissement Rust & Java<br>Langage Cangjie en R&D<br>Français en progression continue...</p>
+    </div>
+</div></div>
+
+                    <div class="glass-card side-card reveal-item" id="stackCardBlock" ><h3 class="status-card-title">Stack technique et domaines</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fab fa-js"></i></div>
+            <div class="skill-name">Langages de programmation</div>
+        </div>
+        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · Base de données openGauss</p>
+    </div>
+    <a href="#projects" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="skill-name">Produits et ingénierie</div>
+        </div>
+        <p class="skill-description">Applications HarmonyOS · Développement web · Expériences de biologie</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+            <div class="skill-name">Projets open source</div>
+        </div>
+        <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
+    </div>
+    <a href="projects/bio.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-flask"></i></div>
+            <div class="skill-name">Recherche biologique</div>
+        </div>
+        <p class="skill-description">Projet PCR · Hypothèse protéique · Revue d'assimilation du carbone · Expérience plaque orange · Web interactif Agrobacterium</p>
+    </a>
+</div></div>
+
+                    <div class="glass-card side-card reveal-item" id="roadmapCardBlock" ><h3 class="status-card-title">Sélection de réalisations</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+            <div class="skill-name">Programmation</div>
+        </div>
+        <p class="skill-description">Robot Rubik's Cube EV3 · Voiture ultrasons Arduino · Compétition Route de la Soie · Olympiade C++ · Sweet Potato Mod · Difficult Rocket · HmDashboard · Concours OpenAtom</p>
+    </div>
+    <a href="projects/spm.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-robot"></i></div>
+            <div class="skill-name">Biologie</div>
+        </div>
+        <p class="skill-description">Projet PCR · « Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement spéciaux » · « Recherche en biologie moléculaire sur le cycle de Calvin » · « Analyse et vérification du changement de couleur orange des plaques » · Web interactif Agrobacterium</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
+            <div class="skill-name">Développeur HarmonyOS</div>
+        </div>
+        <p class="skill-description">Développement d'applications HarmonyOS · Développement embarqué OpenHarmony · Base de données OpenGauss</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-dna"></i></div>
+            <div class="skill-name">Autres domaines</div>
+        </div>
+        <p class="skill-description">Concours national d'éloquence 21st Century English · Certificat de trompette niveau 6 · Débat parlementaire britannique · Érudit du lore de Genshin · Badge A Mad Eyes · Nombreuses œuvres photo et aériennes</p>
+    </div>
+</div></div>
+
+                    <div class="glass-card side-card reveal-item" id="lifestyleCardBlock" ><h3 class="status-card-title">Intérêts et vie</h3>
+<div class="skills-grid">
+    <a href="#gallery" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+            <div class="skill-name">Photographie</div>
+        </div>
+        <p class="skill-description">Photo de paysage · Images drone</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-running"></i></div>
+            <div class="skill-name">Sport</div>
+        </div>
+        <p class="skill-description">Course · Vélo</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-music"></i></div>
+            <div class="skill-name">Loisirs</div>
+        </div>
+        <p class="skill-description">Écouter de la musique · Piano · Trompette · Rubik's Cube · Simulation de vol</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="skill-name">Jeux</div>
+        </div>
+        <p class="skill-description">Minecraft · Identity V · Genshin Impact · Arknights · Arknights: Endfield · Clash Royale · Jeux de rythme multi-plateformes (principalement Arcaea, Phigros)</p>
+    </div>
+</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section class="projects reveal-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >Mes projets</h2>
+                <p class="section-subtitle reveal-item" >Transformer la passion en projets, et les projets en œuvres durables.</p>
+            </div>
+
+            <div class="projects-group">
+                <div class="projects-group-header">
+                    <h3 class="projects-group-title" >Projets principaux</h3>
+                    <p class="projects-group-desc" >Projets que je dirige ou auxquels je contribue — recherche, développement et open source.</p>
+                </div>
+                <div class="projects-grid">
+                    <a href="projects/dashboard.html" class="project-card reveal-item">
+                        <div class="project-image harmony"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >HmDashboard</h4>
+                            <p class="project-description" > Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…</p>
+                            <div class="project-award-row">
+                                <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">Lauréat du Concours OpenAtom</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag" >Visualisation de données</span>
+                                <span class="tag" >Rust</span>
+                                <span class="tag" >ArkTS</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/bio.html" class="project-card reveal-item">
+                        <div class="project-image bio"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Projets de biologie</h4>
+                            <p class="project-description" >Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.<br>J'adorais la bio au lycée, mais je n'ai pas fait de bio à la fac. La plupart de tout ça c'est du blabla en fait mdr</p>
+                            <div class="project-tags">
+                                <span class="tag" >PCR</span>
+                                <span class="tag" >Levure</span>
+                                <span class="tag" >Assimilation du carbone</span>
+                                <span class="tag" >Protéine</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/spm.html" class="project-card reveal-item">
+                        <div class="project-image spm"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Sweet Potato Mod</h4>
+                            <p class="project-description" >L'agriculture rencontre la magie !<br>Un mod Minecraft co-développé avec @teddyxlandlee, ajoutant des patates douces, des stations agricoles, des broyeurs, des Cubes magiques, des cultures enchantées, etc.<br>L'un de mes premiers projets, mais plus maintenu depuis un moment.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Minecraft</span>
+                                <span class="tag" >Mod</span>
+                                <span class="tag" >Java</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/openharmony.html" class="project-card reveal-item">
+                        <div class="project-image ohos"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >OpenHarmony Hi3861</h4>
+                            <p class="project-description" >Pratique de développement embarqué basée sur la carte Hi3861 d'OpenHarmony.<br>Mon premier vrai projet embarqué depuis l'Arduino quand j'étais petit. Toujours en exploration…</p>
+                            <div class="project-tags">
+                                <span class="tag" >OpenHarmony</span>
+                                <span class="tag" >Développement embarqué</span>
+                                <span class="tag" >Vie intelligente</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shenjackyuanjie/Difficult-Rocket" target="_blank" rel="noopener"
+                        class="project-card reveal-item">
+                        <div class="project-image dr"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Difficult Rocket (Collaboration)</h4>
+                            <p class="project-description" >C'est surtout le projet de @shenjack — je suis juste là pour rigoler (non pas vrai). Un jeu de type Simple Rocket en Python (simulateur de fusée). Plus léger que le SR original.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Rust</span>
+                                <span class="tag" >Simulateur de fusée</span>
+                            </div>
+                            <span class="external-link-icon"><i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+
+                    <div class="project-card project-card-static reveal-item">
+                        <div class="project-image signal"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Mesure de Signaux Électriques Faibles</h4>
+                            <p class="project-description" >Projet de compétition de physique. Cette expérience convertit linéairement les faibles photocourants de niveau nanoampère détectés par les capteurs en signaux de tension via un circuit d'amplificateur à transimpédance, et utilise la double technique de suppression du bruit par blindage en cage de Faraday métallique et filtrage numérique moyen terminal, atteignant une acquisition de données en temps réel à haut rapport signal-sur-bruit et une quantification des grandeurs physiques avec Arduino et un ADC 16 bits.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Arduino embarqué</span>
+                                <span class="tag" >Génie des communications</span>
+                                <span class="tag" >Concours de physique</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="projects-group">
+                <div class="projects-group-header">
+                    <h3 class="projects-group-title reveal-item" >Autres projets</h3>
+                    <p class="projects-group-desc reveal-item" >Des petits trucs sympas écrits au hasard ou pour des camarades et amis ()</p>
+                </div>
+                <div class="projects-grid projects-grid-compact reveal-seq">
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >"Shou Yi Hong Qun Fang Kai Ye Yan"</h4>
+                            <p class="project-description" >Projet de remake de fin 2023 par la troupe du Rêve Rouge. J'étais réalisateur, cadreur et monteur (on peut appeler ça du "développement full-stack" mdr).</p>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >Anniversaire WHN</h4>
+                            <p class="project-description" >Projet d'anniversaire de whn le 2024/11/11. Une expérience inoubliable — du storyboard au tournage au montage, le résultat final était plutôt pas mal !</p>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >Album de Fin d'Études</h4>
+                            <p class="project-description" >Mon premier projet InDesign, mais réalisé exceptionnellement bien. Révisé à de nombreuses versions, même ajouté une étiquette NFC à l'album qui mène à un site web. Comprend l'inoubliable "Sending You a Little Red Flower" et notre photo de groupe de fin d'études.</p>
+                        </div>
+                    </a>
+                    <a href="projects/idv.html" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >Identity V, Start !</h4>
+                            <p class="project-description" >Une page web faite avec lyx à l'époque où on grindait Survivant jusqu'au rang VI. Plein de bugs mais je m'en fiche — gardé comme souvenir mdr</p>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >Xiaodou English Starter</h4>
+                            <p class="project-description" >Texte de remplacement texte de remplacement texte de remplacement</p>
+                        </div>
+                    </a>
+                    <a href="projects/xxh.html" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >Test de compatibilité XXH</h4>
+                            <p class="project-description" >Un petit test inventé par un camarade — je l'ai aidé à faire le frontend web (toujours en construction). Quiz anonymé à deux, trois dimensions, quantifiant votre compatibilité émotionnelle.</p>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <h4 class="project-title" >Papiers scolaires</h4>
+                            <p class="project-description" >Divers devoirs et mémoires de fin de cours exigés par l'école. La plupart sont assez superficiels et pas très utiles.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- 摄影画廊 -->
+    <section class="gallery reveal-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >Galerie</h2>
+                <p class="section-subtitle reveal-item" >Angles aériens, textures du sol, et instants hors de la bande de signal.</p>
+            </div>
+
+            <div class="gallery-carousel reveal-item" id="galleryCarousel">
+                <div class="gallery-track">
+                    <div class="gallery-slide active">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/DJI_0733.jpg" alt="摄影作品 1" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/DJI_0942.jpg" alt="摄影作品 2" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/IMG_20250701_181148.jpg" alt="摄影作品 3"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/IMG_20250723_174511.jpg" alt="摄影作品 4"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/IMG_20260210_171544.jpg" alt="摄影作品 5"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/IMG_20260212_155345.jpg" alt="摄影作品 6"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg"
+                                alt="摄影作品 7" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg"
+                                alt="摄影作品 8" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="../static/resources/main_page/gallery/微信图片_20240529100845.jpg" alt="摄影作品 9"
+                                decoding="async">
+                        </a>
+                    </div>
+                </div>
+                <button class="gallery-nav prev" type="button" aria-label="上一张">‹</button>
+                <button class="gallery-nav next" type="button" aria-label="下一张">›</button>
+                <div class="gallery-dots" id="galleryDots"></div>
+            </div>
+
+            <div class="gallery-more reveal-item">
+                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                    rel="noopener" class="btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span >Voir plus</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section class="contact reveal-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >Contact</h2>
+                <p class="section-subtitle reveal-item" >Si nous visons la même direction, construisons-le ensemble.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-left">
+                    <div class="contact-info">
+                        <div class="contact-item reveal-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >Email</h4>
+                                <p>rayawa.work@outlook.com</p>
+                                <p>rayawa.work@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item reveal-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >Site</h4>
+                                <p>rayawa.top</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-qq"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >QQ</h4>
+                                <p><a href="tencent://message/?uin=2265695808" class="qq-link">2265695808</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >Localisation</h4>
+                                <p >Pékin, Chine</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social-divider"></div>
+
+                    <div class="contact-social">
+                        <h4 class="contact-social-title" >Mes liens</h4>
+                        <div class="contact-social-grid">
+                            <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
+                                class="social-card bilibili">
+                                <div class="social-icon">
+                                    <i class="fab fa-bilibili"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >Bilibili (Rayawa)</h4>
+                                    <p >Photos et journal de progression projet</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://space.bilibili.com/524181098" target="_blank" rel="noopener"
+                                class="social-card bilibili-game">
+                                <div class="social-icon">
+                                    <i class="fab fa-bilibili"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >Bilibili (Ray汐)</h4>
+                                    <p >Jeux et quotidien</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="social-card github">
+                                <div class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >GitHub</h4>
+                                    <p >Code, dépôts et chantiers en cours</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                                rel="noopener" class="social-card xiaohongshu">
+                                <div class="social-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >Xiaohongshu</h4>
+                                    <p >Collection photo complète</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-header">
+                        <h3 class="form-title" >Message rapide</h3>
+                        <p class="form-subtitle" >Collab projet / Support tech / Photo / Retours et bogues / Bavardage</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" >Nom</label>
+                        <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+                        <p class="form-hint" >Indiquez un nom reconnaissable — sinon le serveur pourrait le marquer comme spam</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" >Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Votre email" required>
+                        <p class="form-hint" >Vérifiez bien votre adresse — c'est le seul moyen de recevoir une réponse</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" >Message</label>
+                        <textarea id="message" class="form-control" placeholder="Votre message..." required></textarea>
+                        <p class="form-hint" >Si votre pseudo ne me dit rien, précisez — sinon le filtre anti-spam pourrait vous bloquer</p>
+                    </div>
+
+                    <button type="submit" class="btn contact-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        <span >Envoyer</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <div id="site-footer"></div>
+
+    <!-- JavaScript -->
+    <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir la page", "top": "Retour en haut", "dotLabel": "Aller à la diapositive {n}", "sending": "Envoi...", "sent": "Message envoyé. Je vous répondrai bientôt.", "sendFailed": "Échec de l'envoi. Veuillez réessayer plus tard.", "pageTitle": "Accueil | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>window.__HOME_JS = true;</script>
+    
+    <script src="../static/js/footer.js"></script>
+    <script src="../static/js/common.js"></script>
+    <script src="../static/js/home.js"></script>
+</body>
+
+</html>
