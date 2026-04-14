@@ -1686,3 +1686,19 @@ button.platform-btn {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================
+   Dashboard 滑动进入动画
+   ========================================= */
+.dashboard-page .hero-section,
+.dashboard-page .content-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.dashboard-page .hero-section.reveal-in,
+.dashboard-page .content-section.reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+}
