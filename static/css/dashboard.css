@@ -1217,7 +1217,7 @@ button.platform-btn {
 }
 
 .api-section {
-  margin: 1.8rem 0;
+  margin: 1rem 0;
   padding: 1.5rem;
   border-radius: 16px;
   background: transparent;
@@ -1268,7 +1268,7 @@ button.platform-btn {
 }
 
 .integration-warning {
-  margin: 1.8rem 0;
+  margin: 1rem 0;
   padding: 1.5rem;
   border-radius: 16px;
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(245, 158, 11, 0.05));
@@ -1383,7 +1383,6 @@ button.platform-btn {
   background: transparent;
   padding: 1.6rem 1.8rem;
   backdrop-filter: none;
-  text-align: center;
 }
 
 .contact-section {
@@ -1426,7 +1425,9 @@ button.platform-btn {
   color: #f8fafc;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 .license-badge-link {
@@ -1475,7 +1476,9 @@ button.platform-btn {
   color: #f8fafc;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 .acknowledgments-list {

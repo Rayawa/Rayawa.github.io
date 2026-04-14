@@ -73,7 +73,7 @@ window.SITE_I18N = {
             starThanks: '致谢',
         },
         project: {
-            hmdb: { title: '华为应用市场看板', desc: ' Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……', award: '开放原子大赛三等奖作品' },
+            hmdb: { title: '华为应用市场看板', desc: ' Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……', award: '开放原子大赛获奖作品' },
             bio: { title: '生物学项目', desc: '收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（' },
             spm: { title: 'Sweet Potato Mod', desc: '农业与魔法的完美结合！<br>与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。<br>这是我最早的项目之一，不过好久没有维护了。' },
             ohos: { title: 'OpenHarmony Hi3861', desc: '基于OpenHarmony Hi3861开发板的嵌入式开发实践。<br>除了小时候玩的Arduino之外的第一个正经嵌入式开发项目，正在探索中……' },
@@ -307,7 +307,7 @@ window.SITE_I18N = {
             starThanks: 'Acknowledgements',
         },
         project: {
-            hmdb: { title: 'HmDashboard', desc: ' Powered by Shenjack!<br>A full-stack project that fetches, processes, analyzes, and displays all app and meta-service data from the HarmonyOS AppGallery.<br>I mainly work on the frontend web development and software development. Current main project, continuously updating…', award: 'Third Prize, OpenAtom Competition' },
+            hmdb: { title: 'HmDashboard', desc: ' Powered by Shenjack!<br>A full-stack project that fetches, processes, analyzes, and displays all app and meta-service data from the HarmonyOS AppGallery.<br>I mainly work on the frontend web development and software development. Current main project, continuously updating…', award: 'OpenAtom Contest Award Winner' },
             bio: { title: 'Biology Projects', desc: 'Papers and experiment records in biology, including PCR, protein hypotheses, carbon assimilation review, orange-plate experiments, and an interactive Agrobacterium web demo.<br>I really liked biology in high school, but ended up not majoring in it. Most of this stuff is honestly kind of bs lol' },
             spm: { title: 'Sweet Potato Mod', desc: 'Farming meets magic!<br>A Minecraft mod co-developed with @teddyxlandlee, adding sweet potatoes, farming stations, grinders, Magic Cube, enchanted crops, and more.<br>One of my earliest projects, though it hasn\'t been maintained in a while.' },
             ohos: { title: 'OpenHarmony Hi3861', desc: 'Embedded development practice based on OpenHarmony Hi3861 dev board.<br>My first serious embedded project since playing with Arduino as a kid. <br>Still exploring…' },
@@ -541,7 +541,7 @@ window.SITE_I18N = {
             starThanks: 'Remerciements',
         },
         project: {
-            hmdb: { title: 'HmDashboard', desc: " Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…", award: 'Troisième prix, concours OpenAtom' },
+            hmdb: { title: 'HmDashboard', desc: " Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…", award: 'Lauréat du Concours OpenAtom' },
             bio: { title: 'Projets de biologie', desc: "Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.<br>J'adorais la bio au lycée, mais je n'ai pas fait de bio à la fac. La plupart de tout ça c'est du blabla en fait mdr" },
             spm: { title: 'Sweet Potato Mod', desc: "L'agriculture rencontre la magie !<br>Un mod Minecraft co-développé avec @teddyxlandlee, ajoutant des patates douces, des stations agricoles, des broyeurs, des Cubes magiques, des cultures enchantées, etc.<br>L'un de mes premiers projets, mais plus maintenu depuis un moment." },
             ohos: { title: 'OpenHarmony Hi3861', desc: "Pratique de développement embarqué basée sur la carte Hi3861 d'OpenHarmony.<br>Mon premier vrai projet embarqué depuis l'Arduino quand j'étais petit. Toujours en exploration…" },

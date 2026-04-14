@@ -649,14 +649,13 @@ function initSubpageReveal() {
             '.hero-card, .card, .feature-card, .glass-card, ' +
             '.hi-card, .hi-overview-card, .doc-card, .thesis-card, ' +
             '.social-card, .project-card, .single-action, .button-row, ' +
-            '.dev-section, .notice-list, .section-header, ' +
-            '.interactive-content, .pcr-result, .gel-display, ' +
+            '.dev-section, .notice-list, ' +
             '.metric-card-small, .metric-card, .info-card, .note-card, ' +
             '.highlight-card, .case-item, .team-item, ' +
             '.access-metrics-card, .hero-section, .content-section, ' +
             '.hero-tags-wrapper, .platform-grid, .download-section, ' +
             '.api-section, .acknowledgments-section, .license-section, ' +
-            '.tech-subsection, .metrics-note, .card-image'
+            '.tech-subsection, .card-image'
         );
         if (!items.length) return;
 
