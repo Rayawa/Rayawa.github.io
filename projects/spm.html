@@ -146,18 +146,18 @@
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span >Sweet Potato Mod</span></a>
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"><!-- i18n: nav title --></span></a>
       <ul class="nav-links">
-        <li><a href="../index.html" >首页</a></li>
-        <li><a href="../index.html#about" >关于我</a></li>
-        <li><a href="../index.html#projects" >项目</a></li>
-        <li><a href="../index.html#gallery" >摄影</a></li>
-        <li><a href="../index.html#contact" >联系</a></li>
+        <li><a href="../index.html" data-i18n="nav.home"><!-- i18n: nav home --></a></li>
+        <li><a href="../index.html#about" data-i18n="nav.about"><!-- i18n: nav about --></a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects"><!-- i18n: nav projects --></a></li>
+        <li><a href="../index.html#gallery" data-i18n="nav.gallery"><!-- i18n: nav gallery --></a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact"><!-- i18n: nav contact --></a></li>
       </ul>
       <div class="language-switch">
-        <a href="#" class="lang-btn"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
-        <a href="../en/projects/" class="lang-btn"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
-        <a href="../fr/projects/" class="lang-btn"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
+        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="en"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
@@ -165,87 +165,86 @@
   <div id="particles-js"></div>
   <main class="page">
     <section class="hero-card">
-      <h1 >Sweet Potato Mod</h1>
-      <p >农业与魔法的完美结合！与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。</p>
+      <h1 data-i18n="title"><!-- i18n: page title --></h1>
+      <p data-i18n="desc"><!-- i18n: page description --></p>
       <img class="hero-image" src="../static/resources/spm/title.png" alt="Sweet Potato Mod">
       <div class="single-action">
-        <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener" >Pigeonia Featurehouse 主页</a>
-        <a class="button-outline" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right:0.35rem"></i><span >GitHub</span></a>
-        <a class="button-outline" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener" >下载链接</a>
+        <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener" data-i18n="btnHome"><!-- i18n: btn home --></a>
+        <a class="button-outline" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right:0.35rem"></i><span data-i18n="btnGithub"><!-- i18n: btn github --></span></a>
+        <a class="button-outline" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener" data-i18n="btnDownload"><!-- i18n: btn download --></a>
       </div>
     </section>
 
     <section class="spm-section">
-      <h2 >新的内容</h2>
+      <h2 data-i18n="newContent"><!-- i18n: new content heading --></h2>
       <div class="feature-grid">
         <article class="feature-card">
           <img src="../static/resources/spm/sweet_potato.png" alt="地瓜">
           <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >地瓜</a></h3>
-            <p >在本模组中添加的类食物。它分为紫薯、红薯和白薯，以及三个变种，有地瓜粉、地瓜皮等。</p>
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="potato.title"><!-- i18n: potato title --></a></h3>
+            <p data-i18n="potato.desc"><!-- i18n: potato desc --></p>
           </div>
         </article>
 
         <article class="feature-card">
           <img src="../static/resources/spm/magic_cube.png" alt="魔法锅">
           <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >魔法锅</a></h3>
-            <p >魔法锅散发着黑色的光泽。你可以通过在它下方3×3区域内点燃灵魂火来激活魔法锅，将三个任意品类的生地瓜转换为其他品类或对其进行随机附魔。</p>
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="magic.title"><!-- i18n: magic title --></a></h3>
+            <p data-i18n="magic.desc"><!-- i18n: magic desc --></p>
           </div>
         </article>
 
         <article class="feature-card">
           <img src="../static/resources/spm/Grinder.png" alt="研磨器">
           <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >研磨器</a></h3>
-            <p >研磨器有着一个磨盘，它的作用是将地瓜研磨为地瓜粉。</p>
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="grinder.title"><!-- i18n: grinder title --></a></h3>
+            <p data-i18n="grinder.desc"><!-- i18n: grinder desc --></p>
           </div>
         </article>
 
         <article class="feature-card">
           <img src="../static/resources/spm/enchanted_saplings.png" alt="附魔树苗和作物">
           <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >附魔树苗和作物</a></h3>
-            <p >附魔树苗和作物的生长速度要快于原版树苗或作物，且会长成附魔树或附魔作物。</p>
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" data-i18n="enchanted.title"><!-- i18n: enchanted title --></a></h3>
+            <p data-i18n="enchanted.desc"><!-- i18n: enchanted desc --></p>
           </div>
         </article>
       </div>
     </section>
 
     <section class="spm-section">
-      <h2 >开发人员</h2>
+      <h2 data-i18n="devTitle"><!-- i18n: dev title --></h2>
       <div class="dev-section">
-        <h3 >作者</h3>
-        <div class="dev-list" >Teddy Li (teddyxlandlee) · Ray Chen (Rayawa) · Peter Yang (Peteric)</div>
+        <h3 data-i18n="devAuthor"><!-- i18n: dev author --></h3>
+        <div class="dev-list" data-i18n="devAuthorList"><!-- i18n: dev author list --></div>
       </div>
       <div class="dev-section">
-        <h3 >贡献者</h3>
-        <div class="dev-list" >Dennis Lin · Garay Shurlin · 2333tech · squid233 · YWsuoyi · Ironnoob73 · ACGaming</div>
+        <h3 data-i18n="devContrib"><!-- i18n: dev contrib --></h3>
+        <div class="dev-list" data-i18n="devContribList"><!-- i18n: dev contrib list --></div>
       </div>
       <div class="dev-section">
-        <h3 >支持者</h3>
-        <div class="dev-list" >Teacher Qiu Yuting · immibis · Zn_Ar</div>
+        <h3 data-i18n="devSupport"><!-- i18n: dev support --></h3>
+        <div class="dev-list" data-i18n="devSupportList"><!-- i18n: dev support list --></div>
       </div>
     </section>
 
     <section class="spm-section">
-      <h2 >注意事项</h2>
+      <h2 data-i18n="noticeTitle"><!-- i18n: notice title --></h2>
       <ul class="notice-list">
-        <li >目前该模组仅支持 Fabric 1.16+，更早版本的玩家暂时不支持。</li>
-        <li >请不要在未经作者允许的情况下擅自转载本模组至其它平台！</li>
-        <li >加载本 Mod 需要 Fabric Loader 和 Fabric API。其中 Loader 的版本不能低于 0.9.0，API 最好为最新版。</li>
-        <li >不要在未经本模组作者允许的情况下擅自把 Mod 中的内容添加到你的整合包中！</li>
-        <li >如果您想把本模组添加至你的服务器中，请同时在客户端与服务端安装该 Mod。</li>
-        <li >如果您发现了模组中的 Bug 或对本模组有建议，烦请汇报至 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>。</li>
+        <li data-i18n-html="notice.0"><!-- i18n: notice 0 --></li>
+        <li data-i18n-html="notice.1"><!-- i18n: notice 1 --></li>
+        <li data-i18n-html="notice.2"><!-- i18n: notice 2 --></li>
+        <li data-i18n-html="notice.3"><!-- i18n: notice 3 --></li>
+        <li data-i18n-html="notice.4"><!-- i18n: notice 4 --></li>
+        <li data-i18n-html="notice.5"><!-- i18n: notice 5 --></li>
       </ul>
     </section>
   </main>
     <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh": {"refresh": "刷新页面", "top": "回到顶部", "pageTitle": "Sweet Potato Mod | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  
-  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../static/js/i18n-spm.js"></script>
+  <script src="../static/js/i18n-footer.js"></script>
   <script src="../static/js/footer.js"></script>
     <script src="../static/js/common.js"></script>
 </body>

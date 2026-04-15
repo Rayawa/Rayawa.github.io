@@ -15,18 +15,18 @@
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span></span></a>
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"></span></a>
       <ul class="nav-links">
-        <li><a href="../index.html"></a></li>
-        <li><a href="../index.html#about"></a></li>
-        <li><a href="../index.html#projects"></a></li>
-        <li><a href="../index.html#gallery"></a></li>
-        <li><a href="../index.html#contact"></a></li>
+        <li><a href="../index.html" data-i18n="nav.home"></a></li>
+        <li><a href="../index.html#about" data-i18n="nav.about"></a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects"></a></li>
+        <li><a href="../index.html#gallery" data-i18n="nav.gallery"></a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="language-switch">
-        <a href="#" class="lang-btn"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
-        <a href="../en/projects/" class="lang-btn"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
-        <a href="../fr/projects/" class="lang-btn"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
+        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="en"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
@@ -36,66 +36,66 @@
 
   <main class="page hi-page">
     <section class="hi-hero">
-      <div class="hi-hero-badge"></div>
-      <h1></h1>
-      <p class="hi-hero-desc"></p>
+      <div class="hi-hero-badge" data-i18n="hero.badge"></div>
+      <h1 data-i18n="hero.title"></h1>
+      <p class="hi-hero-desc" data-i18n="hero.desc"></p>
       <div class="hi-hero-actions">
-        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener"></a>
-        <a class="button-outline" href="openharmony-readme.html"></a>
+        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener" data-i18n="hero.repo"></a>
+        <a class="button-outline" href="openharmony-readme.html" data-i18n="hero.readme"></a>
       </div>
       <div class="hi-overview-grid">
         <article class="hi-overview-card">
           <div class="hi-overview-index">01</div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="overview.traffic.title"></h2>
+          <p data-i18n="overview.traffic.desc"></p>
         </article>
         <article class="hi-overview-card">
           <div class="hi-overview-index">02</div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="overview.colorful.title"></h2>
+          <p data-i18n="overview.colorful.desc"></p>
         </article>
         <article class="hi-overview-card">
           <div class="hi-overview-index">03</div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="overview.environment.title"></h2>
+          <p data-i18n="overview.environment.desc"></p>
         </article>
         <article class="hi-overview-card">
           <div class="hi-overview-index">04</div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="overview.at.title"></h2>
+          <p data-i18n="overview.at.desc"></p>
         </article>
       </div>
     </section>
 
     <section class="hi-panel">
       <div class="hi-panel-head">
-        <h2></h2>
-        <p></p>
+        <h2 data-i18n="structure.title"></h2>
+        <p data-i18n="structure.desc"></p>
       </div>
-      <pre class="hi-tree"></pre>
+      <pre class="hi-tree" data-i18n="structure.tree"></pre>
     </section>
 
     <section class="hi-module hi-module-traffic">
       <div class="hi-module-head">
         <span class="hi-module-index">01</span>
         <div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="traffic.title"></h2>
+          <p data-i18n="traffic.desc"></p>
         </div>
       </div>
       <div class="hi-module-grid">
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="traffic.hardwareTitle"></h3>
+          <div data-i18n-html="traffic.hardware"></div>
         </article>
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="traffic.projectTitle"></h3>
+          <div data-i18n-html="traffic.projects"></div>
         </article>
       </div>
       <article class="hi-card hi-path-card">
-        <h3></h3>
-        <p></p>
+        <h3 data-i18n="traffic.pathTitle"></h3>
+        <p data-i18n="traffic.path"></p>
       </article>
     </section>
 
@@ -103,23 +103,23 @@
       <div class="hi-module-head">
         <span class="hi-module-index">02</span>
         <div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="colorful.title"></h2>
+          <p data-i18n="colorful.desc"></p>
         </div>
       </div>
       <div class="hi-module-grid">
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="colorful.hardwareTitle"></h3>
+          <div data-i18n-html="colorful.hardware"></div>
         </article>
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="colorful.projectTitle"></h3>
+          <div data-i18n-html="colorful.projects"></div>
         </article>
       </div>
       <article class="hi-card hi-path-card">
-        <h3></h3>
-        <p></p>
+        <h3 data-i18n="colorful.pathTitle"></h3>
+        <p data-i18n="colorful.path"></p>
       </article>
     </section>
 
@@ -127,23 +127,23 @@
       <div class="hi-module-head">
         <span class="hi-module-index">03</span>
         <div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="environment.title"></h2>
+          <p data-i18n="environment.desc"></p>
         </div>
       </div>
       <div class="hi-module-grid">
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="environment.hardwareTitle"></h3>
+          <div data-i18n-html="environment.hardware"></div>
         </article>
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="environment.projectTitle"></h3>
+          <div data-i18n-html="environment.projects"></div>
         </article>
       </div>
       <article class="hi-card">
-        <h3></h3>
-        <div></div>
+        <h3 data-i18n="environment.featureTitle"></h3>
+        <div data-i18n-html="environment.features"></div>
       </article>
     </section>
 
@@ -151,40 +151,39 @@
       <div class="hi-module-head">
         <span class="hi-module-index">04</span>
         <div>
-          <h2></h2>
-          <p></p>
+          <h2 data-i18n="at.title"></h2>
+          <p data-i18n="at.desc"></p>
         </div>
       </div>
       <div class="hi-module-grid">
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="at.projectTitle"></h3>
+          <div data-i18n-html="at.project"></div>
         </article>
         <article class="hi-card">
-          <h3></h3>
-          <div></div>
+          <h3 data-i18n="at.exampleTitle"></h3>
+          <div data-i18n-html="at.example"></div>
         </article>
       </div>
     </section>
 
     <section class="hi-panel hi-panel-double">
       <article class="hi-card">
-        <h2></h2>
-        <div></div>
+        <h2 data-i18n="build.title"></h2>
+        <div data-i18n-html="build.content"></div>
       </article>
       <article class="hi-card">
-        <h2></h2>
-        <div></div>
+        <h2 data-i18n="stack.title"></h2>
+        <div data-i18n-html="stack.content"></div>
       </article>
     </section>
   </main>
 
   <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh": {"refresh": "刷新页面", "top": "回到顶部", "pageTitle": "Hi3861 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  
-  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../static/js/i18n-openharmony.js"></script>
+  <script src="../static/js/i18n-footer.js"></script>
   <script src="../static/js/footer.js"></script>
   <script src="../static/js/common.js"></script>
 </body>
