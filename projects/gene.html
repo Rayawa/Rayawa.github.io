@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<script src="https://cdn.jsdelivr.net/npm/drag-drop-touch@1.3.0/DragDropTouch.js"></script>
+<script>window.SITE_I18N={"zh": {"nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/npm/drag-drop-touch@1.3.0/DragDropTouch.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +14,7 @@
 </head>
 
 <body class="bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+  <div id="particles-js"></div>
     <div id="global-hint-box"
         class="fixed top-20 left-5 z-50 bg-white text-black text-sm px-4 py-3 rounded-xl max-w-xs leading-relaxed backdrop-blur flex items-start gap-2">
 
@@ -343,10 +345,13 @@
 
     <div id="site-footer"></div>
 
-    <script src="../static/js/i18n-gene.js"></script>
-    <script src="../static/js/i18n-footer.js"></script>
+    
+    
     <script src="../static/js/footer.js"></script>
+    <script src="../static/js/common.js"></script>
     <script src="../static/js/gene.js"></script>
+    <script src="../static/js/particles.min.js"></script>
+    
 </body>
 
 </html>
