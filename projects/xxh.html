@@ -15,18 +15,18 @@
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span><!-- i18n --></span></a>
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"><!-- i18n --></span></a>
       <ul class="nav-links">
-        <li><a href="../index.html"><!-- i18n --></a></li>
-        <li><a href="../index.html#about"><!-- i18n --></a></li>
-        <li><a href="../index.html#projects"><!-- i18n --></a></li>
-        <li><a href="../index.html#gallery"><!-- i18n --></a></li>
-        <li><a href="../index.html#contact"><!-- i18n --></a></li>
+        <li><a href="../index.html" data-i18n="nav.home"><!-- i18n --></a></li>
+        <li><a href="../index.html#about" data-i18n="nav.about"><!-- i18n --></a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects"><!-- i18n --></a></li>
+        <li><a href="../index.html#gallery" data-i18n="nav.gallery"><!-- i18n --></a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact"><!-- i18n --></a></li>
       </ul>
       <div class="language-switch">
-        <a href="#" class="lang-btn"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
-        <a href="../en/projects/" class="lang-btn"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
-        <a href="../fr/projects/" class="lang-btn"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
+        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="en"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
@@ -40,11 +40,10 @@
   </div>
     <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh": {"pageTitle": "XXH测试 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../static/js/i18n-xxh.js"></script>
   <script src="../static/js/xxh.js"></script>
-  
+  <script src="../static/js/i18n-footer.js"></script>
   <script src="../static/js/footer.js"></script>
     <script src="../static/js/common.js"></script>
 </body>
