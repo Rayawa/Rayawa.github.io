@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sweet Potato Mod | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
+  <style>
+    .spm-section {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .spm-section:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .spm-section h2 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.6);
+    }
+
+    .feature-card img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .feature-card-text h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card-text h3 a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .feature-card-text h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .feature-card-text p {
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    .dev-section {
+      margin-top: 1rem;
+    }
+
+    .dev-section:first-child {
+      margin-top: 0;
+    }
+
+    .dev-section h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .dev-list {
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.8;
+      font-size: 0.9rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .notice-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .notice-list li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.65;
+      font-size: 0.9rem;
+    }
+
+    .notice-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 1rem 0;
+      border: 1px solid var(--glass-border);
+    }
+
+    @media (max-width: 900px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span >Sweet Potato Mod</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../index.html#about" >About Me</a></li>
+        <li><a href="../index.html#projects" >Projects</a></li>
+        <li><a href="../index.html#gallery" >Photography</a></li>
+        <li><a href="../index.html#contact" >Contact</a></li>
+      </ul>
+      <div class="language-switch">
+        <a href="/" class="lang-btn"><img src="../../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
+        <a href="/en/" class="lang-btn"><img src="../../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
+        <a href="/fr/" class="lang-btn"><img src="../../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+  <div id="particles-js"></div>
+  <main class="page">
+    <section class="hero-card">
+      <h1 >Sweet Potato Mod</h1>
+      <p >Where agriculture meets magic! A Minecraft mod co-developed with @teddyxlandlee, adding sweet potatoes, agricultural stations, grinders, magic pots, enchanted crops, and more.</p>
+      <img class="hero-image" src="../../static/resources/spm/title.png" alt="Sweet Potato Mod">
+      <div class="single-action">
+        <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener" >Pigeonia Featurehouse</a>
+        <a class="button-outline" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right:0.35rem"></i><span >GitHub</span></a>
+        <a class="button-outline" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener" >Download</a>
+      </div>
+    </section>
+
+    <section class="spm-section">
+      <h2 >New Content</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <img src="../../static/resources/spm/sweet_potato.png" alt="Sweet Potato">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >Sweet Potato</a></h3>
+            <p >A food category added by this mod. It comes in purple, red, and white varieties, each with three sub-variants, plus sweet potato powder and peels.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="../../static/resources/spm/magic_cube.png" alt="Magic Cube">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >Magic Cube</a></h3>
+            <p >The magic cube emanates a dark glow. Activate it by lighting soul fire in the 3×3 area below, converting three raw sweet potatoes of any variety into other varieties or randomly enchanting them.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="../../static/resources/spm/Grinder.png" alt="Grinder">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >Grinder</a></h3>
+            <p >The grinder has a millstone that grinds sweet potatoes into sweet potato powder.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="../../static/resources/spm/enchanted_saplings.png" alt="Enchanted Saplings and Crops">
+          <div class="feature-card-text">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >Enchanted Saplings & Crops</a></h3>
+            <p >Enchanted saplings and crops grow faster than vanilla ones and will grow into enchanted trees or crops.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="spm-section">
+      <h2 >Developers</h2>
+      <div class="dev-section">
+        <h3 >Authors</h3>
+        <div class="dev-list" >Teddy Li (teddyxlandlee) · Ray Chen (Rayawa) · Peter Yang (Peteric)</div>
+      </div>
+      <div class="dev-section">
+        <h3 >Contributors</h3>
+        <div class="dev-list" >Dennis Lin · Garay Shurlin · 2333tech · squid233 · YWsuoyi · Ironnoob73 · ACGaming</div>
+      </div>
+      <div class="dev-section">
+        <h3 >Supporters</h3>
+        <div class="dev-list" >Teacher Qiu Yuting · immibis · Zn_Ar</div>
+      </div>
+    </section>
+
+    <section class="spm-section">
+      <h2 >Notices</h2>
+      <ul class="notice-list">
+        <li >This mod currently only supports Fabric 1.16+. Earlier versions are not supported.</li>
+        <li >Do not repost this mod to other platforms without the authors' permission!</li>
+        <li >Loading this mod requires Fabric Loader and Fabric API. The Loader version must be at least 0.9.0; the API should be the latest version.</li>
+        <li >Do not add content from this mod to your modpack without the authors' permission!</li>
+        <li >To use this mod on a server, install it on both the client and server sides.</li>
+        <li >Report bugs or suggestions on <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>.</li>
+      </ul>
+    </section>
+  </main>
+    <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh": {}, "en": {"refresh": "Refresh Page", "top": "Back to Top", "pageTitle": "Sweet Potato Mod | Ray Chen", "nav.home": "Home", "nav.about": "About Me", "nav.projects": "Projects", "nav.gallery": "Photography", "nav.contact": "Contact"}, "fr": {}};window.FOOTER_I18N={"zh": {}, "en": {"nav": {"home": "Home", "about": "About Me", "projects": "Projects", "gallery": "Photography", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Biology Projects"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Measurement of Weak Electrical Signals"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Quick Links", "projects": "Projects", "thanks": "Acknowledgements", "thanksLink": "View Acknowledgements", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  
+  <script src="../../static/js/footer.js"></script>
+    <script src="../../static/js/common.js"></script>
+</body>
+</html>
