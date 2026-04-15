@@ -10,9 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../static/css/gene.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <style>.fab-tools { display: none !important; }</style>
 </head>
-
 <body class="bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
   <div id="particles-js"></div>
     <div id="global-hint-box"
@@ -343,11 +342,12 @@
         </div>
     </div>
 
-    <div id="site-footer"></div>
+    <div style="text-align:center;padding:2rem 0;">
+      <a href="javascript:history.back()" style="display:inline-block;padding:0.6rem 1.8rem;border-radius:8px;background:rgba(99,102,241,0.12);color:#6366f1;text-decoration:none;font-size:0.95rem;transition:background .2s;" onmouseover="this.style.background='rgba(99,102,241,0.22)'" onmouseout="this.style.background='rgba(99,102,241,0.12)'">← Retour</a>
+    </div>
 
     
     
-    <script src="../../static/js/footer.js"></script>
     <script src="../../static/js/common.js"></script>
     <script src="../../static/js/gene.js"></script>
     <script src="../../static/js/particles.min.js"></script>
