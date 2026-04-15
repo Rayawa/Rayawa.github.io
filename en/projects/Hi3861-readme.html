@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hi3861 | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
+  <link rel="stylesheet" href="../../static/css/markdown-page.css">
+</head>
+<body>
+  <!-- 导航栏组件 -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="../" class="logo">
+            <i class="fas fa-code"></i>
+            <span>Ray Chen</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../#about">About Me</a></li>
+            <li><a href="../#projects">Projects</a></li>
+            <li><a href="../#gallery">Photography</a></li>
+            <li><a href="../#contact">Contact</a></li>
+        </ul>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+  <div id="particles-js"></div>
+
+  <main class="page md-page">
+    <section class="hero-card">
+      <h1>Hi3861 README</h1>
+      <div class="single-action">
+        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right: 0.4rem;"></i> GitHub</a>
+        <a class="button" href="../../static/resources/openharmony/README.md" target="_blank" rel="noopener">打开原始 Markdown</a>
+        <a class="button-outline" href="openharmony.html">返回 Hi3861 页面</a>
+      </div>
+    </section>
+
+    <section class="md-wrap">
+      <article id="mdContainer" class="markdown-body"></article>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh": {}, "en": {"refresh": "Refresh", "top": "Back to top", "pageTitle": "Hi3861 | Ray Chen", "nav.home": "Home", "nav.about": "About Me", "nav.projects": "Projects", "nav.gallery": "Photography", "nav.contact": "Contact"}, "fr": {}};window.FOOTER_I18N={"zh": {}, "en": {"nav": {"home": "Home", "about": "About Me", "projects": "Projects", "gallery": "Photography", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Biology Projects"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Measurement of Weak Electrical Signals"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Quick Links", "projects": "Projects", "thanks": "Acknowledgements", "thanksLink": "View Acknowledgements", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="../../static/js/footer.js"></script>
+  <script src="../../static/js/particles.min.js"></script>
+    <script src="../../static/js/common.js"></script>
+  <script>
+    (async function () {
+      const container = document.getElementById('mdContainer');
+      try {
+        const res = await fetch('../../static/resources/openharmony/README.md', { cache: 'no-store' });
+        const text = await res.text();
+        container.innerHTML = marked.parse(text, { breaks: true, mangle: false, headerIds: true });
+      } catch (err) {
+        container.innerHTML = '<p>README 加载失败，请稍后重试。</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

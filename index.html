@@ -54,26 +54,26 @@
             </a>
 
             <ul class="nav-links">
-                <li><a href="#" data-i18n="nav.home"><!-- i18n: nav home --></a></li>
-                <li><a href="#about" data-i18n="nav.about"><!-- i18n: nav about --></a></li>
-                <li><a href="#projects" data-i18n="nav.projects"><!-- i18n: nav projects --></a></li>
-                <li><a href="#gallery" data-i18n="nav.gallery"><!-- i18n: nav gallery --></a></li>
-                <li><a href="#contact" data-i18n="nav.contact"><!-- i18n: nav contact --></a></li>
+                <li><a href="#" >首页</a></li>
+                <li><a href="#about" >关于我</a></li>
+                <li><a href="#projects" >项目</a></li>
+                <li><a href="#gallery" >摄影</a></li>
+                <li><a href="#contact" >联系</a></li>
             </ul>
 
             <div class="language-switch">
-                <button type="button" class="lang-btn" data-lang="zh" aria-label="切换到中文">
+                <a href="/" class="lang-btn">
                     <img src="static/resources/cn.svg" alt="" class="lang-flag">
                     <span>中文</span>
-                </button>
-                <button type="button" class="lang-btn" data-lang="en" aria-label="Switch to English">
+                </a>
+                <a href="/en/" class="lang-btn">
                     <img src="static/resources/uk.svg" alt="" class="lang-flag">
                     <span>EN</span>
-                </button>
-                <button type="button" class="lang-btn" data-lang="fr" aria-label="Basculer en francais">
+                </a>
+                <a href="/fr/" class="lang-btn">
                     <img src="static/resources/fr.svg" alt="" class="lang-flag">
                     <span>FR</span>
-                </button>
+                </a>
             </div>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -87,32 +87,32 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text reveal-seq">
-                    <h1 class="reveal-item" data-i18n-html="hero.title"><!-- i18n: hero title --></h1>
+                    <h1 class="reveal-item" >你好，我是 <span class="gradient-text">Ray</span></h1>
                     <p class="hero-aliases reveal-item">Ray汐 · 清霁Ray · Rayawa</p>
                     <div class="hero-tags">
-                        <p class="tag-intro reveal-item"><strong data-i18n="hero.intro"><!-- i18n: hero intro --></strong></p>
-                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.core"><!-- i18n: hero tag core --></span><span data-i18n="hero.core"><!-- i18n: hero core --></span></p>
-                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.side"><!-- i18n: hero tag side --></span><span data-i18n="hero.side"><!-- i18n: hero side --></span></p>
-                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.photo"><!-- i18n: hero tag photo --></span><span data-i18n="hero.photo"><!-- i18n: hero photo --></span></p>
-                        <p class="reveal-item"><span class="tag-label" data-i18n="hero.tag.life"><!-- i18n: hero tag life --></span><span data-i18n="hero.life"><!-- i18n: hero life --></span></p>
+                        <p class="tag-intro reveal-item"><strong >通信在读 | 鸿蒙开发者 | 跨界极客 | 影像创作者</strong></p>
+                        <p class="reveal-item"><span class="tag-label" >核心</span><span >目前专注HarmonyOS应用开发与Hi3861嵌入式开发。</span></p>
+                        <p class="reveal-item"><span class="tag-label" >支线</span><span >Web构建、Rust与Java学习、法语进阶中，未来计划向生物信息学探路。</span></p>
+                        <p class="reveal-item"><span class="tag-label" >摄影</span><span >风景摄影与无人机航拍，用快门捕捉通信之外的频率。</span></p>
+                        <p class="reveal-item"><span class="tag-label" >生活</span><span >J'apprends le français；热爱听音乐；跑步骑行中；在提瓦特、塔卫二与罗德岛切换；音游在线，每天赚费沉底石头人（）。</span></p>
                     </div>
                     <div class="btn-group reveal-item">
                         <a href="#projects" class="btn">
                             <i class="fas fa-rocket"></i>
-                            <span data-i18n="hero.btn.projects"><!-- i18n: hero btn projects --></span>
+                            <span >查看项目</span>
                         </a>
                         <a href="#contact" class="btn btn-outline">
                             <i class="fas fa-envelope"></i>
-                            <span data-i18n="hero.btn.contact"><!-- i18n: hero btn contact --></span>
+                            <span >联系我</span>
                         </a>
                     </div>
                 </div>
                 <div class="hero-image reveal-item">
                     <img src="ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
-                    <div class="avatar-quote" data-i18n="hero.quote"><!-- i18n: hero quote --></div>
-                    <div class="floating-elements" id="heroStar" data-i18n-tooltip="tooltip.starThanks">
+                    <div class="avatar-quote" >Everything is possible by code.</div>
+                    <div class="floating-elements" id="heroStar" data-tooltip="致谢">
                         <a href="thanks.html" class="star-link" title="致谢"><i class="fas fa-star"></i></a>
-                        <span class="star-tooltip" data-i18n="tooltip.starThanks"><!-- i18n: star tooltip --></span>
+                        <span class="star-tooltip" >致谢</span>
                     </div>
                 </div>
             </div>
@@ -123,21 +123,157 @@
     <section class="about reveal-section" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title reveal-item" data-i18n="about.title"><!-- i18n: about title --></h2>
-                <p class="section-subtitle reveal-item" data-i18n="about.subtitle"><!-- i18n: about subtitle --></p>
+                <h2 class="section-title reveal-item" >关于我</h2>
+                <p class="section-subtitle reveal-item" >跨越学科的边界，只为连接更广阔的世界。</p>
             </div>
 
             <div class="about-content">
-                <div class="about-text reveal-item" id="aboutTextBlock" data-i18n-html="aboutHtml.aboutText"><!-- i18n: about text block --></div>
+                <div class="about-text reveal-item" id="aboutTextBlock" ><h3>个人简介</h3>
+<p>欢迎来到我的个人主页，我是Ray～你可以在这里全面的了解我。我不是特别信MBTI这个东西，但是这个东西确实挺火的。听说能让人最快了解人的性格，我目前测的是INTP，仅供参考。</p>
+<p>我出生于 2007 年，目前就读于北方工业大学通信工程专业。虽然身在通信专业，但我目前投入精力最多、也最热爱的领域是软件开发。</p>
+<p>我从小就和编程结缘：从刚记事的时候就在玩Scratch之类的模块化编程，之后又接触了EV3机器人和Arduino UNO开发板，我一直沉浸其中。印象里用EV3做过很多好玩的机器人，比如颜色分类的、爬楼梯的小车、履带小车，最后还做了一个能还原三阶魔方的魔方机器人——记得当时颜色扫描不是很稳定。虽然现在那台机器已经开不了机，也落了一层灰，但这个魔方机器人我一直留到现在，没舍得拆。</p>
+<p>三四年级的时候，Arduino的C语言是我接触的第一个正经编程语言，也是人生第一次体验“嵌入式开发”。虽然起初只是做流水呼吸灯、抢答器这类小物件，但后来我成功做出了一辆带云台的超声波避障小车。这辆小车不仅登上了当年的校报，后来还捐赠给了学校进行展示。</p>
+<p>再后来，2018年我参加了丝绸之路国际青少年大赛机器人竞赛，做了一个智能鱼食投喂机。之后开始学C++并投身信息学奥赛。升入初中后，我又参与制做了一个烤地瓜模组的项目，还有人找我们签合同购买源码将模组上架网易版本。虽然那份合同现已过期，项目也因学业而搁置，但现在想起来还是充满回忆。</p>
+<p>高中几乎三年没碰代码，都在做生物学相关的研究。去年九月份，我踏入了鸿蒙的大门，成为了鸿蒙开发者，开始参与鸿蒙应用看板项目。转眼间半年过去了，这个项目也算是积累了一定的知名度。现在我也正持续推进这个项目的进度：鸿蒙应用看板App已经进入邀请测试阶段，预计很快就能上架；未来还计划将其扩展至 macOS 与 Android 平台。</p>
+<p>除了应用层，我目前也在钻研OpenHarmony Hi3861嵌入式开发。对我来说，这不只是在调硬件，更是为了从底层逻辑上透彻理解设备侧能力与系统工程。在网页开发上，我搭建了个人网站、模组站、第五人格站以及农杆菌转化法实验站点。现在的我，程序方面涉猎C、C++、Java、Rust、HTML、ArkTS、Swift和openGauss数据库。对我来说参与各种项目是一种我特别感兴趣的娱乐，未来我还会做更多的开发，全面提升自己的语言能力。</p>
+<p>生物学是我探索世界的另一扇窗。高中时期遇见的两位非常优秀的生物老师，是我与这门学科结缘的关键。她们不仅教会了我知识，更以卓越的专业素养，将我从一个单纯的爱好者，培养成了能够独立思考的研究者。在老师的指导下，我带领高中开创了首届PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇感兴趣话题的小论文，还和同学一起撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去阐述生物学也十分有趣。生物学或许是我的一种“遗憾美”，如果有机会，未来我也希望能向生物信息学方向探路。</p>
+<p>在代码之外，我热爱跑步与骑行，相机和无人机则是出门必备。对我而言，摄影的乐趣远不止于最后那张照片，更在于切换视角时的构图巧思、尝试不同的叙事风格，以及在既有基础上推陈出新的创作过程。</p>
+<p>在兴趣爱好方面，我以前有小号六级证书，但很明显现在不会吹了（）。初中时自学的钢琴，现在也能弹几首曲子。此外，我还喜欢模拟飞行和玩魔方：最喜欢的是四阶，其次是五魔方。音乐也是我人生中不可割舍的一部分。无论是在通勤路上，还是在编写代码、调试网页与硬件的专注时刻，音乐不仅是滤除杂音的背景，更是与我灵感同频的共振。我还是F1的铁杆观众，梅赛德斯奔驰AMG是我的主队，最喜欢的车手是刘易斯·汉密尔顿。虽然我依旧钟情于保时捷911与AMG这种纯粹的性能机器，但也时刻关注着国产新能源的前沿发展。</p>
+<p>我是一个重度的机圈与数码发烧友，周围很多同学朋友在换新设备的时候时常会找我导购。我日常反复横跳在苹果的硬核科技与华为的创新美学之间，只要有发布会，直播间里肯定少不了我，安卓阵营中最喜欢的则则是vivo。电脑方面，我是ARM架构与Apple Silicon的忠实拥护者。虽然目前仍有诸多不便，但MacBook的超高续航比与轻便体验，精准切中了我对代码编写与影像创作的核心生产力要求。至于摄影，我喜欢哈苏、索尼与大疆，它们是我记录世界时不可或缺的延伸。</p>
+<p>游戏方面，我是Minecraft的老玩家，也算一名“原学家”（大概）。近期正在玩明日方舟和明日方舟：终末地；同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline。在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）和若干B牌（虽然目前已退游）。皇室战争里我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
+<p>身为理科生，我却对世界文化怀有极强的好奇心，也很乐意了解各个国家的风土人情。中小学时期的英语演讲比赛与两年英国议会制辩论（BP）的经历，为我打下了坚实的语言基础。最近我也在学习法语。从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
+<p>无论是在 0 与 1 的代码世界里构建秩序，还是在双螺旋的生物蓝图中寻找规律，我始终相信，跨界的探索能让生命拥有更宽广的边界。如果你也对技术、生物或这个多元的世界充满好奇，欢迎随时与我交流。</p>
+<p>很高兴认识你，在这段名为“成长”的航程中。</p>
+<p style="text-align:right">——Ray<br>2026.4.10</p></div>
 
                 <div class="about-side">
-                    <div class="glass-card status-card reveal-item" id="statusCardBlock" data-i18n-html="aboutHtml.statusCard"><!-- i18n: status card --></div>
+                    <div class="glass-card status-card reveal-item" id="statusCardBlock" ><h3 class="status-card-title">当前专注</h3>
+<div class="skills-grid">
+    <a href="projects/dashboard.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="skill-name">核心开发</div>
+        </div>
+        <p class="skill-description">HarmonyOS 6.1.0鸿蒙应用看板开发<br>个人网页开发</p>
+    </a>
+    <a href="projects/openharmony.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+            <div class="skill-name">并行开发</div>
+        </div>
+        <p class="skill-description">OpenHarmony (Hi3861) 嵌入式开发与系统工程深耕</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-road"></i></div>
+            <div class="skill-name">未来目标</div>
+        </div>
+        <p class="skill-description">推进鸿蒙应用看板macOS与Android平台软件开发</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="skill-name">学习路径</div>
+        </div>
+        <p class="skill-description">深化Rust & Java<br>仓颉编程语言预研<br>法语持续进阶中...</p>
+    </div>
+</div></div>
 
-                    <div class="glass-card side-card reveal-item" id="stackCardBlock" data-i18n-html="aboutHtml.stackCard"><!-- i18n: stack card --></div>
+                    <div class="glass-card side-card reveal-item" id="stackCardBlock" ><h3 class="status-card-title">技术栈与领域</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <div class="skill-name">程序语言</div>
+        </div>
+        <p class="skill-description">C / C++ · Java · Rust · Swift · ArkTS · HTML · openGauss数据库</p>
+    </div>
+    <a href="#projects" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="skill-name">产品与工程</div>
+        </div>
+        <p class="skill-description">HarmonyOS应用 · Web开发 · 生物学实验</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="skill-name">开源项目</div>
+        </div>
+        <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
+    </div>
+    <a href="projects/bio.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-flask"></i></div>
+            <div class="skill-name">生物研究</div>
+        </div>
+        <p class="skill-description">PCR实验项目 · 蛋白质猜想 · 碳同化综述 · 橙色平板实验 · 农杆菌转化法交互网页</p>
+    </a>
+</div></div>
 
-                    <div class="glass-card side-card reveal-item" id="roadmapCardBlock" data-i18n-html="aboutHtml.roadmapCard"><!-- i18n: roadmap card --></div>
+                    <div class="glass-card side-card reveal-item" id="roadmapCardBlock" ><h3 class="status-card-title">部分成就</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="skill-name">编程领域</div>
+        </div>
+        <p class="skill-description">EV3魔方机器人 · Arduino超声波避障小车 · 丝绸之路机器人大赛 · C++信息学奥赛 · Sweet Potato Mod · Difficult Rocket · 鸿蒙应用看板 · 开放原子大赛</p>
+    </div>
+    <a href="projects/spm.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-microscope"></i></div>
+            <div class="skill-name">生物学领域</div>
+        </div>
+        <p class="skill-description">PCR实验项目 · 《关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想》 · 《卡尔文循环的分子生物学研究》 · 《酵母菌实验中平板变橙原因的分析与验证》 · 农杆菌转化法交互网页</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
+            <div class="skill-name">鸿蒙开发者</div>
+        </div>
+        <p class="skill-description">HarmonyOS应用开发 · OpenHarmony嵌入式开发 · OpenGauss数据库</p>
+    </div>
+        <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-trophy"></i></div>
+            <div class="skill-name">其他领域</div>
+        </div>
+        <p class="skill-description">21世界英语全国中小学生英语演讲比赛 · 小号六级证书 · 英国议会制辩论比赛 · 原学家 · A疯眼 · 众多摄影与航拍作品</p>
+    </div>
+</div></div>
 
-                    <div class="glass-card side-card reveal-item" id="lifestyleCardBlock" data-i18n-html="aboutHtml.lifestyleCard"><!-- i18n: lifestyle card --></div>
+                    <div class="glass-card side-card reveal-item" id="lifestyleCardBlock" ><h3 class="status-card-title">兴趣与生活</h3>
+<div class="skills-grid">
+    <a href="#gallery" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+            <div class="skill-name">摄影</div>
+        </div>
+        <p class="skill-description">风景摄影 · 无人机航拍</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-running"></i></div>
+            <div class="skill-name">运动</div>
+        </div>
+        <p class="skill-description">跑步 · 骑行</p>
+    </div>
+        <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-music"></i></div>
+            <div class="skill-name">兴趣</div>
+        </div>
+        <p class="skill-description">听音乐 · 钢琴 · 小号 · 魔方 · 模拟飞行</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="skill-name">游戏</div>
+        </div>
+        <p class="skill-description">Minecraft · 第五人格 · 原神 · 明日方舟 · 明日方舟：终末地 · 皇室战争 · 多端音游（Arcaea, Phigros为主）</p>
+    </div>
+</div></div>
                 </div>
             </div>
         </div>
@@ -147,28 +283,28 @@
     <section class="projects reveal-section" id="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title reveal-item" data-i18n="projects.title"><!-- i18n: projects title --></h2>
-                <p class="section-subtitle reveal-item" data-i18n="projects.subtitle"><!-- i18n: projects subtitle --></p>
+                <h2 class="section-title reveal-item" >我的项目</h2>
+                <p class="section-subtitle reveal-item" >把热爱写成项目，把项目做成长期作品。</p>
             </div>
 
             <div class="projects-group">
                 <div class="projects-group-header">
-                    <h3 class="projects-group-title" data-i18n="projects.more"><!-- i18n: projects more --></h3>
-                    <p class="projects-group-desc" data-i18n="projects.moreDesc"><!-- i18n: projects more desc --></p>
+                    <h3 class="projects-group-title" >主要项目</h3>
+                    <p class="projects-group-desc" >我主导或参与的项目，涵盖科研实验、开发与开源贡献等。</p>
                 </div>
                 <div class="projects-grid">
                     <a href="projects/dashboard.html" class="project-card reveal-item">
                         <div class="project-image harmony"></div>
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.hmdb.title"><!-- i18n: project hmdb title --></h4>
-                            <p class="project-description" data-i18n="project.hmdb.desc"><!-- i18n: project hmdb desc --></p>
+                            <h4 class="project-title" >华为应用市场看板<i class="fas fa-external-link-alt external-link-icon"></i></h4>
+                            <p class="project-description" > Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……</p>
                             <div class="project-award-row">
-                                <span class="tag tag-award award-link" role="link" tabindex="0" data-i18n="project.hmdb.award" data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0"><!-- i18n: project hmdb award --></span>
+                                <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛获奖作品</span>
                             </div>
                             <div class="project-tags">
-                                <span class="tag" data-i18n="tag.dataVis"><!-- i18n: tag dataVis --></span>
-                                <span class="tag" data-i18n="tag.rust"><!-- i18n: tag rust --></span>
-                                <span class="tag" data-i18n="tag.arkts"><!-- i18n: tag arkts --></span>
+                                <span class="tag" >数据可视化</span>
+                                <span class="tag" >Rust</span>
+                                <span class="tag" >ArkTS</span>
                             </div>
                         </div>
                     </a>
@@ -176,13 +312,13 @@
                     <a href="projects/bio.html" class="project-card reveal-item">
                         <div class="project-image bio"></div>
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.bio.title"><!-- i18n: project bio title --></h4>
-                            <p class="project-description" data-i18n="project.bio.desc"><!-- i18n: project bio desc --></p>
+                            <h4 class="project-title" >生物学项目</h4>
+                            <p class="project-description" >收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（</p>
                             <div class="project-tags">
-                                <span class="tag" data-i18n="tag.pcr"><!-- i18n: tag pcr --></span>
-                                <span class="tag" data-i18n="tag.yeast"><!-- i18n: tag yeast --></span>
-                                <span class="tag" data-i18n="tag.carbonAssimilation"><!-- i18n: tag carbonAssimilation --></span>
-                                <span class="tag" data-i18n="tag.protein"><!-- i18n: tag protein --></span>
+                                <span class="tag" >PCR</span>
+                                <span class="tag" >酵母菌</span>
+                                <span class="tag" >碳同化</span>
+                                <span class="tag" >蛋白质</span>
                             </div>
                         </div>
                     </a>
@@ -190,12 +326,12 @@
                     <a href="projects/spm.html" class="project-card reveal-item">
                         <div class="project-image spm"></div>
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.spm.title"><!-- i18n: project spm title --></h4>
-                            <p class="project-description" data-i18n="project.spm.desc"><!-- i18n: project spm desc --></p>
+                            <h4 class="project-title" >Sweet Potato Mod</h4>
+                            <p class="project-description" >农业与魔法的完美结合！<br>与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。<br>这是我最早的项目之一，不过好久没有维护了。</p>
                             <div class="project-tags">
-                                <span class="tag" data-i18n="tag.minecraft"><!-- i18n: tag minecraft --></span>
-                                <span class="tag" data-i18n="tag.mod"><!-- i18n: tag mod --></span>
-                                <span class="tag" data-i18n="tag.java"><!-- i18n: tag java --></span>
+                                <span class="tag" >Minecraft</span>
+                                <span class="tag" >模组</span>
+                                <span class="tag" >Java</span>
                             </div>
                         </div>
                     </a>
@@ -203,12 +339,12 @@
                     <a href="projects/openharmony.html" class="project-card reveal-item">
                         <div class="project-image ohos"></div>
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.ohos.title"><!-- i18n: project ohos title --></h4>
-                            <p class="project-description" data-i18n="project.ohos.desc"><!-- i18n: project ohos desc --></p>
+                            <h4 class="project-title" >OpenHarmony Hi3861</h4>
+                            <p class="project-description" >基于OpenHarmony Hi3861开发板的嵌入式开发实践。<br>除了小时候玩的Arduino之外的第一个正经嵌入式开发项目，正在探索中……</p>
                             <div class="project-tags">
-                                <span class="tag" data-i18n="tag.openharmony"><!-- i18n: tag openharmony --></span>
-                                <span class="tag" data-i18n="tag.embedded"><!-- i18n: tag embedded --></span>
-                                <span class="tag" data-i18n="tag.smartLife"><!-- i18n: tag smartLife --></span>
+                                <span class="tag" >OpenHarmony</span>
+                                <span class="tag" >嵌入式开发</span>
+                                <span class="tag" >智慧生活</span>
                             </div>
                         </div>
                     </a>
@@ -217,25 +353,24 @@
                         class="project-card reveal-item">
                         <div class="project-image dr"></div>
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.dr.title"><!-- i18n: project dr title --></h4>
-                            <p class="project-description" data-i18n="project.dr.desc"><!-- i18n: project dr desc --></p>
+                            <h4 class="project-title" >Difficult Rocket（协作开发）<i class="fas fa-external-link-alt external-link-icon"></i></h4>
+                            <p class="project-description" >主要是@shenjack的项目，我就是过来玩玩的（不是）。<br>一个用Python制作的类Simple Rocket游戏（简称：火箭模拟器）。相对于原版SR，它更加轻量。</p>
                             <div class="project-tags">
-                                <span class="tag" data-i18n="tag.rust"><!-- i18n: tag rust --></span>
-                                <span class="tag" data-i18n="tag.rocketSim"><!-- i18n: tag rocketSim --></span>
+                                <span class="tag" >Rust</span>
+                                <span class="tag" >火箭模拟器</span>
                             </div>
-                            <span class="external-link-icon"><i class="fas fa-external-link-alt"></i></span>
                         </div>
                     </a>
 
                     <div class="project-card project-card-static reveal-item">
                         <div class="project-image signal"></div>
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.signal.title"><!-- i18n: project signal title --></h4>
-                            <p class="project-description" data-i18n="project.signal.desc"><!-- i18n: project signal desc --></p>
+                            <h4 class="project-title" >微弱电信号测量</h4>
+                            <p class="project-description" >物理竞赛课题。本实验通过跨阻放大电路将传感器感应到的纳安级微弱光电流线性转换为电压信号，并利用金属法拉第笼屏蔽与终端数字平均滤波双重抑噪技术 ，由Arduino配合16位ADC实现高信噪比的实时数据采集与物理量量化。</p>
                             <div class="project-tags">
-                                <span class="tag" data-i18n="tag.arduino"><!-- i18n: tag arduino --></span>
-                                <span class="tag" data-i18n="tag.communication"><!-- i18n: tag communication --></span>
-                                <span class="tag" data-i18n="tag.physics"><!-- i18n: tag physics --></span>
+                                <span class="tag" >Arduino嵌入式</span>
+                                <span class="tag" >通信工程</span>
+                                <span class="tag" >物理竞赛</span>
                             </div>
                         </div>
                     </div>
@@ -246,50 +381,50 @@
 
             <div class="projects-group">
                 <div class="projects-group-header">
-                    <h3 class="projects-group-title reveal-item" data-i18n="projects.other"><!-- i18n: projects other --></h3>
-                    <p class="projects-group-desc reveal-item" data-i18n="projects.otherDesc"><!-- i18n: projects other desc --></p>
+                    <h3 class="projects-group-title reveal-item" >其他项目</h3>
+                    <p class="projects-group-desc reveal-item" >随手写的或者各种帮同学朋友写的好玩东西（）</p>
                 </div>
                 <div class="projects-grid projects-grid-compact reveal-seq">
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.hlm.title"><!-- i18n: project hlm title --></h4>
-                            <p class="project-description" data-i18n="project.hlm.desc"><!-- i18n: project hlm desc --></p>
+                            <h4 class="project-title" >《寿怡红群芳开夜宴》</h4>
+                            <p class="project-description" >红楼梦剧组 2023 年底的翻拍项目活动，作为导演摄影和剪辑（这么看也算是"全栈开发"了）产出的一些文件。</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.whn.title"><!-- i18n: project whn title --></h4>
-                            <p class="project-description" data-i18n="project.whn.desc"><!-- i18n: project whn desc --></p>
+                            <h4 class="project-title" >whn 生日</h4>
+                            <p class="project-description" >2024/11/11 好男将的生日会项目，非常难忘的一段经历，从分镜到拍摄再到剪辑，最后的效果还挺好的！</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.graduation.title"><!-- i18n: project graduation title --></h4>
-                            <p class="project-description" data-i18n="project.graduation.desc"><!-- i18n: project graduation desc --></p>
+                            <h4 class="project-title" >毕业纪念册</h4>
+                            <p class="project-description" >人生中第一个 InDesign 项目，却做的非常非常好。前后修改了好多个版本，还为纪念册贴了一个 nfc 可以访问网站，有令人印象深刻的"送你一朵小红花"和毕业集体照。</p>
                         </div>
                     </a>
                     <a href="projects/idv.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.idv.title"><!-- i18n: project idv title --></h4>
-                            <p class="project-description" data-i18n="project.idv.desc"><!-- i18n: project idv desc --></p>
+                            <h4 class="project-title" >第五人格，启动！</h4>
+                            <p class="project-description" >当年和秀秀打人类排位到六阶搓出来的网页，页面还要很多很多bug也不管了，放在这里留个纪念（</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.xiaodou.title"><!-- i18n: project xiaodou title --></h4>
-                            <p class="project-description" data-i18n="project.xiaodou.desc"><!-- i18n: project xiaodou desc --></p>
+                            <h4 class="project-title" >小豆英语启蒙</h4>
+                            <p class="project-description" >占位文本占位文本占位文本占位文本</p>
                         </div>
                     </a>
                     <a href="projects/xxh.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.xxh.title"><!-- i18n: project xxh title --></h4>
-                            <p class="project-description" data-i18n="project.xxh.desc"><!-- i18n: project xxh desc --></p>
+                            <h4 class="project-title" >xxh 的情感契合度测试</h4>
+                            <p class="project-description" >同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
-                            <h4 class="project-title" data-i18n="project.thesis.title"><!-- i18n: project thesis title --></h4>
-                            <p class="project-description" data-i18n="project.thesis.desc"><!-- i18n: project thesis desc --></p>
+                            <h4 class="project-title" >学校论文</h4>
+                            <p class="project-description" >学校各种课程要求写的各种大作业或者结课论文，大部分都很水而且没啥用。</p>
                         </div>
                     </a>
                 </div>
@@ -304,8 +439,8 @@
     <section class="gallery reveal-section" id="gallery">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title reveal-item" data-i18n="gallery.title"><!-- i18n: gallery title --></h2>
-                <p class="section-subtitle reveal-item" data-i18n="gallery.subtitle"><!-- i18n: gallery subtitle --></p>
+                <h2 class="section-title reveal-item" >摄影作品</h2>
+                <p class="section-subtitle reveal-item" >以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
             </div>
 
             <div class="gallery-carousel reveal-item" id="galleryCarousel">
@@ -390,7 +525,7 @@
                 <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
                     rel="noopener" class="btn">
                     <i class="fas fa-external-link-alt"></i>
-                    <span data-i18n="gallery.more"><!-- i18n: gallery more --></span>
+                    <span >查看更多作品</span>
                 </a>
             </div>
         </div>
@@ -400,8 +535,8 @@
     <section class="contact reveal-section" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title reveal-item" data-i18n="contact.title"><!-- i18n: contact title --></h2>
-                <p class="section-subtitle reveal-item" data-i18n="contact.subtitle"><!-- i18n: contact subtitle --></p>
+                <h2 class="section-title reveal-item" >联系我</h2>
+                <p class="section-subtitle reveal-item" >如果方向一致，我们就一起把它做成。</p>
             </div>
 
             <div class="contact-content">
@@ -412,7 +547,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
-                                <h4 data-i18n="contact.email"><!-- i18n: contact email --></h4>
+                                <h4 >电子邮件</h4>
                                 <p>rayawa.work@outlook.com</p>
                                 <p>rayawa.work@gmail.com</p>
                             </div>
@@ -423,7 +558,7 @@
                                 <i class="fas fa-globe"></i>
                             </div>
                             <div class="contact-details">
-                                <h4 data-i18n="contact.website"><!-- i18n: contact website --></h4>
+                                <h4 >网站</h4>
                                 <p>rayawa.top</p>
                             </div>
                         </div>
@@ -433,7 +568,7 @@
                                 <i class="fab fa-qq"></i>
                             </div>
                             <div class="contact-details">
-                                <h4 data-i18n="contact.qq"><!-- i18n: contact qq --></h4>
+                                <h4 >QQ</h4>
                                 <p><a href="tencent://message/?uin=2265695808" class="qq-link">2265695808</a></p>
                             </div>
                         </div>
@@ -443,8 +578,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-details">
-                                <h4 data-i18n="contact.location"><!-- i18n: contact location --></h4>
-                                <p data-i18n="contact.locationValue"><!-- i18n: contact location value --></p>
+                                <h4 >位置</h4>
+                                <p >北京，中国</p>
                             </div>
                         </div>
                     </div>
@@ -452,7 +587,7 @@
                     <div class="contact-social-divider"></div>
 
                     <div class="contact-social">
-                        <h4 class="contact-social-title" data-i18n="contact.socialTitle"><!-- i18n: contact social title --></h4>
+                        <h4 class="contact-social-title" >我的链接</h4>
                         <div class="contact-social-grid">
                             <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
                                 class="social-card bilibili">
@@ -460,8 +595,8 @@
                                     <i class="fab fa-bilibili"></i>
                                 </div>
                                 <div class="social-details">
-                                    <h4 data-i18n="social.bili.title"><!-- i18n: social bili title --></h4>
-                                    <p data-i18n="social.bili.desc"><!-- i18n: social bili desc --></p>
+                                    <h4 >Bilibili (Rayawa)</h4>
+                                    <p >摄影作品与项目更新进度</p>
                                 </div>
                                 <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
                             </a>
@@ -472,8 +607,8 @@
                                     <i class="fab fa-bilibili"></i>
                                 </div>
                                 <div class="social-details">
-                                    <h4 data-i18n="social.biliGame.title"><!-- i18n: social biliGame title --></h4>
-                                    <p data-i18n="social.biliGame.desc"><!-- i18n: social biliGame desc --></p>
+                                    <h4 >Bilibili (Ray汐)</h4>
+                                    <p >游戏与日常</p>
                                 </div>
                                 <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
                             </a>
@@ -483,8 +618,8 @@
                                     <i class="fab fa-github"></i>
                                 </div>
                                 <div class="social-details">
-                                    <h4 data-i18n="social.github.title"><!-- i18n: social github title --></h4>
-                                    <p data-i18n="social.github.desc"><!-- i18n: social github desc --></p>
+                                    <h4 >GitHub</h4>
+                                    <p >代码与仓库入口</p>
                                 </div>
                                 <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
                             </a>
@@ -495,8 +630,8 @@
                                     <i class="fas fa-camera"></i>
                                 </div>
                                 <div class="social-details">
-                                    <h4 data-i18n="social.xhs.title"><!-- i18n: social xhs title --></h4>
-                                    <p data-i18n="social.xhs.desc"><!-- i18n: social xhs desc --></p>
+                                    <h4 >小红书</h4>
+                                    <p >我的全部摄影作品</p>
                                 </div>
                                 <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
                             </a>
@@ -506,30 +641,30 @@
 
                 <form class="contact-form" id="contactForm">
                     <div class="form-header">
-                        <h3 class="form-title" data-i18n="form.quickTitle"><!-- i18n: form quick title --></h3>
-                        <p class="form-subtitle" data-i18n="form.quickSubtitle"><!-- i18n: form quick subtitle --></p>
+                        <h3 class="form-title" >快捷消息</h3>
+                        <p class="form-subtitle" >项目合作 / 技术支持 / 摄影约稿 / Bug反馈 / 碎碎念</p>
                     </div>
                     <div class="form-group">
-                        <label for="name" data-i18n="form.name"><!-- i18n: form name --></label>
-                        <input type="text" id="name" class="form-control" data-i18n-placeholder="form.namePh" required>
-                        <p class="form-hint" data-i18n="form.nameHint"><!-- i18n: form name hint --></p>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" data-i18n="form.email"><!-- i18n: form email --></label>
-                        <input type="email" id="email" class="form-control" data-i18n-placeholder="form.emailPh" required>
-                        <p class="form-hint" data-i18n="form.emailHint"><!-- i18n: form email hint --></p>
+                        <label for="name" >姓名</label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
+                        <p class="form-hint" >请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
                     </div>
 
                     <div class="form-group">
-                        <label for="message" data-i18n="form.message"><!-- i18n: form message --></label>
-                        <textarea id="message" class="form-control" data-i18n-placeholder="form.messagePh" required></textarea>
-                        <p class="form-hint" data-i18n="form.messageHint"><!-- i18n: form message hint --></p>
+                        <label for="email" >邮箱</label>
+                        <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" required>
+                        <p class="form-hint" >请确认邮箱地址无误，这决定您能否收到回信</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" >消息</label>
+                        <textarea id="message" class="form-control" placeholder="请输入您的消息..." required></textarea>
+                        <p class="form-hint" >姓名不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
                     </div>
 
                     <button type="submit" class="btn contact-submit">
                         <i class="fas fa-paper-plane"></i>
-                        <span data-i18n="form.send"><!-- i18n: form send --></span>
+                        <span >发送消息</span>
                     </button>
                 </form>
             </div>
@@ -540,10 +675,11 @@
     <div id="site-footer"></div>
 
     <!-- JavaScript -->
+    <script>window.SITE_I18N={"zh": {"refresh": "刷新页面", "top": "回到顶部", "dotLabel": "跳转到第 {n} 张", "sending": "发送中...", "sent": "消息发送成功！我会尽快回复您。", "sendFailed": "发送失败，请稍后重试。", "pageTitle": "首页 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="static/js/i18n.js"></script>
+    
     <script>window.__HOME_JS = true;</script>
-    <script src="static/js/i18n-footer.js"></script>
+    
     <script src="static/js/footer.js"></script>
     <script src="static/js/common.js"></script>
     <script src="static/js/home.js"></script>

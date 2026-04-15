@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Projets de biologie | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
+</head>
+<body>
+  <!-- 导航栏组件 -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="../" class="logo">
+            <i class="fas fa-code"></i>
+            <span>Ray Chen</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="../">Accueil</a></li>
+            <li><a href="../#about">À propos de moi</a></li>
+            <li><a href="../#projects">Projets</a></li>
+            <li><a href="../#gallery">Photographie</a></li>
+            <li><a href="../#contact">Contact</a></li>
+        </ul>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+  <div id="particles-js"></div>
+  <main class="page">
+    <section class="hero-card">
+      <h1>Projets de biologie</h1>
+      <p>Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.</p>
+    </section>
+
+    <section class="pcr-lab">
+      <div class="section-header">
+        <h2>Laboratoire PCR</h2>
+        <p>Pionnier de la première expérience PCR au lycée, introduisant des expériences de biologie avancées en classe.<br>Exploration des dosages optimaux de réactifs pour les expériences en classe grâce à des pré-expériences et des expériences de quantité de matrice.</p>
+      </div>
+      <div class="pcr-content">
+        <div class="pcr-result">
+          <div class="gel-display">
+            <div class="display-frame">
+              <img src="../../static/resources/bio/pcr.jpg" alt="PCR凝胶电泳结果" loading="lazy">
+            </div>
+            <div class="gel-caption">L'électrophorèse sur gel montre des bandes claires, confirmant l'amplification réussie du gène cible.<br>Comparé au marqueur standard, la longueur est d'environ 600 pb, conforme aux attentes expérimentales.</div>
+          </div>
+        </div>
+        <div class="pcr-docs">
+          <div class="doc-card">
+            <div class="doc-icon">
+              <i class="fas fa-drafting-compass"></i>
+            </div>
+            <div class="doc-content">
+              <h3>Conception expérimentale</h3>
+              <p>Conception expérimentale PCR détaillée incluant la conception d'amorces, les paramètres de cyclage thermique et l'optimisation du système de réaction. Pratique pour les cours de biologie au lycée, fournissant une référence pour les expériences futures.</p>
+              <div class="single-action">
+                <a class="button button-outline" href="../../static/resources/bio/pcr_design.pdf" target="_blank" rel="noopener">Conception expérimentale</a>
+              </div>
+            </div>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div class="doc-content">
+              <h3>Rapport de laboratoire final</h3>
+              <p>Enregistrements expérimentaux complets, analyse des données et conclusions validant l'efficacité de la conception expérimentale.</p>
+              <div class="single-action">
+                <a class="button" href="../../static/resources/bio/pcr_report.pdf" target="_blank" rel="noopener">Rapport de laboratoire</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="thesis-archive">
+      <div class="section-header">
+        <h2>Archives des thèses</h2>
+        <p>Enregistrements de recherche et de réflexion, incluant des articles terminés et des travaux en cours.</p>
+      </div>
+      <div class="thesis-featured">
+        <article class="thesis-card thesis-published thesis-with-image">
+          <div class="thesis-image-wrap">
+            <img src="../../static/resources/bio/prion.jpeg" alt="朊病毒蛋白论文" loading="lazy">
+          </div>
+          <div class="thesis-body">
+            <div class="thesis-header">
+              <span class="thesis-badge">Terminé</span>
+              <span class="thesis-date">2024.6.23</span>
+            </div>
+            <h3>Mécanismes pathogènes et propriétés génétiques des protéines prions</h3>
+            <p class="thesis-abstract">Cette étude explore systématiquement les mécanismes pathogènes et les propriétés génétiques des protéines prions (PrP^Sc), en se concentrant sur leur mécanisme moléculaire d'induction du mauvais repliement des protéines prions normales (PrP^C) par conversion conformationnelle, et discute de l'effet de barrière d'espèce des prions dans la transmission inter-espèces et de leur impact potentiel sur la santé publique.</p>
+            <div class="thesis-actions">
+              <a class="button" href="../../static/resources/bio/prion.pdf" target="_blank" rel="noopener">Lire l'article</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-draft thesis-with-image">
+          <div class="thesis-image-wrap">
+            <img src="../../static/resources/bio/c3.png" alt="C3植物光合作用论文" loading="lazy">
+          </div>
+          <div class="thesis-body">
+            <div class="thesis-header">
+              <span class="thesis-badge">Brouillon</span>
+              <span class="thesis-date">2024.6.8</span>
+            </div>
+            <h3>Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement, extrêmement spéciaux</h3>
+            <p class="thesis-abstract">Cet article remet audacieusement en cause l'autorité absolue du « dogme central » de la biologie. Sur la base des propriétés d'auto-réplication des prions et des mécanismes de transcription inverse, il explore rigoureusement la possibilité des protéines comme vecteurs génétiques primitifs. Cette recherche vise à élargir les frontières de la réflexion sur l'évolution biologique et la nature de l'hérédité, fournissant un cadre hypothétique très prospectif pour l'étude des formes de vie dans des environnements extrêmes.</p>
+            <div class="thesis-actions">
+              <a class="button button-outline" href="../../static/resources/bio/c3.pdf" target="_blank" rel="noopener">Voir le brouillon</a>
+            </div>
+          </div>
+        </article>
+        <article class="thesis-card thesis-draft thesis-with-image">
+          <div class="thesis-image-wrap">
+            <img src="../../static/resources/bio/saccharomyces.jpg" alt="酿酒酵母橙色平板实验论文" loading="lazy">
+          </div>
+          <div class="thesis-body">
+            <div class="thesis-header">
+              <span class="thesis-badge">Brouillon</span>
+              <span class="thesis-date">2026.03.08</span>
+            </div>
+            <h3>Analyse et vérification du changement de couleur orange des plaques dans les expériences sur la levure</h3>
+            <p class="thesis-abstract">Face au changement de couleur anormal occasionnel des milieux de culture en microbiologie, cet article a retracé avec succès l'origine des facteurs de contamination environnementale grâce à des expériences contrôlées rigoureuses. Cette recherche ne se contente pas de résoudre un problème technique expérimental spécifique ; son importance fondamentale réside dans l'établissement de procédures normalisées d'analyse des erreurs et de contrôle qualité en laboratoire, soulignant l'importance d'une attitude rigoureuse et du respect des procédures dans la pratique scientifique.</p>
+            <div class="thesis-actions">
+              <a class="button button-outline" href="../../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">Voir le brouillon</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="hero-interactive">
+      <div class="interactive-content">
+        <div class="interactive-image">
+          <img src="../../static/resources/bio/agrobacterium.jpg" alt="农杆菌转化示意图" loading="lazy">
+          <div class="image-frame"></div>
+        </div>
+        <div class="interactive-text">
+          <h1>Explorer les processus biologiques grâce au développement interactif</h1>
+          <p class="interactive-desc">Transformer des flux de génie génétique complexes en interactions web intuitives, rendant l'apprentissage vivant et engageant. L'application web de transformation par Agrobacterium démontre comment construire des outils d'enseignement de la biologie avec du code.</p>
+          <a class="button button-large" href="gene.html">Lancer la simulation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+    <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir", "top": "Retour en haut", "pageTitle": "Projets de biologie | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="../../static/js/footer.js"></script>
+    <script src="../../static/js/particles.min.js"></script>
+    <script src="../../static/js/common.js"></script>
+</body>
+</html>

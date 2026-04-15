@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hi3861 | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
+  <link rel="stylesheet" href="../../static/css/hi3861.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span >Hi3861</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Accueil</a></li>
+        <li><a href="../index.html#about" >À propos de moi</a></li>
+        <li><a href="../index.html#projects" >Projets</a></li>
+        <li><a href="../index.html#gallery" >Photographie</a></li>
+        <li><a href="../index.html#contact" >Contact</a></li>
+      </ul>
+      <div class="language-switch">
+        <a href="/" class="lang-btn"><img src="../../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
+        <a href="/en/" class="lang-btn"><img src="../../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
+        <a href="/fr/" class="lang-btn"><img src="../../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <div id="particles-js"></div>
+
+  <main class="page hi-page">
+    <section class="hi-hero">
+      <div class="hi-hero-badge" ></div>
+      <h1 >Hi3861</h1>
+      <p class="hi-hero-desc" >Projet embarqué Hi3861 basé sur OpenHarmony, avec modules feu tricolore, lumière colorée, surveillance environnementale et commandes AT.</p>
+      <div class="hi-hero-actions">
+        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener" >Ouvrir le dépôt GitHub</a>
+        <a class="button-outline" href="openharmony-readme.html" >Ouvrir le README</a>
+      </div>
+      <div class="hi-overview-grid">
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">01</div>
+          <h2 >Carte Feu</h2>
+          <p >Contrôle LED et bouton S3.</p>
+        </article>
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">02</div>
+          <h2 >Carte Couleur</h2>
+          <p >Synchronisation son lumière et capteurs.</p>
+        </article>
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">03</div>
+          <h2 >Carte Environnement</h2>
+          <p >Mesure, affichage OLED, alarme.</p>
+        </article>
+        <article class="hi-overview-card">
+          <div class="hi-overview-index">04</div>
+          <h2 >Commandes AT</h2>
+          <p >Commande AT personnalisée.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="hi-panel">
+      <div class="hi-panel-head">
+        <h2 >Structure du projet</h2>
+        <p >Organisation modulaire.</p>
+      </div>
+      <pre class="hi-tree" >Hi3861
+rayawa
+hello
+traffic_light
+colorful_light
+environment
+at_command</pre>
+    </section>
+
+    <section class="hi-module hi-module-traffic">
+      <div class="hi-module-head">
+        <span class="hi-module-index">01</span>
+        <div>
+          <h2 >Module 1 ｜ Carte Feu</h2>
+          <p >GPIO et bouton.</p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 >Matériel</h3>
+          <div ><ul><li>LED tricolore et bouton S3</li></ul></div>
+        </article>
+        <article class="hi-card">
+          <h3 >Projets</h3>
+          <div ><ol><li>light.c</li><li>traffic.c</li><li>ability.c</li><li>button.c</li><li>control.c</li></ol></div>
+        </article>
+      </div>
+      <article class="hi-card hi-path-card">
+        <h3 >Parcours</h3>
+        <p >light.c → traffic.c → ability.c → button.c → control.c</p>
+      </article>
+    </section>
+
+    <section class="hi-module hi-module-colorful">
+      <div class="hi-module-head">
+        <span class="hi-module-index">02</span>
+        <div>
+          <h2 >Module 2 ｜ Carte Couleur</h2>
+          <p >Audio lumière et détection.</p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 >Matériel</h3>
+          <div ><ul><li>LED RGB buzzer PIR photo résistance</li></ul></div>
+        </article>
+        <article class="hi-card">
+          <h3 >Projets</h3>
+          <div ><ol><li>beep.c</li><li>music.c</li><li>led.c</li><li>human_sensor.c</li><li>photosensitive.c</li><li>human_sensor_light.c</li></ol></div>
+        </article>
+      </div>
+      <article class="hi-card hi-path-card">
+        <h3 >Parcours</h3>
+        <p >beep.c → music.c → led.c → human_sensor.c → photosensitive.c → human_sensor_light.c</p>
+      </article>
+    </section>
+
+    <section class="hi-module hi-module-environment">
+      <div class="hi-module-head">
+        <span class="hi-module-index">03</span>
+        <div>
+          <h2 >Module 3 ｜ Carte Environnement</h2>
+          <p >Capteurs et affichage OLED.</p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 >Matériel</h3>
+          <div ><ul><li>MQ 2 AHT20 OLED capteur de flamme</li></ul></div>
+        </article>
+        <article class="hi-card">
+          <h3 >Projets</h3>
+          <div ><ol><li>mq2_demo.c</li><li>aht20.c/.h</li><li>aht20_demo.c</li><li>oled_ssd1306.c/.h</li><li>oled_demo.c</li><li>enrionment_demo.c</li></ol></div>
+        </article>
+      </div>
+      <article class="hi-card">
+        <h3 >Fonctions</h3>
+        <div ><ul><li>I2C partagé</li><li>ADC</li><li>Affichage temps réel</li><li>Alerte seuil</li></ul></div>
+      </article>
+    </section>
+
+    <section class="hi-module hi-module-at">
+      <div class="hi-module-head">
+        <span class="hi-module-index">04</span>
+        <div>
+          <h2 >Module 4 ｜ Commandes AT</h2>
+          <p >Commande personnalisée et retour série.</p>
+        </div>
+      </div>
+      <div class="hi-module-grid">
+        <article class="hi-card">
+          <h3 >Projet</h3>
+          <div ><ol><li>cal.c avec AT+CALC</li></ol></div>
+        </article>
+        <article class="hi-card">
+          <h3 >Exemple</h3>
+          <div ><div class="hi-snippet">AT+CALC=12,3</div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="hi-panel hi-panel-double">
+      <article class="hi-card">
+        <h2 >Flux de compilation</h2>
+        <div ><ol><li>Sélection du module</li><li>Sélection du fichier</li><li>hb build</li><li>Flash HiBurn</li><li>Vérification série</li></ol></div>
+      </article>
+      <article class="hi-card">
+        <h2 >Pile technique</h2>
+        <div ><ul><li>GPIO PWM I2C ADC</li><li>OpenHarmony CMSIS RTOS2 HiAT</li><li>GN Ninja hb</li></ul></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir", "top": "Retour en haut", "pageTitle": "Hi3861 | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  
+  <script src="../../static/js/footer.js"></script>
+  <script src="../../static/js/common.js"></script>
+</body>
+</html>
