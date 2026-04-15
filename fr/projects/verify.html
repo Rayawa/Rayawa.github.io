@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>首页 | Ray Chen</title>
+  <title>Accueil | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
   <style>
     .verify-container {
       min-height: 100vh;
@@ -210,6 +210,7 @@
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
   <div class="verify-container">
     <div class="verify-card">
       <div class="verify-header">
@@ -261,14 +262,14 @@
 
       <div class="verify-actions">
         <button type="button" class="verify-btn verify-btn-primary" id="submitBtn">
-          <i class="fas fa-paper-plane"></i> 提交验证
-        </a>
+          <i class="fas fa-paper-plane"></i> Soumettre
+        </button>
         <button type="button" class="verify-btn verify-btn-secondary" id="clearBtn">
-          <i class="fas fa-eraser"></i> 清空答案
-        </a>
+          <i class="fas fa-eraser"></i> Effacer
+        </button>
         <button type="button" class="verify-btn verify-btn-danger" id="homeBtn">
-          <i class="fas fa-home"></i> 返回首页
-        </a>
+          <i class="fas fa-home"></i> Retour à l'accueil
+        </button>
       </div>
 
       <div class="error-message" id="errorMessage">
@@ -281,7 +282,9 @@
     </div>
   </div>
 
-  <script src="../static/js/common.js"></script>
+  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir la page", "top": "Retour en haut", "dotLabel": "Aller à la diapositive {n}", "sending": "Envoi...", "sent": "Message envoyé. Je vous répondrai bientôt.", "sendFailed": "Échec de l'envoi. Veuillez réessayer plus tard.", "pageTitle": "Accueil | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="../../static/js/particles.min.js"></script>
+    <script src="../../static/js/common.js"></script>
   <script>
     // 安全存储的答案（使用字符编码混淆）
     function getAnswers() {
@@ -390,7 +393,7 @@
       document.getElementById('successMessage').style.display = 'none';
     }
 
-    // 提交验证
+    // Soumettre
     function submitVerification() {
       const correctCount = validateAnswers();
       
@@ -428,7 +431,7 @@
       // 清空按钮
       document.getElementById('clearBtn').addEventListener('click', clearAllInputs);
       
-      // 返回首页按钮
+      // Retour à l'accueil按钮
       document.getElementById('homeBtn').addEventListener('click', function() {
         window.location.href = '../index.html';
       });

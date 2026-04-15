@@ -5,10 +5,8 @@ Convert i18n-based HTML pages to static per-language HTML pages.
 - English (en): en/ subdirectory
 - French (fr): fr/ subdirectory
 
-i18n is only used as reference for filling in translations.
-All text is hardcoded directly in HTML.
-A minimal inline SITE_I18N/FOOTER_I18N is provided for JS functionality
-(particles, animations, footer generation, floating tools).
+Language switch: ALWAYS navigates to the language root page.
+  zh -> /  |  en -> /en/  |  fr -> /fr/
 """
 
 import os, re, json, subprocess, sys
@@ -69,33 +67,47 @@ def process_html(html, trans, footer_trans, lang, orig_depth):
         return tag.replace(f'data-i18n-placeholder="{key}"', f'placeholder="{escaped}"')
     html = re.sub(r'<[^>]*data-i18n-placeholder="([^"]+)"[^>]*>', repl_placeholder, html)
 
-    # 2. data-i18n-html -> replace content with HTML translation
-    def repl_i18n_html(m):
-        pre = m.group(1)
-        key = m.group(2)
-        post = m.group(3)
-        close = m.group(4)
+    # 2. data-i18n-html with <!-- i18n: --> comment
+    def repl_i18n_html_comment(m):
+        pre, key, post, close = m.group(1), m.group(2), m.group(3), m.group(4)
         val = ft.get(key, '')
         return f"{pre}{post}{val}{close}"
     html = re.sub(
         r'(<[^>]*?)data-i18n-html="([^"]+)"([^>]*>)\s*<!-- i18n: .*?-->\s*(</[^>]+>)',
-        repl_i18n_html, html, flags=re.DOTALL
+        repl_i18n_html_comment, html, flags=re.DOTALL
     )
 
-    # 3. data-i18n -> replace content with text translation
-    def repl_i18n(m):
-        pre = m.group(1)
-        key = m.group(2)
-        post = m.group(3)
-        close = m.group(4)
+    # 3. data-i18n-html WITHOUT comment (empty content)
+    def repl_i18n_html_empty(m):
+        pre, key, post, close = m.group(1), m.group(2), m.group(3), m.group(4)
+        val = ft.get(key, '')
+        return f"{pre}{post}{val}{close}"
+    html = re.sub(
+        r'(<[^>]*?)data-i18n-html="([^"]+)"([^>]*>)\s*(</[^>]+>)',
+        repl_i18n_html_empty, html, flags=re.DOTALL
+    )
+
+    # 4. data-i18n with <!-- i18n: --> comment
+    def repl_i18n_comment(m):
+        pre, key, post, close = m.group(1), m.group(2), m.group(3), m.group(4)
         val = ft.get(key, '')
         return f"{pre}{post}{val}{close}"
     html = re.sub(
         r'(<[^>]*?)data-i18n="([^"]+)"([^>]*>)\s*<!-- i18n: .*?-->\s*(</[^>]+>)',
-        repl_i18n, html, flags=re.DOTALL
+        repl_i18n_comment, html, flags=re.DOTALL
     )
 
-    # 4. data-i18n-tooltip -> data-tooltip
+    # 5. data-i18n WITHOUT comment (empty content)
+    def repl_i18n_empty(m):
+        pre, key, post, close = m.group(1), m.group(2), m.group(3), m.group(4)
+        val = ft.get(key, '')
+        return f"{pre}{post}{val}{close}"
+    html = re.sub(
+        r'(<[^>]*?)data-i18n="([^"]+)"([^>]*>)\s*(</[^>]+>)',
+        repl_i18n_empty, html, flags=re.DOTALL
+    )
+
+    # 6. data-i18n-tooltip -> data-tooltip
     def repl_tooltip(m):
         tag = m.group(0)
         key = m.group(1)
@@ -103,16 +115,16 @@ def process_html(html, trans, footer_trans, lang, orig_depth):
         return tag.replace(f'data-i18n-tooltip="{key}"', f'data-tooltip="{val}"')
     html = re.sub(r'<[^>]*data-i18n-tooltip="([^"]+)"[^>]*>', repl_tooltip, html)
 
-    # 5. Clean up remaining i18n attributes
+    # 7. Clean up remaining i18n attributes
     html = re.sub(r'\s+data-i18n="[^"]*"', '', html)
     html = re.sub(r'\s+data-i18n-html="[^"]*"', '', html)
     html = re.sub(r'\s+data-i18n-placeholder="[^"]*"', '', html)
     html = re.sub(r'\s+data-i18n-tooltip="[^"]*"', '', html)
 
-    # 6. Remove remaining i18n comments
+    # 8. Remove remaining i18n comments
     html = re.sub(r'\s*<!-- i18n: .*?-->\s*', '', html)
 
-    # 7. Remove i18n script tags
+    # 9. Remove i18n script tags
     i18n_scripts = [
         'i18n.js', 'i18n-footer.js', 'i18n-dashboard.js', 'i18n-bio.js',
         'i18n-openharmony.js', 'i18n-spm.js', 'i18n-gene.js', 'i18n-idv.js',
@@ -122,17 +134,19 @@ def process_html(html, trans, footer_trans, lang, orig_depth):
         for pfx in ['', '../', '../../']:
             pattern = f'<script src="{pfx}static/js/{script_name}"></script>'
             html = html.replace(pattern, '')
-    html = re.sub(r'\s*<link rel="prefetch" href="[^"]*i18n[^"]*">\s*', '\n', html)
 
-    # 8. Update page title
+    # 10. Remove any existing inline SITE_I18N/FOOTER_I18N scripts (prevent duplicates)
+    html = re.sub(r'<script>window\.SITE_I18N=.*?</script>', '', html, flags=re.DOTALL)
+
+    # 11. Update page title
     if 'pageTitle' in ft:
         html = re.sub(r'<title>[^<]*</title>', f'<title>{ft["pageTitle"]}</title>', html)
 
-    # 9. Update html lang attribute
+    # 12. Update html lang attribute
     lang_map = {'zh': 'zh-CN', 'en': 'en', 'fr': 'fr'}
     html = re.sub(r'<html lang="[^"]*">', f'<html lang="{lang_map.get(lang, lang)}">', html)
 
-    # 10. Add minimal inline SITE_I18N + FOOTER_I18N for JS functionality
+    # 13. Add inline SITE_I18N + FOOTER_I18N for JS functionality
     minimal_i18n = {}
     for key in ['refresh', 'top', 'dotLabel', 'sending', 'sent', 'sendFailed', 'pageTitle',
                 'nav.home', 'nav.about', 'nav.projects', 'nav.gallery', 'nav.contact']:
@@ -143,11 +157,8 @@ def process_html(html, trans, footer_trans, lang, orig_depth):
     if footer_trans and lang in footer_trans:
         minimal_footer_data = footer_trans[lang]
 
-    all_langs_i18n = {}
-    all_langs_footer = {}
-    for l in ['zh', 'en', 'fr']:
-        all_langs_i18n[l] = minimal_i18n if l == lang else {}
-        all_langs_footer[l] = minimal_footer_data if l == lang else {}
+    all_langs_i18n = {l: (minimal_i18n if l == lang else {}) for l in ['zh', 'en', 'fr']}
+    all_langs_footer = {l: (minimal_footer_data if l == lang else {}) for l in ['zh', 'en', 'fr']}
 
     inline_script = (
         f'<script>window.SITE_I18N={json.dumps(all_langs_i18n, ensure_ascii=False)};'
@@ -167,23 +178,8 @@ def process_html(html, trans, footer_trans, lang, orig_depth):
             pos = first_script.start()
             html = html[:pos] + inline_script + '\n    ' + html[pos:]
 
-    # 11. Change language-switch buttons to links
-    if lang == 'zh':
-        if orig_depth == 0:
-            zh_href, en_href, fr_href = '#', 'en/', 'fr/'
-        else:
-            zh_href, en_href, fr_href = '#', '../en/projects/', '../fr/projects/'
-    elif lang == 'en':
-        if orig_depth == 0:
-            zh_href, en_href, fr_href = '../', '#', '../fr/'
-        else:
-            zh_href, en_href, fr_href = '../../', '#', '../../fr/'
-    else:
-        if orig_depth == 0:
-            zh_href, en_href, fr_href = '../', '../en/', '#'
-        else:
-            zh_href, en_href, fr_href = '../../', '../../en/', '#'
-
+    # 14. Language switch: ALWAYS navigate to language root
+    # zh -> /  |  en -> /en/  |  fr -> /fr/
     def make_repl(href):
         def repl(m):
             content = m.group(1)
@@ -192,24 +188,25 @@ def process_html(html, trans, footer_trans, lang, orig_depth):
 
     html = re.sub(
         r'<button[^>]*class="lang-btn"[^>]*data-lang="zh"[^>]*>(.*?)</button>',
-        make_repl(zh_href), html, flags=re.DOTALL
+        make_repl('/'), html, flags=re.DOTALL
     )
     html = re.sub(
         r'<button[^>]*class="lang-btn"[^>]*data-lang="en"[^>]*>(.*?)</button>',
-        make_repl(en_href), html, flags=re.DOTALL
+        make_repl('/en/'), html, flags=re.DOTALL
     )
     html = re.sub(
         r'<button[^>]*class="lang-btn"[^>]*data-lang="fr"[^>]*>(.*?)</button>',
-        make_repl(fr_href), html, flags=re.DOTALL
+        make_repl('/fr/'), html, flags=re.DOTALL
     )
 
-    # 12. Fix paths for en/ and fr/ subdirectory versions
+    # 15. Fix paths for en/ and fr/ subdirectory versions
     if lang in ('en', 'fr'):
         if orig_depth == 0:
             html = re.sub(r'(href|src)="static/', f'\\1="../static/', html)
             html = html.replace('src="ray.jpg"', 'src="../ray.jpg"')
         elif orig_depth == 1:
             html = html.replace('href="../static/', 'href="../../static/')
+            html = html.replace('src="../static/', 'src="../../static/')
             html = html.replace('src="../static/', 'src="../../static/')
 
     return html
@@ -230,61 +227,37 @@ def main():
         print("WARNING: Failed to parse i18n-footer.js, using empty data")
         footer_i18n = {}
 
-    # Process index.html
-    print("\n--- Processing index.html ---")
-    with open(os.path.join(BASE, 'index.html'), 'r', encoding='utf-8') as f:
-        orig_html = f.read()
-
-    for lang in ['zh', 'en', 'fr']:
-        trans = main_i18n.get(lang, {})
-        if lang == 'zh':
-            out_path = os.path.join(BASE, 'index.html')
-        elif lang == 'en':
-            out_path = os.path.join(BASE, 'en', 'index.html')
-        else:
-            out_path = os.path.join(BASE, 'fr', 'index.html')
-
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        result = process_html(orig_html, trans, footer_i18n, lang, orig_depth=0)
-        with open(out_path, 'w', encoding='utf-8') as f:
-            f.write(result)
-        print(f"  Written: {out_path}")
-
-    # Process thanks.html
-    print("\n--- Processing thanks.html ---")
-    thanks_i18n = parse_i18n_js('static/js/i18n-thanks.js')
-    if thanks_i18n:
-        with open(os.path.join(BASE, 'thanks.html'), 'r', encoding='utf-8') as f:
-            orig_html = f.read()
-
-        for lang in ['zh', 'en', 'fr']:
-            trans = thanks_i18n.get(lang, {})
-            if lang == 'zh':
-                out_path = os.path.join(BASE, 'thanks.html')
-            elif lang == 'en':
-                out_path = os.path.join(BASE, 'en', 'thanks.html')
-            else:
-                out_path = os.path.join(BASE, 'fr', 'thanks.html')
-
-            os.makedirs(os.path.dirname(out_path), exist_ok=True)
-            result = process_html(orig_html, trans, footer_i18n, lang, orig_depth=0)
-            with open(out_path, 'w', encoding='utf-8') as f:
-                f.write(result)
-            print(f"  Written: {out_path}")
-
-    # Process project pages
-    project_pages = {
-        'projects/spm.html': 'static/js/i18n-spm.js',
-        'projects/bio.html': 'static/js/i18n-bio.js',
-        'projects/dashboard.html': 'static/js/i18n-dashboard.js',
-        'projects/openharmony.html': 'static/js/i18n-openharmony.js',
-        'projects/gene.html': 'static/js/i18n-gene.js',
-        'projects/idv.html': 'static/js/i18n-idv.js',
-        'projects/xxh.html': 'static/js/i18n-xxh.js',
+    # Pages with their own i18n files
+    pages_with_i18n = {
+        'index.html': ('static/js/i18n.js', 0),
+        'thanks.html': ('static/js/i18n-thanks.js', 0),
+        '404.html': ('static/js/i18n-404.js', 0),
+        'projects/spm.html': ('static/js/i18n-spm.js', 1),
+        'projects/bio.html': ('static/js/i18n-bio.js', 1),
+        'projects/biology.html': ('static/js/i18n-bio.js', 1),
+        'projects/dashboard.html': ('static/js/i18n-dashboard.js', 1),
+        'projects/openharmony.html': ('static/js/i18n-openharmony.js', 1),
+        'projects/Hi3861.html': ('static/js/i18n-openharmony.js', 1),
+        'projects/Hi3861-readme.html': ('static/js/i18n-openharmony.js', 1),
+        'projects/gene.html': ('static/js/i18n-gene.js', 1),
+        'projects/idv.html': ('static/js/i18n-idv.js', 1),
+        'projects/xxh.html': ('static/js/i18n-xxh.js', 1),
     }
 
-    for page_rel, i18n_rel in project_pages.items():
-        print(f"\n--- Processing {page_rel} ---")
+    # Pages without i18n files (static content, just need path fix + language switch)
+    pages_without_i18n = [
+        'projects/hlm.html',
+        'projects/whn.html',
+        'projects/ncut_papers.html',
+        'projects/2025class5.html',
+        'projects/verify.html',
+        'projects/xxh_test.html',
+        'projects/openharmony-readme.html',
+    ]
+
+    # Process pages WITH i18n
+    for page_rel, (i18n_rel, depth) in pages_with_i18n.items():
+        print(f"\n--- Processing {page_rel} (i18n: {i18n_rel}) ---")
         page_path = os.path.join(BASE, page_rel)
         if not os.path.exists(page_path):
             print(f"  Skipping (not found): {page_path}")
@@ -308,7 +281,34 @@ def main():
                 out_path = os.path.join(BASE, 'fr', page_rel)
 
             os.makedirs(os.path.dirname(out_path), exist_ok=True)
-            result = process_html(orig_html, trans, footer_i18n, lang, orig_depth=1)
+            result = process_html(orig_html, trans, footer_i18n, lang, orig_depth=depth)
+            with open(out_path, 'w', encoding='utf-8') as f:
+                f.write(result)
+            print(f"  Written: {out_path}")
+
+    # Process pages WITHOUT i18n (just copy with path fix + language switch + inline i18n data)
+    for page_rel in pages_without_i18n:
+        print(f"\n--- Processing {page_rel} (no i18n, static) ---")
+        page_path = os.path.join(BASE, page_rel)
+        if not os.path.exists(page_path):
+            print(f"  Skipping (not found): {page_path}")
+            continue
+
+        with open(page_path, 'r', encoding='utf-8') as f:
+            orig_html = f.read()
+
+        depth = 1  # all in projects/
+        for lang in ['zh', 'en', 'fr']:
+            trans = main_i18n.get(lang, {})
+            if lang == 'zh':
+                out_path = os.path.join(BASE, page_rel)
+            elif lang == 'en':
+                out_path = os.path.join(BASE, 'en', page_rel)
+            else:
+                out_path = os.path.join(BASE, 'fr', page_rel)
+
+            os.makedirs(os.path.dirname(out_path), exist_ok=True)
+            result = process_html(orig_html, trans, footer_i18n, lang, orig_depth=depth)
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(result)
             print(f"  Written: {out_path}")

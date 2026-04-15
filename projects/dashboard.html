@@ -15,18 +15,18 @@
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span data-i18n="navTitle"></span></a>
+      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span >华为应用市场看板</span></a>
       <ul class="nav-links">
-        <li><a href="../index.html" data-i18n="nav.home"></a></li>
-        <li><a href="../index.html#about" data-i18n="nav.about"></a></li>
-        <li><a href="../index.html#projects" data-i18n="nav.projects"></a></li>
-        <li><a href="../index.html#gallery" data-i18n="nav.gallery"></a></li>
-        <li><a href="../index.html#contact" data-i18n="nav.contact"></a></li>
+        <li><a href="../index.html" >首页</a></li>
+        <li><a href="../index.html#about" >关于我</a></li>
+        <li><a href="../index.html#projects" >项目</a></li>
+        <li><a href="../index.html#gallery" >摄影</a></li>
+        <li><a href="../index.html#contact" >联系</a></li>
       </ul>
       <div class="language-switch">
-        <button type="button" class="lang-btn" data-lang="zh"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></button>
-        <button type="button" class="lang-btn" data-lang="en"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></button>
-        <button type="button" class="lang-btn" data-lang="fr"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></button>
+        <a href="/" class="lang-btn"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
+        <a href="/en/" class="lang-btn"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
+        <a href="/fr/" class="lang-btn"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
@@ -42,21 +42,21 @@
           <img src="../static/resources/dashboard/app_icon.png" alt="App Icon" class="app-icon">
         </div>
         <div class="hero-content">
-          <h1 data-i18n="hero.title" class="hero-title"></h1>
+          <h1  class="hero-title">华为应用市场看板</h1>
           <p class="hero-lead">
-            <span data-i18n="hero.lead.part1"></span>
-            <a href="#contact-us" class="hero-link" data-i18n="hero.lead.link"></a>
-            <span data-i18n="hero.lead.part2"></span>
+            <span >由</span>
+            <a href="#contact-us" class="hero-link" >Harmony Gallery 项目组</a>
+            <span >制作。一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。</span>
           </p>
         </div>
       </div>
       
       <div class="hero-tags-wrapper">
         <div class="hero-tags">
-          <span class="hero-tag" data-i18n="hero.tagRust"></span>
-          <span class="hero-tag" data-i18n="hero.tagDatabase"></span>
-          <span class="hero-tag" data-i18n="hero.tagPlatform"></span>
-          <span class="hero-tag" data-i18n="hero.tagAward"></span>
+          <span class="hero-tag" >以 Rust 为基础</span>
+          <span class="hero-tag" >强大的数据库</span>
+          <span class="hero-tag" >多平台适配</span>
+          <span class="hero-tag" >开放原子大赛获奖作品</span>
         </div>
       </div>
     </section>
@@ -68,45 +68,45 @@
           <div class="metrics-section">
             <div class="metrics-grid-small" id="metricsGrid">
               <article class="metric-card-small">
-                <div class="metric-label" data-i18n="metrics.totalViews.label"></div>
+                <div class="metric-label" >项目总访问量</div>
                 <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="{{mockData.totalViews}}"></div>
                 <div class="metric-field">totalViews</div>
               </article>
               <article class="metric-card-small">
-                <div class="metric-label" data-i18n="metrics.todayViews.label"></div>
+                <div class="metric-label" >今日访问量</div>
                 <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="{{mockData.todayTotalViews}}"></div>
                 <div class="metric-field">todayViews</div>
               </article>
               <article class="metric-card-small">
-                <div class="metric-label" data-i18n="metrics.harmonyViews.label"></div>
+                <div class="metric-label" >鸿蒙应用总访问量</div>
                 <div class="metric-value" data-counter-key="harmonyTotalViews" data-counter-fallback="{{mockData.harmonyTotalViews}}"></div>
                 <div class="metric-field">harmonyTotalViews</div>
               </article>
             </div>
-            <div class="metrics-note" data-i18n="metrics.note"></div>
+            <div class="metrics-note" >* 数据统计范围从2025-11-01T 04:00:00 +00:00至今，数据自动更新失败！上次更新2026-04-14T 00:06:46 +00:00。</div>
           </div>
 
           <div class="download-section">
             <div class="platform-grid">
               <a class="platform-btn platform-web" href="http://shenjack.top:10003/dashboard" target="_blank" rel="noopener">
                   <img class="platform-icon-img" data-platform-icon="web" alt="">
-                <span class="platform-main" data-i18n="access.sSite"></span>
+                <span class="platform-main" >浏览器 - S 站</span>
               </a>
               <a class="platform-btn platform-web" href="https://hmos.txit.top/dashboard" target="_blank" rel="noopener">
                   <img class="platform-icon-img" data-platform-icon="web" alt="">
-                <span class="platform-main" data-i18n="access.tSite"></span>
+                <span class="platform-main" >浏览器 - T 站</span>
               </a>
               <a class="platform-btn platform-primary" href="https://appgallery.huawei.com/link/invite-test-wap?taskId=a1298ba466be643117821e490077e117&invitationCode=8KtFf8LLNeb" target="_blank" rel="noopener">
                   <img class="platform-icon-img" data-platform-icon="harmony" alt="">
-                <span class="platform-main" data-i18n="access.harmony"></span>
+                <span class="platform-main" >HarmonyOS（内测）</span>
               </a>
               <button class="platform-btn platform-disabled platform-android" type="button" aria-disabled="true">
                   <img class="platform-icon-img" data-platform-icon="android" alt="">
-                <span class="platform-main" data-i18n="access.android"></span>
+                <span class="platform-main" >  Android（未上线）</span>
               </button>
               <button class="platform-btn platform-disabled platform-ios" type="button" aria-disabled="true">
                   <img class="platform-icon-img" data-platform-icon="apple" alt="">
-                <span class="platform-main" data-i18n="access.ios"></span>
+                <span class="platform-main" >  Apple（未上线）</span>
               </button>
             </div>
           </div>
@@ -118,8 +118,8 @@
     <section class="content-section">
       <div class="section-container">
         <div class="section-header">
-          <h2 data-i18n="details.title"></h2>
-          <p data-i18n="details.desc"></p>
+          <h2 >详细介绍</h2>
+          <p >以下内容聚焦项目目标、核心能力与技术架构。</p>
         </div>
 
         <div class="details-grid">
@@ -127,30 +127,30 @@
             <div class="info-card">
               <div class="card-header">
                 <span class="card-number">01</span>
-                <h3 data-i18n="details.what.title"></h3>
+                <h3 >项目是做什么的</h3>
               </div>
               <div class="card-body">
-                <p data-i18n="details.what.li1"></p>
-                <p data-i18n="details.what.li2"></p>
-                <p data-i18n="details.what.li3"></p>
-                <p data-i18n="details.what.li4"></p>
-                <p data-i18n="details.what.li5"></p>
-                <p data-i18n="details.what.li6"></p>
+                <p >本应用是由Harmony Gallery项目组直接参与编写的鸿蒙应用。应用收集华为应用市场的公开数据，转化为直观的图表与报告。简单来说，您能在这里查看几乎所有鸿蒙应用的动态。</p>
+                <p >1. 数据总览与图表分析：通过榜单、饼图与折线图，直观查看应用下载量、评分趋势与市场分布。</p>
+                <p >2. 搜索应用与查看详情：支持按名称、评分等条件搜索排序、应用内搜索应用、分享链接搜索应用。您可查看各种应用数据与趋势图。</p>
+                <p >3. 数据定时自动更新：后台每30分钟同步一次数据，确保您始终获取最新数据。</p>
+                <p >4. 交互式操作与分享：点击图表可进行数据筛选，点击应用可进入详情页；您也可通过链接、隔空抓取或鸿蒙碰一碰便捷分享应用页面。</p>
+                <p >5. 投稿更新应用信息：您可通过应用市场分享与"我的"页面向应用看板投稿，协助投稿新应用或更新应用信息。</p>
               </div>
             </div>
 
             <div class="info-card">
               <div class="card-header">
                 <span class="card-number">02</span>
-                <h3 data-i18n="details.usage.title"></h3>
+                <h3 >网页端核心功能</h3>
               </div>
               <div class="card-body">
                 <ul class="detail-list">
-                  <li data-i18n="details.usage.li1"></li>
-                  <li data-i18n="details.usage.li2"></li>
-                  <li data-i18n="details.usage.li3"></li>
-                  <li data-i18n="details.usage.li4"></li>
-                  <li data-i18n="details.usage.li5"></li>
+                  <li >1. 数据统计：展示应用总数、元服务总数、开发者总数等关键指标的统计数据。</li>
+                  <li >2. 下载榜：提供下载量排名前20的应用列表，以及排除华为系应用后的下载量排名。</li>
+                  <li >3. 应用详情：点击任意应用相关图标查看应用的详细信息，包括下载量、评分、支持设备、版本信息等。</li>
+                  <li >4. 趋势分析：展示应用下载量的变化趋势和增量趋势图表。</li>
+                  <li >5. 应用列表：详细应用信息表格，支持搜索、排序、筛选功能。</li>
                 </ul>
               </div>
             </div>
@@ -159,25 +159,25 @@
           <aside class="details-sidebar">
             <div class="note-card">
               <div class="note-icon">⚠️</div>
-              <h3 data-i18n="details.notes.title"></h3>
+              <h3 >重要提示</h3>
               <ul class="note-list">
-                <li data-i18n="details.notes.li1"></li>
-                <li data-i18n="details.notes.li2"></li>
-                <li data-i18n="details.notes.li3"></li>
-                <li data-i18n="details.notes.li4"></li>
-                <li data-i18n="details.notes.li5"></li>
+                <li >架构限制：数据内容仅覆盖HarmonyOS 5+核心环境，不含侧载或企业定制版应用。</li>
+                <li >更新延迟：数据存在滞后性，同步质量受限于用户网络稳定性，项目组不保证信息的即时性。</li>
+                <li >免责申明：所有数据由第三方测算，不代表华为官方立场！</li>
+                <li >知识产权：算法原创，严禁商用。使用API对接数据库前请先与我们取得联系。</li>
+                <li >动态调整本项目组拥有对本统计方法论及数据口径的最终解释权，保留在不预先通知的情况下修正算法逻辑的权利。</li>
               </ul>
             </div>
 
             <div class="highlight-card harmony-card">
               <div class="highlight-icon">🎨</div>
-              <h3 data-i18n="details.harmony.title"></h3>
-              <p class="highlight-summary" data-i18n="details.harmony.summary"></p>
+              <h3 >鸿蒙版本特色</h3>
+              <p class="highlight-summary" >原生能力与跨设备体验</p>
               <ul class="highlight-list">
-                <li data-i18n="details.harmony.li1"></li>
-                <li data-i18n="details.harmony.li2"></li>
-                <li data-i18n="details.harmony.li3"></li>
-                <li data-i18n="details.harmony.li4"></li>
+                <li >HarmonyOS智能：AI信息提取辅助，支持应用内娱应用市场分享到看板查询投稿应用。</li>
+                <li >HarmonyOS互联：鸿蒙原生交互体验。支持应用接续、链接分享、碰一碰与隔空传送，便于页面的跨设备传播。。</li>
+                <li >HarmonyOS美学：高级质感、气态交互、光场视效，适配最新API23沉浸式材质与半模态模糊。</li>
+                <li >HarmonyOS流畅：多线程并发、无第三方库，ArkTS原生流畅。</li>
               </ul>
             </div>
           </aside>
@@ -189,68 +189,68 @@
     <section class="content-section">
       <div class="section-container">
         <div class="section-header">
-          <h2 data-i18n="details.tech.title"></h2>
-          <p data-i18n="details.tech.desc"></p>
+          <h2 >技术架构</h2>
+          <p >项目采用现代化技术栈，确保高性能、高可用性与可维护性</p>
         </div>
 
         <div class="tech-two-columns">
           <div class="tech-column">
             <div class="tech-detail-block">
-              <h3 data-i18n="details.tech.backend.title"></h3>
-              <p class="tech-summary" data-i18n="details.tech.backend.summary"></p>
+              <h3 >后端技术（Rust）</h3>
+              <p class="tech-summary" >Rust 技术栈实现数据聚合、API 暴露、数据库访问和服务端能力编排</p>
               <ul class="tech-list">
-                <li data-i18n="details.tech.backend.items.rust"></li>
-                <li data-i18n="details.tech.backend.items.axum"></li>
-                <li data-i18n="details.tech.backend.items.tokio"></li>
-                <li data-i18n="details.tech.backend.items.sqlx"></li>
-                <li data-i18n="details.tech.backend.items.reqwest"></li>
-                <li data-i18n="details.tech.backend.items.serde"></li>
-                <li data-i18n="details.tech.backend.items.tracing"></li>
-                <li data-i18n="details.tech.backend.items.compression"></li>
+                <li >Rust 2024 Edition：内存安全、零成本抽象、高性能</li>
+                <li >Axum 0.8：类型安全的 Web 框架，ergonomic API 设计</li>
+                <li >Tokio 1.47：异步运行时，高效并发处理</li>
+                <li >SQLx 0.8：编译期 SQL 检查，类型安全的数据库操作</li>
+                <li >Reqwest 0.12：HTTP 客户端，支持连接池与自动重试</li>
+                <li >Serde + TOML：序列化/反序列化，配置管理</li>
+                <li >Tracing：结构化日志与性能追踪</li>
+                <li >Tower HTTP 压缩：Brotli、Gzip、Deflate、Zstd</li>
               </ul>
             </div>
 
             <div class="tech-detail-block">
-              <h3 data-i18n="details.tech.database.title"></h3>
-              <p class="tech-summary" data-i18n="details.tech.database.summary"></p>
+              <h3 >数据库（PostgreSQL）</h3>
+              <p class="tech-summary" >PostgreSQL 12+ 推荐 14+，强大的关系型数据库</p>
               <ul class="tech-list">
-                <li data-i18n="details.tech.database.items.tables"></li>
-                <li data-i18n="details.tech.database.items.triggers"></li>
-                <li data-i18n="details.tech.database.items.indexes"></li>
-                <li data-i18n="details.tech.database.items.foreign_keys"></li>
-                <li data-i18n="details.tech.database.items.json"></li>
+                <li >数据表：app_info, app_metrics, app_rating, app_raw, substance 等</li>
+                <li >触发器：自动化数据更新与一致性维护</li>
+                <li >索引优化：查询性能提升</li>
+                <li >外键级联：数据完整性保障</li>
+                <li >JSON 字段：灵活的数据结构支持</li>
               </ul>
             </div>
           </div>
 
           <div class="tech-column">
             <div class="tech-detail-block">
-              <h3 data-i18n="details.tech.frontend_web.title"></h3>
+              <h3 >网站前端</h3>
               <div class="tech-subsection">
-                <h4 data-i18n="details.tech.frontend_s.title"></h4>
+                <h4 >S 站前端</h4>
                 <ul class="tech-list">
-                  <li data-i18n="details.tech.frontend_s.items.js"></li>
-                  <li data-i18n="details.tech.frontend_s.items.chart"></li>
-                  <li data-i18n="details.tech.frontend_s.items.markdown"></li>
-                  <li data-i18n="details.tech.frontend_s.items.responsive"></li>
+                  <li >原生 JavaScript：无框架依赖，轻量高效</li>
+                  <li >Chart.js + Date-fns：数据可视化</li>
+                  <li >Markdown-it：Markdown 渲染</li>
+                  <li >响应式设计：移动端适配</li>
                 </ul>
               </div>
               <div class="tech-subsection">
-                <h4 data-i18n="details.tech.frontend_t.title"></h4>
+                <h4 >T 站前端</h4>
                 <ul class="tech-list">
-                  <li data-i18n="details.tech.frontend_t.items.vue"></li>
+                  <li >Vue.js：渐进式前端框架</li>
                 </ul>
               </div>
             </div>
 
             <div class="tech-detail-block">
-              <h3 data-i18n="details.tech.frontend_harmony.title"></h3>
+              <h3 >鸿蒙前端</h3>
               <ul class="tech-list">
-                <li data-i18n="details.tech.frontend_harmony.items.language"></li>
-                <li data-i18n="details.tech.frontend_harmony.items.ui"></li>
-                <li data-i18n="details.tech.frontend_harmony.items.web"></li>
-                <li data-i18n="details.tech.frontend_harmony.items.model"></li>
-                <li data-i18n="details.tech.frontend_harmony.items.build"></li>
+                <li >ArkTS：鸿蒙应用开发语言</li>
+                <li >ArkUI：声明式 UI 框架</li>
+                <li >ArkWeb：Web 容器集成</li>
+                <li >Stage Model：现代化工程模型</li>
+                <li >Hvigor：构建工具链</li>
               </ul>
             </div>
           </div>
@@ -262,18 +262,18 @@
     <section class="content-section">
       <div class="section-container">
         <div class="section-header">
-          <h2 data-i18n="details.database_integration.title"></h2>
-          <p class="intro-text" data-i18n="details.database_integration.intro"></p>
+          <h2 >数据库接入</h2>
+          <p class="intro-text" >Harmony Gallery 项目组提供鸿蒙应用市场数据查询、统计分析等功能接口，欢迎有需要的项目与我们的数据库对接。</p>
         </div>
 
         <div class="integration-layout">
           <div class="integration-left">
-            <h3 data-i18n="details.database_integration.cases_title"></h3>
+            <h3 >接入案例 · 友情链接</h3>
             <div class="integration-cases-vertical">
               <a class="case-item" href="https://appgallery.huawei.com/app/detail?id=com.xxtstudio.accountDL" target="_blank" rel="noopener">
                 <div class="case-content">
-                  <div class="case-title" data-i18n="details.database_integration.cases.case1.title"></div>
-                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case1.subtitle"></div>
+                  <div class="case-title" >记得订阅 App</div>
+                  <div class="case-subtitle" >使用数据库获取订阅App图标。</div>
                 </div>
                 <div class="case-link-icon">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -281,8 +281,8 @@
               </a>
               <a class="case-item" href="https://hdc.osbdf.com/" target="_blank" rel="noopener">
                 <div class="case-content">
-                  <div class="case-title" data-i18n="details.database_integration.cases.case2.title"></div>
-                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case2.subtitle"></div>
+                  <div class="case-title" >HAP 资源站</div>
+                  <div class="case-subtitle" >网站数据使用数据库</div>
                 </div>
                 <div class="case-link-icon">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -290,8 +290,8 @@
               </a>
               <a class="case-item" href="https://next.vcck.cn/#/" target="_blank" rel="noopener">
                 <div class="case-content">
-                  <div class="case-title" data-i18n="details.database_integration.cases.case3.title"></div>
-                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case3.subtitle"></div>
+                  <div class="case-title" >NEXT Store</div>
+                  <div class="case-subtitle" >网站数据使用数据库</div>
                 </div>
                 <div class="case-link-icon">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -299,8 +299,8 @@
               </a>
               <a class="case-item" href="https://dztap.com/app.html" target="_blank" rel="noopener">
                 <div class="case-content">
-                  <div class="case-title" data-i18n="details.database_integration.cases.case4.title"></div>
-                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case4.subtitle"></div>
+                  <div class="case-title" >小刘的站点</div>
+                  <div class="case-subtitle" >网站数据使用数据库</div>
                 </div>
                 <div class="case-link-icon">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -308,8 +308,8 @@
               </a>
               <a class="case-item" href="https://next.betahub.tech/" target="_blank" rel="noopener">
                 <div class="case-content">
-                  <div class="case-title" data-i18n="details.database_integration.cases.case5.title"></div>
-                  <div class="case-subtitle" data-i18n="details.database_integration.cases.case5.subtitle"></div>
+                  <div class="case-title" >Open Store</div>
+                  <div class="case-subtitle" >网站数据使用数据库</div>
                 </div>
                 <div class="case-link-icon">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -320,18 +320,19 @@
 
           <div class="integration-right">
             <div class="integration-warning">
-              <h3 data-i18n="details.database_integration.warning.title"></h3>
-              <p data-i18n="details.database_integration.warning.p1"></p>
-              <p data-i18n="details.database_integration.warning.p2"></p>
-              <p data-i18n="details.database_integration.warning.p3"></p>
+              <h3 >⚠️ 重要提示</h3>
+              <p >对接数据库之前需要明确告知我们，否则可能违反开源许可。</p>
+              <p >使用者不得在获取信息之后在本地原样存储。</p>
+              <p >友情链接内网站展示的任何内容均与鸿蒙应用看板无关。Harmony Gallery 项目组不负责维护友情链接内容。</p>
             </div>
 
             <div class="api-section">
-              <h3 data-i18n="details.database_integration.api_title"></h3>
-              <p data-i18n="details.database_integration.api_desc"></p>
+              <h3 >API 文档</h3>
+              <p >查看完整的 API 接口文档，了解数据接入方式
+如果您有意向使用我们的数据库，请先与我们取得联系！</p>
               <div class="api-buttons">
-                <a class="api-btn" href="http://shenjack.top:10003/docs" target="_blank" rel="noopener" data-i18n="details.database_integration.api_button"></a>
-                <a class="api-btn api-btn-secondary" href="#contact-us" data-i18n="details.database_integration.contact_button"></a>
+                <a class="api-btn" href="http://shenjack.top:10003/docs" target="_blank" rel="noopener" >查看 API 文档</a>
+                <a class="api-btn api-btn-secondary" href="#contact-us" >联系我们</a>
               </div>
             </div>
           </div>
@@ -343,60 +344,60 @@
     <section class="content-section" id="contact-us">
       <div class="section-container">
         <div class="section-header">
-          <h2 data-i18n="contact.title"></h2>
-          <p data-i18n="contact.desc"></p>
+          <h2 >联系我们</h2>
+          <p >感谢所有为项目做出贡献的开发者与合作伙伴</p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-team">
-            <h3><a href="#contact-us" class="team-title-link" data-i18n="contact.team.title"></a></h3>
+            <h3><a href="#contact-us" class="team-title-link" >Harmony Gallery 项目组</a></h3>
             <div class="team-grid">
               <div class="team-item">
-                <div class="team-name" data-i18n="contact.team.members.shenjack.name"></div>
-                <div class="team-contact" data-i18n="contact.team.members.shenjack.contact"></div>
-                <div class="team-role" data-i18n="contact.team.members.shenjack.role"></div>
+                <div class="team-name" >shenjack</div>
+                <div class="team-contact" >邮箱：3695888@qq.com</div>
+                <div class="team-role" >主要负责人</div>
               </div>
               <div class="team-item">
-                <div class="team-name" data-i18n="contact.team.members.rayawa.name"></div>
-                <div class="team-contact" data-i18n="contact.team.members.rayawa.contact"></div>
-                <div class="team-role" data-i18n="contact.team.members.rayawa.role"></div>
+                <div class="team-name" >清霁·Rayawa</div>
+                <div class="team-contact" >邮箱：rayawa.work@outlook.com</div>
+                <div class="team-role" >鸿蒙应用开发、网站制作</div>
               </div>
               <div class="team-item">
-                <div class="team-name" data-i18n="contact.team.members.tianxiu2b2t.name"></div>
-                <div class="team-contact" data-i18n="contact.team.members.tianxiu2b2t.contact"></div>
-                <div class="team-role" data-i18n="contact.team.members.tianxiu2b2t.role"></div>
+                <div class="team-name" >tianxiu2b2t</div>
+                <div class="team-contact" >邮箱：administrator@ttb-network.top</div>
+                <div class="team-role" >T 站网页负责人</div>
               </div>
               <div class="team-item">
-                <div class="team-name" data-i18n="contact.team.members.qqgroup.name"></div>
+                <div class="team-name" >Harmony Gallery 官方交流群</div>
                 <div class="team-contact">
                   <a href="https://qm.qq.com/q/ux1dXhwhZ8" target="_blank" rel="noopener" class="qq-link">
-                    <span data-i18n="contact.team.members.qqgroup.contact_label"></span>
+                    <span >群号：757273833</span>
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   </a>
                 </div>
-                <div class="team-role" data-i18n="contact.team.members.qqgroup.role"></div>
+                <div class="team-role" >QQ 群</div>
               </div>
             </div>
           </div>
 
           <div class="contact-info">
             <div class="acknowledgments-section">
-              <h3 data-i18n="contact.acknowledgments.title"></h3>
+              <h3 >致谢</h3>
               <ul class="acknowledgments-list">
-                <li data-i18n="contact.acknowledgments.items.huawei"></li>
-                <li data-i18n="contact.acknowledgments.items.openatom"></li>
-                <li data-i18n="contact.acknowledgments.items.community"></li>
+                <li >项目致谢：伤心萨摩耶、HEZI641</li>
+                <li >鸿蒙应用致谢：筱冉、音唯Artix</li>
+                <li >感谢华为开发者联盟技术支持</li>
               </ul>
             </div>
 
             <div class="license-section">
-              <h3 data-i18n="contact.license.title"></h3>
+              <h3 >开源许可</h3>
               <a href="https://opensource.org/licenses/GPL-3.0" target="_blank" rel="noopener" class="license-badge-link">
                 <div class="license-badge">
-                  <span class="license-name" data-i18n="contact.license.name"></span>
+                  <span class="license-name" >GPL-3.0 License</span>
                 </div>
               </a>
-              <p class="license-desc" data-i18n="contact.license.desc"></p>
+              <p class="license-desc" >本项目采用 GPL-3.0 协议开源，允许自由使用、修改与分发，但衍生作品必须采用相同协议</p>
             </div>
           </div>
         </div>
@@ -406,10 +407,11 @@
 
   <div id="site-footer"></div>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="../static/js/i18n-dashboard.js"></script>
+  <script>window.SITE_I18N={"zh": {"nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
   <script src="../static/js/dashboard.js"></script>
-  <script src="../static/js/i18n-footer.js"></script>
+  
   <script src="../static/js/footer.js"></script>
   <script src="../static/js/common.js"></script>
 </body>

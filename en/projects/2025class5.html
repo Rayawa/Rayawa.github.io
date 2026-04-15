@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>首页 | Ray Chen</title>
+  <title>Home | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../static/css/common.css">
-  <link rel="stylesheet" href="../static/css/subpage.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
   <style>
     .cover-display {
       width: 100%;
@@ -199,17 +199,17 @@
   <!-- 导航栏组件 -->
 <nav class="navbar" id="navbar">
     <div class="container nav-container">
-        <a href="#" class="logo">
+        <a href="../" class="logo">
             <i class="fas fa-code"></i>
             <span>Ray Chen</span>
         </a>
 
         <ul class="nav-links">
-            <li><a href="#">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#gallery">摄影</a></li>
-            <li><a href="#contact">联系</a></li>
+            <li><a href="../">Home</a></li>
+            <li><a href="../#about">About Me</a></li>
+            <li><a href="../#projects">Projects</a></li>
+            <li><a href="../#gallery">Photography</a></li>
+            <li><a href="../#contact">Contact</a></li>
         </ul>
 
         <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -413,8 +413,10 @@
   </main>
     <div id="site-footer"></div>
 
-  <script src="../static/js/footer.js"></script>
-    <script src="../static/js/common.js"></script>
+  <script>window.SITE_I18N={"zh": {}, "en": {"refresh": "Refresh page", "top": "Back to top", "dotLabel": "Go to slide {n}", "sending": "Sending...", "sent": "Message sent successfully. I will reply soon.", "sendFailed": "Failed to send. Please try again later.", "pageTitle": "Home | Ray Chen", "nav.home": "Home", "nav.about": "About Me", "nav.projects": "Projects", "nav.gallery": "Photography", "nav.contact": "Contact"}, "fr": {}};window.FOOTER_I18N={"zh": {}, "en": {"nav": {"home": "Home", "about": "About Me", "projects": "Projects", "gallery": "Photography", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Biology Projects"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Measurement of Weak Electrical Signals"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Quick Links", "projects": "Projects", "thanks": "Acknowledgements", "thanksLink": "View Acknowledgements", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="../../static/js/footer.js"></script>
+    <script src="../../static/js/particles.min.js"></script>
+    <script src="../../static/js/common.js"></script>
   <script>
     // 验证检查
     document.addEventListener('DOMContentLoaded', function() {
