@@ -326,9 +326,18 @@ function initFloatingTools() {
     document.body.appendChild(wrapper);
 
     function updateLabels() {
-        var i18n = SITE_I18N[locale];
-        var refreshText = (i18n && i18n.refresh) || '刷新页面';
-        var topText = (i18n && i18n.top) || '回到顶部';
+        var htmlLang = document.documentElement.lang || 'zh-CN';
+        var refreshText, topText;
+        if (htmlLang.startsWith('en')) {
+            refreshText = 'Refresh page';
+            topText = 'Back to top';
+        } else if (htmlLang.startsWith('fr')) {
+            refreshText = 'Rafraîchir la page';
+            topText = 'Retour en haut';
+        } else {
+            refreshText = '刷新页面';
+            topText = '回到顶部';
+        }
         refreshBtn.setAttribute('aria-label', refreshText);
         refreshBtn.setAttribute('title', refreshText);
         refreshBtn.querySelector('.fab-tooltip').textContent = refreshText;

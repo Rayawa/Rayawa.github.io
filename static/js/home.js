@@ -267,35 +267,42 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    const URL_INTIMATE = "https://formspree.io/f/mnjorrro"; // 亲密地址
-    const URL_GENERAL = "https://formspree.io/f/mqegjjgr";  // 一般人地址 
+    const URL_INTIMATE = "https://formspree.io/f/mnjorrro";
+    const URL_GENERAL = "https://formspree.io/f/mqegjjgr";
 
-    const SECRET_CODE = "#sweet"; 
+    const SECRET_CODE = "#sweet";
+
+    function getI18nText(key, fallback) {
+        var htmlLang = document.documentElement.lang || 'zh-CN';
+        var locale = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : 'zh';
+        var i18n = (window.SITE_I18N && window.SITE_I18N[locale]) || {};
+        return i18n[key] || fallback;
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn ? submitBtn.innerHTML : "发送";
+        const originalText = submitBtn ? submitBtn.innerHTML : getI18nText('send', 'Send');
         
         const nameValue = document.getElementById('name')?.value || '';
         const emailValue = document.getElementById('email')?.value || '';
         const messageValue = document.getElementById('message')?.value || '';
         
         const isIntimate = messageValue.toLowerCase().includes(SECRET_CODE.toLowerCase());
-        const displayName = nameValue.trim() || "匿名用户";
+        var htmlLang = document.documentElement.lang || 'zh-CN';
+        var locale = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : 'zh';
+        const anonymousName = locale === 'en' ? 'Anonymous' : locale === 'fr' ? 'Anonyme' : '匿名用户';
+        const displayName = nameValue.trim() || anonymousName;
 
         const targetUrl = isIntimate ? URL_INTIMATE : URL_GENERAL;
         const subject = isIntimate 
-            ? `【rayawa.top】💗${displayName} 发来了一条带暗号的消息 ✨` 
-            : `【rayawa.top】收到来自 ${displayName} 的网页留言`;
-
-        console.log(`[Contact] 正在通过 ${isIntimate ? '加密' : '标准'} 通道发送...`);
-        console.log(`[Contact] 目标 Endpoint: ${targetUrl}`);
+            ? `[rayawa.top] 💗 ${displayName} - Secret Message ✨` 
+            : `[rayawa.top] Message from ${displayName}`;
 
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="loading-spinner"></span> 发送中...';
+            submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + getI18nText('sending', 'Sending...');
         }
 
         const payload = {
@@ -317,17 +324,17 @@ function initContactForm() {
 
             if (response.ok) {
                 if (isIntimate) {
-                    alert(`💗 暗号认证成功！${displayName}，你的私信已投递至亲密邮箱✨`);
+                    const intimateMsg = locale === 'en' ? `💗 Secret code verified! ${displayName}, your message has been delivered ✨` : locale === 'fr' ? `💗 Code secret vérifié ! ${displayName}, votre message a été livré ✨` : `💗 暗号认证成功！${displayName}，你的私信已投递至亲密邮箱✨`;
+                    alert(intimateMsg);
                 } else {
-                    alert(`消息已送达！感谢你的留言，${displayName}。`);
+                    alert(getI18nText('sent', locale === 'fr' ? 'Message envoyé ! Merci pour votre message.' : 'Message sent! Thank you for your message.'));
                 }
                 form.reset();
             } else {
                 throw new Error('Response error');
             }
         } catch (err) {
-            console.error('[Contact Error] 发送过程中出错:', err);
-            alert("发送失败，请检查网络连接或稍后再试。");
+            alert(getI18nText('sendFailed', locale === 'fr' ? "Échec de l'envoi. Veuillez réessayer plus tard." : 'Failed to send. Please try again later.'));
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
