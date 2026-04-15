@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>首页 | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../static/css/subpage.css">
+  <style>
+    .birthday-hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(244, 114, 182, 0.1) 100%);
+      border-radius: var(--radius);
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .birthday-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .birthday-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .birthday-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+      background: linear-gradient(135deg, var(--primary) 0%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .birthday-hero p {
+      font-size: 1.25rem;
+      color: var(--gray-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .birthday-date {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--primary);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-5px);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .project-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      color: var(--light);
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    .project-card p {
+      color: var(--gray-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .video-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius);
+      padding: 3rem;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+      opacity: 0.3;
+    }
+
+    .video-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    .video-placeholder h3 {
+      font-size: 1.5rem;
+      z-index: 1;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .photo-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 1rem;
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-item:hover .photo-overlay {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .birthday-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .birthday-hero p {
+        font-size: 1.1rem;
+      }
+      
+      .video-section {
+        padding: 2rem;
+      }
+      
+      .video-placeholder {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .birthday-hero {
+        padding: 3rem 1rem;
+      }
+      
+      .birthday-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏组件 -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="#" class="logo">
+            <i class="fas fa-code"></i>
+            <span>Ray Chen</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#gallery">摄影</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+  <div id="particles-js"></div>
+  <main class="page">
+    <section class="birthday-hero">
+      <div class="birthday-hero-content">
+        <h1>whn 生日会项目</h1>
+        <p>2024年11月11日 - 一段难忘的经历，从分镜到拍摄再到剪辑，最后的效果还挺好的！</p>
+        <div class="birthday-date">2024/11/11</div>
+      </div>
+    </section>
+
+    <section class="pcr-lab">
+      <div class="section-header">
+        <h2>项目概述</h2>
+        <p>生日会项目的完整流程和成果展示</p>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-film"></i>
+          </div>
+          <h3>分镜设计</h3>
+          <p>精心设计的拍摄分镜，包含场景规划、镜头角度和拍摄顺序，确保拍摄过程高效有序。</p>
+          <a class="button button-outline" href="#" target="_blank" rel="noopener">查看分镜稿</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>现场拍摄</h3>
+          <p>使用专业设备进行多角度拍摄，捕捉生日会的每一个精彩瞬间，包含室内外多个场景。</p>
+          <a class="button button-outline" href="#" target="_blank" rel="noopener">查看拍摄花絮</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-cut"></i>
+          </div>
+          <h3>后期剪辑</h3>
+          <p>专业的视频剪辑和后期处理，包含色彩校正、特效添加、音频优化和字幕制作。</p>
+          <a class="button button-outline" href="#" target="_blank" rel="noopener">查看剪辑流程</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="section-header">
+        <h2>成片展示</h2>
+        <p>生日会完整视频和精彩片段</p>
+      </div>
+      
+      <div class="video-placeholder">
+        <i class="fas fa-play-circle"></i>
+        <h3>whn 生日会完整视频</h3>
+        <p>时长：15分钟 | 分辨率：4K</p>
+      </div>
+      
+      <div class="video-controls" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a class="button" href="#" target="_blank" rel="noopener">
+          <i class="fas fa-play"></i> 在线播放
+        </a>
+        <a class="button button-outline" href="#" target="_blank" rel="noopener">
+          <i class="fas fa-download"></i> 下载视频 (2.5GB)
+        </a>
+        <a class="button button-outline" href="#" target="_blank" rel="noopener">
+          <i class="fas fa-share-alt"></i> 分享链接
+        </a>
+      </div>
+    </section>
+
+    <section class="thesis-archive">
+      <div class="section-header">
+        <h2>照片集</h2>
+        <p>生日会精彩瞬间照片精选</p>
+      </div>
+      
+      <div class="photo-gallery">
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="生日会布置" loading="lazy">
+          <div class="photo-overlay">
+            <p>生日会现场布置</p>
+          </div>
+        </div>
+        
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="生日蛋糕" loading="lazy">
+          <div class="photo-overlay">
+            <p>精美生日蛋糕</p>
+          </div>
+        </div>
+        
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="朋友合影" loading="lazy">
+          <div class="photo-overlay">
+            <p>朋友合影留念</p>
+          </div>
+        </div>
+        
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="庆祝时刻" loading="lazy">
+          <div class="photo-overlay">
+            <p>欢乐庆祝时刻</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a class="button" href="#" target="_blank" rel="noopener">
+          <i class="fas fa-images"></i> 查看完整照片集
+        </a>
+      </div>
+    </section>
+
+    <section class="hero-interactive">
+      <div class="interactive-content">
+        <div class="interactive-image">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="生日会回忆" loading="lazy">
+          <div class="image-frame"></div>
+        </div>
+        <div class="interactive-text">
+          <h1>珍贵回忆</h1>
+          <p class="interactive-desc">这次生日会不仅是一次简单的庆祝活动，更是一次团队协作的完美体现。从策划到执行，每一个环节都凝聚了大家的心血和创意。</p>
+          <a class="button button-large" href="graduation.html">查看毕业纪念册</a>
+        </div>
+      </div>
+    </section>
+  </main>
+    <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh": {"refresh": "刷新页面", "top": "回到顶部", "dotLabel": "跳转到第 {n} 张", "sending": "发送中...", "sent": "消息发送成功！我会尽快回复您。", "sendFailed": "发送失败，请稍后重试。", "pageTitle": "首页 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="../static/js/footer.js"></script>
+    <script src="../static/js/particles.min.js"></script>
+    <script src="../static/js/common.js"></script>
+  <script>
+    // 验证检查
+    document.addEventListener('DOMContentLoaded', function() {
+      const verified = localStorage.getItem('verified_whn.html');
+      
+      if (verified !== 'true') {
+        // 未通过验证，跳转到验证页面
+        window.location.href = 'verify.html?target=whn.html';
+      }
+    });
+  </script>
+</body>
+</html>

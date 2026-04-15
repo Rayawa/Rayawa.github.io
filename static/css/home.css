@@ -577,12 +577,10 @@ a.skill-link {
 }
 
 .external-link-icon {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
+    font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.35);
-    font-size: 0.75rem;
     transition: color 0.2s ease;
+    flex-shrink: 0;
 }
 
 .project-card:hover .external-link-icon {
@@ -594,6 +592,9 @@ a.skill-link {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .project-description {

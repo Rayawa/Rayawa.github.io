@@ -4,11 +4,22 @@
 
     var isHomepage = document.body.classList.contains('is-homepage');
     var path = window.location.pathname;
+    var htmlLang = document.documentElement.lang || 'zh-CN';
+    var langDir = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : '';
     var depth = path.split('/').length - 2;
     var prefix = '';
     for (var i = 0; i < depth; i++) prefix += '../';
     if (path.endsWith('/') || path.endsWith('index.html')) {
         prefix = prefix.replace('../', '');
+    }
+    if (langDir) {
+        var parts = path.replace(/\/$/, '').split('/').filter(function(p) { return p.length > 0; });
+        var langIdx = parts.indexOf(langDir);
+        if (langIdx >= 0) {
+            var dirsAfterLang = Math.max(0, parts.length - langIdx - 2);
+            prefix = '';
+            for (var j = 0; j < dirsAfterLang; j++) prefix += '../';
+        }
     }
 
     var locale = localStorage.getItem('rayawa_locale') || 'zh';
