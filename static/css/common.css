@@ -233,6 +233,7 @@ section,
     font-family: inherit;
     appearance: none;
     -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
 }
 
 .lang-btn:hover,

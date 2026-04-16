@@ -15,7 +15,7 @@
 }
 
 .hero-text h1 {
-    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-size: clamp(2.8rem, 5vw, 4.1rem);
     font-weight: 800;
     line-height: 1.08;
     margin-bottom: 1.2rem;
@@ -520,6 +520,24 @@ a.skill-link {
     transform: translateY(-10px);
     border-color: var(--primary);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-card.project-card-image {
+    min-height: 240px;
+    position: relative;
+}
+
+.project-card.project-card-image .project-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4) 60%, transparent);
+    padding: 3rem 1.5rem 1.5rem;
+}
+
+#gallery {
+    padding-bottom: 2rem;
 }
 
 .project-card-static {
