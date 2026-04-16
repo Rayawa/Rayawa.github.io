@@ -13,6 +13,8 @@
     var depth = hasExtension ? parts.length - 1 : parts.length;
     for (var i = 0; i < depth; i++) prefix += '../';
 
+    var langPrefix = langDir ? langDir + '/' : '';
+
     var NAV_TEXT = {
         zh: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
         en: { home: 'Home', about: 'About Me', projects: 'Projects', gallery: 'Photography', contact: 'Contact' },
@@ -20,15 +22,25 @@
     };
     var texts = NAV_TEXT[langDir] || NAV_TEXT.zh;
 
-    var homeHref = isHomepage ? '#' : prefix + 'index.html';
+    var homeHref = isHomepage ? '#' : prefix + langPrefix + 'index.html';
 
     var navLinks = [
-        { href: isHomepage ? '#' : prefix + 'index.html', text: texts.home, i18n: 'nav.home' },
-        { href: isHomepage ? '#about' : prefix + 'index.html#about', text: texts.about, i18n: 'nav.about' },
-        { href: isHomepage ? '#projects' : prefix + 'index.html#projects', text: texts.projects, i18n: 'nav.projects' },
-        { href: isHomepage ? '#gallery' : prefix + 'index.html#gallery', text: texts.gallery, i18n: 'nav.gallery' },
-        { href: isHomepage ? '#contact' : prefix + 'index.html#contact', text: texts.contact, i18n: 'nav.contact' }
+        { href: isHomepage ? '#' : prefix + langPrefix + 'index.html', text: texts.home, i18n: 'nav.home' },
+        { href: isHomepage ? '#about' : prefix + langPrefix + 'index.html#about', text: texts.about, i18n: 'nav.about' },
+        { href: isHomepage ? '#projects' : prefix + langPrefix + 'index.html#projects', text: texts.projects, i18n: 'nav.projects' },
+        { href: isHomepage ? '#gallery' : prefix + langPrefix + 'index.html#gallery', text: texts.gallery, i18n: 'nav.gallery' },
+        { href: isHomepage ? '#contact' : prefix + langPrefix + 'index.html#contact', text: texts.contact, i18n: 'nav.contact' }
     ];
+
+    var currentPage = path.replace(/\/$/, '');
+    var pageWithoutLang = currentPage;
+    if (langDir && currentPage.indexOf('/' + langDir) === 0) {
+        pageWithoutLang = currentPage.substring(('/' + langDir).length) || '/';
+    }
+    if (!pageWithoutLang) pageWithoutLang = '/';
+    var zhHref = pageWithoutLang;
+    var enHref = '/en' + pageWithoutLang;
+    var frHref = '/fr' + pageWithoutLang;
 
     var html = '<nav class="navbar" id="navbar">' +
         '<div class="container nav-container">' +
@@ -42,9 +54,9 @@
                 }).join('') +
             '</ul>' +
             '<div class="language-switch">' +
-                '<a href="/" class="lang-btn" data-lang="zh"><img src="' + prefix + 'static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>' +
-                '<a href="/en/" class="lang-btn" data-lang="en"><img src="' + prefix + 'static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>' +
-                '<a href="/fr/" class="lang-btn" data-lang="fr"><img src="' + prefix + 'static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>' +
+                '<a href="' + zhHref + '" class="lang-btn" data-lang="zh"><img src="' + prefix + 'static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>' +
+                '<a href="' + enHref + '" class="lang-btn" data-lang="en"><img src="' + prefix + 'static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>' +
+                '<a href="' + frHref + '" class="lang-btn" data-lang="fr"><img src="' + prefix + 'static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>' +
             '</div>' +
             '<button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>' +
         '</div>' +
