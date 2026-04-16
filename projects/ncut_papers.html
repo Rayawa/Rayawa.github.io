@@ -10,40 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="../static/css/subpage.css">
-  <style>
-    .papers-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .paper-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .paper-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(99,102,241,0.3);
-      transform: translateY(-3px);
-    }
-    .paper-card h3 {
-      color: var(--light);
-      font-size: 1.05rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-    .paper-card p {
-      color: rgba(255,255,255,0.55);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    @media (max-width: 768px) {
-      .papers-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -52,47 +18,105 @@
   <main class="page">
     <section class="hero-card">
       <h1>学校论文</h1>
-      <p>学校各种课程要求写的各种大作业或者结课论文</p>
+      <p>收录我在通信工程、鸿蒙开发与嵌入式系统方向的课程论文与实验报告，记录从理论学习到工程实践的完整路径。</p>
     </section>
 
     <section class="thesis-archive">
       <div class="section-header">
-        <h2>论文列表</h2>
-        <p>在校期间完成的课程论文与研究报告</p>
+        <h2>专业课论文</h2>
+        <p>通信工程专业导论课程的实践总结与研究报告。</p>
       </div>
-      <div class="papers-grid">
-        <div class="paper-card">
-          <h3>基于深度学习的图像识别在医学影像诊断中的应用研究</h3>
-          <p>本研究探讨了深度学习技术在医学影像诊断中的应用，通过卷积神经网络对CT和MRI影像进行自动分析，实现了肺部结节和脑部病变的高精度检测。</p>
-        </div>
-        <div class="paper-card">
-          <h3>可再生能源系统中储能技术的优化配置与经济性分析</h3>
-          <p>本文研究了太阳能和风能混合发电系统中储能技术的优化配置问题，通过建立多目标优化模型，分析了不同储能方案的经济性和技术可行性。</p>
-        </div>
-        <div class="paper-card">
-          <h3>城市交通拥堵预测模型的构建与实证研究</h3>
-          <p>本研究利用历史交通流量数据、天气信息和特殊事件数据，构建了基于LSTM神经网络的城市交通拥堵预测模型，预测准确率达到92%。</p>
-        </div>
-        <div class="paper-card">
-          <h3>基于区块链技术的供应链透明度与可追溯性研究</h3>
-          <p>本研究设计并实现了一个基于区块链的供应链可追溯性系统，通过智能合约实现产品从原材料到终端消费者的全流程信息记录与验证。</p>
-        </div>
-        <div class="paper-card">
-          <h3>物联网环境下边缘计算资源调度策略研究</h3>
-          <p>针对物联网设备产生的海量数据处理需求，提出了一种基于深度强化学习的边缘计算资源动态调度策略，有效降低了任务完成时延。</p>
-        </div>
-        <div class="paper-card">
-          <h3>社交媒体舆情分析与情感计算方法研究</h3>
-          <p>基于BERT预训练模型和注意力机制，构建了社交媒体舆情情感分析系统，能够对微博、评论等文本进行多维度情感倾向识别与趋势预测。</p>
-        </div>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">通信工程专业导论实践总结报告</h3>
+            <p class="thesis-abstract">本报告记录了从基础焊接到Arduino编程，再到集成nRF24L01无线模块实现无人机遥控系统的全过程。通过"焊、编、控"的递进式训练，掌握了嵌入式软硬件协同开发的基本技能，并对通信工程的系统化工程思维有了初步实践与体会。</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">通信工程专业导论研究报告</h3>
+            <p class="thesis-abstract">本文系统论述了通信工程的学科内涵与培养体系，重点分析了AI-RAN、6G等前沿技术进展及跨学科应用趋势。结合个人发展规划，强调了在技术快速更迭背景下，团队协作与终身学习能力对未来通信工程师职业素养的核心价值。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="thesis-archive">
+      <div class="section-header">
+        <h2>HarmonyOS 课程与参赛论文</h2>
+        <p>鸿蒙应用软件开发课程设计报告与应用看板介绍文档。</p>
+      </div>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">开放原子大赛应用看板介绍文档</h3>
+            <p class="thesis-abstract">该文档详细介绍了基于ArkTS开发的HarmonyOS效率工具——应用看板。系统通过卡片化布局集成App启动、系统状态监控与个性化组件，利用LocalStorage实现数据持久化，旨在为用户提供一个高度自定义且操作便捷的桌面聚合工作台。</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">"鸿蒙应用软件开发"课设报告</h3>
+            <p class="thesis-abstract">本报告记录了"应用看板"App的完整开发流程。项目采用MVVM架构，实现了应用分类管理、动态UI渲染及交互功能。通过对Stage模型与声明式开发的研究，验证了鸿蒙系统在跨设备流转与高效资源调度方面的技术优势及工程实践价值。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="thesis-archive">
+      <div class="section-header">
+        <h2>OpenHarmony 嵌入式开发论文</h2>
+        <p>基于Hi3861控制器的智慧场景终端实现，涵盖交通、家居、农业与医疗四大领域。</p>
+      </div>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">基于 Hi3861 的嵌入式智慧交通终端实现</h3>
+            <p class="thesis-abstract">项目基于Hi3861控制器与交通灯扩展板，实现了红绿灯逻辑切换与禁鸣笛检测功能。通过PWM控制信号灯时长，并集成蜂鸣器模拟交通违规报警，验证了OpenHarmony在数字化交通管理与实时监控场景下的硬件调度能力。</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">基于 Hi3861 的嵌入式智慧家居终端实现</h3>
+            <p class="thesis-abstract">本实验设计了一套智能家居控制系统，利用Hi3861连接环境传感器与执行器。系统支持通过OLED屏幕实时显示室内温湿度，并根据环境参数自动调节灯光与风扇状态，展示了鸿蒙生态在全屋智能设备互联互通中的应用潜力。</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">基于 Hi3861 的嵌入式智慧农业终端实现</h3>
+            <p class="thesis-abstract">该报告探讨了OpenHarmony在精准农业中的应用，通过Hi3861实时采集土壤湿度与环境光照数据。系统配置了自动灌溉与补光逻辑，利用低功耗无线通信实现远程监测，为农业生产的智能化、自动化管理提供了硬件原型参考。</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">基于 Hi3861 的嵌入式智慧医疗终端实现</h3>
+            <p class="thesis-abstract">项目聚焦于非接触式健康监测，利用Hi3861集成人体感应与血氧/心率模拟传感器。系统能够对异常体征进行预警并通过Wi-Fi上传数据，体现了OpenHarmony在个人健康保障与远程医疗辅助系统中的高可靠性开发优势。</p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
-  <div id="site-footer"></div>
+    <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh":{"nav":{"home":"首页","about":"关于我","projects":"项目","gallery":"摄影","contact":"联系"}},"en":{},"fr":{}};window.FOOTER_I18N={"zh":{"nav":{"home":"首页","about":"关于我","projects":"项目","gallery":"摄影","contact":"联系"},"project":{"hmdb":{"title":"华为应用市场看板"},"bio":{"title":"生物学项目"},"spm":{"title":"Sweet Potato Mod"},"ohos":{"title":"OpenHarmony Hi3861"},"signal":{"title":"微弱电信号的测量"}},"footer":{"description":"Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.","quick":"快速链接","projects":"项目","thanks":"致谢","thanksLink":"查看致谢","copy":"&copy; 2026 Ray Chen. All rights reserved."}},"en":{},"fr":{}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-  <script src="../static/js/footer.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="../static/js/common.js"></script>
+  <script>window.SITE_I18N={"zh": {"pageTitle": "学校论文 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+    <script src="../static/js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../static/js/common.js"></script>
 </body>
 </html>
