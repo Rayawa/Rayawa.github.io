@@ -162,26 +162,8 @@
 </head>
 <body>
   <!-- 导航栏组件 -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="../" class="logo">
-            <i class="fas fa-code"></i>
-            <span>Ray Chen</span>
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="../">Accueil</a></li>
-            <li><a href="../#about">À propos de moi</a></li>
-            <li><a href="../#projects">Projets</a></li>
-            <li><a href="../#gallery">Photographie</a></li>
-            <li><a href="../#contact">Contact</a></li>
-        </ul>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</nav>
+  <div id="site-navbar"></div>
+  <script src="../../static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page">
     <section class="hero-card">
@@ -405,7 +387,7 @@
 
   <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir la page", "top": "Retour en haut", "dotLabel": "Aller à la diapositive {n}", "sending": "Envoi...", "sent": "Message envoyé. Je vous répondrai bientôt.", "sendFailed": "Échec de l'envoi. Veuillez réessayer plus tard.", "pageTitle": "Accueil | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="../../static/js/footer.js"></script>
-    <script src="../../static/js/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../../static/js/common.js"></script>
 </body>
 </html>

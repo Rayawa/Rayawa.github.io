@@ -13,37 +13,19 @@
   <link rel="stylesheet" href="../static/css/hi3861.css">
 </head>
 <body>
-  <!-- 导航栏组件 -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="#" class="logo">
-            <i class="fas fa-code"></i>
-            <span>Ray Chen</span>
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="#">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#gallery">摄影</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</nav>
+  <div id="site-navbar"></div>
+  <script src="../static/js/navbar.js"></script>
 
   <div id="particles-js"></div>
 
   <main class="page hi-page">
     <section class="hi-hero">
-      <div class="hi-hero-badge"></div>Hi3861</h1>
+      <div class="hi-hero-badge"></div>
+      <h1>Hi3861</h1>
       <p class="hi-hero-desc">基于 OpenHarmony 的 Hi3861 嵌入式开发项目，覆盖红绿灯、炫彩灯、环境监测与 AT 指令四大模块。</p>
       <div class="hi-hero-actions">
         <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener">进入 GitHub 仓库</a>
-        <a class="button-outline" href="openharmony-readme.html">查看 README</a>
+        <a class="button-outline" href="Hi3861-readme.html">查看 README</a>
       </div>
       <div class="hi-overview-grid">
         <article class="hi-overview-card">
@@ -199,7 +181,7 @@ OK</div></div>
 
   <script>window.SITE_I18N={"zh": {"refresh": "刷新页面", "top": "回到顶部", "pageTitle": "Hi3861 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="../static/js/footer.js"></script>
-  <script src="../static/js/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../static/js/common.js"></script>
 </body>
 </html>

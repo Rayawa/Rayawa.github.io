@@ -59,10 +59,10 @@
     ];
 
     var projectLinks = [
-        { href: prefix + 'projects/dashboard.html', i18n: 'project.hmdb.title' },
-        { href: prefix + 'projects/bio.html', i18n: 'project.bio.title' },
+        { href: prefix + 'dashboard.html', i18n: 'project.hmdb.title' },
+        { href: prefix + 'projects/biology.html', i18n: 'project.bio.title' },
         { href: prefix + 'projects/spm.html', i18n: 'project.spm.title' },
-        { href: prefix + 'projects/openharmony.html', i18n: 'project.ohos.title' },
+        { href: prefix + 'projects/Hi3861.html', i18n: 'project.ohos.title' },
         { href: prefix + 'projects/signal.html', i18n: 'project.signal.title' }
     ];
 

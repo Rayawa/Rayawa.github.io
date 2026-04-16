@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>首页 | Ray Chen</title>
+  <title>XXH测试 | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -13,27 +13,8 @@
   <link rel="stylesheet" href="../static/css/xxh.css">
 </head>
 <body>
-  <!-- 导航栏组件 -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="#" class="logo">
-            <i class="fas fa-code"></i>
-            <span>Ray Chen</span>
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="#">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#gallery">摄影</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</nav>
+  <div id="site-navbar"></div>
+  <script src="../static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page" id="xxh-app"></main>
   <div class="xxh-transition" id="xxh-transition"></div>
@@ -47,7 +28,7 @@
     <script>window.SITE_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "navTitle": "XXH测试", "pageTitle": "XXH测试 | Ray Chen", "heroTitle": "情感契合度测试", "heroDesc": "两轮答题全程互不可见，三大维度权重：价值观40% + 生活方式40% + 附加测试20%，满分100分。", "startBtn": "开始测试", "roundLabel": "第{n}轮测试：{who}", "personA": "第一个人", "personB": "第二个人", "nextRoundBtn": "下一位答题", "submitBtn": "提交答案", "resultTitle": "测试结果", "totalScore": "情感契合度最终分数：{score} 分（满分100分）", "dimTitle": "三大核心维度得分", "dimValue": "价值观维度", "dimLife": "生活方式维度", "dimAdd": "附加测试维度", "full40": "（满分40分）", "full20": "（满分20分）", "detailTitle": "各子模块详细得分", "privacyNote": "答题隐私保护中，输入内容仅内存存储，不会上传任何服务器。", "pressStart": "请点击下方按钮开始答题", "aloneLabel": "独处", "togetherLabel": "陪伴", "transitionMsg": "第一轮答题完成！请将设备交给{who}，准备好后点击下方按钮开始答题。", "readyBtn": "准备开始", "validationRequired": "请回答此题", "validationNum100": "两个数字必须为非负数且和为100", "validationNumSingle": "请输入非负整数", "validationTextLen": "请输入简短回答（不超过50字）", "validationNonNegative": "请输入非负数", "confirmRefresh": "当前答题内容将会丢失，确定要刷新页面吗？", "inputPlaceholder": {"keyword": "请输入你的回答...", "numSingle": "请输入数字"}, "sections": {"value": "价值观维度（占最终评分40%）", "life": "生活方式维度（占最终评分40%）", "add": "附加测试维度（占最终评分20%）"}, "modules": {"baseValue": "底层价值观", "money": "金钱观", "boundary": "人际边界感", "conflict": "冲突处理方式", "routine": "作息与生活习惯", "hobby": "兴趣爱好和社交模式", "emotion": "情绪模式", "social": "社会议题评价", "evaluate": "相互评价"}, "suggestions": {"title": "专属感情增进建议", "valueLow": {"icon": "🔴", "title": "价值观维度得分<24分，建议建立「积极沟通」机制", "tips": ["「赞美具体化」原则：不要说\"你真好\"，而是说\"你今天主动帮我收拾了书桌，我觉得特别温暖\"。具体的赞美比空泛的夸奖更能让对方感受到被认可。", "「非暴力沟通」四步法：遇到矛盾时，按\"陈述事实→表达感受→说出需求→提出请求\"的逻辑沟通。", "「深度聊天」时间：每周留1次\"无手机干扰\"的聊天时间，聊最近的烦恼、未来的小计划、童年的回忆，走心的交流能强化情感联结。"]}, "lifeLow": {"icon": "🟠", "title": "生活方式维度得分<24分，建议创造「共同体验」", "tips": ["「新鲜感注入」：定期一起尝试新事物（学一项新技能、去一个没去过的地方、做一道新菜）。共同经历新奇的事会促进大脑分泌多巴胺，让双方对彼此的好感度提升。", "「合作式任务」：一起完成一个小目标（养一盆植物、拼一幅拼图、制定一次旅行计划），合作的过程会增强彼此的信任感和默契度。", "「仪式感」的重要性：不用追求昂贵的礼物，记住对方的小喜好、纪念日一起做一顿饭、睡前说一句\"今天也很喜欢你\"，稳定的小仪式能带来安全感。"]}, "totalLow": {"icon": "🟡", "title": "得分<65分，你们需要尊重「差异性」，允许「不完美」", "tips": ["「求同存异」：不必强迫对方和自己一样，尊重差异反而能让关系更有弹性。", "「接纳对方的不完美」：不要揪着对方的小缺点不放，关注他/她的优点，同时接受\"他/她就是这样一个人\"。", "「自我成长」是最好的促进：一段好的关系是\"两个人都在变好\"，保持自己的兴趣和成长，反而会让对方更欣赏你。"]}, "totalHigh": {"icon": "🟢", "title": "超高分（≥85分），温馨提示：「伪契合」信号要警惕", "tips": ["初期「过度迎合」：对方一开始完全迁就你的喜好，没有自己的想法，这种契合往往是\"伪装\"的，长期会暴露矛盾。", "只谈「开心的事」，回避「严肃的事」：如果对方一直回避聊未来、金钱、家庭等核心话题，可能是不想和你长期发展。", "情感「单向输出」：只有你在主动付出、主动沟通，对方很少回应，这种关系无法形成正向循环。"]}, "good": {"icon": "✅", "title": "各维度得分均衡，契合度良好！", "tips": ["愿你们珍惜彼此，携手同行，让感情在理解与陪伴中稳步升温～"]}}, "retryBtn": "重新测试"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="../static/js/xxh.js"></script>
     <script src="../static/js/footer.js"></script>
-    <script src="../static/js/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../static/js/common.js"></script>
 </body>
 </html>

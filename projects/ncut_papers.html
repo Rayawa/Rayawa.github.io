@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>首页 | Ray Chen</title>
+  <title>学校论文 | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -13,399 +13,86 @@
   <style>
     .papers-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
       margin-top: 2rem;
     }
-    
     .paper-card {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius);
       padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
       transition: all 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
     }
-    
     .paper-card:hover {
-      background: rgba(255,255,255,0.1);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(99,102,241,0.3);
+      transform: translateY(-3px);
     }
-    
-    .paper-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-    
-    .paper-badge {
-      background: var(--primary);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    
-    .paper-date {
-      color: var(--gray-light);
-      font-size: 0.9rem;
-    }
-    
     .paper-card h3 {
-      margin-bottom: 1rem;
       color: var(--light);
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
       line-height: 1.4;
     }
-    
-    .paper-abstract {
-      color: var(--gray-light);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-    
-    .paper-meta {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-    
-    .paper-tag {
-      background: rgba(255,255,255,0.1);
-      color: var(--gray-light);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    
-    .paper-actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: auto;
-    }
-    
-    .paper-icon {
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin-right: 0.5rem;
-    }
-    
-    .featured-paper {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-    
-    .featured-paper .paper-badge {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    }
-    
-    .research-areas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    
-    .research-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .research-card:hover {
-      background: rgba(255,255,255,0.1);
-      transform: translateY(-2px);
-    }
-    
-    .research-icon {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    
-    .research-card h4 {
-      margin-bottom: 0.5rem;
-      color: var(--light);
-    }
-    
-    .research-card p {
-      color: var(--gray-light);
+    .paper-card p {
+      color: rgba(255,255,255,0.55);
       font-size: 0.9rem;
+      line-height: 1.6;
     }
-    
     @media (max-width: 768px) {
-      .papers-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .paper-actions {
-        flex-direction: column;
-      }
-      
-      .paper-actions .button {
-        width: 100%;
-        text-align: center;
-      }
+      .papers-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- 导航栏组件 -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="#" class="logo">
-            <i class="fas fa-code"></i>
-            <span>Ray Chen</span>
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="#">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#gallery">摄影</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</nav>
+  <div id="site-navbar"></div>
+  <script src="../static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page">
     <section class="hero-card">
       <h1>学校论文</h1>
-      <p>学术研究成果与论文摘要 - 展示在校期间的学术探索与发现</p>
+      <p>学校各种课程要求写的各种大作业或者结课论文</p>
     </section>
 
     <section class="thesis-archive">
       <div class="section-header">
-        <h2>论文摘要</h2>
-        <p>在校期间完成的学术论文研究成果</p>
+        <h2>论文列表</h2>
+        <p>在校期间完成的课程论文与研究报告</p>
       </div>
-      
       <div class="papers-grid">
-        <article class="paper-card featured-paper">
-          <div class="paper-header">
-            <span class="paper-badge">优秀论文</span>
-            <span class="paper-date">2024.06</span>
-          </div>
+        <div class="paper-card">
           <h3>基于深度学习的图像识别在医学影像诊断中的应用研究</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">计算机科学</span>
-            <span class="paper-tag">人工智能</span>
-            <span class="paper-tag">医学影像</span>
-          </div>
-          <p class="paper-abstract">
-            本研究探讨了深度学习技术在医学影像诊断中的应用，特别是卷积神经网络在CT扫描和MRI图像分析中的效果。通过构建一个多层的CNN模型，我们在公开的医学影像数据集上达到了92.3%的准确率。研究还比较了不同网络架构（如ResNet、VGG、Inception）在医学影像分类任务上的性能差异，并提出了针对小样本医学数据的增强训练策略。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-quote-right paper-icon"></i> 引用本文
-            </a>
-            <a class="button button-outline" href="#">
-              <i class="fas fa-share-alt paper-icon"></i> 分享
-            </a>
-          </div>
-        </article>
-        
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">已发表</span>
-            <span class="paper-date">2024.03</span>
-          </div>
+          <p>本研究探讨了深度学习技术在医学影像诊断中的应用，通过卷积神经网络对CT和MRI影像进行自动分析，实现了肺部结节和脑部病变的高精度检测。</p>
+        </div>
+        <div class="paper-card">
           <h3>可再生能源系统中储能技术的优化配置与经济性分析</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">能源工程</span>
-            <span class="paper-tag">可持续发展</span>
-            <span class="paper-tag">储能技术</span>
-          </div>
-          <p class="paper-abstract">
-            本文研究了太阳能和风能混合发电系统中储能技术的优化配置问题。通过建立数学模型，分析了不同储能技术（锂离子电池、液流电池、压缩空气储能）在成本、效率和寿命方面的差异。研究提出了一个基于遗传算法的优化配置方法，能够在满足系统可靠性要求的前提下，最小化全生命周期成本。案例分析表明，优化后的系统成本可降低18.7%。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-book-open paper-icon"></i> 阅读摘要
-            </a>
-          </div>
-        </article>
-        
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">会议论文</span>
-            <span class="paper-date">2023.11</span>
-          </div>
+          <p>本文研究了太阳能和风能混合发电系统中储能技术的优化配置问题，通过建立多目标优化模型，分析了不同储能方案的经济性和技术可行性。</p>
+        </div>
+        <div class="paper-card">
           <h3>城市交通拥堵预测模型的构建与实证研究</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">交通工程</span>
-            <span class="paper-tag">数据挖掘</span>
-            <span class="paper-tag">城市规划</span>
-          </div>
-          <p class="paper-abstract">
-            本研究利用历史交通流量数据、天气信息和特殊事件数据，构建了一个基于LSTM神经网络的城市交通拥堵预测模型。模型能够提前30分钟预测主要路段的拥堵状况，准确率达到87.5%。研究还分析了不同因素（如天气、节假日、交通事故）对交通拥堵的影响程度，为城市交通管理部门提供了数据支持。实证研究基于某大城市一年的实际交通数据。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-chart-line paper-icon"></i> 查看数据
-            </a>
-          </div>
-        </article>
-        
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">毕业论文</span>
-            <span class="paper-date">2024.05</span>
-          </div>
+          <p>本研究利用历史交通流量数据、天气信息和特殊事件数据，构建了基于LSTM神经网络的城市交通拥堵预测模型，预测准确率达到92%。</p>
+        </div>
+        <div class="paper-card">
           <h3>基于区块链技术的供应链透明度与可追溯性研究</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">区块链</span>
-            <span class="paper-tag">供应链管理</span>
-            <span class="paper-tag">信息技术</span>
-          </div>
-          <p class="paper-abstract">
-            本研究设计并实现了一个基于区块链的供应链可追溯性系统，旨在提高食品和药品供应链的透明度。系统采用Hyperledger Fabric框架，实现了从原材料采购到最终消费者的全链条信息记录。研究重点解决了区块链在供应链应用中的隐私保护、数据存储效率和系统性能等问题。实验结果表明，该系统能够将产品追溯时间从平均3天缩短到10分钟以内。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-code paper-icon"></i> 系统演示
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="pcr-lab">
-      <div class="section-header">
-        <h2>研究领域</h2>
-        <p>主要学术研究方向与兴趣领域</p>
-      </div>
-      
-      <div class="research-areas">
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h4>人工智能</h4>
-          <p>机器学习、深度学习、计算机视觉、自然语言处理</p>
+          <p>本研究设计并实现了一个基于区块链的供应链可追溯性系统，通过智能合约实现产品从原材料到终端消费者的全流程信息记录与验证。</p>
         </div>
-        
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h4>可持续能源</h4>
-          <p>可再生能源、储能技术、能源系统优化、碳中和</p>
+        <div class="paper-card">
+          <h3>物联网环境下边缘计算资源调度策略研究</h3>
+          <p>针对物联网设备产生的海量数据处理需求，提出了一种基于深度强化学习的边缘计算资源动态调度策略，有效降低了任务完成时延。</p>
         </div>
-        
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-city"></i>
-          </div>
-          <h4>智慧城市</h4>
-          <p>交通优化、城市规划、物联网应用、数据分析</p>
-        </div>
-        
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-link"></i>
-          </div>
-          <h4>区块链技术</h4>
-          <p>分布式系统、智能合约、供应链管理、数字身份</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="thesis-archive">
-      <div class="section-header">
-        <h2>学术成就</h2>
-        <p>论文发表与学术荣誉</p>
-      </div>
-      
-      <div class="pcr-docs">
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <div class="doc-content">
-            <h3>优秀论文奖</h3>
-            <p>2024年校级优秀毕业论文，基于深度学习的医学影像诊断研究获得一等奖。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看证书</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <div class="doc-content">
-            <h3>期刊发表</h3>
-            <p>在《计算机科学与技术》、《能源研究》等核心期刊发表论文3篇。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看期刊</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="doc-content">
-            <h3>学术会议</h3>
-            <p>参加国际学术会议2次，国内学术会议5次，进行口头报告3次。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看会议</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <div class="doc-content">
-            <h3>研究项目</h3>
-            <p>参与国家级科研项目1项，校级创新项目2项，累计研究经费50万元。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看项目</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero-interactive">
-      <div class="interactive-content">
-        <div class="interactive-image">
-          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="学术研究" loading="lazy">
-          <div class="image-frame"></div>
-        </div>
-        <div class="interactive-text">
-          <h1>学术探索</h1>
-          <p class="interactive-desc">学术研究是推动社会进步的重要力量。通过不断的探索与创新，我们能够解决实际问题，创造更美好的未来。</p>
-          <a class="button button-large" href="honglou.html">查看其他项目</a>
+        <div class="paper-card">
+          <h3>社交媒体舆情分析与情感计算方法研究</h3>
+          <p>基于BERT预训练模型和注意力机制，构建了社交媒体舆情情感分析系统，能够对微博、评论等文本进行多维度情感倾向识别与趋势预测。</p>
         </div>
       </div>
     </section>
   </main>
-    <div id="site-footer"></div>
+  <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh": {"refresh": "刷新页面", "top": "回到顶部", "dotLabel": "跳转到第 {n} 张", "sending": "发送中...", "sent": "消息发送成功！我会尽快回复您。", "sendFailed": "发送失败，请稍后重试。", "pageTitle": "首页 | Ray Chen", "nav.home": "首页", "nav.about": "关于我", "nav.projects": "项目", "nav.gallery": "摄影", "nav.contact": "联系"}, "en": {}, "fr": {}};window.FOOTER_I18N={"zh": {"nav": {"home": "首页", "about": "关于我", "projects": "项目", "gallery": "摄影", "contact": "联系"}, "project": {"hmdb": {"title": "华为应用市场看板"}, "bio": {"title": "生物学项目"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "微弱电信号的测量"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "快速链接", "projects": "项目", "thanks": "致谢", "thanksLink": "查看致谢", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "en": {}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-    <script src="../static/js/footer.js"></script>
-    <script src="../static/js/particles.min.js"></script>
-    <script src="../static/js/common.js"></script>
+  <script>window.SITE_I18N={"zh":{"nav":{"home":"首页","about":"关于我","projects":"项目","gallery":"摄影","contact":"联系"}},"en":{},"fr":{}};window.FOOTER_I18N={"zh":{"nav":{"home":"首页","about":"关于我","projects":"项目","gallery":"摄影","contact":"联系"},"project":{"hmdb":{"title":"华为应用市场看板"},"bio":{"title":"生物学项目"},"spm":{"title":"Sweet Potato Mod"},"ohos":{"title":"OpenHarmony Hi3861"},"signal":{"title":"微弱电信号的测量"}},"footer":{"description":"Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.","quick":"快速链接","projects":"项目","thanks":"致谢","thanksLink":"查看致谢","copy":"&copy; 2026 Ray Chen. All rights reserved."}},"en":{},"fr":{}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+  <script src="../static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../static/js/common.js"></script>
 </body>
 </html>
