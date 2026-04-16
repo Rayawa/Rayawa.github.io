@@ -11,14 +11,10 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../static/css/common.css">
     <link rel="stylesheet" href="../static/css/home.css">
-    <link rel="prefetch" href="projects/dashboard.html">
-    <link rel="prefetch" href="projects/bio.html">
-    <link rel="prefetch" href="projects/openharmony.html">
+    <link rel="prefetch" href="dashboard.html">
+    <link rel="prefetch" href="projects/biology.html">
+    <link rel="prefetch" href="projects/Hi3861.html">
     <link rel="prefetch" href="projects/spm.html">
-    <link rel="prefetch" href="../static/js/i18n-dashboard.js">
-    <link rel="prefetch" href="../static/js/i18n-bio.js">
-    <link rel="prefetch" href="../static/js/i18n-openharmony.js">
-    <link rel="prefetch" href="../static/js/i18n-spm.js">
 </head>
 
 <body class="is-homepage">
@@ -46,41 +42,8 @@
     <div id="particles-js"></div>
 
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-code"></i>
-                <span>Ray Chen</span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#" >Home</a></li>
-                <li><a href="#about" >About Me</a></li>
-                <li><a href="#projects" >Projects</a></li>
-                <li><a href="#gallery" >Photography</a></li>
-                <li><a href="#contact" >Contact</a></li>
-            </ul>
-
-            <div class="language-switch">
-                <a href="/" class="lang-btn">
-                    <img src="../static/resources/cn.svg" alt="" class="lang-flag">
-                    <span>中文</span>
-                </a>
-                <a href="/en/" class="lang-btn">
-                    <img src="../static/resources/uk.svg" alt="" class="lang-flag">
-                    <span>EN</span>
-                </a>
-                <a href="/fr/" class="lang-btn">
-                    <img src="../static/resources/fr.svg" alt="" class="lang-flag">
-                    <span>FR</span>
-                </a>
-            </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <div id="site-navbar"></div>
+    <script src="../static/js/navbar.js"></script>
 
     <!-- 英雄区域 -->
     <section class="hero reveal-section" id="home">
@@ -111,7 +74,7 @@
                     <img src="../ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
                     <div class="avatar-quote" >Everything is possible by code.</div>
                     <div class="floating-elements" id="heroStar" data-tooltip="Acknowledgements">
-                        <a href="thanks.html" class="star-link" title="致谢"><i class="fas fa-star"></i></a>
+                        <a href="thanks.html" class="star-link" title="Acknowledgements"><i class="fas fa-star"></i></a>
                         <span class="star-tooltip" >Acknowledgements</span>
                     </div>
                 </div>
@@ -149,14 +112,14 @@
                 <div class="about-side">
                     <div class="glass-card status-card reveal-item" id="statusCardBlock" ><h3 class="status-card-title">Current Focus</h3>
 <div class="skills-grid">
-    <a href="projects/dashboard.html" class="skill-item skill-link">
+    <a href="dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
             <div class="skill-name">Core Development</div>
         </div>
         <p class="skill-description">HarmonyOS 6.1.0 App Dashboard development<br>Personal website development</p>
     </a>
-    <a href="projects/openharmony.html" class="skill-item skill-link">
+    <a href="projects/Hi3861.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
             <div class="skill-name">Parallel Development</div>
@@ -202,7 +165,7 @@
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
-    <a href="projects/bio.html" class="skill-item skill-link">
+    <a href="projects/biology.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">Bio Research</div>
@@ -293,10 +256,10 @@
                     <p class="projects-group-desc" >Projects I lead or contribute to — research, development, and open source.</p>
                 </div>
                 <div class="projects-grid">
-                    <a href="projects/dashboard.html" class="project-card reveal-item">
+                    <a href="dashboard.html" class="project-card reveal-item">
                         <div class="project-image harmony"></div>
                         <div class="project-content">
-                            <h4 class="project-title" >HmDashboard<i class="fas fa-external-link-alt external-link-icon"></i></h4>
+                            <h4 class="project-title" >HmDashboard</h4>
                             <p class="project-description" > Powered by Shenjack!<br>A full-stack project that fetches, processes, analyzes, and displays all app and meta-service data from the HarmonyOS AppGallery.<br>I mainly work on the frontend web development and software development. Current main project, continuously updating…</p>
                             <div class="project-award-row">
                                 <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">OpenAtom Contest Award Winner</span>
@@ -309,7 +272,7 @@
                         </div>
                     </a>
 
-                    <a href="projects/bio.html" class="project-card reveal-item">
+                    <a href="projects/biology.html" class="project-card reveal-item">
                         <div class="project-image bio"></div>
                         <div class="project-content">
                             <h4 class="project-title" >Biology Projects</h4>
@@ -336,7 +299,7 @@
                         </div>
                     </a>
 
-                    <a href="projects/openharmony.html" class="project-card reveal-item">
+                    <a href="projects/Hi3861.html" class="project-card reveal-item">
                         <div class="project-image ohos"></div>
                         <div class="project-content">
                             <h4 class="project-title" >OpenHarmony Hi3861</h4>
@@ -421,7 +384,7 @@
                             <p class="project-description" >A little test a classmate came up with — I helped build the web frontend (still WIP). Two-person anonymous quiz, three dimensions, quantifying your emotional match.</p>
                         </div>
                     </a>
-                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                    <a href="projects/ncut_papers.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >School Papers</h4>
                             <p class="project-description" >Various course assignments and final papers required by school. Most of them are pretty shallow and not very useful.</p>
@@ -516,8 +479,8 @@
                         </a>
                     </div>
                 </div>
-                <button class="gallery-nav prev" type="button" aria-label="上一张">‹</button>
-                <button class="gallery-nav next" type="button" aria-label="下一张">›</button>
+                <button class="gallery-nav prev" type="button" aria-label="Previous">‹</button>
+                <button class="gallery-nav next" type="button" aria-label="Next">›</button>
                 <div class="gallery-dots" id="galleryDots"></div>
             </div>
 
@@ -526,6 +489,36 @@
                     rel="noopener" class="btn">
                     <i class="fas fa-external-link-alt"></i>
                     <span >View More</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life -->
+    <section class="projects reveal-section" id="life">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >Life</h2>
+                <p class="section-subtitle reveal-item" >Beyond code.</p>
+            </div>
+            <div class="projects-grid">
+                <a href="life/piano.html" class="project-card reveal-item">
+                    <div class="project-content">
+                        <h4 class="project-title" >Piano</h4>
+                        <p class="project-description" >Music is the art of time.</p>
+                    </div>
+                </a>
+                <a href="life/drawing.html" class="project-card reveal-item">
+                    <div class="project-content">
+                        <h4 class="project-title" >Drawing</h4>
+                        <p class="project-description" >Capturing inspiration with a brush.</p>
+                    </div>
+                </a>
+                <a href="life/books.html" class="project-card reveal-item">
+                    <div class="project-content">
+                        <h4 class="project-title" >Book List</h4>
+                        <p class="project-description" >Reading is the journey of the soul.</p>
+                    </div>
                 </a>
             </div>
         </div>
@@ -679,6 +672,8 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <script>window.__HOME_JS = true;</script>
+    <script data-goatcounter="https://rayawa.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
     
     <script src="../static/js/footer.js"></script>
     <script src="../static/js/common.js"></script>

@@ -13,24 +13,8 @@
   <link rel="stylesheet" href="../../static/css/xxh.css">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span></span></a>
-      <ul class="nav-links">
-        <li><a href="../index.html"></a></li>
-        <li><a href="../index.html#about"></a></li>
-        <li><a href="../index.html#projects"></a></li>
-        <li><a href="../index.html#gallery"></a></li>
-        <li><a href="../index.html#contact"></a></li>
-      </ul>
-      <div class="language-switch">
-        <a href="/" class="lang-btn"><img src="../../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
-        <a href="/en/" class="lang-btn"><img src="../../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
-        <a href="/fr/" class="lang-btn"><img src="../../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
-    </div>
-  </nav>
+  <div id="site-navbar"></div>
+  <script src="../../static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page" id="xxh-app"></main>
   <div class="xxh-transition" id="xxh-transition"></div>
@@ -40,7 +24,7 @@
   </div>
     <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"pageTitle": "Test XXH | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "navTitle": "Test XXH", "pageTitle": "Test XXH | Ray Chen", "heroTitle": "Test de compatibilité amoureuse", "heroDesc": "Deux tours de réponses invisibles l'un à l'autre. Trois dimensions : Valeurs 40% + Mode de vie 40% + Supplémentaire 20%, max 100 points.", "startBtn": "Commencer", "roundLabel": "Tour {n} : {who}", "personA": "Personne A", "personB": "Personne B", "nextRoundBtn": "Personne suivante", "submitBtn": "Soumettre", "resultTitle": "Résultats", "totalScore": "Score final : {score} / 100", "dimTitle": "Scores par dimension", "dimValue": "Valeurs", "dimLife": "Mode de vie", "dimAdd": "Supplémentaire", "full40": "(max 40)", "full20": "(max 20)", "detailTitle": "Scores détaillés", "privacyNote": "Vos réponses sont stockées uniquement en mémoire et ne sont jamais envoyées à un serveur.", "pressStart": "Cliquez sur le bouton pour commencer", "aloneLabel": "Seul", "togetherLabel": "Ensemble", "transitionMsg": "Tour 1 terminé ! Veuillez transmettre l'appareil à {who}. Cliquez sur le bouton ci-dessous quand vous êtes prêt.", "readyBtn": "Prêt à commencer", "validationRequired": "Veuillez répondre à cette question", "validationNum100": "Deux nombres doivent être non négatifs et totaliser 100", "validationNumSingle": "Veuillez entrer un entier non négatif", "validationTextLen": "Veuillez entrer une réponse brève (max 50 caractères)", "validationNonNegative": "Veuillez entrer un nombre non négatif", "confirmRefresh": "Les réponses actuelles seront perdues. Voulez-vous vraiment rafraîchir ?", "inputPlaceholder": {"keyword": "Entrez votre réponse...", "numSingle": "Entrez un nombre"}, "sections": {"value": "Dimension Valeurs (40%)", "life": "Dimension Mode de vie (40%)", "add": "Dimension Supplémentaire (20%)"}, "modules": {"baseValue": "Valeurs fondamentales", "money": "Argent", "boundary": "Limites", "conflict": "Résolution de conflits", "routine": "Routine & Habitudes", "hobby": "Loisirs & Social", "emotion": "Mode émotionnel", "social": "Enjeux sociaux", "evaluate": "Évaluation mutuelle"}, "suggestions": {"title": "Conseils de couple", "valueLow": {"icon": "🔴", "title": "Score Valeurs <24 : Construisez une communication active", "tips": ["Louanges spécifiques plutôt que générales.", "Communication non violente : Faits → Sentiments → Besoins → Requêtes.", "Temps de discussion profonde sans téléphone."]}, "lifeLow": {"icon": "🟠", "title": "Score Mode de vie <24 : Créez des expériences partagées", "tips": ["Injection de nouveauté : Essayez de nouvelles choses ensemble.", "Tâches collaboratives : Atteignez de petits objectifs ensemble.", "L'importance des rituels : Les petits gestes constants apportent de la sécurité."]}, "totalLow": {"icon": "🟡", "title": "Score <65 : Respectez les différences", "tips": ["Acceptez de ne pas être d'accord.", "Acceptez l'imperfection de l'autre.", "La croissance personnelle est le meilleur moteur."]}, "totalHigh": {"icon": "🟢", "title": "Score élevé (≥85) : Attention aux faux signaux", "tips": ["L'accommodation excessive peut être \"fausse\".", "Éviter les sujets sérieux peut indiquer un manque d'intérêt à long terme.", "La production émotionnelle à sens unique ne peut pas soutenir un cycle positif."]}, "good": {"icon": "✅", "title": "Scores équilibrés, bonne compatibilité !", "tips": ["Chérissez-vous et laissez la relation grandir."]}}, "retryBtn": "Recommencer"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   
   <script src="../../static/js/xxh.js"></script>

@@ -11,14 +11,10 @@
         rel="stylesheet">
     <link rel="stylesheet" href="static/css/common.css">
     <link rel="stylesheet" href="static/css/home.css">
-    <link rel="prefetch" href="projects/dashboard.html">
-    <link rel="prefetch" href="projects/bio.html">
-    <link rel="prefetch" href="projects/openharmony.html">
+    <link rel="prefetch" href="dashboard.html">
+    <link rel="prefetch" href="projects/biology.html">
+    <link rel="prefetch" href="projects/Hi3861.html">
     <link rel="prefetch" href="projects/spm.html">
-    <link rel="prefetch" href="static/js/i18n-dashboard.js">
-    <link rel="prefetch" href="static/js/i18n-bio.js">
-    <link rel="prefetch" href="static/js/i18n-openharmony.js">
-    <link rel="prefetch" href="static/js/i18n-spm.js">
 </head>
 
 <body class="is-homepage">
@@ -46,41 +42,8 @@
     <div id="particles-js"></div>
 
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-code"></i>
-                <span>Ray Chen</span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#" >首页</a></li>
-                <li><a href="#about" >关于我</a></li>
-                <li><a href="#projects" >项目</a></li>
-                <li><a href="#gallery" >摄影</a></li>
-                <li><a href="#contact" >联系</a></li>
-            </ul>
-
-            <div class="language-switch">
-                <a href="/" class="lang-btn">
-                    <img src="static/resources/cn.svg" alt="" class="lang-flag">
-                    <span>中文</span>
-                </a>
-                <a href="/en/" class="lang-btn">
-                    <img src="static/resources/uk.svg" alt="" class="lang-flag">
-                    <span>EN</span>
-                </a>
-                <a href="/fr/" class="lang-btn">
-                    <img src="static/resources/fr.svg" alt="" class="lang-flag">
-                    <span>FR</span>
-                </a>
-            </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <div id="site-navbar"></div>
+    <script src="static/js/navbar.js"></script>
 
     <!-- 英雄区域 -->
     <section class="hero reveal-section" id="home">
@@ -149,14 +112,14 @@
                 <div class="about-side">
                     <div class="glass-card status-card reveal-item" id="statusCardBlock" ><h3 class="status-card-title">当前专注</h3>
 <div class="skills-grid">
-    <a href="projects/dashboard.html" class="skill-item skill-link">
+    <a href="dashboard.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
             <div class="skill-name">核心开发</div>
         </div>
         <p class="skill-description">HarmonyOS 6.1.0鸿蒙应用看板开发<br>个人网页开发</p>
     </a>
-    <a href="projects/openharmony.html" class="skill-item skill-link">
+    <a href="projects/Hi3861.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-cogs"></i></div>
             <div class="skill-name">并行开发</div>
@@ -202,7 +165,7 @@
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
-    <a href="projects/bio.html" class="skill-item skill-link">
+    <a href="projects/biology.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">生物研究</div>
@@ -293,10 +256,10 @@
                     <p class="projects-group-desc" >我主导或参与的项目，涵盖科研实验、开发与开源贡献等。</p>
                 </div>
                 <div class="projects-grid">
-                    <a href="projects/dashboard.html" class="project-card reveal-item">
+                    <a href="dashboard.html" class="project-card reveal-item">
                         <div class="project-image harmony"></div>
                         <div class="project-content">
-                            <h4 class="project-title" >华为应用市场看板<i class="fas fa-external-link-alt external-link-icon"></i></h4>
+                            <h4 class="project-title" >华为应用市场看板</h4>
                             <p class="project-description" > Powered by Shenjack！<br>一个获取、处理、分析并展示鸿蒙应用市场所有应用与元服务数据的全栈项目。<br>我主要在做这个项目的前端网页开发与软件开发。当前主线，持续更新中……</p>
                             <div class="project-award-row">
                                 <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛获奖作品</span>
@@ -309,7 +272,7 @@
                         </div>
                     </a>
 
-                    <a href="projects/bio.html" class="project-card reveal-item">
+                    <a href="projects/biology.html" class="project-card reveal-item">
                         <div class="project-image bio"></div>
                         <div class="project-content">
                             <h4 class="project-title" >生物学项目</h4>
@@ -336,7 +299,7 @@
                         </div>
                     </a>
 
-                    <a href="projects/openharmony.html" class="project-card reveal-item">
+                    <a href="projects/Hi3861.html" class="project-card reveal-item">
                         <div class="project-image ohos"></div>
                         <div class="project-content">
                             <h4 class="project-title" >OpenHarmony Hi3861</h4>
@@ -421,7 +384,7 @@
                             <p class="project-description" >同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。</p>
                         </div>
                     </a>
-                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                    <a href="projects/ncut_papers.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >学校论文</h4>
                             <p class="project-description" >学校各种课程要求写的各种大作业或者结课论文，大部分都很水而且没啥用。</p>
@@ -526,6 +489,36 @@
                     rel="noopener" class="btn">
                     <i class="fas fa-external-link-alt"></i>
                     <span >查看更多作品</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 生活 -->
+    <section class="projects reveal-section" id="life">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >生活</h2>
+                <p class="section-subtitle reveal-item" >代码之外的日常。</p>
+            </div>
+            <div class="projects-grid">
+                <a href="life/piano.html" class="project-card reveal-item">
+                    <div class="project-content">
+                        <h4 class="project-title" >钢琴</h4>
+                        <p class="project-description" >音乐是时间的艺术。</p>
+                    </div>
+                </a>
+                <a href="life/drawing.html" class="project-card reveal-item">
+                    <div class="project-content">
+                        <h4 class="project-title" >画画</h4>
+                        <p class="project-description" >用画笔记录灵感与想象。</p>
+                    </div>
+                </a>
+                <a href="life/books.html" class="project-card reveal-item">
+                    <div class="project-content">
+                        <h4 class="project-title" >书单</h4>
+                        <p class="project-description" >阅读是灵魂的旅行。</p>
+                    </div>
                 </a>
             </div>
         </div>
@@ -679,6 +672,8 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <script>window.__HOME_JS = true;</script>
+    <script data-goatcounter="https://rayawa.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
     
     <script src="static/js/footer.js"></script>
     <script src="static/js/common.js"></script>

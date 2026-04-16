@@ -13,24 +13,8 @@
   <link rel="stylesheet" href="../static/css/dashboard.css">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span >华为应用市场看板</span></a>
-      <ul class="nav-links">
-        <li><a href="../index.html" >首页</a></li>
-        <li><a href="../index.html#about" >关于我</a></li>
-        <li><a href="../index.html#projects" >项目</a></li>
-        <li><a href="../index.html#gallery" >摄影</a></li>
-        <li><a href="../index.html#contact" >联系</a></li>
-      </ul>
-      <div class="language-switch">
-        <a href="/" class="lang-btn"><img src="../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
-        <a href="/en/" class="lang-btn"><img src="../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
-        <a href="/fr/" class="lang-btn"><img src="../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
-    </div>
-  </nav>
+  <div id="site-navbar"></div>
+  <script src="../static/js/navbar.js"></script>
 
   <div id="particles-js"></div>
 
@@ -83,7 +67,7 @@
                 <div class="metric-field">harmonyTotalViews</div>
               </article>
             </div>
-            <div class="metrics-note" >* 数据统计范围从2025-11-01T 04:00:00 +00:00至今，数据自动更新失败！上次更新2026-04-14T 00:06:46 +00:00。</div>
+            <div class="metrics-note" >* 数据统计范围从2025-11-01T04:00:00Z至今，数据自动更新失败！上次更新{{updateTime}}。</div>
           </div>
 
           <div class="download-section">
@@ -275,9 +259,7 @@
                   <div class="case-title" >记得订阅 App</div>
                   <div class="case-subtitle" >使用数据库获取订阅App图标。</div>
                 </div>
-                <div class="case-link-icon">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
+
               </a>
               <a class="case-item" href="https://hdc.osbdf.com/" target="_blank" rel="noopener">
                 <div class="case-content">
@@ -411,6 +393,8 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   
   <script src="../static/js/dashboard.js"></script>
+  <script data-goatcounter="https://rayawa.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
   
   <script src="../static/js/footer.js"></script>
   <script src="../static/js/common.js"></script>

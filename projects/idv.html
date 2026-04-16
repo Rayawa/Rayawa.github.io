@@ -61,76 +61,90 @@
     }
   </script>
   
-  <style type="text/tailwindcss">
-    @layer utilities {
+  <style>
       .glass {
         background: rgba(26, 26, 46, 0.7);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(15, 52, 96, 0.3);
       }
-      
+
       .card-shadow {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
-      
+
       .btn-hover {
-        @apply transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95;
+        transition: all 0.3s;
+        transform: scale(1);
       }
-      
+      .btn-hover:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .btn-hover:active {
+        transform: scale(0.95);
+      }
+
       .input-focus {
-        @apply focus:ring-2 focus:ring-idv-accent focus:border-idv-accent transition-all duration-300;
+        transition: all 0.3s;
       }
-      
+      .input-focus:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+        border-color: #e94560;
+      }
+
       .number-animation {
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
-      
+
       .progress-gradient {
         background: linear-gradient(90deg, #0f3460 0%, #3498db 50%, #2ecc71 100%);
       }
-      
+
       .history-item {
-        @apply transition-all duration-300 hover:bg-idv-primary;
+        transition: all 0.3s;
       }
-      
+      .history-item:hover {
+        background-color: #16213e;
+      }
+
       /* 段位星星样式 */
       .rank-star {
         color: #ffcc00;
         text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
       }
-      
+
       .star-empty {
         color: #555;
       }
-      
+
       /* 段位节点样式 */
       .rank-node {
         transition: all 0.3s ease;
       }
-      
+
       .current-rank-node {
         box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
         border: 2px solid #e94560;
       }
-      
+
       .completed-rank-node {
         box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
       }
-      
+
       .rank-4 .rank-circle {
         background: linear-gradient(135deg, #765d32, #d4a99a);
       }
-      
+
       .rank-5 .rank-circle {
         background: linear-gradient(135deg, #8a6d3b, #e2c46a);
       }
-      
+
       .rank-6 .rank-circle {
         background: linear-gradient(135deg, #f39c12, #f9a826);
       }
       .fab-tools { display: none !important; }
-    }
-  </style>
+    </style>
 </head>
 <body class="bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
   <div id="particles-js"></div>
@@ -1134,7 +1148,7 @@
   </script>
   
   
-  <script src="../static/js/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../static/js/common.js"></script>
 </body>
 </html>

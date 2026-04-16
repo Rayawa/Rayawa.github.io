@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>华为应用市场看板 | Ray Chen</title>
+  <title>HmDashboard | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -13,24 +13,8 @@
   <link rel="stylesheet" href="../../static/css/dashboard.css">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="../index.html" class="logo"><i class="fas fa-code"></i> <span >HmDashboard</span></a>
-      <ul class="nav-links">
-        <li><a href="../index.html" >Home</a></li>
-        <li><a href="../index.html#about" >About Me</a></li>
-        <li><a href="../index.html#projects" >Projects</a></li>
-        <li><a href="../index.html#gallery" >Photography</a></li>
-        <li><a href="../index.html#contact" >Contact</a></li>
-      </ul>
-      <div class="language-switch">
-        <a href="/" class="lang-btn"><img src="../../static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>
-        <a href="/en/" class="lang-btn"><img src="../../static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>
-        <a href="/fr/" class="lang-btn"><img src="../../static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
-    </div>
-  </nav>
+  <div id="site-navbar"></div>
+  <script src="../../static/js/navbar.js"></script>
 
   <div id="particles-js"></div>
 
@@ -83,7 +67,7 @@
                 <div class="metric-field">harmonyTotalViews</div>
               </article>
             </div>
-            <div class="metrics-note" >* Data statistics range from 2025-11-01T 04:00:00 +00:00 to present. Auto-update failed! Last update 2026-04-14T 00:06:46 +00:00.</div>
+            <div class="metrics-note" >* Data statistics range from 2025-11-01T04:00:00Z to present. Auto-update failed! Last update {{updateTime}}.</div>
           </div>
 
           <div class="download-section">
@@ -411,6 +395,8 @@ If you are interested in using our database, please contact us first!</p>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   
   <script src="../../static/js/dashboard.js"></script>
+  <script data-goatcounter="https://rayawa.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
   
   <script src="../../static/js/footer.js"></script>
   <script src="../../static/js/common.js"></script>

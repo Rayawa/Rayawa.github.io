@@ -14,36 +14,19 @@
 </head>
 <body>
   <!-- 导航栏组件 -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="../" class="logo">
-            <i class="fas fa-code"></i>
-            <span>Ray Chen</span>
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="../">Home</a></li>
-            <li><a href="../#about">About Me</a></li>
-            <li><a href="../#projects">Projects</a></li>
-            <li><a href="../#gallery">Photography</a></li>
-            <li><a href="../#contact">Contact</a></li>
-        </ul>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</nav>
+  <div id="site-navbar"></div>
+  <script src="../../static/js/navbar.js"></script>
 
   <div id="particles-js"></div>
 
   <main class="page hi-page">
     <section class="hi-hero">
-      <div class="hi-hero-badge"></div>Hi3861</h1>
+      <div class="hi-hero-badge"></div>
+      <h1>Hi3861</h1>
       <p class="hi-hero-desc">An OpenHarmony-based Hi3861 embedded project covering traffic light, colorful light, environment monitoring, and AT command modules.</p>
       <div class="hi-hero-actions">
         <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener">Open GitHub Repository</a>
-        <a class="button-outline" href="openharmony-readme.html">Open README</a>
+        <a class="button-outline" href="Hi3861-readme.html">Open README</a>
       </div>
       <div class="hi-overview-grid">
         <article class="hi-overview-card">
@@ -195,7 +178,7 @@ startup</pre>
 
   <script>window.SITE_I18N={"zh": {}, "en": {"refresh": "Refresh", "top": "Back to top", "pageTitle": "Hi3861 | Ray Chen", "nav.home": "Home", "nav.about": "About Me", "nav.projects": "Projects", "nav.gallery": "Photography", "nav.contact": "Contact"}, "fr": {}};window.FOOTER_I18N={"zh": {}, "en": {"nav": {"home": "Home", "about": "About Me", "projects": "Projects", "gallery": "Photography", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Biology Projects"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Measurement of Weak Electrical Signals"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Quick Links", "projects": "Projects", "thanks": "Acknowledgements", "thanksLink": "View Acknowledgements", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="../../static/js/footer.js"></script>
-  <script src="../../static/js/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../../static/js/common.js"></script>
 </body>
 </html>
