@@ -6,21 +6,9 @@
     var path = window.location.pathname;
     var htmlLang = document.documentElement.lang || 'zh-CN';
     var langDir = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : '';
-    var depth = path.split('/').length - 2;
+    var parts = path.replace(/\/$/, '').split('/').filter(function(p) { return p.length > 0; });
     var prefix = '';
-    for (var i = 0; i < depth; i++) prefix += '../';
-    if (path.endsWith('/') || path.endsWith('index.html')) {
-        prefix = prefix.replace('../', '');
-    }
-    if (langDir) {
-        var parts = path.replace(/\/$/, '').split('/').filter(function(p) { return p.length > 0; });
-        var langIdx = parts.indexOf(langDir);
-        if (langIdx >= 0) {
-            var dirsAfterLang = Math.max(0, parts.length - langIdx - 2);
-            prefix = '';
-            for (var j = 0; j < dirsAfterLang; j++) prefix += '../';
-        }
-    }
+    for (var i = 0; i < parts.length - 1; i++) prefix += '../';
 
     var NAV_TEXT = {
         zh: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
