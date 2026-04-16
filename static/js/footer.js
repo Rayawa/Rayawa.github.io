@@ -27,9 +27,9 @@
         document.head.appendChild(styleEl);
     }
     styleEl.textContent =
-        '.footer{background:rgba(11,19,37,.95);color:#fff;padding:1.8rem 0 1.1rem;border-top:1px solid rgba(255,255,255,.1);flex-shrink:0;margin-top:auto}' +
-        '.footer .container{max-width:900px;margin:0 auto;padding:0 1.2rem}' +
-        '.footer-content{display:flex;align-items:flex-start;justify-content:flex-start;gap:3rem;flex-wrap:wrap;margin-bottom:1.2rem}' +
+        '.footer{background:rgba(11,19,37,.95);color:#fff;padding:2.2rem 0 1.1rem;border-top:1px solid rgba(255,255,255,.1);flex-shrink:0;margin-top:auto}' +
+        '.footer .container{max-width:960px;margin:0 auto;padding:0 1.2rem}' +
+        '.footer-content{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem}' +
         '.footer-logo{font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none;display:inline-block;margin-bottom:.45rem}' +
         '.footer-description{color:rgba(255,255,255,.7);margin-bottom:.75rem;max-width:360px;font-size:.9rem}' +
         '.footer-social{display:flex;gap:.65rem}' +
