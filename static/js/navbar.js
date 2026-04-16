@@ -16,7 +16,7 @@
     var langPrefix = langDir ? langDir + '/' : '';
 
     var NAV_TEXT = {
-        zh: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
+        zh: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影与生活', contact: '联系' },
         en: { home: 'Home', about: 'About Me', projects: 'Projects', gallery: 'Photography', contact: 'Contact' },
         fr: { home: 'Accueil', about: 'À propos de moi', projects: 'Projets', gallery: 'Photographie', contact: 'Contact' }
     };

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Piano | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/subpage.css">
+  <style>
+    .piano-section {
+      margin-bottom: 3rem;
+    }
+    .piano-section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .piano-section-label span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .piano-section-label .label-practicing {
+      color: #ffc107;
+      background: rgba(255, 193, 7, 0.14);
+      border: 1px solid rgba(255, 193, 7, 0.25);
+    }
+    .piano-section-label .label-mastered {
+      color: var(--secondary);
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .piano-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .piano-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .piano-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      transition: var(--transition);
+      position: relative;
+    }
+    .piano-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      background: rgba(99, 102, 241, 0.06);
+    }
+    .piano-card.practicing {
+      border-left: 4px solid rgba(255, 193, 7, 0.5);
+    }
+    .piano-card.mastered {
+      border-left: 4px solid rgba(16, 185, 129, 0.5);
+    }
+    .piano-cover {
+      width: 96px;
+      height: 96px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .piano-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .piano-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .piano-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 0.45rem;
+    }
+    .piano-author {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+    }
+    .piano-album {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .piano-status {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.28rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      align-self: flex-start;
+      margin-top: 0.25rem;
+    }
+    .piano-status.status-practicing {
+      color: #ffc107;
+      background: rgba(255, 193, 7, 0.14);
+      border: 1px solid rgba(255, 193, 7, 0.2);
+    }
+    .piano-status.status-mastered {
+      color: var(--secondary);
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    @media (max-width: 800px) {
+      .piano-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .piano-card {
+        padding: 1rem 1.15rem;
+        gap: 1rem;
+      }
+      .piano-cover {
+        width: 68px;
+        height: 68px;
+        border-radius: 10px;
+      }
+      .piano-title {
+        font-size: 1rem;
+      }
+      .piano-author {
+        font-size: 0.88rem;
+      }
+      .piano-album {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="../../static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page">
+    <section class="hero-card">
+      <h1>Piano</h1>
+      <p>Music is the art of time</p>
+    </section>
+
+    <section class="piano-section">
+      <div class="piano-list">
+        <article class="piano-card practicing">
+          <div class="piano-cover"><img src="../../static/resources/piano/bytm.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Lullaby of the New Moon (I): Somnias a Luna</div>
+            <div class="piano-author">HOYO-MiX</div>
+            <div class="piano-album">Genshin Impact - Outside It Is Growing Dark</div>
+          </div>
+          <span class="piano-status status-practicing">Practicing</span>
+        </article>
+        <article class="piano-card practicing">
+          <div class="piano-cover"><img src="../../static/resources/piano/xxhsdyg.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Song to the Mirrored Moon</div>
+            <div class="piano-author">真栗 / HOYO-MiX</div>
+            <div class="piano-album">Genshin Impact - The Stellar Moments Vol. 6</div>
+          </div>
+          <span class="piano-status status-practicing">Practicing</span>
+        </article>
+        <article class="piano-card practicing">
+          <div class="piano-cover"><img src="../../static/resources/piano/dyrg.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Everlasting Dawn at Night</div>
+            <div class="piano-author">HOYO-MiX</div>
+            <div class="piano-album">Genshin Impact - When Lanterns Echo the Moon</div>
+          </div>
+          <span class="piano-status status-practicing">Practicing</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="piano-section">
+      <div class="piano-list">
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/tout.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Tout est bien qui finit bien</div>
+            <div class="piano-author">HOYO-MiX</div>
+            <div class="piano-album">Genshin Impact - The Shimmering Voyage Vol. 4</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/jljt.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">極楽浄土</div>
+            <div class="piano-author">GARNiDELiA</div>
+            <div class="piano-album">約束 -Promise code-</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/nymph.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Hanachirusato</div>
+            <div class="piano-author">陈致逸 / HOYO-MiX</div>
+            <div class="piano-album">Genshin Impact - Realm of Tranquil Eternity</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/hwhz.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Termination of Desires</div>
+            <div class="piano-author">HOYO-MiX</div>
+            <div class="piano-album">Genshin Impact - The Stellar Moments Vol. 2</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/refain.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Refrain</div>
+            <div class="piano-author">Anan Ryoko</div>
+            <div class="piano-album">Eternal Light</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/tsh.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">踏山河</div>
+            <div class="piano-author">七叔-叶泽浩</div>
+            <div class="piano-album">踏山河</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/dwrg.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Identity V</div>
+            <div class="piano-author">阿灰</div>
+            <div class="piano-album">Identity V Original Soundtrack</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/revenge.jpeg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">Revenge (Minecraft Creeper Song) [feat. CaptainSparklez]</div>
+            <div class="piano-author">Tryhardninja</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+        <article class="piano-card mastered">
+          <div class="piano-cover"><img src="../../static/resources/piano/djsk.jpg" alt=""></div>
+          <div class="piano-info">
+            <div class="piano-title">東京上空</div>
+            <div class="piano-author">RADWIMPS</div>
+            <div class="piano-album">すずめの戸締まり</div>
+          </div>
+          <span class="piano-status status-mastered">Mastered</span>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+
+  <script>window.SITE_I18N={"zh":{},"en":{"nav":{"home":"Home","about":"About Me","projects":"Projects","gallery":"Photography","contact":"Contact"}},"fr":{}};window.FOOTER_I18N={"zh":{},"en":{"nav":{"home":"Home","about":"About Me","projects":"Projects","gallery":"Photography","contact":"Contact"},"project":{"hmdb":{"title":"HmDashboard"},"bio":{"title":"Biology Projects"},"spm":{"title":"Sweet Potato Mod"},"ohos":{"title":"OpenHarmony Hi3861"},"signal":{"title":"Measurement of Weak Electrical Signals"}},"life":{"gallery":"Photo Gallery","piano":"Piano","drawing":"Artworks","books":"Book List"},"footer":{"description":"Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.","life":"Life","projects":"Projects","thanks":"Acknowledgements","thanksLink":"View Acknowledgements","copy":"&copy; 2026 Ray Chen. All rights reserved."}},"fr":{}};(function(){var l=document.documentElement.lang||"en";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+  <script src="../../static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../../static/js/common.js"></script>
+</body>
+</html>
