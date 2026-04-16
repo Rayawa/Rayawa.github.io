@@ -8,7 +8,10 @@
     var langDir = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : '';
     var parts = path.replace(/\/$/, '').split('/').filter(function(p) { return p.length > 0; });
     var prefix = '';
-    for (var i = 0; i < parts.length - 1; i++) prefix += '../';
+    var lastPart = parts[parts.length - 1] || '';
+    var hasExtension = lastPart.indexOf('.') !== -1;
+    var depth = hasExtension ? parts.length - 1 : parts.length;
+    for (var i = 0; i < depth; i++) prefix += '../';
 
     var NAV_TEXT = {
         zh: { home: '首页', about: '关于我', projects: '项目', gallery: '摄影', contact: '联系' },
