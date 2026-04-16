@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../static/css/common.css">
     <link rel="stylesheet" href="../static/css/home.css">
     <link rel="prefetch" href="dashboard.html">
-    <link rel="prefetch" href="projects/bio.html">
+    <link rel="prefetch" href="projects/biology.html">
     <link rel="prefetch" href="projects/Hi3861.html">
     <link rel="prefetch" href="projects/spm.html">
 </head>
@@ -42,41 +42,8 @@
     <div id="particles-js"></div>
 
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-code"></i>
-                <span>Ray Chen</span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#" >Accueil</a></li>
-                <li><a href="#about" >À propos de moi</a></li>
-                <li><a href="#projects" >Projets</a></li>
-                <li><a href="#gallery" >Photographie</a></li>
-                <li><a href="#contact" >Contact</a></li>
-            </ul>
-
-            <div class="language-switch">
-                <a href="/" class="lang-btn">
-                    <img src="../static/resources/cn.svg" alt="" class="lang-flag">
-                    <span>中文</span>
-                </a>
-                <a href="/en/" class="lang-btn">
-                    <img src="../static/resources/uk.svg" alt="" class="lang-flag">
-                    <span>EN</span>
-                </a>
-                <a href="/fr/" class="lang-btn">
-                    <img src="../static/resources/fr.svg" alt="" class="lang-flag">
-                    <span>FR</span>
-                </a>
-            </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <div id="site-navbar"></div>
+    <script src="../static/js/navbar.js"></script>
 
     <!-- 英雄区域 -->
     <section class="hero reveal-section" id="home">
@@ -107,7 +74,7 @@
                     <img src="../ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
                     <div class="avatar-quote" >Everything is possible by code.</div>
                     <div class="floating-elements" id="heroStar" data-tooltip="Remerciements">
-                        <a href="thanks.html" class="star-link" title="致谢"><i class="fas fa-star"></i></a>
+                        <a href="thanks.html" class="star-link" title="Remerciements"><i class="fas fa-star"></i></a>
                         <span class="star-tooltip" >Remerciements</span>
                     </div>
                 </div>
@@ -198,7 +165,7 @@
         </div>
         <p class="skill-description">Sweet Potato Mod · Difficult Rocket</p>
     </div>
-    <a href="projects/bio.html" class="skill-item skill-link">
+    <a href="projects/biology.html" class="skill-item skill-link">
         <div class="skill-header">
             <div class="skill-icon"><i class="fas fa-flask"></i></div>
             <div class="skill-name">Recherche biologique</div>
@@ -292,7 +259,7 @@
                     <a href="dashboard.html" class="project-card reveal-item">
                         <div class="project-image harmony"></div>
                         <div class="project-content">
-                            <h4 class="project-title" >HmDashboard<i class="fas fa-external-link-alt external-link-icon"></i></h4>
+                            <h4 class="project-title" >HmDashboard</h4>
                             <p class="project-description" > Powered by Shenjack !<br>Un projet full-stack qui récupère, traite, analyse et affiche toutes les données d'applications et de méta-services de l'AppGallery HarmonyOS.<br>Je travaille principalement sur le développement web frontend et logiciel. Projet principal actuel, en mise à jour continue…</p>
                             <div class="project-award-row">
                                 <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">Lauréat du Concours OpenAtom</span>
@@ -305,7 +272,7 @@
                         </div>
                     </a>
 
-                    <a href="projects/bio.html" class="project-card reveal-item">
+                    <a href="projects/biology.html" class="project-card reveal-item">
                         <div class="project-image bio"></div>
                         <div class="project-content">
                             <h4 class="project-title" >Projets de biologie</h4>
@@ -512,8 +479,8 @@
                         </a>
                     </div>
                 </div>
-                <button class="gallery-nav prev" type="button" aria-label="上一张">‹</button>
-                <button class="gallery-nav next" type="button" aria-label="下一张">›</button>
+                <button class="gallery-nav prev" type="button" aria-label="Précédente">‹</button>
+                <button class="gallery-nav next" type="button" aria-label="Suivante">›</button>
                 <div class="gallery-dots" id="galleryDots"></div>
             </div>
 
