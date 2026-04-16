@@ -3,389 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Accueil | Ray Chen</title>
+  <title>Travaux universitaires | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../../static/css/common.css">
   <link rel="stylesheet" href="../../static/css/subpage.css">
-  <style>
-    .papers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .paper-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .paper-card:hover {
-      background: rgba(255,255,255,0.1);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .paper-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-    
-    .paper-badge {
-      background: var(--primary);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    
-    .paper-date {
-      color: var(--gray-light);
-      font-size: 0.9rem;
-    }
-    
-    .paper-card h3 {
-      margin-bottom: 1rem;
-      color: var(--light);
-      line-height: 1.4;
-    }
-    
-    .paper-abstract {
-      color: var(--gray-light);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-    
-    .paper-meta {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-    
-    .paper-tag {
-      background: rgba(255,255,255,0.1);
-      color: var(--gray-light);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    
-    .paper-actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: auto;
-    }
-    
-    .paper-icon {
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin-right: 0.5rem;
-    }
-    
-    .featured-paper {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-    
-    .featured-paper .paper-badge {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    }
-    
-    .research-areas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    
-    .research-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .research-card:hover {
-      background: rgba(255,255,255,0.1);
-      transform: translateY(-2px);
-    }
-    
-    .research-icon {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    
-    .research-card h4 {
-      margin-bottom: 0.5rem;
-      color: var(--light);
-    }
-    
-    .research-card p {
-      color: var(--gray-light);
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-      .papers-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .paper-actions {
-        flex-direction: column;
-      }
-      
-      .paper-actions .button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-  </style>
 </head>
 <body>
-  <!-- 导航栏组件 -->
   <div id="site-navbar"></div>
   <script src="../../static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page">
     <section class="hero-card">
-      <h1>学校论文</h1>
-      <p>学术研究成果与论文摘要 - 展示在校期间的学术探索与发现</p>
+      <h1>Travaux universitaires</h1>
+      <p>Recueil de mes mémoires de cours et rapports de laboratoire en ingénierie des télécommunications, développement HarmonyOS et systèmes embarqués — documentant le parcours complet de la théorie à la pratique.</p>
     </section>
 
     <section class="thesis-archive">
       <div class="section-header">
-        <h2>论文摘要</h2>
-        <p>在校期间完成的学术论文研究成果</p>
+        <h2>Mémoires de cours professionnels</h2>
+        <p>Résumés de pratique et rapports de recherche du cours d'introduction à l'ingénierie des télécommunications.</p>
       </div>
-      
-      <div class="papers-grid">
-        <article class="paper-card featured-paper">
-          <div class="paper-header">
-            <span class="paper-badge">优秀论文</span>
-            <span class="paper-date">2024.06</span>
-          </div>
-          <h3>基于深度学习的图像识别在医学影像诊断中的应用研究</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">计算机科学</span>
-            <span class="paper-tag">人工智能</span>
-            <span class="paper-tag">医学影像</span>
-          </div>
-          <p class="paper-abstract">
-            本研究探讨了深度学习技术在医学影像诊断中的应用，特别是卷积神经网络在CT扫描和MRI图像分析中的效果。通过构建一个多层的CNN模型，我们在公开的医学影像数据集上达到了92.3%的准确率。研究还比较了不同网络架构（如ResNet、VGG、Inception）在医学影像分类任务上的性能差异，并提出了针对小样本医学数据的增强训练策略。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-quote-right paper-icon"></i> 引用本文
-            </a>
-            <a class="button button-outline" href="#">
-              <i class="fas fa-share-alt paper-icon"></i> 分享
-            </a>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">Introduction à l'ingénierie des télécommunications — Rapport de synthèse pratique</h3>
+            <p class="thesis-abstract">Ce rapport documente l'ensemble du processus, depuis la soudure de base jusqu'à la programmation Arduino, puis l'intégration du module sans fil nRF24L01 pour réaliser un système de télécommande de drone. À travers la formation progressive « souder, programmer, contrôler », les compétences fondamentales du co-développement matériel-logiciel embarqué ont été maîtrisées, avec une première expérience pratique de la pensée systémique en ingénierie des télécommunications.</p>
           </div>
         </article>
-        
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">已发表</span>
-            <span class="paper-date">2024.03</span>
-          </div>
-          <h3>可再生能源系统中储能技术的优化配置与经济性分析</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">能源工程</span>
-            <span class="paper-tag">可持续发展</span>
-            <span class="paper-tag">储能技术</span>
-          </div>
-          <p class="paper-abstract">
-            本文研究了太阳能和风能混合发电系统中储能技术的优化配置问题。通过建立数学模型，分析了不同储能技术（锂离子电池、液流电池、压缩空气储能）在成本、效率和寿命方面的差异。研究提出了一个基于遗传算法的优化配置方法，能够在满足系统可靠性要求的前提下，最小化全生命周期成本。案例分析表明，优化后的系统成本可降低18.7%。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-book-open paper-icon"></i> 阅读摘要
-            </a>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">Introduction à l'ingénierie des télécommunications — Rapport de recherche</h3>
+            <p class="thesis-abstract">Cet article discute systématiquement du contenu disciplinaire et du système de formation en ingénierie des télécommunications, en mettant l'accent sur les avancées technologiques de pointe telles que l'AI-RAN et la 6G, ainsi que sur les tendances d'application interdisciplinaires. Combiné à la planification du développement personnel, il souligne la valeur centrale du travail d'équipe et de l'apprentissage tout au long de la vie pour la compétence professionnelle des futurs ingénieurs en télécommunications.</p>
           </div>
         </article>
-        
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">会议论文</span>
-            <span class="paper-date">2023.11</span>
-          </div>
-          <h3>城市交通拥堵预测模型的构建与实证研究</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">交通工程</span>
-            <span class="paper-tag">数据挖掘</span>
-            <span class="paper-tag">城市规划</span>
-          </div>
-          <p class="paper-abstract">
-            本研究利用历史交通流量数据、天气信息和特殊事件数据，构建了一个基于LSTM神经网络的城市交通拥堵预测模型。模型能够提前30分钟预测主要路段的拥堵状况，准确率达到87.5%。研究还分析了不同因素（如天气、节假日、交通事故）对交通拥堵的影响程度，为城市交通管理部门提供了数据支持。实证研究基于某大城市一年的实际交通数据。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-chart-line paper-icon"></i> 查看数据
-            </a>
-          </div>
-        </article>
-        
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">毕业论文</span>
-            <span class="paper-date">2024.05</span>
-          </div>
-          <h3>基于区块链技术的供应链透明度与可追溯性研究</h3>
-          <div class="paper-meta">
-            <span class="paper-tag">区块链</span>
-            <span class="paper-tag">供应链管理</span>
-            <span class="paper-tag">信息技术</span>
-          </div>
-          <p class="paper-abstract">
-            本研究设计并实现了一个基于区块链的供应链可追溯性系统，旨在提高食品和药品供应链的透明度。系统采用Hyperledger Fabric框架，实现了从原材料采购到最终消费者的全链条信息记录。研究重点解决了区块链在供应链应用中的隐私保护、数据存储效率和系统性能等问题。实验结果表明，该系统能够将产品追溯时间从平均3天缩短到10分钟以内。
-          </p>
-          <div class="paper-actions">
-            <a class="button button-outline" href="#">
-              <i class="fas fa-code paper-icon"></i> 系统演示
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="pcr-lab">
-      <div class="section-header">
-        <h2>研究领域</h2>
-        <p>主要学术研究方向与兴趣领域</p>
-      </div>
-      
-      <div class="research-areas">
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h4>人工智能</h4>
-          <p>机器学习、深度学习、计算机视觉、自然语言处理</p>
-        </div>
-        
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h4>可持续能源</h4>
-          <p>可再生能源、储能技术、能源系统优化、碳中和</p>
-        </div>
-        
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-city"></i>
-          </div>
-          <h4>智慧城市</h4>
-          <p>交通优化、城市规划、物联网应用、数据分析</p>
-        </div>
-        
-        <div class="research-card">
-          <div class="research-icon">
-            <i class="fas fa-link"></i>
-          </div>
-          <h4>区块链技术</h4>
-          <p>分布式系统、智能合约、供应链管理、数字身份</p>
-        </div>
       </div>
     </section>
 
     <section class="thesis-archive">
       <div class="section-header">
-        <h2>学术成就</h2>
-        <p>论文发表与学术荣誉</p>
+        <h2>Mémoires HarmonyOS — Cours et concours</h2>
+        <p>Rapports de conception de cours et documentation pour le projet de développement d'applications HarmonyOS.</p>
       </div>
-      
-      <div class="pcr-docs">
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <div class="doc-content">
-            <h3>优秀论文奖</h3>
-            <p>2024年校级优秀毕业论文，基于深度学习的医学影像诊断研究获得一等奖。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看证书</a>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
             </div>
+            <h3 class="project-title">Document de présentation du Tableau de bord d'applications pour le concours OpenAtom</h3>
+            <p class="thesis-abstract">Ce document présente en détail le Tableau de bord d'applications — un outil de productivité HarmonyOS développé avec ArkTS. Le système intègre le lancement d'applications, la surveillance de l'état du système et des widgets personnalisés grâce à une disposition en cartes, utilisant LocalStorage pour la persistance des données, afin de fournir aux utilisateurs un poste de travail d'agrégation de bureau hautement personnalisable et pratique.</p>
           </div>
-        </div>
-        
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <div class="doc-content">
-            <h3>期刊发表</h3>
-            <p>在《计算机科学与技术》、《能源研究》等核心期刊发表论文3篇。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看期刊</a>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
             </div>
+            <h3 class="project-title">Rapport de conception du cours « Développement de logiciels d'application HarmonyOS »</h3>
+            <p class="thesis-abstract">Ce rapport documente le processus de développement complet de l'application Tableau de bord d'applications. Le projet adopte l'architecture MVVM, implémentant la gestion des catégories d'applications, le rendu dynamique de l'interface utilisateur et les fonctionnalités interactives. À travers la recherche sur le modèle Stage et le développement déclaratif, il vérifie les avantages techniques et la valeur de pratique ingénierie de HarmonyOS en matière de flux inter-appareils et de planification efficace des ressources.</p>
           </div>
-        </div>
-        
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="doc-content">
-            <h3>学术会议</h3>
-            <p>参加国际学术会议2次，国内学术会议5次，进行口头报告3次。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">查看会议</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="doc-card">
-          <div class="doc-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <div class="doc-content">
-            <h3>研究项目</h3>
-            <p>参与国家级科研项目1项，校级创新项目2项，累计研究经费50万元。</p>
-            <div class="single-action">
-              <a class="button button-outline" href="#">Voir le projet</a>
-            </div>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="hero-interactive">
-      <div class="interactive-content">
-        <div class="interactive-image">
-          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="学术研究" loading="lazy">
-          <div class="image-frame"></div>
-        </div>
-        <div class="interactive-text">
-          <h1>学术探索</h1>
-          <p class="interactive-desc">学术研究是推动社会进步的重要力量。通过不断的探索与创新，我们能够解决实际问题，创造更美好的未来。</p>
-          <a class="button button-large" href="honglou.html">Voir d'autres projets</a>
-        </div>
+    <section class="thesis-archive">
+      <div class="section-header">
+        <h2>Mémoires sur le développement embarqué OpenHarmony</h2>
+        <p>Implémentations de terminaux de scénarios intelligents basées sur le contrôleur Hi3861, couvrant les transports, la maison, l'agriculture et la santé.</p>
+      </div>
+      <div class="thesis-grid">
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">Terminal de transport intelligent embarqué basé sur Hi3861</h3>
+            <p class="thesis-abstract">Basé sur le contrôleur Hi3861 et la carte d'extension de feux de circulation, ce projet implémente la commutation logique des feux tricolores et la détection de klaxon interdit. Via le contrôle PWM de la durée des feux et l'intégration d'un buzzer pour simuler les alertes de violation de circulation, il vérifie la capacité de planification matérielle d'OpenHarmony dans les scénarios de gestion du trafic numérique et de surveillance en temps réel.</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">Terminal de maison intelligente embarqué basé sur Hi3861</h3>
+            <p class="thesis-abstract">Cette expérience conçoit un système de contrôle de maison intelligente utilisant le Hi3861 connecté à des capteurs environnementaux et des actionneurs. Le système prend en charge l'affichage en temps réel de la température et de l'humidité intérieures via un écran OLED, et ajuste automatiquement l'éclairage et l'état du ventilateur en fonction des paramètres environnementaux, démontrant le potentiel d'application de l'écosystème HarmonyOS dans l'interconnexion des appareils intelligents pour toute la maison.</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">Terminal agricole intelligent embarqué basé sur Hi3861</h3>
+            <p class="thesis-abstract">Ce rapport explore l'application d'OpenHarmony dans l'agriculture de précision, collectant en temps réel les données d'humidité du sol et de luminosité ambiante via le Hi3861. Le système configure une logique d'irrigation automatique et d'éclairage d'appoint, utilisant la communication sans fil à faible consommation pour la surveillance à distance, fournissant une référence de prototype matériel pour la gestion intelligente et automatisée de la production agricole.</p>
+          </div>
+        </article>
+        <article class="thesis-card thesis-published">
+          <div class="thesis-body">
+            <div class="thesis-header">
+            </div>
+            <h3 class="project-title">Terminal de santé intelligent embarqué basé sur Hi3861</h3>
+            <p class="thesis-abstract">Centré sur la surveillance de santé sans contact, ce projet intègre des capteurs de détection de présence humaine et de simulation d'oxymétrie/fréquence cardiaque avec le Hi3861. Le système peut alerter en cas de signes vitaux anormaux et télécharger des données via Wi-Fi, démontrant les avantages de développement à haute fiabilité d'OpenHarmony dans les systèmes d'assurance de santé personnelle et d'assistance médicale à distance.</p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
     <div id="site-footer"></div>
 
-  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir la page", "top": "Retour en haut", "dotLabel": "Aller à la diapositive {n}", "sending": "Envoi...", "sent": "Message envoyé. Je vous répondrai bientôt.", "sendFailed": "Échec de l'envoi. Veuillez réessayer plus tard.", "pageTitle": "Accueil | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "quick": "Liens rapides", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
+  <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"pageTitle": "Travaux universitaires | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "life": {"gallery": "Galerie photo", "piano": "Piano", "drawing": "Œuvres", "books": "Liste de livres"}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "life": "Vie", "projects": "Projets", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
     <script src="../../static/js/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../../static/js/common.js"></script>

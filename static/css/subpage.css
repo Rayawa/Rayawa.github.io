@@ -750,6 +750,11 @@
     letter-spacing: -0.01em;
 }
 
+.thesis-card h3.project-title {
+    color: var(--primary);
+    font-weight: 700;
+}
+
 .thesis-abstract {
     font-size: 0.88rem;
     line-height: 1.7;
