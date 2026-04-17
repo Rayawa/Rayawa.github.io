@@ -588,6 +588,18 @@ a.skill-link {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(59, 130, 246, 0.28)), url('../resources/main_page/signal.png');
 }
 
+.project-image.piano {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(168, 85, 247, 0.28)), url('../resources/main_page/piano.png');
+}
+
+.project-image.drawing {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(236, 72, 153, 0.28)), url('../resources/main_page/drawing.png');
+}
+
+.project-image.books {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../resources/main_page/books.png');
+}
+
 .project-content {
     padding: 1.5rem;
     flex: 1;
