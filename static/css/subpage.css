@@ -256,7 +256,7 @@
     color: var(--primary);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     .card-grid {
         grid-template-columns: 1fr;
     }
@@ -266,24 +266,24 @@
     }
 
     .hero-card h1 {
-        font-size: 1.8rem;
+        font-size: var(--h1-size);
     }
 
     .hero-card h2 {
-        font-size: 1.25rem;
+        font-size: var(--h3-size);
     }
 
     .card h2 {
-        font-size: 1rem;
+        font-size: var(--text-base);
     }
 
     .card p,
     .hero-card p {
-        font-size: 0.88rem;
+        font-size: var(--text-sm);
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 767px) {
     .page {
         padding: 6rem clamp(1rem, 4vw, 1.5rem) 2rem;
     }
@@ -368,13 +368,13 @@
     border-radius: 0 4px 4px 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     .card-image {
         height: 160px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
     .card-image {
         height: 140px;
     }
@@ -771,7 +771,7 @@
     margin-top: auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     .interactive-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -798,13 +798,13 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .interactive-content {
         padding: 1.5rem;
     }
 
     .interactive-text h1 {
-        font-size: 1.8rem;
+        font-size: var(--h1-size);
     }
 
     .display-frame img {
@@ -899,13 +899,13 @@
     vertical-align: baseline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .thanks-group {
         padding: 1rem;
     }
 
     .thanks-names,
     .thanks-detail {
-        font-size: 0.88rem;
+        font-size: var(--text-sm);
     }
 }

@@ -258,7 +258,7 @@
 }
 
 /* -------- 响应式优化 -------- */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .stage-content {
         padding: 1rem;
     }
@@ -275,6 +275,11 @@
         font-size: 0.65rem;
         padding: 0.25rem 0.5rem;
     }
+}
+
+/* Gene 页面特定：隐藏浮动工具栏 */
+.fab-tools {
+    display: none !important;
 }
 
 /* -------- Footer 优化 -------- */
