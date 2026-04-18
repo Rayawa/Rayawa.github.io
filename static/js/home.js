@@ -421,12 +421,13 @@ function initGalleryCarousel() {
     let timer = null;
     let autoStarted = false;
 
+    const dotLabelTpl = t.dotLabel || '第 {n} 张';
     const dots = slides.map((_, idx) => {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'gallery-dot' + (idx === 0 ? ' active' : '');
         dot.dataset.index = String(idx + 1);
-        dot.setAttribute('aria-label', t.dotLabel.replace('{n}', String(idx + 1)));
+        dot.setAttribute('aria-label', dotLabelTpl.replace('{n}', String(idx + 1)));
         dot.addEventListener('click', () => {
             goTo(idx);
             restart();
@@ -436,9 +437,10 @@ function initGalleryCarousel() {
     });
 
     galleryA11yUpdater = () => {
+        const dotLabelTpl2 = t.dotLabel || '第 {n} 张';
         dots.forEach((dot) => {
             const idx = dot.dataset.index || '1';
-            dot.setAttribute('aria-label', t.dotLabel.replace('{n}', idx));
+            dot.setAttribute('aria-label', dotLabelTpl2.replace('{n}', idx));
         });
         prevBtn.setAttribute('aria-label', locale === 'zh' ? '上一张' : locale === 'fr' ? 'Precedent' : 'Previous');
         nextBtn.setAttribute('aria-label', locale === 'zh' ? '下一张' : locale === 'fr' ? 'Suivant' : 'Next');
