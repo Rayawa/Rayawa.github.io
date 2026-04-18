@@ -9,120 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/static/css/common.css">
-    <style>
-        .wrap {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
-            padding: 2.4rem clamp(1.2rem, 4vw, 2.5rem);
-        }
-
-        .card {
-            width: min(920px, 100%);
-            padding: clamp(1.1rem, 3.8vw, 2rem);
-            border-radius: 16px;
-            border: 1px solid var(--panel-border, rgba(202, 236, 255, 0.36));
-            background: var(--panel, rgba(10, 20, 38, 0.72));
-            backdrop-filter: blur(10px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
-        }
-
-        .card h1 {
-            font-size: clamp(2rem, 7vw, 3.3rem);
-            margin-bottom: 1rem;
-            padding-bottom: 1.1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            letter-spacing: 0.02em;
-        }
-
-        .lang-block {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 0;
-        }
-
-        .lang-block + .lang-block {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .lang-block strong {
-            font-size: 1.3rem;
-            color: var(--accent, #caecff);
-        }
-
-        .lang-block p {
-            flex-basis: 100%;
-            color: rgba(245, 251, 255, 0.85);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        .home-links {
-            margin-top: 1.45rem;
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .home-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 0.65rem 1rem;
-            border-radius: 10px;
-            border: 1px solid rgba(202, 236, 255, 0.5);
-            color: #f6fbff;
-            text-decoration: none;
-            background: rgba(99, 102, 241, 0.24);
-            transition: 0.24s ease;
-            -webkit-tap-highlight-color: transparent;
-            white-space: nowrap;
-            font-size: 0.92rem;
-        }
-
-        .home-link:hover {
-            transform: translateY(-1px);
-            background: rgba(99, 102, 241, 0.4);
-            border-color: rgba(202, 236, 255, 0.85);
-        }
-
-        @media (max-width: 640px) {
-            .card {
-                padding: 0.95rem 0.9rem;
-                border-radius: 12px;
-            }
-
-            .lang-block {
-                gap: 0.65rem;
-                padding: 1rem 0;
-            }
-
-            .lang-block p {
-                line-height: 1.65;
-                font-size: 0.95rem;
-                overflow-wrap: anywhere;
-            }
-
-            .home-links {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .home-link {
-                display: flex;
-                width: 100%;
-                font-size: 0.88rem;
-                padding: 0.62rem 0.68rem;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="/static/css/404.css">
 </head>
 <body>
 
@@ -132,17 +19,17 @@
         <section class="card" aria-labelledby="title404">
             <h1 id="title404">404</h1>
             <div class="lang-block">
-                <img src="/static/resources/cn.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
+                <img src="/static/resources/cn.svg" alt="" class="lang-flag">
                 <strong>悖论</strong>
                 <p>当你进入 https://rayawa.top/404.html，请你思考一个问题：是你的浏览器真的在访问404页面，还是因为它找不到404.html才给你显示404页面呢？</p>
             </div>
             <div class="lang-block">
-                <img src="/static/resources/uk.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
+                <img src="/static/resources/uk.svg" alt="" class="lang-flag">
                 <strong>Paradox</strong>
                 <p>When you enter https://rayawa.top/404.html, think about this: is your browser truly visiting a 404 page, or is it showing you a 404 page because it cannot find 404.html?</p>
             </div>
             <div class="lang-block">
-                <img src="/static/resources/fr.svg" alt="" class="lang-flag" style="width:32px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1);">
+                <img src="/static/resources/fr.svg" alt="" class="lang-flag">
                 <strong>Paradoxe</strong>
                 <p>Lorsque vous entrez https://rayawa.top/404.html, réfléchissez à ceci : votre navigateur visite-t-il vraiment une page 404, ou l'affiche-t-il parce qu'il ne trouve pas 404.html ?</p>
             </div>
@@ -152,11 +39,7 @@
             </div>
         </section>
     </main>
-
-    <script src="static/i18n/i18n-loader.js"></script>
-    <script>I18nLoader.init('404');</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/static/js/common.js"></script>
-    <script>initParticles();initParticlePointerFollow();initParticleMagnetEffect();</script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/static/js/common.js"></script>
 </body>
 </html>

@@ -9,13 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css">
-  <link rel="stylesheet" href="../static/css/common.css">
-  <link rel="stylesheet" href="../static/css/subpage.css">
-  <link rel="stylesheet" href="../static/css/markdown-page.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/markdown-page.css">
+  <link rel="stylesheet" href="/static/css/hi3861-readme.css">
 </head>
 <body>
   <div id="site-navbar"></div>
-  <script src="../static/js/navbar.js"></script>
+  <script src="/static/js/navbar.js"></script>
 
   <div id="particles-js"></div>
 
@@ -23,7 +24,7 @@
     <section class="hero-card">
       <h1>Hi3861 README</h1>
       <div class="single-action">
-        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right: 0.4rem;"></i> GitHub</a>
+        <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener"><i class="fab fa-github md-github-icon"></i> GitHub</a>
         <a class="button" href="../static/resources/openharmony/README.md" target="_blank" rel="noopener">打开原始 Markdown</a>
         <a class="button-outline" href="Hi3861.html">返回 Hi3861 页面</a>
       </div>
@@ -35,24 +36,10 @@
   </main>
 
   <div id="site-footer"></div>
-
-  <script src="static/i18n/i18n-loader.js"></script>
-    <script>I18nLoader.init('Hi3861-readme');</script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="../static/js/footer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/js/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="../static/js/common.js"></script>
-  <script>
-    (async function () {
-      const container = document.getElementById('mdContainer');
-      try {
-        const res = await fetch('../static/resources/openharmony/README.md', { cache: 'no-store' });
-        const text = await res.text();
-        container.innerHTML = marked.parse(text, { breaks: true, mangle: false, headerIds: true });
-      } catch (err) {
-        container.innerHTML = '<p>README 加载失败，请稍后重试。</p>';
-      }
-    })();
-  </script>
+  <script src="/static/js/hi3861-readme.js"></script>
+    <script src="/static/js/common.js"></script>
 </body>
 </html>
