@@ -16,7 +16,35 @@ function getCurrentText(path, fallback = '') {
 let t = i18n.zh || {};
 let galleryA11yUpdater = null;
 const langToHtmlLang = { zh: 'zh-CN', en: 'en', fr: 'fr' };
-const HOME_MOTION = window.__rayMotion || { transitionMs: TRANSITION_MS, revealBaseDelay: 80, revealStaggerMs: 90 };
+function safeStorageGet(storageType, key) {
+    try {
+        const store = window[storageType];
+        return store ? store.getItem(key) : null;
+    } catch (_err) {
+        return null;
+    }
+}
+
+function safeStorageSet(storageType, key, value) {
+    try {
+        const store = window[storageType];
+        if (store) store.setItem(key, value);
+    } catch (_err) {
+        // Ignore storage-unavailable environments (private mode / restrictive webview).
+    }
+}
+
+function safeStorageRemove(storageType, key) {
+    try {
+        const store = window[storageType];
+        if (store) store.removeItem(key);
+    } catch (_err) {
+        // Ignore storage-unavailable environments (private mode / restrictive webview).
+    }
+}
+
+const fallbackTransitionMs = typeof TRANSITION_MS === 'number' ? TRANSITION_MS : 420;
+const HOME_MOTION = window.__rayMotion || { transitionMs: fallbackTransitionMs, revealBaseDelay: 80, revealStaggerMs: 90 };
 const HOME_TRANSITION_MS = HOME_MOTION.transitionMs;
 const REVEAL_BASE_DELAY = HOME_MOTION.revealBaseDelay;
 const REVEAL_STAGGER_MS = HOME_MOTION.revealStaggerMs;
@@ -28,10 +56,10 @@ function sleep(ms) {
 }
 
 const HOME_NAV_STATE = {
-    isNavigating: sessionStorage.getItem('rayawa_navigating') === '1',
+    isNavigating: safeStorageGet('sessionStorage', 'rayawa_navigating') === '1',
     isFromBFCache: false,
 };
-sessionStorage.removeItem('rayawa_navigating');
+safeStorageRemove('sessionStorage', 'rayawa_navigating');
 
 function clearHomeTransitionStates() {
     document.body.classList.remove('page-leaving', 'is-loading');
@@ -107,7 +135,7 @@ async function stabilizeLayoutDuring(task) {
 function detectInitialLocale() {
     const fromQuery = new URLSearchParams(window.location.search).get('lang');
     if (fromQuery && supportedLocales.includes(fromQuery)) return fromQuery;
-    const fromStorage = window.localStorage.getItem('rayawa_locale');
+    const fromStorage = safeStorageGet('localStorage', 'rayawa_locale');
     if (fromStorage && supportedLocales.includes(fromStorage)) return fromStorage;
     const fromDoc = (document.documentElement.lang || '').toLowerCase();
     if (fromDoc.startsWith('en')) return 'en';
@@ -202,7 +230,7 @@ async function setLocale(nextLocale, { persist = true } = {}) {
     if (typeof galleryA11yUpdater === 'function') galleryA11yUpdater();
     var titleVal = i18n[locale] && i18n[locale].pageTitle;
     if (titleVal) document.title = titleVal;
-    if (persist) window.localStorage.setItem('rayawa_locale', locale);
+    if (persist) safeStorageSet('localStorage', 'rayawa_locale', locale);
     window.dispatchEvent(new CustomEvent('localechange', { detail: { lang: locale } }));
 }
 
@@ -598,7 +626,7 @@ function initLoadingScreen(options = {}) {
     if (skipIntro) {
         if (screen) screen.remove();
         document.body.classList.remove('is-loading');
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
         window.requestAnimationFrame(emitDoneEvent);
         return;
     }
@@ -636,12 +664,12 @@ function initLoadingScreen(options = {}) {
 
     function finish() {
         if (done) return;
-        done = true;
         setProgress(100);
+        done = true;
         window.setTimeout(() => {
             screen.classList.add('is-done');
             document.body.classList.remove('is-loading');
-            window.scrollTo({ top: 0, behavior: 'instant' });
+            window.scrollTo({ top: 0, behavior: 'auto' });
             window.requestAnimationFrame(() => {
                 emitDoneEvent();
             });
