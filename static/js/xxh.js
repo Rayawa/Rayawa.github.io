@@ -221,13 +221,65 @@
     currentRound: 0
   };
 
+  var XXH_TEXT = {
+    zh: {
+      heroTitle: '恋爱契合度测试',
+      heroDesc: '双人问卷，帮助你们快速发现价值观与生活方式匹配度。',
+      privacyNote: '所有答案仅在本地浏览器处理，不会上传。',
+      startBtn: '开始测试',
+      personA: 'A',
+      personB: 'B',
+      roundLabel: '第 {n} 轮：{who}',
+      submitBtn: '提交本轮',
+      aloneLabel: '独处',
+      togetherLabel: '陪伴',
+      transitionMsg: '第一轮完成，请将设备交给 {who}。',
+      readyBtn: '继续',
+      resultTitle: '结果总览',
+      dimValue: '价值观',
+      dimLife: '生活方式',
+      dimAdd: '附加项',
+      full40: '/40',
+      full20: '/20',
+      detailTitle: '分项明细',
+      retryBtn: '重新测试',
+      validationRequired: '请先完成该题',
+      validationNum100: '两个数字需为非负，且总和为 100',
+      validationNumSingle: '请输入非负整数',
+      validationTextLen: '请输入简短回答（最多 50 字）',
+      validationNonNegative: '请输入非负数字',
+      confirmRefresh: '当前答案将丢失，确定刷新页面吗？',
+      inputPlaceholder: { numSingle: '0', keyword: '请输入' },
+      sections: { value: '价值观', life: '生活方式', add: '附加项' },
+      modules: {
+        baseValue: '核心价值观',
+        money: '金钱观',
+        boundary: '边界感',
+        conflict: '冲突处理',
+        routine: '作息习惯',
+        hobby: '兴趣社交',
+        emotion: '情绪处理',
+        social: '社会议题',
+        evaluate: '相互评价'
+      },
+      suggestions: {
+        title: '建议与提醒'
+      }
+    }
+  };
+  XXH_TEXT.en = XXH_TEXT.zh;
+  XXH_TEXT.fr = XXH_TEXT.zh;
+
   function getLang() {
-    return localStorage.getItem('rayawa_locale') || 'zh';
+    var htmlLang = (document.documentElement.lang || '').toLowerCase();
+    if (htmlLang.indexOf('en') === 0) return 'en';
+    if (htmlLang.indexOf('fr') === 0) return 'fr';
+    return 'zh';
   }
 
   function t(key) {
     var lang = getLang();
-    var i18n = window.SITE_I18N && window.SITE_I18N[lang];
+    var i18n = XXH_TEXT[lang];
     if (!i18n) return key;
     return key.split('.').reduce(function (o, k) { return o && o[k]; }, i18n) || key;
   }
@@ -290,7 +342,7 @@
     var app = document.getElementById('xxh-app');
     if (!app) return;
     var lang = getLang();
-    var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+    var i18n = (XXH_TEXT[lang]) || {};
     app.innerHTML =
       '<section class="xxh-landing">' +
         '<h1 class="lang-fade-target" data-i18n="heroTitle">' + (i18n.heroTitle || '') + '</h1>' +
@@ -305,7 +357,7 @@
     var app = document.getElementById('xxh-app');
     if (!app) return;
     var lang = getLang();
-    var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+    var i18n = (XXH_TEXT[lang]) || {};
     var who = roundNum === 1 ? (i18n.personA || 'A') : (i18n.personB || 'B');
     var roundLabel = (i18n.roundLabel || 'Round {n}: {who}').replace('{n}', roundNum).replace('{who}', who);
 
@@ -374,7 +426,7 @@
       html += '</div>';
     } else if (q.type === 'num100') {
       var lang = getLang();
-      var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+      var i18n = (XXH_TEXT[lang]) || {};
       var aloneLabel = i18n.aloneLabel || '独处';
       var togetherLabel = i18n.togetherLabel || '陪伴';
       html += '<div class="xxh-num100">';
@@ -444,7 +496,7 @@
     var overlay = document.getElementById('xxh-transition');
     if (!overlay) return;
     var lang = getLang();
-    var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+    var i18n = (XXH_TEXT[lang]) || {};
     var who = i18n.personB || 'B';
     var msg = (i18n.transitionMsg || 'Round 1 complete! Please hand the device to {who}.').replace('{who}', who);
     overlay.innerHTML =
@@ -461,7 +513,7 @@
     var app = document.getElementById('xxh-app');
     if (!app) return;
     var lang = getLang();
-    var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+    var i18n = (XXH_TEXT[lang]) || {};
 
     var circumference = 2 * Math.PI * 54;
     var offset = circumference - (totalScore / 100) * circumference;
@@ -630,7 +682,7 @@
     var valid = true;
     var questions = document.querySelectorAll('.xxh-question');
     var lang = getLang();
-    var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+    var i18n = (XXH_TEXT[lang]) || {};
 
     questions.forEach(function (qEl) {
       var key = qEl.dataset.key;
@@ -786,7 +838,7 @@
 
   function getSuggestions(valueScore, lifeScore, totalScore) {
     var lang = getLang();
-    var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+    var i18n = (XXH_TEXT[lang]) || {};
     var sug = i18n.suggestions || {};
     var result = [];
 
@@ -925,7 +977,7 @@
 
     function i18nRealtime(key) {
       var lang = getLang();
-      var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+      var i18n = (XXH_TEXT[lang]) || {};
       return key.split('.').reduce(function (o, k) { return o && o[k]; }, i18n) || '';
     }
 
@@ -958,7 +1010,7 @@
     window.addEventListener('xxh-refresh-check', function (e) {
       if (state.phase === 'round1' || state.phase === 'round2') {
         var lang = getLang();
-        var i18n = (window.SITE_I18N && window.SITE_I18N[lang]) || {};
+        var i18n = (XXH_TEXT[lang]) || {};
         var msg = i18n.confirmRefresh || 'Current answers will be lost. Are you sure you want to refresh?';
         if (!window.confirm(msg)) {
           e.detail && e.detail.cancel && e.detail.cancel();

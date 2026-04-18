@@ -8,144 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../../static/css/common.css">
-  <link rel="stylesheet" href="../../static/css/subpage.css">
-  <style>
-    .spm-section {
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.06);
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-      transition: var(--transition);
-    }
-
-    .spm-section:hover {
-      border-color: rgba(99, 102, 241, 0.4);
-    }
-
-    .spm-section h2 {
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .feature-card {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.04);
-      padding: 1.2rem;
-      transition: var(--transition);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(99, 102, 241, 0.6);
-    }
-
-    .feature-card img {
-      width: 64px;
-      height: 64px;
-      object-fit: cover;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-
-    .feature-card-text h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .feature-card-text h3 a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .feature-card-text h3 a:hover {
-      text-decoration: underline;
-    }
-
-    .feature-card-text p {
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.6;
-      font-size: 0.88rem;
-    }
-
-    .dev-section {
-      margin-top: 1rem;
-    }
-
-    .dev-section:first-child {
-      margin-top: 0;
-    }
-
-    .dev-section h3 {
-      font-size: 1rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .dev-list {
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.8;
-      font-size: 0.9rem;
-      padding-left: 1rem;
-      border-left: 2px solid rgba(99, 102, 241, 0.3);
-    }
-
-    .notice-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .notice-list li {
-      position: relative;
-      padding-left: 1.2rem;
-      margin-bottom: 0.6rem;
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.65;
-      font-size: 0.9rem;
-    }
-
-    .notice-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-    }
-
-    .hero-image {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      margin: 1rem 0;
-      border: 1px solid var(--glass-border);
-    }
-
-    @media (max-width: 900px) {
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-card img {
-        width: 48px;
-        height: 48px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/spm.css">
 </head>
 <body>
   <div id="site-navbar"></div>
-  <script src="../../static/js/navbar.js"></script>
+  <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page">
     <section class="hero-card">
@@ -154,7 +23,7 @@
       <img class="hero-image" src="../../static/resources/spm/title.png" alt="Sweet Potato Mod">
       <div class="single-action">
         <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener" >Pigeonia Featurehouse</a>
-        <a class="button-outline" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right:0.35rem"></i><span >GitHub</span></a>
+        <a class="button-outline" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github spm-github-icon"></i><span >GitHub</span></a>
         <a class="button-outline" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener" >Download</a>
       </div>
     </section>
@@ -220,18 +89,15 @@
         <li >Loading this mod requires Fabric Loader and Fabric API. The Loader version must be at least 0.9.0; the API should be the latest version.</li>
         <li >Do not add content from this mod to your modpack without the authors' permission!</li>
         <li >To use this mod on a server, install it on both the client and server sides.</li>
-        <li >Report bugs or suggestions on <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" style="color:var(--primary)">GitHub Issues</a>.</li>
+        <li >Report bugs or suggestions on <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" class="spm-primary-link">GitHub Issues</a>.</li>
       </ul>
     </section>
   </main>
     <div id="site-footer"></div>
-
-  <script src="../static/i18n/i18n-loader.js"></script>
-    <script>I18nLoader.init('spm');</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   
   
-  <script src="../../static/js/footer.js"></script>
-    <script src="../../static/js/common.js"></script>
+  <script src="/static/js/footer.js"></script>
+<script src="/static/js/common.js"></script>
 </body>
 </html>
