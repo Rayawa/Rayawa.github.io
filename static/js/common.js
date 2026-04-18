@@ -420,7 +420,34 @@ function initSmoothScroll() {
     });
 }
 
-var locale = localStorage.getItem('rayawa_locale') || 'zh';
+function safeStorageGet(storageType, key) {
+    try {
+        var store = window[storageType];
+        return store ? store.getItem(key) : null;
+    } catch (_err) {
+        return null;
+    }
+}
+
+function safeStorageSet(storageType, key, value) {
+    try {
+        var store = window[storageType];
+        if (store) store.setItem(key, value);
+    } catch (_err) {
+        // Ignore storage-unavailable environments (private mode / restrictive webview).
+    }
+}
+
+function safeStorageRemove(storageType, key) {
+    try {
+        var store = window[storageType];
+        if (store) store.removeItem(key);
+    } catch (_err) {
+        // Ignore storage-unavailable environments (private mode / restrictive webview).
+    }
+}
+
+var locale = safeStorageGet('localStorage', 'rayawa_locale') || 'zh';
 var TRANSITION_MS = 420;
 var REVEAL_ROW_TOLERANCE = 14;
 var REVEAL_BASE_DELAY = 80;
@@ -446,7 +473,7 @@ function sortByVisualFlow(elements) {
 function setLocale(lang, opts) {
     opts = opts || {};
     locale = lang;
-    if (!opts.noPersist) localStorage.setItem('rayawa_locale', lang);
+    if (!opts.noPersist) safeStorageSet('localStorage', 'rayawa_locale', lang);
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'fr' ? 'fr' : 'en';
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -508,7 +535,7 @@ function initPageEntrance() {
             isFromCache = true;
             // 清除所有过渡状态
             clearPageTransitionStates();
-            sessionStorage.removeItem('rayawa_navigating');
+            safeStorageRemove('sessionStorage', 'rayawa_navigating');
             
             // 立即显示内容
             var navbar = document.querySelector('.navbar');
@@ -547,8 +574,8 @@ function initPageEntrance() {
     }
 
     var navbar = document.querySelector('.navbar');
-    var isNavigating = sessionStorage.getItem('rayawa_navigating') === '1';
-    sessionStorage.removeItem('rayawa_navigating');
+    var isNavigating = safeStorageGet('sessionStorage', 'rayawa_navigating') === '1';
+    safeStorageRemove('sessionStorage', 'rayawa_navigating');
 
     // 如果是从缓存加载或正在导航，立即显示内容
     if (isNavigating || isFromCache) {
@@ -766,7 +793,7 @@ function initPageLeaveTransitions() {
     window.addEventListener('pageshow', function(e) {
         if (e.persisted) {
             clearPageTransitionStates();
-            sessionStorage.removeItem('rayawa_navigating');
+            safeStorageRemove('sessionStorage', 'rayawa_navigating');
             
             var navbar = document.querySelector('.navbar');
             if (navbar) navbar.classList.add('is-visible');
@@ -806,7 +833,7 @@ function initPageLeaveTransitions() {
         overlay.className = 'page-transition-overlay';
         document.body.appendChild(overlay);
 
-        sessionStorage.setItem('rayawa_navigating', '1');
+        safeStorageSet('sessionStorage', 'rayawa_navigating', '1');
 
         setTimeout(function() {
             window.location.href = destination.href;
