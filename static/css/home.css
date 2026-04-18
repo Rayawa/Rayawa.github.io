@@ -254,7 +254,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.26);
 }
 
-@media (min-width: 1701px) {
+@media (min-width: 1440px) {
     .avatar-quote {
         position: absolute;
         right: -132px;
@@ -277,6 +277,39 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.26);
         border-top: none;
         border-right: none;
+    }
+
+    /* 显示器端字体优化 */
+    .hero-text h1 {
+        font-size: var(--h1-size);
+    }
+
+    .section-title {
+        font-size: var(--h2-size);
+    }
+
+    .section-subtitle {
+        font-size: var(--text-lg);
+    }
+
+    .hero-text p {
+        font-size: var(--text-base);
+    }
+
+    .project-title {
+        font-size: 1.35rem;
+    }
+
+    .project-description {
+        font-size: var(--text-base);
+    }
+
+    .about-text h3 {
+        font-size: var(--h3-size);
+    }
+
+    .skill-name {
+        font-size: var(--text-base);
     }
 }
 
@@ -586,6 +619,18 @@ a.skill-link {
 
 .project-image.signal {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(59, 130, 246, 0.28)), url('../resources/main_page/signal.png');
+}
+
+.project-image.piano {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(168, 85, 247, 0.28)), url('../resources/main_page/piano.png');
+}
+
+.project-image.drawing {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(236, 72, 153, 0.28)), url('../resources/main_page/drawing.png');
+}
+
+.project-image.books {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../resources/main_page/books.png');
 }
 
 .project-content {
@@ -1225,7 +1270,7 @@ textarea.form-control {
     text-transform: uppercase;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
     .loading-content {
         gap: 1.5rem;
     }
@@ -1260,7 +1305,7 @@ textarea.form-control {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     .hero {
         min-height: auto;
         padding: 6rem 0 2rem;
@@ -1286,12 +1331,12 @@ textarea.form-control {
     }
 
     .hero-text h1 {
-        font-size: 1.75rem;
+        font-size: var(--h1-size);
         margin-bottom: 0.6rem;
     }
 
     .hero-text p {
-        font-size: 0.92rem;
+        font-size: var(--text-sm);
         margin-bottom: 1rem;
     }
 
@@ -1307,7 +1352,7 @@ textarea.form-control {
     }
 
     .hero-tags p {
-        font-size: 0.82rem;
+        font-size: var(--text-xs);
         line-height: 1.55;
     }
 
@@ -1317,7 +1362,7 @@ textarea.form-control {
     }
 
     .hero-tags .tag-label {
-        font-size: 0.72rem;
+        font-size: var(--text-xs);
         min-width: 2.8em;
         margin-right: 0.4rem;
         padding: 0.08rem 0.45rem;
@@ -1329,7 +1374,7 @@ textarea.form-control {
 
     .btn {
         padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
 
     .profile-img {
@@ -1338,7 +1383,7 @@ textarea.form-control {
     }
 
     .avatar-quote {
-        font-size: 0.82rem;
+        font-size: var(--text-xs);
         padding: 0.6rem 0.8rem;
     }
 
@@ -1351,7 +1396,7 @@ textarea.form-control {
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: var(--h2-size);
         margin-bottom: 0.8rem;
     }
 
@@ -1360,7 +1405,7 @@ textarea.form-control {
     }
 
     .section-subtitle {
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
 
     .section-header {
@@ -1389,12 +1434,12 @@ textarea.form-control {
     }
 
     .about-text h3 {
-        font-size: 1.2rem;
+        font-size: var(--h3-size);
         margin-bottom: 0.8rem;
     }
 
     .about-text p {
-        font-size: 0.85rem;
+        font-size: var(--text-sm);
         margin-bottom: 0.8rem;
     }
 
@@ -1418,11 +1463,11 @@ textarea.form-control {
     }
 
     .project-title {
-        font-size: 1.05rem;
+        font-size: var(--text-base);
     }
 
     .project-description {
-        font-size: 0.82rem;
+        font-size: var(--text-xs);
     }
 
     .project-content {
@@ -1430,15 +1475,15 @@ textarea.form-control {
     }
 
     .other-projects-title {
-        font-size: 1rem;
+        font-size: var(--text-base);
     }
 
     .skill-name {
-        font-size: 0.95rem;
+        font-size: var(--text-sm);
     }
 
     .skill-description {
-        font-size: 0.82rem;
+        font-size: var(--text-xs);
     }
 
     .skill-item {
@@ -1446,34 +1491,34 @@ textarea.form-control {
     }
 
     .status-card-title {
-        font-size: 1.05rem;
+        font-size: var(--text-base);
     }
 
     .contact-details h4 {
-        font-size: 0.95rem;
+        font-size: var(--text-sm);
     }
 
     .contact-details p {
-        font-size: 0.82rem;
+        font-size: var(--text-xs);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
     .hero {
         padding: 5.5rem 0 1.5rem;
     }
 
     .hero-text h1 {
-        font-size: 1.75rem;
+        font-size: var(--h1-size);
     }
 
     .hero-tags p {
-        font-size: 0.82rem;
+        font-size: var(--text-xs);
         line-height: 1.55;
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: var(--h2-size);
     }
 
     .section-title::after {
@@ -1482,7 +1527,7 @@ textarea.form-control {
     }
 
     .section-subtitle {
-        font-size: 0.88rem;
+        font-size: var(--text-sm);
     }
 
     .profile-img {
@@ -1492,7 +1537,7 @@ textarea.form-control {
     .avatar-quote {
         max-width: none;
         margin: 0.6rem auto 0;
-        font-size: 0.78rem;
+        font-size: var(--text-xs);
     }
 
     .btn-group {
@@ -1504,7 +1549,7 @@ textarea.form-control {
         width: 100%;
         justify-content: center;
         padding: 0.65rem 1rem;
-        font-size: 0.85rem;
+        font-size: var(--text-sm);
     }
 
     .gallery-track,

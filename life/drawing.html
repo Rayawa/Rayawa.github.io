@@ -3,35 +3,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>画画 | Ray Chen</title>
+  <title>绘画作品 | Ray Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../static/css/common.css">
-  <link rel="stylesheet" href="../static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/drawing.css">
 </head>
 <body>
   <div id="site-navbar"></div>
-  <script src="../static/js/navbar.js"></script>
+  <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page">
-    <section class="hero-card">
-      <h1>画画</h1>
+    <section class="hero-card subpage-reveal">
+      <h1>绘画作品</h1>
       <p>用画笔记录灵感与想象</p>
     </section>
-    <section class="thesis-archive">
-      <div class="section-header">
-        <h2>敬请期待</h2>
-        <p>内容建设中...</p>
+
+    <div class="gallery-grid subpage-reveal">
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/yanfei.jpg" alt="烟绯" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">烟绯</div>
+          <div class="artwork-date">2025-01-15</div>
+        </div>
       </div>
-    </section>
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/yanfei-avatar.jpg" alt="烟绯头像" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">烟绯头像</div>
+          <div class="artwork-date">2025-01-18</div>
+        </div>
+      </div>
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/huaisuli.jpg" alt="怀黍离" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">怀黍离</div>
+          <div class="artwork-date">2025-02-03</div>
+        </div>
+      </div>
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/xiaogong-1.jpg" alt="宵宫1" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">宵宫 1</div>
+          <div class="artwork-date">2025-02-10</div>
+        </div>
+      </div>
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/xiaogong-2.jpg" alt="宵宫2" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">宵宫 2</div>
+          <div class="artwork-date">2025-02-14</div>
+        </div>
+      </div>
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/xiaogong-3.jpg" alt="宵宫3" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">宵宫 3</div>
+          <div class="artwork-date">2025-02-20</div>
+        </div>
+      </div>
+
+      <div class="artwork-card">
+        <div class="artwork-image-wrap">
+          <img src="../static/resources/drawing/xiaogong-4.jpg" alt="宵宫4" loading="lazy">
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-title">宵宫 4</div>
+          <div class="artwork-date">2025-03-01</div>
+        </div>
+      </div>
+
+    </div>
   </main>
   <div id="site-footer"></div>
-
-  <script>window.SITE_I18N={"zh":{"nav":{"home":"首页","about":"关于我","projects":"项目","gallery":"摄影","contact":"联系"}},"en":{},"fr":{}};window.FOOTER_I18N={"zh":{"nav":{"home":"首页","about":"关于我","projects":"项目","gallery":"摄影","contact":"联系"},"project":{"hmdb":{"title":"华为应用市场看板"},"bio":{"title":"生物学项目"},"spm":{"title":"Sweet Potato Mod"},"ohos":{"title":"OpenHarmony Hi3861"},"signal":{"title":"微弱电信号的测量"}},"life":{"gallery":"摄影画廊","piano":"钢琴","drawing":"绘画作品","books":"书单"},"footer":{"description":"Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.","life":"生活","projects":"项目","thanks":"致谢","thanksLink":"查看致谢","copy":"&copy; 2026 Ray Chen. All rights reserved."}},"en":{},"fr":{}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-  <script src="../static/js/footer.js"></script>
+<script src="/static/js/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="../static/js/common.js"></script>
+<script src="/static/js/common.js"></script>
 </body>
 </html>

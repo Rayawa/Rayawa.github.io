@@ -17,6 +17,26 @@
     --fade-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
     --fade-shift: 10px;
     color-scheme: light dark;
+
+    /* 统一响应式断点 */
+    --breakpoint-mobile: 767px;
+    --breakpoint-tablet: 1023px;
+    --breakpoint-desktop: 1439px;
+
+    /* 基础字体大小系统（默认为电脑端） */
+    --font-base: 16px;
+    --font-scale: 1;
+
+    /* 标题字体大小 */
+    --h1-size: clamp(2.2rem, 4vw, 3.2rem);
+    --h2-size: clamp(1.75rem, 2.8vw, 2.25rem);
+    --h3-size: clamp(1.35rem, 2vw, 1.75rem);
+
+    /* 正文字体大小 */
+    --text-lg: 1.125rem;
+    --text-base: 1rem;
+    --text-sm: 0.9rem;
+    --text-xs: 0.82rem;
 }
 
 * {
@@ -34,7 +54,7 @@ html {
     scrollbar-color: rgba(99, 102, 241, 0.5) transparent;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     html {
         scroll-padding-top: 60px;
     }
@@ -68,6 +88,7 @@ body {
     overscroll-behavior-y: none;
     display: flex;
     flex-direction: column;
+    font-size: var(--font-base);
 }
 
 body.is-loading {
@@ -616,7 +637,7 @@ section,
     pointer-events: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     a,
     button {
         -webkit-tap-highlight-color: transparent;
@@ -742,7 +763,7 @@ section,
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
     .language-switch {
         gap: 0.25rem;
         margin-left: auto;
@@ -882,7 +903,7 @@ section,
     flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .footer-content {
         align-items: flex-start;
         gap: 0.8rem;
@@ -896,6 +917,87 @@ section,
     .copyright {
         flex-direction: column;
         gap: 0.2rem;
+    }
+}
+
+/* ========================================
+   统一四档响应式断点系统
+   ======================================== */
+
+/* 显示器端 (≥1440px) - 大屏优化，字体放大 */
+@media (min-width: 1440px) {
+    :root {
+        --font-scale: 1.08;
+        --font-base: 17px;
+        --h1-size: clamp(2.5rem, 4vw, 3.6rem);
+        --h2-size: clamp(1.9rem, 2.8vw, 2.5rem);
+        --h3-size: clamp(1.5rem, 2vw, 1.9rem);
+        --text-lg: 1.2rem;
+        --text-base: 1.08rem;
+        --text-sm: 0.95rem;
+        --text-xs: 0.86rem;
+    }
+
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* 电脑端 (1024px - 1439px) - 标准样式（默认） */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    :root {
+        --font-scale: 1;
+        --font-base: 16px;
+    }
+
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* 平板端 (768px - 1023px) - 字体缩小，布局调整 */
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --font-scale: 0.92;
+        --font-base: 15px;
+        --h1-size: clamp(1.9rem, 4vw, 2.8rem);
+        --h2-size: clamp(1.5rem, 2.8vw, 2rem);
+        --h3-size: clamp(1.2rem, 2vw, 1.55rem);
+        --text-lg: 1.05rem;
+        --text-base: 0.93rem;
+        --text-sm: 0.85rem;
+        --text-xs: 0.78rem;
+    }
+
+    .container {
+        max-width: 960px;
+    }
+
+    html {
+        scroll-padding-top: 70px;
+    }
+}
+
+/* 移动端 (≤767px) - 最小字体，单列布局 */
+@media (max-width: 767px) {
+    :root {
+        --font-scale: 0.88;
+        --font-base: 14px;
+        --h1-size: clamp(1.65rem, 5vw, 2.4rem);
+        --h2-size: clamp(1.35rem, 3.5vw, 1.75rem);
+        --h3-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        --text-lg: 1rem;
+        --text-base: 0.88rem;
+        --text-sm: 0.82rem;
+        --text-xs: 0.75rem;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    html {
+        scroll-padding-top: 60px;
     }
 }
 

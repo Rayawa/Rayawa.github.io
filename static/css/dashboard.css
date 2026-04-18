@@ -931,7 +931,7 @@ button.platform-btn {
 /* ==================== 
    响应式设计
    ==================== */
-@media (max-width: 1060px) {
+@media (max-width: 1023px) {
   .details-grid {
     grid-template-columns: 1fr;
   }
@@ -943,9 +943,7 @@ button.platform-btn {
   .platform-grid {
     grid-template-columns: repeat(4, minmax(160px, 1fr));
   }
-}
 
-@media (max-width: 900px) {
   .metrics-grid {
     grid-template-columns: 1fr;
   }
@@ -968,7 +966,7 @@ button.platform-btn {
   }
 
   .hero-title {
-    font-size: 1.6rem;
+    font-size: var(--h2-size);
   }
 
   .app-icon-wrapper {
@@ -977,7 +975,7 @@ button.platform-btn {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 767px) {
   .dashboard-page {
     padding-top: 6.4rem;
   }
@@ -996,7 +994,7 @@ button.platform-btn {
   }
 
   .section-header h2 {
-    font-size: 1.3rem;
+    font-size: var(--h3-size);
   }
 
   .access-metrics-card {
@@ -1609,7 +1607,7 @@ button.platform-btn {
 /* ==================== 
    响应式调整 - 新增板块
    ==================== */
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .tech-two-columns {
     grid-template-columns: 1fr;
   }
@@ -1657,7 +1655,7 @@ button.platform-btn {
   }
 
   .card-header h3 {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
   }
 
   .note-icon,
@@ -1667,7 +1665,7 @@ button.platform-btn {
 
   .note-card h3,
   .highlight-card h3 {
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
   }
 
   .section-container {
@@ -1681,7 +1679,7 @@ button.platform-btn {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 767px) {
   .database-features {
     grid-template-columns: 1fr;
   }

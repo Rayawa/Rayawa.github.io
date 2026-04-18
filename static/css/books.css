@@ -1,0 +1,150 @@
+.page {
+    max-width: 1400px;
+    padding-left: clamp(1.2rem, 4vw, 2.5rem);
+    padding-right: clamp(1.2rem, 4vw, 2.5rem);
+}
+
+.books-board {
+    display: flex;
+    gap: 14px;
+    margin-top: 2rem;
+    padding-bottom: 3rem;
+    align-items: flex-start;
+}
+
+.books-column {
+    flex: 0 0 auto;
+    width: 176px;
+    min-width: 160px;
+}
+
+.books-column-header {
+    padding: 12px 14px;
+    border-radius: 12px 12px 0 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: none;
+}
+
+.books-column-header .col-count {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 500;
+}
+
+.books-column-body {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.book-item {
+    padding: 14px 12px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+    font-weight: 600;
+    transition: box-shadow 0.25s ease;
+    cursor: default;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.book-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.col-novel .books-column-header { background: rgba(220, 38, 38, 0.12); }
+.col-novel .book-item { background: rgba(220, 38, 38, 0.08); }
+.col-novel .book-item:hover { background: rgba(220, 38, 38, 0.16); }
+
+.col-efficiency .books-column-header { background: rgba(16, 185, 129, 0.08); }
+.col-efficiency .book-item { background: rgba(16, 185, 129, 0.06); }
+.col-efficiency .book-item:hover { background: rgba(16, 185, 129, 0.12); }
+
+.col-science .books-column-header { background: rgba(245, 158, 11, 0.08); }
+.col-science .book-item { background: rgba(245, 158, 11, 0.06); }
+.col-science .book-item:hover { background: rgba(245, 158, 11, 0.12); }
+
+.col-stem .books-column-header { background: rgba(59, 130, 246, 0.08); }
+.col-stem .book-item { background: rgba(59, 130, 246, 0.06); }
+.col-stem .book-item:hover { background: rgba(59, 130, 246, 0.12); }
+
+.col-code .books-column-header { background: rgba(148, 163, 184, 0.08); }
+.col-code .book-item { background: rgba(148, 163, 184, 0.06); }
+.col-code .book-item:hover { background: rgba(148, 163, 184, 0.12); }
+
+.col-social .books-column-header { background: rgba(249, 115, 22, 0.08); }
+.col-social .book-item { background: rgba(249, 115, 22, 0.06); }
+.col-social .book-item:hover { background: rgba(249, 115, 22, 0.12); }
+
+.col-bio .books-column-header { background: rgba(168, 85, 247, 0.08); }
+.col-bio .book-item { background: rgba(168, 85, 247, 0.06); }
+.col-bio .book-item:hover { background: rgba(168, 85, 247, 0.12); }
+
+@media (max-width: 1200px) {
+    .books-board {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 2rem;
+    }
+
+    .books-column {
+        width: 170px;
+        min-width: 155px;
+    }
+}
+
+@media (max-width: 900px) {
+    .books-board {
+        gap: 10px;
+    }
+
+    .books-column {
+        width: 150px;
+        min-width: 140px;
+    }
+
+    .books-column-header {
+        font-size: 0.78rem;
+        padding: 10px 12px;
+    }
+
+    .book-item {
+        font-size: 0.82rem;
+        padding: 11px 9px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        max-width: 100%;
+    }
+
+    .books-board {
+        gap: 8px;
+        margin-top: 1.5rem;
+    }
+
+    .books-column {
+        width: 135px;
+        min-width: 125px;
+    }
+
+    .book-item {
+        font-size: 0.78rem;
+        padding: 9px 8px;
+    }
+}

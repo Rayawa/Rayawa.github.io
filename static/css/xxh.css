@@ -508,7 +508,7 @@
   border-radius: 50px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .xxh-quiz-header {
     top: 56px;
   }
@@ -518,7 +518,7 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 767px) {
   .xxh-landing {
     padding: 2rem 1rem;
   }

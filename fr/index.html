@@ -9,8 +9,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/home.css">
     <link rel="prefetch" href="dashboard.html">
     <link rel="prefetch" href="projects/biology.html">
     <link rel="prefetch" href="projects/Hi3861.html">
@@ -43,7 +43,7 @@
 
     <!-- 导航栏 -->
     <div id="site-navbar"></div>
-    <script src="../static/js/navbar.js"></script>
+    <script src="/static/js/navbar.js"></script>
 
     <!-- 英雄区域 -->
     <section class="hero reveal-section" id="home">
@@ -338,7 +338,6 @@
                         </div>
                     </div>
 
-
                 </div>
             </div>
 
@@ -393,10 +392,8 @@
                 </div>
             </div>
 
-
         </div>
     </section>
-
 
     <!-- Galerie de photographie -->
     <section class="gallery reveal-section" id="gallery">
@@ -497,25 +494,44 @@
     <!-- Vie -->
     <section class="projects reveal-section" id="life">
         <div class="container">
-            <div class="projects-grid">
-                <a href="life/piano.html" class="project-card reveal-item">
-                    <div class="project-content">
-                        <h4 class="project-title" >Piano</h4>
-                        <p class="project-description" >La musique est l'art du temps.</p>
-                    </div>
-                </a>
-                <a href="life/drawing.html" class="project-card reveal-item">
-                    <div class="project-content">
-                        <h4 class="project-title" >Œuvres</h4>
-                        <p class="project-description" >Capturer l'inspiration au pinceau.</p>
-                    </div>
-                </a>
-                <a href="life/books.html" class="project-card reveal-item">
-                    <div class="project-content">
-                        <h4 class="project-title" >Liste de livres</h4>
-                        <p class="project-description" >Lire est le voyage de l'âme.</p>
-                    </div>
-                </a>
+            <div class="projects-group">
+                <div class="projects-grid">
+                    <a href="life/piano.html" class="project-card reveal-item">
+                        <div class="project-image piano"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Piano</h4>
+                            <p class="project-description" >La musique est l'art du temps. Autodidacte au collège, capturant des mélodies du bout des doigts.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Piano</span>
+                                <span class="tag" >Musique</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="life/drawing.html" class="project-card reveal-item">
+                        <div class="project-image drawing"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Œuvres</h4>
+                            <p class="project-description" >Capturer l'inspiration au pinceau. Fan art Genshin, créations de personnages, et plus encore.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Dessin</span>
+                                <span class="tag" >Genshin</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="life/books.html" class="project-card reveal-item">
+                        <div class="project-image books"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Liste de livres</h4>
+                            <p class="project-description" >Lire est le voyage de l'âme. Couvrant la fiction, les sciences, la programmation et plus.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Lecture</span>
+                                <span class="tag" >Livres</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -664,16 +680,13 @@
     <div id="site-footer"></div>
 
     <!-- JavaScript -->
-    <script>window.SITE_I18N={"zh": {}, "en": {}, "fr": {"refresh": "Rafraîchir la page", "top": "Retour en haut", "dotLabel": "Aller à la diapositive {n}", "sending": "Envoi...", "sent": "Message envoyé. Je vous répondrai bientôt.", "sendFailed": "Échec de l'envoi. Veuillez réessayer plus tard.", "pageTitle": "Accueil | Ray Chen", "nav.home": "Accueil", "nav.about": "À propos de moi", "nav.projects": "Projets", "nav.gallery": "Photographie", "nav.contact": "Contact"}};window.FOOTER_I18N={"zh": {}, "en": {}, "fr": {"nav": {"home": "Accueil", "about": "À propos de moi", "projects": "Projets", "gallery": "Photographie", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Projets de biologie"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Mesure de Signaux Électriques Faibles"}}, "life": {"gallery": "Galerie photo", "piano": "Piano", "drawing": "Œuvres", "books": "Liste de livres"}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "projects": "Projets", "life": "Vie", "thanks": "Remerciements", "thanksLink": "Voir les remerciements", "copy": "&copy; 2026 Ray Chen. Tous droits réservés."}}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-    <script>window.__HOME_JS = true;</script>
-    <script data-goatcounter="https://rayawa.goatcounter.com/count"
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script data-goatcounter="https://rayawa.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
     
-    <script src="../static/js/footer.js"></script>
-    <script src="../static/js/common.js"></script>
-    <script src="../static/js/home.js"></script>
+    <script src="/static/js/footer.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/home.js"></script>
 </body>
 
 </html>
