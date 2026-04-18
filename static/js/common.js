@@ -420,7 +420,6 @@ function initSmoothScroll() {
     });
 }
 
-var SITE_I18N = window.SITE_I18N || {};
 var locale = localStorage.getItem('rayawa_locale') || 'zh';
 var TRANSITION_MS = 420;
 var REVEAL_ROW_TOLERANCE = 14;
@@ -441,41 +440,10 @@ function setLocale(lang, opts) {
     opts = opts || {};
     locale = lang;
     if (!opts.noPersist) localStorage.setItem('rayawa_locale', lang);
-    var i18n = SITE_I18N[lang];
-    if (!i18n) return;
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n');
-        var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
-        if (val !== undefined && val !== null) {
-            if (typeof val === 'string' && val.indexOf('\n') >= 0) {
-                el.innerHTML = val.replace(/\n/g, '<br>');
-            } else {
-                el.textContent = val;
-            }
-        }
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n-html');
-        var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
-        if (val !== undefined && val !== null) el.innerHTML = val;
-    });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n-placeholder');
-        var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
-        if (val !== undefined && val !== null) el.placeholder = val;
-    });
-    document.querySelectorAll('[data-i18n-tooltip]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n-tooltip');
-        var val = key.split('.').reduce(function(o, k) { return o && o[k]; }, i18n);
-        if (val !== undefined && val !== null) el.setAttribute('data-tooltip', val);
-    });
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'fr' ? 'fr' : 'en';
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    if (i18n.pageTitle) {
-        document.title = i18n.pageTitle;
-    }
     window.dispatchEvent(new CustomEvent('localechange', { detail: { lang: lang } }));
 }
 

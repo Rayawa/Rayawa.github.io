@@ -9,8 +9,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/home.css">
     <link rel="prefetch" href="dashboard.html">
     <link rel="prefetch" href="projects/biology.html">
     <link rel="prefetch" href="projects/Hi3861.html">
@@ -43,7 +43,7 @@
 
     <!-- 导航栏 -->
     <div id="site-navbar"></div>
-    <script src="../static/js/navbar.js"></script>
+    <script src="/static/js/navbar.js"></script>
 
     <!-- 英雄区域 -->
     <section class="hero reveal-section" id="home">
@@ -338,7 +338,6 @@
                         </div>
                     </div>
 
-
                 </div>
             </div>
 
@@ -393,10 +392,8 @@
                 </div>
             </div>
 
-
         </div>
     </section>
-
 
     <!-- Photography Gallery -->
     <section class="gallery reveal-section" id="gallery">
@@ -497,25 +494,44 @@
     <!-- Life -->
     <section class="projects reveal-section" id="life">
         <div class="container">
-            <div class="projects-grid">
-                <a href="life/piano.html" class="project-card reveal-item">
-                    <div class="project-content">
-                        <h4 class="project-title" >Piano</h4>
-                        <p class="project-description" >Music is the art of time.</p>
-                    </div>
-                </a>
-                <a href="life/drawing.html" class="project-card reveal-item">
-                    <div class="project-content">
-                        <h4 class="project-title" >Artworks</h4>
-                        <p class="project-description" >Capturing inspiration with a brush.</p>
-                    </div>
-                </a>
-                <a href="life/books.html" class="project-card reveal-item">
-                    <div class="project-content">
-                        <h4 class="project-title" >Book List</h4>
-                        <p class="project-description" >Reading is the journey of the soul.</p>
-                    </div>
-                </a>
+            <div class="projects-group">
+                <div class="projects-grid">
+                    <a href="life/piano.html" class="project-card reveal-item">
+                        <div class="project-image piano"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Piano</h4>
+                            <p class="project-description" >Music is the art of time. Self-taught since middle school, capturing melodies at my fingertips.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Piano</span>
+                                <span class="tag" >Music</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="life/drawing.html" class="project-card reveal-item">
+                        <div class="project-image drawing"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Artworks</h4>
+                            <p class="project-description" >Capturing inspiration with a brush. Genshin fan art, character creations, and more.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Art</span>
+                                <span class="tag" >Genshin</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="life/books.html" class="project-card reveal-item">
+                        <div class="project-image books"></div>
+                        <div class="project-content">
+                            <h4 class="project-title" >Book List</h4>
+                            <p class="project-description" >Reading is the journey of the soul. Covering fiction, science, programming, and more.</p>
+                            <div class="project-tags">
+                                <span class="tag" >Reading</span>
+                                <span class="tag" >Books</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -664,16 +680,13 @@
     <div id="site-footer"></div>
 
     <!-- JavaScript -->
-    <script>window.SITE_I18N={"zh": {}, "en": {"refresh": "Refresh page", "top": "Back to top", "dotLabel": "Go to slide {n}", "sending": "Sending...", "sent": "Message sent successfully. I will reply soon.", "sendFailed": "Failed to send. Please try again later.", "pageTitle": "Home | Ray Chen", "nav.home": "Home", "nav.about": "About Me", "nav.projects": "Projects", "nav.gallery": "Photography", "nav.contact": "Contact"}, "fr": {}};window.FOOTER_I18N={"zh": {}, "en": {"nav": {"home": "Home", "about": "About Me", "projects": "Projects", "gallery": "Photography", "contact": "Contact"}, "project": {"hmdb": {"title": "HmDashboard"}, "bio": {"title": "Biology Projects"}, "spm": {"title": "Sweet Potato Mod"}, "ohos": {"title": "OpenHarmony Hi3861"}, "signal": {"title": "Measurement of Weak Electrical Signals"}}, "life": {"gallery": "Photo Gallery", "piano": "Piano", "drawing": "Artworks", "books": "Book List"}, "footer": {"description": "Ray汐 / 清霁Ray / Rayawa<br>Everything is possible by code.", "projects": "Projects", "life": "Life", "thanks": "Acknowledgements", "thanksLink": "View Acknowledgements", "copy": "&copy; 2026 Ray Chen. All rights reserved."}}, "fr": {}};(function(){var l=document.documentElement.lang||"zh-CN";var lc=l.startsWith("en")?"en":l.startsWith("fr")?"fr":"zh";localStorage.setItem("rayawa_locale",lc);})();</script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-    <script>window.__HOME_JS = true;</script>
-    <script data-goatcounter="https://rayawa.goatcounter.com/count"
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script data-goatcounter="https://rayawa.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
     
-    <script src="../static/js/footer.js"></script>
-    <script src="../static/js/common.js"></script>
-    <script src="../static/js/home.js"></script>
+    <script src="/static/js/footer.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/home.js"></script>
 </body>
 
 </html>

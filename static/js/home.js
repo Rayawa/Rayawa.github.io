@@ -2,7 +2,7 @@ window.__HOME_JS = true;
 const supportedLocales = ['zh', 'en', 'fr'];
 locale = 'zh';
 
-const i18n = window.SITE_I18N || { zh: {}, en: {}, fr: {} };
+const i18n = { zh: {}, en: {}, fr: {} };
 
 function getI18nValue(path, lang = locale) {
     return path.split('.').reduce((acc, key) => (acc && typeof acc === 'object' ? acc[key] : undefined), i18n[lang]);
@@ -275,7 +275,7 @@ function initContactForm() {
     function getI18nText(key, fallback) {
         var htmlLang = document.documentElement.lang || 'zh-CN';
         var locale = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : 'zh';
-        var i18n = (window.SITE_I18N && window.SITE_I18N[locale]) || {};
+        var i18n = {};
         return i18n[key] || fallback;
     }
 
