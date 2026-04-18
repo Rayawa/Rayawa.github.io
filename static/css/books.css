@@ -94,7 +94,7 @@
 .col-bio .book-item { background: rgba(168, 85, 247, 0.06); }
 .col-bio .book-item:hover { background: rgba(168, 85, 247, 0.12); }
 
-@media (max-width: 1200px) {
+@media (max-width: 1279px) {
     .books-board {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -107,7 +107,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
     .books-board {
         gap: 10px;
     }
@@ -128,7 +128,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .page {
         max-width: 100%;
     }
@@ -146,5 +146,17 @@
     .book-item {
         font-size: 0.78rem;
         padding: 9px 8px;
+    }
+}
+
+@media (max-width: 479px) {
+    .books-column {
+        width: 122px;
+        min-width: 116px;
+    }
+
+    .book-item {
+        font-size: 0.75rem;
+        padding: 8px 7px;
     }
 }

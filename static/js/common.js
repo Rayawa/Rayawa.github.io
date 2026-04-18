@@ -423,6 +423,13 @@ function initSmoothScroll() {
 var locale = localStorage.getItem('rayawa_locale') || 'zh';
 var TRANSITION_MS = 420;
 var REVEAL_ROW_TOLERANCE = 14;
+var REVEAL_BASE_DELAY = 80;
+var REVEAL_STAGGER_MS = 90;
+window.__rayMotion = window.__rayMotion || {
+    transitionMs: TRANSITION_MS,
+    revealBaseDelay: REVEAL_BASE_DELAY,
+    revealStaggerMs: REVEAL_STAGGER_MS
+};
 
 function sortByVisualFlow(elements) {
     return elements.slice().sort(function(a, b) {
@@ -530,10 +537,10 @@ function initPageEntrance() {
                     navbar.classList.add('is-visible');
                 });
             }
-            if (sessionStorage.getItem('rayawa_loaded') || isFromCache) {
+            if (isFromCache) {
                 showNavbar();
             } else {
-                window.addEventListener('loadingScreenDone', showNavbar);
+                window.addEventListener('loadingScreenDone', showNavbar, { once: true });
             }
         }
         return;
@@ -598,6 +605,12 @@ function initPageEntrance() {
 function initSubpageReveal() {
     var isSubpage = !document.getElementById('loadingScreen');
     if (!isSubpage) return;
+    if (window.__subpageRevealBooted) {
+        if (typeof window.__subpageRevealRefresh === 'function') {
+            window.__subpageRevealRefresh();
+        }
+        return;
+    }
 
     var isThanks = !!document.querySelector('.thanks-section');
     var isBio = !!document.querySelector('.pcr-lab');
@@ -606,10 +619,9 @@ function initSubpageReveal() {
     if (isDashboard) {
         var sections = document.querySelectorAll('.dashboard-page .hero-section, .dashboard-page .content-section');
         sections.forEach(function(el, idx) {
-            el.style.transitionDelay = (idx * 0.1) + 's';
-            el.classList.add('reveal-in');
+            el.classList.add('subpage-reveal');
+            el.style.setProperty('--subpage-delay', (idx * REVEAL_STAGGER_MS) + 'ms');
         });
-        return;
     } else if (isThanks) {
         var groups = document.querySelectorAll('.thanks-group');
         groups.forEach(function(el) {
@@ -647,7 +659,7 @@ function initSubpageReveal() {
         var ordered = sortByVisualFlow(Array.from(items));
         ordered.forEach(function(el, idx) {
             el.classList.add('subpage-reveal');
-            el.style.setProperty('--subpage-delay', (idx * 80) + 'ms');
+            el.style.setProperty('--subpage-delay', (REVEAL_BASE_DELAY + idx * REVEAL_STAGGER_MS) + 'ms');
         });
     }
 
@@ -718,36 +730,27 @@ function initSubpageReveal() {
         }, 150);
     }
 
-    // 初始化观察器
-    initObserver();
-    
-    // 立即检查可见元素
-    checkVisibleEls();
-    
-    // 添加滚动监听
-    window.addEventListener('scroll', onScrollCheck, { passive: true });
-    
-    // 添加resize监听，重新检查可见元素
-    window.addEventListener('resize', function() {
+    function refreshRevealState() {
         checkVisibleEls();
         if (observer) {
             observer.disconnect();
             initObserver();
         }
-    }, { passive: true });
-    
-    // 添加页面显示事件监听，处理从缓存加载的情况
+    }
+
+    initObserver();
+    checkVisibleEls();
+
+    window.addEventListener('scroll', onScrollCheck, { passive: true });
+    window.addEventListener('resize', refreshRevealState, { passive: true });
     window.addEventListener('pageshow', function(e) {
         if (e.persisted) {
-            setTimeout(function() {
-                checkVisibleEls();
-                if (observer) {
-                    observer.disconnect();
-                    initObserver();
-                }
-            }, 300);
+            setTimeout(refreshRevealState, 300);
         }
     });
+
+    window.__subpageRevealRefresh = refreshRevealState;
+    window.__subpageRevealBooted = true;
 }
 
 function clearPageTransitionStates() {
@@ -825,7 +828,8 @@ function initCommon() {
     initPageLeaveTransitions();
 }
 
-if (!window.__HOME_JS) {
+var __isHomePage = !!document.body.classList.contains('is-homepage') || !!document.getElementById('loadingScreen');
+if (!window.__HOME_JS && !__isHomePage) {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initCommon);
     } else {

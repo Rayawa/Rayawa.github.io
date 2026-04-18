@@ -293,18 +293,6 @@
     }
 }
 
-.subpage-reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    transition-delay: var(--subpage-delay, 0ms);
-}
-
-.subpage-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .page-entering {
     opacity: 0;
     transform: translateY(var(--fade-shift));
@@ -395,7 +383,7 @@
 
 .interactive-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem;
     align-items: center;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(16, 185, 129, 0.06));
@@ -490,7 +478,7 @@
 
 .pcr-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 2rem;
 }
 
@@ -595,7 +583,7 @@
 
 .thesis-featured .thesis-card {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
     gap: 0;
     padding: 0;
     overflow: hidden;
@@ -628,8 +616,14 @@
 
 .thesis-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
+}
+
+@media (max-width: 1279px) {
+    .thesis-featured .thesis-card {
+        grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+    }
 }
 
 .thesis-card {
@@ -830,6 +824,18 @@
     .button-large {
         width: 100%;
         justify-content: center;
+    }
+}
+
+@media (max-width: 479px) {
+    .page {
+        padding: 5.8rem max(0.8rem, env(safe-area-inset-left, 0px)) 1.6rem max(0.8rem, env(safe-area-inset-right, 0px));
+    }
+
+    .interactive-content,
+    .pcr-result,
+    .doc-card {
+        padding: 1rem;
     }
 }
 

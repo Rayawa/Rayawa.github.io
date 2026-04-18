@@ -14,6 +14,12 @@
     align-items: center;
 }
 
+@media (max-width: 1279px) {
+    .hero-content {
+        gap: 3.2rem;
+    }
+}
+
 .hero-text h1 {
     font-size: clamp(2.8rem, 5vw, 4.1rem);
     font-weight: 800;
@@ -456,7 +462,7 @@ a.skill-link {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -490,7 +496,7 @@ a.skill-link {
 }
 
 .projects-grid-compact {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
     gap: 1.2rem;
 }
 
@@ -739,7 +745,7 @@ a.skill-link {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
     gap: 1.5rem;
 }
 
@@ -1054,7 +1060,7 @@ textarea.form-control {
 
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
 }
 
@@ -1555,5 +1561,27 @@ textarea.form-control {
     .gallery-track,
     .gallery-slide img {
         min-height: 320px;
+    }
+}
+
+@media (max-width: 479px) {
+    .hero {
+        padding: 5.2rem 0 1.2rem;
+    }
+
+    .hero-tags {
+        padding: 0.62rem 0.7rem;
+    }
+
+    .gallery-track,
+    .gallery-slide img {
+        min-height: 240px;
+    }
+
+    .floating-elements {
+        width: 44px;
+        height: 44px;
+        top: 2px;
+        right: 0;
     }
 }

@@ -89,7 +89,7 @@
   border-color: rgba(202, 236, 255, 0.85);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .card {
     padding: 0.95rem 0.9rem;
     border-radius: 12px;
@@ -116,5 +116,15 @@
     width: 100%;
     font-size: 0.88rem;
     padding: 0.62rem 0.68rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .wrap {
+    padding: 2rem max(0.8rem, env(safe-area-inset-left, 0px)) 1.4rem max(0.8rem, env(safe-area-inset-right, 0px));
+  }
+
+  .card h1 {
+    font-size: clamp(1.6rem, 10vw, 2.2rem);
   }
 }

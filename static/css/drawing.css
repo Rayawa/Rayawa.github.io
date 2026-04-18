@@ -65,14 +65,14 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .page {
     max-width: 100%;
   }
@@ -88,5 +88,15 @@
 
   .artwork-title {
     font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .artwork-info {
+    padding: 0.9rem 1rem 1rem;
+  }
+
+  .artwork-title {
+    font-size: 0.98rem;
   }
 }
