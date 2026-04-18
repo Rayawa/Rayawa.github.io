@@ -460,6 +460,15 @@ a.skill-link {
     gap: 2rem;
 }
 
+.projects-grid.projects-grid-main {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.projects-grid.projects-grid-compact {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
 .projects-group {
     margin-top: 3rem;
 }
@@ -487,11 +496,6 @@ a.skill-link {
     font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.6;
-}
-
-.projects-grid-compact {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.2rem;
 }
 
 .project-card.project-card-text {
@@ -625,12 +629,72 @@ a.skill-link {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(168, 85, 247, 0.28)), url('../resources/main_page/piano.png');
 }
 
-.project-image.drawing {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(236, 72, 153, 0.28)), url('../resources/main_page/drawing.png');
-}
-
 .project-image.books {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../resources/main_page/books.png');
+}
+
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.life-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.life-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 48px rgba(99, 102, 241, 0.15), 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.life-card-visual {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.life-card-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 19, 37, 0.7) 0%, rgba(11, 19, 37, 0.25) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.piano-visual {
+    background-image: url('../resources/main_page/piano.png');
+}
+
+.books-visual {
+    background-image: url('../resources/main_page/books.png');
+}
+
+.life-card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.life-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
 }
 
 .project-content {
@@ -1305,6 +1369,16 @@ textarea.form-control {
     }
 }
 
+@media (max-width: 1279px) {
+    .projects-grid.projects-grid-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid.projects-grid-compact {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 1023px) {
     .hero {
         min-height: auto;
@@ -1452,8 +1526,18 @@ textarea.form-control {
         background: rgba(13, 26, 47, 0.56);
     }
 
-    .projects-grid {
+    .projects-grid,
+    .projects-grid.projects-grid-main,
+    .projects-grid.projects-grid-compact {
         grid-template-columns: 1fr;
+    }
+
+    .life-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .life-card-visual {
+        height: 180px;
     }
 
     .project-image {
