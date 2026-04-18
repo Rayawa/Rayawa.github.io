@@ -16,11 +16,18 @@
     --fade-duration: 0.42s;
     --fade-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
     --fade-shift: 10px;
+    --motion-duration-enter: 0.62s;
+    --motion-duration-short: 0.32s;
+    --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --motion-distance-enter: 18px;
+    --motion-stagger-step: 90ms;
     color-scheme: light dark;
 
     /* 统一响应式断点 */
+    --breakpoint-mobile-sm: 479px;
     --breakpoint-mobile: 767px;
     --breakpoint-tablet: 1023px;
+    --breakpoint-laptop: 1279px;
     --breakpoint-desktop: 1439px;
 
     /* 基础字体大小系统（默认为电脑端） */
@@ -124,7 +131,21 @@ body.page-leaving {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 clamp(1.2rem, 4vw, 2.5rem);
+    padding-left: max(clamp(1.1rem, 3.2vw, 2.5rem), env(safe-area-inset-left, 0px));
+    padding-right: max(clamp(1.1rem, 3.2vw, 2.5rem), env(safe-area-inset-right, 0px));
+}
+
+.container > *,
+.page > * {
+    min-width: 0;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+    max-width: 100%;
 }
 
 #particles-js {
@@ -482,8 +503,8 @@ section,
 .reveal-item {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s;
+    transform: translateY(var(--motion-distance-enter));
+    transition: opacity var(--motion-duration-enter) var(--motion-ease), transform var(--motion-duration-enter) var(--motion-ease), visibility var(--motion-duration-enter);
     transition-delay: var(--reveal-delay, 0ms);
     will-change: transform, opacity;
 }
@@ -510,7 +531,7 @@ section,
 .hi-overview-card.reveal-item,
 .doc-card.reveal-item,
 .thesis-card.reveal-item {
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--motion-duration-enter) var(--motion-ease), transform var(--motion-duration-enter) var(--motion-ease), visibility var(--motion-duration-enter), background var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1), border-color var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1), box-shadow var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -531,8 +552,8 @@ section,
 /* 通用卡片进入动画 */
 .subpage-reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(var(--motion-distance-enter));
+    transition: opacity var(--motion-duration-enter) var(--motion-ease), transform var(--motion-duration-enter) var(--motion-ease);
     transition-delay: var(--subpage-delay, 0ms);
 }
 
@@ -558,11 +579,11 @@ section,
 .highlight-card.subpage-reveal,
 .case-item.subpage-reveal,
 .team-item.subpage-reveal {
-    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-                transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--motion-duration-enter) var(--motion-ease),
+                transform var(--motion-duration-enter) var(--motion-ease),
+                background var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1),
+                border-color var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: var(--subpage-delay, 0ms);
 }
 
@@ -584,10 +605,10 @@ section,
 .team-item.subpage-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1),
+                background var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1),
+                border-color var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow var(--motion-duration-short) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal-seq .reveal-item:nth-child(1) { --reveal-delay: 80ms; }
@@ -943,15 +964,22 @@ section,
     }
 }
 
-/* 电脑端 (1024px - 1439px) - 标准样式（默认） */
-@media (min-width: 1024px) and (max-width: 1439px) {
+/* 笔记本端 (1280px - 1439px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* 电脑端 (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
     :root {
-        --font-scale: 1;
-        --font-base: 16px;
+        --font-scale: 0.97;
+        --font-base: 15.5px;
     }
 
     .container {
-        max-width: 1320px;
+        max-width: 1140px;
     }
 }
 
@@ -970,7 +998,7 @@ section,
     }
 
     .container {
-        max-width: 960px;
+        max-width: 1000px;
     }
 
     html {
@@ -994,6 +1022,8 @@ section,
 
     .container {
         max-width: 100%;
+        padding-left: max(0.95rem, env(safe-area-inset-left, 0px));
+        padding-right: max(0.95rem, env(safe-area-inset-right, 0px));
     }
 
     html {
@@ -1001,4 +1031,22 @@ section,
     }
 }
 
+/* 超窄屏 (≤479px) */
+@media (max-width: 479px) {
+    :root {
+        --font-scale: 0.85;
+        --font-base: 13.5px;
+        --h1-size: clamp(1.5rem, 8vw, 2rem);
+        --h2-size: clamp(1.24rem, 6vw, 1.55rem);
+        --h3-size: clamp(1rem, 4.4vw, 1.25rem);
+        --text-lg: 0.94rem;
+        --text-base: 0.84rem;
+        --text-sm: 0.78rem;
+        --text-xs: 0.72rem;
+    }
 
+    .container {
+        padding-left: max(0.8rem, env(safe-area-inset-left, 0px));
+        padding-right: max(0.8rem, env(safe-area-inset-right, 0px));
+    }
+}

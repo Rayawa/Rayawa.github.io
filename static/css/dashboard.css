@@ -274,7 +274,7 @@
 
 .platform-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(160px, 1fr));
+  grid-template-columns: repeat(6, minmax(min(160px, 100%), 1fr));
   justify-content: center;
   gap: 0.8rem;
   padding: 0 0.2rem;
@@ -931,6 +931,12 @@ button.platform-btn {
 /* ==================== 
    响应式设计
    ==================== */
+@media (max-width: 1279px) {
+  .platform-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1023px) {
   .details-grid {
     grid-template-columns: 1fr;
@@ -938,10 +944,6 @@ button.platform-btn {
 
   .details-sidebar {
     order: -1;
-  }
-
-  .platform-grid {
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
   }
 
   .metrics-grid {
@@ -953,7 +955,7 @@ button.platform-btn {
   }
 
   .platform-grid {
-    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .section-container {
@@ -981,7 +983,7 @@ button.platform-btn {
   }
 
   .platform-grid {
-    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-header {
@@ -1004,6 +1006,21 @@ button.platform-btn {
 
   .metric-card-small .metric-value {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-container {
+    padding: 1rem;
+  }
+
+  .platform-btn {
+    min-height: 96px;
+    padding: 0.82rem 0.68rem;
   }
 }
 
@@ -1693,18 +1710,4 @@ button.platform-btn {
   }
 }
 
-/* =========================================
-   Dashboard 滑动进入动画
-   ========================================= */
-.dashboard-page .hero-section,
-.dashboard-page .content-section {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.dashboard-page .hero-section.reveal-in,
-.dashboard-page .content-section.reveal-in {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* dashboard 入口动效统一走 common.css 的 .subpage-reveal 体系 */
