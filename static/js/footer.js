@@ -18,27 +18,27 @@
 
     var FOOTER_TEXT = {
         zh: {
-            description: '记录开发、研究与生活。',
+            description: 'Ray汐 · 清霁Ray · Rayawa',
             thanksLink: '致谢',
             projects: '项目',
             life: '生活',
-            copy: '&copy; 2024 Ray Chen. All Rights Reserved.',
+            copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: '鸿蒙应用看板',
             projectBio: '生物学项目',
             projectSpm: '烤地瓜模组',
             projectOhos: 'Hi3861 开发',
-            projectSignal: 'Signal',
+            projectSignal: '微弱电信号测量',
             lifeGallery: '摄影与生活',
             lifePiano: '钢琴',
             lifeDrawing: '绘画',
             lifeBooks: '书单'
         },
         en: {
-            description: 'Notes on development, research, and life.',
+            description: 'Ray汐 · 清霁Ray · Rayawa',
             thanksLink: 'Thanks',
             projects: 'Projects',
             life: 'Life',
-            copy: '&copy; 2024 Ray Chen. All Rights Reserved.',
+            copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: 'HarmonyOS Dashboard',
             projectBio: 'Biology Projects',
             projectSpm: 'Sweet Potato Mod',
@@ -50,11 +50,11 @@
             lifeBooks: 'Books'
         },
         fr: {
-            description: 'Carnets de développement, de recherche et de vie.',
+            description: 'Ray汐 · 清霁Ray · Rayawa',
             thanksLink: 'Remerciements',
             projects: 'Projets',
             life: 'Vie',
-            copy: '&copy; 2024 Ray Chen. Tous droits réservés.',
+            copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
             projectHmdb: 'Tableau de bord HarmonyOS',
             projectBio: 'Projets de biologie',
             projectSpm: 'Mod Patate douce',

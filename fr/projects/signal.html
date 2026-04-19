@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Signal | Ray Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/signal.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+
+  <div id="particles-js"></div>
+
+  <main class="page signal-page">
+    <section class="signal-hero">
+      <div class="signal-hero-decoration"></div>
+      <h1>Mesure de Signaux Électriques Faibles</h1>
+      <p class="signal-hero-subtitle">Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino</p>
+      <div class="signal-hero-content">
+        <div class="signal-hero-text">
+          <h2>Résumé</h2>
+          <p>Cet article aborde les problèmes de faible sensibilité et de susceptibilité aux interférences dans la mesure des signaux électriques faibles en concevant un système de mesure basé sur le développement embarqué Arduino. Le système utilise une structure à fil de suspension et le principe du levier optique pour réaliser une amplification physique, combinée à des circuits de conditionnement de signal et un traitement embarqué pour l'acquisition et le calcul des données. Grâce à des algorithmes de normalisation et des méthodes de réduction du bruit à plusieurs niveaux, la stabilité de mesure et la capacité anti-interférence sont améliorées. L'article analyse et évalue la structure du système, la mise en œuvre matérielle, les algorithmes logiciels, les méthodes d'étalonnage, ainsi que les sources d'erreur et l'incertitude, et vérifie les performances du système par des schémas expérimentaux. De plus, le système est évalué d'un point de vue coût, démontrant une bonne viabilité économique. Enfin, les scénarios d'application et les limites du système sont discutés. Les résultats montrent que le système permet une mesure stable des signaux électriques faibles et possède une certaine valeur pratique.</p>
+          <p class="signal-keywords"><span class="signal-keywords-label">Mots-clés : </span>Arduino ; signal électrique faible ; amplificateur transimpédance ; capteur PSD ; évaluation de l'incertitude</p>
+          <div class="signal-hero-actions">
+            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i><span>Lire l'article</span></a>
+          </div>
+        </div>
+        <div class="signal-hero-image">
+          <img src="../../static/resources/signal/doc.png" alt="Document de l'article">
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-files">
+      <div class="signal-files-head">
+        <div class="signal-files-head-icon"><i class="fas fa-folder-open"></i></div>
+        <div>
+          <h2>Fichiers du projet</h2>
+          <p>Documents de conception et ressources techniques</p>
+        </div>
+      </div>
+      <div class="signal-files-grid">
+        <a class="signal-file-card" href="../../static/resources/signal/structure.SLDPRT" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/structure.SLDPRT.png" alt="Modèle 3D du dispositif"></div>
+          <div class="signal-file-info">
+            <div class="signal-file-name">Modèle 3D du dispositif</div>
+            <div class="signal-file-ext">.SLDPRT</div>
+            <p class="signal-file-desc">Fichier pièce SolidWorks, modèle tridimensionnel du dispositif</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/tex.tex" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/tex.png" alt="Vue en plan du dispositif"></div>
+          <div class="signal-file-info">
+            <div class="signal-file-name">Vue en plan du dispositif</div>
+            <div class="signal-file-ext">.tex</div>
+            <p class="signal-file-desc">Source LaTeX, disposition du dispositif et annotations de dimensions</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/circuit.fzz" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/circuit.png" alt="Circuit du système"></div>
+          <div class="signal-file-info">
+            <div class="signal-file-name">Circuit du système</div>
+            <div class="signal-file-ext">.fzz</div>
+            <p class="signal-file-desc">Fichier projet Fritzing, schéma électrique et conception PCB</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/filter.cpp" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Code algorithmique principal"></div>
+          <div class="signal-file-info">
+            <div class="signal-file-name">Code algorithmique principal</div>
+            <div class="signal-file-ext">.cpp</div>
+            <p class="signal-file-desc">filter.cpp et loop.cpp, algorithme de filtrage et programme de boucle principale</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/expenditure.xlsx" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/expenditure.png" alt="Budget de l'expérience"></div>
+          <div class="signal-file-info">
+            <div class="signal-file-name">Budget de l'expérience</div>
+            <div class="signal-file-ext">.xlsx</div>
+            <p class="signal-file-desc">Tableur Excel, détails des équipements et du budget</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

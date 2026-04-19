@@ -825,7 +825,7 @@ function initCommon() {
     initPageLeaveTransitions();
 }
 
-if (!window.__HOME_JS) {
+if (!window.__HOME_JS && !document.body.classList.contains('is-homepage')) {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initCommon);
     } else {
