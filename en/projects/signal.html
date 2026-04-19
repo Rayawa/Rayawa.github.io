@@ -20,71 +20,83 @@
 
   <main class="page signal-page">
     <section class="signal-hero">
-      <div class="signal-hero-decoration"></div>
       <h1>Measurement of Weak Electrical Signals</h1>
-      <p class="signal-hero-subtitle">Weak electrical signal measurement system design based on Arduino embedded development</p>
-      <div class="signal-hero-content">
-        <div class="signal-hero-text">
-          <h2>Abstract</h2>
-          <p>This paper addresses the issues of low sensitivity and susceptibility to interference in weak electrical signal measurement by designing a measurement system based on Arduino embedded development. The system utilizes a suspension wire structure and optical lever principle to achieve physical amplification, combined with signal conditioning circuits and embedded processing for data acquisition and computation. Through normalization algorithms and multi-level noise reduction methods, measurement stability and anti-interference capability are improved. The paper analyzes and evaluates the system structure, hardware implementation, software algorithms, calibration methods, as well as error sources and uncertainty, and verifies system performance through experimental schemes. Additionally, the system is evaluated from a cost perspective, demonstrating good economic viability. Finally, the application scenarios and limitations of the system are discussed. Results show that the system can achieve stable measurement of weak electrical signals and possesses certain practical value.</p>
-          <p class="signal-keywords"><span class="signal-keywords-label">Keywords: </span>Arduino; weak electrical signal; transimpedance amplifier; PSD sensor; uncertainty evaluation</p>
+      <p class="signal-hero-desc">Weak electrical signal measurement system design based on Arduino embedded development</p>
+    </section>
+
+    <section class="signal-panel">
+      <div class="signal-panel-head">
+        <h2>Abstract</h2>
+      </div>
+      <div class="signal-abstract-grid">
+        <div class="signal-abstract-text">
+          <p>This paper presents an Arduino-based system for weak electrical signal measurement, addressing low sensitivity and environmental interference. The system combines mechanical amplification with signal conditioning and Arduino-based embedded processing for data acquisition and computation. A normalized algorithm and multi-stage noise reduction methods are applied to improve stability and robustness. The system structure, hardware implementation, software algorithms, calibration methods, and error sources along with uncertainties are analyzed and evaluated, and the system performance is verified through experimental procedures. In addition, a cost analysis is conducted to demonstrate its economic feasibility. Application scenarios and limitations are also discussed. Results show that the system can achieve stable measurement of weak electrical signals with practical value.</p>
+          <p class="signal-keywords"><span class="signal-keywords-label">Keywords: </span>Arduino; Weak Electrical Signal; Trans-impedance Amplifier; PSD Sensor; Uncertainty Assessment</p>
           <div class="signal-hero-actions">
-            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i><span>Read Paper</span></a>
+            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> Read Paper</a>
           </div>
         </div>
-        <div class="signal-hero-image">
+        <div class="signal-doc-image">
           <img src="../../static/resources/signal/doc.png" alt="Paper document">
         </div>
       </div>
     </section>
 
-    <section class="signal-files">
-      <div class="signal-files-head">
-        <div class="signal-files-head-icon"><i class="fas fa-folder-open"></i></div>
+    <section class="signal-module">
+      <div class="signal-module-head">
+        <span class="signal-module-index"><i class="fas fa-folder-open"></i></span>
         <div>
           <h2>Project Files</h2>
           <p>Design documents and engineering resources</p>
         </div>
       </div>
-      <div class="signal-files-grid">
-        <a class="signal-file-card" href="../../static/resources/signal/structure.SLDPRT" target="_blank" rel="noopener">
+      <div class="signal-module-grid">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/structure.SLDPRT" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/structure.SLDPRT.png" alt="Device 3D Model"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Device 3D Model</div>
-            <div class="signal-file-ext">.SLDPRT</div>
-            <p class="signal-file-desc">SolidWorks part file, device three-dimensional model</p>
+            <h3>Device 3D Model</h3>
+            <span class="signal-file-ext">.SLDPRT</span>
+            <p>SolidWorks part file, device three-dimensional model</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/tex.tex" target="_blank" rel="noopener">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/tex.tex" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/tex.png" alt="Device Plan View"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Device Plan View</div>
-            <div class="signal-file-ext">.tex</div>
-            <p class="signal-file-desc">LaTeX source, device layout and dimension annotations</p>
+            <h3>Device Plan View</h3>
+            <span class="signal-file-ext">.tex</span>
+            <p>LaTeX source, device layout and dimension annotations</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/circuit.fzz" target="_blank" rel="noopener">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/circuit.png" alt="System Circuit Project"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">System Circuit Project</div>
-            <div class="signal-file-ext">.fzz</div>
-            <p class="signal-file-desc">Fritzing project file, system circuit schematic and PCB design</p>
+            <h3>System Circuit Project</h3>
+            <span class="signal-file-ext">.fzz</span>
+            <p>Fritzing project file, system circuit schematic and PCB design</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/filter.cpp" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Main Algorithm Code"></div>
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/filter.cpp" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Filter Algorithm Code"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Main Algorithm Code</div>
-            <div class="signal-file-ext">.cpp</div>
-            <p class="signal-file-desc">filter.cpp & loop.cpp, filtering algorithm and main loop program</p>
+            <h3>Filter Algorithm Code</h3>
+            <span class="signal-file-ext">filter.cpp</span>
+            <p>Digital filtering algorithm implementation, signal noise reduction and data processing</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/expenditure.xlsx" target="_blank" rel="noopener">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/expenditure.xlsx" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/expenditure.png" alt="Experiment Budget"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Experiment Budget</div>
-            <div class="signal-file-ext">.xlsx</div>
-            <p class="signal-file-desc">Excel spreadsheet, equipment and budget details</p>
+            <h3>Experiment Budget</h3>
+            <span class="signal-file-ext">.xlsx</span>
+            <p>Excel spreadsheet, equipment and budget details</p>
+          </div>
+        </a>
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/loop.cpp" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Main Loop Program Code"></div>
+          <div class="signal-file-info">
+            <h3>Main Loop Program Code</h3>
+            <span class="signal-file-ext">loop.cpp</span>
+            <p>Arduino main loop program, data acquisition and system control</p>
           </div>
         </a>
       </div>

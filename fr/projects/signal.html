@@ -20,71 +20,83 @@
 
   <main class="page signal-page">
     <section class="signal-hero">
-      <div class="signal-hero-decoration"></div>
       <h1>Mesure de Signaux Électriques Faibles</h1>
-      <p class="signal-hero-subtitle">Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino</p>
-      <div class="signal-hero-content">
-        <div class="signal-hero-text">
-          <h2>Résumé</h2>
-          <p>Cet article aborde les problèmes de faible sensibilité et de susceptibilité aux interférences dans la mesure des signaux électriques faibles en concevant un système de mesure basé sur le développement embarqué Arduino. Le système utilise une structure à fil de suspension et le principe du levier optique pour réaliser une amplification physique, combinée à des circuits de conditionnement de signal et un traitement embarqué pour l'acquisition et le calcul des données. Grâce à des algorithmes de normalisation et des méthodes de réduction du bruit à plusieurs niveaux, la stabilité de mesure et la capacité anti-interférence sont améliorées. L'article analyse et évalue la structure du système, la mise en œuvre matérielle, les algorithmes logiciels, les méthodes d'étalonnage, ainsi que les sources d'erreur et l'incertitude, et vérifie les performances du système par des schémas expérimentaux. De plus, le système est évalué d'un point de vue coût, démontrant une bonne viabilité économique. Enfin, les scénarios d'application et les limites du système sont discutés. Les résultats montrent que le système permet une mesure stable des signaux électriques faibles et possède une certaine valeur pratique.</p>
-          <p class="signal-keywords"><span class="signal-keywords-label">Mots-clés : </span>Arduino ; signal électrique faible ; amplificateur transimpédance ; capteur PSD ; évaluation de l'incertitude</p>
+      <p class="signal-hero-desc">Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino</p>
+    </section>
+
+    <section class="signal-panel">
+      <div class="signal-panel-head">
+        <h2>Résumé</h2>
+      </div>
+      <div class="signal-abstract-grid">
+        <div class="signal-abstract-text">
+          <p>Cet article présente un système basé sur Arduino pour la mesure de signaux électriques faibles, abordant les problèmes de faible sensibilité et d'interférences environnementales. Le système combine l'amplification mécanique avec le conditionnement de signal et le traitement embarqué Arduino pour l'acquisition et le calcul des données. Un algorithme de normalisation et des méthodes de réduction du bruit à plusieurs étapes sont appliqués pour améliorer la stabilité et la robustesse. La structure du système, la mise en œuvre matérielle, les algorithmes logiciels, les méthodes d'étalonnage, ainsi que les sources d'erreur et les incertitudes sont analysées et évaluées, et les performances du système sont vérifiées par des procédures expérimentales. De plus, une analyse des coûts est réalisée pour démontrer sa faisabilité économique. Les scénarios d'application et les limites sont également discutés. Les résultats montrent que le système peut réaliser une mesure stable des signaux électriques faibles avec une valeur pratique.</p>
+          <p class="signal-keywords"><span class="signal-keywords-label">Mots-clés : </span>Arduino; Signal Électrique Faible; Amplificateur Transimpédance; Capteur PSD; Évaluation de l'Incertitude</p>
           <div class="signal-hero-actions">
-            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i><span>Lire l'article</span></a>
+            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> Lire l'article</a>
           </div>
         </div>
-        <div class="signal-hero-image">
+        <div class="signal-doc-image">
           <img src="../../static/resources/signal/doc.png" alt="Document de l'article">
         </div>
       </div>
     </section>
 
-    <section class="signal-files">
-      <div class="signal-files-head">
-        <div class="signal-files-head-icon"><i class="fas fa-folder-open"></i></div>
+    <section class="signal-module">
+      <div class="signal-module-head">
+        <span class="signal-module-index"><i class="fas fa-folder-open"></i></span>
         <div>
           <h2>Fichiers du projet</h2>
           <p>Documents de conception et ressources techniques</p>
         </div>
       </div>
-      <div class="signal-files-grid">
-        <a class="signal-file-card" href="../../static/resources/signal/structure.SLDPRT" target="_blank" rel="noopener">
+      <div class="signal-module-grid">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/structure.SLDPRT" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/structure.SLDPRT.png" alt="Modèle 3D du dispositif"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Modèle 3D du dispositif</div>
-            <div class="signal-file-ext">.SLDPRT</div>
-            <p class="signal-file-desc">Fichier pièce SolidWorks, modèle tridimensionnel du dispositif</p>
+            <h3>Modèle 3D du dispositif</h3>
+            <span class="signal-file-ext">.SLDPRT</span>
+            <p>Fichier pièce SolidWorks, modèle tridimensionnel du dispositif</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/tex.tex" target="_blank" rel="noopener">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/tex.tex" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/tex.png" alt="Vue en plan du dispositif"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Vue en plan du dispositif</div>
-            <div class="signal-file-ext">.tex</div>
-            <p class="signal-file-desc">Source LaTeX, disposition du dispositif et annotations de dimensions</p>
+            <h3>Vue en plan du dispositif</h3>
+            <span class="signal-file-ext">.tex</span>
+            <p>Source LaTeX, disposition du dispositif et annotations de dimensions</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/circuit.fzz" target="_blank" rel="noopener">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/circuit.png" alt="Circuit du système"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Circuit du système</div>
-            <div class="signal-file-ext">.fzz</div>
-            <p class="signal-file-desc">Fichier projet Fritzing, schéma électrique et conception PCB</p>
+            <h3>Circuit du système</h3>
+            <span class="signal-file-ext">.fzz</span>
+            <p>Fichier projet Fritzing, schéma électrique et conception PCB</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/filter.cpp" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Code algorithmique principal"></div>
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/filter.cpp" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Code de l'algorithme de filtrage"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Code algorithmique principal</div>
-            <div class="signal-file-ext">.cpp</div>
-            <p class="signal-file-desc">filter.cpp et loop.cpp, algorithme de filtrage et programme de boucle principale</p>
+            <h3>Code de l'algorithme de filtrage</h3>
+            <span class="signal-file-ext">filter.cpp</span>
+            <p>Implémentation de l'algorithme de filtrage numérique, réduction du bruit et traitement des données</p>
           </div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/expenditure.xlsx" target="_blank" rel="noopener">
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/expenditure.xlsx" target="_blank" rel="noopener">
           <div class="signal-file-thumb"><img src="../../static/resources/signal/expenditure.png" alt="Budget de l'expérience"></div>
           <div class="signal-file-info">
-            <div class="signal-file-name">Budget de l'expérience</div>
-            <div class="signal-file-ext">.xlsx</div>
-            <p class="signal-file-desc">Tableur Excel, détails des équipements et du budget</p>
+            <h3>Budget de l'expérience</h3>
+            <span class="signal-file-ext">.xlsx</span>
+            <p>Tableur Excel, détails des équipements et du budget</p>
+          </div>
+        </a>
+        <a class="signal-card signal-file-card" href="../../static/resources/signal/loop.cpp" target="_blank" rel="noopener">
+          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Code du programme de boucle principale"></div>
+          <div class="signal-file-info">
+            <h3>Code du programme de boucle principale</h3>
+            <span class="signal-file-ext">loop.cpp</span>
+            <p>Programme de boucle principale Arduino, acquisition de données et contrôle du système</p>
           </div>
         </a>
       </div>
