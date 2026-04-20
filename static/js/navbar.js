@@ -54,9 +54,9 @@
                 }).join('') +
             '</ul>' +
             '<div class="language-switch">' +
-                '<a href="' + zhHref + '" class="lang-btn" data-lang="zh"><img src="' + prefix + 'static/resources/cn.svg" alt="" class="lang-flag"><span>中文</span></a>' +
-                '<a href="' + enHref + '" class="lang-btn" data-lang="en"><img src="' + prefix + 'static/resources/uk.svg" alt="" class="lang-flag"><span>EN</span></a>' +
-                '<a href="' + frHref + '" class="lang-btn" data-lang="fr"><img src="' + prefix + 'static/resources/fr.svg" alt="" class="lang-flag"><span>FR</span></a>' +
+                '<a href="' + zhHref + '" class="lang-btn" data-lang="zh"><img src="' + prefix + 'static/resources/cn.svg" alt="中文" class="lang-flag"><span>中文</span></a>' +
+                '<a href="' + enHref + '" class="lang-btn" data-lang="en"><img src="' + prefix + 'static/resources/uk.svg" alt="English" class="lang-flag"><span>EN</span></a>' +
+                '<a href="' + frHref + '" class="lang-btn" data-lang="fr"><img src="' + prefix + 'static/resources/fr.svg" alt="Français" class="lang-flag"><span>FR</span></a>' +
             '</div>' +
             '<button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>' +
         '</div>' +
