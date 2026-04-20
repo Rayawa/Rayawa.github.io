@@ -23,12 +23,12 @@
     var API_BASE = 'http://ddns.shenjack.top:10003';
 
     var mockData = {
-        totalViews: 91130466,
-        todayViews: 62707,
-        harmonyTotalViews: 942496,
+        totalViews: 96491694,
+        todayViews: 694816,
+        harmonyTotalViews: 951028,
     };
 
-    var updateTime = '2026-04-19T03:13:11Z';
+    var updateTime = '2026-04-20T03:13:11Z';
 
     function updateTimestamp() {
         var noteEl = document.querySelector('.metrics-note');
@@ -60,11 +60,11 @@
                 totalViews: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0
             };
             console.log('Parsed data:', data);
-            // return data;
-            return mockData; ///api错误
+            return data;
+            // return mockData; ///api错误
         }).catch(function(error) {
             console.error('API fetch error:', error);
-            return mockData;
+            return data;
         });
     }
 
