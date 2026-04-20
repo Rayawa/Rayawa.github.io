@@ -23,12 +23,13 @@
     var API_BASE = 'http://ddns.shenjack.top:10003';
 
     var mockData = {
-        totalViews: 96491694,
-        todayViews: 694816,
-        harmonyTotalViews: 951028,
+        totalRequests: 96491694,
+        identifiedViews: 1560439,
+        todayRequests: 694816,
+        harmonyTotalRequests: 951028,
     };
 
-    var updateTime = '2026-04-20T03:13:11Z';
+    var updateTime = '2026-04-20T20:22:11Z';
 
     function updateTimestamp() {
         var noteEl = document.querySelector('.metrics-note');
@@ -51,20 +52,24 @@
             fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
                 console.log('total_access status:', res.status);
                 return res.json();
+            }),
+            fetch(API_BASE + '/api/v0/statistics/identified_access').then(function(res) {
+                console.log('identified_access status:', res.status);
+                return res.json();
             })
         ]).then(function(results) {
             console.log('API results:', results);
             var data = {
-                todayViews: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
-                harmonyTotalViews: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
-                totalViews: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0
+                todayRequests: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
+                harmonyTotalRequests: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
+                totalRequests: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0,
+                identifiedViews: typeof results[3] === 'number' ? results[3] : results[3].count || results[3].value || 0
             };
             console.log('Parsed data:', data);
-            return data;
-            // return mockData; ///api错误
+            return mockData;
         }).catch(function(error) {
             console.error('API fetch error:', error);
-            return data;
+            return mockData;
         });
     }
 
