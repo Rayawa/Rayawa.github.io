@@ -909,3 +909,53 @@
         font-size: var(--text-sm);
     }
 }
+
+/* ====================
+   超小屏幕适配（< 480px）
+   ==================== */
+@media (max-width: 480px) {
+    .page {
+        padding: 5rem clamp(0.8rem, 4vw, 1.2rem) 1.5rem;
+    }
+
+    .hero-card h1 {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+    }
+
+    .hero-card p {
+        font-size: var(--text-sm);
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card h2 {
+        font-size: var(--text-base);
+    }
+
+    .card-image {
+        height: 120px;
+    }
+
+    .button-large {
+        width: 100%;
+        justify-content: center;
+        font-size: var(--text-sm);
+    }
+
+    .info-card,
+    .highlight-card,
+    .note-card,
+    .tech-detail-block {
+        padding: 1rem 1.1rem;
+    }
+
+    .thesis-card h3 {
+        font-size: var(--text-base);
+    }
+
+    .thesis-abstract {
+        font-size: var(--text-xs);
+    }
+}
