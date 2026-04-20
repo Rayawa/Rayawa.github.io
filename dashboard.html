@@ -81,19 +81,24 @@
           <div class="metrics-section">
             <div class="metrics-grid-small" id="metricsGrid">
               <article class="metric-card-small">
-                <div class="metric-label" >项目总访问量</div>
-                <div class="metric-value" data-counter-key="totalViews" data-counter-fallback="{{mockData.totalViews}}"></div>
-                <div class="metric-field">totalViews</div>
+                <div class="metric-label" >项目总请求量</div>
+                <div class="metric-value" data-counter-key="totalRequests" data-counter-fallback="{{mockData.totalRequests}}"></div>
+                <div class="metric-field">totalRequests</div>
               </article>
               <article class="metric-card-small">
-                <div class="metric-label" >今日访问量</div>
-                <div class="metric-value" data-counter-key="todayViews" data-counter-fallback="{{mockData.todayTotalViews}}"></div>
-                <div class="metric-field">todayViews</div>
+                <div class="metric-label" >已识别访问量</div>
+                <div class="metric-value" data-counter-key="identifiedViews" data-counter-fallback="{{mockData.identifiedViews}}"></div>
+                <div class="metric-field">identifiedViews</div>
               </article>
               <article class="metric-card-small">
-                <div class="metric-label" >鸿蒙应用总访问量</div>
-                <div class="metric-value" data-counter-key="harmonyTotalViews" data-counter-fallback="{{mockData.harmonyTotalViews}}"></div>
-                <div class="metric-field">harmonyTotalViews</div>
+                <div class="metric-label" >今日请求量</div>
+                <div class="metric-value" data-counter-key="todayRequests" data-counter-fallback="{{mockData.todayRequests}}"></div>
+                <div class="metric-field">todayRequests</div>
+              </article>
+              <article class="metric-card-small">
+                <div class="metric-label" >鸿蒙应用总请求量</div>
+                <div class="metric-value" data-counter-key="harmonyTotalRequests" data-counter-fallback="{{mockData.harmonyTotalRequests}}"></div>
+                <div class="metric-field">harmonyTotalRequests</div>
               </article>
             </div>
             <div class="metrics-note" >* 数据统计范围从2025-11-01T04:00:00Z至今，数据自动更新失败！上次更新{{updateTime}}。</div>
