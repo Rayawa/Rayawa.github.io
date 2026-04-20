@@ -420,7 +420,15 @@ function initSmoothScroll() {
     });
 }
 
-var locale = localStorage.getItem('rayawa_locale') || 'zh';
+function detectLocaleFromPath() {
+    var path = window.location.pathname;
+    if (path.indexOf('/fr/') === 0 || path === '/fr') return 'fr';
+    if (path.indexOf('/en/') === 0 || path === '/en') return 'en';
+    return null;
+}
+
+var detectedLocale = detectLocaleFromPath();
+var locale = detectedLocale || localStorage.getItem('rayawa_locale') || 'zh';
 var TRANSITION_MS = 420;
 var REVEAL_ROW_TOLERANCE = 14;
 
