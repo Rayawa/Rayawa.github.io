@@ -228,41 +228,6 @@ function initLanguageSwitcher() {
     });
 }
 
-function initNavbarScroll() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-}
-
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', (e) => {
-            const targetId = anchor.getAttribute('href');
-            if (!targetId || targetId === '#') return;
-            e.preventDefault();
-            const targetElement = document.querySelector(targetId);
-            if (!targetElement) return;
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    function scrollToHash() {
-        const hash = window.location.hash;
-        if (!hash || hash === '#') return;
-        const target = document.querySelector(hash);
-        if (!target) return;
-        window.setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-    }
-
-    window.addEventListener('loadingScreenDone', scrollToHash);
-    window.setTimeout(scrollToHash, 3000);
-}
-
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
@@ -340,66 +305,6 @@ function initContactForm() {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
             }
-        }
-    });
-}
-
-function initMobileMenu() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.querySelector('.nav-links');
-    if (!mobileMenuBtn || !navLinks) return;
-
-    let overlay = document.querySelector('.mobile-overlay');
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'mobile-overlay';
-        document.body.appendChild(overlay);
-    }
-
-    function closeMenu() {
-        navLinks.classList.remove('mobile-open');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        overlay.classList.remove('is-visible');
-    }
-
-    function openMenu() {
-        navLinks.classList.add('mobile-open');
-        mobileMenuBtn.setAttribute('aria-expanded', 'true');
-        overlay.classList.add('is-visible');
-    }
-
-    mobileMenuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (navLinks.classList.contains('mobile-open')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    navLinks.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-
-    navLinks.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 900) {
-                closeMenu();
-            }
-        });
-    });
-
-    overlay.addEventListener('click', closeMenu);
-
-    document.addEventListener('click', (e) => {
-        if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            closeMenu();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
-            closeMenu();
         }
     });
 }
@@ -742,8 +647,8 @@ function initParticlePointerFollow() {
     }
 
     function animate() {
-        currentX += (targetX - currentX) * 0.08;
-        currentY += (targetY - currentY) * 0.08;
+        currentX += (targetX - currentX) * 0.03;
+        currentY += (targetY - currentY) * 0.03;
         layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
         window.requestAnimationFrame(animate);
     }
@@ -769,207 +674,6 @@ function initParticlePointerFollow() {
     }, { passive: true });
 
     animate();
-}
-
-function initParticleMagnetEffect() {
-    const maxRetry = 30;
-    let retry = 0;
-
-    function boot() {
-        if (!window.pJSDom || !window.pJSDom.length) return false;
-        const instance = window.pJSDom[0] && window.pJSDom[0].pJS;
-        if (!instance || !instance.particles || !instance.particles.array || !instance.canvas || !instance.canvas.el) {
-            return false;
-        }
-
-        const particles = instance.particles.array;
-        const canvasEl = instance.canvas.el;
-        const pointer = { x: 0, y: 0, active: false };
-        const radius = 236;
-        const strength = 0.00126;
-        const damping = 0.988;
-        const maxSpeed = 4.25;
-        const sparseRadius = 96;
-        const sparseThreshold = 1;
-        const minParticles = 58;
-        let magneticPower = 0;
-        let frame = 0;
-
-        function getOpacityValue(particle) {
-            if (particle && particle.opacity && typeof particle.opacity.value === 'number') return particle.opacity.value;
-            if (particle && typeof particle.opacity === 'number') return particle.opacity;
-            return 0.5;
-        }
-
-        function setOpacityValue(particle, value) {
-            const next = Math.max(0, Math.min(1, value));
-            if (particle && particle.opacity && typeof particle.opacity.value === 'number') {
-                particle.opacity.value = next;
-                return;
-            }
-            if (particle) particle.opacity = next;
-        }
-
-        function spawnParticleAt(x, y) {
-            if (!instance.fn || !instance.fn.modes || typeof instance.fn.modes.pushParticles !== 'function') return;
-            instance.fn.modes.pushParticles(1, { pos_x: x, pos_y: y });
-
-            const p = particles[particles.length - 1];
-            if (!p) return;
-            p.__generated = true;
-            p.__fadeIn = true;
-            p.__ttl = 520 + Math.floor(Math.random() * 520);
-            p.__fadeOut = false;
-            p.vx = (Math.random() - 0.5) * 0.8;
-            p.vy = (Math.random() - 0.5) * 0.8;
-            setOpacityValue(p, 0.04);
-        }
-
-        function countParticlesNear(x, y, r) {
-            let count = 0;
-            const rSq = r * r;
-            for (let i = 0; i < particles.length; i += 1) {
-                const p = particles[i];
-                const dx = p.x - x;
-                const dy = p.y - y;
-                if (dx * dx + dy * dy <= rSq) count += 1;
-            }
-            return count;
-        }
-
-        function maintainSparseRegions() {
-            const width = instance.canvas.w || canvasEl.width || window.innerWidth;
-            const height = instance.canvas.h || canvasEl.height || window.innerHeight;
-            for (let i = 0; i < 2; i += 1) {
-                const x = Math.random() * width;
-                const y = Math.random() * height;
-                if (countParticlesNear(x, y, sparseRadius) <= sparseThreshold) {
-                    spawnParticleAt(x, y);
-                }
-            }
-
-            if (particles.length > minParticles && Math.random() < 0.1) {
-                const idx = Math.floor(Math.random() * particles.length);
-                const p = particles[idx];
-                if (p && !p.__fadeOut && !p.__fadeIn) {
-                    p.__fadeOut = true;
-                }
-            }
-        }
-
-        function setPointer(clientX, clientY) {
-            const rect = canvasEl.getBoundingClientRect();
-            if (rect.width <= 0 || rect.height <= 0) return;
-            if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
-                pointer.active = false;
-                return;
-            }
-
-            const pxWidth = instance.canvas.w || canvasEl.width || rect.width;
-            const pxHeight = instance.canvas.h || canvasEl.height || rect.height;
-            const scaleX = pxWidth / rect.width;
-            const scaleY = pxHeight / rect.height;
-            pointer.x = (clientX - rect.left) * scaleX;
-            pointer.y = (clientY - rect.top) * scaleY;
-            pointer.active = true;
-        }
-
-        window.addEventListener('pointermove', (e) => {
-            setPointer(e.clientX, e.clientY);
-        }, { passive: true });
-
-        window.addEventListener('touchmove', (e) => {
-            const touch = e.touches && e.touches[0];
-            if (!touch) return;
-            setPointer(touch.clientX, touch.clientY);
-        }, { passive: true });
-
-        window.addEventListener('pointerleave', () => {
-            pointer.active = false;
-        }, { passive: true });
-
-        window.addEventListener('touchend', () => {
-            pointer.active = false;
-        }, { passive: true });
-
-        function tick() {
-            frame += 1;
-            magneticPower += pointer.active
-                ? (1 - magneticPower) * 0.14
-                : (0 - magneticPower) * 0.012;
-
-            if (magneticPower > 0.001 && particles.length) {
-                for (let i = 0; i < particles.length; i += 1) {
-                    const p = particles[i];
-                    const dx = pointer.x - p.x;
-                    const dy = pointer.y - p.y;
-                    const distSq = dx * dx + dy * dy;
-                    if (distSq <= 1) continue;
-
-                    const dist = Math.sqrt(distSq);
-                    if (dist > radius) continue;
-
-                    const normalized = 1 - dist / radius;
-                    const pull = normalized * normalized * strength * magneticPower;
-                    p.vx += dx * pull;
-                    p.vy += dy * pull;
-
-                    const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-                    if (speed > maxSpeed) {
-                        const scale = maxSpeed / speed;
-                        p.vx *= scale;
-                        p.vy *= scale;
-                    }
-                }
-            }
-
-            for (let i = particles.length - 1; i >= 0; i -= 1) {
-                const p = particles[i];
-                if (typeof p.vx !== 'number') p.vx = 0;
-                if (typeof p.vy !== 'number') p.vy = 0;
-                p.vx *= damping;
-                p.vy *= damping;
-
-                if (p.__generated && typeof p.__ttl === 'number') {
-                    p.__ttl -= 1;
-                    if (p.__ttl <= 0) p.__fadeOut = true;
-                }
-
-                if (p.__fadeIn) {
-                    const next = getOpacityValue(p) + 0.011;
-                    setOpacityValue(p, next);
-                    if (next >= 0.5) p.__fadeIn = false;
-                }
-
-                if (p.__fadeOut) {
-                    const next = getOpacityValue(p) - 0.004;
-                    if (next <= 0.008) {
-                        particles.splice(i, 1);
-                        continue;
-                    }
-                    setOpacityValue(p, next);
-                }
-            }
-
-            if (frame % 12 === 0) {
-                maintainSparseRegions();
-            }
-
-            window.requestAnimationFrame(tick);
-        }
-
-        tick();
-        return true;
-    }
-
-    if (boot()) return;
-
-    const timer = window.setInterval(() => {
-        retry += 1;
-        if (boot() || retry >= maxRetry) {
-            window.clearInterval(timer);
-        }
-    }, 120);
 }
 
 function initHeroStarInteraction() {
@@ -1087,16 +791,13 @@ initLanguageSwitcher();
 setLocale(locale, { persist: false });
 hydrateRevealItems();
 initParticles();
-initNavbarScroll();
-initSmoothScroll();
 initContactForm();
-initMobileMenu();
 initGalleryCarousel();
 initSectionReveal();
 initPageLeaveTransitions();
 requestAnimationFrame(() => {
     initParticlePointerFollow();
-    initParticleMagnetEffect();
+    if (typeof initParticleMagnetEffect === 'function') initParticleMagnetEffect();
 });
 initHeroStarInteraction();
 initAwardLinks();

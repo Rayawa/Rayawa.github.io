@@ -43,28 +43,6 @@ function initParticles() {
     });
 }
 
-function initParticlePointerFollow() {
-    var layer = document.getElementById('particles-js');
-    if (!layer) return;
-    var targetX = 0, targetY = 0, currentX = 0, currentY = 0, maxOffset = 38;
-    function updateTarget(cx, cy) {
-        var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-        targetX = ((cx - mx) / mx) * maxOffset;
-        targetY = ((cy - my) / my) * maxOffset;
-    }
-    function animate() {
-        currentX += (targetX - currentX) * 0.08;
-        currentY += (targetY - currentY) * 0.08;
-        layer.style.transform = 'translate3d(' + currentX + 'px,' + currentY + 'px,0)';
-        requestAnimationFrame(animate);
-    }
-    window.addEventListener('pointermove', function(e) { updateTarget(e.clientX, e.clientY); }, { passive: true });
-    window.addEventListener('touchmove', function(e) { var t = e.touches && e.touches[0]; if (t) updateTarget(t.clientX, t.clientY); }, { passive: true });
-    window.addEventListener('pointerleave', function() { targetX = 0; targetY = 0; });
-    window.addEventListener('touchend', function() { targetX = 0; targetY = 0; }, { passive: true });
-    animate();
-}
-
 function initParticleMagnetEffect() {
     var maxRetry = 30;
     var retry = 0;
@@ -80,9 +58,9 @@ function initParticleMagnetEffect() {
         var canvasEl = instance.canvas.el;
         var pointer = { x: 0, y: 0, active: false };
         var radius = 236;
-        var strength = 0.00126;
-        var damping = 0.988;
-        var maxSpeed = 4.25;
+        var strength = 0.0006;
+        var damping = 0.994;
+        var maxSpeed = 2.0;
         var sparseRadius = 96;
         var sparseThreshold = 1;
         var minParticles = 40;
@@ -173,7 +151,7 @@ function initParticleMagnetEffect() {
         function tick() {
             frame += 1;
             magneticPower += pointer.active
-                ? (1 - magneticPower) * 0.14
+                ? (1 - magneticPower) * 0.06
                 : (0 - magneticPower) * 0.012;
 
             if (magneticPower > 0.001 && particles.length) {
@@ -299,8 +277,16 @@ function initMobileMenu() {
 
     overlay.addEventListener('click', closeMenu);
 
-    document.addEventListener('click', function() {
-        closeMenu();
+    document.addEventListener('click', function(e) {
+        if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
     });
 }
 
@@ -822,7 +808,6 @@ function initPageLeaveTransitions() {
 function initCommon() {
     initPageEntrance();
     initParticles();
-    initParticlePointerFollow();
     initParticleMagnetEffect();
     initNavbarScroll();
     initMobileMenu();
@@ -838,5 +823,17 @@ if (!window.__HOME_JS && !document.body.classList.contains('is-homepage')) {
         document.addEventListener('DOMContentLoaded', initCommon);
     } else {
         initCommon();
+    }
+} else if (document.body.classList.contains('is-homepage')) {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            initNavbarScroll();
+            initMobileMenu();
+            initFloatingTools();
+        });
+    } else {
+        initNavbarScroll();
+        initMobileMenu();
+        initFloatingTools();
     }
 }
