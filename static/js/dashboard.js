@@ -24,7 +24,7 @@
 
     var mockData = {
         totalViews: 91130466,
-        todayViews: 62707,
+        todayViews: 40661,
         harmonyTotalViews: 942496,
     };
 
@@ -60,11 +60,11 @@
                 totalViews: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0
             };
             console.log('Parsed data:', data);
-            // return data;
-            return mockData; ///api错误
+            return data;
+            // return mockData; ///api错误
         }).catch(function(error) {
             console.error('API fetch error:', error);
-            return mockData;
+            return data;
         });
     }
 
