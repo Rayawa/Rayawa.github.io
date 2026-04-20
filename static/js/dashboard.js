@@ -23,13 +23,13 @@
     var API_BASE = 'http://ddns.shenjack.top:10003';
 
     var mockData = {
-        totalRequests: 96491694,
+        totalRequests: 96867831,
         identifiedViews: 1560439,
-        todayRequests: 694816,
-        harmonyTotalRequests: 951028,
+        todayViews: 40661,
+        harmonyTotalRequests: 953412,
     };
 
-    var updateTime = '2026-04-20T20:22:11Z';
+    var updateTime = '2026-04-20T23:00:11Z';
 
     function updateTimestamp() {
         var noteEl = document.querySelector('.metrics-note');
@@ -41,26 +41,18 @@
 
     function fetchStatistics() {
         return Promise.all([
-            fetch(API_BASE + '/api/v0/statistics/today_access').then(function(res) {
-                console.log('today_access status:', res.status);
+             fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
+                console.log('total_access status:', res.status);
                 return res.json();
             }),
             fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(function(res) {
                 console.log('top_rayawa_access status:', res.status);
                 return res.json();
             }),
-            fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
-                console.log('total_access status:', res.status);
-                return res.json();
-            }),
-            fetch(API_BASE + '/api/v0/statistics/identified_access').then(function(res) {
-                console.log('identified_access status:', res.status);
-                return res.json();
-            })
         ]).then(function(results) {
             console.log('API results:', results);
             var data = {
-                todayRequests: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
+                todayViews: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
                 harmonyTotalRequests: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
                 totalRequests: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0,
                 identifiedViews: typeof results[3] === 'number' ? results[3] : results[3].count || results[3].value || 0
