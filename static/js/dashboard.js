@@ -24,7 +24,7 @@
 
    var mockData = {
     totalViews: 1628614,
-    totalRequests: 98187975, harmonyTotalRequests: 1000485, todayRequests: 323854,
+    totalRequests: 98972802, harmonyTotalRequests: 1031874, todayRequests: 323854,
 };
 
 var updateTime = '2026-04-21T07:05:11Z';
@@ -36,7 +36,6 @@ function updateTimestamp() {
     }
 }
 updateTimestamp();
-
 function fetchStatistics() {
     return Promise.all([
         fetch(API_BASE + '/api/v0/statistics/total_access').then(res => res.ok ? res.json() : 0),
