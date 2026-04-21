@@ -39,31 +39,39 @@
     }
     updateTimestamp();
 
-    function fetchStatistics() {
-        return Promise.all([
-             fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
-                console.log('total_access status:', res.status);
-                return res.json();
-            }),
-            fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(function(res) {
-                console.log('top_rayawa_access status:', res.status);
-                return res.json();
-            }),
-        ]).then(function(results) {
-            console.log('API results:', results);
-            var data = {
-                todayViews: typeof results[0] === 'number' ? results[0] : results[0].count || results[0].value || 0,
-                harmonyTotalRequests: typeof results[1] === 'number' ? results[1] : results[1].count || results[1].value || 0,
-                totalRequests: typeof results[2] === 'number' ? results[2] : results[2].count || results[2].value || 0,
-                identifiedViews: typeof results[3] === 'number' ? results[3] : results[3].count || results[3].value || 0
-            };
-            console.log('Parsed data:', data);
-            return mockData;
-        }).catch(function(error) {
-            console.error('API fetch error:', error);
-            return mockData;
-        });
-    }
+function fetchStatistics() {
+    return Promise.all([
+        fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
+            return res.ok ? res.json() : 0;
+        }),
+        fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(function(res) {
+            return res.ok ? res.json() : 0;
+        }),
+    ]).then(function(results) {
+        var parseValue = function(val) {
+            if (typeof val === 'number') return val;
+            if (val && typeof val === 'object') return val.count || val.value || 0;
+            return 0;
+        };
+
+        var data = {
+            totalRequests: parseValue(results[0]),
+            harmonyTotalRequests: parseValue(results[1]),
+            identifiedViews: -1,
+            todayViews: -1,
+        };
+
+        console.log("================统计数据获取成功================");
+        console.log("Total Access (todayViews):", data.todayViews);
+        console.log("Top Rayawa Access (harmonyTotalRequests):", data.harmonyTotalRequests);
+        console.log("================================================");
+
+        return mockData;
+    }).catch(function(error) {
+        console.error('API fetch error:', error);
+        return mockData;
+    });
+}
 
     var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

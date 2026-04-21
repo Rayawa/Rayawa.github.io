@@ -123,8 +123,8 @@
 
 .floating-elements {
     position: absolute;
-    top: -24px;
-    right: -24px;
+    top: -16px;
+    right: -16px;
     width: 110px;
     height: 110px;
     background: var(--secondary);
@@ -1479,11 +1479,11 @@ textarea.form-control {
     }
 
     .floating-elements {
-        width: 50px;
-        height: 50px;
-        top: 6px;
-        right: 4px;
-        font-size: 1rem;
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+        top: -14px;
+        right: -14px;
     }
 
     .section-title {
@@ -1642,11 +1642,15 @@ textarea.form-control {
     }
 
     .floating-elements {
-        width: 80px;
-        height: 80px;
-        font-size: 1.6rem;
-        top: -16px;
-        right: -16px;
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+        top: -10px;
+        right: -10px;
+    }
+
+    .hero {
+        padding: 7.5rem 0 1.5rem;
     }
 
     .btn-group {
@@ -1672,7 +1676,7 @@ textarea.form-control {
    ==================== */
 @media (max-width: 480px) {
     .hero {
-        padding: 5rem 0 1rem;
+        padding: 7rem 0 1rem;
     }
 
     .hero-text h1 {
@@ -1690,6 +1694,26 @@ textarea.form-control {
         margin: 0 auto;
     }
 
+    .floating-elements {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+        top: -6px;
+        right: -6px;
+    }
+
+    .star-tooltip {
+        bottom: -44px;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .star-tooltip::before {
+        top: -5px;
+        width: 7px;
+        height: 7px;
+    }
+
     .section-title {
         font-size: clamp(1.5rem, 5vw, 1.9rem);
     }
@@ -1704,8 +1728,8 @@ textarea.form-control {
     }
 
     .project-tags {
-        flex-direction: column;
-        gap: 0.3rem;
+        flex-wrap: wrap;
+        gap: 0.35rem;
     }
 
     .tag {
