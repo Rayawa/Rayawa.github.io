@@ -25,9 +25,9 @@
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: '华为应用市场看板',
             projectBio: '生物学项目',
+            projectSignal: '微弱电信号测量',
             projectSpm: '烤地瓜模组',
             projectOhos: 'Hi3861 开发',
-            projectSignal: '微弱电信号测量',
             lifeGallery: '摄影与生活',
             lifePiano: '钢琴',
             lifeDrawing: '绘画',
@@ -41,9 +41,9 @@
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: 'Harmony Gallery',
             projectBio: 'Biology Projects',
+            projectSignal: 'Weak Signal Measurement',
             projectSpm: 'Sweet Potato Mod',
             projectOhos: 'Hi3861 Development',
-            projectSignal: 'Weak Signal Measurement',
             lifeGallery: 'Photography',
             lifePiano: 'Piano',
             lifeDrawing: 'Drawing',
@@ -57,9 +57,9 @@
             copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
             projectHmdb: 'Gallery Huawei',
             projectBio: 'Projets de biologie',
+            projectSignal: 'Mesure de signments faibles',
             projectSpm: 'Mod Patate douce',
             projectOhos: 'Développement Hi3861',
-            projectSignal: 'Mesure de signments faibles',
             lifeGallery: 'Photographie',
             lifePiano: 'Piano',
             lifeDrawing: 'Dessin',
@@ -98,9 +98,9 @@
     var projectLinks = [
         { href: prefix + langPrefix + 'dashboard.html', text: t.projectHmdb },
         { href: prefix + langPrefix + 'projects/biology.html', text: t.projectBio },
+        { href: prefix + langPrefix + 'projects/signal.html', text: t.projectSignal },
         { href: prefix + langPrefix + 'projects/spm.html', text: t.projectSpm },
-        { href: prefix + langPrefix + 'projects/Hi3861.html', text: t.projectOhos },
-        { href: prefix + langPrefix + 'projects/signal.html', text: t.projectSignal }
+        { href: prefix + langPrefix + 'projects/Hi3861.html', text: t.projectOhos }
     ];
 
     var lifeLinks = [
