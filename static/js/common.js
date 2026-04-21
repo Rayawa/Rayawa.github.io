@@ -423,7 +423,12 @@ function detectLocaleFromHTML() {
 
 var detectedLocale = detectLocaleFromPath();
 var htmlLocale = detectLocaleFromHTML();
-var locale = detectedLocale || htmlLocale || localStorage.getItem('rayawa_locale') || 'zh';
+var pageLocale = detectedLocale || htmlLocale;
+if (pageLocale) {
+    localStorage.setItem('rayawa_locale', pageLocale);
+}
+var storedLocale = localStorage.getItem('rayawa_locale');
+var locale = pageLocale || storedLocale || 'zh';
 var TRANSITION_MS = 420;
 var REVEAL_ROW_TOLERANCE = 14;
 
