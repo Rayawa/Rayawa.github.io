@@ -22,53 +22,47 @@
 
     var API_BASE = 'http://ddns.shenjack.top:10003';
 
-    var mockData = {
-        totalRequests: 96867831,
-        identifiedViews: 1560439,
-        todayViews: 40661,
-        harmonyTotalRequests: 953412,
-    };
+   var mockData = {
+    totalViews: 1628614,
+    totalRequests: 98187975, harmonyTotalRequests: 1000485, todayRequests: 323854,
+};
 
-    var updateTime = '2026-04-20T23:00:11Z';
+var updateTime = '2026-04-21T07:05:11Z';
 
-    function updateTimestamp() {
-        var noteEl = document.querySelector('.metrics-note');
-        if (noteEl) {
-            noteEl.innerHTML = noteEl.innerHTML.replace(/\{\{updateTime\}\}/g, updateTime);
-        }
+function updateTimestamp() {
+    var noteEl = document.querySelector('.metrics-note');
+    if (noteEl) {
+        noteEl.innerHTML = noteEl.innerHTML.replace(/\{\{updateTime\}\}/g, updateTime);
     }
-    updateTimestamp();
+}
+updateTimestamp();
 
 function fetchStatistics() {
     return Promise.all([
-        fetch(API_BASE + '/api/v0/statistics/total_access').then(function(res) {
-            return res.ok ? res.json() : 0;
-        }),
-        fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(function(res) {
-            return res.ok ? res.json() : 0;
-        }),
+        fetch(API_BASE + '/api/v0/statistics/total_access').then(res => res.ok ? res.json() : 0),
+        fetch(API_BASE + '/api/v0/statistics/top_rayawa_access').then(res => res.ok ? res.json() : 0),
+        fetch(API_BASE + '/api/v0/statistics/today_access').then(res => res.ok ? res.json() : 0),
     ]).then(function(results) {
         var parseValue = function(val) {
             if (typeof val === 'number') return val;
             if (val && typeof val === 'object') return val.count || val.value || 0;
-            return 0;
+            return parseInt(val) || 0;
         };
-
         var data = {
+            totalViews: mockData.totalViews,
             totalRequests: parseValue(results[0]),
             harmonyTotalRequests: parseValue(results[1]),
-            identifiedViews: -1,
-            todayViews: -1,
+            todayRequests: parseValue(results[2]),
         };
-
-        console.log("================统计数据获取成功================");
-        console.log("Total Access (todayViews):", data.todayViews);
-        console.log("Top Rayawa Access (harmonyTotalRequests):", data.harmonyTotalRequests);
-        console.log("================================================");
-
+        console.log("================ 统计数据同步成功 (口径: 聚合表) ================");
+        console.log("总请求量 (Total):", data.totalRequests);
+        console.log("今日请求 (Today):", data.todayRequests);
+        console.log("鸿蒙专项 (Harmony):", data.harmonyTotalRequests);
+        console.log("提示: 当前数据来自 ua_statistics 聚合，可能与 access_logs 存在偏差");
+        console.log("================================================================");
         return mockData;
     }).catch(function(error) {
-        console.error('API fetch error:', error);
+        console.error('API 访问失败，使用 Mock 数据:', error);
         return mockData;
     });
 }
