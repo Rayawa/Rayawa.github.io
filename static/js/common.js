@@ -19,7 +19,7 @@ function initParticles() {
             },
             move: {
                 enable: true,
-                speed: isMobile ? 0.8 : 1.2,
+                speed: isMobile ? 2.5 : 3.5,
                 direction: 'none',
                 random: true,
                 straight: false,
@@ -413,8 +413,17 @@ function detectLocaleFromPath() {
     return null;
 }
 
+function detectLocaleFromHTML() {
+    var htmlLang = document.documentElement.lang || '';
+    if (htmlLang.startsWith('fr')) return 'fr';
+    if (htmlLang.startsWith('en')) return 'en';
+    if (htmlLang.startsWith('zh')) return 'zh';
+    return null;
+}
+
 var detectedLocale = detectLocaleFromPath();
-var locale = detectedLocale || localStorage.getItem('rayawa_locale') || 'zh';
+var htmlLocale = detectLocaleFromHTML();
+var locale = detectedLocale || htmlLocale || localStorage.getItem('rayawa_locale') || 'zh';
 var TRANSITION_MS = 420;
 var REVEAL_ROW_TOLERANCE = 14;
 
