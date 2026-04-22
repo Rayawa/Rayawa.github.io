@@ -23,11 +23,11 @@
     var API_BASE = 'http://ddns.shenjack.top:10003';
 
    var mockData = {
-    totalViews: 1628614,
-    totalRequests: 98972802, harmonyTotalRequests: 1031874, todayRequests: 323854,
+    totalViews: 1681010,
+    totalRequests: 99481874, harmonyTotalRequests: 1046555, todayRequests: 323854,
 };
 
-var updateTime = '2026-04-21T07:05:11Z';
+var updateTime = '2026-04-22T02:05:11Z';
 
 function updateTimestamp() {
     var noteEl = document.querySelector('.metrics-note');
@@ -59,7 +59,7 @@ function fetchStatistics() {
         console.log("鸿蒙专项 (Harmony):", data.harmonyTotalRequests);
         console.log("提示: 当前数据来自 ua_statistics 聚合，可能与 access_logs 存在偏差");
         console.log("================================================================");
-        return mockData;
+        return data;
     }).catch(function(error) {
         console.error('API 访问失败，使用 Mock 数据:', error);
         return mockData;
