@@ -59,10 +59,10 @@ function fetchStatistics() {
         console.log("鸿蒙专项 (Harmony):", data.harmonyTotalRequests);
         console.log("提示: 当前数据来自 ua_statistics 聚合，可能与 access_logs 存在偏差");
         console.log("================================================================");
-        return data;
+        return mockData;
     }).catch(function(error) {
         console.error('API 访问失败，使用 Mock 数据:', error);
-        return data;
+        return mockData;
     });
 }
 
