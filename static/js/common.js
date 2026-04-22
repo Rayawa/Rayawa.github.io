@@ -44,6 +44,8 @@ function initParticles() {
 }
 
 function initParticleMagnetEffect() {
+    if (window.__particleMagnetActive) return;
+    window.__particleMagnetActive = true;
     var maxRetry = 30;
     var retry = 0;
 
@@ -66,6 +68,8 @@ function initParticleMagnetEffect() {
         var minParticles = 40;
         var magneticPower = 0;
         var frame = 0;
+        var lastTime = 0;
+        var TARGET_FRAME_TIME = 16.67;
 
         function getOpacityValue(p) {
             if (p && p.opacity && typeof p.opacity.value === 'number') return p.opacity.value;
@@ -148,11 +152,15 @@ function initParticleMagnetEffect() {
         window.addEventListener('pointerleave', function() { pointer.active = false; }, { passive: true });
         window.addEventListener('touchend', function() { pointer.active = false; }, { passive: true });
 
-        function tick() {
+        function tick(timestamp) {
+            if (!lastTime) lastTime = timestamp;
+            var deltaTime = Math.min(Math.max((timestamp - lastTime) / TARGET_FRAME_TIME, 0.1), 3.0);
+            lastTime = timestamp;
+
             frame += 1;
             magneticPower += pointer.active
-                ? (1 - magneticPower) * 0.06
-                : (0 - magneticPower) * 0.012;
+                ? (1 - magneticPower) * 0.06 * deltaTime
+                : (0 - magneticPower) * 0.012 * deltaTime;
 
             if (magneticPower > 0.001 && particles.length) {
                 for (var i = 0; i < particles.length; i += 1) {
@@ -164,7 +172,7 @@ function initParticleMagnetEffect() {
                     var dist = Math.sqrt(distSq);
                     if (dist > radius) continue;
                     var normalized = 1 - dist / radius;
-                    var pull = normalized * normalized * strength * magneticPower;
+                    var pull = normalized * normalized * strength * magneticPower * deltaTime;
                     p.vx += dx * pull;
                     p.vy += dy * pull;
                     var speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
@@ -180,22 +188,23 @@ function initParticleMagnetEffect() {
                 var pp = particles[j];
                 if (typeof pp.vx !== 'number') pp.vx = 0;
                 if (typeof pp.vy !== 'number') pp.vy = 0;
-                pp.vx *= damping;
-                pp.vy *= damping;
+                var dampFactor = Math.pow(damping, deltaTime);
+                pp.vx *= dampFactor;
+                pp.vy *= dampFactor;
 
                 if (pp.__generated && typeof pp.__ttl === 'number') {
-                    pp.__ttl -= 1;
+                    pp.__ttl -= 1 * deltaTime;
                     if (pp.__ttl <= 0) pp.__fadeOut = true;
                 }
 
                 if (pp.__fadeIn) {
-                    var next = getOpacityValue(pp) + 0.011;
+                    var next = getOpacityValue(pp) + 0.011 * deltaTime;
                     setOpacityValue(pp, next);
                     if (next >= 0.5) pp.__fadeIn = false;
                 }
 
                 if (pp.__fadeOut) {
-                    var nextVal = getOpacityValue(pp) - 0.004;
+                    var nextVal = getOpacityValue(pp) - 0.004 * deltaTime;
                     if (nextVal <= 0.008) {
                         particles.splice(j, 1);
                         continue;
@@ -211,7 +220,7 @@ function initParticleMagnetEffect() {
             requestAnimationFrame(tick);
         }
 
-        tick();
+        tick(0);
         return true;
     }
 
