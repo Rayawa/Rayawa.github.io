@@ -23,11 +23,11 @@
     var API_BASE = 'http://ddns.shenjack.top:10003';
 
    var mockData = {
-    totalViews: 1705281,
-    totalRequests: 101875254, harmonyTotalRequests: 1068121, todayRequests: 802067,
+    totalViews: 1747468,
+    totalRequests: 104769654, harmonyTotalRequests: 1106950, todayRequests: 802067,
 };
 
-var updateTime = '2026-04-23T07:13:51Z';
+var updateTime = '2026-04-23T04:24:22Z';
 
 function updateTimestamp() {
     var noteEl = document.querySelector('.metrics-note');
