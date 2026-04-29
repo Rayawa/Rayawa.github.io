@@ -96,7 +96,7 @@
         '@media(max-width:768px){.footer-content{align-items:flex-start;gap:.8rem}.footer-social-link{width:44px;height:44px}.copyright{gap:.2rem}}';
 
     var projectLinks = [
-        { href: prefix + langPrefix + 'dashboard.html', text: t.projectHmdb },
+        { href: 'https://dashboard.rayawa.top', text: t.projectHmdb },
         { href: prefix + langPrefix + 'projects/biology.html', text: t.projectBio },
         { href: prefix + langPrefix + 'projects/signal.html', text: t.projectSignal },
         { href: prefix + langPrefix + 'projects/spm.html', text: t.projectSpm },
