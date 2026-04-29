@@ -45,7 +45,6 @@
 ```
 Rayawa.github.io/
 ├── index.html              # 中文主页（主目录）
-├── dashboard.html          # 仪表板页面
 ├── thanks.html             # 感谢页面
 ├── 404.html                # 404错误页面
 ├── README.md               # 项目说明文档
@@ -54,7 +53,6 @@ Rayawa.github.io/
 │
 ├── en/                     # 英文版本目录
 │   ├── index.html          # 英文主页
-│   ├── dashboard.html      # 英文仪表板
 │   ├── thanks.html         # 英文感谢页面
 │   ├── life/               # 英文生活页面
 │   │   ├── books.html      # 英文书籍页面
@@ -73,7 +71,6 @@ Rayawa.github.io/
 │
 ├── fr/                     # 法文版本目录
 │   ├── index.html          # 法文主页
-│   ├── dashboard.html      # 法文仪表板
 │   ├── thanks.html         # 法文感谢页面
 │   ├── life/               # 法文生活页面
 │   │   ├── books.html      # 法文书籍页面
@@ -110,7 +107,6 @@ Rayawa.github.io/
     ├── css/                # 样式文件
     │   ├── common.css           # 通用样式
     │   ├── index.css            # 主页样式
-    │   ├── dashboard.css        # 仪表板样式
     │   ├── 404.css              # 404页面样式
     │   ├── subpage.css          # 子页面通用样式
     │   ├── markdown-page.css    # Markdown页面样式
