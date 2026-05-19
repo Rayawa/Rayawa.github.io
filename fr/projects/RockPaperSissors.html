@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Détection Pierre-Papier-Ciseaux | Ray Chen</title>
+  <meta name="description" content="Projet du cours Python été 2026 : exercices de base Python, prédiction de régression des prix immobiliers en Californie, analyse du comportement numérique des étudiants, reconnaissance de gestes Pierre-Papier-Ciseaux avec YOLO11n.">
+  <meta name="keywords" content="Python, Machine Learning, Deep Learning, YOLO11n, Random Forest, prix immobiliers Californie, reconnaissance de gestes, scikit-learn, Ultralytics, RockPaperScissors, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/fr/projects/RockPaperSissors.html">
+
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/RockPaperSissors.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/fr/projects/RockPaperSissors.html">
+  <meta property="og:title" content="Projets en Machine Learning et Deep Learning | Ray Chen">
+  <meta property="og:description" content="Projet du cours Python été 2026 : exercices de base Python, prédiction de régression des prix immobiliers en Californie, analyse du comportement numérique des étudiants, reconnaissance de gestes Pierre-Papier-Ciseaux avec YOLO11n.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ray Chen's Website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/fr/projects/RockPaperSissors.html">
+  <meta name="twitter:title" content="Projets en Machine Learning et Deep Learning | Ray Chen">
+  <meta name="twitter:description" content="Projet du cours Python été 2026 : exercices de base Python, prédiction de régression des prix immobiliers en Californie, analyse du comportement numérique des étudiants, reconnaissance de gestes Pierre-Papier-Ciseaux avec YOLO11n.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/rockpapersissors.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+
+  <div id="particles-js"></div>
+
+  <main class="page">
+    <!-- ===== Hero ===== -->
+    <section class="hero-card">
+      <span class="hero-badge">Python · Machine Learning · Deep Learning</span>
+      <h1>Détection Pierre-Papier-Ciseaux</h1>
+      <p>Collection de projets du cours Python été 2026, couvrant les bases de la syntaxe Python, la prédiction par régression en Machine Learning, l'analyse des données de comportement étudiant, et la reconnaissance de gestes Pierre-Papier-Ciseaux basée sur YOLO11n.</p>
+      <div class="button-row">
+        <a class="button" href="https://github.com/Rayawa/RockPaperSissors" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a>
+        <a class="button button-outline" href="#project3"><i class="fas fa-camera"></i> Reconnaissance de gestes</a>
+      </div>
+    </section>
+
+    <div class="rps-hero-image">
+      <img src="../../static/resources/rps/rps.gif" alt="Démo de détection Pierre-Papier-Ciseaux" loading="lazy">
+    </div>
+
+    <div class="rps-overview-grid">
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 1</span>
+          <h2>Exercices de base Python</h2>
+          <p>14 exercices d'introduction : types de données, contrôle de flux, fonctions, listes et dictionnaires — couverture complète des bases syntaxiques.</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 2-1</span>
+          <h2>Prédiction des prix immobiliers</h2>
+          <p>Régression par Random Forest pour prédire le prix médian des logements en Californie, R² = 0,805. Confirmation que le revenu et la localisation géographique sont les facteurs d'influence clés.</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 2-2</span>
+          <h2>Analyse du comportement étudiant</h2>
+          <p>Jeu de données réel Kaggle, analyse de l'impact du temps d'étude et du temps d'écran sur le CGPA, comparaison multi-modèles.</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 3</span>
+          <h2>Reconnaissance de gestes YOLO11n</h2>
+          <p>🪨📄✂️ Détection en temps réel de Ciseaux/Pierre/Feuille, mAP50 sur l'ensemble de validation = 0,940, inférence à l'échelle de la milliseconde.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project 1 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 1</span>
+        <div>
+          <h3>Fondamentaux de la programmation Python</h3>
+          <p>Exercices de programmation Python de niveau débutant, sans dépendances tierces</p>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-database"></i> Types de données</h3>
+          <ol>
+            <li><code>1.1.py</code> — Carré d'un entier positif</li>
+            <li><code>1.2.py</code> — Sortie formatée des informations d'admission</li>
+            <li><code>1.3.py</code> — Longueur de l'hypoténuse d'un triangle rectangle</li>
+          </ol>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-calculator"></i> Opérateurs &amp; expressions</h3>
+          <ol>
+            <li><code>2.1.py</code> — Distance euclidienne entre deux points</li>
+            <li><code>2.2.py</code> — Somme des cubes des chiffres d'un nombre à trois chiffres</li>
+            <li><code>2.3.py</code> — Nombre d'occurrences d'une lettre (insensible à la casse)</li>
+          </ol>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-random"></i> Contrôle de flux &amp; fonctions</h3>
+          <ol>
+            <li><code>3.1-3.2</code> — Niveau de note / Type de caractère</li>
+            <li><code>4.1-4.2</code> — Détermination du nombre de chiffres / Somme factorielle</li>
+            <li><code>5.1-5.2</code> — Encapsulation de fonctions et calculs mathématiques</li>
+            <li><code>6.1-6.2</code> — Compréhensions de liste / Mappage de dictionnaire</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project 2-1 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 2-1</span>
+        <div>
+          <h3>Prédiction des prix immobiliers en Californie — Régression Random Forest</h3>
+          <p>scikit-learn · California Housing Dataset</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-table"></i> Jeu de données</h3>
+          <p><strong>California Housing</strong> — Jeu de données intégré à scikit-learn</p>
+          <ul>
+            <li>Taille de l'échantillon : 20 640 enregistrements de quartiers</li>
+            <li>Nombre de caractéristiques : 8 (revenu médian, âge du logement, nombre de pièces, population, localisation géographique, etc.)</li>
+            <li>Cible : MedHouseVal (prix médian du logement, $100K)</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-line"></i> Évaluation du modèle</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">MSE</span>
+            <span class="rps-metric-value">0.2552</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">RMSE</span>
+            <span class="rps-metric-value">0.5052</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">R²</span>
+            <span class="rps-metric-value">0.8053</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rps-card-full">
+        <h3><i class="fas fa-star"></i> Top 4 de l'importance des caractéristiques</h3>
+        <p><strong>MedInc (revenu médian)</strong> &gt; <strong>AveOccup (occupation moyenne)</strong> &gt; <strong>Latitude / Longitude (localisation géographique)</strong> &gt; HouseAge</p>
+        <p style="margin-top:0.4rem;">Le niveau de revenu est le facteur prédictif le plus fort pour les prix immobiliers ; l'importance de la localisation reflète les écarts de prix entre différentes régions de Californie.</p>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag ml">scikit-learn</span>
+        <span class="rps-tag ml">Random Forest</span>
+        <span class="rps-tag data">Pandas</span>
+        <span class="rps-tag data">Matplotlib</span>
+      </div>
+    </section>
+
+    <!-- ===== Project 2-2 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 2-2</span>
+        <div>
+          <h3>Analyse du comportement numérique et de la performance académique des étudiants</h3>
+          <p>Jeu de données réel Kaggle · Régression linéaire vs Random Forest</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-database"></i> Jeu de données</h3>
+          <p><strong>Student Lifestyle and Academic Performance</strong> (Kaggle)</p>
+          <ul>
+            <li>12 champs : Age, Branch, Study_Hours, Sleep_Hours, Screen_Time, Gym, Diet, Attendance, Stress, Residence, Internal_Marks, <strong>CGPA</strong></li>
+            <li>Variable cible : CGPA (moyenne cumulative, 0~10)</li>
+            <li>Exclusion de Internal_Marks pour éviter les fuites de données</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-tasks"></i> Processus de nettoyage des données</h3>
+          <ul>
+            <li>Sélection des champs → Déduplication</li>
+            <li>Champs numériques : imputation par la médiane des valeurs manquantes</li>
+            <li>Champs catégoriels : imputation par le mode</li>
+            <li>Filtrage des valeurs aberrantes (plages raisonnables pour l'âge, le temps d'étude, etc.)</li>
+            <li>Variables catégorielles : encodage one-hot (drop_first)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>Analyse visuelle (6 graphiques)</h3>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-bar"></i> Distribution du temps d'écran</h3>
+          <p>Distribution asymétrique à droite, la majorité des étudiants passent 3~8 heures par jour devant un écran</p>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-scatter"></i> Temps d'étude vs CGPA</h3>
+          <p>Corrélation positive claire, les étudiants étudiant 6~8 h/jour ont généralement un CGPA plus élevé</p>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-fire"></i> Top 3 de l'importance des caractéristiques</h3>
+          <p><strong>Temps d'étude</strong> &gt; <strong>Taux d'assiduité</strong> &gt; <strong>Temps d'écran</strong></p>
+        </div>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag ml">Linear Regression</span>
+        <span class="rps-tag ml">Random Forest</span>
+        <span class="rps-tag data">Pandas</span>
+        <span class="rps-tag data">Seaborn</span>
+        <span class="rps-tag data">EDA</span>
+      </div>
+    </section>
+
+    <!-- ===== Project 3 ===== -->
+    <section class="rps-panel" id="project3">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 3</span>
+        <div>
+          <h3>Reconnaissance de gestes Pierre-Papier-Ciseaux — YOLO11n</h3>
+          <p>🪨📄✂️ Ultralytics · PyTorch · Détection d'objets</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-images"></i> Jeu de données</h3>
+          <p><strong>rock-paper-scissors-sxsw</strong> (Roboflow v11)</p>
+          <ul>
+            <li>Total de <strong>15 874</strong> images</li>
+            <li>Ensemble d'entraînement 14 966 / Validation 588 / Test 320</li>
+            <li>3 classes : Paper (Feuille), Rock (Pierre), Scissors (Ciseaux)</li>
+            <li>Taille d'entrée : 640×640</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-bar"></i> Augmentation des données</h3>
+          <p>Génération de 7 versions augmentées par image originale :</p>
+          <ul>
+            <li>Retournement horizontal (50%), rotation aléatoire ±12°</li>
+            <li>Cisaillement ±2°, luminosité/exposition ±25%</li>
+            <li>Flou gaussien 0~1,5 px, bruit poivre-et-sel 1%</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rps-card-full">
+        <h3><i class="fas fa-microchip"></i> Configuration d'entraînement</h3>
+        <div class="rps-grid" style="margin-top:0.6rem;">
+          <div>
+            <div class="rps-metric"><span class="rps-metric-name">Modèle</span><span class="rps-metric-value">YOLO11n (2.58M params)</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Epochs</span><span class="rps-metric-value">50</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Batch</span><span class="rps-metric-value">16</span></div>
+          </div>
+          <div>
+            <div class="rps-metric"><span class="rps-metric-name">Optimiseur</span><span class="rps-metric-value">AdamW</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Durée d'entraînement</span><span class="rps-metric-value">~3.07h</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">GPU</span><span class="rps-metric-value">RTX 5060 (8GB)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Résultats d'évaluation -->
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>Résultats d'évaluation</h3>
+        </div>
+      </div>
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-check-circle"></i> Ensemble de validation</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50 (global)</span>
+            <span class="rps-metric-value" style="color:#f59e0b;font-size:1rem;">0.940</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50-95</span>
+            <span class="rps-metric-value">0.697</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Précision (P)</span>
+            <span class="rps-metric-value">0.942</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Rappel (R)</span>
+            <span class="rps-metric-value">0.891</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Vitesse d'inférence</span>
+            <span class="rps-metric-value">&lt; 2.1ms</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-flask"></i> Ensemble de test</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50 (global)</span>
+            <span class="rps-metric-value" style="color:#f59e0b;font-size:1rem;">0.934</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50-95</span>
+            <span class="rps-metric-value">0.693</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Précision (P)</span>
+            <span class="rps-metric-value">0.898</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Rappel (R)</span>
+            <span class="rps-metric-value">0.920</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Détails par classe -->
+      <div class="rps-card-full">
+        <h3><i class="fas fa-list"></i> Performance par classe</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.8rem;">
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">📄 Paper</p>
+            <div class="rps-metric"><span class="rps-metric-name">Validation mAP50</span><span class="rps-metric-value">0.936</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Test mAP50</span><span class="rps-metric-value">0.904</span></div>
+          </div>
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">🪨 Rock</p>
+            <div class="rps-metric"><span class="rps-metric-name">Validation mAP50</span><span class="rps-metric-value">0.943</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Test mAP50</span><span class="rps-metric-value">0.951</span></div>
+          </div>
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">✂️ Scissors</p>
+            <div class="rps-metric"><span class="rps-metric-name">Validation mAP50</span><span class="rps-metric-value">0.940</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Test mAP50</span><span class="rps-metric-value">0.947</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modes d'application -->
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>Modes d'application</h3>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-image"></i> Inférence sur image unique</h3>
+          <p>Reconnaissance sur n'importe quelle photo de geste, les résultats sont annotés sous forme de boîte englobante + étiquette, sauvegardés dans le répertoire de sortie.</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">predict.py</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-video"></i> Détection en temps réel par caméra</h3>
+          <p>Utilisation de la caméra système (1280×720) pour une capture en temps réel, inférence à l'échelle de la milliseconde par image, affichage du taux de trames FPS dans la fenêtre, appuyez sur Q pour quitter.</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">detect.py</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-file-code"></i> Scripts d'évaluation</h3>
+          <p>Évaluation sur l'ensemble de validation, évaluation sur l'ensemble de test, outil de téléchargement du jeu de données, couverture complète du flux d'entraînement au déploiement.</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">evaluate.py / test.py</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag dl">PyTorch</span>
+        <span class="rps-tag dl">YOLO11n</span>
+        <span class="rps-tag dl">Ultralytics</span>
+        <span class="rps-tag cv">OpenCV</span>
+        <span class="rps-tag cv">Roboflow</span>
+        <span class="rps-tag data">CUDA</span>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

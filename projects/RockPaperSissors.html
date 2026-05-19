@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>石头剪刀布检测 | Ray Chen</title>
+  <meta name="description" content="2026 暑期 Python 课程项目：Python 基础练习、加州房价回归预测、学生数字行为分析、YOLO11n 石头剪刀布手势识别。">
+  <meta name="keywords" content="Python, 机器学习, 深度学习, YOLO11n, 随机森林, 加州房价, 手势识别, scikit-learn, Ultralytics, RockPaperScissors, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/projects/RockPaperSissors.html">
+
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/RockPaperSissors.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/RockPaperSissors.html">
+  <meta property="og:title" content="机器学习与深度学习案例 | Ray Chen">
+  <meta property="og:description" content="2026 暑期 Python 课程项目：Python 基础练习、加州房价回归预测、学生数字行为分析、YOLO11n 石头剪刀布手势识别。">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Ray Chen's Website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/projects/RockPaperSissors.html">
+  <meta name="twitter:title" content="机器学习与深度学习案例 | Ray Chen">
+  <meta name="twitter:description" content="2026 暑期 Python 课程项目：Python 基础练习、加州房价回归预测、学生数字行为分析、YOLO11n 石头剪刀布手势识别。">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/rockpapersissors.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+
+  <div id="particles-js"></div>
+
+  <main class="page">
+    <!-- ===== Hero ===== -->
+    <section class="hero-card">
+      <span class="hero-badge">Python · Machine Learning · Deep Learning</span>
+      <h1>石头剪刀布检测</h1>
+      <p>2026 暑期 Python 课程项目合集，覆盖 Python 基础语法、机器学习回归预测、学生行为数据分析，以及基于 YOLO11n 的石头剪刀布手势识别。</p>
+      <div class="button-row">
+        <a class="button" href="https://github.com/Rayawa/RockPaperSissors" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
+        <a class="button button-outline" href="#project3"><i class="fas fa-camera"></i> 手势识别</a>
+      </div>
+    </section>
+
+    <div class="rps-hero-image">
+      <img src="../static/resources/rps/rps.gif" alt="Rock Paper Scissors Detection Demo" loading="lazy">
+    </div>
+
+    <div class="rps-overview-grid">
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 1</span>
+          <h2>Python 基础练习</h2>
+          <p>14 个入门练习：数据类型、流程控制、函数、列表与字典等基础语法全覆盖。</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 2-1</span>
+          <h2>加州房价预测</h2>
+          <p>随机森林回归预测加州房价中位数，R² = 0.805。验证收入与地理位置是核心影响因素。</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 2-2</span>
+          <h2>学生行为分析</h2>
+          <p>Kaggle 真实数据集，分析学习时间、屏幕时间等对 CGPA 的影响，多模型对比。</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 3</span>
+          <h2>YOLO11n 手势识别</h2>
+          <p>🪨📄✂️ 实时检测剪刀/石头/布，验证集 mAP50 = 0.940，毫秒级推理。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project 1 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 1</span>
+        <div>
+          <h3>Python 程序设计基础</h3>
+          <p>入门级 Python 编程练习，零第三方依赖</p>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-database"></i> 数据类型</h3>
+          <ol>
+            <li><code>1.1.py</code> — 正整数平方</li>
+            <li><code>1.2.py</code> — 格式化输出录取信息</li>
+            <li><code>1.3.py</code> — 直角三角形斜边长</li>
+          </ol>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-calculator"></i> 运算符 &amp; 表达式</h3>
+          <ol>
+            <li><code>2.1.py</code> — 两点间欧几里得距离</li>
+            <li><code>2.2.py</code> — 三位数各位立方和</li>
+            <li><code>2.3.py</code> — 字母出现次数（不区分大小写）</li>
+          </ol>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-random"></i> 流程控制 &amp; 函数</h3>
+          <ol>
+            <li><code>3.1-3.2</code> — 成绩等级 / 字符类型</li>
+            <li><code>4.1-4.2</code> — 位数判断 / 阶乘求和</li>
+            <li><code>5.1-5.2</code> — 函数封装与数学计算</li>
+            <li><code>6.1-6.2</code> — 列表推导式 / 字典映射</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project 2-1 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 2-1</span>
+        <div>
+          <h3>加州房价预测 — 随机森林回归</h3>
+          <p>scikit-learn · California Housing Dataset</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-table"></i> 数据集</h3>
+          <p><strong>California Housing</strong> — scikit-learn 内置数据集</p>
+          <ul>
+            <li>样本量：20,640 条街区数据</li>
+            <li>特征数：8 个（收入中位数、房龄、房间数、人口、地理位置等）</li>
+            <li>目标：MedHouseVal（房价中位数，$100K）</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-line"></i> 模型评估</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">MSE</span>
+            <span class="rps-metric-value">0.2552</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">RMSE</span>
+            <span class="rps-metric-value">0.5052</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">R²</span>
+            <span class="rps-metric-value">0.8053</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rps-card-full">
+        <h3><i class="fas fa-star"></i> 特征重要性 Top 4</h3>
+        <p><strong>MedInc（收入中位数）</strong> &gt; <strong>AveOccup（平均居住人数）</strong> &gt; <strong>Latitude / Longitude（地理位置）</strong> &gt; HouseAge</p>
+        <p style="margin-top:0.4rem;">收入水平是房价的最强预测因子，地理位置的重要性反映了加州不同区域的房价差异。</p>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag ml">scikit-learn</span>
+        <span class="rps-tag ml">Random Forest</span>
+        <span class="rps-tag data">Pandas</span>
+        <span class="rps-tag data">Matplotlib</span>
+      </div>
+    </section>
+
+    <!-- ===== Project 2-2 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 2-2</span>
+        <div>
+          <h3>学生数字行为与学习表现分析</h3>
+          <p>Kaggle 真实数据集 · 线性回归 vs 随机森林</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-database"></i> 数据集</h3>
+          <p><strong>Student Lifestyle and Academic Performance</strong>（Kaggle）</p>
+          <ul>
+            <li>12 个字段：Age, Branch, Study_Hours, Sleep_Hours, Screen_Time, Gym, Diet, Attendance, Stress, Residence, Internal_Marks, <strong>CGPA</strong></li>
+            <li>目标变量：CGPA（绩点，0~10）</li>
+            <li>排除 Internal_Marks 避免数据泄漏</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-tasks"></i> 数据清洗流程</h3>
+          <ul>
+            <li>字段筛选 → 去重</li>
+            <li>数值字段：中位数填充缺失值</li>
+            <li>分类字段：众数填充</li>
+            <li>异常值过滤（年龄、学习时间等合理范围）</li>
+            <li>分类变量：独热编码（drop_first）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>可视化分析（6 张图表）</h3>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-bar"></i> 屏幕时间分布</h3>
+          <p>右偏态分布，大部分学生每日屏幕时间 3~8 小时</p>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-scatter"></i> 学习时间 vs CGPA</h3>
+          <p>清晰的正相关，学习 6~8h/天的学生 CGPA 普遍更高</p>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-fire"></i> 特征重要性 Top 3</h3>
+          <p><strong>学习时间</strong> > <strong>出勤率</strong> > <strong>屏幕时间</strong></p>
+        </div>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag ml">Linear Regression</span>
+        <span class="rps-tag ml">Random Forest</span>
+        <span class="rps-tag data">Pandas</span>
+        <span class="rps-tag data">Seaborn</span>
+        <span class="rps-tag data">EDA</span>
+      </div>
+    </section>
+
+    <!-- ===== Project 3 ===== -->
+    <section class="rps-panel" id="project3">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 3</span>
+        <div>
+          <h3>石头剪刀布手势识别 — YOLO11n</h3>
+          <p>🪨📄✂️ Ultralytics · PyTorch · 目标检测</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-images"></i> 数据集</h3>
+          <p><strong>rock-paper-scissors-sxsw</strong>（Roboflow v11）</p>
+          <ul>
+            <li>总计 <strong>15,874</strong> 张图片</li>
+            <li>训练集 14,966 / 验证集 588 / 测试集 320</li>
+            <li>3 个类别：Paper（布）、Rock（石头）、Scissors（剪刀）</li>
+            <li>输入尺寸：640×640</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-bar"></i> 数据增强</h3>
+          <p>每张原图生成 7 个增强版本：</p>
+          <ul>
+            <li>水平翻转（50%）、随机旋转 ±12°</li>
+            <li>剪切 ±2°、亮度/曝光 ±25%</li>
+            <li>高斯模糊 0~1.5px、椒盐噪声 1%</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rps-card-full">
+        <h3><i class="fas fa-microchip"></i> 训练配置</h3>
+        <div class="rps-grid" style="margin-top:0.6rem;">
+          <div>
+            <div class="rps-metric"><span class="rps-metric-name">模型</span><span class="rps-metric-value">YOLO11n (2.58M params)</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Epochs</span><span class="rps-metric-value">50</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Batch</span><span class="rps-metric-value">16</span></div>
+          </div>
+          <div>
+            <div class="rps-metric"><span class="rps-metric-name">优化器</span><span class="rps-metric-value">AdamW</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">训练耗时</span><span class="rps-metric-value">~3.07h</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">GPU</span><span class="rps-metric-value">RTX 5060 (8GB)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 评估结果 -->
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>评估结果</h3>
+        </div>
+      </div>
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-check-circle"></i> 验证集</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50（全部）</span>
+            <span class="rps-metric-value" style="color:#f59e0b;font-size:1rem;">0.940</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50-95</span>
+            <span class="rps-metric-value">0.697</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">精确率 (P)</span>
+            <span class="rps-metric-value">0.942</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">召回率 (R)</span>
+            <span class="rps-metric-value">0.891</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">推理速度</span>
+            <span class="rps-metric-value">&lt; 2.1ms</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-flask"></i> 测试集</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50（全部）</span>
+            <span class="rps-metric-value" style="color:#f59e0b;font-size:1rem;">0.934</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50-95</span>
+            <span class="rps-metric-value">0.693</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">精确率 (P)</span>
+            <span class="rps-metric-value">0.898</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">召回率 (R)</span>
+            <span class="rps-metric-value">0.920</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分类明细 -->
+      <div class="rps-card-full">
+        <h3><i class="fas fa-list"></i> 各类别性能</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.8rem;">
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">📄 Paper</p>
+            <div class="rps-metric"><span class="rps-metric-name">验证 mAP50</span><span class="rps-metric-value">0.936</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">测试 mAP50</span><span class="rps-metric-value">0.904</span></div>
+          </div>
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">🪨 Rock</p>
+            <div class="rps-metric"><span class="rps-metric-name">验证 mAP50</span><span class="rps-metric-value">0.943</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">测试 mAP50</span><span class="rps-metric-value">0.951</span></div>
+          </div>
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">✂️ Scissors</p>
+            <div class="rps-metric"><span class="rps-metric-name">验证 mAP50</span><span class="rps-metric-value">0.940</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">测试 mAP50</span><span class="rps-metric-value">0.947</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 应用模式 -->
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>应用模式</h3>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-image"></i> 单张图片推理</h3>
+          <p>对任意手势照片进行识别，识别结果以边界框 + 标签形式标注，保存到输出目录。</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">predict.py</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-video"></i> 实时摄像头检测</h3>
+          <p>调用系统摄像头（1280×720）实时捕获，每帧推理毫秒级，窗口显示 FPS 帧率，按 Q 键退出。</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">detect.py</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-file-code"></i> 评估脚本</h3>
+          <p>验证集评估、测试集评估、数据集下载工具，完整覆盖训练到部署全流程。</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">evaluate.py / test.py</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag dl">PyTorch</span>
+        <span class="rps-tag dl">YOLO11n</span>
+        <span class="rps-tag dl">Ultralytics</span>
+        <span class="rps-tag cv">OpenCV</span>
+        <span class="rps-tag cv">Roboflow</span>
+        <span class="rps-tag data">CUDA</span>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

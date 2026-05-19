@@ -598,35 +598,43 @@ a.skill-link {
 }
 
 .project-image.harmony {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(23, 63, 130, 0.3)), url('../resources/main_page/dashboard.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(23, 63, 130, 0.15)), url('../resources/main_page/dashboard.png');
 }
 
 .project-image.bio {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(16, 185, 129, 0.28)), url('../resources/main_page/bio.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(16, 185, 129, 0.12)), url('../resources/main_page/bio.png');
 }
 
 .project-image.spm {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../resources/main_page/spm.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(245, 158, 11, 0.12)), url('../resources/main_page/spm.png');
 }
 
 .project-image.ohos {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(0, 122, 255, 0.28)), url('../resources/main_page/openharmony.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(0, 122, 255, 0.12)), url('../resources/main_page/openharmony.png');
 }
 
 .project-image.dr {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(239, 68, 68, 0.28)), url('../resources/main_page/dr.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(239, 68, 68, 0.12)), url('../resources/main_page/dr.png');
 }
 
 .project-image.signal {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(59, 130, 246, 0.28)), url('../resources/main_page/signal.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(59, 130, 246, 0.12)), url('../resources/main_page/signal.png');
 }
 
 .project-image.piano {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(168, 85, 247, 0.28)), url('../resources/main_page/piano.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(168, 85, 247, 0.12)), url('../resources/main_page/piano.png');
 }
 
 .project-image.books {
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.55), rgba(245, 158, 11, 0.28)), url('../resources/main_page/books.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(245, 158, 11, 0.12)), url('../resources/main_page/books.png');
+}
+
+.project-image.smartshed {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(52, 211, 153, 0.15), rgba(6, 182, 212, 0.1)), url('../resources/main_page/openharmony.png');
+}
+
+.project-image.rps {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1)), url('../resources/main_page/rps.png');
 }
 
 .life-grid {
