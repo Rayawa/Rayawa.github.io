@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rock Paper Scissors Detection | Ray Chen</title>
+  <meta name="description" content="2026 Summer Python Course Projects: Python fundamentals exercises, California housing price regression prediction, student digital behavior analysis, YOLO11n Rock Paper Scissors gesture recognition.">
+  <meta name="keywords" content="Python, Machine Learning, Deep Learning, YOLO11n, Random Forest, California Housing, Gesture Recognition, scikit-learn, Ultralytics, RockPaperScissors, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/en/projects/RockPaperSissors.html">
+
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/RockPaperSissors.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/RockPaperSissors.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/RockPaperSissors.html">
+  <meta property="og:title" content="Machine Learning & Deep Learning Projects | Ray Chen">
+  <meta property="og:description" content="2026 Summer Python Course Projects: Python fundamentals exercises, California housing price regression prediction, student digital behavior analysis, YOLO11n Rock Paper Scissors gesture recognition.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/RockPaperSissors.html">
+  <meta name="twitter:title" content="Machine Learning & Deep Learning Projects | Ray Chen">
+  <meta name="twitter:description" content="2026 Summer Python Course Projects: Python fundamentals exercises, California housing price regression prediction, student digital behavior analysis, YOLO11n Rock Paper Scissors gesture recognition.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/rockpapersissors.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+
+  <div id="particles-js"></div>
+
+  <main class="page">
+    <!-- ===== Hero ===== -->
+    <section class="hero-card">
+      <span class="hero-badge">Python · Machine Learning · Deep Learning</span>
+      <h1>Rock Paper Scissors Detection</h1>
+      <p>2026 Summer Python Course Project Collection covering Python fundamentals, machine learning regression prediction, student behavior data analysis, and YOLO11n-based Rock Paper Scissors gesture recognition.</p>
+      <div class="button-row">
+        <a class="button" href="https://github.com/Rayawa/RockPaperSissors" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub Repository</a>
+        <a class="button button-outline" href="#project3"><i class="fas fa-camera"></i> Gesture Recognition</a>
+      </div>
+    </section>
+
+    <div class="rps-hero-image">
+      <img src="../../static/resources/rps/rps.gif" alt="Rock Paper Scissors Detection Demo" loading="lazy">
+    </div>
+
+    <div class="rps-overview-grid">
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 1</span>
+          <h2>Python Fundamentals Exercises</h2>
+          <p>14 beginner exercises: comprehensive coverage of data types, control flow, functions, lists, dictionaries, and more.</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 2-1</span>
+          <h2>California Housing Prediction</h2>
+          <p>Random Forest regression for California housing median price prediction, R² = 0.805. Verified that income and geographic location are key influencing factors.</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 2-2</span>
+          <h2>Student Behavior Analysis</h2>
+          <p>Kaggle real-world dataset analyzing the impact of study time, screen time, etc. on CGPA, with multi-model comparison.</p>
+        </div>
+        <div class="rps-overview-card">
+          <span class="rps-overview-index">Project 3</span>
+          <h2>YOLO11n Gesture Recognition</h2>
+          <p>🪨📄✂️ Real-time detection of Rock/Paper/Scissors, validation set mAP50 = 0.940, millisecond-level inference.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project 1 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 1</span>
+        <div>
+          <h3>Python Programming Fundamentals</h3>
+          <p>Beginner-level Python programming exercises, zero third-party dependencies</p>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-database"></i> Data Types</h3>
+          <ol>
+            <li><code>1.1.py</code> — Square of positive integer</li>
+            <li><code>1.2.py</code> — Formatted admission info output</li>
+            <li><code>1.3.py</code> — Right triangle hypotenuse length</li>
+          </ol>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-calculator"></i> Operators &amp; Expressions</h3>
+          <ol>
+            <li><code>2.1.py</code> — Euclidean distance between two points</li>
+            <li><code>2.2.py</code> — Sum of cubes of digits in a three-digit number</li>
+            <li><code>2.3.py</code> — Letter occurrence count (case-insensitive)</li>
+          </ol>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-random"></i> Control Flow &amp; Functions</h3>
+          <ol>
+            <li><code>3.1-3.2</code> — Grade level / Character type</li>
+            <li><code>4.1-4.2</code> — Digit judgment / Factorial sum</li>
+            <li><code>5.1-5.2</code> — Function encapsulation & math calculations</li>
+            <li><code>6.1-6.2</code> — List comprehensions / Dictionary mapping</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project 2-1 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 2-1</span>
+        <div>
+          <h3>California Housing Price Prediction — Random Forest Regression</h3>
+          <p>scikit-learn · California Housing Dataset</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-table"></i> Dataset</h3>
+          <p><strong>California Housing</strong> — scikit-learn built-in dataset</p>
+          <ul>
+            <li>Samples: 20,640 block group records</li>
+            <li>Features: 8 (median income, house age, rooms, population, geographic location, etc.)</li>
+            <li>Target: MedHouseVal (median house value, $100K)</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-line"></i> Model Evaluation</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">MSE</span>
+            <span class="rps-metric-value">0.2552</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">RMSE</span>
+            <span class="rps-metric-value">0.5052</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">R²</span>
+            <span class="rps-metric-value">0.8053</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rps-card-full">
+        <h3><i class="fas fa-star"></i> Top 4 Feature Importance</h3>
+        <p><strong>MedInc (Median Income)</strong> &gt; <strong>AveOccup (Average Occupancy)</strong> &gt; <strong>Latitude / Longitude (Geographic Location)</strong> &gt; HouseAge</p>
+        <p style="margin-top:0.4rem;">Income level is the strongest predictor for housing prices; the importance of geographic location reflects regional housing price disparities across California.</p>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag ml">scikit-learn</span>
+        <span class="rps-tag ml">Random Forest</span>
+        <span class="rps-tag data">Pandas</span>
+        <span class="rps-tag data">Matplotlib</span>
+      </div>
+    </section>
+
+    <!-- ===== Project 2-2 ===== -->
+    <section class="rps-panel">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 2-2</span>
+        <div>
+          <h3>Student Digital Behavior and Academic Performance Analysis</h3>
+          <p>Kaggle real-world dataset · Linear Regression vs Random Forest</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-database"></i> Dataset</h3>
+          <p><strong>Student Lifestyle and Academic Performance</strong> (Kaggle)</p>
+          <ul>
+            <li>12 fields: Age, Branch, Study_Hours, Sleep_Hours, Screen_Time, Gym, Diet, Attendance, Stress, Residence, Internal_Marks, <strong>CGPA</strong></li>
+            <li>Target variable: CGPA (Grade Point Average, 0~10)</li>
+            <li>Excluded Internal_Marks to prevent data leakage</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-tasks"></i> Data Cleaning Pipeline</h3>
+          <ul>
+            <li>Field selection → Deduplication</li>
+            <li>Numeric fields: Median imputation for missing values</li>
+            <li>Categorical fields: Mode imputation</li>
+            <li>Outlier filtering (reasonable ranges for age, study hours, etc.)</li>
+            <li>Categorical variables: One-hot encoding (drop_first)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>Visual Analysis (6 Charts)</h3>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-bar"></i> Screen Time Distribution</h3>
+          <p>Right-skewed distribution; most students spend 3–8 hours on screens daily</p>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-scatter"></i> Study Hours vs CGPA</h3>
+          <p>Clear positive correlation; students studying 6–8h/day tend to have higher CGPA</p>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-fire"></i> Top 3 Feature Importance</h3>
+          <p><strong>Study Hours</strong> > <strong>Attendance</strong> > <strong>Screen Time</strong></p>
+        </div>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag ml">Linear Regression</span>
+        <span class="rps-tag ml">Random Forest</span>
+        <span class="rps-tag data">Pandas</span>
+        <span class="rps-tag data">Seaborn</span>
+        <span class="rps-tag data">EDA</span>
+      </div>
+    </section>
+
+    <!-- ===== Project 3 ===== -->
+    <section class="rps-panel" id="project3">
+      <div class="rps-sub-header">
+        <span class="sub-number">Project 3</span>
+        <div>
+          <h3>Rock Paper Scissors Gesture Recognition — YOLO11n</h3>
+          <p>🪨📄✂️ Ultralytics · PyTorch · Object Detection</p>
+        </div>
+      </div>
+
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-images"></i> Dataset</h3>
+          <p><strong>rock-paper-scissors-sxsw</strong> (Roboflow v11)</p>
+          <ul>
+            <li>Total <strong>15,874</strong> images</li>
+            <li>Training set 14,966 / Validation set 588 / Test set 320</li>
+            <li>3 classes: Paper, Rock, Scissors</li>
+            <li>Input size: 640×640</li>
+          </ul>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-chart-bar"></i> Data Augmentation</h3>
+          <p>7 augmented versions generated per original image:</p>
+          <ul>
+            <li>Horizontal flip (50%), random rotation ±12°</li>
+            <li>Shear ±2°, brightness/exposure ±25%</li>
+            <li>Gaussian blur 0~1.5px, salt-and-pepper noise 1%</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rps-card-full">
+        <h3><i class="fas fa-microchip"></i> Training Configuration</h3>
+        <div class="rps-grid" style="margin-top:0.6rem;">
+          <div>
+            <div class="rps-metric"><span class="rps-metric-name">Model</span><span class="rps-metric-value">YOLO11n (2.58M params)</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Epochs</span><span class="rps-metric-value">50</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Batch</span><span class="rps-metric-value">16</span></div>
+          </div>
+          <div>
+            <div class="rps-metric"><span class="rps-metric-name">Optimizer</span><span class="rps-metric-value">AdamW</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Training Time</span><span class="rps-metric-value">~3.07h</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">GPU</span><span class="rps-metric-value">RTX 5060 (8GB)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evaluation Results -->
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>Evaluation Results</h3>
+        </div>
+      </div>
+      <div class="rps-grid-2">
+        <div class="rps-card">
+          <h3><i class="fas fa-check-circle"></i> Validation Set</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50 (All)</span>
+            <span class="rps-metric-value" style="color:#f59e0b;font-size:1rem;">0.940</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50-95</span>
+            <span class="rps-metric-value">0.697</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Precision (P)</span>
+            <span class="rps-metric-value">0.942</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Recall (R)</span>
+            <span class="rps-metric-value">0.891</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Inference Speed</span>
+            <span class="rps-metric-value">&lt; 2.1ms</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-flask"></i> Test Set</h3>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50 (All)</span>
+            <span class="rps-metric-value" style="color:#f59e0b;font-size:1rem;">0.934</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">mAP50-95</span>
+            <span class="rps-metric-value">0.693</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Precision (P)</span>
+            <span class="rps-metric-value">0.898</span>
+          </div>
+          <div class="rps-metric">
+            <span class="rps-metric-name">Recall (R)</span>
+            <span class="rps-metric-value">0.920</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Per-Class Breakdown -->
+      <div class="rps-card-full">
+        <h3><i class="fas fa-list"></i> Per-Class Performance</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.8rem;">
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">📄 Paper</p>
+            <div class="rps-metric"><span class="rps-metric-name">Val mAP50</span><span class="rps-metric-value">0.936</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Test mAP50</span><span class="rps-metric-value">0.904</span></div>
+          </div>
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">🪨 Rock</p>
+            <div class="rps-metric"><span class="rps-metric-name">Val mAP50</span><span class="rps-metric-value">0.943</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Test mAP50</span><span class="rps-metric-value">0.951</span></div>
+          </div>
+          <div class="rps-card" style="background:rgba(255,255,255,0.03);">
+            <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">✂️ Scissors</p>
+            <div class="rps-metric"><span class="rps-metric-name">Val mAP50</span><span class="rps-metric-value">0.940</span></div>
+            <div class="rps-metric"><span class="rps-metric-name">Test mAP50</span><span class="rps-metric-value">0.947</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Modes -->
+      <div class="rps-sub-header" style="margin-top:2rem;">
+        <div>
+          <h3>Application Modes</h3>
+        </div>
+      </div>
+      <div class="rps-grid">
+        <div class="rps-card">
+          <h3><i class="fas fa-image"></i> Single Image Inference</h3>
+          <p>Recognize gestures from any photo; results are annotated with bounding boxes + labels and saved to the output directory.</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">predict.py</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-video"></i> Real-time Camera Detection</h3>
+          <p>Captures from system camera (1280×720) in real-time with millisecond-level per-frame inference; displays FPS in window, press Q to exit.</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">detect.py</span>
+          </div>
+        </div>
+        <div class="rps-card">
+          <h3><i class="fas fa-file-code"></i> Evaluation Scripts</h3>
+          <p>Validation set evaluation, test set evaluation, dataset download utility — full coverage from training to deployment pipeline.</p>
+          <div class="rps-tags" style="margin-top:0.6rem;">
+            <span class="rps-tag py">evaluate.py / test.py</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rps-tags" style="margin-top:1rem;">
+        <span class="rps-tag py">Python</span>
+        <span class="rps-tag dl">PyTorch</span>
+        <span class="rps-tag dl">YOLO11n</span>
+        <span class="rps-tag dl">Ultralytics</span>
+        <span class="rps-tag cv">OpenCV</span>
+        <span class="rps-tag cv">Roboflow</span>
+        <span class="rps-tag data">CUDA</span>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

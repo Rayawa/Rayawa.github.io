@@ -1,0 +1,311 @@
+/* SmartShed 页面专用样式 */
+/* 智慧大棚物联网控制系统 */
+
+/* ===== 概览卡片 ===== */
+.ss-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.ss-overview-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.ss-overview-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(52, 211, 153, 0.4);
+  background: rgba(52, 211, 153, 0.06);
+}
+
+.ss-overview-index {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #34d399;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.ss-overview-card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #fff;
+}
+
+.ss-overview-card p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.55;
+}
+
+/* ===== Panel sections ===== */
+.ss-panel {
+  margin-bottom: 3rem;
+}
+
+.ss-panel-head {
+  margin-bottom: 1.5rem;
+}
+
+.ss-panel-head h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.ss-panel-head p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.95rem;
+}
+
+/* Grid cards */
+.ss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.ss-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  transition: var(--transition);
+}
+
+.ss-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.ss-card h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ss-card h3 i {
+  color: #34d399;
+  font-size: 0.9rem;
+}
+
+.ss-card p, .ss-card li {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+}
+
+.ss-card ul, .ss-card ol {
+  padding-left: 1.2rem;
+  margin: 0.4rem 0;
+}
+
+.ss-card li {
+  margin-bottom: 0.3rem;
+}
+
+.ss-card code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: #34d399;
+}
+
+/* ===== Arch ===== */
+.ss-arch-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.ss-arch-node {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.ss-arch-node h4 {
+  font-size: 0.85rem;
+  color: #34d399;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+.ss-arch-node p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.ss-arch-arrow {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* Dataflow */
+.ss-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.ss-flow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border-left: 3px solid;
+}
+
+.ss-flow-item.up {
+  border-color: #34d399;
+}
+
+.ss-flow-item.down {
+  border-color: #f59e0b;
+}
+
+.ss-flow-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.ss-flow-item.up .ss-flow-icon {
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+}
+
+.ss-flow-item.down .ss-flow-icon {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.ss-flow-text h4 {
+  font-size: 0.9rem;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.ss-flow-text p {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+/* Topic table */
+.ss-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.ss-topic-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ss-topic-tag .topic-label {
+  color: #34d399;
+  font-weight: 500;
+}
+
+/* Tags */
+.ss-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.ss-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ss-tag.hw {
+  background: rgba(52, 211, 153, 0.12);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.ss-tag.sw {
+  background: rgba(6, 182, 212, 0.12);
+  color: #06b6d4;
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.ss-tag.proto {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .ss-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ss-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ss-arch-flow {
+    flex-direction: column;
+  }
+  .ss-arch-arrow {
+    transform: rotate(90deg);
+  }
+  .ss-topic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .ss-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .ss-grid {
+    grid-template-columns: 1fr;
+  }
+  .ss-arch-node {
+    min-width: unset;
+    width: 100%;
+  }
+}
