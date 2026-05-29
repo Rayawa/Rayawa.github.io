@@ -4,33 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>智慧大棚 SmartShed | Ray Chen</title>
-  <meta name="description" content="基于海思 Hi3861 + OpenHarmony 与 HarmonyOS NEXT 纯血鸿蒙的端云协同智慧大棚物联网控制系统。">
-  <meta name="keywords" content="智慧大棚, SmartShed, Hi3861, OpenHarmony, HarmonyOS NEXT, MQTT, EMQX, IoT, 物联网, 嵌入式开发, 鸿蒙应用, Ray Chen">
+  <meta name="description" content="基于 Hi3861 + OpenHarmony + HarmonyOS NEXT 的智慧大棚物联网系统。双板架构设计，支持手动与智能双模式控制。">
+  <meta name="keywords" content="SmartShed, Hi3861, OpenHarmony, HarmonyOS, IoT, MQTT, 物联网, 嵌入式">
   <meta name="author" content="Ray Chen">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
   <link rel="canonical" href="https://rayawa.top/projects/SmartShed.html">
 
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/SmartShed.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/SmartShed.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/SmartShed.html">
-  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/SmartShed.html">
   <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/SmartShed.html">
   <meta property="og:title" content="智慧大棚 SmartShed | Ray Chen">
-  <meta property="og:description" content="基于海思 Hi3861 + OpenHarmony 与 HarmonyOS NEXT 纯血鸿蒙的端云协同智慧大棚物联网控制系统。">
+  <meta property="og:description" content="基于 Hi3861 + OpenHarmony + HarmonyOS NEXT 的智慧大棚物联网系统。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:site_name" content="Ray Chen's Website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://rayawa.top/projects/SmartShed.html">
   <meta name="twitter:title" content="智慧大棚 SmartShed | Ray Chen">
-  <meta name="twitter:description" content="基于海思 Hi3861 + OpenHarmony 与 HarmonyOS NEXT 纯血鸿蒙的端云协同智慧大棚物联网控制系统。">
+  <meta name="twitter:description" content="基于 Hi3861 + OpenHarmony + HarmonyOS NEXT 的智慧大棚物联网系统。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -48,143 +42,364 @@
   <main class="page">
     <!-- ===== Hero ===== -->
     <section class="hero-card">
-      <span class="hero-badge">Smart Agriculture · IoT · OpenHarmony</span>
+      <span class="hero-badge">OpenAtom 大赛 · IoT · 端云协同</span>
       <h1>智慧大棚 SmartShed</h1>
-      <p>基于海思 Hi3861 + OpenHarmony 边缘采集终端 与 HarmonyOS NEXT 纯血鸿蒙全功能控制终端的端云协同智慧大棚物联网控制系统。</p>
+      <p>一套完整的智慧农业物联网控制系统。<br>从传感器数据采集到手机端实时控制，全链路自主实现。</p>
       <div class="button-row">
-        <a class="button" href="https://github.com/Rayawa/SmartShed-Hi3861" target="_blank" rel="noopener"><i class="fab fa-github"></i>嵌入式端源码</a>
-        <a class="button" href="https://github.com/Rayawa/SmartShed-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i>应用端源码</a>
-        <a class="button button-outline" href="#architecture"><i class="fas fa-sitemap"></i>系统架构</a>
+        <a class="button" href="https://github.com/Rayawa/SmartShed-Hi3861" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> 嵌入式端 (Hi3861)
+        </a>
+        <a class="button" href="https://github.com/Rayawa/SmartShed-HarmonyOS" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> 应用端 (HarmonyOS)
+        </a>
       </div>
     </section>
 
-    <div class="ss-overview-grid">
+    <!-- ===== 核心亮点 ===== -->
+    <section class="ss-panel">
+      <div class="ss-overview-grid">
         <div class="ss-overview-card">
-          <span class="ss-overview-index">感知执行层</span>
-          <h2>Hi3861 下位机</h2>
-          <p>海思 Hi3861 核心板，外接温湿度、光照、土壤湿度传感器，控制风扇/水泵/补光灯执行机构。</p>
+          <span class="ss-overview-index">硬件</span>
+          <h2>双板模块化设计</h2>
+          <p>环境感知板采集温湿度与光照，土壤执行板控制风扇和水泵。两块 Hi3861 开发板独立运行、协同工作。</p>
         </div>
         <div class="ss-overview-card">
-          <span class="ss-overview-index">网络传输层</span>
-          <h2>MQTT 云端邮局</h2>
-          <p>基于 EMQX 公网 Broker，采用 MQTT 3.1.1 协议实现硬件与应用的异步消息中转。</p>
+          <span class="ss-overview-index">通信</span>
+          <h2>自实现 MQTT 客户端</h2>
+          <p>HarmonyOS 端不依赖第三方库，从 TCP Socket 开始手动构建 MQTT 协议报文。</p>
         </div>
         <div class="ss-overview-card">
-          <span class="ss-overview-index">应用控制层</span>
-          <h2>HarmonyOS NEXT</h2>
-          <p>纯血鸿蒙全功能控制终端，运行于 HUAWEI Mate 70 Pro+ / iPad Pro M4，100% ArkTS 构建。</p>
+          <span class="ss-overview-index">控制</span>
+          <h2>双模式切换</h2>
+          <p>手动模式自由调节每个设备档位，智能模式根据传感器数据自动执行策略。</p>
         </div>
         <div class="ss-overview-card">
-          <span class="ss-overview-index">核心成果</span>
+          <span class="ss-overview-index">成果</span>
           <h2>开放原子大赛</h2>
-          <p>该项目获开放原子大赛"基于 OpenHarmony 的智慧大棚"赛题奖项认可。</p>
+          <p>获"基于 OpenHarmony 的智慧大棚"赛题奖项认可。</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== 系统架构 ===== -->
+    <!-- ===== 系统架构总览 ===== -->
     <section class="ss-panel" id="architecture">
       <div class="ss-panel-head">
-        <h2><i class="fas fa-sitemap" style="color:#34d399;margin-right:0.5rem;"></i>系统架构</h2>
-        <p>三层端云协同体系：感知执行 → 网络传输 → 应用控制</p>
+        <h2><i class="fas fa-sitemap" style="color:#34d399;margin-right:0.5rem;"></i>系统如何工作</h2>
+        <p>三层架构：硬件采集 → 云端中转 → 手机控制</p>
       </div>
+
       <div class="ss-arch-flow">
         <div class="ss-arch-node">
-          <h4>感知执行层</h4>
-          <p>Hi3861 · 传感器阵列<br>I2C / ADC 拓扑</p>
+          <h4><i class="fas fa-microchip"></i> 嵌入式端</h4>
+          <p><strong>Hi3861 × 2</strong><br>传感器采集 + OLED 显示<br>PWM/GPIO 执行控制</p>
         </div>
-        <div class="ss-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="ss-arch-arrow"><i class="fas fa-exchange-alt"></i></div>
         <div class="ss-arch-node">
-          <h4>网络传输层</h4>
-          <p>EMQX Broker<br>MQTT 3.1.1 · QoS 0</p>
+          <h4><i class="fas fa-cloud"></i> EMQX Broker</h4>
+          <p><strong>MQTT 3.1.1</strong><br>公网消息中转<br>Topic 路由分发</p>
         </div>
-        <div class="ss-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="ss-arch-arrow"><i class="fas fa-exchange-alt"></i></div>
         <div class="ss-arch-node">
-          <h4>应用控制层</h4>
-          <p>HarmonyOS NEXT<br>ArkTS · ArkUI · HDS</p>
+          <h4><i class="fas fa-mobile-alt"></i> HarmonyOS App</h4>
+          <p><strong>Mate 70 Pro+ / iPad</strong><br>实时数据显示<br>手动 / 智能双模式</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== 数据流 ===== -->
+    <!-- ===== 嵌入式端：双板详解 ===== -->
     <section class="ss-panel">
       <div class="ss-panel-head">
-        <h2><i class="fas fa-exchange-alt" style="color:#34d399;margin-right:0.5rem;"></i>数据流设计</h2>
-        <p>上行采集流与下行控制流的全链路闭环</p>
+        <h2><i class="fas fa-microchip" style="color:#34d399;margin-right:0.5rem;"></i>嵌入式端：两块开发板各司其职</h2>
+        <p>基于 OpenHarmony LiteOS-M + CMSIS-RTOS 多线程，纯 C 语言开发</p>
       </div>
-      <div class="ss-grid">
+
+      <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <!-- 环境感知板 -->
         <div class="ss-card">
-          <h3><i class="fas fa-arrow-up"></i> 上行采集流</h3>
+          <h3><i class="fas fa-thermometer-half"></i> 环境感知板 (env_rgb_board)</h3>
+          <p style="margin-bottom: 1rem;color:rgba(255,255,255,0.5);font-size:0.85rem;">负责"看"和"显示"</p>
+
+          <div style="margin-bottom: 1rem;">
+            <strong style="color:#34d399;font-size:0.9rem;">📡 传感器（输入）</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li><strong>AHT20</strong> — I2C 读取温度与湿度</li>
+              <li><strong>光照传感器</strong> — ADC 采样 (0~4095)</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <strong style="color:#f59e0b;font-size:0.9rem;">💡 执行器（输出）</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li><strong>RGB LED 补光灯</strong> — PWM 控制 (0~100%)</li>
+              <li><strong>状态指示灯</strong> — GPIO 11(绿) / GPIO 12(黄)</li>
+            </ul>
+          </div>
+
+          <div>
+            <strong style="color:#06b6d4;font-size:0.9rem;">🖥️ 本地显示</strong>
+            <p style="margin-top: 0.5rem;">SSD1306 OLED 屏幕 (128×64) 实时刷新温湿度、光照数据</p>
+          </div>
+        </div>
+
+        <!-- 土壤执行板 -->
+        <div class="ss-card">
+          <h3><i class="fas fa-seedling"></i> 土壤执行板 (soil_actuator_board)</h3>
+          <p style="margin-bottom: 1rem;color:rgba(255,255,255,0.5);font-size:0.85rem;">负责"感知土壤"和"执行动作"</p>
+
+          <div style="margin-bottom: 1rem;">
+            <strong style="color:#34d399;font-size:0.9rem;">📡 传感器（输入）</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li><strong>土壤湿度传感器</strong> — ADC 采样水分含量</li>
+            </ul>
+          </div>
+
+          <div>
+            <strong style="color:#f59e0b;font-size:0.9rem;">⚙️ 执行器（输出）</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li><strong>直流风扇</strong> — PWM 四档 (停/低/中/高)</li>
+              <li><strong>潜水水泵</strong> — GPIO 四档 (关/小/中/大)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 多线程架构 -->
+      <div class="ss-card" style="margin-top: 1rem;">
+        <h3><i class="fas fa-project-diagram"></i> 多线程任务调度</h3>
+        <p style="margin-bottom: 0.8rem;">CMSIS-RTOS 管理 4 个并行线程，互斥锁保护共享资源：</p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem;">
+          <div style="background: rgba(52,211,153,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
+            <i class="fas fa-eye" style="color:#34d399;margin-bottom: 0.3rem;display:block;"></i>
+            <strong style="font-size: 0.85rem; color: #fff;">采集线程</strong>
+            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">每秒 ADC/I2C 采样</p>
+          </div>
+          <div style="background: rgba(6,182,212,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
+            <i class="fas fa-tv" style="color:#06b6d4;margin-bottom: 0.3rem;display:block;"></i>
+            <strong style="font-size: 0.85rem; color: #fff;">OLED 线程</strong>
+            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">渲染数据至屏幕</p>
+          </div>
+          <div style="background: rgba(245,158,11,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
+            <i class="fas fa-cloud-upload-alt" style="color:#f59e0b;margin-bottom: 0.3rem;display:block;"></i>
+            <strong style="font-size: 0.85rem; color: #fff;">MQTT 发布</strong>
+            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">JSON → EMQX Broker</p>
+          </div>
+          <div style="background: rgba(239,68,68,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
+            <i class="fas fa-bolt" style="color:#ef4444;margin-bottom: 0.3rem;display:block;"></i>
+            <strong style="font-size: 0.85rem; color: #fff;">控制回调</strong>
+            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">指令 → PWM/GPIO</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HarmonyOS 应用端 ===== -->
+    <section class="ss-panel">
+      <div class="ss-panel-head">
+        <h2><i class="fas fa-mobile-alt" style="color:#34d399;margin-right:0.5rem;"></i>应用端：HarmonyOS NEXT 全功能控制终端</h2>
+        <p>100% ArkTS · HDS 高级视觉特效 · 自实现 MQTT 客户端</p>
+      </div>
+
+      <!-- UI 设计 -->
+      <div class="ss-card" style="margin-bottom: 1rem;">
+        <h3><i class="fas fa-paint-brush"></i> UI 设计：不只是功能，还要好看</h3>
+        <p style="margin-bottom: 0.8rem;">集成 HarmonyOS Design System (HDS) 官方高级视觉组件库：</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;">
+          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid #34d399;">
+            <strong style="color: #fff; font-size: 0.9rem;">HdsNav 导航栏</strong>
+            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.4rem;">沉浸式光场效果顶部导航，背景融合过渡自然</p>
+          </div>
+          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid #06b6d4;">
+            <strong style="color: #fff; font-size: 0.9rem;">PressShadow 引力动效</strong>
+            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.4rem;">按钮按压时的弹性形变 + 光场扩散反馈</p>
+          </div>
+          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid #f59e0b;">
+            <strong style="color: #fff; font-size: 0.9rem;">SpringMotion 入场动画</strong>
+            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.4rem;">分步延迟进入的弹簧曲线动画，层次感拉满</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 双模式控制 -->
+      <div class="ss-grid" style="margin-bottom: 1rem;">
+        <div class="ss-card">
+          <h3><i class="fas fa-hand-pointer"></i> 自定义模式 (ManualPage)</h3>
+          <p style="margin-bottom: 0.8rem; color: rgba(255,255,255,0.5);">你想怎么控就怎么控</p>
+          <ul>
+            <li>滑块拖拽调节：<strong>风扇</strong> (0-3档) / <strong>水泵</strong> (0-3档) / <strong>补光灯</strong> (0-100%)</li>
+            <li>进入页面时自动同步当前档位到开发板</li>
+            <li>支持触觉反馈振动开关</li>
+          </ul>
+        </div>
+        <div class="ss-card">
+          <h3><i class="fas fa-brain"></i> 智能模式 (AutoPage)</h3>
+          <p style="margin-bottom: 0.8rem; color: rgba(255,255,255,0.5);">让系统自己决策</p>
+          <ul>
+            <li>配置温度/湿度/光照/土壤湿度的<strong>上下限阈值</strong></li>
+            <li>定时轮询传感器数据，超出范围自动触发控制</li>
+            <li>后台常驻管理线程，退出页面安全销毁防内存泄漏</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 自实现 MQTT 客户端 -->
+      <div class="ss-card" style="margin-bottom: 1rem; border-color: rgba(245, 158, 11, 0.3);">
+        <h3><i class="fas fa-network-wired" style="color:#f59e0b;"></i> 技术亮点：从零实现 MQTT 客户端</h3>
+        <p style="margin-bottom: 0.8rem;">HarmonyOS 端<strong>没有使用任何第三方 MQTT 库</strong>，完全基于 TCP Socket 手动构建协议报文：</p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;">
+          <div>
+            <strong style="color: #f59e0b; font-size: 0.88rem;"><i class="fas fa-code"></i> 协议层实现</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li>手动拼接 Fixed Header + Variable Header + Payload</li>
+              <li>完整实现 CONNECT / PUBLISH / SUBSCRIBE / PINGREQ 等报文</li>
+              <li>60s 间隔 KeepAlive 心跳保活</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="color: #f59e0b; font-size: 0.88rem;"><i class="fas fa-shield-alt"></i> 可靠性保障</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li>断线自动重连 + 指数退避策略</li>
+              <li>单 TCP 连接多 Topic 订阅与路由分发</li>
+              <li>@StorageLink 状态管理与 ArkUI 响应式解耦</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 技术攻关 -->
+      <div class="ss-card" style="border-color: rgba(239, 68, 68, 0.3);">
+        <h3><i class="fas fa-bug" style="color:#ef4444;"></i> 遇到的坑 &amp; 怎么解决的</h3>
+        <div style="background: rgba(239,68,68,0.08); padding: 1rem; border-radius: 10px; margin-top: 0.5rem;">
+          <strong style="color: #ef4444; font-size: 0.92rem;">问题：@ObjectLink 深层嵌套对象观察失效</strong>
+          <p style="margin: 0.6rem 0; color: rgba(255,255,255,0.65); line-height: 1.6;">
+            MQTT 异步回调返回新数据后，ArkUI 的 @ObjectLink 只监听对象首层属性变化。
+            结果就是：传感器数字不更新、滑块被死锁无法拖动。
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; margin-top: 0.6rem;">
+            <code style="color: #34d399; font-size: 0.85rem;">this.zone1 = { ...this.zone1 }</code>
+            <p style="font-size: 0.83rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem;">
+              <i class="fas fa-lightbulb" style="color:#f59e0b;"></i> 
+              用浅拷贝解构赋值强制创建新对象引用，击穿状态机触发 UI 刷新。一行代码修复致命 Bug。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 数据流：上行 & 下行 ===== -->
+    <section class="ss-panel">
+      <div class="ss-panel-head">
+        <h2><i class="fas fa-exchange-alt" style="color:#34d399;margin-right:0.5rem;"></i>数据如何流动</h2>
+        <p>两条单向通道：传感器数据向上走，控制指令向下发</p>
+      </div>
+
+      <div class="ss-grid">
+        <!-- 上行 -->
+        <div class="ss-card">
+          <h3><i class="fas fa-arrow-up" style="color:#34d399;"></i> 上行：数据采集 → 手机显示</h3>
           <div class="ss-flow-list">
             <div class="ss-flow-item up">
               <div class="ss-flow-icon"><i class="fas fa-microchip"></i></div>
               <div class="ss-flow-text">
-                <h4>传感器数据采集</h4>
-                <p>温度/湿度/光照/土壤湿度 → Hi3861 ADC / I2C 采样</p>
+                <h4>① 传感器采样</h4>
+                <p>ADC 读光照/土壤湿度，I2C 读 AHT20 温湿度</p>
               </div>
             </div>
             <div class="ss-flow-item up">
-              <div class="ss-flow-icon"><i class="fas fa-code"></i></div>
+              <div class="ss-flow-icon"><i class="fas fa-tv"></i></div>
               <div class="ss-flow-text">
-                <h4>JSON 序列化 &amp; MQTT 发布</h4>
-                <p>Hi3861 将传感器数据封装为精简 JSON，发布至 EMQX Broker</p>
+                <h4>② OLED 本地显示</h4>
+                <p>SSD1306 屏幕实时刷新数据（即使没连手机也能看）</p>
+              </div>
+            </div>
+            <div class="ss-flow-item up">
+              <div class="ss-flow-icon"><i class="fas fa-file-code"></i></div>
+              <div class="ss-flow-text">
+                <h4>③ JSON 封装 &amp; 发布</h4>
+                <p>精简 Payload 如 <code>{"intensity": 450}</code>，Paho MQTT 发布到 EMQX</p>
               </div>
             </div>
             <div class="ss-flow-item up">
               <div class="ss-flow-icon"><i class="fas fa-mobile-alt"></i></div>
               <div class="ss-flow-text">
-                <h4>鸿蒙解析 &amp; 状态刷新</h4>
-                <p>ArkUI 解析 MQTT 回调，浅拷贝触发状态机刷新 UI 显示</p>
+                <h4>④ App 解析 &amp; 刷新 UI</h4>
+                <p>MQTT 回调 → 浅拷贝解构 → 触发 ArkUI 状态机更新数字显示</p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- 下行 -->
         <div class="ss-card">
-          <h3><i class="fas fa-arrow-down"></i> 下行控制流</h3>
+          <h3><i class="fas fa-arrow-down" style="color:#f59e0b;"></i> 下行：用户操作 → 硬件执行</h3>
           <div class="ss-flow-list">
             <div class="ss-flow-item down">
               <div class="ss-flow-icon"><i class="fas fa-sliders-h"></i></div>
               <div class="ss-flow-text">
-                <h4>用户操作 / 智能策略</h4>
-                <p>鸿蒙端滑块拖拽或 setInterval 自动策略触发控制指令</p>
+                <h4>① 用户操作或自动策略</h4>
+                <p>手动拖滑块 / 智能模式阈值判断触发指令</p>
               </div>
             </div>
             <div class="ss-flow-item down">
-              <div class="ss-flow-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ss-flow-icon"><i class="fas fa-network-wired"></i></div>
               <div class="ss-flow-text">
-                <h4>二进制报文 &amp; MQTT 发布</h4>
-                <p>自建二进制报文封装，通过 MQTT Broker 下发至 Hi3861</p>
+                <h4>② MQTT 报文构建 &amp; 发送</h4>
+                <p>自实现客户端手动拼装 PUBLISH 报文，经 EMQX 下发</p>
               </div>
             </div>
             <div class="ss-flow-item down">
               <div class="ss-flow-icon"><i class="fas fa-plug"></i></div>
               <div class="ss-flow-text">
-                <h4>GPIO 执行</h4>
-                <p>Hi3861 接收中断 → PWM 调节风扇 / 水泵 / 补光灯档位</p>
+                <h4>③ Hi3861 接收 &amp; 执行</h4>
+                <p>MQTT 回调解析 → PWM 调节风扇/补光灯，GPIO 控制水泵</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- 可靠性保障 -->
+      <div class="ss-card" style="margin-top: 1rem;">
+        <h3><i class="fas fa-shield-alt"></i> 可靠性设计</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.8rem;">
+          <div style="padding: 0.9rem; background: rgba(255,255,255,0.03); border-radius: 10px;">
+            <strong style="color: #34d399; font-size: 0.88rem;"><i class="fas fa-clock"></i> 离线检测</strong>
+            <p style="font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-top: 0.4rem; line-height: 1.5;">
+              5 秒超时未收到数据即判定开发板离线<br>
+              UI 自动切换灰色禁用状态 + 提示重连<br>
+              恢复后自动重新订阅 Topic
+            </p>
+          </div>
+          <div style="padding: 0.9rem; background: rgba(255,255,255,0.03); border-radius: 10px;">
+            <strong style="color: #06b6d4; font-size: 0.88rem;"><i class="fas fa-terminal"></i> 控制台日志</strong>
+            <p style="font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-top: 0.4rem; line-height: 1.5;">
+              GlobalLogBus 事件总线记录所有操作<br>
+              MQTT 通信状态 / 用户操作 / 错误信息<br>
+              方便调试与问题排查
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== 通信协议 ===== -->
+    <!-- ===== MQTT Topic 设计 ===== -->
     <section class="ss-panel">
       <div class="ss-panel-head">
-        <h2><i class="fas fa-network-wired" style="color:#34d399;margin-right:0.5rem;"></i>通信协议</h2>
-        <p>全链路 MQTT 3.1.1 — Topic 命名空间对齐，QoS 0 轻量传输</p>
+        <h2><i class="fas fa-network-wired" style="color:#34d399;margin-right:0.5rem;"></i>通信协议：MQTT Topic 设计</h2>
+        <p>按双板分离命名空间，QoS 0 轻量传输</p>
       </div>
+
       <div class="ss-grid">
         <div class="ss-card">
-          <h3><i class="fas fa-arrow-up"></i> 数据上报 Topics</h3>
+          <h3><i class="fas fa-arrow-up" style="color:#34d399;"></i> 上行：传感器数据上报</h3>
           <div class="ss-topic-grid">
-            <span class="ss-topic-tag"><span class="topic-label">光照</span> Rayawa/light_intensity_1</span>
-            <span class="ss-topic-tag"><span class="topic-label">土壤湿度</span> Rayawa/soil_moisture_1</span>
-            <span class="ss-topic-tag"><span class="topic-label">温湿度</span> Rayawa/temp_and_hum_1</span>
+            <span class="ss-topic-tag"><span class="topic-label">环境板</span> Rayawa/light_intensity_1</span>
+            <span class="ss-topic-tag"><span class="topic-label">环境板</span> Rayawa/temp_and_hum_1</span>
+            <span class="ss-topic-tag"><span class="topic-label">土壤板</span> Rayawa/soil_moisture_1</span>
           </div>
         </div>
         <div class="ss-card">
-          <h3><i class="fas fa-arrow-down"></i> 反向控制 Topics</h3>
+          <h3><i class="fas fa-arrow-down" style="color:#f59e0b;"></i> 下行：控制指令下发</h3>
           <div class="ss-topic-grid">
             <span class="ss-topic-tag"><span class="topic-label">风扇</span> Rayawa/fan_1</span>
             <span class="ss-topic-tag"><span class="topic-label">补光灯</span> Rayawa/led_1</span>
@@ -192,78 +407,13 @@
           </div>
         </div>
       </div>
-      <div class="ss-card" style="margin-top:1rem;">
-        <h3><i class="fas fa-tachometer-alt"></i> 性能调优</h3>
-        <p>精简 JSON Payload 体积（如 <code>{"intensity": 450}</code>），去除冗余嵌套，降低公网传输延时与丢包率。前端采用单分区平铺架构，将高频并发压力收敛为单节点通信，减轻 Broker 在公网高丢包环境下的瞬时握手负担。</p>
-      </div>
-    </section>
 
-    <!-- ===== Hi3861 嵌入式端 ===== -->
-    <section class="ss-panel">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-microchip" style="color:#34d399;margin-right:0.5rem;"></i>嵌入式端 — Hi3861</h2>
-        <p>基于 OpenHarmony LiteOS-M 微内核，纯 C 语言开发</p>
-      </div>
-      <div class="ss-grid">
-        <div class="ss-card">
-          <h3><i class="fas fa-plug"></i> 硬件连接</h3>
-          <ul>
-            <li><strong>GPIO 11</strong> → 绿色 LED（状态指示 / 补光反馈）</li>
-            <li><strong>GPIO 12</strong> → 黄色 LED（故障报警 / 设备激活指示）</li>
-            <li><strong>I2C</strong> → AHT20 温湿度传感器</li>
-            <li><strong>ADC</strong> → 光照传感器、土壤湿度传感器</li>
-          </ul>
-        </div>
-        <div class="ss-card">
-          <h3><i class="fas fa-wifi"></i> 网络与协议栈</h3>
-          <ul>
-            <li>LiteOS-M STA 模式连接 2.4GHz Wi-Fi</li>
-            <li>DHCP 动态获取本地 IP</li>
-            <li>LwIP 协议栈 → BSD Socket → TCP 长连接 (1883)</li>
-            <li>MQTT 客户端：Paho MQTT C Client 移植</li>
-          </ul>
-        </div>
-        <div class="ss-card">
-          <h3><i class="fas fa-tasks"></i> 设备逻辑</h3>
-          <ul>
-            <li><strong>采集线程</strong>：1000ms 周期定时器，ADC / I2C 采样</li>
-            <li><strong>控制中断</strong>：MQTT 接收回调 → GPIO PWM 控制</li>
-            <li>风扇 / 水泵 / 补光灯支持 0~3 档无级变速</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== HarmonyOS 端 ===== -->
-    <section class="ss-panel">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-mobile-alt" style="color:#34d399;margin-right:0.5rem;"></i>应用端 — HarmonyOS NEXT</h2>
-        <p>100% ArkTS · Stage 模型 · UIAbility · HDS 高级视觉特效套件</p>
-      </div>
-      <div class="ss-grid">
-        <div class="ss-card">
-          <h3><i class="fas fa-paint-brush"></i> UI 设计</h3>
-          <ul>
-            <li><strong>引力</strong>：页面首次进入弹性动效</li>
-            <li><strong>光场</strong>：HdsNav / 组件 / 沉浸式材质光效</li>
-            <li><strong>转场</strong>：页面切换背景流光动画</li>
-            <li>HDS 材质与气态交互体验</li>
-          </ul>
-        </div>
-        <div class="ss-card">
-          <h3><i class="fas fa-cogs"></i> 功能实现</h3>
-          <ul>
-            <li>传感器数据实时显示</li>
-            <li>MQTT 数据收发全双工</li>
-            <li>手动控制：滑块自由调节档位</li>
-            <li>自动策略：setInterval 智能调度</li>
-            <li>layoutWeight 响应式布局</li>
-          </ul>
-        </div>
-        <div class="ss-card">
-          <h3><i class="fas fa-bug"></i> 关键技术攻关</h3>
-          <p><strong>@ObjectLink 深层嵌套对象观察失效</strong>：MQTT 异步回调中 @ObjectLink 仅监听对象首层属性，导致传感器数字不跳变、滑块被死锁。创造性地采用<strong>浅拷贝解构赋值</strong>（<code>this.zone1 = { ...this.zone1 }</code>）强制击穿状态机，完美修复致命 Bug。</p>
-        </div>
+      <div class="ss-card" style="margin-top: 1rem;">
+        <h3><i class="fas fa-tachometer-alt"></i> 性能优化</h3>
+        <ul>
+          <li><strong>精简 JSON Payload</strong> — 去除冗余嵌套，降低公网传输延时与丢包率</li>
+          <li><strong>单分区平铺架构</strong> — 收敛高频并发为单节点通信，减轻 Broker 瞬时握手负担</li>
+        </ul>
       </div>
     </section>
 
@@ -272,45 +422,45 @@
       <div class="ss-panel-head">
         <h2><i class="fas fa-layer-group" style="color:#34d399;margin-right:0.5rem;"></i>技术栈</h2>
       </div>
+
       <div class="ss-grid">
         <div class="ss-card">
-          <h3>嵌入式端</h3>
+          <h3>嵌入式 (Hi3861)</h3>
           <div class="ss-tags">
             <span class="ss-tag hw">Hi3861</span>
             <span class="ss-tag hw">OpenHarmony</span>
             <span class="ss-tag hw">LiteOS-M</span>
+            <span class="ss-tag hw">CMSIS-RTOS</span>
             <span class="ss-tag hw">C</span>
             <span class="ss-tag hw">GPIO</span>
             <span class="ss-tag hw">PWM</span>
             <span class="ss-tag hw">I2C</span>
             <span class="ss-tag hw">ADC</span>
+            <span class="ss-tag hw">AHT20</span>
+            <span class="ss-tag hw">SSD1306</span>
           </div>
-          <p style="margin-top:0.8rem;color:rgba(255,255,255,0.55);font-size:0.85rem;">外设驱动 · 传感器采样 · GPIO 控制</p>
         </div>
         <div class="ss-card">
-          <h3>通信协议</h3>
+          <h3>通信层</h3>
           <div class="ss-tags">
             <span class="ss-tag proto">MQTT 3.1.1</span>
             <span class="ss-tag proto">EMQX</span>
-            <span class="ss-tag proto">QoS 0</span>
-            <span class="ss-tag proto">Paho MQTT</span>
+            <span class="ss-tag proto">TCP Socket</span>
             <span class="ss-tag proto">LwIP</span>
             <span class="ss-tag proto">Wi-Fi STA</span>
+            <span class="ss-tag proto">JSON</span>
           </div>
-          <p style="margin-top:0.8rem;color:rgba(255,255,255,0.55);font-size:0.85rem;">TCP 长连接 · 发布/订阅 · 精简 JSON</p>
         </div>
         <div class="ss-card">
-          <h3>应用端</h3>
+          <h3>应用端 (HarmonyOS)</h3>
           <div class="ss-tags">
             <span class="ss-tag sw">HarmonyOS NEXT</span>
             <span class="ss-tag sw">ArkTS</span>
             <span class="ss-tag sw">ArkUI</span>
-            <span class="ss-tag sw">Stage 模型</span>
-            <span class="ss-tag sw">UIAbility</span>
             <span class="ss-tag sw">HDS</span>
-            <span class="ss-tag sw">DevEco Studio</span>
+            <span class="ss-tag sw">@StorageLink</span>
+            <span class="ss-tag sw">Stage 模型</span>
           </div>
-          <p style="margin-top:0.8rem;color:rgba(255,255,255,0.55);font-size:0.85rem;">声明式 UI · 状态管理 · 响应式布局 · 高级动效</p>
         </div>
       </div>
     </section>
