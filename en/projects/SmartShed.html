@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SmartShed Smart Greenhouse | Ray Chen</title>
-  <meta name="description" content="A complete smart agriculture IoT control system based on Hi3861 + OpenHarmony + HarmonyOS NEXT. Dual-board architecture with Manual and Smart dual-mode control.">
-  <meta name="keywords" content="SmartShed, Hi3861, OpenHarmony, HarmonyOS, IoT, MQTT, Embedded Development">
+  <meta name="description" content="OpenHarmony-Powered Smart Agriculture — A smart greenhouse control terminal based on Hi3861 and HarmonyOS. Course Design Report for 2025-2026 Spring Semester.">
+  <meta name="keywords" content="SmartShed, Hi3861, OpenHarmony, HarmonyOS, IoT, MQTT, Embedded Development, Smart Agriculture">
   <meta name="author" content="Ray Chen">
   <link rel="canonical" href="https://rayawa.top/en/projects/SmartShed.html">
 
@@ -17,12 +17,12 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/en/projects/SmartShed.html">
   <meta property="og:title" content="SmartShed Smart Greenhouse | Ray Chen">
-  <meta property="og:description" content="A complete smart agriculture IoT control system based on Hi3861 + OpenHarmony + HarmonyOS NEXT.">
+  <meta property="og:description" content="OpenHarmony-Powered Smart Agriculture — A smart greenhouse control terminal based on Hi3861 and HarmonyOS.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SmartShed Smart Greenhouse | Ray Chen">
-  <meta name="twitter:description" content="A complete smart agriculture IoT control system based on Hi3861 + OpenHarmony + HarmonyOS NEXT.">
+  <meta name="twitter:description" content="OpenHarmony-Powered Smart Agriculture — A smart greenhouse control terminal based on Hi3861 and HarmonyOS.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="../../static/css/smartshed.css">
+  <link rel="stylesheet" href="/static/css/smartshed.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -40,435 +40,815 @@
   <div id="particles-js"></div>
 
   <main class="page">
-    <!-- ===== Hero ===== -->
+    <!-- ===== Hero / Project Intro ===== -->
     <section class="hero-card">
-      <span class="hero-badge">OpenAtom Competition · IoT · Edge-Cloud Collaboration</span>
-      <h1>SmartShed Smart Greenhouse</h1>
-      <p>A complete smart agriculture IoT control system.<br>From sensor data acquisition to real-time mobile control — the full pipeline, built from scratch.</p>
+      <span class="hero-badge">Course Design Report &middot; 2025-2026 Spring Semester</span>
+      <h1>OpenHarmony-Powered Smart Agriculture<br><small style="font-size:0.5em;font-weight:300;color:rgba(255,255,255,0.6);">— A Smart Greenhouse Control Terminal Based on Hi3861 &amp; HarmonyOS</small></h1>
+      <p>From sensor data acquisition to real-time mobile control — a complete smart agriculture IoT system.<br>Two dev boards each doing their job, MQTT message relay, a full-featured HarmonyOS terminal.</p>
       <div class="button-row">
-        <a class="button" href="https://github.com/Rayawa/SmartShed-Hi3861" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i> Embedded (Hi3861)
-        </a>
-        <a class="button" href="https://github.com/Rayawa/SmartShed-HarmonyOS" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i> App (HarmonyOS)
-        </a>
+        <a class="button" href="https://github.com/Rayawa/SmartShed-Hi3861" target="_blank" rel="noopener"><i class="fab fa-github"></i> Embedded (Hi3861)</a>
+        <a class="button" href="https://github.com/Rayawa/SmartShed-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> App (HarmonyOS)</a>
+        <a class="button" href="/static/resources/openharmony/smartshed.pptx" target="_blank" rel="noopener"><i class="fas fa-file-powerpoint"></i> Course Report (pptx)</a>
       </div>
     </section>
 
-    <!-- ===== Core Highlights ===== -->
-    <section class="ss-panel">
-      <div class="ss-overview-grid">
-        <div class="ss-overview-card">
-          <span class="ss-overview-index">Hardware</span>
-          <h2>Dual-Board Modular Design</h2>
-          <p>The Environment Sensing Board collects temperature, humidity, and light data. The Soil Actuation Board controls fans and water pumps. Two Hi3861 dev boards run independently and work in tandem.</p>
-        </div>
-        <div class="ss-overview-card">
-          <span class="ss-overview-index">Communication</span>
-          <h2>Self-Implemented MQTT Client</h2>
-          <p>The HarmonyOS app doesn't rely on any third-party library — it builds MQTT protocol packets manually from scratch on top of TCP Socket.</p>
-        </div>
-        <div class="ss-overview-card">
-          <span class="ss-overview-index">Control</span>
-          <h2>Dual-Mode Switching</h2>
-          <p>Manual mode lets you freely adjust every device level. Smart mode automatically executes strategies based on sensor data.</p>
-        </div>
-        <div class="ss-overview-card">
-          <span class="ss-overview-index">Achievement</span>
-          <h2>OpenAtom Competition</h2>
-          <p>Recognized in the "OpenHarmony-based Smart Greenhouse" track of the OpenAtom Competition.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== System Architecture Overview ===== -->
-    <section class="ss-panel" id="architecture">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-sitemap" style="color:#34d399;margin-right:0.5rem;"></i>How It Works</h2>
-        <p>Three-layer architecture: Hardware Collection → Cloud Relay → Mobile Control</p>
-      </div>
-
-      <div class="ss-arch-flow">
-        <div class="ss-arch-node">
-          <h4><i class="fas fa-microchip"></i> Embedded Side</h4>
-          <p><strong>Hi3861 × 2</strong><br>Sensor sampling + OLED display<br>PWM/GPIO actuator control</p>
-        </div>
-        <div class="ss-arch-arrow"><i class="fas fa-exchange-alt"></i></div>
-        <div class="ss-arch-node">
-          <h4><i class="fas fa-cloud"></i> EMQX Broker</h4>
-          <p><strong>MQTT 3.1.1</strong><br>Public network message relay<br>Topic routing & dispatch</p>
-        </div>
-        <div class="ss-arch-arrow"><i class="fas fa-exchange-alt"></i></div>
-        <div class="ss-arch-node">
-          <h4><i class="fas fa-mobile-alt"></i> HarmonyOS App</h4>
-          <p><strong>Mate 70 Pro+ / iPad</strong><br>Real-time data display<br>Manual / Smart dual-mode</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Embedded Side: Two Boards Detail ===== -->
+    <!-- ===== Project Overview ===== -->
     <section class="ss-panel">
       <div class="ss-panel-head">
-        <h2><i class="fas fa-microchip" style="color:#34d399;margin-right:0.5rem;"></i>Embedded Side: Two Boards, Each with a Job</h2>
-        <p>Built on OpenHarmony LiteOS-M + CMSIS-RTOS multi-threading, developed in pure C</p>
+        <h2><i class="fas fa-info-circle" style="color:#34d399;margin-right:0.5rem;"></i>Project Overview</h2>
+        <p>Course Design Report for 2025-2026 Spring Semester &mdash; Presented by Ray Chen (Chen Zirui)</p>
       </div>
-
-      <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <!-- Environment Sensing Board -->
-        <div class="ss-card">
-          <h3><i class="fas fa-thermometer-half"></i> Environment Sensing Board (env_rgb_board)</h3>
-          <p style="margin-bottom: 1rem;color:rgba(255,255,255,0.5);font-size:0.85rem;">Responsible for "seeing" and "displaying"</p>
-
-          <div style="margin-bottom: 1rem;">
-            <strong style="color:#34d399;font-size:0.9rem;">📡 Sensors (Input)</strong>
-            <ul style="margin-top: 0.5rem;">
-              <li><strong>AHT20</strong> — I2C reads temperature & humidity</li>
-              <li><strong>Light sensor</strong> — ADC sampling (0~4095)</li>
-            </ul>
+      <div class="ss-card">
+        <h3><i class="fas fa-seedling"></i> What Is Smart Shed?</h3>
+        <p style="line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:1rem;">
+          <strong style="color:#fff;">Smart Shed (Smart Greenhouse)</strong> is a smart agriculture IoT control system built on <strong>Open Source OpenHarmony</strong> and <strong>Huawei HarmonyOS NEXT</strong>.
+          Simply put: two development boards handle sensing and controlling environmental parameters, communicating in real-time with a mobile app via MQTT,
+          ultimately achieving automatic monitoring and intelligent regulation of temperature, humidity, light intensity, and soil moisture inside the greenhouse.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;">
+          <div style="background:rgba(52,211,153,0.08);padding:1rem;border-radius:10px;text-align:center;">
+            <i class="fas fa-microchip" style="color:#34d399;font-size:1.4rem;display:block;margin-bottom:0.4rem;"></i>
+            <strong style="color:#fff;font-size:0.88rem;">Embedded Side</strong>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.3rem;">OpenHarmony + Hi3861 &times; 2<br>Sensor sampling &amp; actuator control</p>
           </div>
-
-          <div style="margin-bottom: 1rem;">
-            <strong style="color:#f59e0b;font-size:0.9rem;">💡 Actuators (Output)</strong>
-            <ul style="margin-top: 0.5rem;">
-              <li><strong>RGB LED grow light</strong> — PWM control (0~100%)</li>
-              <li><strong>Status LEDs</strong> — GPIO 11(green) / GPIO 12(yellow)</li>
-            </ul>
+          <div style="background:rgba(245,158,11,0.08);padding:1rem;border-radius:10px;text-align:center;">
+            <i class="fas fa-cloud" style="color:#f59e0b;font-size:1.4rem;display:block;margin-bottom:0.4rem;"></i>
+            <strong style="color:#fff;font-size:0.88rem;">Server Side</strong>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.3rem;">EMQX MQTT Broker<br>Message relay &amp; Topic routing dispatch</p>
           </div>
-
-          <div>
-            <strong style="color:#06b6d4;font-size:0.9rem;">🖥️ Local Display</strong>
-            <p style="margin-top: 0.5rem;">SSD1306 OLED screen (128×64) refreshes temperature, humidity, and light data in real time</p>
-          </div>
-        </div>
-
-        <!-- Soil Actuation Board -->
-        <div class="ss-card">
-          <h3><i class="fas fa-seedling"></i> Soil Actuation Board (soil_actuator_board)</h3>
-          <p style="margin-bottom: 1rem;color:rgba(255,255,255,0.5);font-size:0.85rem;">Responsible for "sensing soil" and "taking action"</p>
-
-          <div style="margin-bottom: 1rem;">
-            <strong style="color:#34d399;font-size:0.9rem;">📡 Sensors (Input)</strong>
-            <ul style="margin-top: 0.5rem;">
-              <li><strong>Soil moisture sensor</strong> — ADC samples water content</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong style="color:#f59e0b;font-size:0.9rem;">⚙️ Actuators (Output)</strong>
-            <ul style="margin-top: 0.5rem;">
-              <li><strong>DC fan</strong> — PWM four levels (off/low/medium/high)</li>
-              <li><strong>Submersible pump</strong> — GPIO four levels (off/small/medium/large)</li>
-            </ul>
+          <div style="background:rgba(6,182,212,0.08);padding:1rem;border-radius:10px;text-align:center;">
+            <i class="fas fa-mobile-alt" style="color:#06b6d4;font-size:1.4rem;display:block;margin-bottom:0.4rem;"></i>
+            <strong style="color:#fff;font-size:0.88rem;">App Side</strong>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.3rem;">HarmonyOS NEXT (API23)<br>Mate 70 Pro+ / MatePad Pro</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ========== 01 · Overview & Tech Stack ======================== -->
+    <!-- ============================================================ -->
+    <div class="ss-chapter-wrap">
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-list-ol" style="color:#34d399;margin-right:0.5rem;"></i>01 &middot; Project Overview &amp; Tech Stack</h2>
+          <p>Overall architecture, challenges faced, and innovations made</p>
+        </div>
+      </section>
+
+      <!-- System Architecture -->
+      <section class="ss-panel" id="architecture">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-sitemap" style="color:#34d399;margin-right:0.5rem;"></i>System Architecture: Software-Hardware Co-Design, Vertical Integration</h2>
+          <p>Embedded side collects data &rarr; Server side relays messages &rarr; Mobile side displays and controls</p>
+        </div>
+        <div class="ss-arch-flow">
+          <div class="ss-arch-node">
+            <h4><i class="fas fa-microchip"></i> Embedded Side</h4>
+            <p><strong>OpenHarmony 1.0 Release</strong><br>
+              Rayawa/rgb @ HiSilicon-Hi3861<br>
+              Rayawa/soi @ HiSilicon-Hi3861<br>
+              <span style="font-size:0.8rem;color:rgba(255,255,255,0.45);">Sensor sampling + OLED display<br>PWM/GPIO actuator control</span></p>
+          </div>
+          <div class="ss-arch-arrow"><i class="fas fa-exchange-alt"></i></div>
+          <div class="ss-arch-node">
+            <h4><i class="fas fa-cloud"></i> Server Side</h4>
+            <p><strong>MQTT 5.0 WebSocket</strong><br>
+              wss://broker.emqx.io:8084<br>
+              @MQTTX<br>
+              <span style="font-size:0.8rem;color:rgba(255,255,255,0.45);">Public network message relay<br>Topic routing dispatch</span></p>
+          </div>
+          <div class="ss-arch-arrow"><i class="fas fa-exchange-alt"></i></div>
+          <div class="ss-arch-node">
+            <h4><i class="fas fa-mobile-alt"></i> App Side</h4>
+            <p><strong>HarmonyOS 6.1.0 (API23)</strong><br>
+              Smart Shed @ Mate 70 Pro+<br>
+              Smart Shed @ MatePad Pro 12.2<br>
+              <span style="font-size:0.8rem;color:rgba(255,255,255,0.45);">Real-time data display<br>Manual / Smart dual-mode</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Challenges -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-exclamation-triangle" style="color:#ef4444;margin-right:0.5rem;"></i>Technical Challenges</h2>
+          <p>Problems actually encountered during development</p>
+        </div>
+        <div class="ss-grid">
+          <div class="ss-card" style="border-color: rgba(239,68,68,0.25);">
+            <h3><i class="fas fa-code" style="color:#ef4444;"></i> Embedded Side</h3>
+            <ul>
+              <li>Lots of driver interface version compatibility issues</li>
+              <li>I2C bus concurrent multi-device access causes conflicts</li>
+              <li>LiteOS-M thread stack size and priorities need constant tweaking</li>
+            </ul>
+          </div>
+          <div class="ss-card" style="border-color: rgba(245,158,11,0.25);">
+            <h3><i class="fas fa-mobile-alt" style="color:#f59e0b;"></i> App Side</h3>
+            <ul>
+              <li>The original docs were based on API7 JavaUI — way too outdated</li>
+              <li>The old code only ran on specific tablets; switching devices broke the layout completely</li>
+              <li>The original design had four separate systems for one expansion board's components — massive refactoring needed</li>
+            </ul>
+          </div>
+          <div class="ss-card" style="border-color: rgba(6,182,212,0.25);">
+            <h3><i class="fas fa-network-wired" style="color:#06b6d4;"></i> Communication Layer</h3>
+            <ul>
+              <li>MQTT transmission isn't very stable, and error messages are vague</li>
+              <li>The Hi3861 WiFi module is aging — poor load capacity</li>
+              <li>The app-side send/receive mechanism was bare-bones, almost no error handling, debugging by pure guesswork</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Innovations -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-lightbulb" style="color:#f59e0b;margin-right:0.5rem;"></i>Innovations</h2>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="ss-card">
+            <h3><i class="fas fa-plug" style="color:#34d399;"></i> Dual-Board Separated Architecture</h3>
+            <p>The environment sensing board (RGB) and soil actuation board (SOI) are physically isolated and logically decoupled — each handles its own duties while working together seamlessly.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-network-wired" style="color:#f59e0b;"></i> Zero-Dependency MQTT Client</h3>
+            <p>The HarmonyOS side builds MQTT packets entirely from scratch starting from TCP Socket — zero third-party library dependencies.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-palette" style="color:#06b6d4;"></i> HDS Advanced Visual System</h3>
+            <p>Integrated HarmonyOS official Design System component library: immersive navigation, gravity animations, light-field backgrounds.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-brain" style="color:#a78bfa;"></i> Manual / Smart Dual Mode</h3>
+            <p>Manual mode gives you free adjustment of levels; Smart mode makes automatic decisions based on thresholds, with a background thread running safely at all times.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-watch" style="color:#ec4899;"></i> Glass Form Factor Adaptation</h3>
+            <p>Built an additional watch-side Glass app form factor with immersive materials and gaseous animation effects.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-shield-alt" style="color:#14b8a6;"></i> Reliability Guarantees</h3>
+            <p>Auto offline detection (5s timeout), exponential backoff reconnection on disconnect, GlobalLogBus logging bus as a comprehensive safety net.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-layer-group" style="color:#34d399;margin-right:0.5rem;"></i>Tech Stack</h2>
+        </div>
+        <div class="ss-grid">
+          <div class="ss-card">
+            <h3>Embedded (Hi3861)</h3>
+            <div class="ss-tags">
+              <span class="ss-tag hw">Hi3861</span>
+              <span class="ss-tag hw">HiSilicon</span>
+              <span class="ss-tag hw">OpenHarmony 1.0</span>
+              <span class="ss-tag hw">LiteOS-M</span>
+              <span class="ss-tag hw">CMSIS-RTOS</span>
+              <span class="ss-tag hw">C</span>
+              <span class="ss-tag hw">GPIO</span>
+              <span class="ss-tag hw">PWM</span>
+              <span class="ss-tag hw">I2C</span>
+              <span class="ss-tag hw">ADC</span>
+              <span class="ss-tag hw">AHT20</span>
+              <span class="ss-tag hw">SSD1306</span>
+              <span class="ss-tag hw">Paho MQTT</span>
+              <span class="ss-tag hw">lwIP</span>
+              <span class="ss-tag hw">Wi-Fi STA</span>
+            </div>
+          </div>
+          <div class="ss-card">
+            <h3>Server (Communication)</h3>
+            <div class="ss-tags">
+              <span class="ss-tag proto">MQTT 5.0</span>
+              <span class="ss-tag proto">WebSocket Secure</span>
+              <span class="ss-tag proto">EMQX Broker</span>
+              <span class="ss-tag proto">TCP Socket</span>
+              <span class="ss-tag proto">JSON</span>
+              <span class="ss-tag proto">Pub/Sub</span>
+              <span class="ss-tag proto">Topic Routing</span>
+            </div>
+          </div>
+          <div class="ss-card">
+            <h3>App (HarmonyOS)</h3>
+            <div class="ss-tags">
+              <span class="ss-tag sw">HarmonyOS 6.1.0</span>
+              <span class="ss-tag sw">API23</span>
+              <span class="ss-tag sw">ArkTS</span>
+              <span class="ss-tag sw">ArkUI</span>
+              <span class="ss-tag sw">Stage Model</span>
+              <span class="ss-tag sw">@StorageLink</span>
+              <span class="ss-tag sw">@ObjectLink</span>
+              <span class="ss-tag sw">HDS</span>
+              <span class="ss-tag sw">UIDesignKit</span>
+              <span class="ss-tag sw">Glass Form</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /01 chapter wrap -->
+
+    <!-- ============================================================ -->
+    <!-- ========== 02 · MQTT Server ================================== -->
+    <!-- ============================================================ -->
+    <div class="ss-chapter-wrap">
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-server" style="color:#f59e0b;margin-right:0.5rem;"></i>02 &middot; MQTT Server</h2>
+          <p>Pub/Sub architecture principles and data flow design</p>
+        </div>
+      </section>
+
+      <!-- Pub/Sub Principle -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-project-diagram" style="color:#f59e0b;margin-right:0.5rem;"></i>Publish/Subscribe (Pub/Sub) Architecture</h2>
+          <p>MQTT is a lightweight messaging protocol purpose-built for low-bandwidth IoT scenarios</p>
+        </div>
+        <div class="ss-card">
+          <h3><i class="fas fa-exchange-alt" style="color:#f59e0b;"></i> Three-Party Collaboration Mechanism</h3>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.8rem;">
+            <div style="padding:1rem;background:rgba(52,211,153,0.06);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.9rem;"><i class="fas fa-paper-plane"></i> Publisher</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                The embedded Hi3861 acts as publisher, packaging sensor data into JSON and sending it to designated Topics.
+              </p>
+            </div>
+            <div style="padding:1rem;background:rgba(245,158,11,0.06);border-radius:10px;border-left:3px solid #f59e0b;">
+              <strong style="color:#f59e0b;font-size:0.9rem;"><i class="fas fa-server"></i> Broker Relay</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                EMQX serves as the MQTT Broker, receiving messages and forwarding them to corresponding subscribers per Topic rules.
+              </p>
+            </div>
+            <div style="padding:1rem;background:rgba(6,182,212,0.06);border-radius:10px;border-left:3px solid #06b6d4;">
+              <strong style="color:#06b6d4;font-size:0.9rem;"><i class="fas fa-download"></i> Subscriber</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                The HarmonyOS App receives sensor data after subscribing to relevant Topics, and can also issue control commands.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Flow -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-stream" style="color:#f59e0b;margin-right:0.5rem;"></i>Data Flow Design</h2>
+          <p>How data travels from hardware all the way to your phone, and how operations get sent back to hardware for execution</p>
+        </div>
+        <div class="ss-grid">
+          <!-- Upstream -->
+          <div class="ss-card">
+            <h3><i class="fas fa-arrow-up" style="color:#34d399;"></i> Upstream: Sensor Data &rarr; Mobile Display</h3>
+            <div class="ss-flow-list">
+              <div class="ss-flow-item up">
+                <div class="ss-flow-icon"><i class="fas fa-microchip"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2460; Sensor Sampling</h4>
+                  <p>Sensors on the expansion board collect raw data &rarr; ADC reads light/soil moisture, I2C reads AHT20 temp &amp; humidity</p>
+                </div>
+              </div>
+              <div class="ss-flow-item up">
+                <div class="ss-flow-icon"><i class="fas fa-file-code"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2461; Package &amp; Send</h4>
+                  <p>Hi3861 converts data to JSON format and sends it to EMQX Broker via MQTT PUBLISH packet</p>
+                </div>
+              </div>
+              <div class="ss-flow-item up">
+                <div class="ss-flow-icon"><i class="fas fa-cloud"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2462; Route &amp; Dispatch</h4>
+                  <p>Upon receiving the message, EMQX distributes it to subscribed clients according to Topic rules</p>
+                </div>
+              </div>
+              <div class="ss-flow-item up">
+                <div class="ss-flow-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2463; Refresh UI</h4>
+                  <p>HarmonyOS receives and parses the message &rarr; @StorageLink updates state &rarr; UI numbers refresh / Smart mode evaluates thresholds</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Downstream -->
+          <div class="ss-card">
+            <h3><i class="fas fa-arrow-down" style="color:#f59e0b;"></i> Downstream: User Action &rarr; Hardware Execution</h3>
+            <div class="ss-flow-list">
+              <div class="ss-flow-item down">
+                <div class="ss-flow-icon"><i class="fas fa-sliders-h"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2460; User Action or Auto Trigger</h4>
+                  <p>Drag sliders to adjust levels in manual mode, or threshold exceeded in Smart mode auto-generates control commands</p>
+                </div>
+              </div>
+              <div class="ss-flow-item down">
+                <div class="ss-flow-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2461; Package &amp; Dispatch</h4>
+                  <p>HarmonyOS converts control commands into MQTT packets, dispatched through EMQX</p>
+                </div>
+              </div>
+              <div class="ss-flow-item down">
+                <div class="ss-flow-icon"><i class="fas fa-plug"></i></div>
+                <div class="ss-flow-text">
+                  <h4>&#x2462; Hardware Execution</h4>
+                  <p>Hi3861 parses topic and payload upon receiving the message &rarr; controls GPIO/PWM output &rarr; fan/water pump/grow light activates</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /02 chapter wrap -->
+
+    <!-- ============================================================ -->
+    <!-- ========== 03 · Hi3861 Embedded Side ========================= -->
+    <!-- ============================================================ -->
+    <div class="ss-chapter-wrap">
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-microchip" style="color:#34d399;margin-right:0.5rem;"></i>03 &middot; Hi3861 Embedded Side</h2>
+          <p>OpenHarmony LiteOS-M + CMSIS-RTOS multi-threading, developed in pure C</p>
+        </div>
+      </section>
+
+      <!-- Dual Boards Overview -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-th-large" style="color:#34d399;margin-right:0.5rem;"></i>Two Dev Boards, Each with Its Own Job</h2>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ss-card">
+            <h3><i class="fas fa-lightbulb"></i> RGB Board (Environment Sensing)</h3>
+            <p style="margin-bottom:1rem;color:rgba(255,255,255,0.5);font-size:0.85rem;">Responsible for "seeing the environment" and "local display"</p>
+            <div style="margin-bottom:1rem;">
+              <strong style="color:#34d399;font-size:0.9rem;"><i class="fas fa-thermometer-half"></i> Sensors</strong>
+              <ul style="margin-top:0.5rem;">
+                <li><strong>AHT20 Temperature &amp; Humidity Sensor</strong> &mdash; I2C reads temperature and humidity</li>
+                <li><strong>Photoresistor</strong> &mdash; ADC reads light intensity (0~4095)</li>
+              </ul>
+            </div>
+            <div style="margin-bottom:1rem;">
+              <strong style="color:#f59e0b;font-size:0.9rem;"><i class="fas fa-bolt"></i> Actuators</strong>
+              <ul style="margin-top:0.5rem;">
+                <li><strong>RGB Tri-color LED</strong> &mdash; GPIO10/11/12 &rArr; PWM1/2/3 controls brightness</li>
+              </ul>
+            </div>
+            <div>
+              <strong style="color:#06b6d4;font-size:0.9rem;"><i class="fas fa-tv"></i> Local Display</strong>
+              <p style="margin-top:0.5rem;">SSD1306 OLED (128&times;64) refreshes temperature, humidity, and light data in real time</p>
+            </div>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-seedling"></i> SOI Board (Soil Actuation)</h3>
+            <p style="margin-bottom:1rem;color:rgba(255,255,255,0.5);font-size:0.85rem;">Responsible for "sensing soil" and "getting work done"</p>
+            <div style="margin-bottom:1rem;">
+              <strong style="color:#34d399;font-size:0.9rem;"><i class="fas fa-tint"></i> Sensors</strong>
+              <ul style="margin-top:0.5rem;">
+                <li><strong>Soil Moisture Sensor</strong> (replacement install) &mdash; ADC reads soil water content</li>
+              </ul>
+            </div>
+            <div style="margin-bottom:1rem;">
+              <strong style="color:#f59e0b;font-size:0.9rem;"><i class="fas fa-cogs"></i> Actuators</strong>
+              <ul style="margin-top:0.5rem;">
+                <li><strong>OLED Display</strong> &mdash; local status printing</li>
+                <li><strong>Fan</strong> &mdash; PWM controls rotation speed</li>
+                <li><strong>Water Pump</strong> &mdash; GPIO controls on/off</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Structure -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-folder-tree" style="color:#34d399;margin-right:0.5rem;"></i>Project Structure</h2>
+          <p>Big picture split by function, details split by module &mdash; clean and maintainable</p>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="ss-card">
+            <h3><i class="fas fa-layer-group" style="color:#34d399;"></i> common/ Shared Layer</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Wi-Fi connection, MQTT communication, OLED drivers all live here. <strong>I2C mutex lock</strong> is also managed here to prevent multiple threads from fighting over the bus.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-puzzle-piece" style="color:#f59e0b;"></i> modules/ Business Layer</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Split into two subdirectories:</p>
+            <ul style="font-size:0.82rem;margin-top:0.4rem;">
+              <li><strong>sensors/</strong> &mdash; headers and programs for AHT20, light intensity, soil moisture sensors</li>
+              <li><strong>actuators/</strong> &mdash; control programs for fans, grow lights, water pumps</li>
+            </ul>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-microchip" style="color:#06b6d4;"></i> boards/ Build Layer</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Unified management of <code>.gn</code> build files for both dev boards. Conditional compilation dynamically enables modules per board config &mdash; <strong>adding a new board just means adding one gn file</strong>.</p>
+          </div>
+        </div>
+      </section>
 
       <!-- Multi-threading Architecture -->
-      <div class="ss-card" style="margin-top: 1rem;">
-        <h3><i class="fas fa-project-diagram"></i> Multi-Threading Task Scheduling</h3>
-        <p style="margin-bottom: 0.8rem;">CMSIS-RTOS manages 4 parallel threads, mutex locks protect shared resources:</p>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem;">
-          <div style="background: rgba(52,211,153,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
-            <i class="fas fa-eye" style="color:#34d399;margin-bottom: 0.3rem;display:block;"></i>
-            <strong style="font-size: 0.85rem; color: #fff;">Acquisition Thread</strong>
-            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">ADC/I2C sampling per second</p>
-          </div>
-          <div style="background: rgba(6,182,212,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
-            <i class="fas fa-tv" style="color:#06b6d4;margin-bottom: 0.3rem;display:block;"></i>
-            <strong style="font-size: 0.85rem; color: #fff;">OLED Thread</strong>
-            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">Renders data to screen</p>
-          </div>
-          <div style="background: rgba(245,158,11,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
-            <i class="fas fa-cloud-upload-alt" style="color:#f59e0b;margin-bottom: 0.3rem;display:block;"></i>
-            <strong style="font-size: 0.85rem; color: #fff;">MQTT Publish</strong>
-            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">JSON → EMQX Broker</p>
-          </div>
-          <div style="background: rgba(239,68,68,0.08); padding: 0.8rem; border-radius: 8px; text-align: center;">
-            <i class="fas fa-bolt" style="color:#ef4444;margin-bottom: 0.3rem;display:block;"></i>
-            <strong style="font-size: 0.85rem; color: #fff;">Control Callback</strong>
-            <p style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem;">Commands → PWM/GPIO</p>
-          </div>
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-project-diagram" style="color:#34d399;margin-right:0.5rem;"></i>Multi-Threading Architecture</h2>
+          <p>CMSIS-RTOS manages parallel tasks under the LiteOS-M real-time kernel</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== HarmonyOS App Side ===== -->
-    <section class="ss-panel">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-mobile-alt" style="color:#34d399;margin-right:0.5rem;"></i>App Side: HarmonyOS NEXT Full-Featured Control Terminal</h2>
-        <p>100% ArkTS · HDS Advanced Visual Effects · Self-Implemented MQTT Client</p>
-      </div>
-
-      <!-- UI Design -->
-      <div class="ss-card" style="margin-bottom: 1rem;">
-        <h3><i class="fas fa-paint-brush"></i> UI Design: Not Just Functional, But Beautiful Too</h3>
-        <p style="margin-bottom: 0.8rem;">Integrated with HarmonyOS Design System (HDS) official advanced visual component library:</p>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;">
-          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid #34d399;">
-            <strong style="color: #fff; font-size: 0.9rem;">HdsNav Navigation Bar</strong>
-            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.4rem;">Immersive light-field effect top nav with natural background blending transitions</p>
-          </div>
-          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid #06b6d4;">
-            <strong style="color: #fff; font-size: 0.9rem;">PressShadow Gravity Animation</strong>
-            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.4rem;">Elastic deformation + light field diffusion feedback on button press</p>
-          </div>
-          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid #f59e0b;">
-            <strong style="color: #fff; font-size: 0.9rem;">SpringMotion Entry Animation</strong>
-            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.4rem;">Staggered delay spring-curve entry animations for maximum visual depth</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dual-Mode Control -->
-      <div class="ss-grid" style="margin-bottom: 1rem;">
-        <div class="ss-card">
-          <h3><i class="fas fa-hand-pointer"></i> Manual Mode (ManualPage)</h3>
-          <p style="margin-bottom: 0.8rem; color: rgba(255,255,255,0.5);">Control it however you want</p>
+        <div class="ss-card" style="margin-bottom:1rem;border-color: rgba(52,211,153,0.2);">
+          <h3><i class="fas fa-play-circle" style="color:#34d399;"></i> Main Thread Entry Point</h3>
           <ul>
-            <li>Slider drag adjustment: <strong>Fan</strong> (0-3 levels) / <strong>Pump</strong> (0-3 levels) / <strong>Grow light</strong> (0-100%)</li>
-            <li>Auto-syncs current levels to board when entering the page</li>
-            <li>Haptic feedback vibration toggle support</li>
+            <li>After system boot, <strong>SYS_RUN</strong> creates the main thread from <code>smart_shed_all.c</code>, stack size <strong>8KB</strong></li>
+            <li>The main thread initializes and spawns all sub-threads in sequence: sensor sampling, actuator control, MQTT communication, OLED display</li>
+            <li><strong>Conditional compilation</strong> dynamically enables corresponding modules per board configuration, unified scheduling entry point</li>
           </ul>
         </div>
+        <div class="ss-card" style="margin-bottom:1rem;">
+          <h3><i class="fas fa-random" style="color:#06b6d4;"></i> Six Sub-Threads Running in Parallel</h3>
+          <p style="margin-bottom:0.8rem;">Each functional module runs independently inside the LiteOS kernel, each with its own stack space (4KB~8KB) and priority &mdash; none block each other:</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;">
+            <div style="background:rgba(52,211,153,0.08);padding:0.8rem;border-radius:8px;text-align:center;">
+              <i class="fas fa-eye" style="color:#34d399;display:block;margin-bottom:0.3rem;"></i>
+              <strong style="font-size:0.84rem;color:#fff;">Air Temp &amp; Humidity Sampling</strong>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">AHT20 / I2C</p>
+            </div>
+            <div style="background:rgba(6,182,212,0.08);padding:0.8rem;border-radius:8px;text-align:center;">
+              <i class="fas fa-sun" style="color:#06b6d4;display:block;margin-bottom:0.3rem;"></i>
+              <strong style="font-size:0.84rem;color:#fff;">Light Intensity Detection</strong>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">ADC Sampling</p>
+            </div>
+            <div style="background:rgba(245,158,11,0.08);padding:0.8rem;border-radius:8px;text-align:center;">
+              <i class="fas fa-tint" style="color:#f59e0b;display:block;margin-bottom:0.3rem;"></i>
+              <strong style="font-size:0.84rem;color:#fff;">Soil Moisture Reading</strong>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">ADC Sampling</p>
+            </div>
+            <div style="background:rgba(168,85,247,0.08);padding:0.8rem;border-radius:8px;text-align:center;">
+              <i class="fas fa-fan" style="color:#a855f7;display:block;margin-bottom:0.3rem;"></i>
+              <strong style="font-size:0.84rem;color:#fff;">Fan / LED / Water Pump</strong>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">GPIO/PWM Control</p>
+            </div>
+            <div style="background:rgba(236,72,153,0.08);padding:0.8rem;border-radius:8px;text-align:center;">
+              <i class="fas fa-tv" style="color:#ec4899;display:block;margin-bottom:0.3rem;"></i>
+              <strong style="font-size:0.84rem;color:#fff;">OLED Display Refresh</strong>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">SSD1306 Rendering</p>
+            </div>
+            <div style="background:rgba(20,184,166,0.08);padding:0.8rem;border-radius:8px;text-align:center;">
+              <i class="fas fa-cloud-upload-alt" style="color:#14b8a6;display:block;margin-bottom:0.3rem;"></i>
+              <strong style="font-size:0.84rem;color:#fff;">MQTT Network Communication</strong>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">Paho Publish/Subscribe</p>
+            </div>
+          </div>
+        </div>
+        <div class="ss-card" style="border-color: rgba(239,68,68,0.2);">
+          <h3><i class="fas fa-lock" style="color:#ef4444;"></i>I2C Mutex Lock: Solving Bus Conflicts</h3>
+          <p style="margin-bottom:0.8rem;">The AHT20 temperature/humidity sensor and OLED display share the same I2C0 bus (GPIO13 &amp; GPIO14). If two threads access it simultaneously, things break. The solution:</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
+            <div style="padding:0.9rem;background:rgba(239,68,68,0.05);border-radius:10px;">
+              <strong style="color:#ef4444;font-size:0.88rem;">Conflict Scenario</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">The temp/humidity sampling thread and OLED refresh thread read/write I2C0 simultaneously, causing data corruption</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;">
+              <strong style="color:#34d399;font-size:0.88rem;">Solution</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">Use <code>i2c0_lock/unlock</code> mutex lock, acquire before every read/write and release after &mdash; guarantees only one device occupies the bus at any given moment</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hardware Connection Mapping -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-plug" style="color:#34d399;margin-right:0.5rem;"></i>Hardware Connection Mapping</h2>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ss-card">
+            <h3><i class="fas fa-seedling"></i> SOI Board (Soil Actuation)</h3>
+            <div class="ss-hw-list">
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">OLED</span>
+                <span class="ss-hw-desc">Status printout</span>
+                <code>I2C0-0x78 GPIO13&amp;14</code>
+                <code>oled_ssd1306.c</code>
+              </div>
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">Soil Moisture</span>
+                <span class="ss-hw-desc">External probe</span>
+                <code>ADC_CH4</code>
+                <code>soil_moisture_task.c</code>
+              </div>
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">Water Pump</span>
+                <span class="ss-hw-desc">External pump</span>
+                <code>P06</code>
+                <code>water_pump_task.c</code>
+              </div>
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">Fan</span>
+                <span class="ss-hw-desc">External fan</span>
+                <code>P08</code>
+                <code>fan_task.c</code>
+              </div>
+            </div>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-lightbulb"></i> RGB Board (Environment Sensing)</h3>
+            <div class="ss-hw-list">
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">OLED</span>
+                <span class="ss-hw-desc">Status printout</span>
+                <code>I2C0-0x78 GPIO13&amp;14</code>
+                <code>oled_ssd1306.c</code>
+              </div>
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">Temp/Humidity Sensor</span>
+                <span class="ss-hw-desc">Detect air parameters</span>
+                <code>I2C0-0x44</code>
+                <code>temp_and_hum_task.c</code>
+              </div>
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">Photoresistor</span>
+                <span class="ss-hw-desc">Detect light intensity</span>
+                <code>ADC_CH4</code>
+                <code>light_intensity_task.c</code>
+              </div>
+              <div class="ss-hw-item">
+                <span class="ss-hw-name">Tri-color LED RGB</span>
+                <span class="ss-hw-desc">Greenhouse lighting control</span>
+                <code>GPIO10/11/12=&gt;PWM1/2/3</code>
+                <code>led_task.c</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Network & Protocol -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-wifi" style="color:#34d399;margin-right:0.5rem;"></i>Network &amp; Communication</h2>
+          <p>Connect Wi-Fi &rarr; TCP established &rarr; MQTT sends/receives &rarr; actuators spring to action</p>
+        </div>
         <div class="ss-card">
-          <h3><i class="fas fa-brain"></i> Smart Mode (AutoPage)</h3>
-          <p style="margin-bottom: 0.8rem; color: rgba(255,255,255,0.5);">Let the system decide for you</p>
-          <ul>
-            <li>Configure <strong>upper/lower threshold limits</strong> for temperature / humidity / light intensity / soil moisture</li>
-            <li>Polls sensor data on a timer, auto-triggers control when thresholds are exceeded</li>
-            <li>Background resident management thread (autoManagerThread), safely destroyed on page exit to prevent memory leaks</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Self-Implemented MQTT Client -->
-      <div class="ss-card" style="margin-bottom: 1rem; border-color: rgba(245, 158, 11, 0.3);">
-        <h3><i class="fas fa-network-wired" style="color:#f59e0b;"></i> Technical Highlight: Building an MQTT Client From Scratch</h3>
-        <p style="margin-bottom: 0.8rem;">The HarmonyOS app uses <strong>zero third-party MQTT libraries</strong> — it builds protocol packets entirely from TCP Socket:</p>
-
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;">
-          <div>
-            <strong style="color: #f59e0b; font-size: 0.88rem;"><i class="fas fa-code"></i> Protocol Layer Implementation</strong>
-            <ul style="margin-top: 0.5rem;">
-              <li>Manually concatenates Fixed Header + Variable Header + Payload</li>
-              <li>Full implementation of CONNECT / PUBLISH / SUBSCRIBE / PINGREQ packets</li>
-              <li>60s interval KeepAlive heartbeat for connection persistence</li>
-            </ul>
-          </div>
-          <div>
-            <strong style="color: #f59e0b; font-size: 0.88rem;"><i class="fas fa-shield-alt"></i> Reliability Guarantees</strong>
-            <ul style="margin-top: 0.5rem;">
-              <li>Auto-reconnect on disconnect + exponential backoff strategy</li>
-              <li>Single TCP connection with multi-Topic subscription & routing dispatch</li>
-              <li>@StorageLink state management decoupled from ArkUI reactive updates</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bug Fix Story -->
-      <div class="ss-card" style="border-color: rgba(239, 68, 68, 0.3);">
-        <h3><i class="fas fa-bug" style="color:#ef4444;"></i> The Bugs I Hit &amp; How I Fixed Them</h3>
-        <div style="background: rgba(239,68,68,0.08); padding: 1rem; border-radius: 10px; margin-top: 0.5rem;">
-          <strong style="color: #ef4444; font-size: 0.92rem;">Issue: @ObjectLink Deep Nested Object Observation Failure</strong>
-          <p style="margin: 0.6rem 0; color: rgba(255,255,255,0.65); line-height: 1.6;">
-            After MQTT async callbacks return new data, ArkUI's @ObjectLink only watches first-level property changes on objects.
-            The result: sensor numbers wouldn't update, sliders got locked and couldn't be dragged.
-          </p>
-          <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; margin-top: 0.6rem;">
-            <code style="color: #34d399; font-size: 0.85rem;">this.zone1 = { ...this.zone1 }</code>
-            <p style="font-size: 0.83rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem;">
-              <i class="fas fa-lightbulb" style="color:#f59e0b;"></i>
-              Used shallow copy destructuring assignment to force-create a new object reference, breaking through the state machine to trigger a UI refresh. One line of code fixed a critical bug.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Data Flow: Upstream & Downstream ===== -->
-    <section class="ss-panel">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-exchange-alt" style="color:#34d399;margin-right:0.5rem;"></i>How Data Flows</h2>
-        <p>Two one-way channels: sensor data goes up, control commands come down</p>
-      </div>
-
-      <div class="ss-grid">
-        <!-- Upstream -->
-        <div class="ss-card">
-          <h3><i class="fas fa-arrow-up" style="color:#34d399;"></i> Upstream: Data Acquisition → Mobile Display</h3>
-          <div class="ss-flow-list">
+          <h3><i class="fas fa-network-wired" style="color:#34d399;"></i> Communication Flow</h3>
+          <div class="ss-flow-list" style="margin-top:0.8rem;">
             <div class="ss-flow-item up">
-              <div class="ss-flow-icon"><i class="fas fa-microchip"></i></div>
+              <div class="ss-flow-icon"><i class="fas fa-wifi"></i></div>
               <div class="ss-flow-text">
-                <h4>① Sensor Sampling</h4>
-                <p>ADC reads light/soil moisture, I2C reads AHT20 temperature & humidity</p>
+                <h4>Connect Wi-Fi</h4>
+                <p>Connect to SSID <code>"Rayawa"</code>, get IP via DHCP then enter lwIP TCP communication</p>
               </div>
             </div>
             <div class="ss-flow-item up">
-              <div class="ss-flow-icon"><i class="fas fa-tv"></i></div>
+              <div class="ss-flow-icon"><i class="fas fa-exchange-alt"></i></div>
               <div class="ss-flow-text">
-                <h4>② OLED Local Display</h4>
-                <p>SSD1306 screen refreshes data in real time (visible even without a phone connected)</p>
+                <h4>MQTT Encode/Decode</h4>
+                <p>Paho library only handles packet encoding/decoding; the full TCP Socket lifecycle must be managed manually</p>
               </div>
             </div>
             <div class="ss-flow-item up">
               <div class="ss-flow-icon"><i class="fas fa-file-code"></i></div>
               <div class="ss-flow-text">
-                <h4>③ JSON Serialization &amp; Publish</h4>
-                <p>Compact payload like <code>{"intensity": 450}</code>, published to EMQX via Paho MQTT</p>
+                <h4>Report Sensor Data</h4>
+                <p>Sensor data reported to EMQX Broker in JSON format</p>
               </div>
             </div>
             <div class="ss-flow-item up">
-              <div class="ss-flow-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div class="ss-flow-icon"><i class="fas fa-cogs"></i></div>
               <div class="ss-flow-text">
-                <h4>④ App Parse &amp; UI Refresh</h4>
-                <p>MQTT callback → shallow copy destructuring → triggers ArkUI state machine to update displayed numbers</p>
+                <h4>Execute Control Commands</h4>
+                <p>Upon receiving a PUBLISH packet, parse topic and payload using <code>MQTTDeserialize_publish()</code>, then set global variables via <code>mqtt_apply_command()</code>. Actuator threads continuously read these variables to control GPIO/PWM, driving fans, pumps, and other devices</p>
               </div>
             </div>
           </div>
         </div>
+      </section>
+    </div><!-- /03 chapter wrap -->
 
-        <!-- Downstream -->
+    <!-- ============================================================ -->
+    <!-- ========== 04 · HarmonyOS Mobile App Side =================== -->
+    <!-- ============================================================ -->
+    <div class="ss-chapter-wrap">
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-mobile-alt" style="color:#06b6d4;margin-right:0.5rem;"></i>04 &middot; HarmonyOS App Side</h2>
+          <p>ArkTS &middot; Stage Model &middot; HDS Advanced Visuals &middot; Self-Implemented MQTT Client</p>
+        </div>
+      </section>
+
+      <!-- App Showcase -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-mobile-alt" style="color:#06b6d4;margin-right:0.5rem;"></i>Smart Shed App</h2>
+          <p>A full-featured control terminal running on Mate 70 Pro+ and MatePad Pro</p>
+        </div>
         <div class="ss-card">
-          <h3><i class="fas fa-arrow-down" style="color:#f59e0b;"></i> Downstream: User Action → Hardware Execution</h3>
-          <div class="ss-flow-list">
-            <div class="ss-flow-item down">
-              <div class="ss-flow-icon"><i class="fas fa-sliders-h"></i></div>
-              <div class="ss-flow-text">
-                <h4>① User Action or Auto Strategy</h4>
-                <p>Manual slider drag / Smart mode threshold judgment triggers command</p>
-              </div>
+          <h3><i class="fas fa-eye"></i> Feature Overview</h3>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-top:0.8rem;">
+            <div style="padding:1rem;background:rgba(6,182,212,0.06);border-radius:10px;border-left:3px solid #06b6d4;">
+              <strong style="color:#06b6d4;font-size:0.9rem;"><i class="fas fa-hand-pointer"></i> Manual Mode</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                Drag sliders to adjust fan (0-3 levels), water pump (0-3 levels), grow light (0-100%). Auto-syncs current levels to the dev board when entering the page, supports haptic feedback.
+              </p>
             </div>
-            <div class="ss-flow-item down">
-              <div class="ss-flow-icon"><i class="fas fa-network-wired"></i></div>
-              <div class="ss-flow-text">
-                <h4>② MQTT Packet Build &amp; Send</h4>
-                <p>Self-implemented client manually assembles PUBLISH packet, delivered via EMQX</p>
-              </div>
+            <div style="padding:1rem;background:rgba(168,85,247,0.06);border-radius:10px;border-left:3px solid #a855f7;">
+              <strong style="color:#a855f7;font-size:0.9rem;"><i class="fas fa-brain"></i> Smart Mode</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                Set upper/lower threshold limits for temperature/humidity/light/soil moisture. Periodically polls sensor data and auto-triggers control when out of range. Background resident thread, safely destroyed on page exit to prevent leaks.
+              </p>
             </div>
-            <div class="ss-flow-item down">
-              <div class="ss-flow-icon"><i class="fas fa-plug"></i></div>
-              <div class="ss-flow-text">
-                <h4>③ Hi3861 Receive &amp; Execute</h4>
-                <p>MQTT callback parse → PWM adjusts fan/grow light, GPIO controls water pump</p>
-              </div>
+            <div style="padding:1rem;background:rgba(52,211,153,0.06);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.9rem;"><i class="fas fa-chart-line"></i> Real-time Monitoring</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                MQTT callback receives sensor data, @StorageLink state management drives ArkUI auto-refresh of displayed numbers.
+              </p>
+            </div>
+            <div style="padding:1rem;background:rgba(245,158,11,0.06);border-radius:10px;border-left:3px solid #f59e0b;">
+              <strong style="color:#f59e0b;font-size:0.9rem;"><i class="fas fa-terminal"></i> Debug Panel</strong>
+              <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);margin-top:0.4rem;line-height:1.5;">
+                GlobalLogBus event bus records communication status, user actions, and error info for easy troubleshooting.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Reliability Design -->
-      <div class="ss-card" style="margin-top: 1rem;">
-        <h3><i class="fas fa-shield-alt"></i> Reliability Design</h3>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.8rem;">
-          <div style="padding: 0.9rem; background: rgba(255,255,255,0.03); border-radius: 10px;">
-            <strong style="color: #34d399; font-size: 0.88rem;"><i class="fas fa-clock"></i> Offline Detection</strong>
-            <p style="font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-top: 0.4rem; line-height: 1.5;">
-              5-second timeout without data marks the board as offline<br>
-              UI auto-switches to gray disabled state + reconnection prompt<br>
-              Auto re-subscribes to Topics upon recovery
-            </p>
+      <!-- App Project Structure -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-folder-open" style="color:#06b6d4;margin-right:0.5rem;"></i>App Project Structure (Stage Model)</h2>
+          <p>Layered architecture built on ArkTS</p>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ss-card">
+            <h3><i class="fas fa-cube" style="color:#34d399;"></i> AppScope/</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Unified entry point for app-level global resources and Hvigor build scripts.</p>
           </div>
-          <div style="padding: 0.9rem; background: rgba(255,255,255,0.03); border-radius: 10px;">
-            <strong style="color: #06b6d4; font-size: 0.88rem;"><i class="fas fa-terminal"></i> Console Logging</strong>
-            <p style="font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-top: 0.4rem; line-height: 1.5;">
-              GlobalLogBus event bus records all operations<br>
-              MQTT communication status / user actions / error messages<br>
-              Convenient for debugging and troubleshooting
-            </p>
+          <div class="ss-card">
+            <h3><i class="fas fa-paint-brush" style="color:#06b6d4;"></i> view/ &amp; pages/</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">ArkTS-built UI layer, containing complete interfaces for manual/smart dual-mode and debug panel.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-network-wired" style="color:#f59e0b;"></i> service/</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Encapsulates MQTT client (MqttReceiverClient.ts), TCP Socket direct connection for bidirectional communication, zero third-party dependencies.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-database" style="color:#a855f7;"></i> viewmodel/</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Core data structures and state models ensuring reactive binding between UI and data.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ===== MQTT Topic Design ===== -->
-    <section class="ss-panel">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-network-wired" style="color:#34d399;margin-right:0.5rem;"></i>Communication Protocol: MQTT Topic Design</h2>
-        <p>Namespaced by dual-board separation, QoS 0 lightweight transmission</p>
-      </div>
+      <!-- MQTT Implementation -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-network-wired" style="color:#f59e0b;margin-right:0.5rem;"></i>MqttReceiverClient.ts &mdash; Building an MQTT Client From Scratch</h2>
+        </div>
+        <div class="ss-card" style="margin-bottom:1rem;border-color: rgba(245,158,11,0.2);">
+          <h3><i class="fas fa-code" style="color:#f59e0b;"></i> Why Build It Yourself?</h3>
+          <p style="line-height:1.7;color:rgba(255,255,255,0.68);">
+            The HarmonyOS side uses <strong>zero third-party MQTT libraries</strong> &mdash; it hand-crafts packets entirely from scratch starting at TCP Socket level. This gives complete control over the entire communication process, making issues much easier to diagnose.
+          </p>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ss-card">
+            <h3><i class="fas fa-envelope" style="color:#f59e0b;"></i> Protocol Layer</h3>
+            <ul>
+              <li>Manually concatenates <strong>Fixed Header + Variable Header + Payload</strong></li>
+              <li>Implements core packets: CONNECT / PUBLISH / SUBSCRIBE / PINGREQ</li>
+              <li><strong>60s KeepAlive heartbeat</strong> for connection persistence</li>
+              <li>MQTT 5.0 over WSS direct connection to EMQX public Broker</li>
+            </ul>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-shield-alt" style="color:#34d399;"></i> Reliability Guarantees</h3>
+            <ul>
+              <li><strong>Auto-reconnect on disconnect + exponential backoff</strong></li>
+              <li>Single TCP connection with multi-Topic subscription &amp; routing dispatch</li>
+              <li>@StorageLink state management decoupled from ArkUI</li>
+              <li>GlobalLogBus logging bus records complete communication trail</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ss-card" style="margin-top:1rem;">
+          <h3><i class="fas fa-cogs" style="color:#06b6d4;"></i> State &amp; Methods</h3>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-top:0.8rem;">
+            <div style="padding:0.9rem;background:rgba(6,182,212,0.06);border-radius:10px;">
+              <strong style="color:#06b6d4;font-size:0.88rem;"><i class="fas fa-toggle-on"></i> Control State</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.35rem;line-height:1.5;">Centrally manages fan levels, pump levels, grow light brightness; @StorageLink shares state across pages.</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(168,85,247,0.06);border-radius:10px;">
+              <strong style="color:#a855f7;font-size:0.88rem;"><i class="fas fa-exchange-alt"></i> Parameter Passing</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.35rem;line-height:1.5;">Sensor data and control commands transmitted reliably over MQTT layer in unified format.</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.06);border-radius:10px;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-list-alt"></i> Log Sync</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.35rem;line-height:1.5;">GlobalLogBus uniformly collects communication status, operation records, and exception info.</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(245,158,11,0.06);border-radius:10px;">
+              <strong style="color:#f59e0b;font-size:0.88rem;"><i class="fas fa-life-ring"></i> Lifecycle</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.35rem;line-height:1.5;">Create connection on page enter, destroy threads and release resources on page exit &mdash; zero memory leaks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="ss-grid">
+      <!-- UI Design -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-paint-brush" style="color:#ec4899;margin-right:0.5rem;"></i>UI Design: HDS + ArkUI</h2>
+          <p>Not just functional &mdash; it has to look good too</p>
+        </div>
+        <div class="ss-card" style="margin-bottom:1rem;">
+          <h3><i class="fas fa-magic"></i> HDS Core Components</h3>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:0.8rem;">
+            <div style="padding:1rem;background:rgba(255,255,255,0.03);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#fff;font-size:0.9rem;">HdsNav Navigation Bar</strong>
+              <p style="font-size:0.81rem;color:rgba(255,255,255,0.53);margin-top:0.4rem;line-height:1.5;">Immersive light-field top navigation with frosted glass blur effect</p>
+            </div>
+            <div style="padding:1rem;background:rgba(255,255,255,0.03);border-radius:10px;border-left:3px solid #06b6d4;">
+              <strong style="color:#fff;font-size:0.9rem;">PressShadow Gravity Animation</strong>
+              <p style="font-size:0.81rem;color:rgba(255,255,255,0.53);margin-top:0.4rem;line-height:1.5;">Elastic deformation on button press + light field diffusion feedback</p>
+            </div>
+            <div style="padding:1rem;background:rgba(255,255,255,0.03);border-radius:10px;border-left:3px solid #f59e0b;">
+              <strong style="color:#fff;font-size:0.9rem;">SpringMotion Spring Animation</strong>
+              <p style="font-size:0.81rem;color:rgba(255,255,255,0.53);margin-top:0.4rem;line-height:1.5;">Staggered delay entry, spring-curve animations for smooth onboarding experience</p>
+            </div>
+          </div>
+        </div>
+        <div class="ss-card" style="margin-bottom:1rem;">
+          <h3><i class="fas fa-palette"></i> Visual Style</h3>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-top:0.8rem;">
+            <div style="padding:1rem;background:rgba(236,72,153,0.06);border-radius:10px;">
+              <strong style="color:#ec4899;font-size:0.88rem;"><i class="fas fa-adjust"></i> Dark Light Field</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.57);margin-top:0.35rem;line-height:1.5;">Flowing light background runs through the entire interface, dark mode atmosphere maxed out</p>
+            </div>
+            <div style="padding:1rem;background:rgba(168,85,247,0.06);border-radius:10px;">
+              <strong style="color:#a855f7;font-size:0.88rem;"><i class="fas fa-columns"></i> Dual-Column Layout</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.57);margin-top:0.35rem;line-height:1.5;">Tablet-adaptive dual-column layout balancing information density and visual harmony</p>
+            </div>
+          </div>
+        </div>
+        <div class="ss-grid" style="margin-bottom:1rem;">
+          <div class="ss-card">
+            <h3><i class="fas fa-magnet" style="color:#34d399;"></i> Animation: Gravity Field</h3>
+            <p style="font-size:0.84rem;line-height:1.6;"><strong>Gravity field effects</strong> during page transitions, natural attraction-repulsion animations between elements.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-sun" style="color:#f59e0b;"></i> Animation: Light Field</h3>
+            <p style="font-size:0.84rem;line-height:1.6;"><strong>Flowing light background</strong> + <strong>dual-column dark global light field</strong>, dynamic light/shadow flows with interaction changes.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-exchange-alt" style="color:#06b6d4;"></i> Animation: Transitions</h3>
+            <p style="font-size:0.84rem;line-height:1.6;"><strong>Fade in/out</strong> + <strong>elastic animations</strong>, SpringMotion spring-curve silky transitions.</p>
+          </div>
+        </div>
         <div class="ss-card">
-          <h3><i class="fas fa-arrow-up" style="color:#34d399;"></i> Upstream: Sensor Data Reporting</h3>
-          <div class="ss-topic-grid">
-            <span class="ss-topic-tag"><span class="topic-label">Env Board</span> Rayawa/light_intensity_1</span>
-            <span class="ss-topic-tag"><span class="topic-label">Env Board</span> Rayawa/temp_and_hum_1</span>
-            <span class="ss-topic-tag"><span class="topic-label">Soil Board</span> Rayawa/soil_moisture_1</span>
+          <h3><i class="fas fa-tablet-alt"></i> Responsive Layout</h3>
+          <p style="font-size:0.84rem;line-height:1.6;margin-bottom:0.8rem;">ArkUI responsive grid system automatically adapts to phone and tablet form factors:</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;">
+            <div style="padding:0.9rem;background:rgba(6,182,212,0.06);border-radius:10px;">
+              <strong style="color:#06b6d4;font-size:0.87rem;"><i class="fas fa-mobile-alt"></i> Phone</strong>
+              <p style="font-size:0.81rem;color:rgba(255,255,255,0.56);margin-top:0.35rem;">Single-column vertical scroll, stacked card display</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(168,85,247,0.06);border-radius:10px;">
+              <strong style="color:#a855f7;font-size:0.87rem;"><i class="fas fa-tablet-alt"></i> Tablet</strong>
+              <p style="font-size:0.81rem;color:rgba(255,255,255,0.56);margin-top:0.35rem;">Dual-column side-by-side, making full use of widescreen space</p>
+            </div>
           </div>
         </div>
-        <div class="ss-card">
-          <h3><i class="fas fa-arrow-down" style="color:#f59e0b;"></i> Downstream: Control Command Dispatch</h3>
-          <div class="ss-topic-grid">
-            <span class="ss-topic-tag"><span class="topic-label">Fan</span> Rayawa/fan_1</span>
-            <span class="ss-topic-tag"><span class="topic-label">Grow Light</span> Rayawa/led_1</span>
-            <span class="ss-topic-tag"><span class="topic-label">Water Pump</span> Rayawa/water_pump_1</span>
-          </div>
-        </div>
-      </div>
+      </section>
 
-      <div class="ss-card" style="margin-top: 1rem;">
-        <h3><i class="fas fa-tachometer-alt"></i> Performance Optimization</h3>
-        <ul>
-          <li><strong>Compact JSON Payload</strong> — Strips redundant nesting, reduces public network transmission latency and packet loss rate</li>
-          <li><strong>Single-Partition Flat Architecture</strong> — Converges high-frequency concurrency into single-node communication, reducing Broker instantaneous handshake load</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== Tech Stack ===== -->
-    <section class="ss-panel">
-      <div class="ss-panel-head">
-        <h2><i class="fas fa-layer-group" style="color:#34d399;margin-right:0.5rem;"></i>Tech Stack</h2>
-      </div>
-
-      <div class="ss-grid">
-        <div class="ss-card">
-          <h3>Embedded (Hi3861)</h3>
-          <div class="ss-tags">
-            <span class="ss-tag hw">Hi3861</span>
-            <span class="ss-tag hw">OpenHarmony</span>
-            <span class="ss-tag hw">LiteOS-M</span>
-            <span class="ss-tag hw">CMSIS-RTOS</span>
-            <span class="ss-tag hw">C</span>
-            <span class="ss-tag hw">GPIO</span>
-            <span class="ss-tag hw">PWM</span>
-            <span class="ss-tag hw">I2C</span>
-            <span class="ss-tag hw">ADC</span>
-            <span class="ss-tag hw">AHT20</span>
-            <span class="ss-tag hw">SSD1306</span>
+      <!-- Glass -->
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-watch" style="color:#ec4899;margin-right:0.5rem;"></i>Smart Shed Glass</h2>
+          <p>Smartwatch form factor &mdash; immersive materials + gaseous animations</p>
+        </div>
+        <div class="ss-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="ss-card" style="border-color: rgba(236,72,153,0.2);">
+            <h3><i class="fas fa-gem" style="color:#ec4899;"></i> Glass Form Features</h3>
+            <ul>
+              <li><strong>Immersive Material</strong> &mdash; interface blends into watch face glass texture</li>
+              <li><strong>Gaseous Animations</strong> &mdash; light and airy transition effects</li>
+              <li><strong>Gravity Transitions</strong> &mdash; maintains consistent interaction language with the main App</li>
+              <li><strong>Dual-edge Flowing Light</strong> &mdash; dynamic decorative elements on both sides of the watch face</li>
+            </ul>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-shapes" style="color:#06b6d4;"></i> HdsButtons Custom Component</h3>
+            <p style="font-size:0.85rem;line-height:1.65;">Custom button component system based on HDS specifications, unifying visual presentation and touch feedback for all interactive elements in Glass form. Supports multiple sizes and state styles (default/pressed/disabled), works great on small screens too.</p>
           </div>
         </div>
-        <div class="ss-card">
-          <h3>Communication</h3>
-          <div class="ss-tags">
-            <span class="ss-tag proto">MQTT 3.1.1</span>
-            <span class="ss-tag proto">EMQX</span>
-            <span class="ss-tag proto">TCP Socket</span>
-            <span class="ss-tag proto">LwIP</span>
-            <span class="ss-tag proto">Wi-Fi STA</span>
-            <span class="ss-tag proto">JSON</span>
-          </div>
-        </div>
-        <div class="ss-card">
-          <h3>App (HarmonyOS)</h3>
-          <div class="ss-tags">
-            <span class="ss-tag sw">HarmonyOS NEXT</span>
-            <span class="ss-tag sw">ArkTS</span>
-            <span class="ss-tag sw">ArkUI</span>
-            <span class="ss-tag sw">HDS</span>
-            <span class="ss-tag sw">@StorageLink</span>
-            <span class="ss-tag sw">Stage Model</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="../../static/js/common.js"></script>
+  <script src="/static/js/common.js"></script>
 </body>
 </html>
