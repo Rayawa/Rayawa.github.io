@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Qizhi01 · Ascend AI Full-Stack | Ray Chen</title>
+  <meta name="description" content="OpenHarmony 5.0 system porting to Huawei Ascend 310B NPU chip with X-ray chest radiograph AI-assisted diagnosis app — a complete Ascend AI full-stack development from kernel drivers to NPU inference.">
+  <meta name="keywords" content="Qizhi01, Ascend 310B, OpenHarmony, system porting, NPU inference, YOLOv5, X-ray, AI diagnosis, CANN, MindSpore Lite, kernel driver, full-stack development, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <link rel="canonical" href="https://rayawa.top/en/projects/ascend310.html">
+
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/ascend310.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/ascend310.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/ascend310.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/ascend310.html">
+  <meta property="og:title" content="Qizhi01 · Ascend AI Full-Stack | Ray Chen">
+  <meta property="og:description" content="OpenHarmony 5.0 system porting to Huawei Ascend 310B NPU chip with X-ray AI-assisted diagnosis app.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qizhi01 · Ascend AI Full-Stack | Ray Chen">
+  <meta name="twitter:description" content="OpenHarmony 5.0 system porting to Huawei Ascend 310B NPU chip with X-ray AI-assisted diagnosis app.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/ascend310.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+
+  <div id="particles-js"></div>
+
+  <main class="page">
+    <section class="ascend-hero">
+      <span class="hero-badge">Ascend AI Full-Stack</span>
+      <h1>Qizhi01 · Ascend AI Full-Stack<br><small style="font-size:0.45em;font-weight:300;color:rgba(255,255,255,0.6);">—— OpenHarmony System Porting & X-ray AI Diagnosis App on Huawei Ascend 310B</small></h1>
+      <p>From kernel drivers to HAL, from system adaptation to NPU inference — a complete Ascend AI full-stack development.<br>OpenHarmony 5.0.3 Release porting + Ascend X-Ray Expert AI diagnosis app.</p>
+      <div class="button-row">
+        <a class="button" href="https://github.com/Rayawa/Ascend310-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> App (HarmonyOS)</a>
+        <a class="button" href="https://github.com/Rayawa/Ascend310-OpenHarmony" target="_blank" rel="noopener"><i class="fab fa-github"></i> System (OpenHarmony)</a>
+      </div>
+    </section>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-info-circle" style="color:#a855f7;margin-right:0.5rem;"></i>Project Overview</h2>
+          <p>Qizhi01 Developer Kit — Huawei Ascend 310B NPU + ARM CPU + Mali GPU</p>
+        </div>
+        <div class="as-card">
+          <p style="line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:1rem;">
+            The <strong style="color:#fff;">Qizhi01 (Ascend 310)</strong> project fully ports <strong>OpenHarmony 5.0.3 Release</strong> to the Huawei <strong>Ascend 310B</strong> NPU-powered Qizhi01 developer kit, and builds <strong>Ascend X-Ray Expert</strong> — a YOLOv5s-based X-ray chest radiograph AI-assisted diagnosis HarmonyOS app on top of it.
+            From Linux kernel driver adaptation (43 system patches, 20+ kernel modules), to GPU/HDMI/Audio/Camera HAL implementation,
+            to CANN NPU inference and MindSpore Lite dual inference engines — showcasing complete edge AI full-stack capabilities.
+          </p>
+          <div class="as-grid">
+            <div class="as-minicard">
+              <i class="fas fa-microchip" style="color:#a855f7;"></i>
+              <strong>Hardware</strong>
+              <p>Huawei Ascend 310B NPU<br>ARM CPU + Mali GPU<br>Qizhi01 Developer Kit</p>
+            </div>
+            <div class="as-minicard">
+              <i class="fas fa-cogs" style="color:#34d399;"></i>
+              <strong>System</strong>
+              <p>OpenHarmony 5.0.3<br>43 System Patches<br>20+ Kernel Modules</p>
+            </div>
+            <div class="as-minicard">
+              <i class="fas fa-brain" style="color:#f59e0b;"></i>
+              <strong>AI Inference</strong>
+              <p>YOLOv5s Object Detection<br>CANN ACL + MindSpore Lite<br>X-ray 5-Class Diagnosis</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-sitemap" style="color:#a855f7;margin-right:0.5rem;"></i>System Architecture: Full-Stack Integration</h2>
+          <p>From the lowest-level Linux kernel drivers to the top-level HarmonyOS AI application</p>
+        </div>
+        <div class="as-arch-diagram">
+          <div class="as-arch-node">
+            <h4><i class="fas fa-microchip"></i> Hardware</h4>
+            <p><strong>Ascend 310B</strong><br>ARM CPU + Mali GPU<br>NPU AI Accelerator<br>HDMI/CSI/USB</p>
+          </div>
+          <div class="as-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="as-arch-node">
+            <h4><i class="fas fa-cog"></i> Kernel Drivers</h4>
+            <p><strong>Linux 5.10</strong><br>panfrost GPU<br>svm NPU driver<br>20+ kernel modules</p>
+          </div>
+          <div class="as-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="as-arch-node">
+            <h4><i class="fas fa-layer-group"></i> HAL Layer</h4>
+            <p><strong>OpenHarmony 5.0.3</strong><br>Display Composer VDI<br>Gralloc GBM<br>Audio/V4L2/HDMI</p>
+          </div>
+          <div class="as-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="as-arch-node">
+            <h4><i class="fas fa-mobile-alt"></i> Application</h4>
+            <p><strong>ArkUI + ArkTS</strong><br>Ascend X-Ray Expert<br>CANN NPU Inference<br>MindSpore Lite Inference</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-server" style="color:#34d399;margin-right:0.5rem;"></i>Subproject 1 · OpenHarmony System Porting</h2>
+          <p>Fully adapting OpenHarmony 5.0.3 Release to the Huawei Ascend 310B hardware platform</p>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-list-check" style="color:#34d399;"></i> Core Features</h3>
+          <div class="as-grid-2" style="margin-top:0.8rem;">
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-paint-brush"></i> GPU Graphics Acceleration</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">Based on ARM Mali GPU + Panfrost DRM driver, complete Display Composer VDI implementation</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-camera"></i> Camera & Audio</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">USB Camera / MIPI Camera V4L2 driver + ALSA audio + HDMI audio output</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-desktop"></i> HDMI Dual Display</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">Multi-display support with independent framebuffer management</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-brain"></i> CANN Inference</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">Ascend NPU AI inference, YOLOv5 + MindIE Qwen3-0.6B LLM</p>
+            </div>
+          </div>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-puzzle-piece" style="color:#34d399;"></i> Key Technical Details</h3>
+          <ul>
+            <li><strong>43 system patches</strong>: covering build, HDF drivers, GPU 2D/3D, SELinux, Camera V4L2, Audio ALSA, multi-display, HDC debugging, power management, etc.</li>
+            <li><strong>20+ kernel driver modules</strong>: panfrost.ko (GPU), svm.ko (NPU), Bluetooth/WiFi drivers, Camera V4L2 drivers, etc.</li>
+            <li><strong>Bash + busybox porting</strong>: support for awk, tr and other commands required by Ascend HDK driver package installation</li>
+            <li><strong>One-click build script</strong>: build.sh handles OpenHarmony source integration, 43 patch applications, and full compilation</li>
+            <li><strong>SD card flashing tool</strong>: direct Linux SD card flashing (formatSD310B.sh), or generate img file for Windows BalenaEtcher flashing</li>
+          </ul>
+        </div>
+        <div class="as-tags">
+          <span class="as-tag hw">Linux 5.10</span>
+          <span class="as-tag hw">Panfrost GPU</span>
+          <span class="as-tag hw">GBM Gralloc</span>
+          <span class="as-tag hw">DRM/KMS</span>
+          <span class="as-tag sys">OpenHarmony 5.0.3</span>
+          <span class="as-tag sys">HDF Drivers</span>
+          <span class="as-tag sys">GN + Ninja</span>
+          <span class="as-tag sys">43 Patches</span>
+          <span class="as-tag hw">V4L2 Camera</span>
+          <span class="as-tag hw">ALSA Audio</span>
+          <span class="as-tag hw">HDMI Display</span>
+          <span class="as-tag sys">SELinux</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-mobile-alt" style="color:#06b6d4;margin-right:0.5rem;"></i>Subproject 2 · Ascend X-Ray Expert</h2>
+          <p>HarmonyOS 5.0.3 (API15) · ArkTS + ArkUI · Dual Inference Engine Architecture</p>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-x-ray" style="color:#06b6d4;"></i> X-ray 5-Class AI Diagnosis</h3>
+          <p>Using YOLOv5s model for object detection on chest X-ray images, identifying five categories:</p>
+          <div class="as-grid" style="margin-top:0.8rem; padding: 0;">
+            <div style="padding:0.9rem;background:rgba(239,68,68,0.06);border-radius:10px;border-left:3px solid #ef4444;text-align:center;">
+              <strong style="color:#ef4444;font-size:0.88rem;"><i class="fas fa-bacterium"></i> Pneumonia Bacteria</strong>
+            </div>
+            <div style="padding:0.9rem;background:rgba(245,158,11,0.06);border-radius:10px;border-left:3px solid #f59e0b;text-align:center;">
+              <strong style="color:#f59e0b;font-size:0.88rem;"><i class="fas fa-virus"></i> Pneumonia Virus</strong>
+            </div>
+            <div style="padding:0.9rem;background:rgba(6,182,212,0.06);border-radius:10px;border-left:3px solid #06b6d4;text-align:center;">
+              <strong style="color:#06b6d4;font-size:0.88rem;"><i class="fas fa-heartbeat"></i> Sick</strong>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.06);border-radius:10px;border-left:3px solid #34d399;text-align:center;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-heart"></i> Healthy</strong>
+            </div>
+            <div style="padding:0.9rem;background:rgba(168,85,247,0.06);border-radius:10px;border-left:3px solid #a855f7;text-align:center;">
+              <strong style="color:#a855f7;font-size:0.88rem;"><i class="fas fa-lungs"></i> Tuberculosis</strong>
+            </div>
+          </div>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-code-branch" style="color:#f59e0b;"></i> Dual Inference Engine Architecture</h3>
+          <p style="margin-bottom:0.8rem;">Implements <strong>two parallel inference paths</strong>, showcasing the complete solution from pure software inference to hardware-accelerated inference:</p>
+          <div class="as-grid-2" style="padding: 0;">
+            <div style="padding:1rem;background:rgba(6,182,212,0.06);border-radius:10px;border:1px solid rgba(6,182,212,0.12);">
+              <strong style="color:#06b6d4;font-size:0.9rem;display:block;margin-bottom:0.5rem;"><i class="fas fa-cube"></i> MindSpore Lite (CPU)</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.6;">
+                Uses @kit.MindSporeLiteKit to load .ms format model<br>
+                Model input: 640x640x3 float32<br>
+                2-thread CPU inference<br>
+                Complete preprocessing (RGBA to float + normalization) and postprocessing (NMS, IoU) implemented in ArkTS
+              </p>
+            </div>
+            <div style="padding:1rem;background:rgba(168,85,247,0.06);border-radius:10px;border:1px solid rgba(168,85,247,0.12);">
+              <strong style="color:#a855f7;font-size:0.9rem;display:block;margin-bottom:0.5rem;"><i class="fas fa-microchip"></i> CANN ACL (NPU)</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.6;">
+                Dynamically loads libacl_runtime.so via dlopen<br>
+                Complete ACL device management: Init → SetDevice → CreateContext → CreateStream<br>
+                Uses aclmdlLoadFromFile to load .om offline model<br>
+                aclrtMalloc for NPU device memory, aclrtMemcpy for data transfer<br>
+                C++ NAPI exposes initYoloEngine / runYoloInference APIs
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="as-flow-list">
+          <div class="as-flow-item">
+            <div class="as-flow-icon app"><i class="fas fa-image"></i></div>
+            <div class="as-flow-text">
+              <h4>1. Select Image</h4>
+              <p>PhotoViewPicker → Resize to 640x640 + letterbox padding</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon ai"><i class="fas fa-cogs"></i></div>
+            <div class="as-flow-text">
+              <h4>2. Preprocessing</h4>
+              <p>RGBA to float32 normalization → Feed into inference engine</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon npu"><i class="fas fa-microchip"></i></div>
+            <div class="as-flow-text">
+              <h4>3. NPU/CPU Inference</h4>
+              <p>CANN ACL NPU inference or MindSpore Lite CPU inference</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon sys"><i class="fas fa-filter"></i></div>
+            <div class="as-flow-text">
+              <h4>4. Postprocessing</h4>
+              <p>NMS non-maximum suppression + IoU computation → Filter detection results</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon app"><i class="fas fa-chart-bar"></i></div>
+            <div class="as-flow-text">
+              <h4>5. Display Results</h4>
+              <p>Canvas rendering detection boxes → Three-column layout showing stats and detection records</p>
+            </div>
+          </div>
+        </div>
+        <div class="as-tags">
+          <span class="as-tag sw">HarmonyOS 5.0.3</span>
+          <span class="as-tag sw">API15</span>
+          <span class="as-tag sw">ArkTS</span>
+          <span class="as-tag sw">ArkUI</span>
+          <span class="as-tag sw">Stage Model</span>
+          <span class="as-tag ai">YOLOv5s</span>
+          <span class="as-tag ai">CANN ACL</span>
+          <span class="as-tag ai">MindSpore Lite</span>
+          <span class="as-tag ai">NMS</span>
+          <span class="as-tag sys">NAPI</span>
+          <span class="as-tag sys">C++</span>
+          <span class="as-tag sys">CMake</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-star" style="color:#f59e0b;margin-right:0.5rem;"></i>Technical Highlights</h2>
+        </div>
+        <div class="as-grid">
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-layer-group" style="color:#a855f7;"></i>
+            <strong>Vertical Full-Stack</strong>
+            <p>From kernel drivers, HAL, system framework to application layer — a complete vertical technology stack.</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-code-branch" style="color:#06b6d4;"></i>
+            <strong>Dual Inference Engines</strong>
+            <p>Simultaneously provides MindSpore Lite (CPU) and CANN ACL (NPU) two inference paths.</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-x-ray" style="color:#ef4444;"></i>
+            <strong>Medical AI Application</strong>
+            <p>YOLOv5s X-ray 5-class detection with practical application value.</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-language" style="color:#f59e0b;"></i>
+            <strong>Edge LLM Deployment</strong>
+            <p>Successfully running MindIE Qwen3-0.6B LLM on Ascend 310B.</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-rocket" style="color:#34d399;"></i>
+            <strong>One-Click Build</strong>
+            <p>build.sh handles OpenHarmony source integration, 43 patches, and full compilation.</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-plug" style="color:#ec4899;"></i>
+            <strong>NAPI Bridge</strong>
+            <p>C++ CANN inference engine seamlessly integrated into ArkTS via NAPI.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

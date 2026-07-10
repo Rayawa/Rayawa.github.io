@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>启智01 · 昇腾AI全栈 | Ray Chen</title>
+  <meta name="description" content="基于华为昇腾310B芯片的OpenHarmony 5.0系统移植与X光胸片AI辅助诊断应用——从内核驱动到底层HAL，从系统适配到NPU推理应用的完整昇腾AI全栈开发。">
+  <meta name="keywords" content="启智01, 昇腾310B, Ascend 310B, OpenHarmony, 系统移植, NPU推理, YOLOv5, X光胸片, AI诊断, CANN, MindSpore Lite, 内核驱动, 全栈开发, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <link rel="canonical" href="https://rayawa.top/projects/ascend310.html">
+
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/ascend310.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/ascend310.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/ascend310.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/ascend310.html">
+  <meta property="og:title" content="启智01 · 昇腾AI全栈 | Ray Chen">
+  <meta property="og:description" content="基于华为昇腾310B芯片的OpenHarmony 5.0系统移植与X光胸片AI辅助诊断应用。">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="启智01 · 昇腾AI全栈 | Ray Chen">
+  <meta name="twitter:description" content="基于华为昇腾310B芯片的OpenHarmony 5.0系统移植与X光胸片AI辅助诊断应用。">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/ascend310.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+
+  <div id="particles-js"></div>
+
+  <main class="page">
+    <section class="ascend-hero">
+      <span class="hero-badge">昇腾AI全栈开发</span>
+      <h1>启智01 · 昇腾AI全栈<br><small style="font-size:0.45em;font-weight:300;color:rgba(255,255,255,0.6);">—— 基于华为昇腾310B的OpenHarmony系统移植与X光AI辅助诊断应用</small></h1>
+      <p>从内核驱动到底层HAL，从系统适配到NPU推理应用，完整的昇腾AI全栈开发。<br>OpenHarmony 5.0.3 Release 系统移植 + Ascend X-Ray Expert AI诊断应用。</p>
+      <div class="button-row">
+        <a class="button" href="https://github.com/Rayawa/Ascend310-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> 应用端 (HarmonyOS)</a>
+        <a class="button" href="https://github.com/Rayawa/Ascend310-OpenHarmony" target="_blank" rel="noopener"><i class="fab fa-github"></i> 系统端 (OpenHarmony)</a>
+      </div>
+    </section>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-info-circle" style="color:#a855f7;margin-right:0.5rem;"></i>项目总体介绍</h2>
+          <p>启智01开发者套件 —— 华为昇腾310B NPU + ARM CPU + Mali GPU</p>
+        </div>
+        <div class="as-card">
+          <p style="line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:1rem;">
+            <strong style="color:#fff;">启智01（Ascend 310）</strong>项目将<strong>OpenHarmony 5.0.3 Release</strong>操作系统完整移植到搭载华为<strong>昇腾310B</strong> NPU的启智01开发者套件上，并在此基础上开发了<strong>Ascend X-Ray Expert</strong> —— 一款基于 YOLOv5s 的 X 光胸片 AI 辅助诊断 HarmonyOS 应用。
+            从 Linux 内核驱动适配（43个系统补丁、20+内核模块），到 GPU/HDMI/音频/Camera HAL 实现，
+            再到 CANN NPU 推理与 MindSpore Lite 双推理引擎，展示了完整的边缘 AI 全栈能力。
+          </p>
+          <div class="as-grid">
+            <div class="as-minicard">
+              <i class="fas fa-microchip" style="color:#a855f7;"></i>
+              <strong>硬件平台</strong>
+              <p>华为昇腾310B NPU<br>ARM CPU + Mali GPU<br>启智01开发者套件</p>
+            </div>
+            <div class="as-minicard">
+              <i class="fas fa-cogs" style="color:#34d399;"></i>
+              <strong>系统适配</strong>
+              <p>OpenHarmony 5.0.3<br>43个系统补丁<br>20+内核驱动模块</p>
+            </div>
+            <div class="as-minicard">
+              <i class="fas fa-brain" style="color:#f59e0b;"></i>
+              <strong>AI推理</strong>
+              <p>YOLOv5s 目标检测<br>CANN ACL + MindSpore Lite<br>X光五分类诊断</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-sitemap" style="color:#a855f7;margin-right:0.5rem;"></i>系统架构：全栈垂直整合</h2>
+          <p>从最底层的Linux内核驱动到最上层的HarmonyOS AI应用</p>
+        </div>
+        <div class="as-arch-diagram">
+          <div class="as-arch-node">
+            <h4><i class="fas fa-microchip"></i> 硬件层</h4>
+            <p><strong>昇腾310B</strong><br>ARM CPU + Mali GPU<br>NPU AI加速器<br>HDMI/CSI/USB外设</p>
+          </div>
+          <div class="as-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="as-arch-node">
+            <h4><i class="fas fa-cog"></i> 内核驱动层</h4>
+            <p><strong>Linux 5.10</strong><br>panfrost GPU驱动<br>svm NPU驱动<br>20+内核模块</p>
+          </div>
+          <div class="as-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="as-arch-node">
+            <h4><i class="fas fa-layer-group"></i> HAL层</h4>
+            <p><strong>OpenHarmony 5.0.3</strong><br>Display Composer VDI<br>Gralloc GBM<br>Audio/V4L2/HDMI</p>
+          </div>
+          <div class="as-arch-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="as-arch-node">
+            <h4><i class="fas fa-mobile-alt"></i> 应用层</h4>
+            <p><strong>ArkUI + ArkTS</strong><br>Ascend X-Ray Expert<br>CANN NPU推理<br>MindSpore Lite推理</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-server" style="color:#34d399;margin-right:0.5rem;"></i>子项目一 · OpenHarmony 系统移植</h2>
+          <p>将 OpenHarmony 5.0.3 Release 完整适配到华为昇腾310B硬件平台</p>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-list-check" style="color:#34d399;"></i> 核心适配功能</h3>
+          <div class="as-grid-2" style="margin-top:0.8rem;">
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-paint-brush"></i> GPU 图形加速</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">基于 ARM Mali GPU + Panfrost DRM 驱动，完整 Display Composer VDI 实现</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-camera"></i> Camera & 音频</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">USB Camera / MIPI Camera V4L2 驱动 + ALSA 音频 + HDMI 音频输出</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-desktop"></i> HDMI 双屏异显</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">多屏显示支持，独立 framebuffer 管理</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.05);border-radius:10px;border-left:3px solid #34d399;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-brain"></i> CANN 推理</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.58);margin-top:0.3rem;">Ascend NPU AI 推理能力，YOLOv5 + MindIE Qwen3-0.6B LLM</p>
+            </div>
+          </div>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-puzzle-piece" style="color:#34d399;"></i> 关键技术细节</h3>
+          <ul>
+            <li><strong>43个系统补丁</strong>：涵盖 build、HDF驱动、GPU 2D/3D、SELinux、Camera V4L2、Audio ALSA、多屏显示、HDC调试、电源管理等模块</li>
+            <li><strong>20+内核驱动模块</strong>：panfrost.ko（GPU）、svm.ko（NPU）、蓝牙/WiFi 驱动、Camera V4L2 驱动等</li>
+            <li><strong>移植 bash + busybox</strong>：支持 Ascend HDK 驱动包安装所需的 awk、tr 等命令</li>
+            <li><strong>一键编译脚本</strong>：build.sh 实现 OpenHarmony 源码整合、43个补丁合入、全量编译</li>
+            <li><strong>制卡工具</strong>：Linux下直接烧写SD卡（formatSD310B.sh），或生成img文件供Windows下 BalenaEtcher 烧写</li>
+          </ul>
+        </div>
+        <div class="as-tags">
+          <span class="as-tag hw">Linux 5.10</span>
+          <span class="as-tag hw">Panfrost GPU</span>
+          <span class="as-tag hw">GBM Gralloc</span>
+          <span class="as-tag hw">DRM/KMS</span>
+          <span class="as-tag sys">OpenHarmony 5.0.3</span>
+          <span class="as-tag sys">HDF驱动</span>
+          <span class="as-tag sys">GN + Ninja</span>
+          <span class="as-tag sys">43个Patch</span>
+          <span class="as-tag hw">V4L2 Camera</span>
+          <span class="as-tag hw">ALSA Audio</span>
+          <span class="as-tag hw">HDMI Display</span>
+          <span class="as-tag sys">SELinux</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-mobile-alt" style="color:#06b6d4;margin-right:0.5rem;"></i>子项目二 · Ascend X-Ray Expert</h2>
+          <p>HarmonyOS 5.0.3 (API15) · ArkTS + ArkUI · 双推理引擎架构</p>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-x-ray" style="color:#06b6d4;"></i> X光胸片五分类AI诊断</h3>
+          <p>基于 YOLOv5s 模型，对X光胸片图像进行目标检测，识别以下五种类型：</p>
+          <div class="as-grid" style="margin-top:0.8rem; padding: 0;">
+            <div style="padding:0.9rem;background:rgba(239,68,68,0.06);border-radius:10px;border-left:3px solid #ef4444;text-align:center;">
+              <strong style="color:#ef4444;font-size:0.88rem;"><i class="fas fa-bacterium"></i> 细菌性肺炎</strong>
+              <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;">Pneumonia Bacteria</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(245,158,11,0.06);border-radius:10px;border-left:3px solid #f59e0b;text-align:center;">
+              <strong style="color:#f59e0b;font-size:0.88rem;"><i class="fas fa-virus"></i> 病毒性肺炎</strong>
+              <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;">Pneumonia Virus</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(6,182,212,0.06);border-radius:10px;border-left:3px solid #06b6d4;text-align:center;">
+              <strong style="color:#06b6d4;font-size:0.88rem;"><i class="fas fa-heartbeat"></i> 患病</strong>
+              <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;">Sick</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(52,211,153,0.06);border-radius:10px;border-left:3px solid #34d399;text-align:center;">
+              <strong style="color:#34d399;font-size:0.88rem;"><i class="fas fa-heart"></i> 健康</strong>
+              <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;">Healthy</p>
+            </div>
+            <div style="padding:0.9rem;background:rgba(168,85,247,0.06);border-radius:10px;border-left:3px solid #a855f7;text-align:center;">
+              <strong style="color:#a855f7;font-size:0.88rem;"><i class="fas fa-lungs"></i> 结核病</strong>
+              <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;">Tuberculosis</p>
+            </div>
+          </div>
+        </div>
+        <div class="as-card">
+          <h3><i class="fas fa-code-branch" style="color:#f59e0b;"></i> 双推理引擎架构</h3>
+          <p style="margin-bottom:0.8rem;">实现了<strong>两套并行的推理路径</strong>，充分展示从纯软件推理到硬件加速推理的完整方案：</p>
+          <div class="as-grid-2" style="padding: 0;">
+            <div style="padding:1rem;background:rgba(6,182,212,0.06);border-radius:10px;border:1px solid rgba(6,182,212,0.12);">
+              <strong style="color:#06b6d4;font-size:0.9rem;display:block;margin-bottom:0.5rem;"><i class="fas fa-cube"></i> MindSpore Lite (CPU推理)</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.6;">
+                使用 @kit.MindSporeLiteKit 加载 .ms 格式模型文件<br>
+                模型输入: 640x640x3 float32<br>
+                2线程 CPU 推理<br>
+                完整的预处理（RGBA转float + 归一化）和后处理（NMS、IoU）在 ArkTS 侧实现
+              </p>
+            </div>
+            <div style="padding:1rem;background:rgba(168,85,247,0.06);border-radius:10px;border:1px solid rgba(168,85,247,0.12);">
+              <strong style="color:#a855f7;font-size:0.9rem;display:block;margin-bottom:0.5rem;"><i class="fas fa-microchip"></i> CANN ACL (NPU推理)</strong>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.6;">
+                通过 dlopen 动态加载 libacl_runtime.so<br>
+                完整的 ACL 设备管理：Init → SetDevice → CreateContext → CreateStream<br>
+                使用 aclmdlLoadFromFile 加载 .om 离线模型<br>
+                aclrtMalloc 分配 NPU 设备内存，aclrtMemcpy 数据搬运<br>
+                C++ NAPI 层暴露 initYoloEngine / runYoloInference 两个接口
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="as-flow-list">
+          <div class="as-flow-item">
+            <div class="as-flow-icon app"><i class="fas fa-image"></i></div>
+            <div class="as-flow-text">
+              <h4>① 选择图片</h4>
+              <p>PhotoViewPicker 选图 → 缩放到 640x640 + letterbox padding</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon ai"><i class="fas fa-cogs"></i></div>
+            <div class="as-flow-text">
+              <h4>② 预处理</h4>
+              <p>RGBA 转 float32 归一化 → 输入推理引擎</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon npu"><i class="fas fa-microchip"></i></div>
+            <div class="as-flow-text">
+              <h4>③ NPU/CPU 推理</h4>
+              <p>CANN ACL NPU 推理 或 MindSpore Lite CPU 推理</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon sys"><i class="fas fa-filter"></i></div>
+            <div class="as-flow-text">
+              <h4>④ 后处理</h4>
+              <p>NMS 非极大值抑制 + IoU 计算 → 过滤检测结果</p>
+            </div>
+          </div>
+          <div class="as-flow-item">
+            <div class="as-flow-icon app"><i class="fas fa-chart-bar"></i></div>
+            <div class="as-flow-text">
+              <h4>⑤ 显示结果</h4>
+              <p>Canvas 绘制检测框 → 三栏布局显示统计图例与检测记录</p>
+            </div>
+          </div>
+        </div>
+        <div class="as-tags">
+          <span class="as-tag sw">HarmonyOS 5.0.3</span>
+          <span class="as-tag sw">API15</span>
+          <span class="as-tag sw">ArkTS</span>
+          <span class="as-tag sw">ArkUI</span>
+          <span class="as-tag sw">Stage 模型</span>
+          <span class="as-tag ai">YOLOv5s</span>
+          <span class="as-tag ai">CANN ACL</span>
+          <span class="as-tag ai">MindSpore Lite</span>
+          <span class="as-tag ai">NMS</span>
+          <span class="as-tag sys">NAPI</span>
+          <span class="as-tag sys">C++</span>
+          <span class="as-tag sys">CMake</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="as-chapter-wrap">
+      <section class="as-panel">
+        <div class="as-panel-head">
+          <h2><i class="fas fa-star" style="color:#f59e0b;margin-right:0.5rem;"></i>技术亮点</h2>
+        </div>
+        <div class="as-grid">
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-layer-group" style="color:#a855f7;"></i>
+            <strong>垂直全栈</strong>
+            <p>从内核驱动、HAL层、系统框架到应用层，形成完整的垂直技术栈。</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-code-branch" style="color:#06b6d4;"></i>
+            <strong>双推理引擎</strong>
+            <p>同时提供 MindSpore Lite（CPU）和 CANN ACL（NPU）两条推理路径。</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-x-ray" style="color:#ef4444;"></i>
+            <strong>医疗AI应用</strong>
+            <p>YOLOv5s X光胸片五分类检测，具有实际应用价值。</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-language" style="color:#f59e0b;"></i>
+            <strong>LLM边缘端部署</strong>
+            <p>成功在昇腾310B上运行 MindIE Qwen3-0.6B 大语言模型。</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-rocket" style="color:#34d399;"></i>
+            <strong>一键编译</strong>
+            <p>build.sh 实现 OpenHarmony 源码整合、43个补丁合入与全量编译。</p>
+          </div>
+          <div class="as-minicard" style="text-align:left;padding:1.2rem;">
+            <i class="fas fa-plug" style="color:#ec4899;"></i>
+            <strong>NAPI桥接</strong>
+            <p>C++ CANN推理引擎通过NAPI无缝集成到ArkTS应用层。</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>
