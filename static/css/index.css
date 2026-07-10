@@ -637,6 +637,10 @@ a.skill-link {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1)), url('../resources/main_page/rps.png');
 }
 
+.project-image.ascend310 {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(168, 85, 247, 0.15), rgba(6, 182, 212, 0.1)), url('../resources/main_page/ascend310.png');
+}
+
 .life-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
