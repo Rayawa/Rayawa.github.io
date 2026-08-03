@@ -334,7 +334,7 @@ function initGalleryCarousel() {
         dot.dataset.index = String(idx + 1);
         dot.setAttribute('aria-label', dotLabelTpl.replace('{n}', String(idx + 1)));
         dot.addEventListener('click', () => {
-            goTo(idx);
+            goTo(idx, idx > current ? 'next' : 'prev');
             restart();
         });
         dotsWrap.appendChild(dot);
@@ -373,22 +373,54 @@ function initGalleryCarousel() {
 
     preloadAllImages();
 
-    function goTo(index) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (index + slides.length) % slides.length;
-        slides[current].classList.add('active');
+    function goTo(index, direction) {
+        var oldCurrent = current;
+        var newIndex = (index + slides.length) % slides.length;
+        if (newIndex === oldCurrent) return;
+
+        var oldSlide = slides[oldCurrent];
+        var newSlide = slides[newIndex];
+
+        // 清理旧方向类
+        oldSlide.classList.remove('slide-out-left', 'slide-out-right', 'slide-from-left', 'slide-from-right');
+        newSlide.classList.remove('slide-out-left', 'slide-out-right', 'slide-from-left', 'slide-from-right');
+
+        // 设置方向
+        if (direction === 'prev') {
+            // 上一张：旧 slide 从右侧滑出，新 slide 从左侧进入
+            oldSlide.classList.add('slide-out-right');
+            newSlide.classList.add('slide-from-left');
+        } else {
+            // 下一张/跳转：旧 slide 从左侧滑出，新 slide 从右侧进入
+            oldSlide.classList.add('slide-out-left');
+            newSlide.classList.add('slide-from-right');
+        }
+
+        oldSlide.classList.remove('active');
+        dots[oldCurrent].classList.remove('active');
+
+        current = newIndex;
+        // 强制重排后激活动画
+        void newSlide.offsetWidth;
+        newSlide.classList.add('active');
+        newSlide.classList.remove('slide-from-left', 'slide-from-right');
         dots[current].classList.add('active');
+
         ensureImageReady(current + 1);
         ensureImageReady(current - 1);
+
+        // 动画完成后清理旧 slide 的滑出类
+        setTimeout(function() {
+            oldSlide.classList.remove('slide-out-left', 'slide-out-right');
+        }, 600);
     }
 
     function next() {
-        goTo(current + 1);
+        goTo(current + 1, 'next');
     }
 
     function prev() {
-        goTo(current - 1);
+        goTo(current - 1, 'prev');
     }
 
     function start() {
@@ -446,8 +478,8 @@ function initGalleryCarousel() {
         }
         const dx = e.changedTouches[0].clientX - touchStartX;
         if (Math.abs(dx) > 50) {
-            if (dx < 0) next();
-            else prev();
+            if (dx < 0) goTo(current + 1, 'next');
+            else goTo(current - 1, 'prev');
             restart();
         } else {
             if (autoStarted) start();
@@ -575,6 +607,11 @@ function initSectionReveal() {
         el.classList.add('is-visible');
         window.setTimeout(() => {
             el.classList.add('is-revealed');
+            // 动画完成后移除 will-change 以释放内存
+            var items = el.querySelectorAll('.reveal-item');
+            for (var i = 0; i < items.length; i++) {
+                items[i].style.willChange = 'auto';
+            }
         }, 1200);
     }
 
@@ -674,6 +711,38 @@ function initParticlePointerFollow() {
     }, { passive: true });
 
     animate();
+}
+
+function initHeroParallax() {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var ticking = false;
+    function update() {
+        ticking = false;
+        var rect = hero.getBoundingClientRect();
+        // 离开视口时跳过更新
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        var y = Math.min(window.scrollY, 2400) * 0.04;
+        hero.style.setProperty('--parallax-y', y.toFixed(1) + 'px');
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener('resize', function() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    update();
 }
 
 function initHeroStarInteraction() {
@@ -802,3 +871,4 @@ requestAnimationFrame(() => {
 initHeroStarInteraction();
 initAwardLinks();
 initFloatingTools();
+initHeroParallax();

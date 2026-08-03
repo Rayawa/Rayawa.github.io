@@ -70,6 +70,9 @@ function initParticleMagnetEffect() {
         var frame = 0;
         var lastTime = 0;
         var TARGET_FRAME_TIME = 16.67;
+        var isMobile = window.innerWidth <= 900;
+        var frameSkip = isMobile ? 2 : 1;
+        var slowStreak = 0;
 
         function getOpacityValue(p) {
             if (p && p.opacity && typeof p.opacity.value === 'number') return p.opacity.value;
@@ -154,10 +157,22 @@ function initParticleMagnetEffect() {
 
         function tick(timestamp) {
             if (!lastTime) lastTime = timestamp;
-            var deltaTime = Math.min(Math.max((timestamp - lastTime) / TARGET_FRAME_TIME, 0.1), 3.0);
+            var elapsed = timestamp - lastTime;
             lastTime = timestamp;
 
+            // 自适应帧跳过：连续慢帧则加重跳过
+            if (elapsed > 42) slowStreak = Math.min(slowStreak + 2, 8);
+            else if (elapsed > 28) slowStreak = Math.min(slowStreak + 1, 8);
+            else slowStreak = Math.max(slowStreak - 1, 0);
+            frameSkip = slowStreak >= 5 ? 3 : slowStreak >= 2 ? 2 : (isMobile ? 2 : 1);
+
             frame += 1;
+            if (frame % frameSkip !== 0) {
+                requestAnimationFrame(tick);
+                return;
+            }
+
+            var deltaTime = Math.min(Math.max(elapsed / TARGET_FRAME_TIME, 0.1), 3.0);
             magneticPower += pointer.active
                 ? (1 - magneticPower) * 0.06 * deltaTime
                 : (0 - magneticPower) * 0.012 * deltaTime;
@@ -674,6 +689,10 @@ function initSubpageReveal() {
     function revealEl(el) {
         if (el.classList.contains('is-visible')) return;
         el.classList.add('is-visible');
+        // 动画完成后移除 will-change 以释放内存
+        window.setTimeout(function() {
+            el.style.willChange = 'auto';
+        }, 600);
         if (observer) observer.unobserve(el);
     }
 
@@ -689,7 +708,7 @@ function initSubpageReveal() {
                     revealEl(entry.target);
                 }
             });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
         revealEls.forEach(function(el) { 
             if (!el.classList.contains('is-visible')) {

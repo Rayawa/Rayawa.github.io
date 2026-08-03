@@ -5,6 +5,17 @@
     align-items: center;
     padding: 8rem 0 4rem;
     position: relative;
+    --parallax-y: 0px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: -80px -40px -40px;
+    background: radial-gradient(ellipse 70% 60% at 50% calc(40% + var(--parallax-y)), rgba(99, 102, 241, 0.09), transparent 70%),
+                radial-gradient(ellipse 50% 50% at 80% calc(30% + var(--parallax-y) * 0.6), rgba(89, 212, 255, 0.06), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-content {
@@ -12,6 +23,8 @@
     grid-template-columns: 1.08fr 0.92fr;
     gap: 4.8rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-text h1 {
@@ -102,6 +115,55 @@
 
 .hero-image {
     position: relative;
+}
+
+/* Hero 入场增强：文字带缩放 + 模糊（桌面端），图片带弹性 */
+.hero-text .reveal-item {
+    transform: translateY(24px) scale(0.96);
+}
+
+@media (min-width: 768px) {
+    .hero-text .reveal-item {
+        filter: blur(6px);
+        transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    filter 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    visibility 0.7s;
+        transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal-section.is-visible .hero-text .reveal-item {
+        filter: blur(0);
+    }
+}
+
+.reveal-section.is-visible .hero-text .reveal-item {
+    transform: translateY(0) scale(1);
+}
+
+.hero-image.reveal-item {
+    transform: translateY(20px) scale(0.85);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: 200ms;
+}
+
+.reveal-section.is-visible .hero-image.reveal-item {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* 星星弹入：链式动画，弹入后接 float */
+@media (min-width: 768px) {
+    .reveal-section.is-visible .hero-image .floating-elements {
+        animation: heroStarPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+                   float 6s ease-in-out infinite 1s;
+    }
+}
+
+@keyframes heroStarPopIn {
+    from { opacity: 0; transform: scale(0.3) rotate(-30deg); }
+    to   { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
 .profile-img {
@@ -551,12 +613,32 @@ a.skill-link {
     color: inherit;
     display: flex;
     flex-direction: column;
+    position: relative;
+    isolation: isolate;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius);
+    background: linear-gradient(120deg, transparent 30%, rgba(99, 102, 241, 0.35), rgba(89, 212, 255, 0.25), transparent 70%);
+    background-size: 200% 100%;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+    animation: shimmer 1.8s ease-in-out infinite;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(99, 102, 241, 0.3);
 }
 
 .project-card.project-card-image {
@@ -579,6 +661,10 @@ a.skill-link {
 
 .project-card-static {
     cursor: default;
+}
+
+.project-card-static::before {
+    display: none;
 }
 
 .project-card-static:hover {
@@ -878,12 +964,34 @@ a.skill-link {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transform: translateX(8%);
+    transition: opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .gallery-slide.active {
     opacity: 1;
+    transform: translateX(0);
     z-index: 2;
+}
+
+.gallery-slide.slide-out-left {
+    opacity: 0;
+    transform: translateX(-6%);
+    z-index: 1;
+}
+
+.gallery-slide.slide-out-right {
+    opacity: 0;
+    transform: translateX(6%);
+    z-index: 1;
+}
+
+.gallery-slide.slide-from-left {
+    transform: translateX(-8%);
+}
+
+.gallery-slide.slide-from-right {
+    transform: translateX(8%);
 }
 
 .gallery-slide img {
@@ -1232,7 +1340,7 @@ textarea.form-control {
 
 .loading-screen.is-done {
     opacity: 0;
-    transform: scale(1.04);
+    transform: translateY(-24px);
     visibility: hidden;
     pointer-events: none;
 }
@@ -1281,6 +1389,7 @@ textarea.form-control {
     position: relative;
     width: 80px;
     height: 80px;
+    animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
 }
 
 .loading-ring {
@@ -1343,6 +1452,7 @@ textarea.form-control {
     letter-spacing: 0.08em;
     color: rgba(202, 236, 255, 0.8);
     text-transform: uppercase;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
 }
 
 @media (max-width: 767px) {
@@ -1614,6 +1724,50 @@ textarea.form-control {
     .contact-details p {
         font-size: var(--text-xs);
     }
+
+    /* 平板端：简化入场动画 */
+    .hero-text .reveal-item {
+        transform: translateY(16px) scale(0.97);
+    }
+
+    .hero-image.reveal-item {
+        transform: translateY(14px) scale(0.9);
+    }
+
+    /* 平板端：画廊滑动更轻 */
+    .gallery-slide {
+        transform: translateX(5%);
+    }
+
+    .gallery-slide.slide-from-left {
+        transform: translateX(-5%);
+    }
+
+    .gallery-slide.slide-from-right {
+        transform: translateX(5%);
+    }
+
+    .gallery-slide.slide-out-left {
+        transform: translateX(-4%);
+    }
+
+    .gallery-slide.slide-out-right {
+        transform: translateX(4%);
+    }
+
+    /* 平板端：禁用项目卡片光效（性能） */
+    .project-card::before {
+        display: none;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 平板端：缩小 Hero 视差伪元素 */
+    .hero::before {
+        inset: -40px -20px -20px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1680,6 +1834,56 @@ textarea.form-control {
     .gallery-track,
     .gallery-slide img {
         min-height: 320px;
+    }
+
+    /* 移动端：最简入场动画 */
+    .hero-text .reveal-item {
+        transform: translateY(12px) scale(0.98);
+        filter: none;
+        transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.5s;
+        transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .hero-image.reveal-item {
+        transform: translateY(10px) scale(0.92);
+        transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        transition-delay: 100ms;
+    }
+
+    .reveal-section.is-visible .hero-image .floating-elements {
+        animation: heroStarPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+                   float 6s ease-in-out infinite 1s;
+    }
+
+    /* 移动端：禁用按钮扫光 */
+    .btn::after {
+        display: none;
+    }
+
+    /* 移动端：禁用 Hero 视差伪元素 */
+    .hero::before {
+        display: none;
+    }
+
+    /* 移动端：画廊滑动更轻 */
+    .gallery-slide {
+        transform: translateX(4%);
+    }
+
+    .gallery-slide.slide-from-left {
+        transform: translateX(-4%);
+    }
+
+    .gallery-slide.slide-from-right {
+        transform: translateX(4%);
+    }
+
+    .gallery-slide.slide-out-left {
+        transform: translateX(-3%);
+    }
+
+    .gallery-slide.slide-out-right {
+        transform: translateX(3%);
     }
 }
 
@@ -1756,5 +1960,65 @@ textarea.form-control {
 
     .contact-card {
         padding: 1.2rem;
+    }
+
+    /* 超小屏：禁用所有增强动画 */
+    .hero-text .reveal-item {
+        transform: none;
+    }
+
+    .hero-image.reveal-item {
+        transform: none;
+    }
+
+    .reveal-section.is-visible .hero-image .floating-elements {
+        animation: heroStarPopIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+                   float 6s ease-in-out infinite 1s;
+    }
+
+    .project-card::before {
+        display: none;
+    }
+
+    .gallery-slide,
+    .gallery-slide.slide-from-left,
+    .gallery-slide.slide-from-right,
+    .gallery-slide.slide-out-left,
+    .gallery-slide.slide-out-right {
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   prefers-reduced-motion 降级
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-slide,
+    .gallery-slide.slide-out-left,
+    .gallery-slide.slide-out-right,
+    .gallery-slide.slide-from-left,
+    .gallery-slide.slide-from-right {
+        transform: translateX(0);
+    }
+
+    .hero-text .reveal-item {
+        filter: none;
+        transform: none;
+    }
+
+    .hero-image.reveal-item {
+        transform: none;
+    }
+
+    .hero::before,
+    .project-card::before {
+        display: none;
+    }
+
+    .profile-img,
+    .floating-elements,
+    .avatar-quote {
+        animation: none;
     }
 }
