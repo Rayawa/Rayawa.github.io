@@ -296,6 +296,24 @@ section,
     transition: var(--transition);
     border: 2px solid transparent;
     cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
+    transform: translateX(-110%);
+    transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    transform: translateX(110%);
 }
 
 .btn:hover {
@@ -485,6 +503,9 @@ section,
     transform: translateY(20px);
     transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s;
     transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-section.is-visible:not(.is-revealed) .reveal-item {
     will-change: transform, opacity;
 }
 
@@ -501,29 +522,18 @@ section,
     transition: none;
 }
 
-.social-card.reveal-item,
-.project-card.reveal-item,
-.glass-card.reveal-item,
-.card.reveal-item,
-.feature-card.reveal-item,
-.hi-card.reveal-item,
-.hi-overview-card.reveal-item,
-.doc-card.reveal-item,
-.thesis-card.reveal-item {
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-}
-
-.reveal-section.is-revealed .social-card.reveal-item,
-.reveal-section.is-revealed .project-card.reveal-item,
-.reveal-section.is-revealed .glass-card.reveal-item,
-.reveal-section.is-revealed .card.reveal-item,
-.reveal-section.is-revealed .feature-card.reveal-item,
-.reveal-section.is-revealed .hi-card.reveal-item,
-.reveal-section.is-revealed .hi-overview-card.reveal-item,
-.reveal-section.is-revealed .doc-card.reveal-item,
-.reveal-section.is-revealed .thesis-card.reveal-item {
+/* 卡片/容器类 reveal-item：入场动画 + hover 过渡 */
+.reveal-section.is-revealed .reveal-item.card,
+.reveal-section.is-revealed .reveal-item.glass-card,
+.reveal-section.is-revealed .reveal-item.project-card,
+.reveal-section.is-revealed .reveal-item.social-card,
+.reveal-section.is-revealed .reveal-item.feature-card,
+.reveal-section.is-revealed .reveal-item.hi-card,
+.reveal-section.is-revealed .reveal-item.hi-overview-card,
+.reveal-section.is-revealed .reveal-item.doc-card,
+.reveal-section.is-revealed .reveal-item.thesis-card {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -541,47 +551,23 @@ section,
     transform: translateY(0);
 }
 
-/* 带有边框/背景的卡片组件需要保留hover过渡 */
-.card.subpage-reveal,
-.glass-card.subpage-reveal,
-.feature-card.subpage-reveal,
-.hi-card.subpage-reveal,
-.hi-overview-card.subpage-reveal,
-.doc-card.subpage-reveal,
-.thesis-card.subpage-reveal,
-.social-card.subpage-reveal,
-.project-card.subpage-reveal,
-.metric-card-small.subpage-reveal,
-.metric-card.subpage-reveal,
-.info-card.subpage-reveal,
-.note-card.subpage-reveal,
-.highlight-card.subpage-reveal,
-.case-item.subpage-reveal,
-.team-item.subpage-reveal {
-    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-                transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: var(--subpage-delay, 0ms);
-}
-
-.card.subpage-reveal.is-visible,
-.glass-card.subpage-reveal.is-visible,
-.feature-card.subpage-reveal.is-visible,
-.hi-card.subpage-reveal.is-visible,
-.hi-overview-card.subpage-reveal.is-visible,
-.doc-card.subpage-reveal.is-visible,
-.thesis-card.subpage-reveal.is-visible,
-.social-card.subpage-reveal.is-visible,
-.project-card.subpage-reveal.is-visible,
-.metric-card-small.subpage-reveal.is-visible,
-.metric-card.subpage-reveal.is-visible,
-.info-card.subpage-reveal.is-visible,
-.note-card.subpage-reveal.is-visible,
-.highlight-card.subpage-reveal.is-visible,
-.case-item.subpage-reveal.is-visible,
-.team-item.subpage-reveal.is-visible {
+/* 卡片/容器类 subpage-reveal：入场动画完成后只保留 hover 过渡 */
+.subpage-reveal.is-visible.card,
+.subpage-reveal.is-visible.glass-card,
+.subpage-reveal.is-visible.feature-card,
+.subpage-reveal.is-visible.hi-card,
+.subpage-reveal.is-visible.hi-overview-card,
+.subpage-reveal.is-visible.doc-card,
+.subpage-reveal.is-visible.thesis-card,
+.subpage-reveal.is-visible.social-card,
+.subpage-reveal.is-visible.project-card,
+.subpage-reveal.is-visible.metric-card-small,
+.subpage-reveal.is-visible.metric-card,
+.subpage-reveal.is-visible.info-card,
+.subpage-reveal.is-visible.note-card,
+.subpage-reveal.is-visible.highlight-card,
+.subpage-reveal.is-visible.case-item,
+.subpage-reveal.is-visible.team-item {
     opacity: 1;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -645,9 +631,6 @@ section,
 
     .navbar {
         padding: 0.72rem 0;
-    }
-
-    .navbar.scrolled {
     }
 
     .nav-container {
@@ -1002,3 +985,46 @@ section,
 }
 
 
+/* ========================================
+   通用动画 Keyframes
+   ======================================== */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ========================================
+   prefers-reduced-motion 全局降级
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal-item,
+    .subpage-reveal {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .btn::after {
+        display: none;
+    }
+}
