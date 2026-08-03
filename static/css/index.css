@@ -614,31 +614,12 @@ a.skill-link {
     display: flex;
     flex-direction: column;
     position: relative;
-    isolation: isolate;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: var(--radius);
-    background: linear-gradient(120deg, transparent 30%, rgba(99, 102, 241, 0.35), rgba(89, 212, 255, 0.25), transparent 70%);
-    background-size: 200% 100%;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-
-.project-card:hover::before {
-    opacity: 1;
-    animation: shimmer 1.8s ease-in-out infinite;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(99, 102, 241, 0.3), 0 0 28px rgba(99, 102, 241, 0.12);
 }
 
 .project-card.project-card-image {
@@ -1755,12 +1736,9 @@ textarea.form-control {
         transform: translateX(4%);
     }
 
-    /* 平板端：禁用项目卡片光效（性能） */
-    .project-card::before {
-        display: none;
-    }
-
+    /* 平板端：简化卡片悬浮效果 */
     .project-card:hover {
+        transform: translateY(-6px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
@@ -1976,10 +1954,6 @@ textarea.form-control {
                    float 6s ease-in-out infinite 1s;
     }
 
-    .project-card::before {
-        display: none;
-    }
-
     .gallery-slide,
     .gallery-slide.slide-from-left,
     .gallery-slide.slide-from-right,
@@ -2011,8 +1985,7 @@ textarea.form-control {
         transform: none;
     }
 
-    .hero::before,
-    .project-card::before {
+    .hero::before {
         display: none;
     }
 

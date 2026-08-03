@@ -132,11 +132,12 @@ function applyLocaleBlocks() {
 }
 
 function hydrateRevealItems() {
+    // 只标记实际内容元素，不标记容器（容器提前显示会导致内容动画"脱节"）
     const autoGroups = [
-        '.section-header',
-        '.projects-group .projects-group-header',
-        '.projects-group .projects-group-title',
-        '.projects-group .projects-group-desc',
+        '.section-header .section-title',
+        '.section-header .section-subtitle',
+        '.projects-group-header .projects-group-title',
+        '.projects-group-header .projects-group-desc',
         '.projects-group .project-card',
         '.projects-group .project-card-mini',
         '.about .about-text',
@@ -168,7 +169,7 @@ function hydrateRevealItems() {
 
         const orderedItems = sortByVisualFlow(Array.from(section.querySelectorAll('.reveal-item')));
         orderedItems.forEach((el, idx) => {
-            const delay = 80 + idx * 100;
+            const delay = 60 + idx * 60;
             el.style.setProperty('--reveal-delay', `${delay}ms`);
         });
     });
@@ -622,8 +623,8 @@ function initSectionReveal() {
             }
         });
     }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.04,
+        rootMargin: '0px 0px -20px 0px'
     });
 
     function checkVisibleSections() {
