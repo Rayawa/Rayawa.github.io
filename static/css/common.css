@@ -296,24 +296,6 @@ section,
     transition: var(--transition);
     border: 2px solid transparent;
     cursor: pointer;
-    position: relative;
-    z-index: 0;
-}
-
-.btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
-    transform: translateX(-110%);
-    transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.btn:hover::after {
-    transform: translateX(110%);
 }
 
 .btn:hover {
@@ -576,13 +558,18 @@ section,
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.reveal-seq .reveal-item:nth-child(1) { --reveal-delay: 80ms; }
-.reveal-seq .reveal-item:nth-child(2) { --reveal-delay: 180ms; }
-.reveal-seq .reveal-item:nth-child(3) { --reveal-delay: 280ms; }
-.reveal-seq .reveal-item:nth-child(4) { --reveal-delay: 380ms; }
-.reveal-seq .reveal-item:nth-child(5) { --reveal-delay: 480ms; }
-.reveal-seq .reveal-item:nth-child(6) { --reveal-delay: 580ms; }
-.reveal-seq .reveal-item:nth-child(7) { --reveal-delay: 680ms; }
+.reveal-seq .reveal-item:nth-child(1) { --reveal-delay: 60ms; }
+.reveal-seq .reveal-item:nth-child(2) { --reveal-delay: 120ms; }
+.reveal-seq .reveal-item:nth-child(3) { --reveal-delay: 180ms; }
+.reveal-seq .reveal-item:nth-child(4) { --reveal-delay: 240ms; }
+.reveal-seq .reveal-item:nth-child(5) { --reveal-delay: 300ms; }
+.reveal-seq .reveal-item:nth-child(6) { --reveal-delay: 360ms; }
+.reveal-seq .reveal-item:nth-child(7) { --reveal-delay: 420ms; }
+.reveal-seq .reveal-item:nth-child(8) { --reveal-delay: 480ms; }
+.reveal-seq .reveal-item:nth-child(9) { --reveal-delay: 540ms; }
+.reveal-seq .reveal-item:nth-child(10) { --reveal-delay: 600ms; }
+.reveal-seq .reveal-item:nth-child(11) { --reveal-delay: 660ms; }
+.reveal-seq .reveal-item:nth-child(12) { --reveal-delay: 720ms; }
 
 .lang-fade-target {
     transition: opacity var(--fade-duration) var(--fade-ease), transform var(--fade-duration) var(--fade-ease);
@@ -1022,9 +1009,5 @@ section,
         opacity: 1;
         visibility: visible;
         transform: none;
-    }
-
-    .btn::after {
-        display: none;
     }
 }
