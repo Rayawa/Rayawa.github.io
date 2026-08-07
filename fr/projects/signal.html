@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mesure de Signaux Faibles | Ray Chen</title>
-  <meta name="description" content="Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino">
-  <meta name="keywords" content="signal faible, Arduino, développement embarqué, amplificateur transimpédance, capteur PSD, concours de physique, mesure de signal, évaluation d'incertitude, algorithme de filtrage, génie des communications, Ray Chen">
+  <title>Mesure de Signaux Faibles par Amplification à Levier Optique | Ray Chen</title>
+  <meta name="description" content="Conception et réalisation d'un système de mesure de signaux électriques faibles basé sur l'amplification à levier optique — combinant induction électromagnétique, déviation mécanique et amplification optique pour la détection indirecte et l'analyse numérique.">
+  <meta name="keywords" content="signal faible, levier optique, capteur PSD, conversion électromagnétique, Arduino, développement embarqué, ADS1115, AD8628, Si4713, opérateur de normalisation, calibration, évaluation d'incertitude, amplification physique, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
@@ -19,8 +19,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/fr/projects/signal.html">
-  <meta property="og:title" content="Mesure de Signaux Faibles | Ray Chen">
-  <meta property="og:description" content="Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino">
+  <meta property="og:title" content="Mesure de Signaux Faibles par Amplification à Levier Optique | Ray Chen">
+  <meta property="og:description" content="Conception et réalisation d'un système de mesure de signaux électriques faibles basé sur l'amplification à levier optique.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,8 +28,8 @@
   <meta property="og:site_name" content="Site Web de Ray Chen">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/fr/projects/signal.html">
-  <meta name="twitter:title" content="Mesure de Signaux Faibles | Ray Chen">
-  <meta name="twitter:description" content="Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino">
+  <meta name="twitter:title" content="Mesure de Signaux Faibles par Amplification à Levier Optique | Ray Chen">
+  <meta name="twitter:description" content="Conception et réalisation d'un système de mesure de signaux électriques faibles basé sur l'amplification à levier optique.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,84 +46,467 @@
   <div id="particles-js"></div>
 
   <main class="page signal-page">
+    <!-- ===== Hero ===== -->
     <section class="signal-hero">
-      <h1>Mesure de Signaux Électriques Faibles</h1>
-      <p class="signal-hero-desc">Conception d'un système de mesure de signaux électriques faibles basé sur le développement embarqué Arduino</p>
+      <span class="signal-hero-badge">Génie des Communications · Projet d'Innovation en Physique</span>
+      <h1>Système de Mesure de Signaux Électriques Faibles<br><small>Basé sur l'Amplification à Levier Optique</small></h1>
+      <p class="signal-hero-desc">Pour répondre aux problèmes de faible amplitude, de susceptibilité au bruit et de difficulté de mesure directe des signaux électriques faibles, ce système utilise une chaîne de conversion multi-étages — « signal électrique → déviation mécanique → déplacement optique → sortie numérique » — pour réaliser la détection indirecte et l'analyse quantitative des signaux électriques faibles.</p>
+      <div class="signal-hero-actions">
+        <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> Lire l'article complet (PDF)</a>
+      </div>
     </section>
 
-    <section class="signal-panel">
-      <div class="signal-panel-head">
-        <h2>Résumé</h2>
-      </div>
+    <!-- ===== Résumé ===== -->
+    <section class="signal-abstract-panel">
       <div class="signal-abstract-grid">
         <div class="signal-abstract-text">
-          <p>Cet article présente un système basé sur Arduino pour la mesure de signaux électriques faibles, abordant les problèmes de faible sensibilité et d'interférences environnementales. Le système combine l'amplification mécanique avec le conditionnement de signal et le traitement embarqué Arduino pour l'acquisition et le calcul des données. Un algorithme de normalisation et des méthodes de réduction du bruit à plusieurs étapes sont appliqués pour améliorer la stabilité et la robustesse. La structure du système, la mise en œuvre matérielle, les algorithmes logiciels, les méthodes d'étalonnage, ainsi que les sources d'erreur et les incertitudes sont analysées et évaluées, et les performances du système sont vérifiées par des procédures expérimentales. De plus, une analyse des coûts est réalisée pour démontrer sa faisabilité économique. Les scénarios d'application et les limites sont également discutés. Les résultats montrent que le système peut réaliser une mesure stable des signaux électriques faibles avec une valeur pratique.</p>
-          <p class="signal-keywords"><span class="signal-keywords-label">Mots-clés : </span>Arduino; Signal Électrique Faible; Amplificateur Transimpédance; Capteur PSD; Évaluation de l'Incertitude</p>
-          <div class="signal-hero-actions">
-            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> Lire l'article</a>
+          <p>Pour résoudre les problèmes de faible amplitude, de susceptibilité au bruit et de difficulté de mesure directe des signaux électriques faibles, cet article présente un système de mesure basé sur la conversion et l'amplification à levier optique. Le système reçoit des signaux électromagnétiques faibles via une bobine réceptrice et convertit les variations de courant induit en réponses de déviation mécanique par interaction électromagnétique. Combiné à une structure de levier optique et à un capteur PSD, le système réalise l'amplification optique et la détection de petits déplacements angulaires. Le conditionnement du signal, la conversion analogique-numérique, le traitement embarqué des données et un module d'étalonnage sont utilisés pour établir la relation entre le courant d'entrée et la sortie PSD. La structure du système, le principe de fonctionnement et les sources d'erreur sont analysés, et un schéma de vérification expérimentale est proposé.</p>
+          <p class="signal-abstract-keywords"><span>Mots-clés : </span>Signal Électrique Faible ; Levier Optique ; Conversion Magnétoélectrique ; Capteur PSD ; Traitement Embarqué des Données</p>
+          <div class="signal-abstract-actions">
+            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Télécharger l'article (PDF, 32 pages)</a>
+            <a class="button" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener"><i class="fas fa-table"></i> Liste du matériel</a>
           </div>
         </div>
         <div class="signal-doc-image">
-          <img src="../../static/resources/signal/doc.png" alt="Document de l'article">
+          <div class="doc-placeholder">
+            <i class="fas fa-file-pdf"></i>
+            <span>doc.pdf</span>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ===== Chapitre 2 · Conception Globale du Système ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§2</span> Conception Globale du Système</h2>
+        <p>Architecture modulaire et chaîne de conversion multi-étages</p>
+      </div>
+      <div class="signal-card">
+        <p>Le système utilise un cadre rectangulaire comme structure de support mécanique globale, adoptant une approche de <strong>conception modulaire</strong> qui divise l'ensemble de l'appareil en quatre modules fonctionnels. La direction longitudinale du cadre sert de chemin principal pour la conversion du signal et la détection optique : le côté gauche abrite la structure de déviation suspendue, tandis que le côté droit accueille l'émission laser, la détection de position du spot et les circuits de traitement des données. Le module de réception du signal et le module de déviation utilisent une <strong>structure de bobine intégrée</strong> enroulée à partir d'un seul fil de cuivre continu. Le module de génération de signal faible est situé à l'extérieur pour produire des signaux faibles contrôlables. Pour atténuer les interférences environnementales, l'ensemble de l'appareil intègre un blindage électromagnétique, avec la section de traitement des données isolée par un boîtier de blindage métallique.</p>
+      </div>
+
+      <div class="signal-feature-grid" style="margin-top:1rem;">
+        <div class="signal-feature-item">
+          <i class="fas fa-broadcast-tower"></i>
+          <strong>Génération du Signal</strong>
+          <span>Émetteur RF Si4713<br>Modulation audio par PC</span>
+        </div>
+        <div class="signal-feature-item">
+          <i class="fas fa-satellite-dish"></i>
+          <strong>Réception du Signal</strong>
+          <span>Bobine réceptrice + aimants<br>Induction électromagnétique</span>
+        </div>
+        <div class="signal-feature-item">
+          <i class="fas fa-compass"></i>
+          <strong>Module de Déviation</strong>
+          <span>Bobine de déviation suspendue<br>Amplification à levier optique</span>
+        </div>
+        <div class="signal-feature-item">
+          <i class="fas fa-microchip"></i>
+          <strong>Traitement des Données</strong>
+          <span>PSD + ADS1115 + Arduino<br>Acquisition et calcul numériques</span>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-arrow-right"></i> Chaîne de Conversion du Système</h3>
+        </div>
+        <div class="signal-flow">
+          <div class="signal-flow-step">Génération du Signal</div>
+          <span class="signal-flow-arrow">→</span>
+          <div class="signal-flow-step">Induction EM</div>
+          <span class="signal-flow-arrow">→</span>
+          <div class="signal-flow-step">Conversion Magnétoélectrique</div>
+          <span class="signal-flow-arrow">→</span>
+          <div class="signal-flow-step">Déviation Mécanique</div>
+          <span class="signal-flow-arrow">→</span>
+          <div class="signal-flow-step">Détection Optique</div>
+          <span class="signal-flow-arrow">→</span>
+          <div class="signal-flow-step">Traitement des Données</div>
+        </div>
+        <p style="color:rgba(255,255,255,0.38);font-size:0.8rem;text-align:center;margin-top:0.5rem;">Électrique → Mécanique → Optique → Numérique</p>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 3 · Module de Génération de Signal Faible ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§3</span> Module de Génération de Signal Faible</h2>
+        <p>Source de signal de test stable et contrôlable</p>
+      </div>
+
+      <div class="signal-panel">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-microchip"></i> Conception et Réalisation du Circuit</h3>
+          <p>Modulation audio par ordinateur + émission RF Si4713</p>
+        </div>
+        <div class="signal-card">
+          <p>Le module de génération de signal faible se compose d'une <strong>interface de sortie audio de l'ordinateur</strong>, d'une <strong>unité de contrôle Arduino</strong> et d'une <strong>puce émettrice RF Si4713</strong>. L'ordinateur génère des signaux de modulation basse fréquence avec une amplitude et une fréquence contrôlables, transmis aux entrées audio LIN et RIN du Si4713 via une prise jack 3,5 mm. L'Arduino initialise et configure le Si4713 via l'interface de communication I2C. Le Si4713 intègre la synthèse de fréquence, le contrôle de modulation et les fonctions de sortie RF, modulant le signal audio d'entrée sur une porteuse RF spécifiée et le transmettant via une antenne.</p>
+        </div>
+        <div class="signal-grid-2" style="margin-top:0.8rem;">
+          <figure class="signal-image-card">
+            <img src="../../static/resources/signal/发生模块接线示意图.png" alt="Schéma de câblage du module de génération" loading="lazy">
+            <figcaption>Figure — Schéma de Câblage du Module de Génération</figcaption>
+          </figure>
+          <figure class="signal-image-card">
+            <img src="../../static/resources/signal/发生模块电路原理图.png" alt="Schéma de circuit du module de génération" loading="lazy">
+            <figcaption>Figure — Schéma de Circuit du Module de Génération</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="signal-panel" style="margin-top:1.2rem;">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-code"></i> Conception et Réalisation du Programme</h3>
+          <p>Génération du signal et contrôle de l'émission RF</p>
+        </div>
+        <div class="signal-card">
+          <p>Le signal de modulation basse fréquence est généré par la sortie audio de l'ordinateur (un script Python génère l'onde sinusoïdale), tandis que l'Arduino gère la communication et le contrôle avec le Si4713. Le programme initialise le Si4713 via le bus I2C, définit la puissance de sortie RF avec <code>setTXpower()</code> et configure la fréquence porteuse via <code>radio.tuneFM()</code>. Par rapport aux méthodes traditionnelles de génération de formes d'onde numériques, cette approche exploite la sortie audio de l'ordinateur pour une génération de signal de modulation basse fréquence de haute stabilité, combinée à la modulation et à l'émission RF du Si4713, améliorant la précision du contrôle de la fréquence et de l'amplitude du signal d'entrée.</p>
+          <div class="signal-grid-2" style="margin-top:0.8rem;">
+            <a class="signal-file-card" href="../../static/resources/signal/script.py" target="_blank" rel="noopener">
+              <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
+              <div class="signal-file-info">
+                <h4>Générateur d'Onde Sinusoïdale 100Hz</h4>
+                <span class="signal-file-ext">script.py</span>
+                <p>Script Python utilisant la bibliothèque sounddevice pour générer un signal de modulation sinusoïdal 100Hz</p>
+              </div>
+            </a>
+            <a class="signal-file-card" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
+              <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+              <div class="signal-file-info">
+                <h4>Programme du Module de Génération</h4>
+                <span class="signal-file-ext">signal.ino</span>
+                <p>Programme Arduino pour l'initialisation du Si4713, la configuration des paramètres et le contrôle de l'état de fonctionnement avec gestion des erreurs</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 4 · Module de Réception du Signal ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§4</span> Module de Réception du Signal</h2>
+        <p>Première conversion : signal de champ en signal de courant</p>
+      </div>
+      <div class="signal-card">
+        <p>Le module de réception du signal adopte une <strong>conception structurelle légère et mobile</strong>, composée principalement d'une bobine réceptrice et d'aimants permanents qui établissent un champ magnétique stable. La bobine réceptrice utilise une <strong>structure à enroulement multi-spires</strong> pour augmenter la force électromotrice induite lors des variations du champ magnétique alternatif. Des aimants NdFeB avec des pôles opposés sont disposés de chaque côté de la bobine, créant un environnement de champ magnétique directionnellement stable dans la région de la bobine.</p>
+        <p>Lorsqu'un signal de courant alternatif faible externe se propage dans l'espace en créant un champ magnétique variable, le flux magnétique à travers la bobine réceptrice varie dans le temps. Selon la <strong>loi de Faraday sur l'induction électromagnétique</strong>, une force électromotrice induite est générée, produisant à son tour un courant induit. Ce courant est transmis via une boucle fermée à la bobine de déviation, fournissant le courant d'entraînement pour le processus de conversion magnétoélectrique ultérieur.</p>
+        <p>La bobine réceptrice et la bobine de déviation sont <strong>directement connectées</strong> (structure de bobine intégrée), réduisant la perte de signal et les interférences supplémentaires pendant la transmission. Cela évite l'impact de la résistance de contact et des problèmes de stabilité de connexion inhérents aux connexions séparées traditionnelles, améliorant ainsi la sensibilité globale du système.</p>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 5 · Module de Déviation ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§5</span> Module de Déviation</h2>
+        <p>Cœur de l'amplification physique du signal</p>
+      </div>
+      <div class="signal-card">
+        <p>Le module de déviation est le composant central pour réaliser l'<strong>amplification physique</strong> des signaux faibles. Il se compose d'une bobine de déviation suspendue, d'aimants permanents, d'un réflecteur et d'une structure de support mécanique. La bobine de déviation est suspendue au cadre par deux fils de cuivre fins connectés à la bobine réceptrice, avec des aimants NdFeB disposés de chaque côté. Un réflecteur est fixé à la bobine de déviation et tourne de manière synchrone avec elle. Un faisceau laser collimaté provenant du côté droit frappe le réflecteur et est réfléchi vers un détecteur sensible à la position (PSD) unidimensionnel à droite.</p>
+        <p>Lorsque le courant induit <em>I</em> traverse la bobine de déviation, la bobine parcourue par le courant subit une force d'Ampère dans le champ magnétique constant <em>B</em> produit par les aimants, générant un couple de rotation. Le fil de suspension produit simultanément un couple de rappel. Lorsque le couple d'Ampère et le couple de rappel atteignent l'équilibre, le système atteint un état de déviation stable. Selon la loi de réflexion, le réflecteur produit une déviation angulaire de 2θ dans le laser réfléchi, qui parcourt une distance <em>D</em> avant d'atteindre la surface de détection du PSD.</p>
+        <div class="signal-formula">I = (2kD / NB) · x &nbsp; → &nbsp; x ∝ I</div>
+        <p>Dans des conditions de déviation à petit angle (θ ≤ 5°), la position du spot réfléchi et le courant de la bobine de déviation satisfont une <strong>relation approximativement linéaire</strong>. Le module de déviation convertit les signaux de courant faibles en signaux de position optique observables, fournissant la base pour la détection et la quantification ultérieures par le module de traitement des données.</p>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 6 · Module de Traitement des Données ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§6</span> Module de Traitement des Données</h2>
+        <p>Détection du signal optique, conversion des données et sortie des mesures</p>
+      </div>
+
+      <div class="signal-panel">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-calculator"></i> 6.1 Principes de Calcul</h3>
+        </div>
+        <div class="signal-card">
+          <p><strong>Opérateur de Position Normalisé P</strong> — Le PSD utilise une structure à double sortie ; les deux signaux de sortie sont I<sub>a</sub> et I<sub>b</sub>. Pour éliminer les effets des fluctuations de puissance laser, des variations de lumière ambiante et des différences de gain des composants, un opérateur de normalisation est introduit :</p>
+          <div class="signal-formula">P = (I<sub>b</sub> − I<sub>a</sub>) / (I<sub>a</sub> + I<sub>b</sub>)&emsp;−1 ≤ P ≤ 1</div>
+          <p>Dans la plage de fonctionnement du système, l'opérateur de normalisation P et le courant induit I satisfont une relation approximativement linéaire :</p>
+          <div class="signal-formula">I = C · P + b</div>
+          <p>où C est le coefficient de conversion et b est le terme de correction du décalage zéro du système, obtenus par des expériences d'étalonnage.</p>
+
+          <p style="margin-top:1rem;"><strong>Fréquence du Signal f</strong> — En acquérant en continu les signaux de sortie PSD et en analysant la forme d'onde temporelle de l'opérateur de normalisation, la période est déterminée par détection de passage par zéro :</p>
+          <div class="signal-formula">f = 1 / T = 1 / (t<sub>2</sub> − t<sub>1</sub>)</div>
+
+          <p style="margin-top:1rem;"><strong>Amplitude de la FEM U</strong> — La bobine réceptrice et la bobine de déviation sont connectées en série. L'impédance équivalente du système est déterminée par les paramètres de résistance et d'inductance des bobines, mesurés à l'aide d'un pont numérique LCR :</p>
+          <div class="signal-formula">U = I · |Z| = I · √(R² + (2πfL)²)</div>
+        </div>
+      </div>
+
+      <div class="signal-panel" style="margin-top:1.2rem;">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-microchip"></i> 6.2 Conception et Réalisation du Circuit</h3>
+          <p>PSD + conditionnement AD8628 + échantillonnage ADS1115 + Arduino</p>
+        </div>
+        <div class="signal-card">
+          <p>Le module de traitement des données se compose d'un <strong>capteur PSD</strong>, d'un <strong>circuit de conditionnement AD8628</strong>, d'un <strong>module ADC ADS1115</strong> et d'une <strong>unité de contrôle Arduino</strong>. Le PSD utilise l'effet photoélectrique latéral pour générer deux signaux de sortie de photocourant différentiel basés sur la distribution d'énergie du spot lumineux sur la surface de détection. L'AD8628 forme un amplificateur à transimpédance pour la conversion courant-tension (faible courant de polarisation d'entrée et faible tension de décalage). L'ADS1115 effectue une conversion analogique-numérique de haute précision 16 bits et communique avec l'Arduino via l'interface I2C.</p>
+        </div>
+        <div class="signal-grid-2" style="margin-top:0.8rem;">
+          <figure class="signal-image-card">
+            <img src="../../static/resources/signal/数据转换模块接线示意图.png" alt="Schéma de câblage du module de conversion de données" loading="lazy">
+            <figcaption>Figure — Schéma de Câblage du Module de Conversion</figcaption>
+          </figure>
+          <figure class="signal-image-card">
+            <img src="../../static/resources/signal/数据转换模块电路原理图.png" alt="Schéma de circuit du module de conversion de données" loading="lazy">
+            <figcaption>Figure — Schéma de Circuit du Module de Conversion</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="signal-panel" style="margin-top:1.2rem;">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-code"></i> 6.3 Conception et Réalisation du Programme</h3>
+          <p>Acquisition de données, normalisation, filtrage numérique et conversion des paramètres</p>
+        </div>
+        <div class="signal-card">
+          <p>Le programme adopte une <strong>conception modulaire</strong>, comprenant la compensation de la lumière ambiante, la conversion des données, le filtrage par moyenne mobile et la sortie des résultats. La compensation de la lumière ambiante réduit l'effet de la lumière de fond sur la sortie PSD. Le filtre à moyenne mobile débruite l'opérateur de position normalisé, réduisant l'impact du bruit aléatoire sur les résultats de mesure. Les données filtrées sont utilisées pour calculer la position du spot, le courant, la tension et les paramètres de fréquence.</p>
+          <a class="signal-file-card" href="../../static/resources/signal/measure.ino" target="_blank" rel="noopener" style="margin-top:0.8rem;">
+            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+            <div class="signal-file-info">
+              <h4>Programme du Module de Mesure</h4>
+              <span class="signal-file-ext">measure.ino</span>
+              <p>Programme Arduino pour l'acquisition de données, la compensation de la lumière ambiante, le filtrage par moyenne mobile, la détection de fréquence par passage à zéro et la sortie des paramètres</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 7 · Étalonnage du Système ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§7</span> Étalonnage du Système et Modèle Quantitatif</h2>
+        <p>Établir la relation de conversion quantitative entre le courant d'entrée et la sortie PSD</p>
+      </div>
+
+      <div class="signal-panel">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-balance-scale"></i> 7.1 Principe d'Étalonnage</h3>
+        </div>
+        <div class="signal-card">
+          <p>Pour obtenir des valeurs d'entrée précises pour l'étalonnage du système, une <strong>résistance de mesure de précision</strong> est connectée en série avec la boucle de la bobine de déviation. Le courant réel de la bobine est obtenu en mesurant la tension aux bornes de la résistance : I = V<sub>R</sub> / R<sub>s</sub>. Pendant l'étalonnage, l'Arduino produit des signaux PWM à différents rapports cycliques, faisant varier progressivement le courant de la bobine de déviation. Plusieurs paires de données (I<sub>i</sub>, P<sub>i</sub>) sont collectées, et le coefficient de conversion C ainsi que le décalage zéro b sont déterminés par <strong>ajustement par moindres carrés</strong>.</p>
+        </div>
+      </div>
+
+      <div class="signal-panel" style="margin-top:1.2rem;">
+        <div class="signal-panel-head">
+          <h3><i class="fas fa-microchip"></i> 7.2 Circuit du Module d'Étalonnage</h3>
+          <p>Section de sortie de courant + section de calcul du coefficient de conversion</p>
+        </div>
+        <div class="signal-card">
+          <p>Le module d'étalonnage se compose d'une <strong>section de sortie de courant</strong> et d'une <strong>section de calcul du coefficient de conversion</strong>. La section de sortie de courant fournit un courant d'entrée standard contrôlable et mesurable à la bobine. La section de calcul réutilise le même matériel de traitement de données que le processus de mesure réel (PSD + AD8628 + ADS1115 + Arduino), nécessitant seulement un changement de programme sur l'Arduino pour basculer entre les modes d'étalonnage et de mesure — garantissant des chemins de transmission de signal identiques entre l'étalonnage et la mesure.</p>
+        </div>
+        <div class="signal-grid-2" style="margin-top:0.8rem;">
+          <figure class="signal-image-card">
+            <img src="../../static/resources/signal/标定模块接线示意图.png" alt="Schéma de câblage du module d'étalonnage" loading="lazy">
+            <figcaption>Figure — Schéma de Câblage du Module d'Étalonnage</figcaption>
+          </figure>
+          <figure class="signal-image-card">
+            <img src="../../static/resources/signal/标定模块电路原理图.png" alt="Schéma de circuit du module d'étalonnage" loading="lazy">
+            <figcaption>Figure — Schéma de Circuit du Module d'Étalonnage</figcaption>
+          </figure>
+        </div>
+        <div class="signal-grid-2" style="margin-top:0.8rem;">
+          <a class="signal-file-card" href="../../static/resources/signal/current.ino" target="_blank" rel="noopener">
+            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+            <div class="signal-file-info">
+              <h4>Programme de Sortie de Courant</h4>
+              <span class="signal-file-ext">current.ino</span>
+              <p>Programme Arduino pour le contrôle PWM à sept niveaux, le changement de niveau par bouton-poussoir et la mesure du courant par résistance</p>
+            </div>
+          </a>
+          <a class="signal-file-card" href="../../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
+            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+            <div class="signal-file-info">
+              <h4>Programme de Calcul du Coefficient</h4>
+              <span class="signal-file-ext">calibrate.ino</span>
+              <p>Programme Arduino pour l'acquisition double canal ADS1115, l'étalonnage PWM par paliers et l'ajustement par moindres carrés avec sortie automatique des valeurs recommandées</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 8 · Analyse des Erreurs ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§8</span> Analyse des Erreurs</h2>
+        <p>Sources d'erreur, évaluation de l'incertitude et stratégies d'amélioration</p>
+      </div>
+      <div class="signal-grid-2">
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-triangle" style="color:#f59e0b;"></i> Sources d'Erreur</h3>
+          <ul>
+            <li><strong>Non-uniformité du champ magnétique</strong> : la distribution spatiale non idéale du champ des aimants permanents affecte la relation force d'Ampère–angle de déviation</li>
+            <li><strong>Erreurs de structure mécanique</strong> : les propriétés du fil de suspension et les conditions de montage affectent la rigidité de torsion équivalente ; les petites variations d'angle du réflecteur et de direction du laser sont amplifiées optiquement</li>
+            <li><strong>Erreurs du circuit analogique</strong> : tension de décalage d'entrée, courant de polarisation, dérive thermique de l'amplificateur opérationnel ; variations des paramètres des composants de rétroaction</li>
+            <li><strong>Erreur de quantification du CAN</strong> : les fluctuations de la tension de référence et le bruit d'échantillonnage limitent la résolution du système</li>
+            <li><strong>Interférences environnementales</strong> : couplage EMI externe par l'espace ou les lignes d'alimentation ; dérive à long terme induite par la température</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-chart-line" style="color:#22d3ee;"></i> Modèle d'Évaluation de l'Incertitude</h3>
+          <ul>
+            <li><strong>Incertitude de type A</strong> : analyse statistique de mesures répétées, reflétant les facteurs aléatoires tels que les turbulences de l'air, les micro-vibrations mécaniques et le bruit aléatoire des circuits</li>
+            <li><strong>Incertitude de type B</strong> : évaluation basée sur la précision des instruments et les erreurs d'étalonnage des paramètres système, incluant la précision du CAN, les erreurs des paramètres de l'amplificateur et l'incertitude du coefficient de conversion</li>
+            <li><strong>Incertitude standard combinée</strong> : synthèse des composantes d'erreur indépendantes selon les lois de propagation des erreurs</li>
+            <li><strong>Incertitude élargie</strong> : introduction d'un facteur de couverture pour exprimer la plage d'erreur à un niveau de confiance donné</li>
+          </ul>
+        </div>
+      </div>
+      <div class="signal-card" style="margin-top:0.8rem;">
+        <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-shield-alt" style="color:#34d399;"></i> Stratégies d'Amélioration de la Précision</h3>
+        <p><strong>Matériel :</strong> améliorer la stabilité mécanique (protection contre le vent, support optimisé, blindage renforcé) ; optimiser le positionnement relatif aimant-bobine pour un champ plus uniforme ; raccourcir les chemins de transmission du signal analogique. <strong>Logiciel :</strong> filtrage par moyenne mobile, élimination des valeurs aberrantes, sélection appropriée des paramètres d'échantillonnage. <strong>Procédures :</strong> établir des flux de travail d'étalonnage normalisés, effectuer l'alignement du chemin optique et l'étalonnage du point zéro avant les expériences, et vérifier périodiquement les états de référence du système.</p>
+      </div>
+    </div>
+
+    <!-- ===== Chapitre 9 · Cas d'Application ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§9</span> Cas d'Application et Analyse des Effets</h2>
+        <p>Vérification de la capacité de détection à travers des scénarios expérimentaux typiques</p>
+      </div>
+      <div class="signal-grid-3">
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.5rem;"><i class="fas fa-sun" style="color:#f59e0b;"></i> Expérience d'Effet Photoélectrique</h3>
+          <p>Connecter la sortie de la photocellule à l'entrée du système, permettant au faible photocourant de circuler à travers la structure de réception et de déviation. En maintenant une fréquence de lumière incidente constante, varier l'intensité lumineuse, enregistrer les changements de position du spot et calculer les valeurs de courant correspondantes pour vérifier la capacité de détection du photocourant.</p>
+        </div>
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.5rem;"><i class="fas fa-search" style="color:#22d3ee;"></i> Détection de Signal Photoélectrique Faible</h3>
+          <p>En utilisant une source lumineuse réglable pour générer des signaux d'intensité variable, réduire progressivement l'intensité du signal d'entrée, enregistrer les changements de position de sortie PSD et déterminer la limite de détection effective du système. L'acquisition de données à entrée nulle de longue durée est également effectuée pour analyser la dérive du point zéro et les niveaux de bruit de fond.</p>
+        </div>
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.5rem;"><i class="fas fa-flask" style="color:#a78bfa;"></i> Test des Propriétés Photoélectriques des Matériaux</h3>
+          <p>Placer le matériau à tester sous une source lumineuse stable pour générer un photocourant, qui est introduit dans le système de mesure. En détectant les changements de position du spot, une comparaison quantitative des courants de sortie de différents matériaux est réalisée, permettant l'analyse de l'intensité de réponse, de la stabilité et des motifs de variation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Chapitres 10–11 · Limitations et Perspectives ===== -->
+    <div class="signal-chapter">
+      <div class="signal-chapter-head">
+        <h2><span class="chapter-num">§10–11</span> Limitations et Perspectives</h2>
+        <p>Conscience des limites du système et orientations futures d'optimisation</p>
+      </div>
+      <div class="signal-grid-2">
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-circle" style="color:#f59e0b;"></i> Limitations du Système</h3>
+          <ul>
+            <li><strong>Compromis sensibilité–vitesse de réponse</strong> : réduire la rigidité mécanique pour augmenter la sensibilité compromet la plage de réponse dynamique</li>
+            <li><strong>Plage linéaire limitée</strong> : des signaux d'entrée excessifs font sortir le spot de la zone de détection effective du PSD</li>
+            <li><strong>Contraintes de réponse en fréquence</strong> : l'inertie mécanique limite le système principalement à la détection de signaux faibles en basse fréquence ou quasi-statiques</li>
+            <li><strong>Sensibilité environnementale</strong> : dépend de conditions de laboratoire contrôlées ; les courants d'air, les vibrations et les variations de température provoquent des perturbations</li>
+            <li><strong>Réalignement optique requis</strong> : le déplacement ou le remontage de l'appareil nécessite un réalignement optique</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-rocket" style="color:#34d399;"></i> Perspectives Futures</h3>
+          <ul>
+            <li><strong>Optimisation structurelle</strong> : améliorer les matériaux du fil de suspension, réduire la masse des pièces mobiles, affiner la conception d'amortissement ; ajouter une protection contre les vibrations et le vent</li>
+            <li><strong>Optimisation du champ magnétique</strong> : améliorer l'uniformité du champ dans la région de travail pour une meilleure linéarité courant–réponse</li>
+            <li><strong>Amélioration du traitement du signal</strong> : adopter des plateformes embarquées plus performantes avec un filtrage numérique avancé et des algorithmes d'auto-étalonnage</li>
+            <li><strong>Optimisation du front-end analogique</strong> : réduire le bruit de l'amplificateur, la dérive thermique et l'erreur du CAN</li>
+            <li><strong>Extension des applications</strong> : structures de réception multicanal, capteurs plus performants, extension à la détection de faible luminosité et à l'analyse d'environnements électromagnétiques faibles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Fichiers du Projet ===== -->
     <section class="signal-module">
       <div class="signal-module-head">
         <span class="signal-module-index"><i class="fas fa-folder-open"></i></span>
         <div>
-          <h2>Fichiers du projet</h2>
-          <p>Documents de conception et ressources techniques</p>
+          <h2>Fichiers du Projet</h2>
+          <p>Tous les documents de conception, projets de circuits, codes de programme et ressources expérimentales</p>
         </div>
       </div>
+
       <div class="signal-module-grid">
-        <a class="signal-card signal-file-card" href="../../static/resources/signal/structure.SLDPRT" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/structure.SLDPRT.png" alt="Modèle 3D du dispositif"></div>
+        <a class="signal-file-card" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
+          <div class="signal-file-icon pdf"><i class="fas fa-file-pdf"></i></div>
           <div class="signal-file-info">
-            <h3>Modèle 3D du dispositif</h3>
-            <span class="signal-file-ext">structure.SLDPRT</span>
-            <p>Fichier pièce SolidWorks, modèle tridimensionnel du dispositif</p>
+            <h4>Article Complet</h4>
+            <span class="signal-file-ext">doc.pdf (1,5 Mo)</span>
+            <p>Article complet de 32 pages sur le système de mesure de signaux électriques faibles basé sur l'amplification à levier optique</p>
           </div>
         </a>
-        <a class="signal-card signal-file-card" href="../../static/resources/signal/tex.tex" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/tex.png" alt="Vue en plan du dispositif"></div>
+        <a class="signal-file-card" href="../../static/resources/signal/发生模块电路文件.fzz" target="_blank" rel="noopener">
+          <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
           <div class="signal-file-info">
-            <h3>Vue en plan du dispositif</h3>
-            <span class="signal-file-ext">tex.tex</span>
-            <p>Source LaTeX, disposition du dispositif et annotations de dimensions</p>
+            <h4>Circuit du Module de Génération</h4>
+            <span class="signal-file-ext">发生模块电路文件.fzz</span>
+            <p>Projet Fritzing — schéma de circuit et conception de câblage du module émetteur RF Si4713</p>
           </div>
         </a>
-        <a class="signal-card signal-file-card" href="../../static/resources/signal/circuit.fzz" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/circuit.png" alt="Circuit du système"></div>
+        <a class="signal-file-card" href="../../static/resources/signal/数据转换模块电路文件.fzz" target="_blank" rel="noopener">
+          <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
           <div class="signal-file-info">
-            <h3>Circuit du système</h3>
-            <span class="signal-file-ext">circuit.fzz</span>
-            <p>Fichier projet Fritzing, schéma électrique et conception PCB</p>
+            <h4>Circuit du Module de Conversion</h4>
+            <span class="signal-file-ext">数据转换模块电路文件.fzz</span>
+            <p>Projet Fritzing — conception du circuit de traitement PSD + AD8628 + ADS1115</p>
           </div>
         </a>
-        <a class="signal-card signal-file-card" href="../../static/resources/signal/filter.cpp" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Code de l'algorithme de filtrage"></div>
+        <a class="signal-file-card" href="../../static/resources/signal/标定模块电路文件.fzz" target="_blank" rel="noopener">
+          <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
           <div class="signal-file-info">
-            <h3>Code de l'algorithme de filtrage</h3>
-            <span class="signal-file-ext">filter.cpp</span>
-            <p>Implémentation de l'algorithme de filtrage numérique, réduction du bruit et traitement des données</p>
+            <h4>Circuit du Module d'Étalonnage</h4>
+            <span class="signal-file-ext">标定模块电路文件.fzz</span>
+            <p>Projet Fritzing — circuit de commande PWM et de détection de courant par résistance</p>
           </div>
         </a>
-        <a class="signal-card signal-file-card" href="../../static/resources/signal/expenditure.xlsx" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/expenditure.png" alt="Budget de l'expérience"></div>
+        <a class="signal-file-card" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
+          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
           <div class="signal-file-info">
-            <h3>Budget de l'expérience</h3>
-            <span class="signal-file-ext">expenditure.xlsx</span>
-            <p>Tableur Excel, détails des équipements et du budget</p>
+            <h4>Programme de Génération</h4>
+            <span class="signal-file-ext">signal.ino</span>
+            <p>Programme Arduino — initialisation et configuration du Si4713, contrôle de l'émission RF</p>
           </div>
         </a>
-        <a class="signal-card signal-file-card" href="../../static/resources/signal/loop.cpp" target="_blank" rel="noopener">
-          <div class="signal-file-thumb"><img src="../../static/resources/signal/code.png" alt="Code du programme de boucle principale"></div>
+        <a class="signal-file-card" href="../../static/resources/signal/measure.ino" target="_blank" rel="noopener">
+          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
           <div class="signal-file-info">
-            <h3>Code du programme de boucle principale</h3>
-            <span class="signal-file-ext">loop.cpp</span>
-            <p>Programme de boucle principale Arduino, acquisition de données et contrôle du système</p>
+            <h4>Programme de Mesure</h4>
+            <span class="signal-file-ext">measure.ino</span>
+            <p>Programme Arduino — acquisition PSD, compensation de la lumière ambiante, filtrage numérique et calcul des paramètres</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/current.ino" target="_blank" rel="noopener">
+          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+          <div class="signal-file-info">
+            <h4>Programme de Source de Courant</h4>
+            <span class="signal-file-ext">current.ino</span>
+            <p>Programme Arduino — contrôle PWM à sept niveaux et mesure du courant par résistance</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
+          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+          <div class="signal-file-info">
+            <h4>Programme d'Étalonnage</h4>
+            <span class="signal-file-ext">calibrate.ino</span>
+            <p>Programme Arduino — acquisition double canal, étalonnage par paliers et ajustement par moindres carrés</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/script.py" target="_blank" rel="noopener">
+          <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
+          <div class="signal-file-info">
+            <h4>Script de Génération de Signal</h4>
+            <span class="signal-file-ext">script.py</span>
+            <p>Script Python — génère un signal de modulation sinusoïdal 100Hz avec la bibliothèque sounddevice</p>
+          </div>
+        </a>
+        <a class="signal-file-card" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+          <div class="signal-file-icon xlsx"><i class="fas fa-table"></i></div>
+          <div class="signal-file-info">
+            <h4>Liste du Matériel</h4>
+            <span class="signal-file-ext">实验器材表.xlsx</span>
+            <p>Feuille Excel — inventaire complet de l'équipement avec spécifications et paramètres</p>
           </div>
         </a>
       </div>
