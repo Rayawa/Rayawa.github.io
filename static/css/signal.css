@@ -1,614 +1,734 @@
-/* ============================================================
-   微弱电信号测量系统 — Signal Measurement System
-   基于光杠杆放大的微弱电信号测量系统设计与实现
-   层级体系：
-   .signal-page          → 页面主容器
-   .signal-hero          → 顶部标题区
-   .signal-chapter       → 章节外框容器（对应论文各章）
-     .signal-chapter-head → 章节标题
-     .signal-panel       → 子区段面板
-       .signal-panel-head → 子区段标题
-       .signal-card      → 内容卡片
-   .signal-module        → 项目文件下载区
-   ============================================================ */
+/* ================================================================
+   Signal — Weak Electrical Signal Measurement System
+   基于光杠杆放大的微弱电信号测量系统
 
-/* ===== 页面容器 ===== */
-.signal-page {
-  max-width: 1140px;
+   Design: "Signal Flow" — 信号的旅程
+   A complete redesign with bold visual identity, rich typography,
+   and immersive storytelling through the measurement chain.
+   ================================================================ */
+
+/* -------- Custom Properties -------- */
+:root {
+  --sig-bg: #060b18;
+  --sig-surface: rgba(15, 20, 40, 0.7);
+  --sig-surface-raised: rgba(20, 28, 52, 0.85);
+  --sig-border: rgba(255, 255, 255, 0.06);
+  --sig-border-active: rgba(129, 140, 248, 0.3);
+  --sig-accent: #818cf8;
+  --sig-accent-deep: #6366f1;
+  --sig-accent-glow: rgba(99, 102, 241, 0.25);
+  --sig-cyan: #22d3ee;
+  --sig-amber: #f59e0b;
+  --sig-green: #34d399;
+  --sig-rose: #fb7185;
+  --sig-text: rgba(230, 235, 250, 0.88);
+  --sig-text-dim: rgba(230, 235, 250, 0.52);
+  --sig-text-faint: rgba(230, 235, 250, 0.32);
+  --sig-radius: 18px;
+  --sig-radius-sm: 12px;
+  --sig-transition: 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* ===== Hero 标题区 ===== */
+/* -------- Page Container -------- */
+.signal-page {
+  max-width: 1240px;
+}
+
+/* ================================================================
+   HERO — 顶层视觉焦点
+   ================================================================ */
 .signal-hero {
+  position: relative;
+  text-align: center;
+  padding: 1.2rem 0 2.4rem;
+  margin-bottom: 2.2rem;
   border: none;
   background: none;
-  border-radius: 0;
   box-shadow: none;
-  padding: 0;
-  margin-bottom: 2rem;
-  position: relative;
 }
 
-.signal-hero-badge {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
+.signal-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
+
+.signal-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sig-accent);
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.18);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1.6rem;
+}
+
+.signal-hero-eyebrow i { font-size: 0.7rem; opacity: 0.7; }
 
 .signal-hero h1 {
   margin: 0;
   color: #fff;
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.signal-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--sig-accent), var(--sig-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .signal-hero h1 small {
   display: block;
-  font-size: 0.45em;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 0.3rem;
+  font-size: 0.38em;
+  font-weight: 400;
+  color: var(--sig-text-dim);
+  margin-top: 0.5rem;
   letter-spacing: 0;
 }
 
 .signal-hero-desc {
-  color: rgba(255, 255, 255, 0.55);
-  margin-top: 1rem;
+  max-width: 680px;
+  margin: 1.4rem auto 0;
+  color: var(--sig-text-dim);
+  font-size: 1.08rem;
   line-height: 1.8;
-  font-size: 1.05rem;
-  max-width: 720px;
 }
 
-.signal-hero::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin-top: 1.8rem;
-  background: linear-gradient(90deg, #6366f1, #22d3ee);
-  border-radius: 2px;
+.signal-hero-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  margin-top: 1.6rem;
+  font-size: 0.84rem;
+  color: var(--sig-text-faint);
 }
+
+.signal-hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.signal-hero-meta i { color: var(--sig-accent); opacity: 0.6; }
 
 .signal-hero-actions {
-  margin-top: 1.4rem;
+  margin-top: 1.8rem;
   display: flex;
-  gap: 0.72rem;
+  justify-content: center;
+  gap: 0.8rem;
   flex-wrap: wrap;
 }
 
-.signal-hero-actions .button i {
-  margin-right: 0.5em;
+/* -------- Buttons -------- */
+.sig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--sig-transition);
+  border: 1px solid transparent;
 }
 
-/* ===== 章节容器 ===== */
-.signal-chapter {
-  background: rgba(255, 255, 255, 0.012);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 1.6rem 1.8rem;
-  margin-bottom: 1.5rem;
+.sig-btn-primary {
+  background: var(--sig-accent-deep);
+  color: #fff;
+  border-color: var(--sig-accent-deep);
+  box-shadow: 0 4px 20px var(--sig-accent-glow);
+}
+.sig-btn-primary:hover {
+  background: #4f46e5;
+  box-shadow: 0 6px 28px rgba(99,102,241,0.4);
+  transform: translateY(-1px);
+}
+
+.sig-btn-outline {
+  background: transparent;
+  color: var(--sig-text);
+  border-color: rgba(255,255,255,0.18);
+}
+.sig-btn-outline:hover {
+  border-color: var(--sig-accent);
+  background: rgba(99,102,241,0.06);
+}
+
+.sig-btn-ghost {
+  background: transparent;
+  color: var(--sig-text-dim);
+  border-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+}
+.sig-btn-ghost:hover { color: #fff; background: rgba(255,255,255,0.04); }
+
+/* ================================================================
+   QUICK NAV — 快速章节导航
+   ================================================================ */
+.signal-nav {
+  position: sticky;
+  top: 4.5rem;
+  z-index: 50;
+  margin-bottom: 2rem;
+  padding: 0.7rem 0;
+  background: rgba(6, 11, 24, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--sig-border);
+}
+
+.signal-nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(1.6rem, 4vw, 3.5rem);
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.signal-nav-inner::-webkit-scrollbar { display: none; }
+
+.signal-nav-pill {
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--sig-text-faint);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: var(--sig-transition);
+  white-space: nowrap;
+}
+.signal-nav-pill:hover,
+.signal-nav-pill:focus { color: #fff; background: rgba(255,255,255,0.04); }
+.signal-nav-pill.active {
+  color: var(--sig-accent);
+  background: rgba(99,102,241,0.1);
+  border-color: rgba(99,102,241,0.2);
+}
+
+/* ================================================================
+   SECTION — 通用区块
+   ================================================================ */
+.signal-section {
+  margin-bottom: 2rem;
+}
+
+.signal-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.signal-section-num {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--sig-accent-deep), #4f46e5);
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px var(--sig-accent-glow);
+}
+
+.signal-section-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.signal-section-header p {
+  margin: 0.2rem 0 0;
+  color: var(--sig-text-faint);
+  font-size: 0.84rem;
+}
+
+/* -------- Card -------- */
+.signal-card {
+  background: var(--sig-surface);
+  border: 1px solid var(--sig-border);
+  border-radius: var(--sig-radius);
+  padding: 1.6rem;
+  backdrop-filter: blur(10px);
+}
+
+.signal-card > p {
+  color: var(--sig-text);
+  line-height: 1.78;
+  margin: 0 0 0.8rem;
+  font-size: 0.95rem;
+}
+.signal-card > p:last-child { margin-bottom: 0; }
+.signal-card strong { color: #fff; font-weight: 600; }
+.signal-card em { color: var(--sig-accent); font-style: normal; }
+
+/* ================================================================
+   ABSTRACT — 摘要双栏
+   ================================================================ */
+.signal-abstract {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  background: var(--sig-surface-raised);
+  border: 1px solid var(--sig-border);
+  border-radius: var(--sig-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
 }
 
-.signal-chapter::before {
+.signal-abstract::after {
   content: '';
   position: absolute;
-  top: 0; left: 12%; right: 12%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-/* ===== 章节标题 ===== */
-.signal-chapter-head {
-  text-align: center;
-  padding: 0.2rem 0 0.8rem;
-  margin-bottom: 1rem;
-}
-
-.signal-chapter-head h2 {
-  margin: 0;
+.signal-abstract-text h2 {
+  margin: 0 0 1rem;
   color: #fff;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.signal-chapter-head h2 .chapter-num {
-  display: inline-block;
-  color: #6366f1;
-  font-weight: 700;
-  margin-right: 0.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95em;
-}
-
-.signal-chapter-head p {
-  margin: 0.35rem 0 0 0;
-  color: rgba(255, 255, 255, 0.36);
-  font-size: 0.82rem;
-}
-
-.signal-chapter-head::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
-  margin: 0.5rem auto 0;
-}
-
-/* ===== 面板基础 ===== */
-.signal-panel {
-  margin-bottom: 1.5rem;
-}
-
-.signal-panel:last-child {
-  margin-bottom: 0;
-}
-
-.signal-panel-head {
-  margin-bottom: 0.9rem;
-  padding-left: 0.75rem;
-  border-left: 3px solid rgba(99, 102, 241, 0.2);
-}
-
-.signal-panel-head h3 {
-  margin: 0;
-  color: #e2e8f0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.signal-panel-head h3 i {
-  color: #6366f1;
-  margin-right: 0.5rem;
-  font-size: 0.9em;
-}
-
-.signal-panel-head p {
-  margin: 0.25rem 0 0 0;
-  color: rgba(255, 255, 255, 0.38);
-  font-size: 0.82rem;
-}
-
-/* ===== 内容卡片 ===== */
-.signal-card {
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 14px;
-  background: rgba(2, 6, 23, 0.3);
-  padding: 1.2rem;
-}
-
-.signal-card p {
-  color: rgba(226, 232, 240, 0.72);
-  line-height: 1.75;
-  margin: 0 0 0.8rem;
-  font-size: 0.94rem;
-}
-
-.signal-card p:last-child {
-  margin-bottom: 0;
-}
-
-.signal-card ul {
-  color: rgba(226, 232, 240, 0.72);
-  line-height: 1.75;
-  margin: 0;
-  padding-left: 1.2rem;
-  font-size: 0.94rem;
-}
-
-.signal-card ul li {
-  margin-bottom: 0.35rem;
-}
-
-.signal-card ul li:last-child {
-  margin-bottom: 0;
-}
-
-.signal-card strong {
-  color: #fff;
-}
-
-/* ===== 摘要面板 ===== */
-.signal-abstract-panel {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(155deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.45));
-  border-radius: 18px;
-  padding: clamp(1.2rem, 2.4vw, 1.8rem);
-  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.3);
-  margin-bottom: 1.5rem;
-}
-
-.signal-abstract-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 1.8rem;
-  align-items: start;
 }
 
 .signal-abstract-text p {
-  color: rgba(226, 232, 240, 0.82);
-  line-height: 1.78;
+  color: var(--sig-text);
+  line-height: 1.8;
   margin: 0;
-  font-size: 0.96rem;
 }
 
 .signal-abstract-keywords {
-  margin-top: 0.9rem;
-  font-size: 0.85rem;
-  color: rgba(226, 232, 240, 0.55);
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.84rem;
 }
 
-.signal-abstract-keywords span {
+.signal-abstract-keywords .kw-label {
   font-weight: 600;
-  color: rgba(226, 232, 240, 0.75);
+  color: var(--sig-text-dim);
+  margin-right: 0.3rem;
+}
+
+.signal-abstract-keywords .kw {
+  color: var(--sig-text-faint);
+  padding: 0.15rem 0.5rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 4px;
 }
 
 .signal-abstract-actions {
-  margin-top: 1.2rem;
+  margin-top: 1.4rem;
   display: flex;
   gap: 0.7rem;
   flex-wrap: wrap;
 }
 
-.signal-abstract-actions .button i {
-  margin-right: 0.5em;
+.signal-paper-preview {
+  border-radius: var(--sig-radius-sm);
+  background: rgba(2,6,23,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3/4;
+  transition: var(--sig-transition);
+}
+.signal-paper-preview:hover {
+  border-color: var(--sig-border-active);
+  box-shadow: 0 0 40px rgba(99,102,241,0.08);
 }
 
-.signal-doc-image {
-  border-radius: 12px;
+.signal-paper-preview i {
+  font-size: 3.5rem;
+  color: rgba(255,255,255,0.12);
+  margin-bottom: 0.6rem;
+}
+
+.signal-paper-preview span {
+  font-size: 0.82rem;
+  color: var(--sig-text-faint);
+}
+
+/* ================================================================
+   FEATURE GRID — 四模块特性
+   ================================================================ */
+.signal-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.signal-feature {
+  background: var(--sig-surface);
+  border: 1px solid var(--sig-border);
+  border-radius: var(--sig-radius-sm);
+  padding: 1.3rem 1rem;
+  text-align: center;
+  transition: var(--sig-transition);
+  position: relative;
   overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(2, 6, 23, 0.4);
-  aspect-ratio: 3/4;
+}
+
+.signal-feature::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 2px;
+  border-radius: 2px;
+  transition: var(--sig-transition);
+}
+
+.signal-feature:nth-child(1)::before { background: var(--sig-accent); }
+.signal-feature:nth-child(2)::before { background: var(--sig-cyan); }
+.signal-feature:nth-child(3)::before { background: var(--sig-amber); }
+.signal-feature:nth-child(4)::before { background: var(--sig-green); }
+
+.signal-feature:hover {
+  border-color: var(--sig-border-active);
+  transform: translateY(-3px);
+}
+
+.signal-feature i {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.signal-feature:nth-child(1) i { color: var(--sig-accent); }
+.signal-feature:nth-child(2) i { color: var(--sig-cyan); }
+.signal-feature:nth-child(3) i { color: var(--sig-amber); }
+.signal-feature:nth-child(4) i { color: var(--sig-green); }
+
+.signal-feature strong {
+  display: block;
+  color: #fff;
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+}
+
+.signal-feature span {
+  font-size: 0.8rem;
+  color: var(--sig-text-faint);
+  line-height: 1.5;
+}
+
+/* ================================================================
+   FLOW — 信号流转链路
+   ================================================================ */
+.signal-flow-wrap {
+  background: var(--sig-surface);
+  border: 1px solid var(--sig-border);
+  border-radius: var(--sig-radius);
+  padding: 1.6rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.signal-flow {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
 }
 
-.signal-doc-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.signal-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.6rem 0.5rem;
+  min-width: 90px;
 }
 
-.signal-doc-image .doc-placeholder {
+.signal-flow-step .step-icon {
+  width: 2.8rem; height: 2.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+  border: 2px solid;
+}
+
+.signal-flow-step:nth-child(1) .step-icon { background: rgba(99,102,241,0.2); border-color: var(--sig-accent); }
+.signal-flow-step:nth-child(2) .step-icon { background: rgba(34,211,238,0.2); border-color: var(--sig-cyan); }
+.signal-flow-step:nth-child(3) .step-icon { background: rgba(245,158,11,0.2); border-color: var(--sig-amber); }
+.signal-flow-step:nth-child(4) .step-icon { background: rgba(52,211,153,0.2); border-color: var(--sig-green); }
+.signal-flow-step:nth-child(5) .step-icon { background: rgba(251,113,133,0.2); border-color: var(--sig-rose); }
+.signal-flow-step:nth-child(6) .step-icon { background: rgba(129,140,248,0.2); border-color: var(--sig-accent); }
+
+.signal-flow-step .step-label {
+  font-size: 0.72rem;
+  color: var(--sig-text-faint);
   text-align: center;
-  color: rgba(255, 255, 255, 0.25);
+  line-height: 1.3;
 }
 
-.signal-doc-image .doc-placeholder i {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 0.5rem;
+.signal-flow-arrow {
+  color: rgba(255,255,255,0.12);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  padding: 0 0.2rem;
 }
 
-/* ===== Grid 布局 ===== */
+.signal-flow-caption {
+  text-align: center;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--sig-text-faint);
+  letter-spacing: 0.06em;
+}
+
+/* ================================================================
+   GRID LAYOUTS
+   ================================================================ */
 .signal-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .signal-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
-/* ===== 图片展示卡片 ===== */
-.signal-image-card {
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  border-radius: 14px;
-  background: rgba(2, 6, 23, 0.35);
+/* ================================================================
+   IMAGE CARD — 图片展示
+   ================================================================ */
+.signal-img-card {
+  border-radius: var(--sig-radius-sm);
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  background: rgba(2,6,23,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer;
+  transition: var(--sig-transition);
+  position: relative;
+}
+.signal-img-card:hover {
+  border-color: var(--sig-border-active);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
 
-.signal-image-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.35);
-}
-
-.signal-image-card figcaption {
-  padding: 0.7rem 1rem;
-  font-size: 0.82rem;
-  color: rgba(226, 232, 240, 0.6);
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.signal-image-card img {
+.signal-img-card img {
   width: 100%;
   display: block;
   object-fit: contain;
-  background: rgba(2, 6, 23, 0.5);
+  background: rgba(2,6,23,0.6);
 }
 
-/* ===== 公式展示 ===== */
-.signal-formula {
-  background: rgba(99, 102, 241, 0.06);
-  border: 1px solid rgba(99, 102, 241, 0.12);
-  border-radius: 10px;
-  padding: 1rem 1.2rem;
-  margin: 0.8rem 0;
+.signal-img-card figcaption {
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  color: var(--sig-text-faint);
   text-align: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95rem;
-  color: #c4b5fd;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ================================================================
+   FORMULA — 公式块
+   ================================================================ */
+.signal-formula-block {
+  background: rgba(15, 18, 30, 0.8);
+  border: 1px solid rgba(99,102,241,0.12);
+  border-left: 3px solid var(--sig-accent);
+  border-radius: 0 var(--sig-radius-sm) var(--sig-radius-sm) 0;
+  padding: 1rem 1.4rem;
+  margin: 0.8rem 0;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: #c7d2fe;
   letter-spacing: 0.02em;
   overflow-x: auto;
   white-space: nowrap;
 }
 
-.signal-formula-block {
-  margin: 0.5rem 0;
-}
+.signal-formula-block + .signal-formula-block { margin-top: 0.5rem; }
 
-/* ===== 关键词标签 ===== */
-.signal-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-}
-
-.signal-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.15);
-  color: rgba(196, 181, 253, 0.7);
-}
-
-/* ===== 特性亮点网格 ===== */
-.signal-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.7rem;
-}
-
-.signal-feature-item {
-  background: rgba(99, 102, 241, 0.04);
-  border: 1px solid rgba(99, 102, 241, 0.08);
-  border-radius: 12px;
-  padding: 1.1rem 1rem;
-  text-align: center;
-  transition: border-color 0.3s ease;
-}
-
-.signal-feature-item:hover {
-  border-color: rgba(99, 102, 241, 0.25);
-}
-
-.signal-feature-item i {
-  font-size: 1.5rem;
-  color: #6366f1;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.signal-feature-item strong {
-  display: block;
-  color: #fff;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-}
-
-.signal-feature-item span {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
-  line-height: 1.5;
-}
-
-/* ===== 系统流程 ===== */
-.signal-flow {
+/* ================================================================
+   SUB-SECTION HEADER
+   ================================================================ */
+.signal-subhead {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
   gap: 0.5rem;
-  padding: 1rem;
-  margin: 0.8rem 0;
+  margin-bottom: 1rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid rgba(99,102,241,0.25);
 }
 
-.signal-flow-step {
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.15);
-  border-radius: 10px;
-  padding: 0.5rem 0.8rem;
-  font-size: 0.82rem;
-  color: rgba(226, 232, 240, 0.82);
-  text-align: center;
-  white-space: nowrap;
+.signal-subhead h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-.signal-flow-arrow {
-  color: rgba(99, 102, 241, 0.35);
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
+.signal-subhead i { color: var(--sig-accent); font-size: 0.85rem; }
 
-/* ===== 文件下载卡片 ===== */
-.signal-file-card {
+/* ================================================================
+   DOWNLOAD FILE CARD
+   ================================================================ */
+.signal-file {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   text-decoration: none;
+  background: var(--sig-surface);
+  border: 1px solid var(--sig-border);
+  border-radius: var(--sig-radius-sm);
+  padding: 1.1rem;
+  transition: var(--sig-transition);
   cursor: pointer;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 14px;
-  background: rgba(2, 6, 23, 0.3);
-  padding: 1rem;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.signal-file-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(99, 102, 241, 0.5);
-  background: rgba(99, 102, 241, 0.06);
+.signal-file:hover {
+  border-color: var(--sig-border-active);
+  background: rgba(99,102,241,0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
 .signal-file-icon {
-  width: 52px;
-  height: 52px;
+  width: 3rem; height: 3rem;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
   flex-shrink: 0;
-  font-size: 1.4rem;
 }
+.signal-file-icon.ino  { background: rgba(0,150,136,0.12);  color: #009688; }
+.signal-file-icon.py   { background: rgba(55,118,179,0.12);  color: #3776ab; }
+.signal-file-icon.fzz  { background: rgba(227,79,38,0.12);   color: #e34f26; }
+.signal-file-icon.xlsx { background: rgba(33,115,70,0.12);   color: #217346; }
+.signal-file-icon.pdf  { background: rgba(229,45,39,0.12);   color: #e52d27; }
 
-.signal-file-icon.ino  { background: rgba(0, 150, 136, 0.15);  color: #009688; }
-.signal-file-icon.py   { background: rgba(55, 118, 179, 0.15);  color: #3776ab; }
-.signal-file-icon.fzz  { background: rgba(227, 79, 38, 0.15);   color: #e34f26; }
-.signal-file-icon.xlsx { background: rgba(33, 115, 70, 0.15);   color: #217346; }
-.signal-file-icon.pdf  { background: rgba(229, 45, 39, 0.15);   color: #e52d27; }
-.signal-file-icon.img  { background: rgba(99, 102, 241, 0.12);  color: #818cf8; }
-
-.signal-file-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.signal-file-info h4 {
-  margin: 0 0 0.2rem 0;
-  color: #dbeafe;
-  font-size: 0.95rem;
-}
-
+.signal-file-body { flex: 1; min-width: 0; }
+.signal-file-body h4 { margin: 0 0 0.15rem; color: #dbeafe; font-size: 0.92rem; }
 .signal-file-ext {
-  display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 0.3rem;
+  font-size: 0.7rem;
+  color: var(--sig-text-faint);
+}
+.signal-file-body p {
+  color: var(--sig-text-dim);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.2rem 0 0;
 }
 
-.signal-file-info p {
-  color: rgba(226, 232, 240, 0.6);
-  font-size: 0.82rem;
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* ===== 项目文件下载区 ===== */
-.signal-module {
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  background: linear-gradient(155deg, rgba(15, 23, 42, 0.65), rgba(30, 41, 59, 0.4));
-  border-radius: 18px;
-  padding: clamp(1.2rem, 2.4vw, 1.8rem);
-  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.25);
-  margin-bottom: 1.5rem;
-}
-
-.signal-module-head {
+.signal-file-dl {
+  flex-shrink: 0;
+  width: 2rem; height: 2rem;
   display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  margin-bottom: 1.1rem;
-}
-
-.signal-module-index {
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 999px;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
-  color: #0f172a;
-  font-weight: 600;
-  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: var(--sig-text-faint);
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: var(--sig-transition);
+}
+.signal-file:hover .signal-file-dl { opacity: 1; }
+
+/* ================================================================
+   FILES SECTION — 下载区
+   ================================================================ */
+.signal-files-section {
+  background: var(--sig-surface-raised);
+  border: 1px solid var(--sig-border);
+  border-radius: var(--sig-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(12px);
+}
+
+.signal-files-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.3rem;
+}
+
+.signal-files-badge {
+  width: 2.4rem; height: 2.4rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: linear-gradient(135deg, var(--sig-accent-deep), var(--sig-cyan));
+  color: #fff;
   flex-shrink: 0;
 }
 
-.signal-module-head h2 {
-  margin: 0;
-  color: #e2e8f0;
-  font-size: 1.35rem;
-}
+.signal-files-header h2 { margin: 0; color: #e2e8f0; font-size: 1.3rem; }
+.signal-files-header p { margin: 0.2rem 0 0; color: var(--sig-text-dim); font-size: 0.84rem; }
 
-.signal-module-head p {
-  margin: 0.4rem 0 0 0;
-  color: rgba(226, 232, 240, 0.7);
-  line-height: 1.7;
-  font-size: 0.9rem;
-}
-
-.signal-module-grid {
+.signal-files-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
 }
 
-/* ===== 响应式 ===== */
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
 @media (max-width: 1100px) {
-  .signal-abstract-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .signal-doc-image {
-    max-width: 300px;
-    aspect-ratio: 3/4;
-  }
-
-  .signal-feature-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .signal-abstract { grid-template-columns: 1fr; }
+  .signal-paper-preview { max-width: 260px; aspect-ratio: 3/4; }
+  .signal-features { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 900px) {
-  .signal-grid-2,
-  .signal-module-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .signal-grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .signal-flow {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .signal-flow-arrow {
-    transform: rotate(90deg);
-  }
+@media (max-width: 860px) {
+  .signal-hero h1 { font-size: 2rem; }
+  .signal-grid-2, .signal-files-grid { grid-template-columns: 1fr; }
+  .signal-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .signal-flow { flex-direction: column; }
+  .signal-flow-arrow { transform: rotate(90deg); padding: 0.1rem 0; }
+  .signal-section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .signal-section-header h2 { font-size: 1.3rem; }
 }
 
-@media (max-width: 767px) {
-  .signal-chapter {
-    padding: 1.2rem 1rem;
-  }
-
-  .signal-feature-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .signal-grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .signal-hero h1 {
-    font-size: 1.6rem;
-  }
+@media (max-width: 600px) {
+  .signal-hero { padding: 0.5rem 0 1.5rem; }
+  .signal-hero h1 { font-size: 1.6rem; }
+  .signal-abstract { padding: 1.2rem; }
+  .signal-features { grid-template-columns: 1fr 1fr; }
+  .signal-grid-3 { grid-template-columns: 1fr; }
+  .signal-card { padding: 1.1rem; }
+  .signal-nav-inner { gap: 0.2rem; }
+  .signal-nav-pill { padding: 0.35rem 0.6rem; font-size: 0.7rem; }
 }

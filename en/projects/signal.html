@@ -4,23 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Weak Signal Measurement with Optical Lever Amplification | Ray Chen</title>
-  <meta name="description" content="Design and Implementation of a Weak Electrical Signal Measurement System Based on Optical Lever Amplification — combining electromagnetic induction, mechanical deflection, and optical amplification for indirect detection and digital analysis of weak signals.">
-  <meta name="keywords" content="weak signal, optical lever, PSD sensor, electromagnetic conversion, Arduino, embedded development, ADS1115, AD8628, Si4713, normalization operator, calibration, uncertainty assessment, physical amplification, Ray Chen">
+  <meta name="description" content="A weak electrical signal measurement system combining electromagnetic induction, mechanical deflection, and optical lever amplification for indirect detection and digital analysis.">
+  <meta name="keywords" content="weak signal, optical lever, PSD sensor, electromagnetic conversion, Arduino, ADS1115, AD8628, calibration, uncertainty, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
   <link rel="canonical" href="https://rayawa.top/en/projects/signal.html">
-
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/signal.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/signal.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/signal.html">
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/signal.html">
   <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/en/projects/signal.html">
   <meta property="og:title" content="Weak Signal Measurement with Optical Lever Amplification | Ray Chen">
-  <meta property="og:description" content="Design and Implementation of a Weak Electrical Signal Measurement System Based on Optical Lever Amplification.">
+  <meta property="og:description" content="Electromagnetic induction, mechanical deflection, and optical amplification combined for weak signal detection.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,11 +27,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/en/projects/signal.html">
   <meta name="twitter:title" content="Weak Signal Measurement with Optical Lever Amplification | Ray Chen">
-  <meta name="twitter:description" content="Design and Implementation of a Weak Electrical Signal Measurement System Based on Optical Lever Amplification.">
+  <meta name="twitter:description" content="Electromagnetic induction, mechanical deflection, and optical amplification combined.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
@@ -42,480 +40,480 @@
 <body>
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
-
   <div id="particles-js"></div>
 
   <main class="page signal-page">
-    <!-- ===== Hero ===== -->
-    <section class="signal-hero">
-      <span class="signal-hero-badge">Communication Engineering · Physics Innovation Project</span>
-      <h1>Weak Electrical Signal Measurement System<br><small>Based on Optical Lever Amplification</small></h1>
-      <p class="signal-hero-desc">Addressing the challenges of low amplitude, noise susceptibility, and difficulty in direct measurement of weak electrical signals, this system employs a multi-stage conversion chain — "electrical signal → mechanical deflection → optical displacement → digital output" — to achieve indirect detection and quantitative analysis of weak electrical signals.</p>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="signal-hero" id="top">
+      <div class="signal-hero-eyebrow">
+        <i class="fas fa-flask"></i> Communication Engineering · Physics Innovation Project
+      </div>
+      <h1>
+        Weak Electrical Signal Measurement<br>with <span class="highlight">Optical Lever Amplification</span>
+        <small>Design & Implementation Based on Electromagnetic-Mechanical-Optical Conversion</small>
+      </h1>
+      <p class="signal-hero-desc">
+        Transforming hard-to-measure weak electrical signals through a multi-stage conversion chain — <strong>EM Induction → Mechanical Deflection → Optical Amplification → Digital Processing</strong> — achieving complete detection and quantitative analysis from physical quantity to digital output.
+      </p>
+      <div class="signal-hero-meta">
+        <span><i class="fas fa-users"></i> Zirui Chen · Xiaohe Xiao · Jinpeng Ren</span>
+        <span><i class="fas fa-building"></i> North China University of Technology</span>
+        <span><i class="far fa-calendar"></i> August 2026</span>
+      </div>
       <div class="signal-hero-actions">
-        <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> Read Full Paper (PDF)</a>
+        <a class="sig-btn sig-btn-primary" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Read Full Paper
+        </a>
+        <a class="sig-btn sig-btn-outline" href="#files">
+          <i class="fas fa-download"></i> Download Project Files
+        </a>
+        <a class="sig-btn sig-btn-outline" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+          <i class="fas fa-table"></i> Equipment List
+        </a>
       </div>
     </section>
 
-    <!-- ===== Abstract ===== -->
-    <section class="signal-abstract-panel">
-      <div class="signal-abstract-grid">
-        <div class="signal-abstract-text">
-          <p>To address the problems of low amplitude, noise susceptibility, and difficulty in direct measurement of weak electrical signals, this paper designs a weak electrical signal measurement system based on optical lever conversion and amplification. The system receives weak electromagnetic signals through a receiving coil and converts induced current variations into mechanical deflection responses through electromagnetic interaction. Combined with an optical lever structure and a PSD sensor, the system realizes optical amplification and detection of small angular displacements. Signal conditioning, analog-to-digital conversion, embedded data processing, and a calibration module are employed to establish the relationship between input current and PSD output. The system structure, operating principle, and error sources are analyzed, and an experimental verification scheme is proposed.</p>
-          <p class="signal-abstract-keywords"><span>Keywords: </span>Weak Electrical Signal; Optical Lever; Magnetoelectric Conversion; PSD Sensor; Embedded Data Processing</p>
-          <div class="signal-abstract-actions">
-            <a class="button" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Download Paper (PDF, 32 pages)</a>
-            <a class="button" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener"><i class="fas fa-table"></i> Equipment List</a>
-          </div>
+    <!-- ==================== QUICK NAV ==================== -->
+    <nav class="signal-nav" id="signalNav">
+      <div class="signal-nav-inner">
+        <a class="signal-nav-pill active" href="#abstract">Abstract</a>
+        <a class="signal-nav-pill" href="#design">System Design</a>
+        <a class="signal-nav-pill" href="#generation">Generation</a>
+        <a class="signal-nav-pill" href="#reception">Reception</a>
+        <a class="signal-nav-pill" href="#deflection">Deflection</a>
+        <a class="signal-nav-pill" href="#processing">Processing</a>
+        <a class="signal-nav-pill" href="#calibration">Calibration</a>
+        <a class="signal-nav-pill" href="#error">Error Analysis</a>
+        <a class="signal-nav-pill" href="#applications">Applications</a>
+        <a class="signal-nav-pill" href="#files">Files</a>
+      </div>
+    </nav>
+
+    <!-- ==================== Abstract ==================== -->
+    <section class="signal-abstract" id="abstract">
+      <div class="signal-abstract-text">
+        <h2>Abstract</h2>
+        <p>To address the problems of low amplitude, noise susceptibility, and difficulty in direct measurement of weak electrical signals, this paper designs a weak electrical signal measurement system based on optical lever conversion and amplification. The system receives weak electromagnetic signals through a receiving coil and converts induced current variations into mechanical deflection responses through electromagnetic interaction. Combined with an optical lever structure and a PSD sensor, the system realizes optical amplification and detection of small angular displacements. Signal conditioning, analog-to-digital conversion, embedded data processing, and a calibration module are employed to establish the relationship between input current and PSD output. The system structure, operating principle, and error sources are analyzed, and an experimental verification scheme is proposed.</p>
+        <div class="signal-abstract-keywords">
+          <span class="kw-label">Keywords</span>
+          <span class="kw">Weak Electrical Signal</span>
+          <span class="kw">Optical Lever</span>
+          <span class="kw">Magnetoelectric Conversion</span>
+          <span class="kw">PSD Sensor</span>
+          <span class="kw">Embedded Data Processing</span>
         </div>
-        <div class="signal-doc-image">
-          <div class="doc-placeholder">
-            <i class="fas fa-file-pdf"></i>
-            <span>doc.pdf</span>
-          </div>
+        <div class="signal-abstract-actions">
+          <a class="sig-btn sig-btn-primary" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
+            <i class="fas fa-file-pdf"></i> Download Paper (PDF · 32 pages)
+          </a>
         </div>
       </div>
+      <a class="signal-paper-preview" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener" title="Click to view paper">
+        <i class="fas fa-file-pdf"></i>
+        <span>Full Paper PDF</span>
+        <span style="font-size:0.7rem;margin-top:0.15rem;">32 pages · Click to preview</span>
+      </a>
     </section>
 
-    <!-- ===== Chapter 2 · System Overall Design ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§2</span> System Overall Design</h2>
-        <p>Modular architecture and multi-stage conversion chain</p>
+    <!-- ==================== §2 System Overall Design ==================== -->
+    <section class="signal-section" id="design">
+      <div class="signal-section-header">
+        <div class="signal-section-num">2</div>
+        <div>
+          <h2>System Overall Design</h2>
+          <p>Modular architecture and multi-stage conversion chain</p>
+        </div>
       </div>
       <div class="signal-card">
-        <p>The system uses a rectangular frame as the overall mechanical support structure, adopting a <strong>modular design</strong> approach that divides the entire apparatus into four functional modules. The frame's longitudinal direction serves as the primary path for signal conversion and optical detection: the left side houses the suspended deflection structure, while the right side accommodates laser emission, spot position detection, and data processing circuitry. The signal receiving module and deflection module employ an <strong>integrated coil structure</strong> wound from a single continuous copper wire. The weak signal generation module is located externally to produce controllable weak signals. To mitigate environmental interference, the entire apparatus incorporates electromagnetic shielding, with the data processing section isolated by a metal shielding enclosure.</p>
+        <p>The system uses a rectangular frame as mechanical support with a <strong>modular design</strong> dividing the apparatus into four functional modules. The left side houses the suspended deflection structure; the right side accommodates laser emission, spot detection, and data processing circuits. The receiving and deflection modules employ an <strong>integrated coil structure</strong> wound from a single continuous copper wire, reducing connection losses. The entire apparatus incorporates electromagnetic shielding, with the data processing section isolated in a metal enclosure.</p>
       </div>
-
-      <div class="signal-feature-grid" style="margin-top:1rem;">
-        <div class="signal-feature-item">
+      <div class="signal-features" style="margin-top:1rem;">
+        <div class="signal-feature">
           <i class="fas fa-broadcast-tower"></i>
           <strong>Signal Generation</strong>
           <span>Si4713 RF transmitter<br>Computer audio modulation</span>
         </div>
-        <div class="signal-feature-item">
+        <div class="signal-feature">
           <i class="fas fa-satellite-dish"></i>
           <strong>Signal Reception</strong>
-          <span>Receiving coil + magnets<br>Electromagnetic induction</span>
+          <span>Multi-turn receiving coil<br>Faraday EM induction</span>
         </div>
-        <div class="signal-feature-item">
+        <div class="signal-feature">
           <i class="fas fa-compass"></i>
           <strong>Deflection Module</strong>
-          <span>Suspended deflection coil<br>Optical lever amplification</span>
+          <span>Suspended coil + reflector<br>Optical lever amplification</span>
         </div>
-        <div class="signal-feature-item">
+        <div class="signal-feature">
           <i class="fas fa-microchip"></i>
           <strong>Data Processing</strong>
-          <span>PSD + ADS1115 + Arduino<br>Digital acquisition & computation</span>
+          <span>PSD + AD8628 + ADS1115<br>Arduino digital acquisition</span>
         </div>
       </div>
-
-      <div style="margin-top:1rem;">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-arrow-right"></i> System Conversion Chain</h3>
-        </div>
+      <div class="signal-flow-wrap">
+        <div class="signal-subhead"><i class="fas fa-arrow-right"></i><h3>Signal Conversion Chain</h3></div>
         <div class="signal-flow">
-          <div class="signal-flow-step">Signal Generation</div>
-          <span class="signal-flow-arrow">→</span>
-          <div class="signal-flow-step">EM Induction</div>
-          <span class="signal-flow-arrow">→</span>
-          <div class="signal-flow-step">Magneto-electric</div>
-          <span class="signal-flow-arrow">→</span>
-          <div class="signal-flow-step">Mechanical Deflection</div>
-          <span class="signal-flow-arrow">→</span>
-          <div class="signal-flow-step">Optical Detection</div>
-          <span class="signal-flow-arrow">→</span>
-          <div class="signal-flow-step">Data Processing</div>
+          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-wave-square"></i></div><span class="step-label">Signal<br>Generation</span></div>
+          <span class="signal-flow-arrow">▸</span>
+          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-magnet"></i></div><span class="step-label">EM<br>Induction</span></div>
+          <span class="signal-flow-arrow">▸</span>
+          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-exchange-alt"></i></div><span class="step-label">Magneto-electric<br>Conversion</span></div>
+          <span class="signal-flow-arrow">▸</span>
+          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-undo-alt"></i></div><span class="step-label">Mechanical<br>Deflection</span></div>
+          <span class="signal-flow-arrow">▸</span>
+          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-lightbulb"></i></div><span class="step-label">Optical<br>Detection</span></div>
+          <span class="signal-flow-arrow">▸</span>
+          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-calculator"></i></div><span class="step-label">Data<br>Processing</span></div>
         </div>
-        <p style="color:rgba(255,255,255,0.38);font-size:0.8rem;text-align:center;margin-top:0.5rem;">Electrical → Mechanical → Optical → Digital</p>
+        <div class="signal-flow-caption">Electrical → Mechanical → Optical → Digital</div>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapter 3 · Signal Generation Module ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§3</span> Weak Signal Generation Module</h2>
-        <p>Stable and controllable test signal source</p>
+    <!-- ==================== §3 Signal Generation Module ==================== -->
+    <section class="signal-section" id="generation">
+      <div class="signal-section-header">
+        <div class="signal-section-num">3</div>
+        <div>
+          <h2>Weak Signal Generation Module</h2>
+          <p>Stable & controllable test signal source — Computer audio + Si4713 RF</p>
+        </div>
       </div>
-
-      <div class="signal-panel">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-microchip"></i> Circuit Design & Implementation</h3>
-          <p>Computer audio modulation + Si4713 RF transmission</p>
-        </div>
-        <div class="signal-card">
-          <p>The weak signal generation module consists of a <strong>computer audio output interface</strong>, an <strong>Arduino control unit</strong>, and a <strong>Si4713 RF transmitter chip</strong>. The computer generates low-frequency modulation signals with controllable amplitude and frequency, fed into the Si4713's LIN and RIN audio inputs via a 3.5mm audio jack. The Arduino initializes and configures the Si4713 through the I2C communication interface. The Si4713 integrates frequency synthesis, modulation control, and RF output functions, modulating the input audio signal onto a specified RF carrier and transmitting it through an antenna.</p>
-        </div>
-        <div class="signal-grid-2" style="margin-top:0.8rem;">
-          <figure class="signal-image-card">
+      <div class="signal-card">
+        <div class="signal-subhead"><i class="fas fa-microchip"></i><h3>Circuit Design & Implementation</h3></div>
+        <p>The generation module consists of a <strong>computer audio output</strong>, an <strong>Arduino control unit</strong>, and a <strong>Si4713 RF transmitter chip</strong>. The computer generates low-frequency modulation signals with controllable amplitude and frequency, fed into the Si4713's LIN and RIN inputs via a 3.5mm audio jack. The Arduino initializes and configures the Si4713 through I2C. The Si4713 integrates frequency synthesis, modulation control, and RF output — modulating the audio signal onto a specified RF carrier and transmitting via antenna.</p>
+        <div class="signal-grid-2" style="margin-top:1rem;">
+          <figure class="signal-img-card">
             <img src="../../static/resources/signal/发生模块接线示意图.png" alt="Generation module wiring diagram" loading="lazy">
-            <figcaption>Figure — Generation Module Wiring Diagram</figcaption>
+            <figcaption>Generation Module Wiring Diagram</figcaption>
           </figure>
-          <figure class="signal-image-card">
+          <figure class="signal-img-card">
             <img src="../../static/resources/signal/发生模块电路原理图.png" alt="Generation module circuit schematic" loading="lazy">
-            <figcaption>Figure — Generation Module Circuit Schematic</figcaption>
+            <figcaption>Generation Module Circuit Schematic</figcaption>
           </figure>
         </div>
       </div>
-
-      <div class="signal-panel" style="margin-top:1.2rem;">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-code"></i> Program Design & Implementation</h3>
-          <p>Signal generation and RF transmission control</p>
-        </div>
-        <div class="signal-card">
-          <p>The low-frequency modulation signal is generated by the computer audio output (a Python script generates the sine wave), while the Arduino handles communication and control with the Si4713. The program initializes the Si4713 via the I2C bus, sets the RF output power using <code>setTXpower()</code>, and configures the carrier frequency via <code>radio.tuneFM()</code>. Compared to traditional digital waveform generation, this approach leverages the computer's audio output for high-stability low-frequency modulation signal generation, combined with Si4713 RF modulation and transmission, improving control precision over input signal frequency and amplitude.</p>
-          <div class="signal-grid-2" style="margin-top:0.8rem;">
-            <a class="signal-file-card" href="../../static/resources/signal/script.py" target="_blank" rel="noopener">
-              <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
-              <div class="signal-file-info">
-                <h4>100Hz Sine Wave Generator</h4>
-                <span class="signal-file-ext">script.py</span>
-                <p>Python audio output script using the sounddevice library to generate a 100Hz sinusoidal modulation signal</p>
-              </div>
-            </a>
-            <a class="signal-file-card" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
-              <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-              <div class="signal-file-info">
-                <h4>Generation Module Program</h4>
-                <span class="signal-file-ext">signal.ino</span>
-                <p>Arduino program for Si4713 initialization, parameter configuration, and operational state control with error handling and serial status reporting</p>
-              </div>
-            </a>
-          </div>
+      <div class="signal-card" style="margin-top:1rem;">
+        <div class="signal-subhead"><i class="fas fa-code"></i><h3>Program Design & Implementation</h3></div>
+        <p>The low-frequency modulation signal is generated by a Python script (100Hz sine wave via sounddevice). The Arduino handles Si4713 communication control. Compared to traditional digital waveform generation, this approach leverages computer audio output for high-stability modulation, improving frequency and amplitude control precision.</p>
+        <div class="signal-grid-2" style="margin-top:0.9rem;">
+          <a class="signal-file" href="../../static/resources/signal/script.py" target="_blank" rel="noopener">
+            <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
+            <div class="signal-file-body"><h4>100Hz Sine Wave Generator</h4><span class="signal-file-ext">script.py</span><p>Python script using sounddevice to generate 100Hz modulation</p></div>
+            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
+          </a>
+          <a class="signal-file" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
+            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+            <div class="signal-file-body"><h4>Generation Module Program</h4><span class="signal-file-ext">signal.ino</span><p>Si4713 init, configuration, error handling & serial status reporting</p></div>
+            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapter 4 · Signal Receiving Module ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§4</span> Signal Receiving Module</h2>
-        <p>First conversion: field signal to current signal</p>
+    <!-- ==================== §4 Signal Receiving Module ==================== -->
+    <section class="signal-section" id="reception">
+      <div class="signal-section-header">
+        <div class="signal-section-num">4</div>
+        <div>
+          <h2>Signal Receiving Module</h2>
+          <p>Field signal → Current signal — The first conversion</p>
+        </div>
       </div>
       <div class="signal-card">
-        <p>The signal receiving module adopts a <strong>lightweight, movable structural design</strong>, consisting primarily of a receiving coil and permanent magnets that establish a stable magnetic field. The receiving coil uses a <strong>multi-turn winding structure</strong> to increase the induced electromotive force when the alternating magnetic field changes. NdFeB magnets with opposing poles are arranged on both sides of the coil, creating a directionally stable magnetic field environment in the coil region.</p>
-        <p>When an external weak alternating current signal propagates through space creating a changing magnetic field, the magnetic flux through the receiving coil varies with time. According to <strong>Faraday's law of electromagnetic induction</strong>, an induced electromotive force is generated, which in turn produces an induced current. This current is transmitted through a closed loop to the deflection coil, providing the driving current for the subsequent magnetoelectric conversion process.</p>
-        <p>The receiving coil and deflection coil are <strong>directly connected</strong> (integrated coil structure), reducing signal loss and additional interference during transmission. This avoids the impact of contact resistance and connection stability issues inherent in traditional separated connections, thereby improving the overall system sensitivity.</p>
+        <p>The receiving module adopts a <strong>lightweight, movable structural design</strong>, consisting of a multi-turn receiving coil with NdFeB magnets arranged on both sides with opposing poles. This creates a directionally stable magnetic field in the coil region. When an external weak alternating current signal propagates through space creating a changing magnetic field, the flux through the coil varies with time. According to <strong>Faraday's law</strong>, an induced EMF and current are generated, transmitted through a closed loop to the deflection coil.</p>
+        <p>The receiving and deflection coils use an <strong>integrated coil structure</strong> (one continuous copper wire), directly connected. This eliminates contact resistance and connection stability issues inherent in traditional separated connections, significantly improving system sensitivity.</p>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapter 5 · Deflection Module ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§5</span> Deflection Module</h2>
-        <p>Core of physical signal amplification</p>
+    <!-- ==================== §5 Deflection Module ==================== -->
+    <section class="signal-section" id="deflection">
+      <div class="signal-section-header">
+        <div class="signal-section-num">5</div>
+        <div>
+          <h2>Deflection Module</h2>
+          <p>Core of physical signal amplification — Ampere force + optical lever</p>
+        </div>
       </div>
       <div class="signal-card">
-        <p>The deflection module is the core component for achieving <strong>physical amplification</strong> of weak signals. It consists of a suspended deflection coil, permanent magnets, a reflector, and a mechanical support structure. The deflection coil is suspended from the frame by two fine copper wires connected to the receiving coil, with NdFeB magnets arranged on both sides. A reflector is fixed to the deflection coil and rotates synchronously with it. A collimated laser beam from the right side strikes the reflector and is reflected back onto a one-dimensional Position Sensitive Detector (PSD) on the right.</p>
-        <p>When the induced current <em>I</em> flows through the deflection coil, the current-carrying coil experiences an Ampere force in the constant magnetic field <em>B</em> produced by the magnets, generating a rotational torque. The suspension wire simultaneously produces a restoring torque. When the Ampere torque and restoring torque reach equilibrium, the system achieves a stable deflection state. According to the law of reflection, the reflector produces an angular deflection of 2θ in the reflected laser, which travels a distance <em>D</em> before reaching the PSD sensing surface.</p>
-        <div class="signal-formula">I = (2kD / NB) · x &nbsp; → &nbsp; x ∝ I</div>
-        <p>Under small-angle deflection conditions (θ ≤ 5°), the reflected spot position and the deflection coil current satisfy an <strong>approximately linear relationship</strong>. The deflection module converts weak current signals into observable optical position signals, providing the basis for subsequent detection and quantification by the data processing module.</p>
+        <p>The deflection module consists of a <strong>suspended deflection coil</strong>, permanent magnets, a reflector, and mechanical support. The coil is suspended by two fine copper wires; the reflector is fixed to the coil and rotates synchronously. A collimated laser beam from the right strikes the reflector and is reflected back onto a one-dimensional PSD.</p>
+        <p>When induced current <em>I</em> flows through the coil, the current-carrying coil experiences an Ampere force in the constant magnetic field <em>B</em>, generating a rotational torque. The suspension wire simultaneously produces a restoring torque. At equilibrium, the reflector deflects by θ, the reflected laser deflects by 2θ, traveling distance <em>D</em> to the PSD. Under small-angle conditions (θ ≤ 5°), spot position <em>x</em> and current <em>I</em> satisfy an approximately linear relationship:</p>
+        <div class="signal-formula-block">I = (2kD / NB) · x &emsp; → &emsp; x ∝ I</div>
+        <p>Where <em>k</em> is the wire's equivalent torsional stiffness and <em>N</em> the coil turns. The deflection module converts weak current into observable optical position signals.</p>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapter 6 · Data Processing Module ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§6</span> Data Processing Module</h2>
-        <p>Optical signal detection, data conversion, and measurement output</p>
-      </div>
-
-      <div class="signal-panel">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-calculator"></i> 6.1 Calculation Principles</h3>
-        </div>
-        <div class="signal-card">
-          <p><strong>Normalized Position Operator P</strong> — The PSD uses a dual-output structure; the two output signals are I<sub>a</sub> and I<sub>b</sub>. To eliminate the effects of laser power fluctuations, ambient light variations, and device gain differences, a normalization operator is introduced:</p>
-          <div class="signal-formula">P = (I<sub>b</sub> − I<sub>a</sub>) / (I<sub>a</sub> + I<sub>b</sub>)&emsp;−1 ≤ P ≤ 1</div>
-          <p>Within the system's operating range, the normalization operator P and the induced current I satisfy an approximately linear relationship:</p>
-          <div class="signal-formula">I = C · P + b</div>
-          <p>where C is the conversion coefficient and b is the system zero-offset correction term, obtained through calibration experiments.</p>
-
-          <p style="margin-top:1rem;"><strong>Signal Frequency f</strong> — By continuously acquiring PSD output signals and analyzing the time-varying waveform of the normalization operator, the period is determined using zero-crossing detection:</p>
-          <div class="signal-formula">f = 1 / T = 1 / (t<sub>2</sub> − t<sub>1</sub>)</div>
-
-          <p style="margin-top:1rem;"><strong>EMF Amplitude U</strong> — The receiving coil and deflection coil are connected in series. The system equivalent impedance is determined by the coil resistance and inductance parameters, measured using an LCR digital bridge:</p>
-          <div class="signal-formula">U = I · |Z| = I · √(R² + (2πfL)²)</div>
+    <!-- ==================== §6 Data Processing Module ==================== -->
+    <section class="signal-section" id="processing">
+      <div class="signal-section-header">
+        <div class="signal-section-num">6</div>
+        <div>
+          <h2>Data Processing Module</h2>
+          <p>Optical signal detection · Data conversion · Measurement output</p>
         </div>
       </div>
-
-      <div class="signal-panel" style="margin-top:1.2rem;">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-microchip"></i> 6.2 Circuit Design & Implementation</h3>
-          <p>PSD + AD8628 signal conditioning + ADS1115 precision sampling + Arduino</p>
-        </div>
-        <div class="signal-card">
-          <p>The data processing module consists of a <strong>PSD sensor</strong>, <strong>AD8628 signal conditioning circuit</strong>, <strong>ADS1115 ADC module</strong>, and an <strong>Arduino control unit</strong>. The PSD utilizes the lateral photoelectric effect to generate two differential photocurrent output signals based on the energy distribution of the light spot on the sensing area. The AD8628 forms a transimpedance amplifier for current-to-voltage conversion (featuring low input bias current and low offset voltage). The ADS1115 performs 16-bit high-precision analog-to-digital conversion and communicates with the Arduino via the I2C interface.</p>
-        </div>
-        <div class="signal-grid-2" style="margin-top:0.8rem;">
-          <figure class="signal-image-card">
+      <div class="signal-card">
+        <div class="signal-subhead"><i class="fas fa-calculator"></i><h3>Calculation Principles</h3></div>
+        <p><strong>Normalized Position Operator P</strong> — The PSD outputs I<sub>a</sub>, I<sub>b</sub> from its two terminals. To eliminate laser power fluctuations and ambient light effects:</p>
+        <div class="signal-formula-block">P = (I<sub>b</sub> − I<sub>a</sub>) / (I<sub>a</sub> + I<sub>b</sub>)&emsp;&emsp;−1 ≤ P ≤ 1</div>
+        <p>Within the operating range, P and induced current I satisfy a linear relationship (C from calibration):</p>
+        <div class="signal-formula-block">I = C · P + b</div>
+        <p style="margin-top:0.8rem;"><strong>Signal Frequency f</strong> — Continuous PSD acquisition with zero-crossing detection:</p>
+        <div class="signal-formula-block">f = 1 / T = 1 / (t<sub>2</sub> − t<sub>1</sub>)</div>
+        <p style="margin-top:0.8rem;"><strong>EMF Amplitude U</strong> — Receiving and deflection coils in series, impedance measured via LCR bridge:</p>
+        <div class="signal-formula-block">U = I · |Z| = I · √(R² + (2πfL)²)</div>
+      </div>
+      <div class="signal-card" style="margin-top:1rem;">
+        <div class="signal-subhead"><i class="fas fa-microchip"></i><h3>Circuit Design & Implementation</h3></div>
+        <p>The data processing module comprises a <strong>PSD sensor</strong>, <strong>AD8628 low-noise conditioning circuit</strong>, <strong>ADS1115 16-bit ADC</strong>, and <strong>Arduino</strong>. The PSD uses the lateral photoelectric effect to produce differential photocurrents. The AD8628 forms a transimpedance amplifier for I-V conversion (low input bias current, low offset voltage). The ADS1115 communicates via I2C with the Arduino for high-precision digital sampling.</p>
+        <div class="signal-grid-2" style="margin-top:1rem;">
+          <figure class="signal-img-card">
             <img src="../../static/resources/signal/数据转换模块接线示意图.png" alt="Data conversion module wiring diagram" loading="lazy">
-            <figcaption>Figure — Data Conversion Module Wiring Diagram</figcaption>
+            <figcaption>Data Conversion Module Wiring Diagram</figcaption>
           </figure>
-          <figure class="signal-image-card">
+          <figure class="signal-img-card">
             <img src="../../static/resources/signal/数据转换模块电路原理图.png" alt="Data conversion module circuit schematic" loading="lazy">
-            <figcaption>Figure — Data Conversion Module Circuit Schematic</figcaption>
+            <figcaption>Data Conversion Module Circuit Schematic</figcaption>
           </figure>
         </div>
       </div>
+      <div class="signal-card" style="margin-top:1rem;">
+        <div class="signal-subhead"><i class="fas fa-code"></i><h3>Program Design & Implementation</h3></div>
+        <p>The program uses <strong>modular design</strong>: ambient light compensation reduces background interference, a moving average filter (window N=16) suppresses random noise, and zero-crossing detection computes signal frequency. Filtered data is used for comprehensive computation of spot position, current, voltage, and frequency — output via serial.</p>
+        <a class="signal-file" href="../../static/resources/signal/measure.ino" target="_blank" rel="noopener" style="margin-top:0.8rem;">
+          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
+          <div class="signal-file-body"><h4>Measurement Module Program</h4><span class="signal-file-ext">measure.ino</span><p>PSD dual-channel acquisition, ambient compensation, moving average filter, zero-crossing frequency detection & parameter output</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
+        </a>
+      </div>
+    </section>
 
-      <div class="signal-panel" style="margin-top:1.2rem;">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-code"></i> 6.3 Program Design & Implementation</h3>
-          <p>Data acquisition, normalization, digital filtering, and parameter conversion</p>
-        </div>
-        <div class="signal-card">
-          <p>The program adopts a <strong>modular design</strong>, including ambient light compensation, data conversion, moving average filtering, and result output. Ambient light compensation reduces the effect of background light on the PSD output. The moving average filter denoises the normalized position operator, reducing the impact of random noise on measurement results. The filtered data is used for computing spot position, current, voltage, and frequency parameters.</p>
-          <a class="signal-file-card" href="../../static/resources/signal/measure.ino" target="_blank" rel="noopener" style="margin-top:0.8rem;">
-            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-            <div class="signal-file-info">
-              <h4>Measurement Module Program</h4>
-              <span class="signal-file-ext">measure.ino</span>
-              <p>Arduino program for data acquisition, ambient light compensation, moving average filtering, zero-crossing frequency detection, and parameter conversion output</p>
-            </div>
-          </a>
+    <!-- ==================== §7 System Calibration ==================== -->
+    <section class="signal-section" id="calibration">
+      <div class="signal-section-header">
+        <div class="signal-section-num">7</div>
+        <div>
+          <h2>System Calibration & Quantitative Model</h2>
+          <p>Establishing quantitative conversion between input current and PSD output</p>
         </div>
       </div>
-    </div>
-
-    <!-- ===== Chapter 7 · System Calibration ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§7</span> System Calibration & Quantitative Model</h2>
-        <p>Establishing the quantitative conversion relationship between input current and PSD output</p>
+      <div class="signal-card">
+        <div class="signal-subhead"><i class="fas fa-balance-scale"></i><h3>Calibration Principle</h3></div>
+        <p>A <strong>precision sense resistor</strong> R<sub>s</sub> = 220Ω is connected in series with the deflection coil loop. The actual coil current is obtained via I = V<sub>R</sub> / R<sub>s</sub>. The Arduino outputs PWM drive signals at different duty cycles across 6 levels, collecting 17 (I<sub>i</sub>, P<sub>i</sub>) pairs per level. After accumulating 100 data pairs, <strong>least-squares fitting</strong> yields conversion coefficient C, zero-offset b, and R² correlation coefficient.</p>
       </div>
-
-      <div class="signal-panel">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-balance-scale"></i> 7.1 Calibration Principle</h3>
-        </div>
-        <div class="signal-card">
-          <p>To obtain accurate input values for system calibration, a <strong>precision sense resistor of known resistance</strong> is connected in series with the deflection coil loop. The actual coil current is obtained by measuring the voltage across the sense resistor: I = V<sub>R</sub> / R<sub>s</sub>. During calibration, the Arduino outputs PWM drive signals at different duty cycles, progressively varying the deflection coil current. Multiple (I<sub>i</sub>, P<sub>i</sub>) data pairs are collected, and the conversion coefficient C and system zero-offset b are determined through <strong>least-squares fitting</strong>.</p>
-        </div>
-      </div>
-
-      <div class="signal-panel" style="margin-top:1.2rem;">
-        <div class="signal-panel-head">
-          <h3><i class="fas fa-microchip"></i> 7.2 Calibration Module Circuit</h3>
-          <p>Current output section + conversion coefficient computation section</p>
-        </div>
-        <div class="signal-card">
-          <p>The calibration module consists of a <strong>current output section</strong> and a <strong>conversion coefficient computation section</strong>. The current output section supplies controllable and measurable standard input current to the coil. The computation section reuses the same data processing hardware as the actual measurement process (PSD + AD8628 + ADS1115 + Arduino), requiring only a program switch on the Arduino to toggle between calibration and measurement modes — ensuring identical signal transmission paths between calibration and measurement.</p>
-        </div>
-        <div class="signal-grid-2" style="margin-top:0.8rem;">
-          <figure class="signal-image-card">
+      <div class="signal-card" style="margin-top:1rem;">
+        <div class="signal-subhead"><i class="fas fa-microchip"></i><h3>Calibration Module Circuit</h3></div>
+        <p>The calibration module consists of a <strong>current output section</strong> (PWM drive + sense resistor) and a <strong>coefficient computation section</strong> (reusing data processing hardware). Calibration <strong>requires no hardware changes</strong> — merely switching the Arduino program toggles between calibration and measurement modes, ensuring identical signal paths and avoiding errors from additional measurement equipment.</p>
+        <div class="signal-grid-2" style="margin-top:1rem;">
+          <figure class="signal-img-card">
             <img src="../../static/resources/signal/标定模块接线示意图.png" alt="Calibration module wiring diagram" loading="lazy">
-            <figcaption>Figure — Calibration Module Wiring Diagram</figcaption>
+            <figcaption>Calibration Module Wiring Diagram</figcaption>
           </figure>
-          <figure class="signal-image-card">
+          <figure class="signal-img-card">
             <img src="../../static/resources/signal/标定模块电路原理图.png" alt="Calibration module circuit schematic" loading="lazy">
-            <figcaption>Figure — Calibration Module Circuit Schematic</figcaption>
+            <figcaption>Calibration Module Circuit Schematic</figcaption>
           </figure>
         </div>
         <div class="signal-grid-2" style="margin-top:0.8rem;">
-          <a class="signal-file-card" href="../../static/resources/signal/current.ino" target="_blank" rel="noopener">
+          <a class="signal-file" href="../../static/resources/signal/current.ino" target="_blank" rel="noopener">
             <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-            <div class="signal-file-info">
-              <h4>Calibration Current Output Program</h4>
-              <span class="signal-file-ext">current.ino</span>
-              <p>Arduino program for seven-level PWM brightness control, pushbutton gear switching, and sense resistor current measurement</p>
-            </div>
+            <div class="signal-file-body"><h4>Current Output Program</h4><span class="signal-file-ext">current.ino</span><p>7-level PWM brightness control, pushbutton gear switching, sense resistor current measurement</p></div>
+            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
           </a>
-          <a class="signal-file-card" href="../../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
+          <a class="signal-file" href="../../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
             <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-            <div class="signal-file-info">
-              <h4>Calibration Coefficient Computation Program</h4>
-              <span class="signal-file-ext">calibrate.ino</span>
-              <p>Arduino program for ADS1115 dual-channel acquisition, stepped PWM calibration, and least-squares fitting with automatic recommended calibration output</p>
-            </div>
+            <div class="signal-file-body"><h4>Coefficient Computation Program</h4><span class="signal-file-ext">calibrate.ino</span><p>ADS1115 dual-channel acquisition, stepped calibration, least-squares fitting with auto output</p></div>
+            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
           </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapter 8 · Error Analysis ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§8</span> Error Analysis</h2>
-        <p>Error sources, uncertainty evaluation, and accuracy improvement strategies</p>
+    <!-- ==================== §8 Error Analysis ==================== -->
+    <section class="signal-section" id="error">
+      <div class="signal-section-header">
+        <div class="signal-section-num">8</div>
+        <div>
+          <h2>Error Analysis</h2>
+          <p>Error sources · Uncertainty evaluation · Accuracy improvement strategies</p>
+        </div>
       </div>
       <div class="signal-grid-2">
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-triangle" style="color:#f59e0b;"></i> Error Sources</h3>
-          <ul>
-            <li><strong>Magnetic field non-uniformity</strong>: non-ideal spatial distribution of the permanent magnet field affects the Ampere force vs. deflection angle relationship</li>
-            <li><strong>Mechanical structure errors</strong>: suspension wire material properties and mounting conditions affect equivalent torsional stiffness; small variations in reflector angle and laser incidence direction are optically amplified</li>
-            <li><strong>Analog circuit errors</strong>: op-amp input offset voltage, bias current, temperature drift; feedback component parameter variations</li>
-            <li><strong>ADC quantization error</strong>: reference voltage fluctuations and sampling noise limit system resolution</li>
-            <li><strong>Environmental interference</strong>: external EMI coupling through space or power lines; temperature-induced long-term drift</li>
-          </ul>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.8rem;"><i class="fas fa-exclamation-triangle" style="color:var(--sig-amber);"></i> Error Sources</h3>
+          <p style="font-size:0.88rem;"><strong>Magnetic field non-uniformity</strong> — non-ideal spatial distribution affects Ampere force vs. deflection angle<br>
+          <strong>Mechanical structure errors</strong> — wire properties and reflector angle variations are optically amplified<br>
+          <strong>Analog circuit errors</strong> — op-amp offset voltage, bias current, temperature drift; feedback component variations<br>
+          <strong>ADC quantization error</strong> — reference voltage fluctuations and sampling noise limit resolution<br>
+          <strong>Environmental interference</strong> — external EMI coupling, temperature-induced long-term drift</p>
         </div>
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-chart-line" style="color:#22d3ee;"></i> Uncertainty Evaluation Model</h3>
-          <ul>
-            <li><strong>Type A uncertainty</strong>: statistical analysis of repeated measurements, reflecting random factors such as air turbulence, mechanical micro-vibrations, and circuit random noise</li>
-            <li><strong>Type B uncertainty</strong>: evaluation based on instrument precision and system parameter calibration errors, including ADC accuracy, amplifier parameter errors, and conversion coefficient uncertainty</li>
-            <li><strong>Combined standard uncertainty</strong>: synthesis of independent error components according to error propagation laws</li>
-            <li><strong>Expanded uncertainty</strong>: introducing a coverage factor to express the error range at a given confidence level</li>
-          </ul>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.8rem;"><i class="fas fa-chart-line" style="color:var(--sig-cyan);"></i> Uncertainty Evaluation</h3>
+          <p style="font-size:0.88rem;"><strong>Type A</strong> — statistical analysis of repeated measurements; captures air turbulence, mechanical vibration, circuit random noise<br>
+          <strong>Type B</strong> — based on instrument precision and calibration parameter errors (ADC accuracy, amplifier parameters, conversion coefficient uncertainty)<br>
+          <strong>Combined standard uncertainty</strong> — synthesis of independent components per error propagation law<br>
+          <strong>Expanded uncertainty</strong> — coverage factor × combined uncertainty for a given confidence level</p>
         </div>
       </div>
       <div class="signal-card" style="margin-top:0.8rem;">
-        <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-shield-alt" style="color:#34d399;"></i> Accuracy Improvement Strategies</h3>
-        <p><strong>Hardware:</strong> improve mechanical stability (wind shielding, optimized support, enhanced shielding); optimize magnet-coil relative positioning for a more uniform magnetic field; shorten analog signal transmission paths. <strong>Software:</strong> moving average filtering, outlier removal, appropriate sampling parameter selection. <strong>Procedures:</strong> establish standardized calibration workflows, perform optical path alignment and zero-point calibration before experiments, and periodically verify system baseline states.</p>
+        <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-shield-alt" style="color:var(--sig-green);"></i> Accuracy Improvement Strategies</h3>
+        <p style="font-size:0.88rem;"><strong>Hardware:</strong> wind shielding, optimized support, shortened analog signal paths, enhanced shielding. <strong>Software:</strong> moving average filtering, outlier removal, appropriate sampling parameters. <strong>Procedures:</strong> optical alignment and zero-point calibration before experiments, periodic baseline verification during long measurements.</p>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapter 9 · Application Cases ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§9</span> Application Cases & Effect Analysis</h2>
-        <p>Verifying system detection capability through typical experimental scenarios</p>
+    <!-- ==================== §9 Application Cases ==================== -->
+    <section class="signal-section" id="applications">
+      <div class="signal-section-header">
+        <div class="signal-section-num">9</div>
+        <div>
+          <h2>Application Cases & Effect Analysis</h2>
+          <p>Verifying system detection capability through typical experimental scenarios</p>
+        </div>
       </div>
       <div class="signal-grid-3">
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.5rem;"><i class="fas fa-sun" style="color:#f59e0b;"></i> Photoelectric Effect Experiment</h3>
-          <p>Connect the photocell output to the system input, allowing weak photocurrent to flow through the receiving and deflection structure. While maintaining constant incident light frequency, vary the light intensity, record spot position changes, and compute corresponding current values to verify the system's photocurrent detection capability.</p>
+          <i class="fas fa-sun" style="font-size:1.6rem;color:var(--sig-amber);display:block;margin-bottom:0.6rem;"></i>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.5rem;">Photoelectric Effect Experiment</h3>
+          <p style="font-size:0.88rem;">The photocell output connects to the system input, allowing weak photocurrent to flow through the receiving and deflection structure. Maintaining constant incident light frequency while varying intensity, spot position changes are recorded to verify photocurrent detection capability. Compared to traditional galvanometer methods, the optical lever structure enhances observability of微小 displacements.</p>
         </div>
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.5rem;"><i class="fas fa-search" style="color:#22d3ee;"></i> Weak Photoelectric Signal Detection</h3>
-          <p>Using an adjustable light source to generate signals of varying intensity, gradually reduce the input signal strength, record PSD output position changes, and determine the system's effective detection limit under current conditions. Long-duration zero-input data acquisition is also performed to analyze zero-point drift and background noise levels.</p>
+          <i class="fas fa-search" style="font-size:1.6rem;color:var(--sig-cyan);display:block;margin-bottom:0.6rem;"></i>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.5rem;">Weak Photoelectric Signal Detection</h3>
+          <p style="font-size:0.88rem;">Using an adjustable light source to progressively reduce input signal intensity, PSD output changes are recorded to determine the effective detection limit. Long-duration zero-input data acquisition analyzes zero-point drift and background noise levels, providing a basis for structural parameter optimization.</p>
         </div>
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.5rem;"><i class="fas fa-flask" style="color:#a78bfa;"></i> Material Photoelectric Property Testing</h3>
-          <p>Place the material under test beneath a stable light source to generate photocurrent, which is fed into the measurement system. By detecting spot position changes, quantitative comparison of output currents from different materials is achieved, enabling analysis of response intensity, stability, and variation patterns.</p>
+          <i class="fas fa-flask" style="font-size:1.6rem;color:#a78bfa;display:block;margin-bottom:0.6rem;"></i>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.5rem;">Material Photoelectric Property Testing</h3>
+          <p style="font-size:0.88rem;">Materials under test are placed beneath a stable light source to generate photocurrent fed into the system. By detecting spot position changes, quantitative comparison of output currents from different materials enables analysis of response intensity, stability, and variation patterns.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Chapters 10–11 · Limitations & Outlook ===== -->
-    <div class="signal-chapter">
-      <div class="signal-chapter-head">
-        <h2><span class="chapter-num">§10–11</span> Limitations & Outlook</h2>
-        <p>System boundary awareness and future optimization directions</p>
+    <!-- ==================== §10-11 Limitations & Outlook ==================== -->
+    <section class="signal-section">
+      <div class="signal-section-header">
+        <div class="signal-section-num" style="background:linear-gradient(135deg, var(--sig-amber), #d97706);">10</div>
+        <div>
+          <h2>Limitations & Outlook</h2>
+          <p>System boundary awareness and future optimization directions</p>
+        </div>
       </div>
       <div class="signal-grid-2">
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-circle" style="color:#f59e0b;"></i> System Limitations</h3>
-          <ul>
-            <li><strong>Sensitivity vs. response speed trade-off</strong>: reducing mechanical stiffness to increase sensitivity compromises dynamic response range</li>
-            <li><strong>Limited linear range</strong>: excessive input signals cause the light spot to exceed the PSD effective detection area</li>
-            <li><strong>Frequency response constraints</strong>: mechanical inertia limits the system primarily to low-frequency or quasi-static weak signal detection</li>
-            <li><strong>Environmental sensitivity</strong>: relies on controlled laboratory conditions; air currents, vibrations, and temperature variations cause perturbations</li>
-            <li><strong>Optical path recalibration required</strong>: device relocation or reassembly necessitates optical realignment</li>
-          </ul>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-circle" style="color:var(--sig-amber);"></i> System Limitations</h3>
+          <p style="font-size:0.88rem;">
+            <strong>Sensitivity vs. speed trade-off</strong> — lower stiffness improves sensitivity but compromises dynamic response<br>
+            <strong>Limited linear range</strong> — excessive input causes spot to exceed PSD effective area<br>
+            <strong>Frequency response constraints</strong> — mechanical inertia limits to low-frequency or quasi-static signals<br>
+            <strong>Environmental sensitivity</strong> — relies on controlled lab conditions; air currents, vibration, temperature all cause perturbations<br>
+            <strong>Optical realignment needed</strong> — device relocation requires optical path recalibration
+          </p>
         </div>
         <div class="signal-card">
-          <h3 style="color:#e2e8f0;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-rocket" style="color:#34d399;"></i> Future Outlook</h3>
-          <ul>
-            <li><strong>Structural optimization</strong>: improve suspension wire materials, reduce moving-part mass, refine damping design; add vibration and wind shielding</li>
-            <li><strong>Magnetic field optimization</strong>: improve field uniformity in the working region for better current–response linearity</li>
-            <li><strong>Signal processing upgrade</strong>: adopt higher-performance embedded platforms with advanced digital filtering and auto-calibration algorithms</li>
-            <li><strong>Analog front-end optimization</strong>: reduce amplifier noise, temperature drift, and ADC error</li>
-            <li><strong>Application expansion</strong>: multi-channel receiving structures, higher-performance sensors, extending to low-light detection and weak electromagnetic environment analysis</li>
-          </ul>
+          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-rocket" style="color:var(--sig-green);"></i> Future Outlook</h3>
+          <p style="font-size:0.88rem;">
+            <strong>Structural optimization</strong> — improved suspension wire materials, reduced moving-part mass, refined damping<br>
+            <strong>Magnetic field optimization</strong> — better field uniformity for improved current-response linearity<br>
+            <strong>Processing upgrade</strong> — higher-performance embedded platforms, advanced digital filtering and auto-calibration<br>
+            <strong>Front-end optimization</strong> — lower-noise components, more stable references, temperature compensation<br>
+            <strong>Application expansion</strong> — multi-channel reception, low-light detection, weak EM environment analysis
+          </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ===== Project Files Download ===== -->
-    <section class="signal-module">
-      <div class="signal-module-head">
-        <span class="signal-module-index"><i class="fas fa-folder-open"></i></span>
+    <!-- ==================== Project Files ==================== -->
+    <section class="signal-files-section" id="files">
+      <div class="signal-files-header">
+        <div class="signal-files-badge"><i class="fas fa-folder-open"></i></div>
         <div>
           <h2>Project Files</h2>
           <p>All design documents, circuit projects, program code, and experimental resources</p>
         </div>
       </div>
-
-      <div class="signal-module-grid">
-        <a class="signal-file-card" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
+      <div class="signal-files-grid">
+        <a class="signal-file" href="../../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
           <div class="signal-file-icon pdf"><i class="fas fa-file-pdf"></i></div>
-          <div class="signal-file-info">
-            <h4>Complete Paper</h4>
-            <span class="signal-file-ext">doc.pdf (1.5 MB)</span>
-            <p>Full 32-page paper on the weak electrical signal measurement system based on optical lever amplification</p>
-          </div>
+          <div class="signal-file-body"><h4>Complete Paper</h4><span class="signal-file-ext">doc.pdf · 1.5 MB</span><p>32-page full paper</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/发生模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/发生模块电路文件.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-info">
-            <h4>Generation Module Circuit</h4>
-            <span class="signal-file-ext">发生模块电路文件.fzz</span>
-            <p>Fritzing project file — Si4713 RF transmitter module circuit schematic and wiring design</p>
-          </div>
+          <div class="signal-file-body"><h4>Generation Module Circuit</h4><span class="signal-file-ext">发生模块电路文件.fzz</span><p>Si4713 RF transmitter Fritzing project</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/数据转换模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/数据转换模块电路文件.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-info">
-            <h4>Data Conversion Module Circuit</h4>
-            <span class="signal-file-ext">数据转换模块电路文件.fzz</span>
-            <p>Fritzing project file — PSD + AD8628 + ADS1115 data processing circuit design</p>
-          </div>
+          <div class="signal-file-body"><h4>Data Conversion Module Circuit</h4><span class="signal-file-ext">数据转换模块电路文件.fzz</span><p>PSD + AD8628 + ADS1115 Fritzing project</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/标定模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/标定模块电路文件.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-info">
-            <h4>Calibration Module Circuit</h4>
-            <span class="signal-file-ext">标定模块电路文件.fzz</span>
-            <p>Fritzing project file — calibration module PWM drive and sense resistor current detection circuit</p>
-          </div>
+          <div class="signal-file-body"><h4>Calibration Module Circuit</h4><span class="signal-file-ext">标定模块电路文件.fzz</span><p>PWM drive + sense resistor Fritzing project</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
           <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-info">
-            <h4>Generation Module Program</h4>
-            <span class="signal-file-ext">signal.ino</span>
-            <p>Arduino sketch — Si4713 initialization, configuration, and RF transmission control</p>
-          </div>
+          <div class="signal-file-body"><h4>Generation Module Program</h4><span class="signal-file-ext">signal.ino</span><p>Si4713 init, configuration & RF transmission control</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/measure.ino" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/measure.ino" target="_blank" rel="noopener">
           <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-info">
-            <h4>Measurement Module Program</h4>
-            <span class="signal-file-ext">measure.ino</span>
-            <p>Arduino sketch — PSD data acquisition, ambient light compensation, digital filtering, and parameter computation</p>
-          </div>
+          <div class="signal-file-body"><h4>Measurement Module Program</h4><span class="signal-file-ext">measure.ino</span><p>PSD acquisition, compensation, filtering & parameter computation</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/current.ino" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/current.ino" target="_blank" rel="noopener">
           <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-info">
-            <h4>Current Source Program</h4>
-            <span class="signal-file-ext">current.ino</span>
-            <p>Arduino sketch — seven-level PWM brightness control and sense resistor current measurement</p>
-          </div>
+          <div class="signal-file-body"><h4>Current Source Program</h4><span class="signal-file-ext">current.ino</span><p>7-level PWM brightness control & current measurement</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
           <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-info">
-            <h4>Calibration Module Program</h4>
-            <span class="signal-file-ext">calibrate.ino</span>
-            <p>Arduino sketch — stepped calibration sampling and least-squares fitting with automatic recommended calibration output</p>
-          </div>
+          <div class="signal-file-body"><h4>Calibration Module Program</h4><span class="signal-file-ext">calibrate.ino</span><p>Stepped calibration sampling & least-squares fitting auto output</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/script.py" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/script.py" target="_blank" rel="noopener">
           <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
-          <div class="signal-file-info">
-            <h4>Signal Generation Script</h4>
-            <span class="signal-file-ext">script.py</span>
-            <p>Python script — generates a 100Hz sine wave modulation signal using the sounddevice library</p>
-          </div>
+          <div class="signal-file-body"><h4>Signal Generation Script</h4><span class="signal-file-ext">script.py</span><p>Python sounddevice 100Hz sine wave generator</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file-card" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
           <div class="signal-file-icon xlsx"><i class="fas fa-table"></i></div>
-          <div class="signal-file-info">
-            <h4>Equipment List</h4>
-            <span class="signal-file-ext">实验器材表.xlsx</span>
-            <p>Excel spreadsheet — complete equipment inventory with specifications and parameters</p>
-          </div>
+          <div class="signal-file-body"><h4>Equipment List</h4><span class="signal-file-ext">实验器材表.xlsx</span><p>Complete inventory with specifications & parameters</p></div>
+          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
       </div>
     </section>
+
   </main>
 
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="/static/js/common.js"></script>
+  <script>
+    (function() {
+      const nav = document.getElementById('signalNav');
+      if (!nav) return;
+      const pills = nav.querySelectorAll('.signal-nav-pill');
+      const sections = [];
+      pills.forEach(p => {
+        const id = p.getAttribute('href');
+        if (id && id.startsWith('#')) {
+          const el = document.getElementById(id.substring(1));
+          if (el) sections.push({ el, p });
+        }
+      });
+      if (!sections.length) return;
+      const observer = new IntersectionObserver(entries => {
+        let active = null;
+        entries.forEach(e => { if (e.isIntersecting) active = sections.find(s => s.el === e.target); });
+        if (active) {
+          pills.forEach(p => p.classList.remove('active'));
+          active.p.classList.add('active');
+        }
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      sections.forEach(s => observer.observe(s.el));
+    })();
+  </script>
 </body>
 </html>
