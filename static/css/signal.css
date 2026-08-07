@@ -1,42 +1,71 @@
+/* ============================================================
+   微弱电信号测量系统 — Signal Measurement System
+   基于光杠杆放大的微弱电信号测量系统设计与实现
+   层级体系：
+   .signal-page          → 页面主容器
+   .signal-hero          → 顶部标题区
+   .signal-chapter       → 章节外框容器（对应论文各章）
+     .signal-chapter-head → 章节标题
+     .signal-panel       → 子区段面板
+       .signal-panel-head → 子区段标题
+       .signal-card      → 内容卡片
+   .signal-module        → 项目文件下载区
+   ============================================================ */
+
+/* ===== 页面容器 ===== */
 .signal-page {
-  max-width: 1180px;
+  max-width: 1140px;
 }
 
-.signal-panel,
-.signal-module {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(155deg, rgba(15, 23, 42, 0.78), rgba(30, 41, 59, 0.52));
-  border-radius: 22px;
-  padding: clamp(1.2rem, 2.4vw, 2rem);
-  box-shadow: 0 22px 40px rgba(2, 6, 23, 0.36);
-  margin-bottom: 1.2rem;
-}
-
+/* ===== Hero 标题区 ===== */
 .signal-hero {
   border: none;
   background: none;
   border-radius: 0;
   box-shadow: none;
   padding: 0;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2rem;
   position: relative;
+}
+
+.signal-hero-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .signal-hero h1 {
   margin: 0;
   color: #fff;
-  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
   letter-spacing: -0.03em;
-  line-height: 1.15;
+  line-height: 1.2;
   font-weight: 700;
 }
 
+.signal-hero h1 small {
+  display: block;
+  font-size: 0.45em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.3rem;
+  letter-spacing: 0;
+}
+
 .signal-hero-desc {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.55);
   margin-top: 1rem;
   line-height: 1.8;
   font-size: 1.05rem;
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .signal-hero::after {
@@ -44,68 +73,208 @@
   display: block;
   width: 60px;
   height: 3px;
-  margin-top: 2rem;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  margin-top: 1.8rem;
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
   border-radius: 2px;
 }
 
 .signal-hero-actions {
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   display: flex;
   gap: 0.72rem;
   flex-wrap: wrap;
-}
-
-.signal-panel-head h2 {
-  margin: 0;
-  color: #e2e8f0;
-  font-size: 1.35rem;
-}
-
-.signal-abstract-grid {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 1.5rem;
-  margin-top: 0.9rem;
-}
-
-.signal-abstract-text p {
-  color: rgba(226, 232, 240, 0.84);
-  line-height: 1.72;
-  margin: 0;
-}
-
-.signal-abstract-text .signal-hero-actions {
-  margin-top: 1.2rem;
 }
 
 .signal-hero-actions .button i {
   margin-right: 0.5em;
 }
 
-.signal-keywords {
-  margin-top: 0.8rem;
-  font-size: 0.88rem;
-  color: rgba(226, 232, 240, 0.6);
-}
-
-.signal-keywords-label {
-  font-weight: 600;
-  color: rgba(226, 232, 240, 0.8);
-}
-
-.signal-card {
-  border: 1px solid rgba(148, 163, 184, 0.26);
+/* ===== 章节容器 ===== */
+.signal-chapter {
+  background: rgba(255, 255, 255, 0.012);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  background: rgba(2, 6, 23, 0.45);
-  padding: 0.9rem;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.signal-chapter::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 12%; right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+}
+
+/* ===== 章节标题 ===== */
+.signal-chapter-head {
+  text-align: center;
+  padding: 0.2rem 0 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.signal-chapter-head h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.signal-chapter-head h2 .chapter-num {
+  display: inline-block;
+  color: #6366f1;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95em;
+}
+
+.signal-chapter-head p {
+  margin: 0.35rem 0 0 0;
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 0.82rem;
+}
+
+.signal-chapter-head::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+  margin: 0.5rem auto 0;
+}
+
+/* ===== 面板基础 ===== */
+.signal-panel {
+  margin-bottom: 1.5rem;
+}
+
+.signal-panel:last-child {
+  margin-bottom: 0;
+}
+
+.signal-panel-head {
+  margin-bottom: 0.9rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid rgba(99, 102, 241, 0.2);
+}
+
+.signal-panel-head h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.signal-panel-head h3 i {
+  color: #6366f1;
+  margin-right: 0.5rem;
+  font-size: 0.9em;
+}
+
+.signal-panel-head p {
+  margin: 0.25rem 0 0 0;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.82rem;
+}
+
+/* ===== 内容卡片 ===== */
+.signal-card {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.3);
+  padding: 1.2rem;
+}
+
+.signal-card p {
+  color: rgba(226, 232, 240, 0.72);
+  line-height: 1.75;
+  margin: 0 0 0.8rem;
+  font-size: 0.94rem;
+}
+
+.signal-card p:last-child {
+  margin-bottom: 0;
+}
+
+.signal-card ul {
+  color: rgba(226, 232, 240, 0.72);
+  line-height: 1.75;
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.94rem;
+}
+
+.signal-card ul li {
+  margin-bottom: 0.35rem;
+}
+
+.signal-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+.signal-card strong {
+  color: #fff;
+}
+
+/* ===== 摘要面板 ===== */
+.signal-abstract-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(155deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.45));
+  border-radius: 18px;
+  padding: clamp(1.2rem, 2.4vw, 1.8rem);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.signal-abstract-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1.8rem;
+  align-items: start;
+}
+
+.signal-abstract-text p {
+  color: rgba(226, 232, 240, 0.82);
+  line-height: 1.78;
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+.signal-abstract-keywords {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.55);
+}
+
+.signal-abstract-keywords span {
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.signal-abstract-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.signal-abstract-actions .button i {
+  margin-right: 0.5em;
 }
 
 .signal-doc-image {
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.26);
-  background: rgba(2, 6, 23, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(2, 6, 23, 0.4);
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signal-doc-image img {
@@ -115,41 +284,273 @@
   display: block;
 }
 
+.signal-doc-image .doc-placeholder {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.signal-doc-image .doc-placeholder i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Grid 布局 ===== */
+.signal-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.signal-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+/* ===== 图片展示卡片 ===== */
+.signal-image-card {
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.35);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.signal-image-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+.signal-image-card figcaption {
+  padding: 0.7rem 1rem;
+  font-size: 0.82rem;
+  color: rgba(226, 232, 240, 0.6);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.signal-image-card img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  background: rgba(2, 6, 23, 0.5);
+}
+
+/* ===== 公式展示 ===== */
+.signal-formula {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  color: #c4b5fd;
+  letter-spacing: 0.02em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.signal-formula-block {
+  margin: 0.5rem 0;
+}
+
+/* ===== 关键词标签 ===== */
+.signal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.signal-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  color: rgba(196, 181, 253, 0.7);
+}
+
+/* ===== 特性亮点网格 ===== */
+.signal-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+
+.signal-feature-item {
+  background: rgba(99, 102, 241, 0.04);
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  border-radius: 12px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.signal-feature-item:hover {
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.signal-feature-item i {
+  font-size: 1.5rem;
+  color: #6366f1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.signal-feature-item strong {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.signal-feature-item span {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+}
+
+/* ===== 系统流程 ===== */
+.signal-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin: 0.8rem 0;
+}
+
+.signal-flow-step {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.82rem;
+  color: rgba(226, 232, 240, 0.82);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.signal-flow-arrow {
+  color: rgba(99, 102, 241, 0.35);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* ===== 文件下载卡片 ===== */
+.signal-file-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.3);
+  padding: 1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.signal-file-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.signal-file-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+}
+
+.signal-file-icon.ino  { background: rgba(0, 150, 136, 0.15);  color: #009688; }
+.signal-file-icon.py   { background: rgba(55, 118, 179, 0.15);  color: #3776ab; }
+.signal-file-icon.fzz  { background: rgba(227, 79, 38, 0.15);   color: #e34f26; }
+.signal-file-icon.xlsx { background: rgba(33, 115, 70, 0.15);   color: #217346; }
+.signal-file-icon.pdf  { background: rgba(229, 45, 39, 0.15);   color: #e52d27; }
+.signal-file-icon.img  { background: rgba(99, 102, 241, 0.12);  color: #818cf8; }
+
+.signal-file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.signal-file-info h4 {
+  margin: 0 0 0.2rem 0;
+  color: #dbeafe;
+  font-size: 0.95rem;
+}
+
+.signal-file-ext {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.3rem;
+}
+
+.signal-file-info p {
+  color: rgba(226, 232, 240, 0.6);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ===== 项目文件下载区 ===== */
 .signal-module {
-  border-color: rgba(148, 163, 184, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(155deg, rgba(15, 23, 42, 0.65), rgba(30, 41, 59, 0.4));
+  border-radius: 18px;
+  padding: clamp(1.2rem, 2.4vw, 1.8rem);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.25);
+  margin-bottom: 1.5rem;
 }
 
 .signal-module-head {
   display: flex;
-  gap: 0.82rem;
+  gap: 0.9rem;
   align-items: flex-start;
-  margin-bottom: 0.9rem;
+  margin-bottom: 1.1rem;
 }
 
 .signal-module-index {
-  width: 2.05rem;
-  height: 2.05rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #0f172a;
   font-weight: 600;
-  background: #22d3ee;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
   flex-shrink: 0;
 }
 
 .signal-module-head h2 {
   margin: 0;
   color: #e2e8f0;
-  font-size: 1.42rem;
+  font-size: 1.35rem;
 }
 
 .signal-module-head p {
-  margin: 0.46rem 0 0 0;
-  color: rgba(226, 232, 240, 0.82);
-  line-height: 1.74;
+  margin: 0.4rem 0 0 0;
+  color: rgba(226, 232, 240, 0.7);
+  line-height: 1.7;
+  font-size: 0.9rem;
 }
 
 .signal-module-grid {
@@ -158,88 +559,56 @@
   gap: 0.75rem;
 }
 
-.signal-module-grid > :nth-child(5):last-child,
-.signal-module-grid > :nth-child(5):nth-last-child(2) {
-  grid-column: auto;
-}
-
-.signal-file-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.signal-file-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(99, 102, 241, 0.6);
-  background: rgba(99, 102, 241, 0.08);
-}
-
-.signal-file-thumb {
-  width: 80px;
-  height: 60px;
-  border-radius: 10px;
-  overflow: hidden;
-  flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(2, 6, 23, 0.5);
-}
-
-.signal-file-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.signal-file-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.signal-file-info h3 {
-  margin: 0 0 0.3rem 0;
-  color: #dbeafe;
-  font-size: 1.04rem;
-}
-
-.signal-file-ext {
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
-  margin-bottom: 0.4rem;
-}
-
-.signal-file-info p {
-  color: rgba(226, 232, 240, 0.7);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-@media (max-width: 1023px) {
+/* ===== 响应式 ===== */
+@media (max-width: 1100px) {
   .signal-abstract-grid {
     grid-template-columns: 1fr;
   }
 
+  .signal-doc-image {
+    max-width: 300px;
+    aspect-ratio: 3/4;
+  }
+
+  .signal-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .signal-grid-2,
   .signal-module-grid {
     grid-template-columns: 1fr;
   }
 
-  .signal-hero-actions {
-    width: 100%;
+  .signal-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .signal-flow {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .signal-flow-arrow {
+    transform: rotate(90deg);
   }
 }
 
 @media (max-width: 767px) {
-  .signal-file-thumb {
-    width: 64px;
-    height: 48px;
+  .signal-chapter {
+    padding: 1.2rem 1rem;
+  }
+
+  .signal-feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .signal-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-hero h1 {
+    font-size: 1.6rem;
   }
 }
