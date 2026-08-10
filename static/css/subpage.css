@@ -948,3 +948,34 @@
         font-size: var(--text-xs);
     }
 }
+
+/* Shared Apple-style treatment for every project and life page. */
+.page { max-width: 1180px; padding-bottom: 4rem; }
+.hero-card { padding: clamp(.5rem, 2vw, 1.2rem) 0 1.8rem; }
+.hero-card h1 { font-size: clamp(2.8rem, 6vw, 5.25rem); line-height: .98; letter-spacing: -.065em; }
+.hero-card h2 { letter-spacing: -.045em; }
+.hero-card p { max-width: 760px; font-size: clamp(1rem, 1.5vw, 1.2rem); color: #a1a1a6; }
+.section-header h2, .section-title { color: #fff; letter-spacing: -.05em; }
+.section-header p { color: #a1a1a6; }
+
+.card-grid { gap: 1.15rem; }
+.card { padding: clamp(1.15rem, 2vw, 1.55rem); border-radius: 22px; }
+.card h2, .card h3, .doc-card h3, .thesis-card h3, .feature-card h3 { color: #fff; letter-spacing: -.025em; }
+.card p, .doc-card p, .thesis-card p, .feature-card p, .info-card p, .note-card p { color: #d1d1d6; }
+.button-row { gap: .7rem; }
+.button, .button-outline { padding: .72rem 1.05rem; }
+
+.pcr-lab, .thesis-archive, .hero-interactive, .dev-section, .spm-section, .tech-subsection, .acknowledgments-section, .license-section, .api-section, .download-section { margin-top: clamp(3.5rem, 8vw, 6.5rem); }
+.doc-card, .thesis-card, .feature-card, .hi-card, .hi-overview-card, .metric-card, .metric-card-small, .case-item, .team-item { border-radius: 24px !important; overflow: hidden; }
+.doc-icon, .skill-icon, .contact-icon { color: #64d2ff !important; }
+.thesis-image-wrap img, .card-image img, .hero-interactive img { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.thesis-card:hover .thesis-image-wrap img, .card:hover .card-image img, .hero-interactive:hover img { transform: scale(1.035); }
+.thesis-badge, .hero-badge, .thanks-label { border-radius: 999px !important; color: #b8ddff !important; background: rgba(10,132,255,.18) !important; border: 1px solid rgba(100,210,255,.28) !important; }
+.bottombar { border-color: rgba(255,255,255,.1); }
+
+@media (max-width: 767px) {
+    .page { padding-top: 6.75rem; }
+    .hero-card { margin-bottom: 2.8rem; }
+    .hero-card h1 { font-size: clamp(2.7rem, 14vw, 4rem); }
+    .card-grid, .button-row { grid-template-columns: 1fr; }
+}
