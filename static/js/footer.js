@@ -93,7 +93,11 @@
         '.copyright{text-align:center;padding-top:.95rem;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.8rem;display:flex;flex-direction:column;align-items:center;gap:.3rem}' +
         '.icp-link{color:rgba(255,255,255,.5);font-size:.75rem;transition:color .3s}' +
         '.icp-link:hover{color:rgba(255,255,255,.8)}' +
-        '@media(max-width:768px){.footer-content{align-items:flex-start;gap:.8rem}.footer-social-link{width:44px;height:44px}.copyright{gap:.2rem}}';
+        '@media(max-width:768px){.footer-content{align-items:flex-start;gap:.8rem}.footer-social-link{width:44px;height:44px}.copyright{gap:.2rem}}' +
+        /* A floating material footer keeps the shared chrome consistent on every page. */
+        '.footer{margin:3rem 1rem 1rem!important;padding:2.2rem 0 1.2rem!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:28px!important;background:rgba(28,28,30,.72)!important;backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:0 18px 55px rgba(0,0,0,.24)}' +
+        '.footer .container{max-width:1160px!important}.footer-logo{font-size:1.35rem!important;letter-spacing:-.04em}.footer-social-link{background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.1);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s!important}.footer-social-link:hover{background:#0a84ff!important;transform:translateY(-2px) scale(1.04)!important}.footer-links a{color:#a1a1a6!important}.footer-links a:hover{color:#fff!important;transform:none!important}.copyright{border-color:rgba(255,255,255,.1)!important;color:#98989d!important}' +
+        '@media(max-width:768px){.footer{margin:2rem .65rem .65rem!important;border-radius:22px!important}.footer-content{display:grid!important;grid-template-columns:1fr 1fr}.footer-content>div:first-child{grid-column:1/-1}}';
 
     var projectLinks = [
         { href: 'https://dashboard.rayawa.top', text: t.projectHmdb },
