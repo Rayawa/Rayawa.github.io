@@ -68,7 +68,7 @@
         <a class="sig-btn sig-btn-outline" href="#files">
           <i class="fas fa-download"></i> 下载项目文件
         </a>
-        <a class="sig-btn sig-btn-outline" href="../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+        <a class="sig-btn sig-btn-outline" href="../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener">
           <i class="fas fa-table"></i> 实验器材表
         </a>
       </div>
@@ -78,6 +78,7 @@
     <nav class="signal-nav" id="signalNav">
       <div class="signal-nav-inner">
         <a class="signal-nav-pill active" href="#abstract">摘要</a>
+        <a class="signal-nav-pill" href="#introduction">引言</a>
         <a class="signal-nav-pill" href="#design">系统设计</a>
         <a class="signal-nav-pill" href="#generation">发生模块</a>
         <a class="signal-nav-pill" href="#reception">接收模块</a>
@@ -116,6 +117,12 @@
       </a>
     </section>
 
+    <!-- ==================== §1 引言 ==================== -->
+    <section class="signal-section" id="introduction">
+      <div class="signal-section-header"><div class="signal-section-num">1</div><div><h2>引言</h2><p>以物理放大突破微弱信号测量中的前置噪声限制</p></div></div>
+      <div class="signal-card"><p>微安乃至更低量级的电信号容易被环境噪声淹没；单纯提高电子增益也会同步放大前端噪声。该系统先以电磁、机械与光学链路完成物理转换，再进行高精度数字采集：它并非直接放大电信号，而是把微小电流造成的偏转转化为更易检测的光斑位移。</p><p>论文随后依次说明总体结构、各模块实现、标定与线性度验证、误差分析、应用边界和未来优化方向。</p></div>
+    </section>
+
     <!-- ==================== §2 系统总体设计 ==================== -->
     <section class="signal-section" id="design">
       <div class="signal-section-header">
@@ -128,6 +135,11 @@
 
       <div class="signal-card">
         <p>系统以长方体框架作为机械支撑，采用<strong>模块化设计</strong>将装置划分为四大功能模块。框架左侧安装悬吊式偏转结构，右侧布置激光发射、光斑检测及数据处理电路。信号接收模块与偏转模块采用由同一根连续铜线绕制的<strong>一体化线圈结构</strong>，减少连接损耗。装置整体采用电磁屏蔽结构，数据处理部分以金属屏蔽罩隔离，提高系统稳定性。</p>
+      </div>
+
+      <div class="signal-grid-2" style="margin-top:1rem;">
+        <figure class="signal-img-card"><img src="../static/resources/signal/system-architecture.png" alt="系统架构示意图" loading="lazy"><figcaption>图 1 系统架构示意图</figcaption></figure>
+        <figure class="signal-img-card"><img src="../static/resources/signal/system-flow.png" alt="系统流程示意图" loading="lazy"><figcaption>图 2 系统流程示意图</figcaption></figure>
       </div>
 
       <div class="signal-features" style="margin-top:1rem;">
@@ -193,11 +205,11 @@
         <p>发生模块由<strong>计算机音频输出接口</strong>、<strong>Arduino 控制单元</strong>以及<strong>Si4713 射频发射芯片</strong>组成。计算机生成幅值和频率可控的低频调制信号，经 3.5mm 音频接口输入 Si4713 的 LIN 与 RIN 输入端；Arduino 通过 I2C 接口对 Si4713 进行初始化与参数配置。Si4713 内部集成频率合成、调制控制及射频输出功能，将音频信号调制到指定射频载波并通过天线输出。</p>
         <div class="signal-grid-2" style="margin-top:1rem;">
           <figure class="signal-img-card">
-            <img src="../static/resources/signal/发生模块接线示意图.png" alt="发生模块接线示意图" loading="lazy">
+            <img src="../static/resources/signal/generator-wiring-diagram.png" alt="发生模块接线示意图" loading="lazy">
             <figcaption>发生模块接线示意图</figcaption>
           </figure>
           <figure class="signal-img-card">
-            <img src="../static/resources/signal/发生模块电路原理图.png" alt="发生模块电路原理图" loading="lazy">
+            <img src="../static/resources/signal/generator-schematic.png" alt="发生模块电路原理图" loading="lazy">
             <figcaption>发生模块电路原理图</figcaption>
           </figure>
         </div>
@@ -297,11 +309,11 @@
         <p>数据处理模块由 <strong>PSD 传感器</strong>、<strong>AD8628 低噪声调理电路</strong>、<strong>ADS1115 16位 ADC</strong> 及 <strong>Arduino</strong> 组成。PSD 利用横向光电效应产生两路差分光电流；AD8628 构成跨阻放大电路进行 I-V 转换（低输入偏置电流、低失调电压）；ADS1115 通过 I2C 与 Arduino 通信，完成高精度数字采样。</p>
         <div class="signal-grid-2" style="margin-top:1rem;">
           <figure class="signal-img-card">
-            <img src="../static/resources/signal/数据转换模块接线示意图.png" alt="数据转换模块接线示意图" loading="lazy">
+            <img src="../static/resources/signal/data-converter-wiring-diagram.png" alt="数据转换模块接线示意图" loading="lazy">
             <figcaption>数据转换模块接线示意图</figcaption>
           </figure>
           <figure class="signal-img-card">
-            <img src="../static/resources/signal/数据转换模块电路原理图.png" alt="数据转换模块电路原理图" loading="lazy">
+            <img src="../static/resources/signal/data-converter-schematic.png" alt="数据转换模块电路原理图" loading="lazy">
             <figcaption>数据转换模块电路原理图</figcaption>
           </figure>
         </div>
@@ -351,11 +363,11 @@
         <p>标定模块由<strong>电流输出部分</strong>（PWM 驱动 + 采样电阻）和<strong>转换系数计算部分</strong>（复用数据处理硬件）组成。标定过程<strong>无需改变硬件连接</strong>，仅需切换 Arduino 运行程序即可在标定与测量模式间转换，保证信号传输路径一致性，避免额外设备引入系统误差。</p>
         <div class="signal-grid-2" style="margin-top:1rem;">
           <figure class="signal-img-card">
-            <img src="../static/resources/signal/标定模块接线示意图.png" alt="标定模块接线示意图" loading="lazy">
+            <img src="../static/resources/signal/calibration-wiring-diagram.png" alt="标定模块接线示意图" loading="lazy">
             <figcaption>标定模块接线示意图</figcaption>
           </figure>
           <figure class="signal-img-card">
-            <img src="../static/resources/signal/标定模块电路原理图.png" alt="标定模块电路原理图" loading="lazy">
+            <img src="../static/resources/signal/calibration-schematic.png" alt="标定模块电路原理图" loading="lazy">
             <figcaption>标定模块电路原理图</figcaption>
           </figure>
         </div>
@@ -443,14 +455,15 @@
     </section>
 
     <!-- ==================== §10-11 局限性与展望 ==================== -->
-    <section class="signal-section">
+    <section class="signal-section" id="conclusion">
       <div class="signal-section-header">
         <div class="signal-section-num" style="background:linear-gradient(135deg, var(--sig-amber), #d97706);">10</div>
         <div>
-          <h2>局限性与展望</h2>
+          <h2>结论、局限性与展望</h2>
           <p>系统边界认知与未来优化方向</p>
         </div>
       </div>
+      <div class="signal-card" style="margin-bottom:0.8rem;"><p>系统以接收线圈、偏转线圈、光杠杆与 PSD 构成完整的“电 - 机 - 光 - 数”测量链路，并通过标定建立输入电流与 PSD 输出的量化关系。模块化实现与数字滤波使其适合作为微弱信号测量和物理实验的可复现实验平台。</p></div>
       <div class="signal-grid-2">
         <div class="signal-card">
           <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-circle" style="color:var(--sig-amber);"></i> 系统局限性</h3>
@@ -490,19 +503,19 @@
           <div class="signal-file-body"><h4>完整论文</h4><span class="signal-file-ext">doc.pdf · 1.5 MB</span><p>32 页完整论文</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../static/resources/signal/发生模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../static/resources/signal/generator-circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>发生模块电路工程</h4><span class="signal-file-ext">发生模块电路文件.fzz</span><p>Si4713 射频发射模块 Fritzing 项目</p></div>
+          <div class="signal-file-body"><h4>发生模块电路工程</h4><span class="signal-file-ext">generator-circuit.fzz</span><p>Si4713 射频发射模块 Fritzing 项目</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../static/resources/signal/数据转换模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../static/resources/signal/data-converter-circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>数据转换模块电路工程</h4><span class="signal-file-ext">数据转换模块电路文件.fzz</span><p>PSD + AD8628 + ADS1115 Fritzing 项目</p></div>
+          <div class="signal-file-body"><h4>数据转换模块电路工程</h4><span class="signal-file-ext">data-converter-circuit.fzz</span><p>PSD + AD8628 + ADS1115 Fritzing 项目</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../static/resources/signal/标定模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../static/resources/signal/calibration-circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>标定模块电路工程</h4><span class="signal-file-ext">标定模块电路文件.fzz</span><p>PWM 驱动 + 采样电阻检测 Fritzing 项目</p></div>
+          <div class="signal-file-body"><h4>标定模块电路工程</h4><span class="signal-file-ext">calibration-circuit.fzz</span><p>PWM 驱动 + 采样电阻检测 Fritzing 项目</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
         <a class="signal-file" href="../static/resources/signal/signal.ino" target="_blank" rel="noopener">
@@ -530,11 +543,22 @@
           <div class="signal-file-body"><h4>信号生成脚本</h4><span class="signal-file-ext">script.py</span><p>Python sounddevice 100Hz 正弦波生成</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+        <a class="signal-file" href="../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener">
           <div class="signal-file-icon xlsx"><i class="fas fa-table"></i></div>
-          <div class="signal-file-body"><h4>实验器材表</h4><span class="signal-file-ext">实验器材表.xlsx</span><p>全部器材清单与规格参数明细</p></div>
+          <div class="signal-file-body"><h4>实验器材表</h4><span class="signal-file-ext">equipment-list.xlsx</span><p>全部器材清单与规格参数明细</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
+        <a class="signal-file" href="../static/resources/signal/demo.pptx" download><div class="signal-file-icon"><i class="fas fa-file-powerpoint"></i></div><div class="signal-file-body"><h4>项目演示文稿</h4><span class="signal-file-ext">demo.pptx</span><p>项目汇报与演示材料</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/system-architecture.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>系统架构图</h4><span class="signal-file-ext">system-architecture.png</span><p>图 1 的原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/system-flow.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>系统流程图</h4><span class="signal-file-ext">system-flow.png</span><p>图 2 的原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/system-architecture.xmind" download><div class="signal-file-icon"><i class="fas fa-sitemap"></i></div><div class="signal-file-body"><h4>系统架构思维导图</h4><span class="signal-file-ext">system-architecture.xmind</span><p>可编辑 XMind 源文件</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/system-flow.xmind" download><div class="signal-file-icon"><i class="fas fa-sitemap"></i></div><div class="signal-file-body"><h4>系统流程思维导图</h4><span class="signal-file-ext">system-flow.xmind</span><p>可编辑 XMind 源文件</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/generator-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>发生模块接线图</h4><span class="signal-file-ext">generator-wiring-diagram.png</span><p>发生模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/generator-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>发生模块原理图</h4><span class="signal-file-ext">generator-schematic.png</span><p>发生模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/data-converter-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>数据转换模块接线图</h4><span class="signal-file-ext">data-converter-wiring-diagram.png</span><p>数据转换模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/data-converter-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>数据转换模块原理图</h4><span class="signal-file-ext">data-converter-schematic.png</span><p>数据转换模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/calibration-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>标定模块接线图</h4><span class="signal-file-ext">calibration-wiring-diagram.png</span><p>标定模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../static/resources/signal/calibration-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>标定模块原理图</h4><span class="signal-file-ext">calibration-schematic.png</span><p>标定模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
       </div>
     </section>
 

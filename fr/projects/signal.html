@@ -68,7 +68,7 @@
         <a class="sig-btn sig-btn-outline" href="#files">
           <i class="fas fa-download"></i> Télécharger les Fichiers
         </a>
-        <a class="sig-btn sig-btn-outline" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+        <a class="sig-btn sig-btn-outline" href="../../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener">
           <i class="fas fa-table"></i> Liste du Matériel
         </a>
       </div>
@@ -78,6 +78,7 @@
     <nav class="signal-nav" id="signalNav">
       <div class="signal-nav-inner">
         <a class="signal-nav-pill active" href="#abstract">Résumé</a>
+        <a class="signal-nav-pill" href="#introduction">Introduction</a>
         <a class="signal-nav-pill" href="#design">Conception</a>
         <a class="signal-nav-pill" href="#generation">Génération</a>
         <a class="signal-nav-pill" href="#reception">Réception</a>
@@ -116,6 +117,12 @@
       </a>
     </section>
 
+    <!-- ==================== §1 Introduction ==================== -->
+    <section class="signal-section" id="introduction">
+      <div class="signal-section-header"><div class="signal-section-num">1</div><div><h2>Introduction</h2><p>Une amplification physique pour dépasser le bruit de tête dans la mesure des signaux faibles</p></div></div>
+      <div class="signal-card"><p>Les signaux électriques de l'ordre du microampère, ou plus faibles, sont facilement masqués par le bruit ambiant; augmenter seulement le gain électronique amplifie aussi le bruit de tête. Le système réalise donc les conversions électromagnétique, mécanique et optique avant l'acquisition numérique de précision. Il n'amplifie pas directement le signal électrique: il transforme la déviation due au courant en déplacement de tache lumineuse, plus facile à mesurer.</p><p>L'article présente ensuite, dans cet ordre, l'architecture, les modules, l'étalonnage et la linéarité, l'analyse des erreurs, les applications, les limites et les perspectives.</p></div>
+    </section>
+
     <!-- ==================== §2 Conception Globale ==================== -->
     <section class="signal-section" id="design">
       <div class="signal-section-header">
@@ -127,6 +134,11 @@
       </div>
       <div class="signal-card">
         <p>Le système utilise un cadre rectangulaire comme support mécanique avec une <strong>conception modulaire</strong> divisant l'appareil en quatre modules fonctionnels. Le côté gauche abrite la structure de déviation suspendue ; le côté droit accueille l'émission laser, la détection du spot et les circuits de traitement. Les modules de réception et de déviation utilisent une <strong>structure de bobine intégrée</strong> enroulée à partir d'un seul fil de cuivre continu, réduisant les pertes de connexion. L'ensemble de l'appareil intègre un blindage électromagnétique, avec la section de traitement isolée dans un boîtier métallique.</p>
+      </div>
+
+      <div class="signal-grid-2" style="margin-top:1rem;">
+        <figure class="signal-img-card"><img src="../../static/resources/signal/system-architecture.png" alt="Schéma d'architecture du système" loading="lazy"><figcaption>Figure 1. Architecture du système</figcaption></figure>
+        <figure class="signal-img-card"><img src="../../static/resources/signal/system-flow.png" alt="Schéma de flux du système" loading="lazy"><figcaption>Figure 2. Flux du système</figcaption></figure>
       </div>
       <div class="signal-features" style="margin-top:1rem;">
         <div class="signal-feature">
@@ -183,11 +195,11 @@
         <p>Le module de génération se compose d'une <strong>sortie audio de l'ordinateur</strong>, d'une <strong>unité de contrôle Arduino</strong> et d'une <strong>puce émettrice RF Si4713</strong>. L'ordinateur génère des signaux de modulation basse fréquence avec une amplitude et une fréquence contrôlables, transmis aux entrées LIN et RIN du Si4713 via une prise jack 3,5 mm. L'Arduino initialise et configure le Si4713 via I2C. Le Si4713 intègre la synthèse de fréquence, le contrôle de modulation et la sortie RF — modulant le signal audio sur une porteuse RF spécifiée et le transmettant via une antenne.</p>
         <div class="signal-grid-2" style="margin-top:1rem;">
           <figure class="signal-img-card">
-            <img src="../../static/resources/signal/发生模块接线示意图.png" alt="Schéma de câblage du module de génération" loading="lazy">
+            <img src="../../static/resources/signal/generator-wiring-diagram.png" alt="Schéma de câblage du module de génération" loading="lazy">
             <figcaption>Schéma de Câblage du Module de Génération</figcaption>
           </figure>
           <figure class="signal-img-card">
-            <img src="../../static/resources/signal/发生模块电路原理图.png" alt="Schéma de circuit du module de génération" loading="lazy">
+            <img src="../../static/resources/signal/generator-schematic.png" alt="Schéma de circuit du module de génération" loading="lazy">
             <figcaption>Schéma de Circuit du Module de Génération</figcaption>
           </figure>
         </div>
@@ -267,11 +279,11 @@
         <p>Le module de traitement comprend un <strong>capteur PSD</strong>, un <strong>circuit de conditionnement AD8628</strong>, un <strong>ADC ADS1115 16 bits</strong> et un <strong>Arduino</strong>. Le PSD utilise l'effet photoélectrique latéral pour produire des photocourants différentiels. L'AD8628 forme un amplificateur à transimpédance pour la conversion I-V (faible courant de polarisation, faible tension de décalage). L'ADS1115 communique via I2C avec l'Arduino.</p>
         <div class="signal-grid-2" style="margin-top:1rem;">
           <figure class="signal-img-card">
-            <img src="../../static/resources/signal/数据转换模块接线示意图.png" alt="Schéma de câblage du module de conversion" loading="lazy">
+            <img src="../../static/resources/signal/data-converter-wiring-diagram.png" alt="Schéma de câblage du module de conversion" loading="lazy">
             <figcaption>Schéma de Câblage du Module de Conversion</figcaption>
           </figure>
           <figure class="signal-img-card">
-            <img src="../../static/resources/signal/数据转换模块电路原理图.png" alt="Schéma de circuit du module de conversion" loading="lazy">
+            <img src="../../static/resources/signal/data-converter-schematic.png" alt="Schéma de circuit du module de conversion" loading="lazy">
             <figcaption>Schéma de Circuit du Module de Conversion</figcaption>
           </figure>
         </div>
@@ -305,11 +317,11 @@
         <p>Le module d'étalonnage se compose d'une <strong>section de sortie de courant</strong> (commande PWM + résistance de mesure) et d'une <strong>section de calcul du coefficient</strong> (réutilisant le matériel de traitement). L'étalonnage <strong>ne nécessite aucun changement matériel</strong> — il suffit de changer le programme Arduino pour basculer entre les modes d'étalonnage et de mesure, garantissant des chemins de signal identiques.</p>
         <div class="signal-grid-2" style="margin-top:1rem;">
           <figure class="signal-img-card">
-            <img src="../../static/resources/signal/标定模块接线示意图.png" alt="Schéma de câblage du module d'étalonnage" loading="lazy">
+            <img src="../../static/resources/signal/calibration-wiring-diagram.png" alt="Schéma de câblage du module d'étalonnage" loading="lazy">
             <figcaption>Schéma de Câblage du Module d'Étalonnage</figcaption>
           </figure>
           <figure class="signal-img-card">
-            <img src="../../static/resources/signal/标定模块电路原理图.png" alt="Schéma de circuit du module d'étalonnage" loading="lazy">
+            <img src="../../static/resources/signal/calibration-schematic.png" alt="Schéma de circuit du module d'étalonnage" loading="lazy">
             <figcaption>Schéma de Circuit du Module d'Étalonnage</figcaption>
           </figure>
         </div>
@@ -389,14 +401,15 @@
     </section>
 
     <!-- ==================== §10-11 Limitations et Perspectives ==================== -->
-    <section class="signal-section">
+    <section class="signal-section" id="conclusion">
       <div class="signal-section-header">
         <div class="signal-section-num" style="background:linear-gradient(135deg, var(--sig-amber), #d97706);">10</div>
         <div>
-          <h2>Limitations et Perspectives</h2>
+          <h2>Conclusion, limites et perspectives</h2>
           <p>Conscience des limites du système et orientations futures</p>
         </div>
       </div>
+      <div class="signal-card" style="margin-bottom:0.8rem;"><p>Le système associe bobines de réception et de déviation, levier optique et PSD dans une chaîne complète de mesure électrique-mécanique-optique-numérique. L'étalonnage relie le courant d'entrée à la sortie du PSD; le matériel modulaire et le filtrage numérique en font une plate-forme reproductible pour les expériences de physique et de signaux faibles.</p></div>
       <div class="signal-grid-2">
         <div class="signal-card">
           <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-circle" style="color:var(--sig-amber);"></i> Limitations du Système</h3>
@@ -436,19 +449,19 @@
           <div class="signal-file-body"><h4>Article Complet</h4><span class="signal-file-ext">doc.pdf · 1,5 Mo</span><p>Article complet de 32 pages</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../../static/resources/signal/发生模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/generator-circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>Circuit du Module de Génération</h4><span class="signal-file-ext">发生模块电路文件.fzz</span><p>Projet Fritzing émetteur RF Si4713</p></div>
+          <div class="signal-file-body"><h4>Circuit du Module de Génération</h4><span class="signal-file-ext">generator-circuit.fzz</span><p>Projet Fritzing émetteur RF Si4713</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../../static/resources/signal/数据转换模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/data-converter-circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>Circuit du Module de Conversion</h4><span class="signal-file-ext">数据转换模块电路文件.fzz</span><p>Projet Fritzing PSD + AD8628 + ADS1115</p></div>
+          <div class="signal-file-body"><h4>Circuit du Module de Conversion</h4><span class="signal-file-ext">data-converter-circuit.fzz</span><p>Projet Fritzing PSD + AD8628 + ADS1115</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../../static/resources/signal/标定模块电路文件.fzz" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/calibration-circuit.fzz" target="_blank" rel="noopener">
           <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>Circuit du Module d'Étalonnage</h4><span class="signal-file-ext">标定模块电路文件.fzz</span><p>Projet Fritzing commande PWM + résistance de mesure</p></div>
+          <div class="signal-file-body"><h4>Circuit du Module d'Étalonnage</h4><span class="signal-file-ext">calibration-circuit.fzz</span><p>Projet Fritzing commande PWM + résistance de mesure</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
         <a class="signal-file" href="../../static/resources/signal/signal.ino" target="_blank" rel="noopener">
@@ -476,11 +489,22 @@
           <div class="signal-file-body"><h4>Script de Génération de Signal</h4><span class="signal-file-ext">script.py</span><p>Générateur d'onde sinusoïdale 100Hz Python sounddevice</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
-        <a class="signal-file" href="../../static/resources/signal/实验器材表.xlsx" target="_blank" rel="noopener">
+        <a class="signal-file" href="../../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener">
           <div class="signal-file-icon xlsx"><i class="fas fa-table"></i></div>
-          <div class="signal-file-body"><h4>Liste du Matériel</h4><span class="signal-file-ext">实验器材表.xlsx</span><p>Inventaire complet avec spécifications et paramètres</p></div>
+          <div class="signal-file-body"><h4>Liste du Matériel</h4><span class="signal-file-ext">equipment-list.xlsx</span><p>Inventaire complet avec spécifications et paramètres</p></div>
           <div class="signal-file-dl"><i class="fas fa-download"></i></div>
         </a>
+        <a class="signal-file" href="../../static/resources/signal/demo.pptx" download><div class="signal-file-icon"><i class="fas fa-file-powerpoint"></i></div><div class="signal-file-body"><h4>Présentation du projet</h4><span class="signal-file-ext">demo.pptx</span><p>Support de présentation et de démonstration</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/system-architecture.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Schéma d'architecture</h4><span class="signal-file-ext">system-architecture.png</span><p>Image source de la figure 1</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/system-flow.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Schéma de flux</h4><span class="signal-file-ext">system-flow.png</span><p>Image source de la figure 2</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/system-architecture.xmind" download><div class="signal-file-icon"><i class="fas fa-sitemap"></i></div><div class="signal-file-body"><h4>Carte mentale d'architecture</h4><span class="signal-file-ext">system-architecture.xmind</span><p>Fichier source XMind modifiable</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/system-flow.xmind" download><div class="signal-file-icon"><i class="fas fa-sitemap"></i></div><div class="signal-file-body"><h4>Carte mentale de flux</h4><span class="signal-file-ext">system-flow.xmind</span><p>Fichier source XMind modifiable</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/generator-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Câblage du générateur</h4><span class="signal-file-ext">generator-wiring-diagram.png</span><p>Image source</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/generator-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Schéma du générateur</h4><span class="signal-file-ext">generator-schematic.png</span><p>Image source</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/data-converter-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Câblage du convertisseur</h4><span class="signal-file-ext">data-converter-wiring-diagram.png</span><p>Image source</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/data-converter-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Schéma du convertisseur</h4><span class="signal-file-ext">data-converter-schematic.png</span><p>Image source</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/calibration-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Câblage d'étalonnage</h4><span class="signal-file-ext">calibration-wiring-diagram.png</span><p>Image source</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+        <a class="signal-file" href="../../static/resources/signal/calibration-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>Schéma d'étalonnage</h4><span class="signal-file-ext">calibration-schematic.png</span><p>Image source</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
       </div>
     </section>
 
