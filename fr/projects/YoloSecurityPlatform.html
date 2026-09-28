@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Plateforme de surveillance IA | Ray Chen</title><meta name="description" content="Plateforme de surveillance et d'alerte en temps réel avec Spring Boot, Vue 3, MySQL, FastAPI et YOLOv5."><meta name="author" content="Ray Chen"><meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/fr/projects/YoloSecurityPlatform.html"><link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/YoloSecurityPlatform.html"><link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/YoloSecurityPlatform.html"><link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/YoloSecurityPlatform.html"><link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/YoloSecurityPlatform.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="Plateforme de surveillance IA | Ray Chen"><meta property="og:description" content="Une boucle complète, de l'analyse visuelle YOLO au traitement des incidents en temps réel."><meta property="og:image" content="https://rayawa.top/static/resources/main_page/security.png"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="/static/css/common.css"><link rel="stylesheet" href="/static/css/subpage.css"><link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+</head>
+<body class="project-showcase security-project">
+  <div id="site-navbar"></div><script src="/static/js/navbar.js"></script><div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="ps-eyebrow"><i class="fas fa-shield-halved"></i> Vision IA · Full Stack · Temps réel</span><h1>Plateforme de surveillance IA</h1><p>Un système de sécurité complet qui relie détection visuelle, règles métier, stockage, diffusion instantanée et intervention humaine. Il analyse des images à la demande ou surveille en continu des dossiers d'images et de vidéos, transforme les résultats YOLOv5 en alertes et synchronise chaque changement sur le Web et HarmonyOS.</p><div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/YoloSecrityPlatform" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a><a class="ps-button is-ghost" href="#architecture"><i class="fas fa-diagram-project"></i> Voir le parcours</a></div></div><div class="ps-hero-visual"><img src="../../static/resources/main_page/security.png" alt="Tableau de bord de surveillance" fetchpriority="high"></div></section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>Cette plateforme de sécurité complète transforme les détections d’objets en alertes exploitables. Images envoyées, images extraites de vidéos ou dossiers surveillés passent par YOLO puis par des règles métier. Spring Boot, MySQL et WebSocket enregistrent et synchronisent les états ; les clients Web et HarmonyOS servent à vérifier et traiter les alertes. L’archivage des preuves et la traçabilité sont au centre du projet.</p>
+      <ul>
+      <li><strong>De la vision à l’action</strong><span>Les classes détectées deviennent des alertes avec un cycle de traitement.</span></li>
+      <li><strong>Preuves conservées</strong><span>Images annotées et extraits vidéo restent liés aux alertes.</span></li>
+      <li><strong>Clients synchronisés</strong><span>Les changements sont diffusés après validation en base.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Traiter des images et vidéos de surveillance dans un flux traçable : détection, alerte, intervention et archivage des preuves.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Charger une image ou vidéo, consulter les détections, puis examiner alertes et preuves dans l’interface de gestion et mettre à jour le traitement. Le client HarmonyOS permet l’accès mobile et le partage.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>FastAPI sert l’inférence YOLOv5 ; Spring Boot 3.3 gère règles et API ; MySQL 8 stocke les dossiers ; WebSocket diffuse les alertes. Vue et ArkTS/ArkWeb fournissent les interfaces.</p></article>
+      <article><h3>Résultats et portée</h3><p>La page présente captures de détection, parcours d’alerte et structure multi-client. La qualité des détections dépend des données, seuils et conditions de déploiement.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-metrics"><div class="ps-metric"><strong>5</strong><span>Vues principales</span></div><div class="ps-metric"><strong>6 types</strong><span>Règles d'alerte métier</span></div><div class="ps-metric"><strong>≈ 2 s</strong><span>Cycle de surveillance</span></div><div class="ps-metric"><strong>3 clients</strong><span>Web · OpenAPI · HarmonyOS</span></div></section>
+
+    <section class="ps-section"><div class="ps-section-head"><h2>De la détection à l’intervention</h2><p>De ce que le modèle voit à la clôture de l'incident, chaque étape conserve son état et ses preuves visuelles.</p></div><div class="ps-grid-3">
+      <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-camera"></i></span><h3>Analyse image et vidéo</h3><p>Images réseau, téléversements et trames vidéo échantillonnées, réunies dans un événement cohérent.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-brain"></i></span><h3>Inférence YOLO</h3><p>Les modèles COCO et feu/fumée couvrent personnes, véhicules, objets, animaux, fumée et flammes.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-code-branch"></i></span><h3>Règles métier</h3><p>Les classes détectées deviennent des alertes d'intrusion, foule, incendie, véhicule ou objet.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-bolt"></i></span><h3>Diffusion en direct</h3><p>Les événements WebSocket partent après validation de la transaction pour garder les écrans cohérents.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-list-check"></i></span><h3>Cycle de traitement</h3><p>Les alertes passent de « à traiter » à « en cours », puis « clôturée », avec validation des transitions.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box-archive"></i></span><h3>Archivage des preuves</h3><p>Les détections annotées et planches de trames restent liées à leurs alertes.</p></article>
+    </div></section>
+
+    <section class="ps-section" id="architecture"><div class="ps-section-head"><h2>Le parcours d'une alerte</h2><p>Les soumissions manuelles et le dossier ai-watch empruntent la même chaîne métier.</p></div><div class="ps-flow"><article class="ps-flow-step"><small>01 · Entrée</small><h3>Média terrain</h3><p>URL, fichier ou image/vidéo surveillée.</p></article><article class="ps-flow-step"><small>02 · Vision</small><h3>FastAPI + YOLO</h3><p>Inférence, annotation et agrégation.</p></article><article class="ps-flow-step"><small>03 · Règles</small><h3>Spring Boot</h3><p>Mapping, validation et transactions.</p></article><article class="ps-flow-step"><small>04 · Données</small><h3>MySQL 8</h3><p>Appareils, alertes, états et preuves.</p></article><article class="ps-flow-step"><small>05 · Diffusion</small><h3>WebSocket</h3><p>Événements envoyés aux consoles connectées.</p></article></div></section>
+
+    <section class="ps-section"><div class="ps-section-head"><h2>Détections vérifiables</h2><p>L'opérateur peut revoir les cadres à l'origine de l'alerte.</p></div><figure class="ps-wide-shot"><img src="../../static/resources/security/annotated-detection.jpg" alt="Détection YOLO de personnes dans une salle" loading="lazy"><figcaption class="ps-caption">Planche de trames vidéo annotées, conservée comme preuve avec l'alerte.</figcaption></figure></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Client HarmonyOS</h2><p>Le client associe ArkWeb, interaction sensible au terminal et partage natif.</p></div><div class="ps-grid-3"><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-mobile-screen"></i></span><h3>ArkTS + ArkWeb</h3><p>Connexion par adresse locale, navigation, progression de chargement et session de démonstration.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-hand"></i></span><h3>Prise en main</h3><p>Le bouton flottant s'adapte à une tenue main gauche ou main droite.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-share-nodes"></i></span><h3>HarmonyShare</h3><p>Le partage tactile et les gestes aériens transmettent une session contrôlée aux appareils proches.</p></article></div></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Technologies</h2><p>Un ensemble coordonné pour le navigateur, le métier, la vision, les données et le terminal.</p></div><div class="ps-stack"><span class="ps-tag">Java 17</span><span class="ps-tag">Spring Boot 3.3</span><span class="ps-tag">MyBatis-Plus</span><span class="ps-tag">MySQL 8</span><span class="ps-tag">Vue 3</span><span class="ps-tag">WebSocket</span><span class="ps-tag">Python</span><span class="ps-tag">FastAPI</span><span class="ps-tag">YOLOv5</span><span class="ps-tag">OpenCV</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkWeb</span></div></section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
+  </main>
+  <div id="site-footer"></div><script src="/static/js/footer.js"></script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="/static/js/common.js"></script>
+</body>
+</html>

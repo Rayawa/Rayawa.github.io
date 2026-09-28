@@ -170,14 +170,37 @@
       }
       .fab-tools { display: none !important; }
     </style>
+    <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
-<body class="bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
-  <div class="container mx-auto px-4 py-8 md:py-12">
+<body class="project-tool bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
+  <main class="project-tool-content container mx-auto px-4 py-8 md:py-12">
     <!-- 标题区域 -->
-    <div class="text-center mb-8 md:mb-12 animate-fade-in">
+    <div class="project-tool-intro text-center mb-8 md:mb-12 animate-fade-in">
       <h1 class="text-3xl md:text-5xl font-bold text-idv-highlight mb-2">第五人格，启动！</h1>
       <p class="text-gray-300 max-w-md mx-auto">本赛季目标：从四阶V到六阶V (1250积分)</p>
     </div>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这是一款面向《第五人格》排位赛季的目标进度计算器。输入当前积分、赛季起止日期和目标后，页面计算剩余天数、还需积分与每日节奏，并用段位节点和进度条展示位置；手动加减分和历史记录用于跟踪实际变化。它把抽象的上分目标拆成每天可检查的计划。</p>
+      <ul>
+      <li><strong>目标拆解</strong><span>日期与积分共同决定剩余任务和日均需求。</span></li>
+      <li><strong>进度可视化</strong><span>段位节点、积分条和结果卡展示当前位置。</span></li>
+      <li><strong>调整有记录</strong><span>手动修正积分并查看本地历史。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>把《第五人格》赛季排位目标转成可执行的积分计划，适合估算距目标段位还需多少分、每天需要怎样推进。</p></article>
+      <article><h3>使用方式</h3><p>填写当前积分、目标积分及赛季日期，查看剩余天数、日均需求和段位进度。完成一局后用加减分记录变化，历史列表可帮助回顾调整。</p></article>
+      <article><h3>技术与实现</h3><p>原生 JavaScript 在浏览器中计算日期差、积分缺口与进度条，并用本地存储保存手动调整记录；页面无需账号。</p></article>
+      <article><h3>成果与边界</h3><p>结果是规划参考，具体段位规则与赛季安排以游戏内信息为准。调整记录保存在当前浏览器。</p></article>
+      </div>
+    </section>
+
     
     <!-- 主卡片 -->
     <div class="max-w-6xl mx-auto glass rounded-2xl card-shadow p-6 md:p-8 animate-fade-in">
@@ -615,7 +638,7 @@
         <p id="notificationText" class="text-center"></p>
       </div>
     </div>
-  </div>
+  </main>
 
   <div style="text-align:center;padding:2rem 0;">
     <a href="../index.html" style="display:inline-block;padding:0.6rem 1.8rem;border-radius:8px;background:rgba(99,102,241,0.12);color:#6366f1;text-decoration:none;font-size:0.95rem;transition:background .2s;" onmouseover="this.style.background='rgba(99,102,241,0.22)'" onmouseout="this.style.background='rgba(99,102,241,0.12)'">← 返回上一页</a>

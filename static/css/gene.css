@@ -204,6 +204,21 @@
     animation: blob 3s infinite alternate;
 }
 
+@keyframes blob {
+    from { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: scale(1); }
+    to { border-radius: 55% 45% 35% 65% / 55% 40% 60% 45%; transform: scale(1.05); }
+}
+
+.animate-shake {
+    animation: gene-shake 0.45s ease-in-out;
+}
+
+@keyframes gene-shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-7px); }
+    40%, 80% { transform: translateX(7px); }
+}
+
 .check-item {
     padding: 10px;
     border-radius: 8px;

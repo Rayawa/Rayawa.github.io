@@ -1,0 +1,27 @@
+.astra-page { --astra-accent: #60ddd5; }
+.astra-hero { padding: 2.3rem 0 2.8rem; }
+.astra-kicker { color: var(--astra-accent); font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.astra-hero h1 { margin: .8rem 0 1rem; font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.1; color: #fff; }
+.astra-hero h1 span { color: var(--astra-accent); }
+.astra-lead { max-width: 740px; color: rgba(255,255,255,.72); font-size: 1.08rem; line-height: 1.85; }
+.astra-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
+.astra-actions a { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.1rem; border: 1px solid rgba(96,221,213,.5); border-radius: 10px; color: #e8fffc; text-decoration: none; font-weight: 600; background: rgba(96,221,213,.08); transition: background .2s, transform .2s; }
+.astra-actions a:hover { background: rgba(96,221,213,.2); transform: translateY(-2px); }
+.astra-visual { display: block; width: 100%; border: 1px solid rgba(130,207,230,.22); border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,.2); }
+.astra-section { margin-top: 3.8rem; }
+.astra-section h2 { margin: 0 0 .6rem; color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); }
+.astra-intro { max-width: 790px; color: rgba(255,255,255,.62); line-height: 1.8; margin-bottom: 1.4rem; }
+.astra-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.astra-card { padding: 1.5rem; background: rgba(24,41,64,.7); border: 1px solid rgba(126,173,205,.18); border-radius: 16px; }
+.astra-card h3 { display: flex; align-items: center; gap: .65rem; color: #e9fffc; margin: 0 0 .7rem; font-size: 1.05rem; }
+.astra-card h3 i { color: var(--astra-accent); }
+.astra-card p, .astra-card li { color: rgba(255,255,255,.68); line-height: 1.75; font-size: .94rem; }
+.astra-card p { margin: 0; }
+.astra-card ul { margin: 0; padding-left: 1.2rem; }
+.astra-flow { display: flex; flex-wrap: wrap; gap: .7rem; align-items: stretch; }
+.astra-flow div { flex: 1 1 155px; min-width: 0; text-align: center; padding: 1.1rem .8rem; border: 1px solid rgba(96,221,213,.25); background: rgba(96,221,213,.07); border-radius: 13px; color: #e3f6fa; font-weight: 600; }
+.astra-flow span { align-self: center; color: var(--astra-accent); }
+.astra-note { margin-top: 1rem; padding: 1rem 1.2rem; border-left: 3px solid var(--astra-accent); border-radius: 0 10px 10px 0; background: rgba(96,221,213,.07); color: rgba(255,255,255,.75); line-height: 1.7; }
+.astra-back { display: inline-block; margin-top: 3rem; color: var(--astra-accent); text-decoration: none; }
+.astra-back:hover { text-decoration: underline; }
+@media (max-width: 650px) { .astra-grid { grid-template-columns: 1fr; } .astra-flow span { display: none; } .astra-flow div { flex-basis: 100%; } }

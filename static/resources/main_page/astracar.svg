@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">AstraPlusCar</title>
+  <desc id="desc">智能小车、摄像头、雷达和手机控制端的示意图</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071626"/><stop offset="1" stop-color="#142e48"/></linearGradient>
+    <linearGradient id="body" x2="1" y2="1"><stop stop-color="#42d6cf"/><stop offset="1" stop-color="#5978f3"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#38d9d0" stop-opacity=".3"/><stop offset="1" stop-color="#38d9d0" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#91d7ed" stroke-opacity=".07"/></pattern>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/><rect width="1200" height="600" fill="url(#grid)"/>
+  <ellipse cx="590" cy="385" rx="490" ry="290" fill="url(#glow)"/>
+  <g fill="none" stroke="#67e1df" stroke-opacity=".28" stroke-width="3"><path d="M445 205a160 160 0 0 1 320 0"/><path d="M395 204a210 210 0 0 1 420 0"/><path d="M347 202a258 258 0 0 1 516 0"/></g>
+  <g transform="translate(320 190)">
+    <rect x="154" y="183" width="51" height="121" rx="19" fill="#060f1d" stroke="#45b9c6" stroke-width="6"/><rect x="510" y="183" width="51" height="121" rx="19" fill="#060f1d" stroke="#45b9c6" stroke-width="6"/>
+    <path d="M165 94h384l-32 198H195z" fill="#122d44" stroke="#81d5e9" stroke-width="7"/>
+    <path d="M205 116h305l-24 135H229z" fill="url(#body)" opacity=".8"/>
+    <rect x="299" y="133" width="111" height="94" rx="14" fill="#091c2b" stroke="#d9fafd" stroke-width="5"/><circle cx="354" cy="180" r="27" fill="#204e67" stroke="#95f7f1" stroke-width="7"/><circle cx="354" cy="180" r="9" fill="#a9fff7"/>
+    <rect x="296" y="62" width="117" height="29" rx="14" fill="#0d2737" stroke="#73e5e1" stroke-width="4"/><path d="M352 61V25" stroke="#79efea" stroke-width="7"/><circle cx="352" cy="19" r="12" fill="#a5fff4"/>
+    <path d="M254 267h199" stroke="#8cece8" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="231" cy="276" r="9" fill="#72f5df"/><circle cx="479" cy="276" r="9" fill="#72f5df"/>
+  </g>
+  <g transform="translate(90 207)"><rect width="180" height="290" rx="28" fill="#10283f" stroke="#5c9fc4" stroke-width="5"/><rect x="17" y="31" width="146" height="228" rx="12" fill="#153954"/><path d="M29 125l20-25 18 17 26-35 20 32 25-14" fill="none" stroke="#6be8d6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="90" cy="204" r="27" fill="none" stroke="#88e9e9" stroke-width="5"/><circle cx="90" cy="204" r="9" fill="#88e9e9"/><rect x="64" y="11" width="52" height="6" rx="3" fill="#5e99b2"/></g>
+  <g fill="#b7d8e5" font-family="Arial,sans-serif" font-size="23" font-weight="600"><text x="89" y="540">HARMONYOS</text><text x="482" y="562">ASTRAPLUSCAR</text></g>
+  <g fill="#70e5d9"><circle cx="967" cy="269" r="8"/><circle cx="1005" cy="313" r="8"/><circle cx="940" cy="335" r="8"/><circle cx="987" cy="378" r="8"/></g>
+  <path d="M967 269l38 44-65 22 47 43" fill="none" stroke="#70e5d9" stroke-opacity=".45" stroke-width="3"/>
+</svg>

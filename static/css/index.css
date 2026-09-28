@@ -316,7 +316,9 @@
     border-top: 1px solid rgba(255, 255, 255, 0.26);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1560px) {
+    /* 仅在足够宽的屏幕上将引语移到头像右侧悬浮,
+       避免 1440px 附近引语超出视口被裁剪 */
     .avatar-quote {
         position: absolute;
         right: -132px;
@@ -340,7 +342,9 @@
         border-top: none;
         border-right: none;
     }
+}
 
+@media (min-width: 1440px) {
     /* 显示器端字体优化 */
     .hero-text h1 {
         font-size: var(--h1-size);
@@ -704,8 +708,27 @@ a.skill-link {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1)), url('../resources/main_page/rps.png');
 }
 
+.project-image.security {
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.12), rgba(37, 99, 235, 0.12)), url('../resources/main_page/security.png');
+    background-position: center 24%;
+}
+
+.project-image.videotextgen {
+    background-color: #f2eee3;
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.03), rgba(255, 99, 92, 0.08)), url('../resources/main_page/videotextgen.png');
+    background-position: center 11%;
+    background-size: 100% auto;
+}
+
 .project-image.ascend310 {
     background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.25), rgba(168, 85, 247, 0.15), rgba(6, 182, 212, 0.1)), url('../resources/main_page/ascend310.png');
+}
+
+.project-image.astracar {
+    background-color: #0b1b30;
+    background-image: url('../resources/main_page/astracar.svg');
+    background-size: cover;
+    background-position: center;
 }
 
 .life-grid {

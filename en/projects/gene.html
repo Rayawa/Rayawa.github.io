@@ -36,8 +36,35 @@
   <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../static/css/gene.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+<body class="project-tool bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+    <header class="project-tool-intro">
+        <h1>Agrobacterium Interactive Lab</h1>
+        <p>Explore the full transformation process through drag-and-drop experiments.</p>
+    </header>
+
+    <section class="project-brief" aria-label="At a glance">
+
+      <h2>At a glance</h2>
+      <p>This interactive Agrobacterium teaching lab guides learners through a working transformation flowchart. Learners obtain the Bt target gene and Ti plasmid, assemble an expression vector, use Agrobacterium as the transfer route, and finish with selection and identification. Drag-and-drop actions, staged navigation, immediate hints, a timer, and an error summary reveal common conceptual mistakes.</p>
+      <ul>
+      <li><strong>Four practical stages</strong><span>Move from target-gene extraction to recipient-cell verification.</span></li>
+      <li><strong>Action and feedback</strong><span>Wrong routes explain the roles of Agrobacterium and plant cells.</span></li>
+      <li><strong>Review the process</strong><span>Elapsed time and error counts summarize the session.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Purpose and use">
+      <h2>Purpose and use</h2>
+      <div class="project-guide-grid">
+      <article><h3>Purpose</h3><p>Learn Agrobacterium-mediated plant transformation by connecting the target gene, Ti plasmid, expression vector, transfer, and selection.</p></article>
+      <article><h3>How to use it</h3><p>Start at stage one and drag objects to their target areas. Use hints to correct mistakes, then complete vector assembly, recipient transfer, and verification. The top navigation revisits stages; time and errors appear at the end.</p></article>
+      <article><h3>Technology and implementation</h3><p>HTML, Tailwind CSS, custom CSS, and vanilla JavaScript implement scenes, drop validation, stage state, and feedback animation entirely in the browser.</p></article>
+      <article><h3>Outputs and scope</h3><p>This is a teaching simulation for practicing concepts. The completion screen reports time and errors; consult laboratory protocols for experimental parameters.</p></article>
+      </div>
+    </section>
+
     <div id="global-hint-box"
         class="fixed top-20 left-5 z-50 bg-white text-black text-sm px-4 py-3 rounded-xl max-w-xs leading-relaxed backdrop-blur flex items-start gap-2">
 
@@ -61,7 +88,7 @@
 
         <div id="hint-text" class="font-sans text-gray-800"></div>
     </div>
-    <div class="flex-1 flex overflow-hidden">
+    <div class="project-tool-content flex-1 flex overflow-hidden">
         <!-- Main Experiment Area -->
         <div class="flex-1 flex flex-col relative bg-white shadow-2xl">
             <!-- Navigation & Timer -->

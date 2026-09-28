@@ -250,6 +250,14 @@
   line-height: 1.65;
 }
 
+/* 分类性能明细网格:minmax(0,1fr) 允许轨道收缩,避免内容撑爆 */
+.rps-perf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
 /* Responsive */
 @media (max-width: 1023px) {
   .rps-overview-grid {
@@ -268,6 +276,9 @@
     grid-template-columns: 1fr;
   }
   .rps-grid {
+    grid-template-columns: 1fr;
+  }
+  .rps-perf-grid {
     grid-template-columns: 1fr;
   }
 }

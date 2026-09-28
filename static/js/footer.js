@@ -105,8 +105,8 @@
 
     var lifeLinks = [
         { href: prefix + langPrefix + 'index.html#gallery', text: t.lifeGallery },
-        { href: prefix + 'life/piano.html', text: t.lifePiano },
-        { href: prefix + 'life/books.html', text: t.lifeBooks }
+        { href: prefix + langPrefix + 'life/piano.html', text: t.lifePiano },
+        { href: prefix + langPrefix + 'life/books.html', text: t.lifeBooks }
     ];
 
     function buildLinkList(links) {

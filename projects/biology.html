@@ -37,16 +37,39 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page">
-    <section class="hero-card">
+  <main class="page project-page">
+    <section class="project-intro hero-card">
       <h1>生物学项目</h1>
       <p>收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。</p>
     </section>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这里汇集实验、论文草稿和教学交互三个方向的生物学探索。PCR 课堂实验展示设计方案、凝胶电泳结果和报告；论文书架收录朊病毒、C3 植物碳同化与酵母培养异常等主题；农杆菌转化网页则把抽象步骤做成可操作的模拟。页面既展示结果，也保留可阅读的过程材料。</p>
+      <ul>
+      <li><strong>实验可追溯</strong><span>PCR 设计、结果图和报告对应同一课堂项目。</span></li>
+      <li><strong>研究主题多样</strong><span>遗传、光合作用与微生物实验均有独立文稿。</span></li>
+      <li><strong>教学交互</strong><span>农杆菌转化流程可进入模拟实验亲自操作。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>汇集生物实验、研究论文与交互教学作品，便于从实验设计、分析报告和网页模拟三个角度查看学习成果。</p></article>
+      <article><h3>使用方式</h3><p>先阅读 PCR 设计与最终报告，再按主题打开论文；想体验转化流程，可进入农杆菌交互实验室并按步骤拖拽操作。</p></article>
+      <article><h3>技术与实现</h3><p>实验部分围绕 PCR 与约 600 bp 目标片段；论文整理分子生物学与实验误差问题；交互作品采用 HTML、CSS 和 JavaScript 展示操作流程。</p></article>
+      <article><h3>成果与边界</h3><p>本页提供报告、论文和交互页面入口。实验结论应以原始报告中的条件与记录为准。</p></article>
+      </div>
+    </section>
+
 
     <section class="pcr-lab">
       <div class="section-header">
@@ -141,7 +164,7 @@
               <span class="thesis-date">2026.03.08</span>
             </div>
             <h3>酵母菌实验中平板变橙原因的分析与验证</h3>
-            <p class="thesis-abstract">针对微生物培养中偶发的培养基异常变色现象，本文通过严密的对照实验成功溯源了环境污染因子。该项研究不仅解决了具体的实验技术难题，其核心意义在于建立了标准化的误差分析与实验室质量控制流程，强调了科研实践中严谨态度与程序规范的重要性。</p>
+            <p class="thesis-abstract">针对微生物培养中偶发的培养基异常变色现象，本文通过严密的对照实验成功溯源了环境污染因子。该项研究追查具体实验问题，并形成标准化的误差分析与实验室质量控制流程。</p>
             <div class="thesis-actions">
               <a class="button button-outline" href="../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">查看草稿</a>
             </div>
@@ -157,7 +180,7 @@
           <div class="image-frame"></div>
         </div>
         <div class="interactive-text">
-          <h1>交互式开发探索生物学过程</h1>
+          <h2>交互式开发探索生物学过程</h2>
           <p class="interactive-desc">将复杂的基因工程流程转化为直观的网页交互，让学习变得生动有趣。农杆菌转化法网页展示了如何用代码构建生物学教学工具。</p>
           <a class="button button-large" href="gene.html">进入模拟网页</a>
         </div>

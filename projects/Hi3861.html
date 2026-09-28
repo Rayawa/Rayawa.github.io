@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/hi3861.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -45,8 +46,8 @@
 
   <div id="particles-js"></div>
 
-  <main class="page hi-page">
-    <section class="hi-hero">
+  <main class="page project-page hi-page">
+    <section class="project-intro hi-hero">
       <div class="hi-hero-badge"></div>
       <h1>Hi3861</h1>
       <p class="hi-hero-desc">基于 OpenHarmony 的 Hi3861 嵌入式开发项目，覆盖红绿灯、炫彩灯、环境监测与 AT 指令四大模块。</p>
@@ -77,6 +78,28 @@
         </article>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这个 OpenHarmony 嵌入式项目将 Hi3861 的基础外设训练组织成四条实践路径：交通灯状态机、灯光与蜂鸣器联动、环境数据采集，以及串口 AT 命令扩展。每条路径先验证单个硬件能力，再组合传感器、执行器和任务调度，便于对照代码逐步复现。</p>
+      <ul>
+      <li><strong>四类模块</strong><span>交通、灯光、环境和 AT 命令覆盖输入、处理与输出。</span></li>
+      <li><strong>从单点到协同</strong><span>GPIO、PWM、ADC 与 OLED 等能力逐步组合。</span></li>
+      <li><strong>可查阅文档</strong><span>项目结构、代码路径和独立 README 均可直接查看。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>通过四组实验学习 OpenHarmony 嵌入式开发：从单个外设控制扩展到传感器采集、屏幕显示与串口命令。</p></article>
+      <article><h3>使用方式</h3><p>按页面中的模块顺序选择开发板，核对引脚和外设，进入 README 查看源码目录及编译流程。每块板都列出可独立完成的小实验。</p></article>
+      <article><h3>技术与实现</h3><p>Hi3861 与 OpenHarmony LiteOS-M 上使用 C 开发；GPIO/PWM 驱动灯效，ADC 和 I²C 读取环境信息，OLED 显示状态，UART 承载 AT 指令。</p></article>
+      <article><h3>成果与边界</h3><p>项目结构、模块实验与编译说明均在本页及 README 中；需要对应板卡和器件才能复现实物效果。</p></article>
+      </div>
+    </section>
+
 
     <section class="hi-panel">
       <div class="hi-panel-head">

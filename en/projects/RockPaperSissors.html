@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/rockpapersissors.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -45,9 +46,9 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
+  <main class="page project-page">
     <!-- ===== Hero ===== -->
-    <section class="hero-card">
+    <section class="project-intro hero-card">
       <span class="hero-badge">Python · Machine Learning · Deep Learning</span>
       <h1>Rock Paper Scissors Detection</h1>
       <p>2026 Summer Python Course Project Collection covering Python fundamentals, machine learning regression prediction, student behavior data analysis, and YOLO11n-based Rock Paper Scissors gesture recognition.</p>
@@ -56,6 +57,28 @@
         <a class="button button-outline" href="#project3"><i class="fas fa-camera"></i> Gesture Recognition</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="At a glance">
+
+      <h2>At a glance</h2>
+      <p>This page presents a course journey from Python basics to computer vision, ending with a rock-paper-scissors detector. It starts with 14 programming exercises, continues through random-forest house-price prediction and student-behavior analysis, and ends with YOLO11n recognition of three hand gestures. The page reports a validation mAP50 of 0.940 so the metric can be considered alongside the demo.</p>
+      <ul>
+      <li><strong>A learning progression</strong><span>Programming, tabular-data analysis, and vision form one sequence.</span></li>
+      <li><strong>Interpretable data work</strong><span>Housing and student datasets show features and model comparisons.</span></li>
+      <li><strong>Live gesture demo</strong><span>Rock, paper, and scissors detection includes a GIF and validation metric.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Purpose and use">
+      <h2>Purpose and use</h2>
+      <div class="project-guide-grid">
+      <article><h3>Purpose</h3><p>Follow a course path from Python fundamentals through machine learning to computer vision, ending in image or camera recognition of rock, paper, and scissors gestures.</p></article>
+      <article><h3>How to use it</h3><p>Read the four phases and their results, then use the gesture section for single-image inference, live camera detection, and evaluation scripts. Running the model requires the course code, dependencies, and weights.</p></article>
+      <article><h3>Technology and implementation</h3><p>Python exercises lead into random-forest housing regression and student-behavior analysis; YOLO11n trains the three-class gesture detector.</p></article>
+      <article><h3>Outputs and scope</h3><p>The page records datasets, augmentation, training settings, and validation metrics. The reported mAP50 of 0.940 belongs to the documented validation set.</p></article>
+      </div>
+    </section>
+
 
     <div class="rps-hero-image">
       <img src="../../static/resources/rps/rps.gif" alt="Rock Paper Scissors Detection Demo" loading="lazy">
@@ -83,7 +106,6 @@
           <p>🪨📄✂️ Real-time detection of Rock/Paper/Scissors, validation set mAP50 = 0.940, millisecond-level inference.</p>
         </div>
       </div>
-    </section>
 
     <!-- ===== Project 1 ===== -->
     <section class="rps-panel">
