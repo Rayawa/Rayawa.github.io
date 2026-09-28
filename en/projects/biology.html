@@ -37,17 +37,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <!-- 导航栏组件 -->
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page">
-    <section class="hero-card">
+  <main class="page project-page">
+    <section class="project-intro hero-card">
       <h1>Biology Projects</h1>
       <p>Papers and experiment records in biology, including PCR, protein hypotheses, carbon assimilation review, orange-plate experiments, and an interactive Agrobacterium web demo.</p>
     </section>
+
+    <section class="project-brief" aria-label="At a glance">
+
+      <h2>At a glance</h2>
+      <p>This page brings together biology experiments, paper drafts, and an interactive teaching tool. A classroom PCR project includes its design, gel image, and report. The paper shelf covers prions, carbon fixation in C3 plants, and unusual color changes in yeast culture. An Agrobacterium simulation makes an abstract transformation workflow interactive. Both outcomes and supporting process materials are available.</p>
+      <ul>
+      <li><strong>Traceable experiment</strong><span>PCR design, result image, and report describe one classroom project.</span></li>
+      <li><strong>Varied research topics</strong><span>Genetics, photosynthesis, and microbiology each have their own texts.</span></li>
+      <li><strong>Interactive teaching</strong><span>Open the transformation simulation to perform the steps yourself.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Purpose and use">
+      <h2>Purpose and use</h2>
+      <div class="project-guide-grid">
+      <article><h3>Purpose</h3><p>Browse biology lab work, research papers, and an interactive teaching piece through experimental design, analysis, and a web simulation.</p></article>
+      <article><h3>How to use it</h3><p>Read the PCR design and final report, open papers by topic, then try the Agrobacterium lab by dragging through its stages.</p></article>
+      <article><h3>Technology and implementation</h3><p>The lab work concerns PCR and an approximately 600 bp target; the papers cover molecular biology and laboratory error; HTML, CSS, and JavaScript drive the interactive simulation.</p></article>
+      <article><h3>Outputs and scope</h3><p>The page links reports, papers, and the lab. Interpret experimental findings against the conditions and records in each source document.</p></article>
+      </div>
+    </section>
+
 
     <section class="pcr-lab">
       <div class="section-header">
@@ -142,7 +165,7 @@
               <span class="thesis-date">2026.03.08</span>
             </div>
             <h3>Analysis and Verification of Orange Plate Discoloration in Yeast Experiments</h3>
-            <p class="thesis-abstract">Addressing the occasional abnormal color change of culture media in microbial cultivation, this paper successfully traced the source of environmental contamination factors through rigorous controlled experiments. This research not only solved a specific experimental technical problem, but its core significance lies in establishing standardized error analysis and laboratory quality control procedures, emphasizing the importance of rigorous attitude and procedural compliance in scientific practice.</p>
+            <p class="thesis-abstract">Addressing the occasional abnormal color change of culture media in microbial cultivation, this paper successfully traced the source of environmental contamination factors through rigorous controlled experiments. The investigation traced a specific experimental problem and established a repeatable approach to error analysis and laboratory quality control.</p>
             <div class="thesis-actions">
               <a class="button button-outline" href="../../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">View Draft</a>
             </div>
@@ -158,7 +181,7 @@
           <div class="image-frame"></div>
         </div>
         <div class="interactive-text">
-          <h1>Exploring Biological Processes Through Interactive Development</h1>
+          <h2>Exploring Biological Processes Through Interactive Development</h2>
           <p class="interactive-desc">Transforming complex genetic engineering workflows into intuitive web interactions, making learning vivid and engaging. The Agrobacterium transformation web app demonstrates how to build biology teaching tools with code.</p>
           <a class="button button-large" href="gene.html">Launch Simulation</a>
         </div>

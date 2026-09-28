@@ -264,11 +264,110 @@
       },
       suggestions: {
         title: '建议与提醒'
-      }
+      },
+      projectBrief: {
+        title: '双人问卷如何工作',
+        lead: '两人依次在同一设备上匿名作答，系统从价值观、生活方式和附加议题三个维度比较答案，给出总分、分项分数与题目明细。题目来自预设题库，既包含选项，也包含简短文字和数字输入；计算只在浏览器内完成，答案不会上传。',
+        points: [
+          ['两轮交接', '第一人提交后交给第二人，互不查看对方填写过程。'],
+          ['三维度结果', '总分 100 分，并分别展示价值观、生活方式和附加项。'],
+          ['本地处理', '输入校验、关键词匹配与计分均在当前浏览器运行。']
+        ]
+      },
+      projectGuide: {
+        title: '用途与使用',
+        cards: [
+          ['用途', '帮助两人讨论价值观、生活习惯和相互评价。分数用于发现值得继续交流的话题。'],
+          ['使用方式', '第一人完成问卷后把设备交给第二人；两轮都提交后查看总分、维度分数与逐题明细。刷新或重新开始会清空当前作答。'],
+          ['技术与实现', '原生 JavaScript 从题库选题，检查选项、文本与数字输入，再按三个维度在浏览器内计算结果。CSS 呈现轮次过渡与结果图表。'],
+          ['结果说明', '这是自我探索工具，分数取决于本次答案和页面规则。答案仅在当前会话计算，不上传到服务器。']
+        ]
+      },
+      testBriefLead: '这是恋爱契合度测试的验证入口，使用同一套双人问卷与本地计分逻辑，便于检查题目输入、轮次交接和结果展示。正式体验请使用主测试页面。'
     }
   };
-  XXH_TEXT.en = XXH_TEXT.zh;
-  XXH_TEXT.fr = XXH_TEXT.zh;
+  XXH_TEXT.en = Object.assign({}, XXH_TEXT.zh, {
+    heroTitle: 'Relationship Compatibility Test',
+    heroDesc: 'A two-person questionnaire exploring values and everyday compatibility.',
+    privacyNote: 'Answers are processed only in this browser and are not uploaded.',
+    startBtn: 'Start test', personA: 'Person A', personB: 'Person B',
+    roundLabel: 'Round {n}: {who}', submitBtn: 'Submit this round',
+    aloneLabel: 'Alone', togetherLabel: 'Together',
+    transitionMsg: 'Round one is complete. Please hand the device to {who}.',
+    readyBtn: 'Continue', resultTitle: 'Results overview',
+    dimValue: 'Values', dimLife: 'Lifestyle', dimAdd: 'Additional topics',
+    detailTitle: 'Question breakdown', retryBtn: 'Try again',
+    validationRequired: 'Please answer this question',
+    validationNum100: 'Enter two non-negative numbers that add up to 100',
+    validationNumSingle: 'Enter a non-negative integer',
+    validationTextLen: 'Enter a short answer of at most 50 characters',
+    validationNonNegative: 'Enter a non-negative number',
+    confirmRefresh: 'Your current answers will be lost. Refresh anyway?',
+    inputPlaceholder: { numSingle: '0', keyword: 'Your answer' },
+    sections: { value: 'Values', life: 'Lifestyle', add: 'Additional topics' },
+    modules: { baseValue: 'Core values', money: 'Money', boundary: 'Boundaries', conflict: 'Conflict', routine: 'Daily routine', hobby: 'Interests and friends', emotion: 'Emotional response', social: 'Social issues', evaluate: 'Mutual impressions' },
+    suggestions: { title: 'Suggestions and notes' },
+    projectBrief: {
+      title: 'How the two-person test works',
+      lead: 'Two people answer anonymously on the same device in turn. The test compares values, lifestyle, and additional topics, then shows a total score, dimension scores, and question details. Its question pool mixes choices, short text, and numbers; validation and scoring stay entirely in the browser, with no answer upload.',
+      points: [
+        ['Two private rounds', 'Hand the device to the second person after the first submission.'],
+        ['Three-part result', 'See a score out of 100 and separate results for each dimension.'],
+        ['Local processing', 'Input validation, keyword matching, and scoring run in this browser.']
+      ]
+    },
+    projectGuide: {
+      title: 'Purpose and use',
+      cards: [
+        ['Purpose', 'Give two people a way to discuss values, daily habits, and mutual impressions. Scores point to topics worth exploring together.'],
+        ['How to use it', 'Person A finishes first and hands over the device. After both rounds, inspect total and dimension scores plus each question. Refreshing or restarting clears the current answers.'],
+        ['Technology', 'Vanilla JavaScript selects questions, validates choices, text, and numbers, and scores three dimensions in the browser. CSS presents the handoff and result charts.'],
+        ['Reading the result', 'This is a conversation tool; scores reflect these answers and the page rules. Answers are processed in the current session and are not uploaded.']
+      ]
+    },
+    testBriefLead: 'This is the validation entry for the compatibility test. It uses the same two-person questionnaire and local scoring logic to check input, round handoff, and result presentation. Use the main test page for the regular experience.'
+  });
+  XXH_TEXT.fr = Object.assign({}, XXH_TEXT.zh, {
+    heroTitle: 'Test de compatibilité amoureuse',
+    heroDesc: 'Un questionnaire à deux pour explorer valeurs et habitudes de vie.',
+    privacyNote: 'Les réponses sont traitées uniquement dans ce navigateur, sans envoi.',
+    startBtn: 'Commencer', personA: 'Personne A', personB: 'Personne B',
+    roundLabel: 'Tour {n} : {who}', submitBtn: 'Valider ce tour',
+    aloneLabel: 'Seul', togetherLabel: 'Ensemble',
+    transitionMsg: 'Le premier tour est terminé. Passez l’appareil à {who}.',
+    readyBtn: 'Continuer', resultTitle: 'Vue des résultats',
+    dimValue: 'Valeurs', dimLife: 'Mode de vie', dimAdd: 'Sujets complémentaires',
+    detailTitle: 'Détail des questions', retryBtn: 'Recommencer',
+    validationRequired: 'Répondez à cette question',
+    validationNum100: 'Saisissez deux nombres positifs ou nuls dont la somme vaut 100',
+    validationNumSingle: 'Saisissez un entier positif ou nul',
+    validationTextLen: 'Saisissez une réponse courte de 50 caractères au maximum',
+    validationNonNegative: 'Saisissez un nombre positif ou nul',
+    confirmRefresh: 'Vos réponses actuelles seront perdues. Actualiser quand même ?',
+    inputPlaceholder: { numSingle: '0', keyword: 'Votre réponse' },
+    sections: { value: 'Valeurs', life: 'Mode de vie', add: 'Sujets complémentaires' },
+    modules: { baseValue: 'Valeurs essentielles', money: 'Rapport à l’argent', boundary: 'Limites personnelles', conflict: 'Gestion des conflits', routine: 'Habitudes quotidiennes', hobby: 'Loisirs et amis', emotion: 'Gestion des émotions', social: 'Questions de société', evaluate: 'Impressions mutuelles' },
+    suggestions: { title: 'Conseils et remarques' },
+    projectBrief: {
+      title: 'Comment fonctionne le test à deux',
+      lead: 'Deux personnes répondent anonymement à tour de rôle sur le même appareil. Le test compare valeurs, mode de vie et sujets complémentaires, puis affiche note globale, notes par domaine et détail des réponses. La banque de questions mélange choix, textes courts et nombres ; validation et calcul restent dans le navigateur, sans envoi des réponses.',
+      points: [
+        ['Deux tours privés', 'Après le premier envoi, l’appareil passe à la seconde personne.'],
+        ['Résultat en trois parties', 'Une note sur 100 et un résultat distinct par domaine.'],
+        ['Traitement local', 'Contrôle des saisies, mots-clés et calcul ont lieu dans le navigateur.']
+      ]
+    },
+    projectGuide: {
+      title: 'Usage et réalisation',
+      cards: [
+        ['Objectif', 'Aider deux personnes à discuter de leurs valeurs, habitudes et impressions mutuelles. Les notes signalent des sujets à approfondir.'],
+        ['Mode d’emploi', 'La première personne répond puis passe l’appareil à la seconde. Après les deux tours, consulter la note globale, les domaines et chaque question. Actualiser ou recommencer efface les réponses en cours.'],
+        ['Technologies', 'JavaScript natif choisit les questions, valide choix, textes et nombres, puis calcule trois domaines dans le navigateur. CSS présente la transition et les graphiques.'],
+        ['Interprétation', 'Cet outil sert à la discussion ; les notes dépendent des réponses et des règles de cette page. Les réponses restent dans la session et ne sont pas envoyées.']
+      ]
+    },
+    testBriefLead: 'Cette entrée sert à vérifier le test de compatibilité. Elle utilise le même questionnaire à deux et le même calcul local pour contrôler la saisie, le passage de relais et l’affichage des résultats. La page principale reste destinée à l’usage habituel.'
+  });
 
   function getLang() {
     var htmlLang = (document.documentElement.lang || '').toLowerCase();
@@ -343,11 +442,30 @@
     if (!app) return;
     var lang = getLang();
     var i18n = (XXH_TEXT[lang]) || {};
+    var brief = i18n.projectBrief || XXH_TEXT.zh.projectBrief;
+    var briefLead = /xxh_test\.html$/i.test(window.location.pathname)
+      ? i18n.testBriefLead : brief.lead;
+    var briefCards = brief.points.map(function(point) {
+      return '<li><strong>' + point[0] + '</strong><span>' + point[1] + '</span></li>';
+    }).join('');
+    var guide = i18n.projectGuide || XXH_TEXT.zh.projectGuide;
+    var guideCards = guide.cards.map(function(card) {
+      return '<article><h3>' + card[0] + '</h3><p>' + card[1] + '</p></article>';
+    }).join('');
     app.innerHTML =
-      '<section class="xxh-landing">' +
+      '<section class="project-intro xxh-landing">' +
         '<h1 class="lang-fade-target" data-i18n="heroTitle">' + (i18n.heroTitle || '') + '</h1>' +
         '<p class="lang-fade-target" data-i18n="heroDesc">' + (i18n.heroDesc || '') + '</p>' +
         '<p class="xxh-privacy lang-fade-target" data-i18n="privacyNote">' + (i18n.privacyNote || '') + '</p>' +
+        '<section class="project-brief" aria-label="' + brief.title + '">' +
+          '<h2>' + brief.title + '</h2>' +
+          '<p>' + briefLead + '</p>' +
+          '<ul>' + briefCards + '</ul>' +
+        '</section>' +
+        '<section class="project-guide" aria-label="' + guide.title + '">' +
+          '<h2>' + guide.title + '</h2>' +
+          '<div class="project-guide-grid">' + guideCards + '</div>' +
+        '</section>' +
         '<button class="btn xxh-start-btn" id="xxh-start"><i class="fas fa-heart"></i> <span data-i18n="startBtn">' + (i18n.startBtn || '') + '</span></button>' +
       '</section>';
     document.getElementById('xxh-start').addEventListener('click', onStart);

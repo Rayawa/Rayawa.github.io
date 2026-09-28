@@ -37,17 +37,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <!-- 导航栏组件 -->
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page">
-    <section class="hero-card">
+  <main class="page project-page">
+    <section class="project-intro hero-card">
       <h1>Projets de biologie</h1>
       <p>Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.</p>
     </section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>Cette page réunit expériences de biologie, brouillons d’articles et outil pédagogique interactif. Le projet PCR en classe présente protocole, image du gel et rapport. Les textes abordent les prions, la fixation du carbone chez les plantes C3 et une coloration inhabituelle en culture de levures. Une simulation d’Agrobacterium rend manipulable un processus de transformation abstrait. Résultats et documents de méthode restent consultables.</p>
+      <ul>
+      <li><strong>Expérience traçable</strong><span>Protocole PCR, image du résultat et rapport décrivent un même travail.</span></li>
+      <li><strong>Sujets variés</strong><span>Génétique, photosynthèse et microbiologie disposent de textes distincts.</span></li>
+      <li><strong>Pédagogie interactive</strong><span>La simulation permet de réaliser soi-même les étapes de transformation.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Parcourir travaux pratiques, articles de biologie et simulation pédagogique à travers protocole, analyse et interaction web.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Lire la conception PCR et le rapport final, ouvrir les articles par sujet, puis essayer le laboratoire Agrobacterium en faisant glisser les éléments étape par étape.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>Le travail pratique porte sur PCR et une cible d’environ 600 pb ; les articles abordent biologie moléculaire et erreurs expérimentales ; HTML, CSS et JavaScript animent la simulation.</p></article>
+      <article><h3>Résultats et portée</h3><p>La page relie rapports, articles et laboratoire. Interpréter les résultats selon les conditions et relevés des documents originaux.</p></article>
+      </div>
+    </section>
+
 
     <section class="pcr-lab">
       <div class="section-header">
@@ -158,7 +181,7 @@
           <div class="image-frame"></div>
         </div>
         <div class="interactive-text">
-          <h1>Explorer les processus biologiques grâce au développement interactif</h1>
+          <h2>Explorer les processus biologiques grâce au développement interactif</h2>
           <p class="interactive-desc">Transformer des flux de génie génétique complexes en interactions web intuitives, rendant l'apprentissage vivant et engageant. L'application web de transformation par Agrobacterium démontre comment construire des outils d'enseignement de la biologie avec du code.</p>
           <a class="button button-large" href="gene.html">Lancer la simulation</a>
         </div>

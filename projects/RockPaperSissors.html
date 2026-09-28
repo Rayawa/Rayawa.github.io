@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/rockpapersissors.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -45,9 +46,9 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
+  <main class="page project-page">
     <!-- ===== Hero ===== -->
-    <section class="hero-card">
+    <section class="project-intro hero-card">
       <span class="hero-badge">Python · Machine Learning · Deep Learning</span>
       <h1>石头剪刀布检测</h1>
       <p>2026 暑期 Python 课程项目合集，覆盖 Python 基础语法、机器学习回归预测、学生行为数据分析，以及基于 YOLO11n 的石头剪刀布手势识别。</p>
@@ -56,6 +57,28 @@
         <a class="button button-outline" href="#project3"><i class="fas fa-camera"></i> 手势识别</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这个页面展示一条从 Python 基础到计算机视觉的课程实践路线，而不只有石头剪刀布识别：先完成 14 个语法练习，再用随机森林预测房价、分析学生行为数据，最后训练 YOLO11n 检测三种手势。现有页面记录了验证集 mAP50 为 0.940，便于把模型结果与演示效果对照。</p>
+      <ul>
+      <li><strong>循序渐进</strong><span>基础编程、结构化数据分析和视觉检测串成一条学习链。</span></li>
+      <li><strong>可解释的数据任务</strong><span>房价预测与学生行为分析展示特征和模型比较。</span></li>
+      <li><strong>实时手势演示</strong><span>石头、剪刀、布三类检测附有动图和验证指标。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>展示一条从 Python 基础到机器学习、计算机视觉的课程实践路径，最终用摄像头或图片识别石头、剪刀、布手势。</p></article>
+      <article><h3>使用方式</h3><p>先阅读四个阶段的任务与结果；手势识别部分提供单图推理、摄像头实时检测和评估脚本的说明。运行模型需取得课程代码、依赖与权重文件。</p></article>
+      <article><h3>技术与实现</h3><p>Python 基础练习之后，使用随机森林做房价回归和学生行为分析；视觉阶段以 YOLO11n 训练三类手势检测模型。</p></article>
+      <article><h3>成果与边界</h3><p>页面给出数据集、增强、训练配置与验证指标，报告的 mAP50 为 0.940；该指标对应页面记录的验证集。</p></article>
+      </div>
+    </section>
+
 
     <div class="rps-hero-image">
       <img src="../static/resources/rps/rps.gif" alt="Rock Paper Scissors Detection Demo" loading="lazy">
@@ -83,7 +106,6 @@
           <p>🪨📄✂️ 实时检测剪刀/石头/布，验证集 mAP50 = 0.940，毫秒级推理。</p>
         </div>
       </div>
-    </section>
 
     <!-- ===== Project 1 ===== -->
     <section class="rps-panel">
@@ -339,7 +361,7 @@
       <!-- 分类明细 -->
       <div class="rps-card-full">
         <h3><i class="fas fa-list"></i> 各类别性能</h3>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.8rem;">
+        <div class="rps-perf-grid">
           <div class="rps-card" style="background:rgba(255,255,255,0.03);">
             <p style="color:#fff;font-weight:600;margin-bottom:0.4rem;">📄 Paper</p>
             <div class="rps-metric"><span class="rps-metric-name">验证 mAP50</span><span class="rps-metric-value">0.936</span></div>

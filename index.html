@@ -128,7 +128,7 @@
 <p>三四年级的时候，Arduino的C语言是我接触的第一个正经编程语言，也是人生第一次体验“嵌入式开发”。虽然起初只是做流水呼吸灯、抢答器这类小物件，但后来我成功做出了一辆带云台的超声波避障小车。这辆小车不仅登上了当年的校报，后来还捐赠给了学校进行展示。</p>
 <p>再后来，2018年我参加了丝绸之路国际青少年大赛机器人竞赛，做了一个智能鱼食投喂机。之后开始学C++并投身信息学奥赛。升入初中后，我又参与制做了一个烤地瓜模组的项目，还有人找我们签合同购买源码将模组上架网易版本。虽然那份合同现已过期，项目也因学业而搁置，但现在想起来还是充满回忆。</p>
 <p>高中几乎三年没碰代码，都在做生物学相关的研究。去年九月份，我踏入了鸿蒙的大门，成为了鸿蒙开发者，开始参与鸿蒙应用看板项目。转眼间半年过去了，这个项目也算是积累了一定的知名度。现在我也正持续推进这个项目的进度：鸿蒙应用看板App已经进入邀请测试阶段，预计很快就能上架；未来还计划将其扩展至 macOS 与 Android 平台。</p>
-<p>除了应用层，我目前也在钻研OpenHarmony Hi3861嵌入式开发。之前简单的做了一些开发板的单独开发，现在在做结合HarmonyOS应用的智慧大棚项目。对我来说，这不只是在调硬件，更是为了从底层逻辑上透彻理解设备侧能力与系统工程。最近开始学习机器学习，已经做了基本的回归预测和目标检测，未来打算继续深入。在网页开发上，我搭建了个人网站、模组站、第五人格站以及农杆菌转化法实验站点。现在的我，程序方面涉猎C、C++、Java、Rust、HTML、ArkTS、Swift和openGauss数据库。对我来说参与各种项目是一种我特别感兴趣的娱乐，未来我还会做更多的开发，全面提升自己的语言能力。</p>
+<p>除了应用层，我目前也在钻研OpenHarmony Hi3861嵌入式开发。之前简单的做了一些开发板的单独开发，现在在做结合HarmonyOS应用的智慧大棚项目。我通过硬件实验，从底层逻辑理解设备侧能力与系统工程。最近开始学习机器学习，已经做了基本的回归预测和目标检测，未来打算继续深入。在网页开发上，我搭建了个人网站、模组站、第五人格站以及农杆菌转化法实验站点。现在的我，程序方面涉猎C、C++、Java、Rust、HTML、ArkTS、Swift和openGauss数据库。对我来说参与各种项目是一种我特别感兴趣的娱乐，未来我还会做更多的开发，全面提升自己的语言能力。</p>
 <p>生物学是我探索世界的另一扇窗。高中时期遇见的两位非常优秀的生物老师，是我与这门学科结缘的关键。她们不仅教会了我知识，更以卓越的专业素养，将我从一个单纯的爱好者，培养成了能够独立思考的研究者。在老师的指导下，我带领高中开创了首届PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇感兴趣话题的小论文，还和同学一起撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去阐述生物学也十分有趣。生物学或许是我的一种“遗憾美”，如果有机会，未来我也希望能向生物信息学方向探路。</p>
 <p>在代码之外，我热爱跑步与骑行，相机和无人机则是出门必备。对我而言，摄影的乐趣远不止于最后那张照片，更在于切换视角时的构图巧思、尝试不同的叙事风格，以及在既有基础上推陈出新的创作过程。</p>
 <p>在兴趣爱好方面，我以前有小号六级证书，但很明显现在不会吹了（）。初中时自学的钢琴，现在也能弹几首曲子。此外，我还喜欢模拟飞行和玩魔方：最喜欢的是四阶，其次是五魔方。音乐也是我人生中不可割舍的一部分。无论是在通勤路上，还是在编写代码、调试网页与硬件的专注时刻，音乐不仅是滤除杂音的背景，更是与我灵感同频的共振。我还是F1的铁杆观众，梅赛德斯奔驰AMG是我的主队，最喜欢的车手是刘易斯·汉密尔顿。虽然我依旧钟情于保时捷911与AMG这种纯粹的性能机器，但也时刻关注着国产新能源的前沿发展。</p>
@@ -316,11 +316,20 @@
                         </div>
                     </a>
 
+                    <a href="projects/AstraPlusCar.html" class="project-card reveal-item">
+                        <div class="project-image astracar"></div>
+                        <div class="project-content">
+                            <h4 class="project-title">AstraPlusCar · 智能小车</h4>
+                            <p class="project-description">连接昇腾设备端、ESP32 底盘和 HarmonyOS 手机控制端。集成相机预览、雷达状态、手动驾驶与截图，并通过松手停车和控制失联看门狗保护小车。</p>
+                            <div class="project-tags"><span class="tag">昇腾</span><span class="tag">HarmonyOS</span><span class="tag">ESP32</span><span class="tag">机器人</span></div>
+                        </div>
+                    </a>
+
                     <a href="projects/biology.html" class="project-card reveal-item">
                         <div class="project-image bio"></div>
                         <div class="project-content">
                             <h4 class="project-title" >生物学项目</h4>
-                            <p class="project-description" >收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。<br>高中时期特别喜欢生物，但是最后也没有读生物专业，这里面的东西其实都是扯淡（</p>
+                            <p class="project-description" >从高中 PCR 课堂实验的设计与凝胶结果，到朊病毒、C3 植物和酵母培养研究文稿，再到可拖拽操作的农杆菌转化教学实验，集中展示实验过程、文档与交互成果。</p>
                             <div class="project-tags">
                                 <span class="tag" >PCR</span>
                                 <span class="tag" >酵母菌</span>
@@ -370,11 +379,39 @@
                         </div>
                     </a>
 
+                    <a href="projects/YoloSecurityPlatform.html" class="project-card reveal-item">
+                        <div class="project-image security"></div>
+                        <div class="project-content">
+                            <h4 class="project-title">智能安防远程监控平台</h4>
+                            <p class="project-description">Spring Boot、Vue 3 与 MySQL 构建的实时安防平台，接入 FastAPI + YOLOv5 视觉分析服务。<br>覆盖设备管理、图片/视频识别、告警规则映射、WebSocket 推送、处置闭环与 HarmonyOS 客户端。</p>
+                            <div class="project-tags">
+                                <span class="tag">YOLOv5</span>
+                                <span class="tag">Spring Boot</span>
+                                <span class="tag">WebSocket</span>
+                                <span class="tag">HarmonyOS</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/VideoTextGen.html" class="project-card reveal-item">
+                        <div class="project-image videotextgen"></div>
+                        <div class="project-content">
+                            <h4 class="project-title">VideoTextGen</h4>
+                            <p class="project-description">由 OpenCode 调度的本地视频生产工作区，把脚本、配音、字幕对齐、分镜、素材、渲染、合成、QA 与返修串成可复现流水线。<br>运行环境隔离、产物可追溯，支持 HTML Motion 与 FFmpeg 自动化成片。</p>
+                            <div class="project-tags">
+                                <span class="tag">OpenCode</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">FFmpeg</span>
+                                <span class="tag">AI 工作流</span>
+                            </div>
+                        </div>
+                    </a>
+
                     <a href="projects/spm.html" class="project-card reveal-item">
                         <div class="project-image spm"></div>
                         <div class="project-content">
                             <h4 class="project-title" >Sweet Potato Mod</h4>
-                            <p class="project-description" >农业与魔法的完美结合！<br>与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。<br>这是我最早的项目之一，不过好久没有维护了。</p>
+                            <p class="project-description" >与 Featurehouse 团队协作的 Minecraft 模组：围绕地瓜品种、研磨加工、灵魂火激活的魔法锅和附魔作物，扩展从种植到加工的玩法。</p>
                             <div class="project-tags">
                                 <span class="tag" >Minecraft</span>
                                 <span class="tag" >模组</span>
@@ -388,7 +425,7 @@
                         <div class="project-image dr"></div>
                         <div class="project-content">
                             <h4 class="project-title" >Difficult Rocket（协作开发）<i class="fas fa-external-link-alt external-link-icon"></i></h4>
-                            <p class="project-description" >主要是@shenjack的项目，我就是过来玩玩的（不是）。<br>一个用Python制作的类Simple Rocket游戏（简称：火箭模拟器）。相对于原版SR，它更加轻量。</p>
+                            <p class="project-description" >与 @shenjack 协作的 Python 火箭模拟游戏，以更轻量的方式探索类似 Simple Rockets 的玩法；这是一个侧重游戏制作与协作实践的项目。</p>
                             <div class="project-tags">
                                 <span class="tag" >Rust</span>
                                 <span class="tag" >火箭模拟器</span>
@@ -408,49 +445,49 @@
                     <a href="projects/Hi3861.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >OpenHarmony Hi3861</h4>
-                            <p class="project-description" >基于Hi3861的嵌入式开发实践，除了Arduino之外的第一个正经嵌入式项目。</p>
+                            <p class="project-description" >以交通灯、灯光与蜂鸣器、环境监测和 AT 指令为四条路径，逐步实践 GPIO、PWM、传感器和串口通信。</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >《寿怡红群芳开夜宴》</h4>
-                            <p class="project-description" >红楼梦剧组 2023 年底的翻拍项目活动，作为导演摄影和剪辑（这么看也算是"全栈开发"了）产出的一些文件。</p>
+                            <p class="project-description" >参与《红楼梦》剧组 2023 年末的翻拍活动，承担导演、摄影和剪辑工作，完整经历从现场拍摄到成片整理的创作流程。</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >whn 生日</h4>
-                            <p class="project-description" >2024/11/11 好男将的生日会项目，非常难忘的一段经历，从分镜到拍摄再到剪辑，最后的效果还挺好的！</p>
+                            <p class="project-description" >为 2024 年 11 月的生日活动制作影像内容，参与分镜、拍摄与后期剪辑，把一次线下聚会整理成可留存的视频作品。</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >毕业纪念册</h4>
-                            <p class="project-description" >人生中第一个 InDesign 项目，却做的非常非常好。前后修改了好多个版本，还为纪念册贴了一个 nfc 可以访问网站，有令人印象深刻的"送你一朵小红花"和毕业集体照。</p>
+                            <p class="project-description" >使用 InDesign 反复打磨版式与内容，并为实体纪念册加入可访问网站的 NFC 标签；集体照与“送你一朵小红花”构成视觉记忆点。</p>
                         </div>
                     </a>
                     <a href="projects/idv.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >第五人格，启动！</h4>
-                            <p class="project-description" >当年和秀秀打人类排位到六阶搓出来的网页，页面还要很多很多bug也不管了，放在这里留个纪念（</p>
+                            <p class="project-description" >《第五人格》排位目标计算器：结合赛季日期、当前积分和目标段位，计算剩余天数与每日所需积分，并记录手动调整。</p>
                         </div>
                     </a>
                     <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >小豆英语启蒙</h4>
-                            <p class="project-description" >占位文本占位文本占位文本占位文本</p>
+                            <p class="project-description" >项目资料尚未公开：目前仅保留名称，功能范围、演示和实现细节待确认后补充。</p>
                         </div>
                     </a>
                     <a href="projects/xxh.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >xxh 的情感契合度测试</h4>
-                            <p class="project-description" >同学自己搞的小测试，我帮忙给他写了个网页前端（目前还在施工中）。双人匿名答题，三大维度量化你们的情感匹配度。</p>
+                            <p class="project-description" >双人依次匿名答题，在浏览器本地比较价值观、生活方式和附加议题；结果提供总分、分项分数与题目明细。</p>
                         </div>
                     </a>
                     <a href="projects/ncut_papers.html" class="project-card project-card-mini reveal-item">
                         <div class="project-content">
                             <h4 class="project-title" >学校论文</h4>
-                            <p class="project-description" >学校各种课程要求写的各种大作业或者结课论文，大部分都很水而且没啥用。</p>
+                            <p class="project-description" >按通信工程、HarmonyOS 应用和 Hi3861 嵌入式三个方向归档课程成果，涵盖技术综述、应用设计及智慧场景原型。</p>
                         </div>
                     </a>
                 </div>

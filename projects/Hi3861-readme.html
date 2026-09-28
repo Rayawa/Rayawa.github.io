@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/markdown-page.css">
   <link rel="stylesheet" href="/static/css/hi3861-readme.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -47,8 +48,8 @@
 
   <div id="particles-js"></div>
 
-  <main class="page md-page">
-    <section class="hero-card">
+  <main class="page project-page md-page">
+    <section class="project-intro hero-card">
       <h1>Hi3861 README</h1>
       <div class="single-action">
         <a class="button" href="https://github.com/Rayawa/Hi3861" target="_blank" rel="noopener"><i class="fab fa-github md-github-icon"></i> GitHub</a>
@@ -56,6 +57,28 @@
         <a class="button-outline" href="Hi3861.html">返回 Hi3861 页面</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这份手册对应 Hi3861 系列嵌入式实验，按交通灯、炫彩灯、环境监测和自定义 AT 指令组织硬件连接、程序文件与学习路径。适合从 GPIO、PWM 和传感器入门，逐步走到多任务协作与串口命令扩展。</p>
+      <ul>
+      <li><strong>按板卡查阅</strong><span>四类实验板分别列出器件、引脚与功能。</span></li>
+      <li><strong>按步骤学习</strong><span>从单一外设控制逐步组合成完整交互场景。</span></li>
+      <li><strong>源码对照</strong><span>页面可打开原始 Markdown，并进入对应 GitHub 仓库。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>作为 Hi3861 系列实验的查阅手册，集中说明板卡、外设、源码组织和学习顺序。</p></article>
+      <article><h3>使用方式</h3><p>先按交通灯、炫彩灯、环境监测或 AT 指令选模块，再查看对应引脚、程序文件与编译步骤。页面下方加载完整 README，也可打开原始 Markdown。</p></article>
+      <article><h3>技术与实现</h3><p>OpenHarmony Hi3861、C 语言、GPIO、PWM、ADC、I²C/OLED 与 UART/AT 指令构成实验基础；各模块对应不同外设。</p></article>
+      <article><h3>成果与边界</h3><p>本页是仓库文档的网页阅读入口。遇到构建环境或接线问题时，以原始 README 与仓库源码为准。</p></article>
+      </div>
+    </section>
+
 
     <section class="md-wrap">
       <article id="mdContainer" class="markdown-body"></article>

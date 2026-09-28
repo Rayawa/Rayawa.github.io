@@ -37,9 +37,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../static/css/gene.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 
-<body class="bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+<body class="project-tool bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+    <header class="project-tool-intro">
+        <h1>农杆菌转化法交互实验室</h1>
+        <p>通过拖拽操作学习农杆菌转化法的完整流程。</p>
+    </header>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这间农杆菌转化法教学实验室通过可操作的流程图引导学习。学习者依次获取 Bt 目的基因与 Ti 质粒、构建表达载体、选择农杆菌作为转化媒介，并完成筛选与鉴定。拖拽、阶段导航、即时提示、计时和最终错误统计帮助发现关键概念中的误区。</p>
+      <ul>
+      <li><strong>四阶段实践</strong><span>从目的基因提取走到受体细胞检测与鉴定。</span></li>
+      <li><strong>操作即反馈</strong><span>错误路径触发提示，帮助理解农杆菌与植物细胞的分工。</span></li>
+      <li><strong>过程可回顾</strong><span>计时与错误次数汇总展示学习过程。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>帮助学习者理解农杆菌介导的植物基因转化，把目的基因、Ti 质粒、表达载体、转化和筛选连接成完整流程。</p></article>
+      <article><h3>使用方式</h3><p>从第一阶段开始拖拽对象到目标区域，按提示修正错误，再依次完成载体构建、导入受体与检测鉴定。顶部导航可回看阶段，计时和错误次数在结束时汇总。</p></article>
+      <article><h3>技术与实现</h3><p>HTML、Tailwind CSS、定制 CSS 和原生 JavaScript 构建场景、拖拽判定、阶段状态与反馈动画；交互在浏览器内运行。</p></article>
+      <article><h3>成果与边界</h3><p>这是教学模拟，页面中的对象和步骤用于概念练习。完成画面显示用时与错误统计，具体实验参数需查阅实验方案。</p></article>
+      </div>
+    </section>
+
     <div id="global-hint-box"
         class="fixed top-20 left-5 z-50 bg-white text-black text-sm px-4 py-3 rounded-xl max-w-xs leading-relaxed backdrop-blur flex items-start gap-2">
 
@@ -63,7 +90,7 @@
 
         <div id="hint-text" class="font-sans text-gray-800"></div>
     </div>
-    <div class="flex-1 flex overflow-hidden">
+    <div class="project-tool-content flex-1 flex overflow-hidden">
         <!-- Main Experiment Area -->
         <div class="flex-1 flex flex-col relative bg-white shadow-2xl">
             <!-- Navigation & Timer -->

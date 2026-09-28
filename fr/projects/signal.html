@@ -36,16 +36,17 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/signal.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
 
-  <main class="page signal-page">
+  <main class="page project-page signal-page">
 
     <!-- ==================== HERO ==================== -->
-    <section class="signal-hero" id="top">
+    <section class="project-intro signal-hero" id="top">
       <div class="signal-hero-eyebrow">
         <i class="fas fa-flask"></i> Génie des Communications · Projet d'Innovation en Physique
       </div>
@@ -73,6 +74,28 @@
         </a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>Ce dispositif expérimental s’attaque aux signaux électriques faibles, difficiles à mesurer directement. Il décrit une chaîne complète : induction dans une bobine réceptrice, déviation mécanique électromagnétique, amplification par levier optique, lecture PSD et conversion analogique-numérique. Un module distinct relie le courant d’entrée à la sortie du capteur. Schémas, câblage, code et analyse des erreurs accompagnent le protocole de validation proposé.</p>
+      <ul>
+      <li><strong>Conversion en plusieurs étapes</strong><span>La variation électrique devient un déplacement optique mesurable.</span></li>
+      <li><strong>Étalonnage dédié</strong><span>Une chaîne spécifique établit la relation entrée–sortie PSD.</span></li>
+      <li><strong>Documents réunis</strong><span>Article, schémas, câblage et programmes sont disponibles ensemble.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Étudier une chaîne de mesure de faibles signaux qui transforme le courant en déviation mécanique, puis lit le déplacement optique avec un détecteur sensible à la position.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Lire dans l’ordre résumé, système, modules, étalonnage et erreurs. Les fichiers du projet se trouvent à la fin ; la reproduction demande circuit, logiciel et modèle d’étalonnage.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>Bobine de réception, déviation électromagnétique, levier optique, PSD, ADC et traitement forment la chaîne. L’étalonnage relie le déplacement du spot à la grandeur mesurée.</p></article>
+      <article><h3>Résultats et portée</h3><p>La page traite la chaîne proposée, les incertitudes et les applications. Les chiffres suivent les documents du projet ; une validation matérielle complète n’est pas établie ici.</p></article>
+      </div>
+    </section>
+
 
     <!-- ==================== QUICK NAV ==================== -->
     <nav class="signal-nav" id="signalNav">
@@ -514,6 +537,7 @@
   <script src="/static/js/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="/static/js/common.js"></script>
+  <script src="/static/js/signal-lightbox.js"></script>
   <script>
     (function() {
       const nav = document.getElementById('signalNav');

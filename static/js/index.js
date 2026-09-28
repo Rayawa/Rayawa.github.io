@@ -238,37 +238,44 @@ function initContactForm() {
 
     const SECRET_CODE = "#sweet";
 
-    function getI18nText(key, fallback) {
+    const CONTACT_I18N = {
+        zh: { sending: '发送中...', sent: '发送成功！感谢您的留言。', sendFailed: '发送失败,请稍后再试。' },
+        en: { sending: 'Sending...', sent: 'Message sent! Thank you for your message.', sendFailed: 'Failed to send. Please try again later.' },
+        fr: { sending: 'Envoi en cours...', sent: 'Message envoyé ! Merci pour votre message.', sendFailed: "Échec de l'envoi. Veuillez réessayer plus tard." },
+    };
+
+    function getContactLocale() {
         var htmlLang = document.documentElement.lang || 'zh-CN';
-        var locale = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : 'zh';
-        var i18n = {};
-        return i18n[key] || fallback;
+        return htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : 'zh';
+    }
+
+    function getI18nText(key) {
+        return CONTACT_I18N[getContactLocale()][key];
     }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn ? submitBtn.innerHTML : getI18nText('send', 'Send');
-        
+        const originalText = submitBtn ? submitBtn.innerHTML : getI18nText('sending');
+
         const nameValue = document.getElementById('name')?.value || '';
         const emailValue = document.getElementById('email')?.value || '';
         const messageValue = document.getElementById('message')?.value || '';
-        
+
         const isIntimate = messageValue.toLowerCase().includes(SECRET_CODE.toLowerCase());
-        var htmlLang = document.documentElement.lang || 'zh-CN';
-        var locale = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('fr') ? 'fr' : 'zh';
+        const locale = getContactLocale();
         const anonymousName = locale === 'en' ? 'Anonymous' : locale === 'fr' ? 'Anonyme' : '匿名用户';
         const displayName = nameValue.trim() || anonymousName;
 
         const targetUrl = isIntimate ? URL_INTIMATE : URL_GENERAL;
-        const subject = isIntimate 
-            ? `[rayawa.top] 💗 ${displayName} - Secret Message ✨` 
+        const subject = isIntimate
+            ? `[rayawa.top] 💗 ${displayName} - Secret Message ✨`
             : `[rayawa.top] Message from ${displayName}`;
 
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + getI18nText('sending', 'Sending...');
+            submitBtn.innerHTML = '<span class="loading"></span> ' + getI18nText('sending');
         }
 
         const payload = {
@@ -293,14 +300,14 @@ function initContactForm() {
                     const intimateMsg = locale === 'en' ? `💗 Secret code verified! ${displayName}, your message has been delivered ✨` : locale === 'fr' ? `💗 Code secret vérifié ! ${displayName}, votre message a été livré ✨` : `💗 暗号认证成功！${displayName}，你的私信已投递至亲密邮箱✨`;
                     alert(intimateMsg);
                 } else {
-                    alert(getI18nText('sent', locale === 'fr' ? 'Message envoyé ! Merci pour votre message.' : 'Message sent! Thank you for your message.'));
+                    alert(getI18nText('sent'));
                 }
                 form.reset();
             } else {
                 throw new Error('Response error');
             }
         } catch (err) {
-            alert(getI18nText('sendFailed', locale === 'fr' ? "Échec de l'envoi. Veuillez réessayer plus tard." : 'Failed to send. Please try again later.'));
+            alert(getI18nText('sendFailed'));
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
@@ -327,13 +334,15 @@ function initGalleryCarousel() {
     let timer = null;
     let autoStarted = false;
 
-    const dotLabelTpl = t.dotLabel || '第 {n} 张';
+    function dotLabel(lang) {
+        return lang === 'en' ? 'Photo {n}' : lang === 'fr' ? 'Photo {n}' : '第 {n} 张';
+    }
     const dots = slides.map((_, idx) => {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'gallery-dot' + (idx === 0 ? ' active' : '');
         dot.dataset.index = String(idx + 1);
-        dot.setAttribute('aria-label', dotLabelTpl.replace('{n}', String(idx + 1)));
+        dot.setAttribute('aria-label', dotLabel(locale).replace('{n}', String(idx + 1)));
         dot.addEventListener('click', () => {
             goTo(idx, idx > current ? 'next' : 'prev');
             restart();
@@ -343,13 +352,12 @@ function initGalleryCarousel() {
     });
 
     galleryA11yUpdater = () => {
-        const dotLabelTpl2 = t.dotLabel || '第 {n} 张';
         dots.forEach((dot) => {
             const idx = dot.dataset.index || '1';
-            dot.setAttribute('aria-label', dotLabelTpl2.replace('{n}', idx));
+            dot.setAttribute('aria-label', dotLabel(locale).replace('{n}', idx));
         });
-        prevBtn.setAttribute('aria-label', locale === 'zh' ? '上一张' : locale === 'fr' ? 'Precedent' : 'Previous');
-        nextBtn.setAttribute('aria-label', locale === 'zh' ? '下一张' : locale === 'fr' ? 'Suivant' : 'Next');
+        prevBtn.setAttribute('aria-label', locale === 'zh' ? '上一张' : locale === 'fr' ? 'Précédente' : 'Previous');
+        nextBtn.setAttribute('aria-label', locale === 'zh' ? '下一张' : locale === 'fr' ? 'Suivante' : 'Next');
     };
     galleryA11yUpdater();
 

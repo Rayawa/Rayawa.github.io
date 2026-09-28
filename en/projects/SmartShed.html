@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/smartshed.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -39,9 +40,9 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
+  <main class="page project-page">
     <!-- ===== Hero / Project Intro ===== -->
-    <section class="hero-card">
+    <section class="project-intro hero-card">
       <span class="hero-badge">Course Design Report &middot; 2025-2026 Spring Semester</span>
       <h1>OpenHarmony-Powered Smart Agriculture<br><small style="font-size:0.5em;font-weight:300;color:rgba(255,255,255,0.6);">— A Smart Greenhouse Control Terminal Based on Hi3861 &amp; HarmonyOS</small></h1>
       <p>From sensor data acquisition to real-time mobile control — a complete smart agriculture IoT system.<br>Two dev boards each doing their job, MQTT message relay, a full-featured HarmonyOS terminal.</p>
@@ -52,6 +53,28 @@
         <a class="button" href="/static/resources/openharmony/smartshed.pptx" target="_blank" rel="noopener"><i class="fas fa-file-powerpoint"></i> Course Report (pptx)</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="At a glance">
+
+      <h2>At a glance</h2>
+      <p>SmartShed is a smart-agriculture course project spanning greenhouse sensing and phone control. Two Hi3861 boards running OpenHarmony divide sensor collection and actuator control, with EMQX MQTT relaying messages. A HarmonyOS app presents temperature, humidity, light, and soil moisture and offers remote management. Its distinctive feature is the complete hardware-to-message-to-app workflow.</p>
+      <ul>
+      <li><strong>Two-board design</strong><span>Separate Hi3861 nodes handle sensing and control.</span></li>
+      <li><strong>Live message path</strong><span>MQTT topics connect board state to app actions.</span></li>
+      <li><strong>End-to-end materials</strong><span>Both code repositories and the project report are linked.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Purpose and use">
+      <h2>Purpose and use</h2>
+      <div class="project-guide-grid">
+      <article><h3>Purpose</h3><p>Monitor and control a greenhouse by linking environmental sensing, soil actuation, and a phone interface with manual and smart modes.</p></article>
+      <article><h3>How to use it</h3><p>Configure the two Hi3861 boards and the MQTT broker using the architecture sections, then connect the HarmonyOS app to the same topics. Confirm sensor publishing before testing commands and reconnection.</p></article>
+      <article><h3>Technology and implementation</h3><p>OpenHarmony LiteOS-M/C runs on RGB and SOI boards; EMQX carries MQTT publish/subscribe traffic; the HarmonyOS ArkTS/ArkUI app includes a custom MQTT client and HDS interface.</p></article>
+      <article><h3>Outputs and scope</h3><p>Data flow, wiring, threads, app structure, and Glass adaptation are described below. Hardware reproduction needs the matching sensors, actuators, network, and broker settings.</p></article>
+      </div>
+    </section>
+
 
     <!-- ===== Project Overview ===== -->
     <section class="ss-panel">

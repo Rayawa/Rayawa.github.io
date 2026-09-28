@@ -36,8 +36,35 @@
   <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../static/css/gene.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+<body class="project-tool bg-slate-100 font-sans text-slate-800 select-none min-h-screen flex flex-col ">
+    <header class="project-tool-intro">
+        <h1>Laboratoire interactif Agrobacterium</h1>
+        <p>Découvrez le processus complet de transformation grâce aux expériences interactives.</p>
+    </header>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>Ce laboratoire pédagogique interactif explique la transformation par Agrobacterium au-delà d’un schéma statique. On extrait le gène Bt et le plasmide Ti, construit un vecteur d’expression, choisit Agrobacterium comme intermédiaire, puis réalise sélection et identification. Glisser-déposer, navigation par étapes, indices immédiats, chronomètre et bilan des erreurs révèlent les confusions fréquentes.</p>
+      <ul>
+      <li><strong>Quatre étapes</strong><span>De l’extraction du gène à la vérification des cellules réceptrices.</span></li>
+      <li><strong>Action et retour</strong><span>Les erreurs éclairent les rôles de la bactérie et de la cellule végétale.</span></li>
+      <li><strong>Bilan de séance</strong><span>Temps écoulé et nombre d’erreurs résument le parcours.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Comprendre la transformation végétale par Agrobacterium en reliant gène cible, plasmide Ti, vecteur d’expression, transfert et sélection.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Commencer à la première étape et faire glisser les objets vers leurs cibles. Suivre les indices, puis assembler le vecteur, transférer dans les cellules et vérifier. La navigation revient sur les étapes ; temps et erreurs sont récapitulés à la fin.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>HTML, Tailwind CSS, CSS dédié et JavaScript natif gèrent scènes, validation du dépôt, progression et animations directement dans le navigateur.</p></article>
+      <article><h3>Résultats et portée</h3><p>Il s’agit d’une simulation pédagogique. L’écran final indique durée et erreurs ; les paramètres expérimentaux doivent être consultés dans un protocole de laboratoire.</p></article>
+      </div>
+    </section>
+
     <div id="global-hint-box"
         class="fixed top-20 left-5 z-50 bg-white text-black text-sm px-4 py-3 rounded-xl max-w-xs leading-relaxed backdrop-blur flex items-start gap-2">
 
@@ -61,7 +88,7 @@
 
         <div id="hint-text" class="font-sans text-gray-800"></div>
     </div>
-    <div class="flex-1 flex overflow-hidden">
+    <div class="project-tool-content flex-1 flex overflow-hidden">
         <!-- Main Experiment Area -->
         <div class="flex-1 flex flex-col relative bg-white shadow-2xl">
             <!-- Navigation & Timer -->

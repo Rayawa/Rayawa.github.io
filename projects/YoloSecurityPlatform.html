@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>智能安防远程监控平台 | Ray Chen</title>
+  <meta name="description" content="基于 Spring Boot、Vue 3、MySQL、FastAPI 与 YOLOv5 的智能安防远程监控与实时告警平台。">
+  <meta name="keywords" content="YOLOv5, Spring Boot, Vue 3, MySQL, FastAPI, WebSocket, HarmonyOS, 智能安防, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/projects/YoloSecurityPlatform.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/YoloSecurityPlatform.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/YoloSecurityPlatform.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/YoloSecurityPlatform.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/YoloSecurityPlatform.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/YoloSecurityPlatform.html">
+  <meta property="og:title" content="智能安防远程监控平台 | Ray Chen">
+  <meta property="og:description" content="从 YOLO 视觉识别到 WebSocket 实时处置的完整安防告警闭环。">
+  <meta property="og:image" content="https://rayawa.top/static/resources/main_page/security.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://rayawa.top/static/resources/main_page/security.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+</head>
+<body class="project-showcase security-project">
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+
+  <main class="page project-page">
+    <section class="project-intro ps-hero">
+      <div class="ps-hero-copy">
+        <span class="ps-eyebrow"><i class="fas fa-shield-halved"></i> AI Vision · Full Stack · Real-time</span>
+        <h1>智能安防远程监控平台</h1>
+        <p>一个贯通视觉识别、规则判断、数据存储、实时推送与人工处置的全栈安防系统。平台既能手动分析图片，也能持续扫描图片与视频目录，以 YOLOv5 识别结果触发业务告警，并将状态变化实时同步到 Web 与 HarmonyOS 终端。</p>
+        <div class="ps-actions">
+          <a class="ps-button" href="https://github.com/Rayawa/YoloSecrityPlatform" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
+          <a class="ps-button is-ghost" href="#architecture"><i class="fas fa-diagram-project"></i> 查看系统链路</a>
+        </div>
+      </div>
+      <div class="ps-hero-visual">
+        <img src="../static/resources/main_page/security.png" alt="智能安防平台监控大屏" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>这是一个把目标检测转化为可处置告警的全栈安防平台。图片上传、视频抽帧或目录扫描进入 YOLO 推理，再由业务规则生成告警；Spring Boot、MySQL 与 WebSocket 负责状态保存和实时同步，Web 与 HarmonyOS 端用于复核和处置。项目强调证据归档、告警状态流转和识别结果的可追溯性。</p>
+      <ul>
+      <li><strong>识别到处置</strong><span>模型类别映射为业务告警并进入处置状态机。</span></li>
+      <li><strong>现场证据</strong><span>检测框图片和视频帧随告警记录保存。</span></li>
+      <li><strong>多端同步</strong><span>事务落库后广播更新，供管理端与移动端查看。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>用于远程监控场景中的图片与视频识别，把模型检测、业务告警、人员处置和证据归档串成可追踪流程。</p></article>
+      <article><h3>使用方式</h3><p>上传图片或视频并查看识别结果；告警到达后在管理端查看实时消息、核对证据并更新处置状态。HarmonyOS 客户端提供移动端访问与分享入口。</p></article>
+      <article><h3>技术与实现</h3><p>FastAPI 承载 YOLOv5 推理，Spring Boot 3.3 处理规则和业务接口，MySQL 8 保存记录，WebSocket 推送告警；Vue 与 ArkTS/ArkWeb 构建界面。</p></article>
+      <article><h3>成果与边界</h3><p>页面展示识别截图、告警旅程与多端结构。具体检测效果应结合数据集、阈值和部署环境判断。</p></article>
+      </div>
+    </section>
+
+
+    <section class="ps-metrics" aria-label="项目关键指标">
+      <div class="ps-metric"><strong>5</strong><span>管理端核心页面</span></div>
+      <div class="ps-metric"><strong>6 类</strong><span>业务告警规则</span></div>
+      <div class="ps-metric"><strong>≈ 2s</strong><span>目录自动扫描周期</span></div>
+      <div class="ps-metric"><strong>3 端</strong><span>Web · OpenAPI · HarmonyOS</span></div>
+    </section>
+
+    <section class="ps-section" id="features">
+      <div class="ps-section-head">
+        <h2>从识别到处置的告警闭环</h2>
+        <p>从“模型看见了什么”到“安保人员完成处置”，每一步都保留业务状态与现场证据。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-camera"></i></span><h3>图片与视频识别</h3><p>支持网络图片、文件上传与视频抽帧；视频最多抽取 5 帧逐帧检测，并生成汇总告警。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-brain"></i></span><h3>YOLO 双模型推理</h3><p>以 COCO 与烟火检测模型覆盖人员、车辆、物品、动物、烟雾和火焰等现场对象。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-code-branch"></i></span><h3>业务规则映射</h3><p>把模型类别转换为烟火异常、人员聚集、人员闯入、车辆异常、动物进入与物品异常。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-bolt"></i></span><h3>实时告警广播</h3><p>数据库事务提交后再通过 WebSocket 广播，避免页面收到尚未落盘的短暂状态。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-list-check"></i></span><h3>处置状态机</h3><p>告警按照“待处置 → 处置中 → 已关闭”流转，并阻止对已关闭记录进行重复操作。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box-archive"></i></span><h3>证据归档</h3><p>自动保存检测框图片与视频帧拼接图；目录识别完成后将源文件归档至 processed。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section" id="architecture">
+      <div class="ps-section-head">
+        <h2>一次告警的完整旅程</h2>
+        <p>浏览器主动提交与 ai-watch 自动扫描共享同一条后端业务链路。</p>
+      </div>
+      <div class="ps-flow">
+        <article class="ps-flow-step"><small>01 · Input</small><h3>现场输入</h3><p>图片 URL、上传文件，或模拟摄像头目录中的图片与视频。</p></article>
+        <article class="ps-flow-step"><small>02 · Vision</small><h3>FastAPI + YOLO</h3><p>完成推理、检测框绘制与多帧对象汇总。</p></article>
+        <article class="ps-flow-step"><small>03 · Rules</small><h3>Spring Boot</h3><p>规则映射、状态校验、事务控制与接口编排。</p></article>
+        <article class="ps-flow-step"><small>04 · Data</small><h3>MySQL 8</h3><p>设备、告警、处置状态和现场图片持久化。</p></article>
+        <article class="ps-flow-step"><small>05 · Delivery</small><h3>WebSocket</h3><p>把新告警与状态变化广播到在线管理终端。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>识别结果可追溯</h2>
+        <p>管理端呈现实时运营状态，AI 输出保留检测框，便于复核模型判断。</p>
+      </div>
+      <figure class="ps-wide-shot">
+        <img src="../static/resources/security/annotated-detection.jpg" alt="YOLO 对教室画面的人员检测结果" loading="lazy">
+        <figcaption class="ps-caption">视频均匀抽帧后的检测框拼接图：识别结果作为告警证据随记录保存。</figcaption>
+      </figure>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>HarmonyOS 客户端</h2>
+        <p>客户端结合 WebView、设备侧感知与 HarmonyOS 分享能力，支持移动端处置。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-mobile-screen"></i></span><h3>ArkTS + ArkWeb</h3><p>输入局域网平台地址即可连接；客户端包含加载进度、返回导航与演示账户自动登录。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-hand"></i></span><h3>智感握持</h3><p>根据左右手握持状态调整悬浮功能按钮位置，让单手操作更自然。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-share-nodes"></i></span><h3>HarmonyShare</h3><p>支持碰一碰分享与隔空抓取，将受控演示会话快速传递到附近设备。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>技术栈</h2><p>前端、业务后端、AI 服务、数据库与设备端协同组成完整工程。</p></div>
+      <div class="ps-stack">
+        <span class="ps-tag">Java 17</span><span class="ps-tag">Spring Boot 3.3</span><span class="ps-tag">MyBatis-Plus</span><span class="ps-tag">MySQL 8</span><span class="ps-tag">Vue 3</span><span class="ps-tag">WebSocket</span><span class="ps-tag">Python</span><span class="ps-tag">FastAPI</span><span class="ps-tag">Ultralytics YOLOv5</span><span class="ps-tag">OpenCV</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkWeb</span><span class="ps-tag">Docker Compose</span><span class="ps-tag">OpenAPI</span>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

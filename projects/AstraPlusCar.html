@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AstraPlusCar · 智能小车 | Ray Chen</title>
+  <meta name="description" content="AstraPlusCar 智能小车项目：昇腾设备端、ESP32 底盘与 HarmonyOS 手机控制端协作，实现相机预览、雷达状态、手动驾驶和安全停车。">
+  <meta name="author" content="Ray Chen">
+  <link rel="canonical" href="https://rayawa.top/projects/AstraPlusCar.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/AstraPlusCar.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/AstraPlusCar.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/AstraPlusCar.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/AstraPlusCar.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/AstraPlusCar.html">
+  <meta property="og:title" content="AstraPlusCar · 智能小车 | Ray Chen">
+  <meta property="og:description" content="连接昇腾设备、ESP32 底盘与 HarmonyOS 手机的智能小车项目。">
+  <meta property="og:image" content="https://rayawa.top/static/resources/main_page/astracar.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/astracar.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+</head>
+<body>
+  <div id="site-navbar"></div><script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page astra-page">
+    <header class="project-intro astra-hero">
+      <div class="astra-kicker">机器人 · 嵌入式 · HarmonyOS</div>
+      <h1>Astra<span>Plus</span>Car</h1>
+      <p class="astra-lead">一辆从传感器到手机界面贯通的智能小车：设备端汇集相机和雷达数据，通过 ESP32 控制底盘；HarmonyOS 手机应用在同一局域网内预览画面并发送驾驶指令。</p>
+      <div class="astra-actions">
+        <a href="https://github.com/Rayawa/AstraPlusCar-src" target="_blank" rel="noopener"><i class="fab fa-github"></i> 设备端代码</a>
+        <a href="https://github.com/Rayawa/AstraPlusCar-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> HarmonyOS 应用</a>
+      </div>
+    </header>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>AstraPlusCar 把 HarmonyOS 手机、昇腾设备端和 ESP32 底盘串成一套智能小车系统。手机负责预览相机与雷达状态并发出驾驶意图；设备端处理传感器与接口，ESP32 执行具体硬件动作。项目重点是跨端协作和失联停车，实车联动仍需现场验收。</p>
+      <ul>
+      <li><strong>三端协作</strong><span>手机、设备端与底盘通过局域网 HTTP 和串口各司其职。</span></li>
+      <li><strong>可见的驾驶状态</strong><span>画面、雷达、方向、速度和停车操作集中在手机端。</span></li>
+      <li><strong>安全边界</strong><span>松手停车与连接续期共同约束车辆动作。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>用于探索手机、边缘计算设备与底盘协同的智能车控制。驾驶者可在 HarmonyOS 手机上同时查看相机、雷达与车辆状态。</p></article>
+      <article><h3>使用方式</h3><p>将手机和设备端接入同一 WLAN，启动设备端服务并连接 ESP32 底盘，再在应用中填写设备地址。通过方向键、速度滑块和 STOP 控制车辆；实车操作前应核验停车逻辑。</p></article>
+      <article><h3>技术与实现</h3><p>Orange Pi AI Pro / 昇腾设备以 Python 提供 HTTP API 和传感器数据；ArkTS 应用负责界面；ESP32 经串口执行电机与舵机动作。续期机制约束运动指令。</p></article>
+      <article><h3>成果与边界</h3><p>页面链接设备端与 HarmonyOS 两个仓库。现有软件实现和文档可查，车轮方向、传感器联动及断联停车仍需实车验收。</p></article>
+      </div>
+    </section>
+
+    <img class="astra-visual" src="../static/resources/main_page/astracar.svg" alt="AstraPlusCar 小车及手机控制示意图">
+
+    <section class="astra-section" id="overview">
+      <h2>项目概览</h2>
+      <p class="astra-intro">项目由两个独立仓库组成。设备端运行在 Orange Pi AI Pro / 昇腾开发环境，处理传感器、车辆控制和 HTTP API；手机端用 ArkTS 构建驾驶界面。既有设备代码还包含循迹、目标追踪等实验模块。</p>
+      <div class="astra-grid">
+        <article class="astra-card"><h3><i class="fas fa-microchip"></i> 设备与底盘</h3><p>设备端管理相机、雷达和车辆控制。高层动作通过串口传给 ESP32，由它负责电机和舵机等硬件动作。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-mobile-screen-button"></i> 手机控制</h3><p>HarmonyOS 应用提供相机预览、雷达状态、方向控制、速度调节、停车和截图保存。</p></article>
+      </div>
+    </section>
+
+    <section class="astra-section" id="architecture">
+      <h2>控制链路</h2>
+      <p class="astra-intro">手机和小车位于同一 WLAN。手机发送高层命令；设备端确认并执行，再由串口驱动 ESP32。相机和雷达数据沿相反方向提供给界面。</p>
+      <div class="astra-flow"><div>HarmonyOS 手机应用</div><span>→</span><div>局域网 HTTP API</div><span>→</span><div>昇腾设备端</div><span>→</span><div>串口 · ESP32 · 底盘</div></div>
+    </section>
+
+    <section class="astra-section" id="features">
+      <h2>关键功能</h2>
+      <div class="astra-grid">
+        <article class="astra-card"><h3><i class="fas fa-video"></i> 画面与雷达</h3><p>设备端共用相机画面提供实时预览和车端截图；雷达状态通过接口返回给手机，显示距离信息与设备状态。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-gamepad"></i> 驾驶交互</h3><p>支持方向控制、速度步进与 0–100 速度滑块。方向键按住运动、松手停车；STOP 在驾驶界面持续可见。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> 控制保护</h3><p>移动期间手机持续续期。断联、退到后台或设备端 600 ms 未收到续期时，控制流程要求停车；旧会话无法恢复先前动作。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-code-branch"></i> 双仓库协作</h3><p>设备端和手机端分别维护，使用约定的 /api/v1 接口交互；硬件动作保留在设备侧，应用只发送高层控制意图。</p></article>
+      </div>
+    </section>
+
+    <section class="astra-section" id="status">
+      <h2>当前进展</h2>
+      <p class="astra-intro">设备端和 HarmonyOS 应用已有对应实现与使用文档。应用构建及离线检查不能代替实车验收；车轮方向、相机/雷达联动、局域网连接和失联停车仍需在实车上确认。</p>
+      <div class="astra-note">技术栈：Python · ArkTS · HarmonyOS · Orange Pi AI Pro / 昇腾 · ESP32 · HTTP API · 串口 · 相机 · 激光雷达</div>
+    </section>
+    <a class="astra-back" href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a>
+  </main>
+  <div id="site-footer"></div><script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="/static/js/common.js"></script>
+</body>
+</html>

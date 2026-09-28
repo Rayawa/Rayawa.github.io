@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/smartshed.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -39,9 +40,9 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
+  <main class="page project-page">
     <!-- ===== Hero / Présentation du projet ===== -->
-    <section class="hero-card">
+    <section class="project-intro hero-card">
       <span class="hero-badge">Rapport de cours · Semestre printemps 2025-2026</span>
       <h1>OpenHarmony au service de l'agriculture intelligente<br><small style="font-size:0.5em;font-weight:300;color:rgba(255,255,255,0.6);">— Terminal de contrôle de serre basé sur Hi3861 et HarmonyOS</small></h1>
       <p>De la collecte des capteurs au contrôle en temps réel sur mobile, un système IoT complet pour l'agriculture intelligente.<br>Deux cartes de développement à tâches distinctes, relayage MQTT, terminal HarmonyOS pleinement fonctionnel.</p>
@@ -52,6 +53,28 @@
         <a class="button" href="/static/resources/openharmony/smartshed.pptx" target="_blank" rel="noopener"><i class="fas fa-file-powerpoint"></i> Rapport de cours (pptx)</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>SmartShed est un projet de cours en agriculture connectée, de la mesure dans la serre au contrôle sur téléphone. Deux cartes Hi3861 sous OpenHarmony se partagent la collecte des capteurs et la commande des actionneurs ; EMQX MQTT relaie les messages. L’application HarmonyOS présente température, humidité, lumière et humidité du sol. Sa particularité est la chaîne complète matériel–messagerie–application.</p>
+      <ul>
+      <li><strong>Deux cartes spécialisées</strong><span>Des nœuds Hi3861 distincts assurent mesure et commande.</span></li>
+      <li><strong>Messagerie en temps réel</strong><span>Les topics MQTT relient états matériels et actions mobiles.</span></li>
+      <li><strong>Ressources complètes</strong><span>Les deux dépôts et le rapport du projet sont accessibles.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Surveiller et commander une serre en reliant capteurs d’environnement, actionneurs du sol et application mobile avec modes manuel et intelligent.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Configurer les deux cartes Hi3861 et le broker MQTT selon l’architecture, puis connecter l’application HarmonyOS aux mêmes thèmes. Vérifier les mesures avant les commandes et la reconnexion.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>OpenHarmony LiteOS-M/C fonctionne sur les cartes RGB et SOI ; EMQX transporte les messages MQTT ; l’application ArkTS/ArkUI comprend un client MQTT maison et une interface HDS.</p></article>
+      <article><h3>Résultats et portée</h3><p>Flux, câblage, threads, structure de l’application et adaptation Glass sont détaillés plus bas. La reproduction nécessite capteurs, actionneurs, réseau et broker correspondants.</p></article>
+      </div>
+    </section>
+
 
     <!-- ===== Présentation générale du projet ===== -->
     <section class="ss-panel">
@@ -150,7 +173,7 @@
             <ul>
               <li>La documentation originale était basée sur JavaUI API7, bien trop ancienne</li>
               <li>Le code original ne fonctionnait que sur une tablette spécifique ; changement d'appareil = interface en désordre</li>
-              <li>Une seule carte d'extension pouvait gérer un seul composant, mais quatre systèmes avaient été conçus : refonte massive requise</li>
+              <li>Une seule carte d’extension gérait un composant ; les quatre systèmes conçus ont demandé une refonte importante</li>
             </ul>
           </div>
           <div class="ss-card" style="border-color: rgba(6,182,212,0.25);">
@@ -760,7 +783,7 @@
       <section class="ss-panel">
         <div class="ss-panel-head">
           <h2><i class="fas fa-paint-brush" style="color:#ec4899;margin-right:0.5rem;"></i>Design UI : HDS + ArkUI</h2>
-          <p>Non seulement fonctionnel, mais aussi beau</p>
+          <p>Une interface fonctionnelle et soignée</p>
         </div>
         <div class="ss-card" style="margin-bottom:1rem;">
           <h3><i class="fas fa-magic"></i> Composants clés HDS</h3>
@@ -865,7 +888,7 @@
         <div class="ss-grid">
           <div class="ss-card">
             <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> Pourquoi avoir choisi OpenHarmony plutôt qu'Arduino/ESP32 ?</h3>
-            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">OpenHarmony offre un vrai RTOS (LiteOS-M) avec ordonnancement préemptif, gestion multithread native et un écosystème matériel Huawei mature. Arduino/ESP32, c'est bien pour prototyper, mais dès qu'on veut faire du multitâche sérieux avec mutex, piles configurables et compilation conditionnelle, on atteint vite les limites. Et puis, travailler avec un système d'exploitation complet plutôt qu'un simple framework, c'est une expérience d'apprentissage totalement différente.</p>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">OpenHarmony offre un vrai RTOS (LiteOS-M) avec ordonnancement préemptif, gestion multithread native et un écosystème matériel Huawei mature. Arduino/ESP32 convient au prototypage ; ce projet met l’accent sur le multitâche, les mutex, les piles configurables et la compilation conditionnelle. Et puis, travailler avec un système d'exploitation complet plutôt qu'un simple framework, c'est une expérience d'apprentissage totalement différente.</p>
           </div>
           <div class="ss-card">
             <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> Combien de temps a pris le développement ?</h3>

@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/rockpapersissors.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -45,9 +46,9 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
+  <main class="page project-page">
     <!-- ===== Hero ===== -->
-    <section class="hero-card">
+    <section class="project-intro hero-card">
       <span class="hero-badge">Python · Machine Learning · Deep Learning</span>
       <h1>Détection Pierre-Papier-Ciseaux</h1>
       <p>Collection de projets du cours Python été 2026, couvrant les bases de la syntaxe Python, la prédiction par régression en Machine Learning, l'analyse des données de comportement étudiant, et la reconnaissance de gestes Pierre-Papier-Ciseaux basée sur YOLO11n.</p>
@@ -56,6 +57,28 @@
         <a class="button button-outline" href="#project3"><i class="fas fa-camera"></i> Reconnaissance de gestes</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>Cette page retrace un parcours de cours allant des bases de Python à la vision par ordinateur, au-delà du seul détecteur pierre-papier-ciseaux. Elle commence par 14 exercices, passe par la prédiction de prix immobiliers avec une forêt aléatoire et l’analyse de comportements étudiants, puis aboutit à la reconnaissance de trois gestes avec YOLO11n. La page indique un mAP50 de validation de 0,940 à rapprocher de la démonstration.</p>
+      <ul>
+      <li><strong>Une progression</strong><span>Programmation, analyse de données et vision composent un parcours continu.</span></li>
+      <li><strong>Données interprétables</strong><span>Immobilier et habitudes étudiantes montrent variables et comparaison de modèles.</span></li>
+      <li><strong>Démonstration gestuelle</strong><span>Les trois gestes disposent d’un GIF et d’une mesure de validation.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Suivre un parcours de cours, des bases Python à l’apprentissage automatique puis à la vision, avec reconnaissance de pierre, papier et ciseaux sur image ou caméra.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Lire les quatre étapes et leurs résultats ; la partie gestes décrit l’inférence sur image, la caméra en direct et les scripts d’évaluation. L’exécution demande le code, les dépendances et les poids du modèle.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>Les exercices Python mènent à la régression immobilière par forêt aléatoire et à l’analyse de comportements ; YOLO11n entraîne un détecteur de trois gestes.</p></article>
+      <article><h3>Résultats et portée</h3><p>La page consigne jeux de données, augmentation, paramètres et métriques. Le mAP50 annoncé de 0,940 concerne l’ensemble de validation décrit.</p></article>
+      </div>
+    </section>
+
 
     <div class="rps-hero-image">
       <img src="../../static/resources/rps/rps.gif" alt="Démo de détection Pierre-Papier-Ciseaux" loading="lazy">
@@ -83,7 +106,6 @@
           <p>🪨📄✂️ Détection en temps réel de Ciseaux/Pierre/Feuille, mAP50 sur l'ensemble de validation = 0,940, inférence à l'échelle de la milliseconde.</p>
         </div>
       </div>
-    </section>
 
     <!-- ===== Project 1 ===== -->
     <section class="rps-panel">

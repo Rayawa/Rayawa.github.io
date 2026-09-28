@@ -51,7 +51,8 @@
   content: '';
   position: absolute;
   top: -80px; left: 50%; transform: translateX(-50%);
-  width: 500px; height: 500px;
+  /* 用 min() 约束宽度,避免小屏上光晕超出视口造成幽灵横向滚动 */
+  width: min(500px, 100vw); height: 500px;
   background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -481,12 +482,13 @@
   border: 2px solid;
 }
 
-.signal-flow-step:nth-child(1) .step-icon { background: rgba(99,102,241,0.2); border-color: var(--sig-accent); }
-.signal-flow-step:nth-child(2) .step-icon { background: rgba(34,211,238,0.2); border-color: var(--sig-cyan); }
-.signal-flow-step:nth-child(3) .step-icon { background: rgba(245,158,11,0.2); border-color: var(--sig-amber); }
-.signal-flow-step:nth-child(4) .step-icon { background: rgba(52,211,153,0.2); border-color: var(--sig-green); }
-.signal-flow-step:nth-child(5) .step-icon { background: rgba(251,113,133,0.2); border-color: var(--sig-rose); }
-.signal-flow-step:nth-child(6) .step-icon { background: rgba(129,140,248,0.2); border-color: var(--sig-accent); }
+/* 用 nth-of-type 计数(箭头是 span,步骤是 div,nth-child 会把箭头算进去导致配色错位) */
+.signal-flow-step:nth-of-type(1) .step-icon { background: rgba(99,102,241,0.2); border-color: var(--sig-accent); }
+.signal-flow-step:nth-of-type(2) .step-icon { background: rgba(34,211,238,0.2); border-color: var(--sig-cyan); }
+.signal-flow-step:nth-of-type(3) .step-icon { background: rgba(245,158,11,0.2); border-color: var(--sig-amber); }
+.signal-flow-step:nth-of-type(4) .step-icon { background: rgba(52,211,153,0.2); border-color: var(--sig-green); }
+.signal-flow-step:nth-of-type(5) .step-icon { background: rgba(251,113,133,0.2); border-color: var(--sig-rose); }
+.signal-flow-step:nth-of-type(6) .step-icon { background: rgba(129,140,248,0.2); border-color: var(--sig-accent); }
 
 .signal-flow-step .step-label {
   font-size: 0.72rem;
@@ -533,9 +535,38 @@
   overflow: hidden;
   background: rgba(2,6,23,0.5);
   border: 1px solid rgba(255,255,255,0.05);
-  cursor: pointer;
+  cursor: zoom-in;
   transition: var(--sig-transition);
   position: relative;
+}
+
+.signal-img-card:focus-visible {
+  outline: 2px solid var(--sig-accent);
+  outline-offset: 2px;
+}
+
+.signal-img-card::after {
+  content: '\f00e';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(6, 11, 24, 0.55);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: var(--sig-transition);
+  pointer-events: none;
+}
+.signal-img-card:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 .signal-img-card:hover {
   border-color: var(--sig-border-active);
@@ -555,6 +586,111 @@
   color: var(--sig-text-faint);
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ================================================================
+   LIGHTBOX — 示意图放大预览
+   ================================================================ */
+.signal-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 8, 18, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: zoom-out;
+}
+
+.signal-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.signal-lightbox-img {
+  max-width: min(92vw, 1100px);
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(2, 6, 23, 0.6);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  transform: scale(0.94);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.signal-lightbox.is-open .signal-lightbox-img {
+  transform: scale(1);
+}
+
+.signal-lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80vw;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.signal-lightbox-close {
+  position: absolute;
+  top: max(1.2rem, env(safe-area-inset-top));
+  right: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.signal-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: scale(1.05);
+}
+
+.signal-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(6, 11, 24, 0.6);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+.signal-lightbox-nav:hover {
+  background: rgba(99, 102, 241, 0.75);
+  border-color: var(--sig-accent);
+}
+.signal-lightbox-nav.prev { left: max(1rem, calc((100vw - 1100px) / 2 - 64px)); }
+.signal-lightbox-nav.next { right: max(1rem, calc((100vw - 1100px) / 2 - 64px)); }
+
+@media (max-width: 600px) {
+  .signal-lightbox-caption { bottom: 1.2rem; font-size: 0.78rem; }
+  .signal-lightbox-nav { width: 40px; height: 40px; }
+  .signal-lightbox-nav.prev { left: 0.6rem; }
+  .signal-lightbox-nav.next { right: 0.6rem; }
 }
 
 /* ================================================================

@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/smartshed.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -39,9 +40,9 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
+  <main class="page project-page">
     <!-- ===== Hero / 项目介绍 ===== -->
-    <section class="hero-card">
+    <section class="project-intro hero-card">
       <span class="hero-badge">2025-2026学年第二学期课设报告</span>
       <h1>开源鸿蒙赋能智慧农业<br><small style="font-size:0.5em;font-weight:300;color:rgba(255,255,255,0.6);">—— 基于Hi3861与HarmonyOS的智慧大棚控制终端</small></h1>
       <p>从传感器采集到手机端实时控制，一套完整的智慧农业物联网系统。<br>两块开发板各司其职，MQTT 消息中转，HarmonyOS 全功能终端。</p>
@@ -52,6 +53,28 @@
         <a class="button" href="/static/resources/openharmony/smartshed.pptx" target="_blank" rel="noopener"><i class="fas fa-file-powerpoint"></i> 课设报告 (pptx)</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="项目速览">
+
+      <h2>项目速览</h2>
+      <p>SmartShed 是从温室感知到手机控制的智慧农业物联网课设。两块运行 OpenHarmony 的 Hi3861 开发板分担传感器采集与执行器控制，经 EMQX MQTT 中转消息；HarmonyOS 应用展示温湿度、光照和土壤水分，并提供远程管理入口。项目特色是软硬件与消息链路的端到端协作。</p>
+      <ul>
+      <li><strong>双板分工</strong><span>采集和控制在不同 Hi3861 节点上完成。</span></li>
+      <li><strong>实时消息链</strong><span>MQTT Topic 将板端状态和应用操作连接起来。</span></li>
+      <li><strong>端到端资料</strong><span>嵌入式、应用两个仓库及报告均可查阅。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="用途与使用">
+      <h2>用途与使用</h2>
+      <div class="project-guide-grid">
+      <article><h3>用途</h3><p>面向温室监测与控制，连接环境采集、土壤执行与手机端操作，让使用者查看数据并切换手动或智能模式。</p></article>
+      <article><h3>使用方式</h3><p>按架构章节配置两块 Hi3861 开发板和 MQTT 服务端，再在 HarmonyOS 应用中连接同一主题。先检查传感器上报，再测试下行控制及断线恢复。</p></article>
+      <article><h3>技术与实现</h3><p>OpenHarmony LiteOS-M/C 运行在 RGB 与 SOI 板上；EMQX 负责 MQTT 发布订阅；HarmonyOS ArkTS/ArkUI 应用含自写 MQTT 客户端与 HDS 界面。</p></article>
+      <article><h3>成果与边界</h3><p>页面包含数据流、硬件映射、线程、应用结构与 Glass 适配。实物复现需要对应传感器、执行器、网络和 broker 配置。</p></article>
+      </div>
+    </section>
+
 
     <!-- ===== 项目总体介绍 ===== -->
     <section class="ss-panel">
@@ -760,7 +783,7 @@
       <section class="ss-panel">
         <div class="ss-panel-head">
           <h2><i class="fas fa-paint-brush" style="color:#ec4899;margin-right:0.5rem;"></i>UI 设计：HDS + ArkUI</h2>
-          <p>不只是能用，还要好看</p>
+          <p>兼顾功能与视觉体验</p>
         </div>
         <div class="ss-card" style="margin-bottom:1rem;">
           <h3><i class="fas fa-magic"></i> HDS 核心组件</h3>

@@ -1,4 +1,5 @@
 function initParticles() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (typeof particlesJS === 'undefined') return;
     var el = document.getElementById('particles-js');
     if (!el) return;
@@ -44,6 +45,7 @@ function initParticles() {
 }
 
 function initParticleMagnetEffect() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (window.__particleMagnetActive) return;
     window.__particleMagnetActive = true;
     var maxRetry = 30;
@@ -525,6 +527,16 @@ function initPageEntrance() {
     
     // 页面加载时立即清除所有过渡状态
     clearPageTransitionStates();
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches && !isHomepage) {
+        sessionStorage.removeItem('rayawa_navigating');
+        setLocale(locale, { noPersist: true });
+        var reducedNavbar = document.querySelector('.navbar');
+        if (reducedNavbar) reducedNavbar.classList.add('is-visible');
+        var reducedPage = document.querySelector('.page');
+        if (reducedPage) reducedPage.classList.add('content-ready');
+        return;
+    }
     
     // 检查页面是否从缓存加载（浏览器后退/前进）
     var isFromCache = false;
@@ -630,10 +642,12 @@ function initPageEntrance() {
 function initSubpageReveal() {
     var isSubpage = !document.getElementById('loadingScreen');
     if (!isSubpage) return;
+    if (window.__subpageRevealInitialized) return;
 
     var isThanks = !!document.querySelector('.thanks-section');
     var isBio = !!document.querySelector('.pcr-lab');
     var isDashboard = !!document.querySelector('.dashboard-page');
+    var projectPage = document.querySelector('.project-page:not(#xxh-app)');
 
     if (isDashboard) {
         var sections = document.querySelectorAll('.dashboard-page .hero-section, .dashboard-page .content-section');
@@ -643,6 +657,8 @@ function initSubpageReveal() {
         });
         return;
     } else if (isThanks) {
+        var thanksHero = document.querySelector('.hero-card');
+        if (thanksHero) thanksHero.classList.add('subpage-reveal');
         var groups = document.querySelectorAll('.thanks-group');
         groups.forEach(function(el) {
             el.classList.add('subpage-reveal');
@@ -652,6 +668,9 @@ function initSubpageReveal() {
         if (heroCard) {
             heroCard.classList.add('subpage-reveal');
         }
+        document.querySelectorAll('.project-brief, .project-guide').forEach(function(el) {
+            el.classList.add('subpage-reveal');
+        });
         var parts = document.querySelectorAll('.pcr-lab, .thesis-archive, .hero-interactive');
         parts.forEach(function(part, partIdx) {
             var delay = (partIdx + 1) * 150;
@@ -660,6 +679,14 @@ function initSubpageReveal() {
                 child.classList.add('subpage-reveal');
                 child.style.setProperty('--subpage-delay', delay + 'ms');
             });
+        });
+    } else if (projectPage) {
+        // Reveal one top-level chapter at a time. This also covers project
+        // layouts that use their own card names instead of the older ones.
+        Array.from(projectPage.children).forEach(function(el) {
+            if (el.matches('section, header, article, img, .as-chapter-wrap, .ss-chapter-wrap, .hi-overview-grid, .rps-overview-grid, .rps-sub-header, .rps-grid, .rps-grid-2, .rps-card-full, .rps-tags, .rps-hero-image, .bottombar, .astra-back')) {
+                el.classList.add('subpage-reveal');
+            }
         });
     } else {
         var items = document.querySelectorAll(
@@ -672,19 +699,27 @@ function initSubpageReveal() {
             '.access-metrics-card, .hero-section, .content-section, ' +
             '.hero-tags-wrapper, .platform-grid, .download-section, ' +
             '.api-section, .acknowledgments-section, .license-section, ' +
-            '.tech-subsection, .card-image'
+            '.tech-subsection, .card-image, .piano-card, ' +
+            '.project-tool > .project-brief, .project-tool > .project-guide, ' +
+            '.project-tool-content > .project-brief, .project-tool-content > .project-guide'
         );
         if (!items.length) return;
 
         var ordered = sortByVisualFlow(Array.from(items));
         ordered.forEach(function(el, idx) {
             el.classList.add('subpage-reveal');
-            el.style.setProperty('--subpage-delay', (idx * 80) + 'ms');
         });
     }
 
     var revealEls = document.querySelectorAll('.subpage-reveal');
     if (!revealEls.length) return;
+    window.__subpageRevealInitialized = true;
+
+    sortByVisualFlow(Array.from(revealEls)).forEach(function(el, idx) {
+        if (!el.style.getPropertyValue('--subpage-delay')) {
+            el.style.setProperty('--subpage-delay', ((idx % 4) * 70) + 'ms');
+        }
+    });
 
     function revealEl(el) {
         if (el.classList.contains('is-visible')) return;
@@ -752,6 +787,11 @@ function initSubpageReveal() {
                 observer = null;
             }
         }, 150);
+    }
+
+    if (typeof IntersectionObserver !== 'function') {
+        revealEls.forEach(revealEl);
+        return;
     }
 
     // 初始化观察器
@@ -827,6 +867,7 @@ function initPageLeaveTransitions() {
         var destination;
         try { destination = new URL(anchor.href, window.location.href); } catch(ex) { return; }
         if (destination.origin !== window.location.origin) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         e.preventDefault();
 

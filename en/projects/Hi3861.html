@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/hi3861.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <!-- 导航栏组件 -->
@@ -46,8 +47,8 @@
 
   <div id="particles-js"></div>
 
-  <main class="page hi-page">
-    <section class="hi-hero">
+  <main class="page project-page hi-page">
+    <section class="project-intro hi-hero">
       <div class="hi-hero-badge"></div>
       <h1>Hi3861</h1>
       <p class="hi-hero-desc">An OpenHarmony-based Hi3861 embedded project covering traffic light, colorful light, environment monitoring, and AT command modules.</p>
@@ -78,6 +79,28 @@
         </article>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="At a glance">
+
+      <h2>At a glance</h2>
+      <p>This OpenHarmony project turns Hi3861 peripheral exercises into four practical paths: a traffic-light state machine, lighting and buzzer interaction, environmental sensing, and serial AT command extensions. Each path verifies individual hardware capabilities before combining sensors, actuators, and task scheduling, making the source easier to follow and reproduce.</p>
+      <ul>
+      <li><strong>Four modules</strong><span>Traffic, lighting, environment, and AT commands cover input, processing, and output.</span></li>
+      <li><strong>From parts to systems</strong><span>GPIO, PWM, ADC, and OLED capabilities are combined step by step.</span></li>
+      <li><strong>Readable documentation</strong><span>Browse the project tree, source paths, and dedicated README.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Purpose and use">
+      <h2>Purpose and use</h2>
+      <div class="project-guide-grid">
+      <article><h3>Purpose</h3><p>Learn embedded OpenHarmony through four experiment groups, moving from peripheral control to sensing, display, and serial commands.</p></article>
+      <article><h3>How to use it</h3><p>Pick a board in the module order shown, check the pin mapping and peripherals, then open the README for source directories and build steps. Each board contains smaller independent exercises.</p></article>
+      <article><h3>Technology and implementation</h3><p>C on Hi3861 with OpenHarmony LiteOS-M; GPIO/PWM drive lights, ADC and I²C collect sensor values, OLED shows state, and UART carries AT commands.</p></article>
+      <article><h3>Outputs and scope</h3><p>The page and README document modules, project layout, and build flow. Reproducing hardware behavior requires the corresponding boards and components.</p></article>
+      </div>
+    </section>
+
 
     <section class="hi-panel">
       <div class="hi-panel-head">

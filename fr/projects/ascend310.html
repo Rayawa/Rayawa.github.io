@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/ascend310.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
 <body>
   <div id="site-navbar"></div>
@@ -39,8 +40,8 @@
 
   <div id="particles-js"></div>
 
-  <main class="page">
-    <section class="ascend-hero">
+  <main class="page project-page">
+    <section class="project-intro ascend-hero">
       <span class="hero-badge">Ascend AI Full-Stack</span>
       <h1>Qizhi01 · Ascend AI Full-Stack<br><small style="font-size:0.45em;font-weight:300;color:rgba(255,255,255,0.6);">—— OpenHarmony sur Ascend 310B, et une app de radios propulsée par NPU</small></h1>
       <p>Porté OpenHarmony 5.0.3 sur le kit développeur Huawei Ascend 310B, puis créé Ascend X-Ray Expert — une application HarmonyOS qui utilise YOLOv5s sur le NPU pour analyser des radiographies pulmonaires. De l'adaptation des patches noyau jusqu'à ArkUI, ce projet couvre toute la pile des systèmes embarqués.</p>
@@ -48,6 +49,28 @@
         <a class="button" href="https://github.com/Rayawa/Ascend310" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a>
       </div>
     </section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>Qizhi01 associe portage du système et application d’IA. OpenHarmony 5.0.3, les pilotes et la chaîne de compilation sont adaptés à un kit Ascend 310B, puis une interface ArkTS analyse des radiographies thoraciques. L’application valide une voie CPU avec MindSpore Lite et une voie NPU avec CANN ACL. La page décrit 43 correctifs et les principales étapes d’ingénierie ; il s’agit d’une démonstration technique, pas d’un outil de diagnostic clinique.</p>
+      <ul>
+      <li><strong>Du système à l’application</strong><span>GPU, affichage, caméra et audio permettent l’exécution de l’application ArkUI.</span></li>
+      <li><strong>Deux voies d’inférence</strong><span>MindSpore Lite et CANN ACL couvrent respectivement CPU et NPU.</span></li>
+      <li><strong>Parcours reproductible</strong><span>Correctifs, scripts de compilation et préparation de carte SD relient les étapes.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="Usage et réalisation">
+      <h2>Usage et réalisation</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Explorer le portage d’OpenHarmony sur Ascend 310B et relier système, application et inférence NPU par une démonstration sur images radiographiques.</p></article>
+      <article><h3>Mode d’emploi</h3><p>Lire le périmètre du portage et les correctifs, puis examiner les cinq classes et les voies CPU/NPU d’Ascend X-Ray Expert. La reproduction demande carte, image système et modèles.</p></article>
+      <article><h3>Technologies et réalisation</h3><p>L’adaptation d’OpenHarmony 5.0.3 touche noyau et arbre des périphériques ; l’inférence utilise MindSpore Lite sur CPU ou CANN ACL sur le NPU Ascend 310B.</p></article>
+      <article><h3>Résultats et portée</h3><p>La page décrit 43 correctifs et le flux d’inférence. La classification radiographique est une démonstration technique sans usage diagnostique clinique.</p></article>
+      </div>
+    </section>
+
 
     <div class="as-chapter-wrap">
       <section class="as-panel">
