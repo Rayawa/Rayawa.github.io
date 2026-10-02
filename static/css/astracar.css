@@ -22,6 +22,4 @@
 .astra-flow div { flex: 1 1 155px; min-width: 0; text-align: center; padding: 1.1rem .8rem; border: 1px solid rgba(96,221,213,.25); background: rgba(96,221,213,.07); border-radius: 13px; color: #e3f6fa; font-weight: 600; }
 .astra-flow span { align-self: center; color: var(--astra-accent); }
 .astra-note { margin-top: 1rem; padding: 1rem 1.2rem; border-left: 3px solid var(--astra-accent); border-radius: 0 10px 10px 0; background: rgba(96,221,213,.07); color: rgba(255,255,255,.75); line-height: 1.7; }
-.astra-back { display: inline-block; margin-top: 3rem; color: var(--astra-accent); text-decoration: none; }
-.astra-back:hover { text-decoration: underline; }
 @media (max-width: 650px) { .astra-grid { grid-template-columns: 1fr; } .astra-flow span { display: none; } .astra-flow div { flex-basis: 100%; } }

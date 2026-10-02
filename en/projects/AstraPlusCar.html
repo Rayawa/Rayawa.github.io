@@ -32,21 +32,21 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>AstraPlusCar connects a HarmonyOS phone, an Ascend device, and an ESP32 chassis into one robotic car. The phone displays camera and lidar data and sends driving intent; the device manages sensors and APIs, while the ESP32 handles hardware motion. Cross-device coordination and loss-of-connection stopping are central to the design; physical vehicle integration still needs on-site validation.</p>
+      <p>AstraPlusCar is a robotic vehicle controlled from a HarmonyOS phone. A camera and lidar connect to an Ascend edge device, an ESP32 drives the motors and steering, and the phone provides the interface and controls. The project examines how perception, decision-making and actuation behave when distributed across three tiers of hardware with different compute budgets, and establishes fail-safe behaviour for when the link drops.</p>
       <ul>
-      <li><strong>Three cooperating parts</strong><span>The phone, device, and chassis divide work across local HTTP and serial links.</span></li>
-      <li><strong>Driving in context</strong><span>Camera, lidar, direction, speed, and stop controls share one mobile view.</span></li>
-      <li><strong>Safety boundary</strong><span>Release-to-stop and connection renewal constrain movement.</span></li>
+      <li><strong>Three-tier division</strong><span>The phone handles interface and control, the edge device handles perception and forwarding, the ESP32 handles low-level actuation.</span></li>
+      <li><strong>Live status</strong><span>Camera frames and lidar readings return to the phone in real time, so the operator can observe the vehicle’s surroundings while driving.</span></li>
+      <li><strong>Fail-safe</strong><span>Releasing the controls stops the vehicle, and a link watchdog prevents it from continuing its last action after a dropout.</span></li>
       </ul>
     </section>
 
     <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
+      <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Explore control across a phone, edge device, and vehicle chassis. The HarmonyOS controller brings camera, lidar, and driving state together.</p></article>
-      <article><h3>How to use it</h3><p>Connect the phone and device to one WLAN, start the device service, attach the ESP32 chassis, and enter the device address in the app. Use direction controls, the speed slider, and STOP; verify stop behavior before driving hardware.</p></article>
-      <article><h3>Technology and implementation</h3><p>Python on Orange Pi AI Pro / Ascend exposes HTTP APIs and sensor data. An ArkTS app provides the interface; ESP32 executes motor and steering commands over serial. Command renewal limits motion.</p></article>
-      <article><h3>Outputs and scope</h3><p>The page links the device and HarmonyOS repositories. Software and documentation are available; wheel direction, sensor integration, and disconnect stopping await vehicle testing.</p></article>
+      <article><h3>What it addresses</h3><p>The project concerns controllability when a phone, an edge device and a chassis work together, and fail-safe behaviour after the link drops.</p></article>
+      <article><h3>How the system cooperates</h3><p>The phone sends high-level driving intent. The edge device receives that intent, combines it with camera, lidar and chassis state, then passes the resulting action to the ESP32. Sensor data travels the other way, which keeps the camera view and lidar readout current.</p></article>
+      <article><h3>What it uses</h3><p>The device side runs Python on an Orange Pi AI Pro / Ascend platform. The phone side is a HarmonyOS application written in ArkTS. The chassis is an ESP32. The three tiers communicate over local HTTP and a serial link respectively.</p></article>
+      <article><h3>Current status</h3><p>The software and its documentation are open-sourced, with the device and phone sides maintained in separate repositories. On-vehicle behaviour — wheel direction, sensor integration and disconnect stopping — still requires on-site validation.</p></article>
       </div>
     </section>
 
@@ -78,7 +78,7 @@
       <p class="astra-intro">Both sides have implementations and usage documentation. App builds and offline checks do not establish real vehicle behavior. Wheel direction, camera and lidar integration, WLAN access, and stop on control loss still require physical testing.</p>
       <div class="astra-note">Stack: Python · ArkTS · HarmonyOS · Orange Pi AI Pro / Ascend · ESP32 · HTTP API · Serial · Camera · Lidar</div>
     </section>
-    <a class="astra-back" href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
   <div id="site-footer"></div><script src="/static/js/footer.js"></script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="/static/js/common.js"></script>
 </body>

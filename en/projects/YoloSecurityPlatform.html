@@ -24,24 +24,22 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>This full-stack security platform turns object detections into actionable alerts. Uploaded images, sampled video frames, or watched directories flow through YOLO inference and business rules. Spring Boot, MySQL, and WebSocket store and synchronize alert states, while Web and HarmonyOS clients support review and handling. Evidence archiving, state transitions, and traceable results distinguish the project.</p>
+      <p>This is a full-stack security platform that turns object detection into actionable alerts. Image uploads, video frame extraction or directory scans feed YOLO inference, and business rules generate alerts from the results; Spring Boot, MySQL and WebSocket handle state persistence and real-time sync, while the web and HarmonyOS clients are used for review and handling. The project emphasises evidence archival, alert state transitions and traceability of detection results.</p>
       <ul>
-      <li><strong>From vision to response</strong><span>Detected classes become business alerts with a handling workflow.</span></li>
-      <li><strong>On-site evidence</strong><span>Annotated images and video frames remain attached to alert records.</span></li>
-      <li><strong>Synchronized clients</strong><span>Updates are broadcast after database commit to Web and mobile views.</span></li>
+      <li><strong>Detection to resolution</strong><span>Model classes map to business alerts that enter a handling state machine.</span></li>
+      <li><strong>On-scene evidence</strong><span>Bounding-box images and video frames are stored alongside the alert record.</span></li>
+      <li><strong>Multi-client sync</strong><span>Updates broadcast after the transaction commits, for both web and mobile clients.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
+    <section class="project-guide" aria-label="About this project">
+      <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Handle remote security media through a traceable flow from detection to business alerts, response, and evidence archiving.</p></article>
-      <article><h3>How to use it</h3><p>Upload an image or video, inspect detections, then review live alerts and evidence in the management UI and update response status. The HarmonyOS client provides mobile access and sharing.</p></article>
-      <article><h3>Technology and implementation</h3><p>FastAPI serves YOLOv5 inference; Spring Boot 3.3 manages rules and APIs; MySQL 8 stores records; WebSocket broadcasts alerts. Vue and ArkTS/ArkWeb provide interfaces.</p></article>
-      <article><h3>Outputs and scope</h3><p>The page shows detection screenshots, an alert journey, and the multi-client structure. Detection quality depends on the dataset, thresholds, and deployment conditions.</p></article>
+      <article><h3>What it addresses</h3><p>If detection results in a surveillance setting stay at the level of bounding boxes, they cannot support later handling. This project maps model output to business alerts and attaches on-scene evidence and a handling state to each one.</p></article>
+      <article><h3>How the data flows</h3><p>Images or video frames pass through YOLOv5 inference on the FastAPI side; the detection results are then mapped to alerts by rules in Spring Boot. Once the alert transaction commits, it is broadcast over WebSocket to the admin and mobile clients, and the handling state updates accordingly.</p></article>
+      <article><h3>What it uses</h3><p>Inference runs on FastAPI with YOLOv5; the business side is Spring Boot 3.3 with MySQL 8, using WebSocket for real-time push. The interfaces are built with Vue and ArkTS / ArkWeb.</p></article>
+      <article><h3>Current status</h3><p>The page shows detection screenshots, the alert handling flow and the multi-client structure. Actual detection quality should be assessed against the dataset, confidence threshold and deployment environment in use.</p></article>
       </div>
     </section>
-
     <section class="ps-metrics" aria-label="Project metrics"><div class="ps-metric"><strong>5</strong><span>Core admin views</span></div><div class="ps-metric"><strong>6 Types</strong><span>Business alert rules</span></div><div class="ps-metric"><strong>≈ 2s</strong><span>Watch-folder scan cycle</span></div><div class="ps-metric"><strong>3 Clients</strong><span>Web · OpenAPI · HarmonyOS</span></div></section>
 
     <section class="ps-section"><div class="ps-section-head"><h2>From detection to response</h2><p>Every step from “what the model saw” to a completed response preserves state and visual evidence.</p></div><div class="ps-grid-3">

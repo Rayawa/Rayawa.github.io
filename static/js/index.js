@@ -434,6 +434,8 @@ function initGalleryCarousel() {
 
     function start() {
         if (timer) return;
+        // 减弱动态效果下不自动轮播；左右切换按钮仍可手动使用
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         timer = window.setInterval(next, 4200);
     }
 
@@ -531,6 +533,18 @@ function initLoadingScreen() {
 
     if (!screen || !bar || !percent) {
         window.dispatchEvent(new CustomEvent('loadingScreenDone'));
+        return;
+    }
+
+    // 减弱动态效果：跳过打字机与模拟进度，直接撤掉开场遮罩。
+    // 仍需派发 loadingScreenDone，否则导航栏与首屏动画不会启动。
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        screen.remove();
+        document.body.classList.remove('is-loading');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.requestAnimationFrame(() => {
+            window.dispatchEvent(new CustomEvent('loadingScreenDone'));
+        });
         return;
     }
 
@@ -676,6 +690,10 @@ function initSectionReveal() {
 }
 
 function initParticlePointerFollow() {
+    // 纯装饰的视差跟随。减弱动态效果下不启动，否则 animate() 会无条件
+    // 递归 rAF，永久运行并每帧写 transform。
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const layer = document.getElementById('particles-js');
     if (!layer) return;
 

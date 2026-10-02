@@ -53,21 +53,21 @@
     <section class="project-brief" aria-label="项目速览">
 
       <h2>项目速览</h2>
-      <p>启智01项目同时推进底层系统移植与上层 AI 应用：为昇腾 310B 开发套件适配 OpenHarmony 5.0.3、驱动和构建链，再以 ArkTS 编写 X 光胸片分析界面。应用分别验证 MindSpore Lite 的 CPU 路径和 CANN ACL 的 NPU 路径。页面记录了 43 个补丁及关键技术环节，定位为工程实践展示；页面中的分类结果不用于临床诊断。</p>
+      <p>启智01 覆盖从操作系统到应用层的完整链路：将 OpenHarmony 5.0.3 移植至华为昇腾 310B 开发套件，并在该系统之上实现 X 光胸片分析应用。项目前半部分为内核、驱动与构建链适配，后半部分为 ArkTS 界面与 YOLOv5s 推理。为使板载 NPU 得到实际使用，应用同时实现了 CPU 与 NPU 两条推理路径。</p>
       <ul>
-      <li><strong>从系统到应用</strong><span>GPU、显示、相机和音频适配支撑 ArkUI 应用运行。</span></li>
-      <li><strong>两条推理路径</strong><span>MindSpore Lite 与 CANN ACL 分别承担 CPU、NPU 推理。</span></li>
-      <li><strong>可复现工程</strong><span>补丁、构建脚本和制卡工具串起移植流程。</span></li>
+      <li><strong>完整的系统适配</strong><span>除运行系统本身，还需打通 GPU、显示、相机与音频，ArkUI 应用方可正常使用。</span></li>
+      <li><strong>两条推理路径</strong><span>MindSpore Lite 承担 CPU 推理，CANN ACL 承担 NPU 推理，两者均已在板端验证。</span></li>
+      <li><strong>流程可复现</strong><span>43 个补丁、一键构建脚本与制卡工具构成完整的移植流程。</span></li>
       </ul>
     </section>
 
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
+    <section class="project-guide" aria-label="关于这个项目">
+      <h2>关于这个项目</h2>
       <div class="project-guide-grid">
-      <article><h3>用途</h3><p>探索昇腾 310B 上的 OpenHarmony 系统适配，并以 X 光影像应用串起操作系统、应用和 NPU 推理链路。</p></article>
-      <article><h3>使用方式</h3><p>先阅读系统移植范围与补丁，再查看 Ascend X-Ray Expert 的五分类流程和 CPU/NPU 双引擎路径；复现时需相应开发板、系统镜像和模型文件。</p></article>
-      <article><h3>技术与实现</h3><p>OpenHarmony 5.0.3 适配涉及内核与设备树等内容；应用使用 MindSpore Lite CPU 或 CANN ACL NPU 推理，围绕昇腾 310B 构建。</p></article>
-      <article><h3>成果与边界</h3><p>页面列出 43 个补丁及推理流程。X 光分类属于技术演示，不用于临床诊断。</p></article>
+      <article><h3>它要解决什么</h3><p>昇腾 310B 原厂仅提供 Linux SDK，而板载 NPU 具备使用价值。项目验证两点：能否在该硬件上运行 OpenHarmony，以及能否在系统之上将 NPU 推理接入可用的应用。</p></article>
+      <article><h3>补充了哪些硬件支持</h3><p>GPU 基于 Panfrost 开源驱动实现 HAL 层，HDMI 与双屏异显已打通，USB/MIPI 摄像头与 ALSA 音频已接通；同时移植 bash 与 busybox，以补齐 HDK 安装所需的工具链。</p></article>
+      <article><h3>用到什么</h3><p>系统侧为 OpenHarmony 5.0.3，连同约 20 个内核模块一并编译；应用侧采用 ArkTS 与 ArkUI，推理分别使用 MindSpore Lite（CPU）与 CANN ACL（NPU），模型为 YOLOv5s。</p></article>
+      <article><h3>当前进展</h3><p>43 个补丁已合入 OpenHarmony 主干，应用可在板端运行并完成五分类推理，CPU 与 NPU 两条路径均已验证。X 光分类属技术演示，不用于临床诊断。</p></article>
       </div>
     </section>
 
@@ -312,6 +312,7 @@
         </div>
       </section>
     </div>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 
   <div id="site-footer"></div>

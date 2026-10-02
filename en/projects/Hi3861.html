@@ -83,25 +83,22 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>This OpenHarmony project turns Hi3861 peripheral exercises into four practical paths: a traffic-light state machine, lighting and buzzer interaction, environmental sensing, and serial AT command extensions. Each path verifies individual hardware capabilities before combining sensors, actuators, and task scheduling, making the source easier to follow and reproduce.</p>
+      <p>This project organises OpenHarmony embedded exercises on the Hi3861 into four tracks: a traffic-light state machine, lighting with buzzer coordination, environmental data acquisition, and custom AT commands. Each track first implements control of a single peripheral, then combines it with other modules. Together the four scenarios cover input, processing and output.</p>
       <ul>
-      <li><strong>Four modules</strong><span>Traffic, lighting, environment, and AT commands cover input, processing, and output.</span></li>
-      <li><strong>From parts to systems</strong><span>GPIO, PWM, ADC, and OLED capabilities are combined step by step.</span></li>
-      <li><strong>Readable documentation</strong><span>Browse the project tree, source paths, and dedicated README.</span></li>
+      <li><strong>Four tracks</strong><span>Traffic, lighting, environment and AT commands, progressing from single-point control to multi-task coordination.</span></li>
+      <li><strong>Independently runnable scenarios</strong><span>Each track is a complete, demonstrable scenario whose result can be observed directly.</span></li>
+      <li><strong>Source available for reference</strong><span>Each track maps to its own program files, and the README can be read online.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
+    <section class="project-guide" aria-label="About this project">
+      <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Learn embedded OpenHarmony through four experiment groups, moving from peripheral control to sensing, display, and serial commands.</p></article>
-      <article><h3>How to use it</h3><p>Pick a board in the module order shown, check the pin mapping and peripherals, then open the README for source directories and build steps. Each board contains smaller independent exercises.</p></article>
-      <article><h3>Technology and implementation</h3><p>C on Hi3861 with OpenHarmony LiteOS-M; GPIO/PWM drive lights, ADC and I²C collect sensor values, OLED shows state, and UART carries AT commands.</p></article>
-      <article><h3>Outputs and scope</h3><p>The page and README document modules, project layout, and build flow. Reproducing hardware behavior requires the corresponding boards and components.</p></article>
+      <article><h3>What it addresses</h3><p>A common situation in embedded learning is knowing each peripheral individually but lacking experience in organising them into a complete system. This project arranges GPIO, PWM, sensors and serial communication into a learning path of four independently runnable scenarios, ordered by difficulty.</p></article>
+      <article><h3>What the four tracks contain</h3><p>The traffic light uses a state machine to switch between signals and detect illegal horn use; the lighting track generates light effects through PWM and coordinates them with a buzzer; environmental monitoring samples temperature, humidity and light over ADC and I²C and displays them on an OLED; the AT command track extends the serial port into a customisable command interface.</p></article>
+      <article><h3>What it uses</h3><p>A Hi3861 development board with OpenHarmony LiteOS-M, developed in C, covering GPIO, PWM, ADC, I²C and an OLED display, as well as UART serial communication.</p></article>
+      <article><h3>How to read it</h3><p>Choose a board following the module order on this page, check the pin assignments and peripherals, then open the corresponding README for the source layout and build steps. A full README reading page is also provided; reproducing the physical results requires the matching board and components.</p></article>
       </div>
     </section>
-
-
     <section class="hi-panel">
       <div class="hi-panel-head">
         <h2>Project Structure</h2>
@@ -222,6 +219,7 @@ startup</pre>
         <div><ul><li>GPIO PWM I2C ADC</li><li>OpenHarmony CMSIS RTOS2 HiAT</li><li>GN Ninja hb</li><li>HiBurn UART tools</li></ul></div>
       </article>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
 
   <div id="site-footer"></div>

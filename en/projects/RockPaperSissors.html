@@ -61,25 +61,22 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>This page presents a course journey from Python basics to computer vision, ending with a rock-paper-scissors detector. It starts with 14 programming exercises, continues through random-forest house-price prediction and student-behavior analysis, and ends with YOLO11n recognition of three hand gestures. The page reports a validation mAP50 of 0.940 so the metric can be considered alongside the demo.</p>
+      <p>This page documents a course path from Python fundamentals to computer vision, in four stages: 14 syntax exercises, a random-forest regression on California housing prices, analysis of student digital-behaviour data, and a three-class gesture detector trained with YOLO11n. The gesture model reaches mAP50 0.940 on the validation set, and the page lists the dataset, training configuration and evaluation results for comparison.</p>
       <ul>
-      <li><strong>A learning progression</strong><span>Programming, tabular-data analysis, and vision form one sequence.</span></li>
-      <li><strong>Interpretable data work</strong><span>Housing and student datasets show features and model comparisons.</span></li>
-      <li><strong>Live gesture demo</strong><span>Rock, paper, and scissors detection includes a GIF and validation metric.</span></li>
+      <li><strong>Progressive structure</strong><span>Fundamentals, structured data analysis and visual detection form one continuous learning chain.</span></li>
+      <li><strong>Interpretable data tasks</strong><span>The housing and behaviour analyses report feature importance and model comparisons.</span></li>
+      <li><strong>Live gesture demo</strong><span>The rock, paper, scissors detector is shown with a demo animation and validation metrics.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
+    <section class="project-guide" aria-label="About this project">
+      <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Follow a course path from Python fundamentals through machine learning to computer vision, ending in image or camera recognition of rock, paper, and scissors gestures.</p></article>
-      <article><h3>How to use it</h3><p>Read the four phases and their results, then use the gesture section for single-image inference, live camera detection, and evaluation scripts. Running the model requires the course code, dependencies, and weights.</p></article>
-      <article><h3>Technology and implementation</h3><p>Python exercises lead into random-forest housing regression and student-behavior analysis; YOLO11n trains the three-class gesture detector.</p></article>
-      <article><h3>Outputs and scope</h3><p>The page records datasets, augmentation, training settings, and validation metrics. The reported mAP50 of 0.940 belongs to the documented validation set.</p></article>
+      <article><h3>What it addresses</h3><p>Coursework often stops at a single algorithm example. This project strings Python fundamentals, classical machine learning and deep-learning detection into one path, with complete data, code and results at every stage.</p></article>
+      <article><h3>Contents of the four stages</h3><p>Stage one covers 14 Python syntax exercises; stage two applies a random forest to regression on the California housing dataset; stage three analyses student digital-behaviour data and produces six chart types; stage four trains YOLO11n to detect rock, paper and scissors gestures.</p></article>
+      <article><h3>What it uses</h3><p>Python is the primary language, with scikit-learn’s random forest for analysis and modelling. The vision stage uses YOLO11n at 2.58M parameters, trained on an RTX 5060.</p></article>
+      <article><h3>Results and how to read them</h3><p>The gesture model reaches mAP50 0.940 on the validation set; the page lists dataset size, augmentation and training configuration. Reproducing it requires the course code, the dependency environment and the model weights.</p></article>
       </div>
     </section>
-
-
     <div class="rps-hero-image">
       <img src="../../static/resources/rps/rps.gif" alt="Rock Paper Scissors Detection Demo" loading="lazy">
     </div>
@@ -420,6 +417,7 @@
         <span class="rps-tag data">CUDA</span>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
 
   <div id="site-footer"></div>

@@ -39,21 +39,21 @@
     <section class="project-brief" aria-label="项目速览">
 
       <h2>项目速览</h2>
-      <p>AstraPlusCar 把 HarmonyOS 手机、昇腾设备端和 ESP32 底盘串成一套智能小车系统。手机负责预览相机与雷达状态并发出驾驶意图；设备端处理传感器与接口，ESP32 执行具体硬件动作。项目重点是跨端协作和失联停车，实车联动仍需现场验收。</p>
+      <p>AstraPlusCar 是一套以 HarmonyOS 手机为控制端的智能小车系统：设备端运行在昇腾开发者套件上，接入相机与激光雷达，经 ESP32 驱动麦克纳姆轮底盘；手机端负责画面预览、雷达状态与驾驶操控。项目在昇腾官方 E2E 样例的基础上做两件事——把相机换成 3D 结构光相机，以及补齐一套可用的手机遥控端。</p>
       <ul>
-      <li><strong>三端协作</strong><span>手机、设备端与底盘通过局域网 HTTP 和串口各司其职。</span></li>
-      <li><strong>可见的驾驶状态</strong><span>画面、雷达、方向、速度和停车操作集中在手机端。</span></li>
-      <li><strong>安全边界</strong><span>松手停车与连接续期共同约束车辆动作。</span></li>
+      <li><strong>三层分工</strong><span>手机负责界面与操控，昇腾设备端负责感知与决策，ESP32 负责底层执行。</span></li>
+      <li><strong>三套自动驾驶场景</strong><span>路标辅助、巡线、目标追踪，各自对应不同的模型与行为策略。</span></li>
+      <li><strong>失效保护</strong><span>松手即停，并设置失联看门狗；通信中断后车辆不会维持原有动作。</span></li>
       </ul>
     </section>
 
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
+    <section class="project-guide" aria-label="关于这个项目">
+      <h2>关于这个项目</h2>
       <div class="project-guide-grid">
-      <article><h3>用途</h3><p>用于探索手机、边缘计算设备与底盘协同的智能车控制。驾驶者可在 HarmonyOS 手机上同时查看相机、雷达与车辆状态。</p></article>
-      <article><h3>使用方式</h3><p>将手机和设备端接入同一 WLAN，启动设备端服务并连接 ESP32 底盘，再在应用中填写设备地址。通过方向键、速度滑块和 STOP 控制车辆；实车操作前应核验停车逻辑。</p></article>
-      <article><h3>技术与实现</h3><p>Orange Pi AI Pro / 昇腾设备以 Python 提供 HTTP API 和传感器数据；ArkTS 应用负责界面；ESP32 经串口执行电机与舵机动作。续期机制约束运动指令。</p></article>
-      <article><h3>成果与边界</h3><p>页面链接设备端与 HarmonyOS 两个仓库。现有软件实现和文档可查，车轮方向、传感器联动及断联停车仍需实车验收。</p></article>
+      <article><h3>它要解决什么</h3><p>项目关注手机、昇腾设备端与底盘三层协同时的可控性，以及在官方样例基础上完成两项工程改造：接入 3D 结构光相机，并为小车补齐手机遥控端。</p></article>
+      <article><h3>系统如何协作</h3><p>手机端发出的是高层驾驶意图，设备端接收后结合相机、雷达与底盘状态，再将具体动作交由 ESP32 执行。传感器数据沿相反方向回传，画面与雷达状态因此可以实时刷新。</p></article>
+      <article><h3>用到什么</h3><p>设备端为 Python，运行于昇腾开发者套件，推理使用 Ascend 离线模型；手机端为 ArkTS 编写的 HarmonyOS 应用；底盘为 ESP32。三层之间分别通过局域网 HTTP 与串口通信。</p></article>
+      <article><h3>当前进展</h3><p>手机端已完成真机与实车联调，视频预览、三向雷达、截图与图库均确认可用，API 侧的状态、方向命令、续期与失联自动停车也已验证。实车行驶行为仍需现场观察。</p></article>
       </div>
     </section>
 
@@ -61,10 +61,21 @@
 
     <section class="astra-section" id="overview">
       <h2>项目概览</h2>
-      <p class="astra-intro">项目由两个独立仓库组成。设备端运行在 Orange Pi AI Pro / 昇腾开发环境，处理传感器、车辆控制和 HTTP API；手机端用 ArkTS 构建驾驶界面。既有设备代码还包含循迹、目标追踪等实验模块。</p>
+      <p class="astra-intro">项目由两个独立仓库组成。设备端运行在昇腾开发者套件上，负责相机与雷达数据、模型推理和车辆控制，并对外提供 HTTP 接口；手机端用 ArkTS 构建驾驶界面。设备端除基础的车控能力外，还包含巡线模型训练、车道线自动标注与激光雷达建图等配套模块。</p>
       <div class="astra-grid">
-        <article class="astra-card"><h3><i class="fas fa-microchip"></i> 设备与底盘</h3><p>设备端管理相机、雷达和车辆控制。高层动作通过串口传给 ESP32，由它负责电机和舵机等硬件动作。</p></article>
-        <article class="astra-card"><h3><i class="fas fa-mobile-screen-button"></i> 手机控制</h3><p>HarmonyOS 应用提供相机预览、雷达状态、方向控制、速度调节、停车和截图保存。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-microchip"></i> 设备与底盘</h3><p>设备端管理相机、雷达和车辆控制。高层动作通过串口传给 ESP32，由它负责电机和舵机等硬件动作，底盘为麦克纳姆轮结构，支持侧移与原地旋转。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-mobile-screen-button"></i> 手机控制</h3><p>HarmonyOS 应用提供视频预览、三向雷达、方向控制、速度调节、停车急停、截图与本地图库。</p></article>
+      </div>
+    </section>
+
+    <section class="astra-section" id="scenes">
+      <h2>三套自动驾驶场景</h2>
+      <p class="astra-intro">设备端内置三种行为模式，均可由外部指令切换；另有手动模式用于直接操控。</p>
+      <div class="astra-grid">
+        <article class="astra-card"><h3><i class="fas fa-signs-post"></i> 路标辅助</h3><p>加载 YOLOv5 离线模型识别左转、右转与掉头路标，依据检测框中心位置与面积阈值触发对应的原地转向动作。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-road"></i> 巡线</h3><p>由回归网络对画面输出一个转向数值，再分段映射为直行、左转或右转，使车辆沿车道线行进。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-crosshairs"></i> 目标追踪</h3><p>根据目标框大小调整速度，依据偏离画面中心的方向决定转向，接近到阈值距离时停车。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-keyboard"></i> 手动模式</h3><p>键盘直接控制前后左右、原地旋转与左右平移，可随时加减速、停车并保存当前画面。</p></article>
       </div>
     </section>
 
@@ -74,22 +85,34 @@
       <div class="astra-flow"><div>HarmonyOS 手机应用</div><span>→</span><div>局域网 HTTP API</div><span>→</span><div>昇腾设备端</div><span>→</span><div>串口 · ESP32 · 底盘</div></div>
     </section>
 
-    <section class="astra-section" id="features">
-      <h2>关键功能</h2>
+    <section class="astra-section" id="device">
+      <h2>设备端工程</h2>
+      <p class="astra-intro">设备端基于昇腾官方 E2E 样例构建，并保留一份原版工程用于对照。</p>
       <div class="astra-grid">
-        <article class="astra-card"><h3><i class="fas fa-video"></i> 画面与雷达</h3><p>设备端共用相机画面提供实时预览和车端截图；雷达状态通过接口返回给手机，显示距离信息与设备状态。</p></article>
-        <article class="astra-card"><h3><i class="fas fa-gamepad"></i> 驾驶交互</h3><p>支持方向控制、速度步进与 0–100 速度滑块。方向键按住运动、松手停车；STOP 在驾驶界面持续可见。</p></article>
-        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> 控制保护</h3><p>移动期间手机持续续期。断联、退到后台或设备端 600 ms 未收到续期时，控制流程要求停车；旧会话无法恢复先前动作。</p></article>
-        <article class="astra-card"><h3><i class="fas fa-code-branch"></i> 双仓库协作</h3><p>设备端和手机端分别维护，使用约定的 /api/v1 接口交互；硬件动作保留在设备侧，应用只发送高层控制意图。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-code-compare"></i> 原版与改造版对照</h3><p>原版工程与官方样例逐字节一致；改造版在其基础上接入 3D 结构光相机，相机采集规格由 1280×720 提升至 1920×1080。改造仅涉及 7 个文件，其余部分保持一致。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-brain"></i> 离线模型推理</h3><p>识别在板端以 Ascend 离线模型完成，涵盖路标检测、巡线回归与目标追踪三类任务，推理前处理与后处理均随工程提供。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-satellite-dish"></i> 雷达与建图</h3><p>配有 RPLIDAR 激光雷达的 ROS2 建图测试工程，可用于采集点云与验证建图流程。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-toolbox"></i> 配套工具</h3><p>包含巡线模型的训练与导出代码、车道线自动标注工具，以及一套基于 ESP32 的独立小车固件与中文教程。</p></article>
+      </div>
+    </section>
+
+    <section class="astra-section" id="phone">
+      <h2>手机控制端</h2>
+      <p class="astra-intro">HarmonyOS 应用提供竖屏与横屏两套布局：竖屏依次为连接状态、视频、雷达条与控制盘；横屏让视频铺满画面，摇杆与雷达色带叠加其上。</p>
+      <div class="astra-grid">
+        <article class="astra-card"><h3><i class="fas fa-video"></i> 画面与雷达</h3><p>视频以单条持续流接收，画面下方为独立雷达条，按左、前、右三个方向显示距离并区分警戒程度；无回波时明确显示「未测得」，不将其解释为安全距离。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-gamepad"></i> 驾驶交互</h3><p>四个主方向为前进、左转、后退、右转，四角为左右旋转与左右平移。按住运动时仅允许一个动作生效，滑向新方向时先停车再切换；速度滑块在运动期间同样可用。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> 失效保护</h3><p>画面接收或解码超时会立即断开控制并停车，随后按退避策略重连；收到新的实时画面前禁止运动与调速，旧会话无法恢复先前的按键或动作。</p></article>
+        <article class="astra-card"><h3><i class="fas fa-images"></i> 截图与图库</h3><p>截图先保存在车端，再下载到应用私有图库，重启后仍可查看；经用户主动下载并完成系统授权后，图片才进入系统相册。</p></article>
       </div>
     </section>
 
     <section class="astra-section" id="status">
       <h2>当前进展</h2>
-      <p class="astra-intro">设备端和 HarmonyOS 应用已有对应实现与使用文档。应用构建及离线检查不能代替实车验收；车轮方向、相机/雷达联动、局域网连接和失联停车仍需在实车上确认。</p>
-      <div class="astra-note">技术栈：Python · ArkTS · HarmonyOS · Orange Pi AI Pro / 昇腾 · ESP32 · HTTP API · 串口 · 相机 · 激光雷达</div>
+      <p class="astra-intro">手机端已在真机安装并与真实小车完成同网联调，视频、三向雷达、截图与私有图库均已确认；接口侧验证了状态查询、视频流、截图下载、速度与方向命令、续期、停车以及失联自动停车。车轮悬空时仅做短时运动验证，实际轮向、落地行驶与后台停车仍需现场观察。</p>
+      <div class="astra-note">技术栈：Python · ArkTS · HarmonyOS · 昇腾 · ESP32 · 麦克纳姆轮底盘 · HTTP API · 串口 · 摄像头 · 激光雷达 · ROS2</div>
     </section>
-    <a class="astra-back" href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
   <div id="site-footer"></div><script src="/static/js/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="/static/js/common.js"></script>

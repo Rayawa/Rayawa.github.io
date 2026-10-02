@@ -168,39 +168,24 @@
         background: linear-gradient(135deg, #f39c12, #f9a826);
       }
       .fab-tools { display: none !important; }
+      /* 导航栏留白。写成 .project-tool .project-tool-content 是为盖过
+         common.css 里 .container 的 padding（同特指度、后加载者胜）。 */
+      .project-tool .project-tool-content { padding-top: 8.5rem; }
     </style>
+    <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
-<body class="project-tool bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
-  <main class="project-tool-content container mx-auto px-4 py-8 md:py-12">
+<body class="project-tool idv-page bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="project-tool-content px-4 pb-8 md:pb-12">
     <!-- 标题区域 -->
     <div class="project-tool-intro text-center mb-8 md:mb-12 animate-fade-in">
       <h1 class="text-3xl md:text-5xl font-bold text-idv-highlight mb-2">Identity V Rank Planner</h1>
-      <p class="text-gray-300 max-w-md mx-auto">Season goal: track your path from Tier IV-V to Tier VI-V (1,250 points).</p>
+      <p class="text-gray-300 max-w-2xl mx-auto">Enter your current points, target points and season dates, and the cards below give you the days remaining, the points you need per day, and your rank progress. Log each match with the +/− control and the history list shows whether your pace is holding.</p>
     </div>
 
-    <section class="project-brief" aria-label="At a glance">
-
-      <h2>At a glance</h2>
-      <p>This Identity V rank calculator turns a season goal into a daily plan. Enter current points, season dates, and a target to see days remaining, points needed, and the daily pace. Rank nodes and progress bars show the current position, while manual point adjustments and local history track real changes over time.</p>
-      <ul>
-      <li><strong>Break down the goal</strong><span>Dates and points determine remaining work and daily requirements.</span></li>
-      <li><strong>See rank progress</strong><span>Milestones, a progress bar, and result cards show where you stand.</span></li>
-      <li><strong>Track adjustments</strong><span>Correct points manually and review local history.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
-      <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Turn an Identity V ranked-season goal into a point plan, showing the gap to a target tier and the daily pace needed.</p></article>
-      <article><h3>How to use it</h3><p>Enter current and target points plus season dates, then inspect remaining days, daily points, and rank progress. After a match, record point changes and review the adjustment history.</p></article>
-      <article><h3>Technology and implementation</h3><p>Vanilla JavaScript calculates date gaps, point targets, and progress in the browser; local storage keeps manual adjustments without an account.</p></article>
-      <article><h3>Outputs and scope</h3><p>The figures are planning aids; use in-game rules and season dates as the source of truth. Adjustment history stays in this browser.</p></article>
-      </div>
-    </section>
-
-    
     <!-- 主卡片 -->
     <div class="max-w-6xl mx-auto glass rounded-2xl card-shadow p-6 md:p-8 animate-fade-in">
       
@@ -637,11 +622,8 @@
         <p id="notificationText" class="text-center"></p>
       </div>
     </div>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
-
-  <div style="text-align:center;padding:2rem 0;">
-    <a href="../index.html" style="display:inline-block;padding:0.6rem 1.8rem;border-radius:8px;background:rgba(99,102,241,0.12);color:#6366f1;text-decoration:none;font-size:0.95rem;transition:background .2s;" onmouseover="this.style.background='rgba(99,102,241,0.22)'" onmouseout="this.style.background='rgba(99,102,241,0.12)'">← Back</a>
-  </div>
 
   <script>
     // DOM 元素
@@ -1194,6 +1176,7 @@
   </script>
   
   
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../../static/js/common.js"></script>
 </body>
 </html>

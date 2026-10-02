@@ -47,30 +47,8 @@
   <main class="page project-page">
     <section class="project-intro hero-card">
       <h1>Biology Projects</h1>
-      <p>Papers and experiment records in biology, including PCR, protein hypotheses, carbon assimilation review, orange-plate experiments, and an interactive Agrobacterium web demo.</p>
+      <p>Three kinds of biology work live here: a PCR classroom experiment with a complete written record, three research papers, and an interactive web lab that turns Agrobacterium transformation into a drag-and-drop exercise. They run experiment → papers → interactive, and each one opens its source document.</p>
     </section>
-
-    <section class="project-brief" aria-label="At a glance">
-
-      <h2>At a glance</h2>
-      <p>This page brings together biology experiments, paper drafts, and an interactive teaching tool. A classroom PCR project includes its design, gel image, and report. The paper shelf covers prions, carbon fixation in C3 plants, and unusual color changes in yeast culture. An Agrobacterium simulation makes an abstract transformation workflow interactive. Both outcomes and supporting process materials are available.</p>
-      <ul>
-      <li><strong>Traceable experiment</strong><span>PCR design, result image, and report describe one classroom project.</span></li>
-      <li><strong>Varied research topics</strong><span>Genetics, photosynthesis, and microbiology each have their own texts.</span></li>
-      <li><strong>Interactive teaching</strong><span>Open the transformation simulation to perform the steps yourself.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
-      <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Browse biology lab work, research papers, and an interactive teaching piece through experimental design, analysis, and a web simulation.</p></article>
-      <article><h3>How to use it</h3><p>Read the PCR design and final report, open papers by topic, then try the Agrobacterium lab by dragging through its stages.</p></article>
-      <article><h3>Technology and implementation</h3><p>The lab work concerns PCR and an approximately 600 bp target; the papers cover molecular biology and laboratory error; HTML, CSS, and JavaScript drive the interactive simulation.</p></article>
-      <article><h3>Outputs and scope</h3><p>The page links reports, papers, and the lab. Interpret experimental findings against the conditions and records in each source document.</p></article>
-      </div>
-    </section>
-
 
     <section class="pcr-lab">
       <div class="section-header">
@@ -131,7 +109,12 @@
               <span class="thesis-date">2024.6.23</span>
             </div>
             <h3>On the Conjecture of Proteins as Genetic Material in Extremely, Extremely Special Organisms</h3>
-            <p class="thesis-abstract">This paper boldly challenges the absolute authority of the biological "central dogma." Based on the self-replicating properties of prions and reverse transcription mechanisms, it rigorously explores the possibility of proteins as primitive genetic carriers. This research aims to broaden the boundaries of thinking about biological evolution and the nature of heredity, providing a highly forward-looking hypothetical framework for the study of life forms in extreme environments.</p>
+            <p class="thesis-abstract">Explores whether proteins can act as primitive genetic carriers, working from prion self-replication and reverse transcription, and treats the limits of the central dogma as the question at stake.</p>
+            <dl class="thesis-facts">
+              <div><dt>Question</dt><dd>Can proteins serve as genetic material in extremely unusual organisms, the way DNA and RNA do?</dd></div>
+              <div><dt>Method</dt><dd>Theoretical analysis. Tests whether the four classic approaches to identifying genetic material — isotope labelling, centrifugation, the subtraction principle and sequencing — still hold for retroviruses, and brings in hypotheses about the origins of proteins and viruses.</dd></div>
+              <div><dt>Conclusion</dt><dd>Proposes that reverse transcriptase acts as the genetic material of retroviruses only together with RNA, and suggests proteins may have played a genetic-material-like role during the transition from non-living to living systems. The author notes the question is still debated.</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button" href="../../static/resources/bio/prion.pdf" target="_blank" rel="noopener">Read Paper</a>
             </div>
@@ -149,7 +132,12 @@
               <span class="thesis-date">2024.6.8</span>
             </div>
             <h3>Molecular Biology Research on the Calvin Cycle in C3 Plants</h3>
-            <p class="thesis-abstract">This paper provides an in-depth analysis of the Calvin cycle, the core carbon fixation pathway in C3 plants. It systematically examines the molecular mechanisms of carbon assimilation, including the catalytic properties and regulation of key enzymes such as Rubisco, as well as the energy conversion processes involving ATP and NADPH. This research aims to enhance understanding of photosynthetic efficiency limitations in C3 plants and explore potential directions for improving crop yields through biochemical approaches.</p>
+            <p class="thesis-abstract">Walks through the Calvin cycle, the core carbon-fixation pathway, from a molecular-biology angle: the reaction sequence is broken down step by step, key reactions are shown as molecular structures, and the route to sugar is analysed.</p>
+            <dl class="thesis-facts">
+              <div><dt>Question</dt><dd>How does each step of the Calvin cycle actually work, and where does the sugar come from?</dd></div>
+              <div><dt>Method</dt><dd>Literature review plus molecular structure diagrams. Reconstructs carbon assimilation in reaction order, draws the structural changes at each key step, then analyses how sugar is formed.</dd></div>
+              <div><dt>Output</dt><dd>Turns a complex assimilation pathway into a clear, referenceable sequence for later molecular-biology work. The manuscript is still being revised.</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button button-outline" href="../../static/resources/bio/c3.pdf" target="_blank" rel="noopener">View Draft</a>
             </div>
@@ -165,7 +153,12 @@
               <span class="thesis-date">2026.03.08</span>
             </div>
             <h3>Analysis and Verification of Orange Plate Discoloration in Yeast Experiments</h3>
-            <p class="thesis-abstract">Addressing the occasional abnormal color change of culture media in microbial cultivation, this paper successfully traced the source of environmental contamination factors through rigorous controlled experiments. The investigation traced a specific experimental problem and established a repeatable approach to error analysis and laboratory quality control.</p>
+            <p class="thesis-abstract">Investigates why culture plates occasionally turn orange during yeast cultivation, ruling out colour sources one by one through controlled-variable experiments, and uses the case to set out an approach to error analysis and lab quality control.</p>
+            <dl class="thesis-facts">
+              <div><dt>Observation</dt><dd>In a class experiment the yeast first grew normal milky-white colonies. Some time later the colonies were covered in orange until the whole plate had turned orange.</dd></div>
+              <div><dt>Method</dt><dd>First analyses and rules out four possible causes (changed growth conditions, mutation, metabolites and exudates, contamination by other microbes), then designs controlled-variable experiments: swapping yeast strains, separate dilution batches, large flask versus small beaker, sealed versus unsealed, streak plate versus spread plate.</dd></div>
+              <div><dt>Status</dt><dd>Colouring caused by the yeast's own metabolites has been ruled out — concentrations are too low and complexation cannot colour a whole plate. The contamination line of enquiry is still running and the manuscript is unfinished.</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button button-outline" href="../../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">View Draft</a>
             </div>
@@ -187,6 +180,7 @@
         </div>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
     <div id="site-footer"></div>
 <script src="/static/js/footer.js"></script>

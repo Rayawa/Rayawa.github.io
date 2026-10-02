@@ -61,21 +61,21 @@
     <section class="project-brief" aria-label="项目速览">
 
       <h2>项目速览</h2>
-      <p>这个页面展示一条从 Python 基础到计算机视觉的课程实践路线，而不只有石头剪刀布识别：先完成 14 个语法练习，再用随机森林预测房价、分析学生行为数据，最后训练 YOLO11n 检测三种手势。现有页面记录了验证集 mAP50 为 0.940，便于把模型结果与演示效果对照。</p>
+      <p>本页记录一条从 Python 基础到计算机视觉的课程实践路径，共四个阶段：14 项语法练习、加州房价的随机森林回归、学生数字行为分析，以及用 YOLO11n 训练的三类手势检测。手势模型在验证集上的 mAP50 为 0.940，页面同时列出数据集、训练配置与评估结果，便于逐项对照。</p>
       <ul>
-      <li><strong>循序渐进</strong><span>基础编程、结构化数据分析和视觉检测串成一条学习链。</span></li>
-      <li><strong>可解释的数据任务</strong><span>房价预测与学生行为分析展示特征和模型比较。</span></li>
-      <li><strong>实时手势演示</strong><span>石头、剪刀、布三类检测附有动图和验证指标。</span></li>
+      <li><strong>循序渐进</strong><span>基础编程、结构化数据分析与视觉检测构成一条完整的学习链。</span></li>
+      <li><strong>可解释的数据任务</strong><span>房价预测与学生行为分析给出了特征重要性与模型对比。</span></li>
+      <li><strong>实时手势演示</strong><span>石头、剪刀、布三类检测附有演示动图与验证指标。</span></li>
       </ul>
     </section>
 
     <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
+      <h2>关于这个项目</h2>
       <div class="project-guide-grid">
-      <article><h3>用途</h3><p>展示一条从 Python 基础到机器学习、计算机视觉的课程实践路径，最终用摄像头或图片识别石头、剪刀、布手势。</p></article>
-      <article><h3>使用方式</h3><p>先阅读四个阶段的任务与结果；手势识别部分提供单图推理、摄像头实时检测和评估脚本的说明。运行模型需取得课程代码、依赖与权重文件。</p></article>
-      <article><h3>技术与实现</h3><p>Python 基础练习之后，使用随机森林做房价回归和学生行为分析；视觉阶段以 YOLO11n 训练三类手势检测模型。</p></article>
-      <article><h3>成果与边界</h3><p>页面给出数据集、增强、训练配置与验证指标，报告的 mAP50 为 0.940；该指标对应页面记录的验证集。</p></article>
+      <article><h3>它要解决什么</h3><p>课程实践往往停留在单个算法示例。本项目将 Python 基础、传统机器学习与深度学习检测串联为一条完整路径，每个阶段都配有完整的数据、代码与结果。</p></article>
+      <article><h3>四个阶段的内容</h3><p>第一阶段完成 14 项 Python 语法练习；第二阶段使用随机森林对加州房价数据集做回归预测；第三阶段分析学生数字行为数据并输出六类图表；第四阶段训练 YOLO11n 检测石头、剪刀、布三种手势。</p></article>
+      <article><h3>用到什么</h3><p>以 Python 为主要语言，数据分析与建模使用 scikit-learn 的随机森林；视觉阶段使用 YOLO11n，模型参数量 2.58M，训练在 RTX 5060 上完成。</p></article>
+      <article><h3>结果与查阅</h3><p>手势检测模型在验证集上的 mAP50 为 0.940，页面列出了数据集规模、数据增强方式与训练配置。复现需要课程代码、依赖环境与模型权重文件。</p></article>
       </div>
     </section>
 
@@ -420,6 +420,7 @@
         <span class="rps-tag data">CUDA</span>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 
   <div id="site-footer"></div>

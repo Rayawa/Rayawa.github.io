@@ -46,30 +46,8 @@
   <main class="page project-page">
     <section class="project-intro hero-card">
       <h1>生物学项目</h1>
-      <p>收录我生物学方向论文与实验记录，包括PCR项目、蛋白质猜想、碳同化综述、橙色平板实验，以及农杆菌转化法的网页化展示。</p>
+      <p>这里放着我生物学方向的三类东西：一个真的做过并留下完整记录的 PCR 课堂实验、三篇研究文稿，以及一个把农杆菌转化法做成可拖拽操作的交互网页。下面按「实验 → 论文 → 交互」排列，每件都可以点开原文。</p>
     </section>
-
-    <section class="project-brief" aria-label="项目速览">
-
-      <h2>项目速览</h2>
-      <p>这里汇集实验、论文草稿和教学交互三个方向的生物学探索。PCR 课堂实验展示设计方案、凝胶电泳结果和报告；论文书架收录朊病毒、C3 植物碳同化与酵母培养异常等主题；农杆菌转化网页则把抽象步骤做成可操作的模拟。页面既展示结果，也保留可阅读的过程材料。</p>
-      <ul>
-      <li><strong>实验可追溯</strong><span>PCR 设计、结果图和报告对应同一课堂项目。</span></li>
-      <li><strong>研究主题多样</strong><span>遗传、光合作用与微生物实验均有独立文稿。</span></li>
-      <li><strong>教学交互</strong><span>农杆菌转化流程可进入模拟实验亲自操作。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
-      <div class="project-guide-grid">
-      <article><h3>用途</h3><p>汇集生物实验、研究论文与交互教学作品，便于从实验设计、分析报告和网页模拟三个角度查看学习成果。</p></article>
-      <article><h3>使用方式</h3><p>先阅读 PCR 设计与最终报告，再按主题打开论文；想体验转化流程，可进入农杆菌交互实验室并按步骤拖拽操作。</p></article>
-      <article><h3>技术与实现</h3><p>实验部分围绕 PCR 与约 600 bp 目标片段；论文整理分子生物学与实验误差问题；交互作品采用 HTML、CSS 和 JavaScript 展示操作流程。</p></article>
-      <article><h3>成果与边界</h3><p>本页提供报告、论文和交互页面入口。实验结论应以原始报告中的条件与记录为准。</p></article>
-      </div>
-    </section>
-
 
     <section class="pcr-lab">
       <div class="section-header">
@@ -130,7 +108,12 @@
               <span class="thesis-date">2024.6.23</span>
             </div>
             <h3>关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想</h3>
-            <p class="thesis-abstract">本文大胆挑战生物学"中心法则"的绝对权威，基于朊病毒的自我复制特性与逆转录机制，严谨探讨了蛋白质作为原始遗传载体的可能性。该研究意在拓宽生物进化与遗传本质的思维边界，为极端环境下生命形态的研究提供了极具前瞻性的假说支撑。</p>
+            <p class="thesis-abstract">基于朊病毒的自我复制特性与逆转录机制，探讨蛋白质作为原始遗传载体的可能性，并把"中心法则"在极端情形下的边界作为讨论对象。</p>
+            <dl class="thesis-facts">
+              <div><dt>研究问题</dt><dd>蛋白质能否像 DNA、RNA 一样，成为极特殊生物的遗传物质？</dd></div>
+              <div><dt>方法</dt><dd>理论分析。逐一检验同位素标记、离心、减法原理、序列测定这四种经典证明思路在逆转录病毒上是否仍然成立，并结合蛋白质与病毒的溯源假说展开论证。</dd></div>
+              <div><dt>结论</dt><dd>提出假说：逆转录酶作为逆转录病毒的遗传物质时，其作用离不开 RNA；并推测蛋白质可能曾在非生物与生物的过渡期充当过类似遗传物质的角色。作者同时指出该问题在学术界至今仍有争论。</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button" href="../static/resources/bio/prion.pdf" target="_blank" rel="noopener">阅读论文</a>
             </div>
@@ -148,7 +131,12 @@
               <span class="thesis-date">2024.6.8</span>
             </div>
             <h3>C3植物卡尔文循环分子生物学研究</h3>
-            <p class="thesis-abstract">本文深入分析了C3植物中的卡尔文循环这一核心碳固定途径，系统研究了碳同化的分子机制，包括Rubisco等关键酶的催化特性及其调控机制，以及ATP和NADPH参与的能量转换过程。该研究旨在加深对C3植物光合效率限制的理解，并通过生化途径探索提高作物产量的潜在方向。</p>
+            <p class="thesis-abstract">从分子生物学角度梳理卡尔文循环这一核心碳固定途径：把反应历程逐步拆开，对关键反应以分子结构图的形式呈现其变化过程，并分析糖的生成路径。</p>
+            <dl class="thesis-facts">
+              <div><dt>研究问题</dt><dd>卡尔文循环（光合作用暗反应）的每一步具体怎么走，糖又是怎么产生的？</dd></div>
+              <div><dt>方法</dt><dd>文献梳理配合分子结构图。按反应顺序还原碳同化历程，对关键步骤画出分子结构变化，再分析糖的生成过程。</dd></div>
+              <div><dt>产出</dt><dd>把复杂的碳同化途径整理成清晰、可引用的流程，便于后续分子生物学研究对照使用。文稿仍在修订中。</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button button-outline" href="../static/resources/bio/c3.pdf" target="_blank" rel="noopener">查看草稿</a>
             </div>
@@ -164,7 +152,12 @@
               <span class="thesis-date">2026.03.08</span>
             </div>
             <h3>酵母菌实验中平板变橙原因的分析与验证</h3>
-            <p class="thesis-abstract">针对微生物培养中偶发的培养基异常变色现象，本文通过严密的对照实验成功溯源了环境污染因子。该项研究追查具体实验问题，并形成标准化的误差分析与实验室质量控制流程。</p>
+            <p class="thesis-abstract">针对微生物培养中偶发的培养基异常变色现象，通过控制变量实验逐一排查致色来源，并借此整理实验室误差分析与质量控制的思路。</p>
+            <dl class="thesis-facts">
+              <div><dt>现象</dt><dd>课程实验中酵母菌先长出正常的乳白色菌落，一段时间后菌落被橙色覆盖，直至整个培养基都变为橙色。</dd></div>
+              <div><dt>方法</dt><dd>先分析并逐一排除四类可能（生长条件变化、突变、代谢产物与外泌物、杂菌污染），再设计控制变量实验：更换菌种、分批稀释、大烧瓶与小烧杯对照、密封与不密封对照、平板划线与稀释涂布对照。</dd></div>
+              <div><dt>进展</dt><dd>已排除酵母菌自身代谢产物致色的可能（含量过低、络合反应均不足以使整板显色）；杂菌污染方向的排查仍在进行，文稿尚未收尾。</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button button-outline" href="../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">查看草稿</a>
             </div>
@@ -186,6 +179,7 @@
         </div>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
     <div id="site-footer"></div>
 <script src="/static/js/footer.js"></script>

@@ -72,7 +72,7 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html          # 英文书单页面
 │   │   └── piano.html          # 英文钢琴页面
-│   └── projects/               # 英文项目页（13 个，与中文版一一对应）
+│   └── projects/               # 英文项目页（15 个，与中文版一一对应）
 │
 ├── fr/                         # 法文版本目录（结构与英文版一致）
 │   ├── index.html
@@ -80,26 +80,28 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html
 │   │   └── piano.html
-│   └── projects/               # 法文项目页（13 个）
+│   └── projects/               # 法文项目页（15 个）
 │
 ├── life/                       # 中文生活页面
 │   ├── books.html              # 书单页面
 │   └── piano.html              # 钢琴页面
 │
-├── projects/                   # 中文项目页面（13 个）
+├── projects/                   # 中文项目页面（15 个）
 │   ├── ascend310.html          # 启智01 · 昇腾AI全栈
+│   ├── AstraPlusCar.html       # AstraPlusCar · 智能小车
 │   ├── biology.html            # 生物学项目
 │   ├── gene.html               # 基因工程：农杆菌转化法交互实验室
 │   ├── Hi3861.html             # Hi3861 嵌入式开发
 │   ├── Hi3861-readme.html      # Hi3861 项目说明（渲染 OpenHarmony README）
-│   ├── idv.html                # 第五人格
+│   ├── idv.html                # 第五人格，启动！
 │   ├── ncut_papers.html        # 学校论文
 │   ├── RockPaperSissors.html   # 石头剪刀布检测
 │   ├── signal.html             # 基于光杠杆放大的微弱电信号测量系统
 │   ├── SmartShed.html          # 智慧大棚 SmartShed
 │   ├── spm.html                # Sweet Potato Mod
-│   ├── xxh.html                # XXH 测试
-│   └── xxh_test.html           # XXH 测试（副页）
+│   ├── VideoTextGen.html       # VideoTextGen 本地视频生产工作区
+│   ├── xxh.html                # XXH 情感契合度测试
+│   └── YoloSecurityPlatform.html  # 智能安防远程监控平台
 │
 └── static/                     # 静态资源（公共组件）
     ├── css/                    # 样式文件（17 个）
@@ -145,7 +147,7 @@ Rayawa.github.io/
         └── spm/                      # Sweet Potato Mod 素材
 ```
 
-> 站点共 **52 个 HTML 页面**（中文 18 + 英文 17 + 法文 17）。
+> 站点共 **58 个 HTML 页面**（中文 20 + 英文 19 + 法文 19）。
 
 ## 🛠️ 技术栈
 
@@ -209,7 +211,15 @@ Rayawa.github.io/
    - 在 `static/css/` 目录下创建新的 CSS 文件
    - 在 HTML 文件中引用正确的路径
 
-5. 项目页在标题后加入 `project-brief` 速览，并在三种语言中分别写明项目用途、实现路径与三个可核对的特色；首页项目卡片也应概括实际功能。未公开的项目资料标明状态，不使用占位文案或臆测成果。
+5. **项目页不套统一模板，按项目性质选介绍方式**，三种语言分别撰写：
+   - **工程系统 / demo 类**（如 `SmartShed`、`AstraPlusCar`、`ascend310`）访客需要背景才能看懂，
+     用 `project-brief`（速览）+ `project-guide`（用途与使用）做导览。
+   - **作品 / 档案类**（如 `biology`、`ncut_papers`、`signal`）内容本身自足，
+     直接用 hero 一句话点明 + 分主题章节，不加速览框。
+   - **成品即页面类**（如 `gene`、`idv`、`xxh`）打开就要能用，
+     只在 hero 说清是什么，技术说明收到页面下方，**不加速览框**。
+   - 判断依据是：访客打开这页，光看内容能不能明白这是什么。
+   首页项目卡片同样应概括实际功能。未公开的项目资料标明状态，不使用占位文案或臆测成果。
 
 ### 更新多语言内容
 由于采用静态化多语言架构，需要分别更新：
