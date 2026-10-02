@@ -57,25 +57,22 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>SmartShed is a smart-agriculture course project spanning greenhouse sensing and phone control. Two Hi3861 boards running OpenHarmony divide sensor collection and actuator control, with EMQX MQTT relaying messages. A HarmonyOS app presents temperature, humidity, light, and soil moisture and offers remote management. Its distinctive feature is the complete hardware-to-message-to-app workflow.</p>
+      <p>SmartShed is an IoT system for smart agriculture covering the full chain from greenhouse sensing to phone control. Two Hi3861 boards running OpenHarmony handle sensor acquisition and actuator control respectively, relaying messages through an EMQX MQTT service; a HarmonyOS application displays temperature, humidity, light and soil moisture, and provides remote management.</p>
       <ul>
-      <li><strong>Two-board design</strong><span>Separate Hi3861 nodes handle sensing and control.</span></li>
-      <li><strong>Live message path</strong><span>MQTT topics connect board state to app actions.</span></li>
-      <li><strong>End-to-end materials</strong><span>Both code repositories and the project report are linked.</span></li>
+      <li><strong>Two-board division</strong><span>Acquisition and control are performed on separate Hi3861 nodes.</span></li>
+      <li><strong>Live message chain</strong><span>MQTT topics connect board-level state to application actions.</span></li>
+      <li><strong>End-to-end material</strong><span>Both the embedded and application repositories, plus the report, are available.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
+    <section class="project-guide" aria-label="About this project">
+      <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Monitor and control a greenhouse by linking environmental sensing, soil actuation, and a phone interface with manual and smart modes.</p></article>
-      <article><h3>How to use it</h3><p>Configure the two Hi3861 boards and the MQTT broker using the architecture sections, then connect the HarmonyOS app to the same topics. Confirm sensor publishing before testing commands and reconnection.</p></article>
-      <article><h3>Technology and implementation</h3><p>OpenHarmony LiteOS-M/C runs on RGB and SOI boards; EMQX carries MQTT publish/subscribe traffic; the HarmonyOS ArkTS/ArkUI app includes a custom MQTT client and HDS interface.</p></article>
-      <article><h3>Outputs and scope</h3><p>Data flow, wiring, threads, app structure, and Glass adaptation are described below. Hardware reproduction needs the matching sensors, actuators, network, and broker settings.</p></article>
+      <article><h3>What it addresses</h3><p>Greenhouse management requires a stable message chain between acquisition and control, along with the ability to switch between manual and automatic modes. This project connects environmental sensing, soil actuation and phone-side operation into one end-to-end system.</p></article>
+      <article><h3>How the two boards divide work</h3><p>The RGB board handles environmental data acquisition and the SOI board handles actuator control; each runs OpenHarmony and connects to the same MQTT service. Upstream data and downstream commands are separated by agreed topics.</p></article>
+      <article><h3>What it uses</h3><p>The boards run OpenHarmony LiteOS-M with C. The message layer is EMQX MQTT publish/subscribe. The application is a HarmonyOS app written in ArkTS / ArkUI, including a self-implemented MQTT client and an HDS interface.</p></article>
+      <article><h3>Current status</h3><p>Both the embedded and application repositories, along with the course report, are public. The page documents the data flow, hardware mapping, threading design and Glass form adaptation. Physical reproduction requires the corresponding sensors, actuators, network and broker configuration.</p></article>
       </div>
     </section>
-
-
     <!-- ===== Project Overview ===== -->
     <section class="ss-panel">
       <div class="ss-panel-head">
@@ -868,6 +865,65 @@
         </div>
       </section>
     </div>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+    <div class="ss-chapter-wrap">
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-question-circle" style="color:#a78bfa;margin-right:0.5rem;"></i>05 · FAQ &amp; Conclusion</h2>
+          <p>What you might be wondering, and what this project gave me</p>
+        </div>
+      </section>
+
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-comments" style="color:#a78bfa;margin-right:0.5rem;"></i>Frequently asked questions</h2>
+        </div>
+        <div class="ss-grid">
+          <div class="ss-card">
+            <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> Why OpenHarmony rather than Arduino / ESP32?</h3>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">OpenHarmony gives you a real RTOS (LiteOS-M) with preemptive scheduling, native multithreading and a mature Huawei hardware ecosystem. Arduino / ESP32 is fine for prototyping; this project is about multitasking, mutexes, configurable stacks and conditional compilation. And working with a full operating system rather than a framework is a completely different learning experience.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> How long did development take?</h3>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">About 6 weeks in total: 2 weeks on the embedded side (drivers, multithreading, MQTT), 3 weeks on the HarmonyOS app (a full rewrite from JavaUI API7 to ArkTS API23, an MQTT client written from scratch, HDS design), and 1 week for integration, testing and the report. The app rewrite took the longest — the legacy code was genuinely hard to migrate.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> What was the biggest technical challenge?</h3>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">The I2C bus conflict, without hesitation. The AHT20 and the SSD1306 share the same I2C0 bus, and when the sampling thread and the display thread hit it at the same time it turns into chaos. The fix looks trivial (add a mutex), but finding the cause took nearly two days with a logic analyser. Writing a complete MQTT client from scratch in ArkTS came second — reconnection and thread lifecycle especially.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> Which debugging tools did you use?</h3>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">Embedded side: a USB logic analyser to trace the I2C bus, serial print over UART0 for logs, and MQTTX to watch messages live. HarmonyOS side: DevEco Studio’s built-in debugger, HiLog for system logs, and the GlobalLogBus panel built into the app to follow all MQTT activity in real time. Most valuable? Probably MQTTX — seeing exactly what passes over the broker in real time saved quite a few evenings.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> Could this actually be deployed for real?</h3>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">As a course prototype it is fairly complete. For real deployment a few things are missing: MQTT authentication (there is no password right now), persistence for the smart-mode thresholds (currently held in volatile memory), and an initial setup UI (the WiFi SSID and password are hard-coded). On the hardware side, the Hi3861 is not industrially certified and the low-cost sensors lack calibration. The software architecture is solid though — these would slot in fairly easily.</p>
+          </div>
+          <div class="ss-card">
+            <h3><i class="fas fa-question-circle" style="color:#a78bfa;"></i> What did you learn from this project?</h3>
+            <p style="line-height:1.7;color:rgba(255,255,255,0.65);">Much more than expected. Technically: embedded systems programming, RTOS, IoT protocols, modern mobile app development. Methodologically: how to architect a distributed system end to end, how to manage complexity with clean layers, and how to document it properly. And above all: patience with hardware bugs that make no sense, and the satisfaction of seeing a complete system run end to end — from the sensor to the phone screen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-panel">
+        <div class="ss-panel-head">
+          <h2><i class="fas fa-flag-checkered" style="color:#34d399;margin-right:0.5rem;"></i>Project summary</h2>
+        </div>
+        <div class="ss-card" style="border-color: rgba(52,211,153,0.2);">
+          <h3><i class="fas fa-check-double" style="color:#34d399;"></i> A project from start to finish</h3>
+          <p style="line-height:1.8;color:rgba(255,255,255,0.68);margin-bottom:1rem;">
+            From the first line of code to the final defence, SmartShed was a complete journey through the HarmonyOS / OpenHarmony ecosystem. I touched almost every layer of an IoT system: hardware drivers, RTOS, network protocols, mobile app development, interface design, and even a bit of build-chain (GN / Ninja) engineering.
+          </p>
+          <p style="line-height:1.8;color:rgba(255,255,255,0.68);margin-bottom:1rem;">
+            If I had to keep one lesson, it is that <strong>complexity is managed through architecture</strong>. At first I tried to put everything in a single file — the result was a maintenance nightmare. After refactoring into layers (common / modules / boards) and adopting the Stage model on the app side, every change became targeted and predictable.
+          </p>
+          <p style="line-height:1.8;color:rgba(255,255,255,0.68);">
+            Thanks for reading this far. If the project inspires you or you have questions, feel free to get in touch, or explore the source on GitHub — it is fully open-source.
+          </p>
+        </div>
+      </section>
+    </div><!-- /05 chapter wrap -->
   </main>
 
   <div id="site-footer"></div>

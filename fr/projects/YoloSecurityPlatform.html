@@ -16,24 +16,22 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>Cette plateforme de sécurité complète transforme les détections d’objets en alertes exploitables. Images envoyées, images extraites de vidéos ou dossiers surveillés passent par YOLO puis par des règles métier. Spring Boot, MySQL et WebSocket enregistrent et synchronisent les états ; les clients Web et HarmonyOS servent à vérifier et traiter les alertes. L’archivage des preuves et la traçabilité sont au centre du projet.</p>
+      <p>Il s’agit d’une plateforme de sécurité full-stack qui transforme la détection d’objets en alertes traitables. L’envoi d’images, l’extraction d’images vidéo ou le balayage de répertoires alimentent l’inférence YOLO, et des règles métier génèrent les alertes à partir des résultats ; Spring Boot, MySQL et WebSocket assurent la persistance d’état et la synchronisation temps réel, tandis que les clients web et HarmonyOS servent à la vérification et au traitement. Le projet met l’accent sur l’archivage des preuves, les transitions d’état des alertes et la traçabilité des résultats de détection.</p>
       <ul>
-      <li><strong>De la vision à l’action</strong><span>Les classes détectées deviennent des alertes avec un cycle de traitement.</span></li>
-      <li><strong>Preuves conservées</strong><span>Images annotées et extraits vidéo restent liés aux alertes.</span></li>
-      <li><strong>Clients synchronisés</strong><span>Les changements sont diffusés après validation en base.</span></li>
+      <li><strong>De la détection au traitement</strong><span>Les classes du modèle deviennent des alertes métier qui entrent dans une machine à états de traitement.</span></li>
+      <li><strong>Preuves sur site</strong><span>Les images à cadre de détection et les images vidéo sont conservées avec l’enregistrement d’alerte.</span></li>
+      <li><strong>Synchronisation multi-clients</strong><span>Les mises à jour sont diffusées après validation de la transaction, vers les clients web et mobile.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Traiter des images et vidéos de surveillance dans un flux traçable : détection, alerte, intervention et archivage des preuves.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Charger une image ou vidéo, consulter les détections, puis examiner alertes et preuves dans l’interface de gestion et mettre à jour le traitement. Le client HarmonyOS permet l’accès mobile et le partage.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>FastAPI sert l’inférence YOLOv5 ; Spring Boot 3.3 gère règles et API ; MySQL 8 stocke les dossiers ; WebSocket diffuse les alertes. Vue et ArkTS/ArkWeb fournissent les interfaces.</p></article>
-      <article><h3>Résultats et portée</h3><p>La page présente captures de détection, parcours d’alerte et structure multi-client. La qualité des détections dépend des données, seuils et conditions de déploiement.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>Si les résultats de détection restent au stade des cadres englobants, ils ne peuvent pas soutenir le traitement ultérieur. Ce projet transforme la sortie du modèle en alertes métier et associe à chacune une preuve sur site et un état de traitement.</p></article>
+      <article><h3>Circulation des données</h3><p>Les images ou images vidéo passent par l’inférence YOLOv5 côté FastAPI ; les résultats sont ensuite transformés en alertes par les règles de Spring Boot. Une fois la transaction validée, l’alerte est diffusée via WebSocket aux clients d’administration et mobiles, et l’état de traitement est mis à jour en conséquence.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>L’inférence repose sur FastAPI avec YOLOv5 ; le côté métier sur Spring Boot 3.3 et MySQL 8, avec WebSocket pour la diffusion temps réel. Les interfaces sont construites avec Vue et ArkTS / ArkWeb.</p></article>
+      <article><h3>État actuel</h3><p>La page présente des captures de détection, le flux de traitement des alertes et la structure multi-clients. La qualité réelle de détection doit être évaluée selon le jeu de données, le seuil de confiance et l’environnement de déploiement utilisés.</p></article>
       </div>
     </section>
-
     <section class="ps-metrics"><div class="ps-metric"><strong>5</strong><span>Vues principales</span></div><div class="ps-metric"><strong>6 types</strong><span>Règles d'alerte métier</span></div><div class="ps-metric"><strong>≈ 2 s</strong><span>Cycle de surveillance</span></div><div class="ps-metric"><strong>3 clients</strong><span>Web · OpenAPI · HarmonyOS</span></div></section>
 
     <section class="ps-section"><div class="ps-section-head"><h2>De la détection à l’intervention</h2><p>De ce que le modèle voit à la clôture de l'incident, chaque étape conserve son état et ses preuves visuelles.</p></div><div class="ps-grid-3">

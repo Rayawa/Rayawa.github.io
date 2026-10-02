@@ -163,6 +163,12 @@
   gap: 0.85rem;
 }
 
+/* 每页的介绍卡数量按项目需要来定，不强制四张。
+   卡片数为奇数时，最后一张跨满整行，避免右下留空。 */
+.project-guide-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .project-guide article {
   min-width: 0;
   padding: clamp(1rem, 2vw, 1.4rem);

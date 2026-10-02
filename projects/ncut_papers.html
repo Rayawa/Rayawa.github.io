@@ -46,30 +46,8 @@
   <main class="page project-page">
     <section class="project-intro hero-card">
       <h1>学校论文</h1>
-      <p>收录我在通信工程、鸿蒙开发与嵌入式系统方向的课程论文与实验报告，记录从理论学习到工程实践的完整路径。</p>
+      <p>收录我在通信工程、鸿蒙开发与嵌入式系统三个方向的课程论文与实验报告，按方向分成三组，共 8 篇——记录从理论学习到工程实践的路径。</p>
     </section>
-
-    <section class="project-brief" aria-label="项目速览">
-
-      <h2>项目速览</h2>
-      <p>这页将课程论文按通信工程、HarmonyOS 应用和 Hi3861 嵌入式开发归档，展示从理论研究到硬件原型与应用实现的学习路径。内容既包括 AI-RAN、6G 等方向综述，也包括无线遥控、应用看板，以及智慧交通、家居、农业和医疗场景的实验报告。每张卡片概括问题、方法与实践内容，便于快速定位主题。</p>
-      <ul>
-      <li><strong>三个方向</strong><span>通信、鸿蒙应用和嵌入式课程成果分组呈现。</span></li>
-      <li><strong>理论与实践并列</strong><span>前沿技术综述与焊接、编程、系统实现相互对应。</span></li>
-      <li><strong>场景化原型</strong><span>Hi3861 报告覆盖交通、家居、农业和医疗。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
-      <div class="project-guide-grid">
-      <article><h3>用途</h3><p>将通信工程、HarmonyOS 应用与 Hi3861 嵌入式课程论文按主题整理，方便检索各项研究和实践成果。</p></article>
-      <article><h3>使用方式</h3><p>先选择专业课、HarmonyOS 或嵌入式分类，阅读每张卡片的摘要，再使用卡片上的文件入口打开原文或相关资料。</p></article>
-      <article><h3>技术与实现</h3><p>资料涉及 AI-RAN/6G、无线遥控、ArkTS 应用与 Hi3861 硬件实践；本页以 HTML/CSS 分类展示论文，文件链接指向原始文档。</p></article>
-      <article><h3>成果与边界</h3><p>每项内容按单独论文呈现，摘要帮助定位主题；具体方法、数据与结论请查看对应全文。</p></article>
-      </div>
-    </section>
-
 
     <section class="thesis-archive">
       <div class="section-header">
@@ -80,6 +58,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">通信工程</span>
             </div>
             <h3 class="project-title">通信工程专业导论实践总结报告</h3>
             <p class="thesis-abstract">本报告记录了从基础焊接到Arduino编程，再到集成nRF24L01无线模块实现无人机遥控系统的全过程。通过"焊、编、控"的递进式训练，掌握了嵌入式软硬件协同开发的基本技能，并对通信工程的系统化工程思维有了初步实践与体会。</p>
@@ -88,6 +67,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">通信工程</span>
             </div>
             <h3 class="project-title">通信工程专业导论研究报告</h3>
             <p class="thesis-abstract">本文系统论述了通信工程的学科内涵与培养体系，重点分析了AI-RAN、6G等前沿技术进展及跨学科应用趋势。结合个人发展规划，强调了在技术快速更迭背景下，团队协作与终身学习能力对未来通信工程师职业素养的核心价值。</p>
@@ -105,6 +85,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">HarmonyOS</span>
             </div>
             <h3 class="project-title">开放原子大赛应用看板介绍文档</h3>
             <p class="thesis-abstract">该文档详细介绍了基于ArkTS开发的HarmonyOS效率工具——应用看板。系统通过卡片化布局集成App启动、系统状态监控与个性化组件，利用LocalStorage实现数据持久化，旨在为用户提供一个高度自定义且操作便捷的桌面聚合工作台。</p>
@@ -113,6 +94,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">HarmonyOS</span>
             </div>
             <h3 class="project-title">"鸿蒙应用软件开发"课设报告</h3>
             <p class="thesis-abstract">本报告记录了"应用看板"App的完整开发流程。项目采用MVVM架构，实现了应用分类管理、动态UI渲染及交互功能。通过对Stage模型与声明式开发的研究，验证了鸿蒙系统在跨设备流转与高效资源调度方面的技术优势及工程实践价值。</p>
@@ -130,6 +112,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">嵌入式 · 交通</span>
             </div>
             <h3 class="project-title">基于 Hi3861 的嵌入式智慧交通终端实现</h3>
             <p class="thesis-abstract">项目基于Hi3861控制器与交通灯扩展板，实现了红绿灯逻辑切换与禁鸣笛检测功能。通过PWM控制信号灯时长，并集成蜂鸣器模拟交通违规报警，验证了OpenHarmony在数字化交通管理与实时监控场景下的硬件调度能力。</p>
@@ -138,6 +121,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">嵌入式 · 家居</span>
             </div>
             <h3 class="project-title">基于 Hi3861 的嵌入式智慧家居终端实现</h3>
             <p class="thesis-abstract">本实验设计了一套智能家居控制系统，利用Hi3861连接环境传感器与执行器。系统支持通过OLED屏幕实时显示室内温湿度，并根据环境参数自动调节灯光与风扇状态，展示了鸿蒙生态在全屋智能设备互联互通中的应用潜力。</p>
@@ -146,6 +130,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">嵌入式 · 农业</span>
             </div>
             <h3 class="project-title">基于 Hi3861 的嵌入式智慧农业终端实现</h3>
             <p class="thesis-abstract">该报告探讨了OpenHarmony在精准农业中的应用，通过Hi3861实时采集土壤湿度与环境光照数据。系统配置了自动灌溉与补光逻辑，利用低功耗无线通信实现远程监测，为农业生产的智能化、自动化管理提供了硬件原型参考。</p>
@@ -154,6 +139,7 @@
         <article class="thesis-card thesis-published">
           <div class="thesis-body">
             <div class="thesis-header">
+              <span class="thesis-badge">嵌入式 · 医疗</span>
             </div>
             <h3 class="project-title">基于 Hi3861 的嵌入式智慧医疗终端实现</h3>
             <p class="thesis-abstract">项目聚焦于非接触式健康监测，利用Hi3861集成人体感应与血氧/心率模拟传感器。系统能够对异常体征进行预警并通过Wi-Fi上传数据，体现了OpenHarmony在个人健康保障与远程医疗辅助系统中的高可靠性开发优势。</p>
@@ -161,6 +147,7 @@
         </article>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
     <div id="site-footer"></div>
 <script src="/static/js/footer.js"></script>

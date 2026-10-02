@@ -168,39 +168,24 @@
         background: linear-gradient(135deg, #f39c12, #f9a826);
       }
       .fab-tools { display: none !important; }
+      /* 导航栏留白。写成 .project-tool .project-tool-content 是为盖过
+         common.css 里 .container 的 padding（同特指度、后加载者胜）。 */
+      .project-tool .project-tool-content { padding-top: 8.5rem; }
     </style>
+    <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/project-layout.css">
 </head>
-<body class="project-tool bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
-  <main class="project-tool-content container mx-auto px-4 py-8 md:py-12">
+<body class="project-tool idv-page bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="project-tool-content px-4 pb-8 md:pb-12">
     <!-- 标题区域 -->
     <div class="project-tool-intro text-center mb-8 md:mb-12 animate-fade-in">
       <h1 class="text-3xl md:text-5xl font-bold text-idv-highlight mb-2">Planificateur de classement Identity V</h1>
-      <p class="text-gray-300 max-w-md mx-auto">Objectif de saison : passer du rang IV-V au rang VI-V (1 250 points).</p>
+      <p class="text-gray-300 max-w-2xl mx-auto">Saisissez vos points actuels, l’objectif et les dates de saison : les cartes ci-dessous donnent les jours restants, les points à gagner par jour et la progression de rang. Enregistrez chaque partie avec le contrôle +/− et l’historique indique si le rythme tient.</p>
     </div>
 
-    <section class="project-brief" aria-label="Le projet en bref">
-
-      <h2>Le projet en bref</h2>
-      <p>Ce calculateur de classement Identity V transforme l’objectif d’une saison en plan quotidien. Saisissez les points actuels, les dates de saison et la cible pour obtenir les jours restants, les points nécessaires et le rythme journalier. Repères de rang et barres de progression situent le joueur ; ajustements manuels et historique local suivent les changements réels.</p>
-      <ul>
-      <li><strong>Décomposer l’objectif</strong><span>Dates et points déterminent le reste à accomplir chaque jour.</span></li>
-      <li><strong>Voir la progression</strong><span>Paliers, barre et cartes de résultats indiquent la position actuelle.</span></li>
-      <li><strong>Suivre les corrections</strong><span>Modifier les points et consulter l’historique local.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
-      <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Transformer un objectif de classement Identity V en plan de points, avec écart au rang visé et rythme quotidien.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Saisir points actuels, cible et dates de saison ; consulter jours restants, besoin quotidien et progression. Après une partie, enregistrer la variation et revoir l’historique.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>JavaScript natif calcule dates, points et progression dans le navigateur ; le stockage local conserve les ajustements sans compte.</p></article>
-      <article><h3>Résultats et portée</h3><p>Les chiffres servent à planifier ; règles et dates officielles sont celles du jeu. L’historique reste dans ce navigateur.</p></article>
-      </div>
-    </section>
-
-    
     <!-- 主卡片 -->
     <div class="max-w-6xl mx-auto glass rounded-2xl card-shadow p-6 md:p-8 animate-fade-in">
       
@@ -637,11 +622,8 @@
         <p id="notificationText" class="text-center"></p>
       </div>
     </div>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
-
-  <div style="text-align:center;padding:2rem 0;">
-    <a href="../index.html" style="display:inline-block;padding:0.6rem 1.8rem;border-radius:8px;background:rgba(99,102,241,0.12);color:#6366f1;text-decoration:none;font-size:0.95rem;transition:background .2s;" onmouseover="this.style.background='rgba(99,102,241,0.22)'" onmouseout="this.style.background='rgba(99,102,241,0.12)'">← Retour</a>
-  </div>
 
   <script>
     // DOM 元素
@@ -1194,6 +1176,7 @@
   </script>
   
   
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../../static/js/common.js"></script>
 </body>
 </html>

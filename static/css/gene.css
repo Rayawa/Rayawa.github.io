@@ -304,3 +304,42 @@ footer {
     backdrop-filter: blur(8px);
     border-top: 1px solid #e5e7eb;
 }
+
+/* ========================================
+   引入 common.css（只为导航栏）后的两处适配
+   ======================================== */
+
+/* 1) 固定导航栏高度补偿：本页不套 .page 的 9rem 留白，
+      需要显式让出导航栏高度，否则标题会被压住。 */
+.project-tool .project-tool-intro.gene-intro {
+    padding-top: 8.5rem;
+}
+
+/* 2) 浅色底还原：common.css 的 body 用 background 简写设置了深色渐变，
+      简写会连带写入 background-image；而本页 Tailwind 的 bg-slate-100
+      只设 background-color，两者不是同一属性，渐变图会盖住浅灰底。 */
+.gene-page {
+    background: #f1f5f9;
+}
+
+/* 统一后的 .bottombar 默认是浅色文字（为深色站点设计），
+   在 gene 的浅色底上不可见，这里改为深色。 */
+.gene-page .bottombar {
+    border-top-color: rgba(15, 23, 42, 0.1);
+}
+
+.gene-page .bottombar a {
+    color: #64748b;
+}
+
+.gene-page .bottombar a:hover {
+    color: #6366f1;
+}
+
+/* 统一后的返回入口：与其他项目页同为 1100px 内容宽度，
+   避免分隔线横跨整个视口。 */
+.gene-bottom-bar {
+    width: min(100%, 1100px);
+    margin-inline: auto;
+    padding-inline: clamp(1.3rem, 4vw, 2rem);
+}

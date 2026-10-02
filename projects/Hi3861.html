@@ -82,21 +82,21 @@
     <section class="project-brief" aria-label="项目速览">
 
       <h2>项目速览</h2>
-      <p>这个 OpenHarmony 嵌入式项目将 Hi3861 的基础外设训练组织成四条实践路径：交通灯状态机、灯光与蜂鸣器联动、环境数据采集，以及串口 AT 命令扩展。每条路径先验证单个硬件能力，再组合传感器、执行器和任务调度，便于对照代码逐步复现。</p>
+      <p>本项目将 Hi3861 上的 OpenHarmony 嵌入式练习组织为四条路径：交通灯状态机、灯光与蜂鸣器联动、环境数据采集，以及自定义 AT 指令。每条路径均先实现单个外设控制，再与其它模块组合，四个场景合计覆盖输入、处理与输出三类任务。</p>
       <ul>
-      <li><strong>四类模块</strong><span>交通、灯光、环境和 AT 命令覆盖输入、处理与输出。</span></li>
-      <li><strong>从单点到协同</strong><span>GPIO、PWM、ADC 与 OLED 等能力逐步组合。</span></li>
-      <li><strong>可查阅文档</strong><span>项目结构、代码路径和独立 README 均可直接查看。</span></li>
+      <li><strong>四条路径</strong><span>交通、灯光、环境与 AT 指令，由单点控制逐步过渡到多任务协同。</span></li>
+      <li><strong>可独立运行的场景</strong><span>每条路径都是一个完整可演示的场景，可直接观察运行结果。</span></li>
+      <li><strong>源码可对照</strong><span>每条路径对应独立的程序文件，README 可在线查阅。</span></li>
       </ul>
     </section>
 
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
+    <section class="project-guide" aria-label="关于这个项目">
+      <h2>关于这个项目</h2>
       <div class="project-guide-grid">
-      <article><h3>用途</h3><p>通过四组实验学习 OpenHarmony 嵌入式开发：从单个外设控制扩展到传感器采集、屏幕显示与串口命令。</p></article>
-      <article><h3>使用方式</h3><p>按页面中的模块顺序选择开发板，核对引脚和外设，进入 README 查看源码目录及编译流程。每块板都列出可独立完成的小实验。</p></article>
-      <article><h3>技术与实现</h3><p>Hi3861 与 OpenHarmony LiteOS-M 上使用 C 开发；GPIO/PWM 驱动灯效，ADC 和 I²C 读取环境信息，OLED 显示状态，UART 承载 AT 指令。</p></article>
-      <article><h3>成果与边界</h3><p>项目结构、模块实验与编译说明均在本页及 README 中；需要对应板卡和器件才能复现实物效果。</p></article>
+      <article><h3>它要解决什么</h3><p>嵌入式学习中常见的情况是各外设分别掌握，但缺少将其组织为完整系统的经验。本项目以四个可独立运行的场景，将 GPIO、PWM、传感器与串口通信按难度排列为一条学习路径。</p></article>
+      <article><h3>四条路径的内容</h3><p>交通灯以状态机控制红绿灯切换并检测违规鸣笛；炫彩灯通过 PWM 生成灯效并与蜂鸣器联动；环境监测通过 ADC 与 I²C 采集温湿度与光照，并显示于 OLED；AT 指令则将串口扩展为可自定义的命令接口。</p></article>
+      <article><h3>用到什么</h3><p>Hi3861 开发板与 OpenHarmony LiteOS-M，使用 C 语言开发，涉及 GPIO、PWM、ADC、I²C 与 OLED 显示屏，以及 UART 串口通信。</p></article>
+      <article><h3>如何查阅</h3><p>按页面中的模块顺序选择开发板，核对引脚与外设后进入对应 README，查看源码目录与编译流程。页面另提供完整 README 的在线阅读页；复现实物效果需要对应的板卡与器件。</p></article>
       </div>
     </section>
 
@@ -225,6 +225,7 @@ OK</div></div>
         <div><ul><li>硬件接口：GPIO、PWM、I2C、ADC</li><li>系统框架：OpenHarmony、CMSIS RTOS2、HiAT Framework</li><li>构建工具：GN、Ninja、hb</li><li>调试与烧录：HiBurn、串口终端</li><li>版本管理：Git</li></ul></div>
       </article>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 
   <div id="site-footer"></div>

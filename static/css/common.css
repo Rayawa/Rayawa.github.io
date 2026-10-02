@@ -466,7 +466,6 @@ section,
 
 .fab-progress-bar {
     fill: none;
-    stroke: url(#fabGradient);
     stroke: rgba(99, 102, 241, 0.7);
     stroke-width: 2;
     stroke-linecap: round;
@@ -986,11 +985,6 @@ section,
     to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes shimmer {
-    0%   { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-}
-
 /* ========================================
    prefers-reduced-motion 全局降级
    ======================================== */
@@ -1009,5 +1003,10 @@ section,
         opacity: 1;
         visibility: visible;
         transform: none;
+    }
+
+    /* 平滑滚动本身也是一种动效 */
+    html {
+        scroll-behavior: auto;
     }
 }

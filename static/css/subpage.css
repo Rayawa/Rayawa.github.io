@@ -708,6 +708,48 @@
     margin-bottom: 1rem;
 }
 
+/* 论文卡的结构化要点。
+   摘要正文有 -webkit-line-clamp: 4 的截断，长了会被切掉；
+   这里用固定的标签行承载「研究问题 / 方法 / 结论」这类关键信息，
+   既不会被截断，也让卡片高度保持一致。 */
+.thesis-facts {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.thesis-facts > div {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 0.7rem;
+    align-items: baseline;
+}
+
+.thesis-facts dt {
+    color: var(--primary);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.thesis-facts dd {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.83rem;
+    line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+    .thesis-facts > div {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+    }
+}
+
 .thesis-badge {
     font-size: 0.72rem;
     font-weight: 600;

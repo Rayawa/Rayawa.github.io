@@ -53,7 +53,7 @@
     <section class="project-brief" aria-label="项目速览">
 
       <h2>项目速览</h2>
-      <p>VideoTextGen 把本地视频制作拆成 12 个可审查阶段：脚本、配音、字幕对齐、导演方案、分镜、素材、逐场景渲染、合成、质检、返修与交付。结构化契约记录每个阶段的输入输出，变化时只重做受影响场景。页面展示的 18 场景样例通过了技术 QA，并保留成片帧与核验数据。</p>
+      <p>VideoTextGen 将本地视频制作拆分为 12 个可审查阶段：脚本、配音、字幕对齐、导演方案、分镜、素材、逐场景渲染、合成、质检、返修与交付。结构化契约记录每个阶段的输入与输出，变更时仅重做受影响的场景。页面展示的 18 场景样例已通过技术 QA，并保留成片帧与核验数据。</p>
       <ul>
       <li><strong>本地可复现</strong><span>运行环境、源码和最终成片分离管理。</span></li>
       <li><strong>按场景返修</strong><span>影响分析与哈希校验支持复用未变化的场景。</span></li>
@@ -62,12 +62,12 @@
     </section>
 
     <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
+      <h2>关于这个项目</h2>
       <div class="project-guide-grid">
-      <article><h3>用途</h3><p>用于把视频创意转成可复查的本地生产流程，覆盖脚本、配音、字幕、分镜、画面合成、质检与交付。</p></article>
-      <article><h3>使用方式</h3><p>先建立项目契约和创意方案，再依次生成声音、时间对齐、分镜与场景素材；逐场景渲染后运行技术 QA，人工审查通过才生成交付版本。变更时先分析受影响场景。</p></article>
-      <article><h3>技术与实现</h3><p>OpenCode 调度多阶段任务；Voicebox 配音、WhisperX 对齐、HTML Motion/Playwright 渲染、FFmpeg 合成，JSON Schema 与哈希记录输入输出关系。</p></article>
-      <article><h3>成果与边界</h3><p>页面展示 18 场景样例、成片帧、时长和 QA 记录。素材及最终成片按项目隔离保存，页面数据对应展示的样例。</p></article>
+      <article><h3>它要解决什么</h3><p>生成式视频的常见问题是过程难以复查、局部修改需要整体重跑。本项目将制作流程拆分为带契约的阶段，使每一步的输入输出、版本与审查结论都可追溯。</p></article>
+      <article><h3>流程如何组织</h3><p>先建立项目契约与创意方案，再依次生成配音、时间对齐、分镜与场景素材；逐场景渲染后运行技术 QA，人工审查通过方可生成交付版本。发生变更时先进行影响分析。</p></article>
+      <article><h3>用到什么</h3><p>由 OpenCode 调度多阶段任务；配音使用 Voicebox，时间对齐使用 WhisperX，画面渲染基于 HTML Motion 与 Playwright，合成由 FFmpeg 完成；JSON Schema 与哈希值记录输入输出关系。</p></article>
+      <article><h3>当前进展</h3><p>页面展示 18 场景样例、成片帧、时长与 QA 记录。素材与成片按项目隔离保存，页面数据对应所示样例。</p></article>
       </div>
     </section>
 

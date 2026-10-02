@@ -53,25 +53,22 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>Qizhi01 associe portage du système et application d’IA. OpenHarmony 5.0.3, les pilotes et la chaîne de compilation sont adaptés à un kit Ascend 310B, puis une interface ArkTS analyse des radiographies thoraciques. L’application valide une voie CPU avec MindSpore Lite et une voie NPU avec CANN ACL. La page décrit 43 correctifs et les principales étapes d’ingénierie ; il s’agit d’une démonstration technique, pas d’un outil de diagnostic clinique.</p>
+      <p>Qizhi01 couvre toute la chaîne, du système d’exploitation à l’application : portage d’OpenHarmony 5.0.3 sur le kit de développement Huawei Ascend 310B, puis développement d’une application d’analyse de radiographies thoraciques sur ce système. La première moitié concerne l’adaptation du noyau, des pilotes et de la chaîne de compilation ; la seconde, une interface ArkTS avec inférence YOLOv5s. Pour mobiliser réellement le NPU embarqué, l’application implémente deux voies d’inférence, CPU et NPU.</p>
       <ul>
-      <li><strong>Du système à l’application</strong><span>GPU, affichage, caméra et audio permettent l’exécution de l’application ArkUI.</span></li>
-      <li><strong>Deux voies d’inférence</strong><span>MindSpore Lite et CANN ACL couvrent respectivement CPU et NPU.</span></li>
-      <li><strong>Parcours reproductible</strong><span>Correctifs, scripts de compilation et préparation de carte SD relient les étapes.</span></li>
+      <li><strong>Adaptation complète du système</strong><span>Au-delà du système lui-même, le GPU, l’affichage, la caméra et l’audio ont dû être pris en charge pour qu’une application ArkUI puisse fonctionner.</span></li>
+      <li><strong>Deux voies d’inférence</strong><span>MindSpore Lite assure l’inférence CPU et CANN ACL l’inférence NPU ; les deux sont vérifiées sur la carte.</span></li>
+      <li><strong>Processus reproductible</strong><span>43 patchs, un script de compilation en une commande et un outil de gravure constituent l’ensemble de la chaîne de portage.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Explorer le portage d’OpenHarmony sur Ascend 310B et relier système, application et inférence NPU par une démonstration sur images radiographiques.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Lire le périmètre du portage et les correctifs, puis examiner les cinq classes et les voies CPU/NPU d’Ascend X-Ray Expert. La reproduction demande carte, image système et modèles.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>L’adaptation d’OpenHarmony 5.0.3 touche noyau et arbre des périphériques ; l’inférence utilise MindSpore Lite sur CPU ou CANN ACL sur le NPU Ascend 310B.</p></article>
-      <article><h3>Résultats et portée</h3><p>La page décrit 43 correctifs et le flux d’inférence. La classification radiographique est une démonstration technique sans usage diagnostique clinique.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>L’Ascend 310B n’est fourni qu’avec un SDK Linux, alors que le NPU embarqué présente un intérêt réel. Le projet vérifie deux points : la possibilité d’exécuter OpenHarmony sur ce matériel, et celle d’intégrer l’inférence NPU à une application utilisable par-dessus.</p></article>
+      <article><h3>Prise en charge matérielle ajoutée</h3><p>Le GPU est pris en charge au niveau de la couche HAL sur le pilote open source Panfrost ; HDMI et l’affichage double sont opérationnels ; la caméra USB/MIPI et l’audio ALSA sont connectés. bash et busybox ont également été portés pour fournir les outils dont dépend l’installation du HDK.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>Le côté système est OpenHarmony 5.0.3, compilé avec une vingtaine de modules du noyau. Le côté application utilise ArkTS et ArkUI, l’inférence passant par MindSpore Lite (CPU) et CANN ACL (NPU) sur un modèle YOLOv5s.</p></article>
+      <article><h3>État actuel</h3><p>Les 43 patchs sont fusionnés dans la branche principale d’OpenHarmony ; l’application s’exécute sur la carte et réalise une inférence en cinq classes, les deux voies CPU et NPU étant vérifiées. La classification de radiographies relève d’une démonstration technique et ne vise pas un usage clinique.</p></article>
       </div>
     </section>
-
-
     <div class="as-chapter-wrap">
       <section class="as-panel">
         <div class="as-panel-head">
@@ -312,6 +309,7 @@
         </div>
       </section>
     </div>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
 
   <div id="site-footer"></div>

@@ -53,21 +53,21 @@
     <section class="project-brief" aria-label="项目速览">
 
       <h2>项目速览</h2>
-      <p>这是一个把目标检测转化为可处置告警的全栈安防平台。图片上传、视频抽帧或目录扫描进入 YOLO 推理，再由业务规则生成告警；Spring Boot、MySQL 与 WebSocket 负责状态保存和实时同步，Web 与 HarmonyOS 端用于复核和处置。项目强调证据归档、告警状态流转和识别结果的可追溯性。</p>
+      <p>这是一套将目标检测转化为可处置告警的全栈安防平台，走通「AI 识别 → 规则映射 → 数据库落盘 → WebSocket 实时推送 → 前端大屏处置」的完整闭环。识别有两个入口：手动填写图片地址，或把图片与视频投进 ai-watch 目录，由后台线程每 2 秒扫描一次模拟摄像头。Spring Boot、MySQL 与 WebSocket 负责状态保存与实时同步，Web 端与 HarmonyOS 客户端用于复核与处置。</p>
       <ul>
-      <li><strong>识别到处置</strong><span>模型类别映射为业务告警并进入处置状态机。</span></li>
-      <li><strong>现场证据</strong><span>检测框图片和视频帧随告警记录保存。</span></li>
-      <li><strong>多端同步</strong><span>事务落库后广播更新，供管理端与移动端查看。</span></li>
+      <li><strong>两个识别入口</strong><span>手动填图发起识别，或向 ai-watch 投文件由后台自动扫描并归档。</span></li>
+      <li><strong>只推该推的告警</strong><span>模型类别经规则映射为六类业务告警；未归类的类别记为“目标识别异常”，跳过不入库也不推送。</span></li>
+      <li><strong>现场证据随告警归档</strong><span>检测框标注图与视频抽帧拼接图随告警记录一并保存。</span></li>
       </ul>
     </section>
 
     <section class="project-guide" aria-label="用途与使用">
-      <h2>用途与使用</h2>
+      <h2>关于这个项目</h2>
       <div class="project-guide-grid">
-      <article><h3>用途</h3><p>用于远程监控场景中的图片与视频识别，把模型检测、业务告警、人员处置和证据归档串成可追踪流程。</p></article>
-      <article><h3>使用方式</h3><p>上传图片或视频并查看识别结果；告警到达后在管理端查看实时消息、核对证据并更新处置状态。HarmonyOS 客户端提供移动端访问与分享入口。</p></article>
-      <article><h3>技术与实现</h3><p>FastAPI 承载 YOLOv5 推理，Spring Boot 3.3 处理规则和业务接口，MySQL 8 保存记录，WebSocket 推送告警；Vue 与 ArkTS/ArkWeb 构建界面。</p></article>
-      <article><h3>成果与边界</h3><p>页面展示识别截图、告警旅程与多端结构。具体检测效果应结合数据集、阈值和部署环境判断。</p></article>
+      <article><h3>它要解决什么</h3><p>监控场景中的识别结果若只停留在检测框，难以支撑后续处置。本项目将模型输出映射为业务告警，并让每条告警都带有现场证据与处置状态，形成可追踪的台账。</p></article>
+      <article><h3>数据如何流转</h3><p>手动入口把图片地址转发给 AI 服务；目录入口由后台每 2 秒扫描 ai-watch，识别后主动推送结果并把源文件归档到 processed。检测结果经规则映射为烟火异常、人员聚集、人员闯入、车辆异常、动物进入或物品异常，事务落库后再通过 WebSocket 广播至各端。</p></article>
+      <article><h3>用到什么</h3><p>推理侧为 FastAPI 与 YOLOv5（COCO 与烟火双模型），业务侧为 Spring Boot 3.3 与 MySQL 8，实时推送使用 WebSocket；界面由 Vue 3 与 ArkTS / ArkWeb 构建。Vue 采用本地静态版本由 Spring Boot 直接托管，克隆即可运行；另提供 Docker 一键部署。</p></article>
+      <article><h3>当前进展</h3><p>监控大屏、设备信息、AI 识别记录、实时告警中心与告警处置记录五个页面均已实现，并附有代码详解教程。实际检测效果需结合所用数据集、置信度阈值与部署环境评估。</p></article>
       </div>
     </section>
 
@@ -77,6 +77,21 @@
       <div class="ps-metric"><strong>6 类</strong><span>业务告警规则</span></div>
       <div class="ps-metric"><strong>≈ 2s</strong><span>目录自动扫描周期</span></div>
       <div class="ps-metric"><strong>3 端</strong><span>Web · OpenAPI · HarmonyOS</span></div>
+    </section>
+
+    <section class="ps-section" id="screens">
+      <div class="ps-section-head">
+        <h2>平台上手即用的两个界面</h2>
+        <p>管理端由 Spring Boot 直接托管静态页面，克隆下来即可运行，不需要额外的 Node.js 环境。</p>
+      </div>
+      <div class="ps-wide-shot">
+        <img src="../static/resources/security/dashboard.png" alt="监控大屏：在线设备、待处置告警与最新实时告警流" loading="lazy">
+        <div class="ps-caption">监控大屏汇总在线设备、待处置告警、告警总数与 AI 识别事件，下方是 WebSocket 自动刷新的实时告警流，每条都带有识别类别与置信度。</div>
+      </div>
+      <div class="ps-wide-shot" style="margin-top:0.9rem;">
+        <img src="../static/resources/security/login.png" alt="平台登录页" loading="lazy">
+        <div class="ps-caption">登录页。平台账号登录后进入上述园区安防数据视图。</div>
+      </div>
     </section>
 
     <section class="ps-section" id="features">

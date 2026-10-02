@@ -47,30 +47,8 @@
   <main class="page project-page">
     <section class="project-intro hero-card">
       <h1>Projets de biologie</h1>
-      <p>Papiers et traces expérimentales en biologie : PCR, hypothèses protéiques, revue d'assimilation du carbone, expériences orange-plate, et une démo web interactive Agrobacterium.</p>
+      <p>Trois types de travaux de biologie sont réunis ici : une expérience de PCR en classe avec un dossier complet, trois textes de recherche, et un laboratoire web interactif qui transforme la transformation par Agrobacterium en exercice de glisser-déposer. L’ordre est expérience → articles → interactif, et chaque élément ouvre son document source.</p>
     </section>
-
-    <section class="project-brief" aria-label="Le projet en bref">
-
-      <h2>Le projet en bref</h2>
-      <p>Cette page réunit expériences de biologie, brouillons d’articles et outil pédagogique interactif. Le projet PCR en classe présente protocole, image du gel et rapport. Les textes abordent les prions, la fixation du carbone chez les plantes C3 et une coloration inhabituelle en culture de levures. Une simulation d’Agrobacterium rend manipulable un processus de transformation abstrait. Résultats et documents de méthode restent consultables.</p>
-      <ul>
-      <li><strong>Expérience traçable</strong><span>Protocole PCR, image du résultat et rapport décrivent un même travail.</span></li>
-      <li><strong>Sujets variés</strong><span>Génétique, photosynthèse et microbiologie disposent de textes distincts.</span></li>
-      <li><strong>Pédagogie interactive</strong><span>La simulation permet de réaliser soi-même les étapes de transformation.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
-      <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Parcourir travaux pratiques, articles de biologie et simulation pédagogique à travers protocole, analyse et interaction web.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Lire la conception PCR et le rapport final, ouvrir les articles par sujet, puis essayer le laboratoire Agrobacterium en faisant glisser les éléments étape par étape.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>Le travail pratique porte sur PCR et une cible d’environ 600 pb ; les articles abordent biologie moléculaire et erreurs expérimentales ; HTML, CSS et JavaScript animent la simulation.</p></article>
-      <article><h3>Résultats et portée</h3><p>La page relie rapports, articles et laboratoire. Interpréter les résultats selon les conditions et relevés des documents originaux.</p></article>
-      </div>
-    </section>
-
 
     <section class="pcr-lab">
       <div class="section-header">
@@ -131,7 +109,12 @@
               <span class="thesis-date">2024.6.23</span>
             </div>
             <h3>Sur la conjecture des protéines comme matériel génétique dans des organismes extrêmement, extrêmement spéciaux</h3>
-            <p class="thesis-abstract">Cet article remet audacieusement en cause l'autorité absolue du « dogme central » de la biologie. Sur la base des propriétés d'auto-réplication des prions et des mécanismes de transcription inverse, il explore rigoureusement la possibilité des protéines comme vecteurs génétiques primitifs. Cette recherche vise à élargir les frontières de la réflexion sur l'évolution biologique et la nature de l'hérédité, fournissant un cadre hypothétique très prospectif pour l'étude des formes de vie dans des environnements extrêmes.</p>
+            <p class="thesis-abstract">Explore la possibilité que des protéines servent de vecteurs génétiques primitifs, en partant de l’auto-réplication des prions et de la transcription inverse, et prend les limites du dogme central comme question centrale.</p>
+            <dl class="thesis-facts">
+              <div><dt>Question</dt><dd>Une protéine peut-elle servir de matériel génétique chez des organismes très particuliers, comme le font l’ADN et l’ARN ?</dd></div>
+              <div><dt>Méthode</dt><dd>Analyse théorique. Vérifie si les quatre approches classiques d’identification du matériel génétique — marquage isotopique, centrifugation, principe soustractif et séquençage — restent valables pour les rétrovirus, en s’appuyant sur les hypothèses sur l’origine des protéines et des virus.</dd></div>
+              <div><dt>Conclusion</dt><dd>Propose que la transcriptase inverse n’agit comme matériel génétique des rétrovirus qu’avec l’ARN, et suggère que les protéines ont pu jouer un rôle analogue lors du passage du non-vivant au vivant. L’auteur rappelle que la question reste débattue.</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button" href="../../static/resources/bio/prion.pdf" target="_blank" rel="noopener">Lire l'article</a>
             </div>
@@ -149,7 +132,12 @@
               <span class="thesis-date">2024.6.8</span>
             </div>
             <h3>Recherche en biologie moléculaire sur le cycle de Calvin chez les plantes C3</h3>
-            <p class="thesis-abstract">Cet article propose une analyse approfondie du cycle de Calvin, la voie centrale de fixation du carbone chez les plantes C3. Il examine systématiquement les mécanismes moléculaires de l'assimilation du carbone, y compris les propriétés catalytiques et la régulation d'enzymes clés telles que la Rubisco, ainsi que les processus de conversion énergétique impliquant l'ATP et le NADPH. Cette recherche vise à approfondir la compréhension des limitations de l'efficacité photosynthétique chez les plantes C3 et à explorer les directions potentielles pour améliorer les rendements culturaux par des approches biochimiques.</p>
+            <p class="thesis-abstract">Parcourt le cycle de Calvin, voie centrale de fixation du carbone, sous l’angle de la biologie moléculaire : la séquence réactionnelle est décomposée étape par étape, les réactions clés sont représentées sous forme de structures moléculaires, et la formation des sucres est analysée.</p>
+            <dl class="thesis-facts">
+              <div><dt>Question</dt><dd>Comment se déroule chaque étape du cycle de Calvin, et d’où vient le sucre ?</dd></div>
+              <div><dt>Méthode</dt><dd>Revue de littérature et schémas de structures moléculaires. Reconstitue l’assimilation du carbone dans l’ordre des réactions, dessine les changements de structure aux étapes clés, puis analyse la formation des sucres.</dd></div>
+              <div><dt>Résultat</dt><dd>Transforme une voie d’assimilation complexe en une séquence claire et citable pour les travaux de biologie moléculaire ultérieurs. Le manuscrit est encore en révision.</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button button-outline" href="../../static/resources/bio/c3.pdf" target="_blank" rel="noopener">Voir le brouillon</a>
             </div>
@@ -165,7 +153,12 @@
               <span class="thesis-date">2026.03.08</span>
             </div>
             <h3>Analyse et vérification du changement de couleur orange des plaques dans les expériences sur la levure</h3>
-            <p class="thesis-abstract">Face au changement de couleur anormal occasionnel des milieux de culture en microbiologie, cet article a retracé avec succès l'origine des facteurs de contamination environnementale grâce à des expériences contrôlées rigoureuses. Cette recherche ne se contente pas de résoudre un problème technique expérimental spécifique ; son importance fondamentale réside dans l'établissement de procédures normalisées d'analyse des erreurs et de contrôle qualité en laboratoire, soulignant l'importance d'une attitude rigoureuse et du respect des procédures dans la pratique scientifique.</p>
+            <p class="thesis-abstract">Étudie pourquoi les boîtes de culture virent parfois à l’orange lors de la culture de levures, en écartant une à une les sources de coloration par des expériences à variable contrôlée, et tire de ce cas une démarche d’analyse des erreurs et de contrôle qualité au laboratoire.</p>
+            <dl class="thesis-facts">
+              <div><dt>Observation</dt><dd>Lors d’une expérience de classe, les levures ont d’abord formé des colonies blanc laiteux normales. Quelque temps plus tard, les colonies ont été recouvertes d’orange jusqu’à ce que toute la boîte vire à l’orange.</dd></div>
+              <div><dt>Méthode</dt><dd>Analyse puis écarte quatre causes possibles (changement des conditions de croissance, mutation, métabolites et exsudats, contamination par d’autres micro-organismes), puis conçoit des expériences à variable contrôlée : changement de souche, lots de dilution séparés, grand erlenmeyer contre petit bécher, boîte scellée ou non, ensemencement par stries contre étalement.</dd></div>
+              <div><dt>État</dt><dd>La coloration par les métabolites de la levure elle-même est écartée — concentrations trop faibles et complexation insuffisante pour colorer toute une boîte. La piste de la contamination est encore à l’étude et le manuscrit reste inachevé.</dd></div>
+            </dl>
             <div class="thesis-actions">
               <a class="button button-outline" href="../../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">Voir le brouillon</a>
             </div>
@@ -187,6 +180,7 @@
         </div>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
     <div id="site-footer"></div>
 <script src="/static/js/footer.js"></script>

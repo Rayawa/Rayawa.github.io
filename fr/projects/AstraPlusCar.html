@@ -32,21 +32,21 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>AstraPlusCar relie un téléphone HarmonyOS, un équipement Ascend et un châssis ESP32 dans une même voiture robotisée. Le téléphone affiche la caméra et le lidar puis envoie les commandes ; l’équipement gère les capteurs et les API, tandis que l’ESP32 pilote les actionneurs. La coordination entre appareils et l’arrêt en cas de déconnexion sont au cœur du projet ; l’intégration sur véhicule réel reste à valider.</p>
+      <p>AstraPlusCar est un véhicule robotisé piloté depuis un téléphone HarmonyOS. Une caméra et un lidar sont reliés à un équipement périphérique Ascend, un ESP32 commande les moteurs et la direction, et le téléphone fournit l’interface et les commandes. Le projet porte sur le comportement de la perception, de la décision et de l’action lorsqu’elles sont réparties sur trois niveaux de matériel aux capacités de calcul différentes, ainsi que sur le comportement sûr en cas de coupure de la liaison.</p>
       <ul>
-      <li><strong>Trois composants</strong><span>Téléphone, équipement et châssis se répartissent les tâches via HTTP local et liaison série.</span></li>
-      <li><strong>Pilotage contextualisé</strong><span>Caméra, lidar, direction, vitesse et arrêt sont réunis sur mobile.</span></li>
-      <li><strong>Sécurité de conduite</strong><span>L’arrêt au relâchement et le renouvellement de connexion limitent les mouvements.</span></li>
+      <li><strong>Répartition en trois niveaux</strong><span>Le téléphone assure l’interface et la commande, l’équipement périphérique la perception et le relais, l’ESP32 l’exécution bas niveau.</span></li>
+      <li><strong>État en temps réel</strong><span>Les images de la caméra et les relevés du lidar reviennent au téléphone en temps réel, ce qui permet d’observer l’environnement du véhicule pendant la conduite.</span></li>
+      <li><strong>Comportement sûr</strong><span>Le relâchement des commandes arrête le véhicule, et un chien de garde sur la liaison l’empêche de poursuivre sa dernière action après une coupure.</span></li>
       </ul>
     </section>
 
     <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
+      <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Explorer la commande d’un véhicule entre téléphone, appareil de calcul et châssis. L’application HarmonyOS réunit caméra, lidar et état de conduite.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Connecter le téléphone et l’appareil au même WLAN, démarrer le service, relier le châssis ESP32 et saisir l’adresse de l’appareil. Utiliser les commandes de direction, le réglage de vitesse et STOP ; vérifier l’arrêt avant un essai réel.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>Python sur Orange Pi AI Pro / Ascend fournit les API HTTP et les données des capteurs. L’interface est en ArkTS ; l’ESP32 pilote moteurs et direction par liaison série. Un renouvellement périodique limite les commandes de mouvement.</p></article>
-      <article><h3>Résultats et portée</h3><p>Les deux dépôts sont liés sur la page. Le logiciel et sa documentation sont disponibles ; la direction, les capteurs et l’arrêt après déconnexion attendent un essai sur véhicule.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>Le projet porte sur la contrôlabilité lorsque téléphone, équipement périphérique et châssis coopèrent, ainsi que sur le comportement sûr après une coupure de liaison.</p></article>
+      <article><h3>Comment le système coopère</h3><p>Le téléphone envoie une intention de conduite de haut niveau. L’équipement périphérique la reçoit, la combine avec l’état de la caméra, du lidar et du châssis, puis transmet l’action résultante à l’ESP32. Les données des capteurs circulent en sens inverse, ce qui maintient l’image et le relevé lidar à jour.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>Le côté équipement fonctionne en Python sur une plateforme Orange Pi AI Pro / Ascend. Le côté téléphone est une application HarmonyOS écrite en ArkTS. Le châssis est un ESP32. Les trois niveaux communiquent respectivement en HTTP local et par liaison série.</p></article>
+      <article><h3>État actuel</h3><p>Le logiciel et sa documentation sont open source, les parties équipement et téléphone étant maintenues dans deux dépôts distincts. Le comportement sur véhicule — sens des roues, intégration des capteurs et arrêt après déconnexion — reste à valider sur site.</p></article>
       </div>
     </section>
 
@@ -78,7 +78,7 @@
       <p class="astra-intro">Les deux parties disposent de code et de documentation. La compilation de l’application et les vérifications hors ligne ne prouvent pas le comportement réel. Le sens des roues, l’intégration caméra/lidar, le WLAN et l’arrêt lors d’une perte de contrôle restent à tester sur la voiture.</p>
       <div class="astra-note">Technologies : Python · ArkTS · HarmonyOS · Orange Pi AI Pro / Ascend · ESP32 · API HTTP · Liaison série · Caméra · Lidar</div>
     </section>
-    <a class="astra-back" href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
   <div id="site-footer"></div><script src="/static/js/footer.js"></script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="/static/js/common.js"></script>
 </body>

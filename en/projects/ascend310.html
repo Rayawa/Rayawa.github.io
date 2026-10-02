@@ -53,25 +53,22 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>Qizhi01 combines operating-system porting with an AI application. OpenHarmony 5.0.3, drivers, and build tooling are adapted for an Ascend 310B kit, followed by an ArkTS chest X-ray analysis interface. The app validates both a MindSpore Lite CPU path and a CANN ACL NPU path. The page documents 43 patches and key engineering steps; it presents a development exercise; classification results are not for clinical diagnosis.</p>
+      <p>Qizhi01 covers the full chain from operating system to application: porting OpenHarmony 5.0.3 to the Huawei Ascend 310B development kit, then building an X-ray chest radiograph analysis application on top of that system. The first half is kernel, driver and build-chain adaptation; the second half is an ArkTS interface with YOLOv5s inference. To put the on-board NPU to actual use, the application implements both a CPU and an NPU inference path.</p>
       <ul>
-      <li><strong>System to application</strong><span>GPU, display, camera, and audio work supports the ArkUI app.</span></li>
-      <li><strong>Two inference paths</strong><span>MindSpore Lite and CANN ACL cover CPU and NPU execution.</span></li>
-      <li><strong>Reproducible workflow</strong><span>Patches, build scripts, and SD-card tooling connect the porting steps.</span></li>
+      <li><strong>Full system adaptation</strong><span>Beyond the operating system itself, GPU, display, camera and audio all had to be brought up before an ArkUI application could run.</span></li>
+      <li><strong>Two inference paths</strong><span>MindSpore Lite handles CPU inference and CANN ACL handles NPU inference; both are verified on the board.</span></li>
+      <li><strong>Reproducible process</strong><span>43 patches, a one-command build script and a flashing tool make up the complete porting workflow.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Purpose and use">
-      <h2>Purpose and use</h2>
+    <section class="project-guide" aria-label="About this project">
+      <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>Purpose</h3><p>Explore an OpenHarmony port to Ascend 310B and connect OS, app, and NPU inference through an X-ray image demo.</p></article>
-      <article><h3>How to use it</h3><p>Read the porting scope and patches, then inspect the five-class Ascend X-Ray Expert flow and CPU/NPU paths. Reproduction requires the board, system image, and model files.</p></article>
-      <article><h3>Technology and implementation</h3><p>OpenHarmony 5.0.3 adaptation covers kernel and device-tree work; inference uses MindSpore Lite on CPU or CANN ACL on the Ascend 310B NPU.</p></article>
-      <article><h3>Outputs and scope</h3><p>The page describes 43 patches and the inference flow. X-ray classification is a technical demonstration and is not for clinical diagnosis.</p></article>
+      <article><h3>What it addresses</h3><p>The Ascend 310B ships with a Linux SDK only, while the on-board NPU is worth using. The project verifies two things: whether OpenHarmony can run on this hardware, and whether NPU inference can be wired into a usable application on top of it.</p></article>
+      <article><h3>Hardware support added</h3><p>GPU support is implemented at the HAL layer on the open-source Panfrost driver; HDMI and dual-display output are working; USB/MIPI camera and ALSA audio are connected. bash and busybox were also ported to supply the tools the HDK installer depends on.</p></article>
+      <article><h3>What it uses</h3><p>The system side is OpenHarmony 5.0.3 compiled together with around 20 kernel modules. The application side uses ArkTS and ArkUI, with inference running through MindSpore Lite (CPU) and CANN ACL (NPU) on a YOLOv5s model.</p></article>
+      <article><h3>Current status</h3><p>The 43 patches are merged into the OpenHarmony mainline; the application runs on the board and completes five-class inference, with both the CPU and NPU paths verified. The X-ray classification is a technical demonstration and is not intended for clinical use.</p></article>
       </div>
     </section>
-
-
     <div class="as-chapter-wrap">
       <section class="as-panel">
         <div class="as-panel-head">
@@ -312,6 +309,7 @@
         </div>
       </section>
     </div>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
 
   <div id="site-footer"></div>

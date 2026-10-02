@@ -61,25 +61,22 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>Cette page retrace un parcours de cours allant des bases de Python à la vision par ordinateur, au-delà du seul détecteur pierre-papier-ciseaux. Elle commence par 14 exercices, passe par la prédiction de prix immobiliers avec une forêt aléatoire et l’analyse de comportements étudiants, puis aboutit à la reconnaissance de trois gestes avec YOLO11n. La page indique un mAP50 de validation de 0,940 à rapprocher de la démonstration.</p>
+      <p>Cette page documente un parcours de cours allant des bases de Python à la vision par ordinateur, en quatre étapes : 14 exercices de syntaxe, une régression par forêt aléatoire sur les prix immobiliers californiens, l’analyse de données sur le comportement numérique des élèves, et un détecteur de gestes à trois classes entraîné avec YOLO11n. Le modèle atteint un mAP50 de 0,940 sur l’ensemble de validation, la page listant le jeu de données, la configuration d’entraînement et les résultats d’évaluation.</p>
       <ul>
-      <li><strong>Une progression</strong><span>Programmation, analyse de données et vision composent un parcours continu.</span></li>
-      <li><strong>Données interprétables</strong><span>Immobilier et habitudes étudiantes montrent variables et comparaison de modèles.</span></li>
-      <li><strong>Démonstration gestuelle</strong><span>Les trois gestes disposent d’un GIF et d’une mesure de validation.</span></li>
+      <li><strong>Progression structurée</strong><span>Bases de programmation, analyse de données structurées et détection visuelle forment une chaîne d’apprentissage continue.</span></li>
+      <li><strong>Tâches de données interprétables</strong><span>Les analyses immobilière et comportementale fournissent l’importance des variables et des comparaisons de modèles.</span></li>
+      <li><strong>Démonstration en direct</strong><span>Le détecteur pierre-feuille-ciseaux est présenté avec une animation et des métriques de validation.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Suivre un parcours de cours, des bases Python à l’apprentissage automatique puis à la vision, avec reconnaissance de pierre, papier et ciseaux sur image ou caméra.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Lire les quatre étapes et leurs résultats ; la partie gestes décrit l’inférence sur image, la caméra en direct et les scripts d’évaluation. L’exécution demande le code, les dépendances et les poids du modèle.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>Les exercices Python mènent à la régression immobilière par forêt aléatoire et à l’analyse de comportements ; YOLO11n entraîne un détecteur de trois gestes.</p></article>
-      <article><h3>Résultats et portée</h3><p>La page consigne jeux de données, augmentation, paramètres et métriques. Le mAP50 annoncé de 0,940 concerne l’ensemble de validation décrit.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>Un travail de cours s’arrête souvent à un exemple d’algorithme unique. Ce projet enchaîne les bases de Python, l’apprentissage automatique classique et la détection par apprentissage profond en un parcours unique, avec des données, du code et des résultats complets à chaque étape.</p></article>
+      <article><h3>Contenu des quatre étapes</h3><p>La première étape couvre 14 exercices de syntaxe Python ; la deuxième applique une forêt aléatoire à la régression sur le jeu de données immobilier californien ; la troisième analyse les données de comportement numérique des élèves et produit six types de graphiques ; la quatrième entraîne YOLO11n à détecter les gestes pierre, feuille et ciseaux.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>Python est le langage principal, avec la forêt aléatoire de scikit-learn pour l’analyse et la modélisation. L’étape de vision utilise YOLO11n avec 2,58 M de paramètres, entraîné sur une RTX 5060.</p></article>
+      <article><h3>Résultats et lecture</h3><p>Le modèle de détection de gestes atteint un mAP50 de 0,940 sur l’ensemble de validation ; la page liste la taille du jeu de données, l’augmentation et la configuration d’entraînement. Le reproduire exige le code du cours, l’environnement de dépendances et les poids du modèle.</p></article>
       </div>
     </section>
-
-
     <div class="rps-hero-image">
       <img src="../../static/resources/rps/rps.gif" alt="Démo de détection Pierre-Papier-Ciseaux" loading="lazy">
     </div>
@@ -420,6 +417,7 @@
         <span class="rps-tag data">CUDA</span>
       </div>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
 
   <div id="site-footer"></div>

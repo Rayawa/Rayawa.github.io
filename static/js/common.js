@@ -382,7 +382,7 @@ function initFloatingTools() {
 
     topBtn.addEventListener('click', function() {
         topBtn.classList.add('is-hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
         setTimeout(function() {
             topBtn.blur();
         }, 100);
@@ -419,6 +419,10 @@ function initFloatingTools() {
     onScroll();
 }
 
+function prefersReducedMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+}
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
@@ -427,7 +431,8 @@ function initSmoothScroll() {
             e.preventDefault();
             var targetElement = document.querySelector(targetId);
             if (!targetElement) return;
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            // CSS 的 scroll-behavior 管不到显式请求 smooth 的 JS 调用
+            targetElement.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
         });
     });
 }
@@ -643,83 +648,110 @@ function initSubpageReveal() {
     var isSubpage = !document.getElementById('loadingScreen');
     if (!isSubpage) return;
     if (window.__subpageRevealInitialized) return;
+    // 提前置位：早退路径（页面暂无内容）不应导致整个流程被重复执行。
+    // JS 注入内容的页面改用 window.refreshSubpageReveal() 重新扫描。
+    window.__subpageRevealInitialized = true;
 
     var isThanks = !!document.querySelector('.thanks-section');
     var isBio = !!document.querySelector('.pcr-lab');
-    var isDashboard = !!document.querySelector('.dashboard-page');
-    var projectPage = document.querySelector('.project-page:not(#xxh-app)');
+    var projectPage = document.querySelector('.project-page');
 
-    if (isDashboard) {
-        var sections = document.querySelectorAll('.dashboard-page .hero-section, .dashboard-page .content-section');
-        sections.forEach(function(el, idx) {
-            el.style.transitionDelay = (idx * 0.1) + 's';
-            el.classList.add('reveal-in');
-        });
-        return;
-    } else if (isThanks) {
-        var thanksHero = document.querySelector('.hero-card');
-        if (thanksHero) thanksHero.classList.add('subpage-reveal');
-        var groups = document.querySelectorAll('.thanks-group');
-        groups.forEach(function(el) {
-            el.classList.add('subpage-reveal');
-        });
-    } else if (isBio) {
-        var heroCard = document.querySelector('.hero-card');
-        if (heroCard) {
-            heroCard.classList.add('subpage-reveal');
-        }
-        document.querySelectorAll('.project-brief, .project-guide').forEach(function(el) {
-            el.classList.add('subpage-reveal');
-        });
-        var parts = document.querySelectorAll('.pcr-lab, .thesis-archive, .hero-interactive');
-        parts.forEach(function(part, partIdx) {
-            var delay = (partIdx + 1) * 150;
-            var children = part.querySelectorAll('.section-header, .pcr-result, .pcr-docs, .doc-card, .thesis-featured, .thesis-grid, .thesis-card, .interactive-content');
-            children.forEach(function(child) {
-                child.classList.add('subpage-reveal');
-                child.style.setProperty('--subpage-delay', delay + 'ms');
-            });
-        });
-    } else if (projectPage) {
-        // Reveal one top-level chapter at a time. This also covers project
-        // layouts that use their own card names instead of the older ones.
-        Array.from(projectPage.children).forEach(function(el) {
-            if (el.matches('section, header, article, img, .as-chapter-wrap, .ss-chapter-wrap, .hi-overview-grid, .rps-overview-grid, .rps-sub-header, .rps-grid, .rps-grid-2, .rps-card-full, .rps-tags, .rps-hero-image, .bottombar, .astra-back')) {
+    // 项目页的顶层章节：一次只揭示一个。
+    // project-brief / project-guide / project-footer-links 显式列出，
+    // 避免它们只能靠“恰好是 <section>”被通配命中。
+    var PROJECT_CHAPTERS = [
+        'section', 'header', 'article', 'img',
+        '.as-chapter-wrap', '.ss-chapter-wrap', '.hi-overview-grid',
+        '.rps-overview-grid', '.rps-sub-header', '.rps-grid', '.rps-grid-2',
+        '.rps-card-full', '.rps-tags', '.rps-hero-image',
+        '.project-brief', '.project-guide', '.project-footer-links',
+        '.bottombar', '.astra-back'
+    ].join(', ');
+
+    // 兜底：没有 .project-page 的页面（404、life/*）与工具型页面
+    var FALLBACK_ITEMS = [
+        '.hero-card', '.card', '.feature-card', '.glass-card',
+        '.hi-card', '.hi-overview-card', '.doc-card', '.thesis-card',
+        '.social-card', '.project-card', '.single-action', '.button-row',
+        '.dev-section', '.notice-list', '.spm-section', '.books-board',
+        '.metric-card-small', '.metric-card', '.info-card', '.note-card',
+        '.highlight-card', '.case-item', '.team-item',
+        '.access-metrics-card', '.hero-section', '.content-section',
+        '.hero-tags-wrapper', '.platform-grid', '.download-section',
+        '.api-section', '.acknowledgments-section', '.license-section',
+        '.tech-subsection', '.card-image', '.piano-card',
+        '.project-brief', '.project-guide', '.project-footer-links',
+        '.project-tool > .project-brief', '.project-tool > .project-guide',
+        '.project-tool-content > .project-brief', '.project-tool-content > .project-guide'
+    ].join(', ');
+
+    function tagRevealTargets() {
+        if (isThanks) {
+            var thanksHero = document.querySelector('.hero-card');
+            if (thanksHero) thanksHero.classList.add('subpage-reveal');
+            var groups = document.querySelectorAll('.thanks-group');
+            groups.forEach(function(el) {
                 el.classList.add('subpage-reveal');
+            });
+            return;
+        }
+
+        if (isBio) {
+            var heroCard = document.querySelector('.hero-card');
+            if (heroCard) {
+                heroCard.classList.add('subpage-reveal');
             }
-        });
-    } else {
-        var items = document.querySelectorAll(
-            '.hero-card, .card, .feature-card, .glass-card, ' +
-            '.hi-card, .hi-overview-card, .doc-card, .thesis-card, ' +
-            '.social-card, .project-card, .single-action, .button-row, ' +
-            '.dev-section, .notice-list, .spm-section, ' +
-            '.metric-card-small, .metric-card, .info-card, .note-card, ' +
-            '.highlight-card, .case-item, .team-item, ' +
-            '.access-metrics-card, .hero-section, .content-section, ' +
-            '.hero-tags-wrapper, .platform-grid, .download-section, ' +
-            '.api-section, .acknowledgments-section, .license-section, ' +
-            '.tech-subsection, .card-image, .piano-card, ' +
-            '.project-tool > .project-brief, .project-tool > .project-guide, ' +
-            '.project-tool-content > .project-brief, .project-tool-content > .project-guide'
-        );
+            document.querySelectorAll('.project-brief, .project-guide').forEach(function(el) {
+                el.classList.add('subpage-reveal');
+            });
+            var parts = document.querySelectorAll('.pcr-lab, .thesis-archive, .hero-interactive');
+            parts.forEach(function(part, partIdx) {
+                var delay = (partIdx + 1) * 150;
+                var children = part.querySelectorAll('.section-header, .pcr-result, .pcr-docs, .doc-card, .thesis-featured, .thesis-grid, .thesis-card, .interactive-content');
+                children.forEach(function(child) {
+                    child.classList.add('subpage-reveal');
+                    child.style.setProperty('--subpage-delay', delay + 'ms');
+                });
+            });
+            return;
+        }
+
+        if (projectPage) {
+            // 一次揭示一个顶层章节；各项目页用自己命名的章节类也能命中。
+            Array.from(projectPage.children).forEach(function(el) {
+                // xxh 落地页自带 xxh-landing-in 入场动画，叠加会导致重复动画
+                if (el.classList.contains('xxh-landing')) return;
+                if (el.matches(PROJECT_CHAPTERS)) {
+                    el.classList.add('subpage-reveal');
+                }
+            });
+            return;
+        }
+
+        var items = document.querySelectorAll(FALLBACK_ITEMS);
         if (!items.length) return;
 
-        var ordered = sortByVisualFlow(Array.from(items));
-        ordered.forEach(function(el, idx) {
+        sortByVisualFlow(Array.from(items)).forEach(function(el) {
             el.classList.add('subpage-reveal');
         });
     }
 
-    var revealEls = document.querySelectorAll('.subpage-reveal');
-    if (!revealEls.length) return;
-    window.__subpageRevealInitialized = true;
+    var observer = null;
+    var revealEls = [];
+    var scrollCheckTimer = null;
 
-    sortByVisualFlow(Array.from(revealEls)).forEach(function(el, idx) {
-        if (!el.style.getPropertyValue('--subpage-delay')) {
-            el.style.setProperty('--subpage-delay', ((idx % 4) * 70) + 'ms');
-        }
-    });
+    // 收集尚未揭示的目标并分配错峰延迟。可重复调用。
+    function collectTargets() {
+        revealEls = Array.from(document.querySelectorAll('.subpage-reveal'))
+            .filter(function(el) { return !el.classList.contains('is-visible'); });
+
+        sortByVisualFlow(revealEls).forEach(function(el, idx) {
+            if (!el.style.getPropertyValue('--subpage-delay')) {
+                el.style.setProperty('--subpage-delay', ((idx % 4) * 70) + 'ms');
+            }
+        });
+        return revealEls;
+    }
 
     function revealEl(el) {
         if (el.classList.contains('is-visible')) return;
@@ -731,12 +763,10 @@ function initSubpageReveal() {
         if (observer) observer.unobserve(el);
     }
 
-    var observer = null;
-    
     // 初始化IntersectionObserver
     function initObserver() {
         if (observer) observer.disconnect();
-        
+
         observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -745,9 +775,9 @@ function initSubpageReveal() {
             });
         }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
-        revealEls.forEach(function(el) { 
+        revealEls.forEach(function(el) {
             if (!el.classList.contains('is-visible')) {
-                observer.observe(el); 
+                observer.observe(el);
             }
         });
     }
@@ -755,7 +785,7 @@ function initSubpageReveal() {
     function checkVisibleEls() {
         var vh = window.innerHeight;
         var scrollY = window.scrollY;
-        
+
         revealEls.forEach(function(el) {
             if (el.classList.contains('is-visible')) return;
             var rect = el.getBoundingClientRect();
@@ -763,23 +793,22 @@ function initSubpageReveal() {
             var elementBottom = rect.bottom + scrollY;
             var viewportTop = scrollY;
             var viewportBottom = scrollY + vh;
-            
+
             // 检查元素是否在视口内或接近视口
-            if ((rect.top < vh && rect.bottom > 0) || 
+            if ((rect.top < vh && rect.bottom > 0) ||
                 (elementTop < viewportBottom + 100 && elementBottom > viewportTop - 100)) {
                 revealEl(el);
             }
         });
     }
 
-    var scrollCheckTimer = null;
     function onScrollCheck() {
         if (scrollCheckTimer) return;
         scrollCheckTimer = window.setTimeout(function() {
             scrollCheckTimer = null;
             checkVisibleEls();
-            var allVisible = Array.from(revealEls).every(function(el) { 
-                return el.classList.contains('is-visible'); 
+            var allVisible = revealEls.every(function(el) {
+                return el.classList.contains('is-visible');
             });
             if (allVisible && observer) {
                 window.removeEventListener('scroll', onScrollCheck);
@@ -789,6 +818,39 @@ function initSubpageReveal() {
         }, 150);
     }
 
+    function attachScrollCheck() {
+        window.removeEventListener('scroll', onScrollCheck);
+        window.addEventListener('scroll', onScrollCheck, { passive: true });
+    }
+
+    // 供用 JS 注入内容的页面（xxh、基因工程实验室）在渲染完成后调用，
+    // 重新扫描新增元素并纳入观察。
+    window.refreshSubpageReveal = function() {
+        tagRevealTargets();
+        collectTargets();
+        if (!revealEls.length) return;
+
+        if (typeof IntersectionObserver !== 'function') {
+            revealEls.slice().forEach(revealEl);
+            return;
+        }
+
+        if (observer) {
+            revealEls.forEach(function(el) {
+                if (!el.classList.contains('is-visible')) observer.observe(el);
+            });
+        } else {
+            initObserver();
+        }
+        attachScrollCheck();
+        checkVisibleEls();
+    };
+
+    tagRevealTargets();
+    collectTargets();
+
+    if (!revealEls.length) return;
+
     if (typeof IntersectionObserver !== 'function') {
         revealEls.forEach(revealEl);
         return;
@@ -796,13 +858,13 @@ function initSubpageReveal() {
 
     // 初始化观察器
     initObserver();
-    
+
     // 立即检查可见元素
     checkVisibleEls();
-    
+
     // 添加滚动监听
-    window.addEventListener('scroll', onScrollCheck, { passive: true });
-    
+    attachScrollCheck();
+
     // 添加resize监听，重新检查可见元素
     window.addEventListener('resize', function() {
         checkVisibleEls();

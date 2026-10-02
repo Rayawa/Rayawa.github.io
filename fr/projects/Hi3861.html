@@ -83,25 +83,22 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>Ce projet OpenHarmony transforme les exercices sur les périphériques Hi3861 en quatre parcours : automate de feux tricolores, interaction éclairage–buzzer, mesure environnementale et extension des commandes AT série. Chaque parcours valide d’abord un composant, puis associe capteurs, actionneurs et tâches pour faciliter la reproduction à partir du code.</p>
+      <p>Ce projet organise les exercices embarqués OpenHarmony sur Hi3861 en quatre parcours : machine à états de feu de circulation, éclairage coordonné au buzzer, acquisition de données environnementales et commandes AT personnalisées. Chaque parcours commence par la commande d’un périphérique unique, puis le combine à d’autres modules. Les quatre scénarios couvrent ensemble l’entrée, le traitement et la sortie.</p>
       <ul>
-      <li><strong>Quatre modules</strong><span>Trafic, éclairage, environnement et commandes AT couvrent toute la chaîne.</span></li>
-      <li><strong>Du composant au système</strong><span>GPIO, PWM, ADC et OLED sont combinés progressivement.</span></li>
-      <li><strong>Documentation accessible</strong><span>Arborescence, chemins du code et README dédié sont consultables.</span></li>
+      <li><strong>Quatre parcours</strong><span>Trafic, éclairage, environnement et commandes AT, du contrôle ponctuel à la coordination multitâche.</span></li>
+      <li><strong>Scénarios exécutables seuls</strong><span>Chaque parcours est un scénario complet et démontrable, dont le résultat s’observe directement.</span></li>
+      <li><strong>Sources consultables</strong><span>Chaque parcours correspond à ses propres fichiers de programme, et le README est consultable en ligne.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Apprendre OpenHarmony embarqué avec quatre groupes d’expériences, du pilotage de périphériques à la mesure, l’affichage et la liaison série.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Choisir une carte dans l’ordre des modules, vérifier broches et composants, puis ouvrir le README pour les dossiers source et la compilation. Chaque carte propose des exercices indépendants.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>C sur Hi3861 avec OpenHarmony LiteOS-M ; GPIO/PWM pour les lumières, ADC et I²C pour les capteurs, OLED pour l’état et UART pour les commandes AT.</p></article>
-      <article><h3>Résultats et portée</h3><p>Les modules, la structure et la compilation figurent sur cette page et dans le README. Il faut les cartes et composants correspondants pour reproduire les effets matériels.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>En apprentissage embarqué, il est courant de maîtriser chaque périphérique séparément sans savoir les organiser en un système complet. Ce projet range GPIO, PWM, capteurs et communication série en un parcours de quatre scénarios exécutables indépendamment, classés par difficulté.</p></article>
+      <article><h3>Contenu des quatre parcours</h3><p>Le feu de circulation utilise une machine à états pour alterner les signaux et détecter les klaxons interdits ; le parcours d’éclairage génère des effets lumineux par PWM et les coordonne à un buzzer ; la surveillance environnementale échantillonne température, humidité et luminosité via ADC et I²C et les affiche sur un OLED ; le parcours AT étend le port série en une interface de commandes personnalisable.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>Une carte Hi3861 avec OpenHarmony LiteOS-M, développée en C, couvrant GPIO, PWM, ADC, I²C et un écran OLED, ainsi que la communication série UART.</p></article>
+      <article><h3>Comment le consulter</h3><p>Choisir une carte en suivant l’ordre des modules de cette page, vérifier le brochage et les périphériques, puis ouvrir le README correspondant pour l’arborescence des sources et les étapes de compilation. Une page de lecture du README complet est également fournie ; reproduire les résultats physiques exige la carte et les composants correspondants.</p></article>
       </div>
     </section>
-
-
     <section class="hi-panel">
       <div class="hi-panel-head">
         <h2>Structure du projet</h2>
@@ -218,6 +215,7 @@ at_command</pre>
         <div><ul><li>GPIO PWM I2C ADC</li><li>OpenHarmony CMSIS RTOS2 HiAT</li><li>GN Ninja hb</li></ul></div>
       </article>
     </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
 
   <div id="site-footer"></div>

@@ -57,25 +57,22 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>SmartShed est un projet de cours en agriculture connectée, de la mesure dans la serre au contrôle sur téléphone. Deux cartes Hi3861 sous OpenHarmony se partagent la collecte des capteurs et la commande des actionneurs ; EMQX MQTT relaie les messages. L’application HarmonyOS présente température, humidité, lumière et humidité du sol. Sa particularité est la chaîne complète matériel–messagerie–application.</p>
+      <p>SmartShed est un système IoT d’agriculture intelligente couvrant toute la chaîne, de la perception en serre à la commande depuis un téléphone. Deux cartes Hi3861 sous OpenHarmony assurent respectivement l’acquisition des capteurs et la commande des actionneurs, en relayant les messages via un service MQTT EMQX ; une application HarmonyOS affiche température, humidité, luminosité et humidité du sol, et fournit la gestion à distance.</p>
       <ul>
-      <li><strong>Deux cartes spécialisées</strong><span>Des nœuds Hi3861 distincts assurent mesure et commande.</span></li>
-      <li><strong>Messagerie en temps réel</strong><span>Les topics MQTT relient états matériels et actions mobiles.</span></li>
-      <li><strong>Ressources complètes</strong><span>Les deux dépôts et le rapport du projet sont accessibles.</span></li>
+      <li><strong>Répartition sur deux cartes</strong><span>L’acquisition et la commande sont assurées par deux nœuds Hi3861 distincts.</span></li>
+      <li><strong>Chaîne de messages en direct</strong><span>Les topics MQTT relient l’état des cartes aux actions de l’application.</span></li>
+      <li><strong>Matériel complet</strong><span>Les deux dépôts, embarqué et application, ainsi que le rapport, sont consultables.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
-      <h2>Usage et réalisation</h2>
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Surveiller et commander une serre en reliant capteurs d’environnement, actionneurs du sol et application mobile avec modes manuel et intelligent.</p></article>
-      <article><h3>Mode d’emploi</h3><p>Configurer les deux cartes Hi3861 et le broker MQTT selon l’architecture, puis connecter l’application HarmonyOS aux mêmes thèmes. Vérifier les mesures avant les commandes et la reconnexion.</p></article>
-      <article><h3>Technologies et réalisation</h3><p>OpenHarmony LiteOS-M/C fonctionne sur les cartes RGB et SOI ; EMQX transporte les messages MQTT ; l’application ArkTS/ArkUI comprend un client MQTT maison et une interface HDS.</p></article>
-      <article><h3>Résultats et portée</h3><p>Flux, câblage, threads, structure de l’application et adaptation Glass sont détaillés plus bas. La reproduction nécessite capteurs, actionneurs, réseau et broker correspondants.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>La gestion d’une serre exige une chaîne de messages stable entre acquisition et commande, ainsi que la possibilité de basculer entre modes manuel et automatique. Ce projet relie la perception environnementale, l’actionnement du sol et l’exploitation depuis le téléphone en un système de bout en bout.</p></article>
+      <article><h3>Répartition entre les deux cartes</h3><p>La carte RGB assure l’acquisition des données environnementales et la carte SOI la commande des actionneurs ; chacune exécute OpenHarmony et se connecte au même service MQTT. Les données montantes et les commandes descendantes sont séparées par des topics convenus.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>Les cartes exécutent OpenHarmony LiteOS-M en C. La couche de messages repose sur le publish/subscribe MQTT d’EMQX. L’application est une application HarmonyOS écrite en ArkTS / ArkUI, incluant un client MQTT implémenté maison et une interface HDS.</p></article>
+      <article><h3>État actuel</h3><p>Les deux dépôts, embarqué et application, ainsi que le rapport de cours, sont publics. La page documente le flux de données, la correspondance matérielle, la conception des threads et l’adaptation à la forme Glass. La reproduction physique exige les capteurs, actionneurs, réseau et configuration de broker correspondants.</p></article>
       </div>
     </section>
-
-
     <!-- ===== Présentation générale du projet ===== -->
     <section class="ss-panel">
       <div class="ss-panel-head">
@@ -937,6 +934,7 @@
         </div>
       </section>
     </div><!-- /05 chapter wrap -->
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
 
   <div id="site-footer"></div>
