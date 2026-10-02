@@ -16,23 +16,39 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>Il s’agit d’une plateforme de sécurité full-stack qui transforme la détection d’objets en alertes traitables. L’envoi d’images, l’extraction d’images vidéo ou le balayage de répertoires alimentent l’inférence YOLO, et des règles métier génèrent les alertes à partir des résultats ; Spring Boot, MySQL et WebSocket assurent la persistance d’état et la synchronisation temps réel, tandis que les clients web et HarmonyOS servent à la vérification et au traitement. Le projet met l’accent sur l’archivage des preuves, les transitions d’état des alertes et la traçabilité des résultats de détection.</p>
+      <p>Il s’agit d’une plateforme de sécurité full-stack qui transforme la détection d’objets en alertes traitables, en fermant la boucle : reconnaissance IA, mapping par règles, persistance en base, diffusion WebSocket et traitement côté interface. La reconnaissance dispose de deux entrées : saisir une URL d’image à la main, ou déposer images et vidéos dans le dossier ai-watch, qu’un thread d’arrière-plan balaie toutes les 2 secondes en guise de caméra. Spring Boot, MySQL et WebSocket assurent l’état et la synchronisation temps réel, tandis que les clients web et HarmonyOS servent à la vérification et au traitement.</p>
       <ul>
-      <li><strong>De la détection au traitement</strong><span>Les classes du modèle deviennent des alertes métier qui entrent dans une machine à états de traitement.</span></li>
-      <li><strong>Preuves sur site</strong><span>Les images à cadre de détection et les images vidéo sont conservées avec l’enregistrement d’alerte.</span></li>
-      <li><strong>Synchronisation multi-clients</strong><span>Les mises à jour sont diffusées après validation de la transaction, vers les clients web et mobile.</span></li>
+      <li><strong>Deux entrées de reconnaissance</strong><span>Soumettre une image à la main, ou déposer des fichiers dans ai-watch pour un balayage et un archivage automatiques.</span></li>
+      <li><strong>Uniquement les alertes utiles</strong><span>Les classes du modèle sont converties en six types d’alertes métier ; les classes non reconnues sont consignées comme anomalies de reconnaissance et ignorées, ni stockées ni diffusées.</span></li>
+      <li><strong>Preuves archivées avec l’alerte</strong><span>Les images annotées à cadre de détection et les images vidéo assemblées sont conservées avec l’enregistrement d’alerte.</span></li>
       </ul>
     </section>
     <section class="project-guide" aria-label="À propos de ce projet">
       <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Ce qu’il traite</h3><p>Si les résultats de détection restent au stade des cadres englobants, ils ne peuvent pas soutenir le traitement ultérieur. Ce projet transforme la sortie du modèle en alertes métier et associe à chacune une preuve sur site et un état de traitement.</p></article>
-      <article><h3>Circulation des données</h3><p>Les images ou images vidéo passent par l’inférence YOLOv5 côté FastAPI ; les résultats sont ensuite transformés en alertes par les règles de Spring Boot. Une fois la transaction validée, l’alerte est diffusée via WebSocket aux clients d’administration et mobiles, et l’état de traitement est mis à jour en conséquence.</p></article>
-      <article><h3>Ce qu’il utilise</h3><p>L’inférence repose sur FastAPI avec YOLOv5 ; le côté métier sur Spring Boot 3.3 et MySQL 8, avec WebSocket pour la diffusion temps réel. Les interfaces sont construites avec Vue et ArkTS / ArkWeb.</p></article>
-      <article><h3>État actuel</h3><p>La page présente des captures de détection, le flux de traitement des alertes et la structure multi-clients. La qualité réelle de détection doit être évaluée selon le jeu de données, le seuil de confiance et l’environnement de déploiement utilisés.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>Si les résultats de détection en surveillance s’arrêtent aux cadres englobants, ils ne peuvent pas soutenir le traitement ultérieur. Ce projet transforme la sortie du modèle en alertes métier et associe à chacune une preuve sur site et un état de traitement, formant un registre traçable.</p></article>
+      <article><h3>Circulation des données</h3><p>L’entrée manuelle transmet une URL d’image au service IA ; l’entrée par dossier fait balayer ai-watch toutes les 2 secondes par un thread d’arrière-plan, qui renvoie les résultats et archive les fichiers sources dans processed. Les résultats sont convertis par règles en anomalies de fumée/incendie, d’attroupement, d’intrusion, de véhicule, d’animal ou d’objet, puis diffusés en WebSocket une fois la transaction validée.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>L’inférence repose sur FastAPI avec YOLOv5 (un modèle COCO et un modèle feu/fumée) ; le côté métier sur Spring Boot 3.3 et MySQL 8, avec WebSocket pour la diffusion temps réel. Les interfaces sont construites avec Vue 3 et ArkTS / ArkWeb. Vue est servi en version statique locale directement par Spring Boot : le projet fonctionne dès le clonage ; un déploiement Docker en une commande est également fourni.</p></article>
+      <article><h3>État actuel</h3><p>Cinq pages sont implémentées — tableau de bord, équipements, enregistrements de reconnaissance IA, centre d’alertes en direct et historique de traitement — accompagnées d’un tutoriel d’explication du code. La qualité réelle de détection doit être évaluée selon le jeu de données, le seuil de confiance et l’environnement de déploiement utilisés.</p></article>
       </div>
     </section>
     <section class="ps-metrics"><div class="ps-metric"><strong>5</strong><span>Vues principales</span></div><div class="ps-metric"><strong>6 types</strong><span>Règles d'alerte métier</span></div><div class="ps-metric"><strong>≈ 2 s</strong><span>Cycle de surveillance</span></div><div class="ps-metric"><strong>3 clients</strong><span>Web · OpenAPI · HarmonyOS</span></div></section>
+
+
+    <section class="ps-section" id="screens">
+      <div class="ps-section-head">
+        <h2>Deux écrans d’entrée</h2>
+        <p>L’interface d’administration est servie en fichiers statiques directement par Spring Boot : le projet fonctionne dès le clonage, sans environnement Node.js séparé.</p>
+      </div>
+      <div class="ps-wide-shot">
+        <img src="../../static/resources/security/dashboard.png" alt="Tableau de bord : équipements en ligne, alertes en attente et flux d’alertes en direct" loading="lazy">
+        <div class="ps-caption">Le tableau de bord résume les équipements en ligne, les alertes en attente, le total d’alertes et les événements IA, avec en dessous un flux d’alertes rafraîchi par WebSocket indiquant pour chacune la classe détectée et la confiance.</div>
+      </div>
+      <div class="ps-wide-shot" style="margin-top:0.9rem;">
+        <img src="../../static/resources/security/login.png" alt="Page de connexion de la plateforme" loading="lazy">
+        <div class="ps-caption">La page de connexion. Une fois authentifié, l’accès ouvre la vue de sûreté du site présentée ci-dessus.</div>
+      </div>
+    </section>
 
     <section class="ps-section"><div class="ps-section-head"><h2>De la détection à l’intervention</h2><p>De ce que le modèle voit à la clôture de l'incident, chaque étape conserve son état et ses preuves visuelles.</p></div><div class="ps-grid-3">
       <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-camera"></i></span><h3>Analyse image et vidéo</h3><p>Images réseau, téléversements et trames vidéo échantillonnées, réunies dans un événement cohérent.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-brain"></i></span><h3>Inférence YOLO</h3><p>Les modèles COCO et feu/fumée couvrent personnes, véhicules, objets, animaux, fumée et flammes.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-code-branch"></i></span><h3>Règles métier</h3><p>Les classes détectées deviennent des alertes d'intrusion, foule, incendie, véhicule ou objet.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-bolt"></i></span><h3>Diffusion en direct</h3><p>Les événements WebSocket partent après validation de la transaction pour garder les écrans cohérents.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-list-check"></i></span><h3>Cycle de traitement</h3><p>Les alertes passent de « à traiter » à « en cours », puis « clôturée », avec validation des transitions.</p></article><article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box-archive"></i></span><h3>Archivage des preuves</h3><p>Les détections annotées et planches de trames restent liées à leurs alertes.</p></article>

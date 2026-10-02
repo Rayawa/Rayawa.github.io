@@ -32,24 +32,22 @@
     <section class="project-brief" aria-label="Le projet en bref">
 
       <h2>Le projet en bref</h2>
-      <p>AstraPlusCar est un véhicule robotisé piloté depuis un téléphone HarmonyOS. Une caméra et un lidar sont reliés à un équipement périphérique Ascend, un ESP32 commande les moteurs et la direction, et le téléphone fournit l’interface et les commandes. Le projet porte sur le comportement de la perception, de la décision et de l’action lorsqu’elles sont réparties sur trois niveaux de matériel aux capacités de calcul différentes, ainsi que sur le comportement sûr en cas de coupure de la liaison.</p>
+      <p>AstraPlusCar est un système de véhicule piloté depuis un téléphone HarmonyOS. Le côté embarqué fonctionne sur un kit de développement Ascend auquel sont reliés une caméra et un lidar, et commande un châssis à roues Mecanum via un ESP32 ; le téléphone fournit l’aperçu vidéo, l’état du lidar et les commandes de conduite. Construit sur l’exemple E2E officiel de Huawei, le projet y apporte deux ajouts : le remplacement de la caméra par une caméra 3D à lumière structurée, et la mise au point d’un client de commande sur téléphone.</p>
       <ul>
-      <li><strong>Répartition en trois niveaux</strong><span>Le téléphone assure l’interface et la commande, l’équipement périphérique la perception et le relais, l’ESP32 l’exécution bas niveau.</span></li>
-      <li><strong>État en temps réel</strong><span>Les images de la caméra et les relevés du lidar reviennent au téléphone en temps réel, ce qui permet d’observer l’environnement du véhicule pendant la conduite.</span></li>
-      <li><strong>Comportement sûr</strong><span>Le relâchement des commandes arrête le véhicule, et un chien de garde sur la liaison l’empêche de poursuivre sa dernière action après une coupure.</span></li>
+      <li><strong>Répartition en trois niveaux</strong><span>Le téléphone assure l’interface et la commande, l’équipement Ascend la perception et les décisions, l’ESP32 l’exécution bas niveau.</span></li>
+      <li><strong>Trois modes autonomes</strong><span>Assistance par panneaux, suivi de voie et poursuite de cible, chacun reposant sur un modèle et une politique différents.</span></li>
+      <li><strong>Comportement sûr</strong><span>Arrêt au relâchement et chien de garde sur la liaison ; le véhicule ne poursuit pas sa dernière action après une coupure.</span></li>
       </ul>
     </section>
-
-    <section class="project-guide" aria-label="Usage et réalisation">
+    <section class="project-guide" aria-label="À propos de ce projet">
       <h2>À propos de ce projet</h2>
       <div class="project-guide-grid">
-      <article><h3>Ce qu’il traite</h3><p>Le projet porte sur la contrôlabilité lorsque téléphone, équipement périphérique et châssis coopèrent, ainsi que sur le comportement sûr après une coupure de liaison.</p></article>
-      <article><h3>Comment le système coopère</h3><p>Le téléphone envoie une intention de conduite de haut niveau. L’équipement périphérique la reçoit, la combine avec l’état de la caméra, du lidar et du châssis, puis transmet l’action résultante à l’ESP32. Les données des capteurs circulent en sens inverse, ce qui maintient l’image et le relevé lidar à jour.</p></article>
-      <article><h3>Ce qu’il utilise</h3><p>Le côté équipement fonctionne en Python sur une plateforme Orange Pi AI Pro / Ascend. Le côté téléphone est une application HarmonyOS écrite en ArkTS. Le châssis est un ESP32. Les trois niveaux communiquent respectivement en HTTP local et par liaison série.</p></article>
-      <article><h3>État actuel</h3><p>Le logiciel et sa documentation sont open source, les parties équipement et téléphone étant maintenues dans deux dépôts distincts. Le comportement sur véhicule — sens des roues, intégration des capteurs et arrêt après déconnexion — reste à valider sur site.</p></article>
+      <article><h3>Ce qu’il traite</h3><p>Le projet porte sur la contrôlabilité lorsque téléphone, équipement Ascend et châssis coopèrent, et réalise deux modifications d’ingénierie sur l’exemple officiel : la connexion d’une caméra 3D à lumière structurée et la mise au point d’un client de commande sur téléphone.</p></article>
+      <article><h3>Comment le système coopère</h3><p>Le téléphone envoie une intention de conduite de haut niveau. L’équipement la reçoit, la combine avec l’état de la caméra, du lidar et du châssis, puis transmet l’action résultante à l’ESP32. Les données des capteurs circulent en sens inverse, ce qui maintient l’image et le relevé lidar à jour.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>Le côté embarqué est en Python sur un kit de développement Ascend, avec une inférence sur modèles hors ligne Ascend. Le côté téléphone est une application HarmonyOS écrite en ArkTS. Le châssis est un ESP32. Les deux communiquent en HTTP local et par liaison série.</p></article>
+      <article><h3>État actuel</h3><p>Le client téléphone a été installé sur un appareil réel et testé face au véhicule sur le même réseau : aperçu vidéo, lidar à trois directions, captures d’écran et galerie privée sont confirmés, tout comme la consultation d’état, les commandes de direction, le renouvellement et l’arrêt automatique en cas de coupure. Le comportement en conduite réelle reste à observer sur site.</p></article>
       </div>
     </section>
-
     <img class="astra-visual" src="../../static/resources/main_page/astracar.svg" alt="Schéma de la voiture AstraPlusCar et de son contrôleur mobile">
     <section class="astra-section" id="overview">
       <h2>Présentation</h2>
@@ -59,20 +57,44 @@
         <article class="astra-card"><h3><i class="fas fa-mobile-screen-button"></i> Contrôle mobile</h3><p>L’application HarmonyOS propose l’aperçu caméra, l’état du lidar, les commandes de direction, le réglage de vitesse, l’arrêt et la capture de photos.</p></article>
       </div>
     </section>
+    <section class="astra-section" id="scenes">
+      <h2>Trois modes autonomes</h2>
+      <p class="astra-intro">L’équipement embarque trois modes de comportement, commutables par commande externe ; un mode manuel permet également la commande directe.</p>
+      <div class="astra-grid">
+        <article class="astra-card"><h3><i class="fas fa-signs-post"></i> Assistance par panneaux</h3><p>Charge un modèle YOLOv5 hors ligne pour reconnaître les panneaux de virage à gauche, à droite et de demi-tour, et déclenche la rotation correspondante sur place selon le centre de détection et des seuils de surface.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-road"></i> Suivi de voie</h3><p>Un réseau de régression produit une valeur de braquage par image, convertie par paliers en marche avant, virage à gauche ou à droite pour suivre le marquage de voie.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-crosshairs"></i> Poursuite de cible</h3><p>La vitesse est ajustée selon la taille du cadre cible, le braquage suit l’écart de la cible par rapport au centre de l’image, et le véhicule s’arrête une fois une distance seuil atteinte.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-keyboard"></i> Mode manuel</h3><p>Commande au clavier : avant, arrière, gauche, droite, rotation sur place et déplacement latéral, avec réglage de vitesse, arrêt et capture d’image à tout moment.</p></article>
+      </div>
+    </section>
+
     <section class="astra-section" id="architecture">
       <h2>Chaîne de commande</h2>
       <p class="astra-intro">Le téléphone et la voiture partagent un réseau WLAN. Le téléphone envoie les commandes ; l’appareil les confirme et les exécute avant de piloter l’ESP32 par liaison série. Caméra et lidar renvoient leurs données à l’interface.</p>
       <div class="astra-flow"><div>Application HarmonyOS</div><span>→</span><div>API HTTP locale</div><span>→</span><div>Appareil Ascend</div><span>→</span><div>Série · ESP32 · Châssis</div></div>
     </section>
-    <section class="astra-section" id="features">
-      <h2>Fonctions principales</h2>
+    <section class="astra-section" id="device">
+      <h2>Le projet embarqué</h2>
+      <p class="astra-intro">Le côté embarqué s’appuie sur l’exemple E2E officiel de Huawei, dont une copie non modifiée est conservée pour comparaison.</p>
       <div class="astra-grid">
-        <article class="astra-card"><h3><i class="fas fa-video"></i> Caméra et lidar</h3><p>Un flux caméra partagé sert à l’aperçu en direct et aux captures. L’API lidar transmet les distances et l’état de l’appareil au téléphone.</p></article>
-        <article class="astra-card"><h3><i class="fas fa-gamepad"></i> Conduite</h3><p>Touches de direction, réglage par paliers et curseur de vitesse de 0 à 100. Maintenir pour avancer, relâcher pour arrêter ; STOP reste visible dans l’écran de conduite.</p></article>
-        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> Protections</h3><p>Le téléphone renouvelle le contrôle pendant le mouvement. La commande prévoit l’arrêt en cas de déconnexion, de passage en arrière-plan ou après 600 ms sans renouvellement ; une ancienne session ne peut pas reprendre le mouvement.</p></article>
-        <article class="astra-card"><h3><i class="fas fa-code-branch"></i> Deux dépôts</h3><p>Appareil et application sont maintenus séparément et utilisent le contrat /api/v1. Les actions matérielles restent côté appareil ; l’application transmet des intentions de haut niveau.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-code-compare"></i> Version d’origine et version modifiée</h3><p>Le projet d’origine est identique octet pour octet à l’exemple officiel. La version modifiée ajoute une caméra 3D à lumière structurée et porte la capture de 1280×720 à 1920×1080 ; la modification ne touche que sept fichiers, le reste demeurant inchangé.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-brain"></i> Inférence embarquée</h3><p>La reconnaissance s’exécute sur la carte avec des modèles Ascend hors ligne, couvrant la détection de panneaux, la régression de suivi de voie et la poursuite de cible, prétraitement et post-traitement inclus.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-satellite-dish"></i> Lidar et cartographie</h3><p>Comprend un projet d’essai RPLIDAR sous ROS2, utilisé pour collecter des nuages de points et valider la chaîne de cartographie.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-toolbox"></i> Outils associés</h3><p>Fournit le code d’entraînement et d’export du modèle de suivi de voie, un outil d’annotation automatique des marquages, ainsi qu’un firmware de véhicule ESP32 distinct avec son tutoriel en chinois.</p></article>
       </div>
     </section>
+
+    <section class="astra-section" id="phone">
+      <h2>Le client de commande sur téléphone</h2>
+      <p class="astra-intro">L’application HarmonyOS propose deux dispositions : en portrait, l’état de connexion, la vidéo, la barre lidar puis le pavé de commande se succèdent ; en paysage, la vidéo occupe l’écran et les joysticks comme les bandes lidar se superposent.</p>
+      <div class="astra-grid">
+        <article class="astra-card"><h3><i class="fas fa-video"></i> Vidéo et lidar</h3><p>La vidéo arrive en un flux continu unique, sous lequel une barre lidar distincte affiche les distances gauche, avant et droite graduées par niveau d’alerte. En l’absence d’écho, l’application affiche « non mesuré » plutôt que de l’interpréter comme une distance sûre.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-gamepad"></i> Commandes de conduite</h3><p>Les quatre directions principales sont avant, virage à gauche, arrière et virage à droite ; les coins gèrent la rotation et le déplacement latéral. Une seule action est active à la fois, et glisser vers une nouvelle direction provoque d’abord l’arrêt. Le curseur de vitesse reste utilisable en mouvement.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> Comportement sûr</h3><p>Si la réception ou le décodage vidéo expire, le client abandonne la commande et arrête le véhicule, puis se reconnecte avec temporisation. Mouvement et réglage de vitesse sont bloqués jusqu’à l’arrivée d’une image live, et une ancienne session ne peut pas restaurer les touches ni les actions précédentes.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-images"></i> Captures et galerie</h3><p>Les captures sont d’abord stockées sur le véhicule, puis téléchargées dans la galerie privée de l’application où elles subsistent après redémarrage. Les images ne rejoignent l’album système qu’après un téléchargement explicite et l’autorisation correspondante.</p></article>
+      </div>
+    </section>
+
     <section class="astra-section" id="status">
       <h2>État du projet</h2>
       <p class="astra-intro">Les deux parties disposent de code et de documentation. La compilation de l’application et les vérifications hors ligne ne prouvent pas le comportement réel. Le sens des roues, l’intégration caméra/lidar, le WLAN et l’arrêt lors d’une perte de contrôle restent à tester sur la voiture.</p>

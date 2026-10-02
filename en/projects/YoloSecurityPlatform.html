@@ -24,23 +24,39 @@
     <section class="project-brief" aria-label="At a glance">
 
       <h2>At a glance</h2>
-      <p>This is a full-stack security platform that turns object detection into actionable alerts. Image uploads, video frame extraction or directory scans feed YOLO inference, and business rules generate alerts from the results; Spring Boot, MySQL and WebSocket handle state persistence and real-time sync, while the web and HarmonyOS clients are used for review and handling. The project emphasises evidence archival, alert state transitions and traceability of detection results.</p>
+      <p>This is a full-stack security platform that turns object detection into actionable alerts, closing the loop from AI recognition through rule mapping and database persistence to WebSocket push and front-end handling. Recognition has two entry points: entering an image URL by hand, or dropping images and videos into the ai-watch folder, where a background thread scans every 2 seconds to stand in for a camera. Spring Boot, MySQL and WebSocket handle state and real-time sync, while the web and HarmonyOS clients are used for review and handling.</p>
       <ul>
-      <li><strong>Detection to resolution</strong><span>Model classes map to business alerts that enter a handling state machine.</span></li>
-      <li><strong>On-scene evidence</strong><span>Bounding-box images and video frames are stored alongside the alert record.</span></li>
-      <li><strong>Multi-client sync</strong><span>Updates broadcast after the transaction commits, for both web and mobile clients.</span></li>
+      <li><strong>Two recognition entry points</strong><span>Submit an image by hand, or drop files into ai-watch for automatic scanning and archiving.</span></li>
+      <li><strong>Only the alerts that matter</strong><span>Model classes map to six business alert types; unrecognised classes are recorded as target-recognition anomalies and skipped — neither stored nor pushed.</span></li>
+      <li><strong>Evidence archived with the alert</strong><span>Annotated bounding-box images and stitched video-frame images are stored alongside the alert record.</span></li>
       </ul>
     </section>
     <section class="project-guide" aria-label="About this project">
       <h2>About this project</h2>
       <div class="project-guide-grid">
-      <article><h3>What it addresses</h3><p>If detection results in a surveillance setting stay at the level of bounding boxes, they cannot support later handling. This project maps model output to business alerts and attaches on-scene evidence and a handling state to each one.</p></article>
-      <article><h3>How the data flows</h3><p>Images or video frames pass through YOLOv5 inference on the FastAPI side; the detection results are then mapped to alerts by rules in Spring Boot. Once the alert transaction commits, it is broadcast over WebSocket to the admin and mobile clients, and the handling state updates accordingly.</p></article>
-      <article><h3>What it uses</h3><p>Inference runs on FastAPI with YOLOv5; the business side is Spring Boot 3.3 with MySQL 8, using WebSocket for real-time push. The interfaces are built with Vue and ArkTS / ArkWeb.</p></article>
-      <article><h3>Current status</h3><p>The page shows detection screenshots, the alert handling flow and the multi-client structure. Actual detection quality should be assessed against the dataset, confidence threshold and deployment environment in use.</p></article>
+      <article><h3>What it addresses</h3><p>If detection results in a surveillance setting stop at bounding boxes, they cannot support later handling. This project maps model output to business alerts and attaches on-scene evidence and a handling state to each one, forming a traceable record.</p></article>
+      <article><h3>How the data flows</h3><p>The manual entry forwards an image URL to the AI service; the directory entry has a background thread scan ai-watch every 2 seconds, push results back and archive source files into processed. Detection results are mapped by rules to smoke/fire, crowd gathering, intrusion, vehicle, animal or object anomalies, and only broadcast over WebSocket once the transaction has committed.</p></article>
+      <article><h3>What it uses</h3><p>Inference runs on FastAPI with YOLOv5 (both a COCO model and a fire/smoke model); the business side is Spring Boot 3.3 with MySQL 8, using WebSocket for real-time push. Interfaces are built with Vue 3 and ArkTS / ArkWeb. Vue is served as a local static build directly by Spring Boot, so the project runs straight after cloning; a one-command Docker deployment is also provided.</p></article>
+      <article><h3>Current status</h3><p>Five pages are implemented — dashboard, devices, AI recognition records, live alert centre and handling history — together with a code walkthrough tutorial. Actual detection quality should be assessed against the dataset, confidence threshold and deployment environment in use.</p></article>
       </div>
     </section>
     <section class="ps-metrics" aria-label="Project metrics"><div class="ps-metric"><strong>5</strong><span>Core admin views</span></div><div class="ps-metric"><strong>6 Types</strong><span>Business alert rules</span></div><div class="ps-metric"><strong>≈ 2s</strong><span>Watch-folder scan cycle</span></div><div class="ps-metric"><strong>3 Clients</strong><span>Web · OpenAPI · HarmonyOS</span></div></section>
+
+
+    <section class="ps-section" id="screens">
+      <div class="ps-section-head">
+        <h2>Two screens you land on immediately</h2>
+        <p>The admin front end is served as static files directly by Spring Boot, so the project runs straight after cloning with no separate Node.js environment.</p>
+      </div>
+      <div class="ps-wide-shot">
+        <img src="../../static/resources/security/dashboard.png" alt="Monitoring dashboard: online devices, pending alerts and the live alert feed" loading="lazy">
+        <div class="ps-caption">The dashboard summarises online devices, pending alerts, total alerts and AI events, with a WebSocket-refreshed live alert feed below showing the detected class and confidence for each entry.</div>
+      </div>
+      <div class="ps-wide-shot" style="margin-top:0.9rem;">
+        <img src="../../static/resources/security/login.png" alt="Platform login page" loading="lazy">
+        <div class="ps-caption">The login page. Signing in with a platform account opens the campus security view shown above.</div>
+      </div>
+    </section>
 
     <section class="ps-section"><div class="ps-section-head"><h2>From detection to response</h2><p>Every step from “what the model saw” to a completed response preserves state and visual evidence.</p></div><div class="ps-grid-3">
       <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-camera"></i></span><h3>Image & Video Analysis</h3><p>Network images, uploads and sampled video frames are supported, with multi-frame results merged into one event.</p></article>
