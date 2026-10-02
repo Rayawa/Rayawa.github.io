@@ -24,7 +24,7 @@
             life: '生活',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: '华为应用市场看板',
-            projectAscend: '启智01 · 昇腾AI全栈',
+            projectAstra: 'AstraPlusCar · 智能小车',
             projectBio: '生物学项目',
             projectSignal: '微弱电信号测量',
             projectSmartShed: '智慧大棚 SmartShed',
@@ -40,7 +40,7 @@
             life: 'Life',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: 'Harmony Gallery',
-            projectAscend: 'Qizhi01 · Ascend AI',
+            projectAstra: 'AstraPlusCar · Smart Vehicle',
             projectBio: 'Biology Projects',
             projectSignal: 'Weak Signal Measurement',
             projectSmartShed: 'SmartShed',
@@ -56,7 +56,7 @@
             life: 'Vie',
             copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
             projectHmdb: 'Gallery Huawei',
-            projectAscend: 'Qizhi01 · Ascend AI',
+            projectAstra: 'AstraPlusCar · Voiture intelligente',
             projectBio: 'Projets de biologie',
             projectSignal: 'Mesure de signaux faibles',
             projectSmartShed: 'SmartShed',
@@ -97,7 +97,7 @@
 
     var projectLinks = [
         { href: 'https://dashboard.rayawa.top', text: t.projectHmdb },
-        { href: prefix + langPrefix + 'projects/ascend310.html', text: t.projectAscend },
+        { href: prefix + langPrefix + 'projects/AstraPlusCar.html', text: t.projectAstra },
         { href: prefix + langPrefix + 'projects/biology.html', text: t.projectBio },
         { href: prefix + langPrefix + 'projects/signal.html', text: t.projectSignal },
         { href: prefix + langPrefix + 'projects/SmartShed.html', text: t.projectSmartShed }
