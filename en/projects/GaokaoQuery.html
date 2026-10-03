@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Batch Gaokao Result Query Tool | Ray Chen</title>
+  <meta name="description" content="Turns repetitive manual lookups of admission results into a batch pipeline: the script reads a name list, queries, verifies and organises the results automatically, and exports a complete spreadsheet.">
+  <meta name="keywords" content="Python, Playwright, pandas, openpyxl, batch query, browser automation, data processing, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/en/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/GaokaoQuery.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/GaokaoQuery.html">
+  <meta property="og:title" content="Batch Gaokao Result Query Tool | Ray Chen">
+  <meta property="og:description" content="Read a name list, query admission results through Playwright, verify and organise them with pandas, and export an Excel summary.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/GaokaoQuery.html">
+  <meta name="twitter:title" content="Batch Gaokao Result Query Tool | Ray Chen">
+  <meta name="twitter:description" content="Read a name list, query admission results through Playwright, verify and organise them with pandas, and export an Excel summary.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">Python</span>
+      <h1>Batch Gaokao Result Query Tool</h1>
+      <p>Turns the repetitive manual work of checking admission results one by one into a batch pipeline: the script reads a name list, queries, verifies and organises the results automatically, and finally exports a complete results spreadsheet.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Project overview">
+      <h2>Project Overview</h2>
+      <p>The tool targets batch lookup scenarios. It uses Playwright to drive a browser against the admission-result query endpoint of the Beijing Education Examinations Authority, retrieves results one by one, structures the data with pandas, and writes an Excel file through openpyxl. Along the way it checks whether names match, and records cases such as missing results or empty majors separately, producing a summary table that a person can review.</p>
+      <ul>
+      <li><strong>Batch lookups</strong><span>The name list is read from a spreadsheet and every query completes in one pass, removing the repeated manual work.</span></li>
+      <li><strong>Results you can audit</strong><span>Name mismatches, empty query results and blank majors are each flagged separately so a person can review them.</span></li>
+      <li><strong>Dependencies prepared automatically</strong><span>The first run checks for pandas, playwright and openpyxl and installs anything missing.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="About this project">
+      <h2>About This Project</h2>
+      <div class="project-guide-grid">
+      <article><h3>What it sets out to do</h3><p>Admission-result lookups require entering information and recording outcomes one entry at a time, which becomes error-prone and easy to miss as the list grows. This tool merges querying, verification and organisation into a single step.</p></article>
+      <article><h3>How it runs</h3><p>The script first confirms that dependencies are present and installs anything missing; it then reads the list to query and uses Playwright to drive a browser against the query endpoint, recording each result as it arrives; finally it writes everything out to Excel. Every result is checked against the name in the list, and mismatches are marked separately.</p></article>
+      <article><h3>What it uses</h3><p>Written in Python; Playwright for browser automation; pandas for data handling; openpyxl for spreadsheet export.</p></article>
+      <article><h3>Scope and limits</h3><p>The tool targets batch organisation, and results follow whatever the official endpoint returns; network failures or endpoint changes require manual confirmation. Personal information is processed only on the local machine and is never transmitted elsewhere.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Workflow</h2>
+        <p>From reading the list to exporting the spreadsheet, four steps run in order.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box-open"></i></span><h3>Check and prepare dependencies</h3><p>The first run detects whether pandas, playwright and openpyxl are available and installs what is missing, so environment problems do not interrupt the flow.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-list-check"></i></span><h3>Read the list to query</h3><p>Entries to look up are loaded from a spreadsheet as the input for the whole batch.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>Query and verify one by one</h3><p>A browser is driven against the query endpoint to fetch results, and each one is compared with the name in the list, with mismatches flagged separately.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-excel"></i></span><h3>Organise and export</h3><p>pandas structures the results and openpyxl writes an Excel summary table that can be inspected and reviewed directly.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-triangle-exclamation"></i></span><h3>Anomalies recorded separately</h3><p>Missing results and empty admission majors are not silently dropped but sorted into their own categories.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-lock"></i></span><h3>Data stays local</h3><p>All processing happens on the local machine; neither the name list nor the results are uploaded to any third-party service.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

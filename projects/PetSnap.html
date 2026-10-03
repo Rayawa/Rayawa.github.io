@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>基于MindSpore的猫狗识别 | Ray Chen</title>
+  <meta name="description" content="基于 MindSpore 与 MobileNetV2 的猫狗图像分类实验，并通过 MindSpore Lite 部署到 Android 手机端完成端侧推理。">
+  <meta name="keywords" content="MindSpore, MobileNetV2, 猫狗分类, 迁移学习, MindSpore Lite, 端侧推理, Android, 深度学习, 昇腾, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/PetSnap.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/PetSnap.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/PetSnap.html">
+  <meta property="og:title" content="基于MindSpore的猫狗识别 | Ray Chen">
+  <meta property="og:description" content="基于 MindSpore 与 MobileNetV2 的猫狗图像分类实验，并通过 MindSpore Lite 部署到 Android 手机端完成端侧推理。">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/projects/PetSnap.html">
+  <meta name="twitter:title" content="基于MindSpore的猫狗识别 | Ray Chen">
+  <meta name="twitter:description" content="基于 MindSpore 与 MobileNetV2 的猫狗图像分类实验，并通过 MindSpore Lite 部署到 Android 手机端完成端侧推理。">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+      
+      <span class="project-category">鸿蒙与昇腾</span>
+      <h1>基于MindSpore的猫狗识别</h1>
+      <p>一个从训练到上机的完整深度学习实验：用 MindSpore 和 MobileNetV2 做猫狗二分类的迁移学习，再把模型转成 MindSpore Lite 格式部署到 Android 手机，在端侧完成推理。</p>
+    </section>
+
+    <section class="project-brief" aria-label="项目速览">
+      <h2>项目速览</h2>
+      <p>项目从 Kaggle 的猫狗数据集出发，经过数据清洗与划分、MobileNetV2 迁移学习训练、模型格式转换，最终把 .ms 模型装进 Android 应用，在手机上直接对相册图片做分类。整条链路都在本地完成，不依赖云端推理服务。</p>
+      <ul>
+      <li><strong>迁移学习而非从零训练</strong><span>冻结 MobileNetV2 主干，只微调分类头，在小数据集上也能收敛。</span></li>
+      <li><strong>端侧推理</strong><span>模型转换为 MindSpore Lite 格式，推理在手机本地完成，不联网。</span></li>
+      <li><strong>完整实验记录</strong><span>数据清洗、训练、转换、部署五个步骤都有对应的说明与配置。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="关于这个项目">
+      <h2>关于这个项目</h2>
+      <div class="project-guide-grid">
+      <article><h3>它要解决什么</h3><p>把训练好的模型真正送上手机，而不停留在笔记本里的准确率。项目覆盖从数据准备到端侧推理的完整链路。</p></article>
+      <article><h3>怎么做的</h3><p>先在 PC 上用 MindSpore 训练 MobileNetV2 分类网络，导出 MindIR 中间格式，再通过 MindSpore Lite Converter 转换为 .ms 模型，最后使用 ADB 推送到 Android 应用加载。</p></article>
+      <article><h3>用到什么</h3><p>MindSpore 2.0 与 MindSpore Lite Converter 2.0；模型为 MobileNetV2；数据集为 Kaggle Cats vs Dogs (PetImages)；依赖 opencv-python、matplotlib、Pillow 等库。</p></article>
+      <article><h3>边界</h3><p>这是课程实验性质的项目，用于理解迁移学习与端侧部署流程；识别范围限于猫狗二分类，不适用于更细的品种区分。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>从数据到手机的五步</h2>
+        <p>每一步都有明确的输入与产物，可以按顺序复现。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-broom"></i></span><h3>数据清洗与划分</h3><p>过滤损坏与异常图片，按比例划分训练集与验证集，避免训练被脏数据拖累。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-layer-group"></i></span><h3>迁移学习训练</h3><p>加载预训练的 MobileNetV2，冻结主干权重，只训练分类头，在小数据集上快速收敛。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-export"></i></span><h3>模型转换</h3><p>训练产物导出为 MindIR，再由 MindSpore Lite Converter 转成可在端侧加载的 .ms 格式。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-mobile-screen"></i></span><h3>端侧部署</h3><p>通过 ADB 把模型与配套资源推送到 Android 应用，推理过程完全在手机本地完成。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-line"></i></span><h3>结果观察</h3><p>在手机上对相册图片直接分类，配合训练侧的损失与准确率曲线对照效果。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-circle-info"></i></span><h3>实验定位</h3><p>属于深度学习课程实验，重点在打通训练与部署的链路，而非追求分类精度上限。</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

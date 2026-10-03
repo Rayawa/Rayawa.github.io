@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Digital Communication System Simulator in C# | Ray Chen</title>
+  <meta name="description" content="An interactive simulator for the full digital communication chain — text to binary, modulation, channel, demodulation and recovery. Each stage runs on its own or as an end-to-end flow.">
+  <meta name="keywords" content="C#, .NET, digital communication, modulation, demodulation, Huffman coding, linked list queue, xUnit, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/en/projects/CommChain.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CommChain.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CommChain.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/CommChain.html">
+  <meta property="og:title" content="Digital Communication System Simulator in C# | Ray Chen">
+  <meta property="og:description" content="Source coding, modulation, channel and demodulation as runnable console modules, with reproducible end-to-end tests.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/CommChain.html">
+  <meta name="twitter:title" content="Digital Communication System Simulator in C# | Ray Chen">
+  <meta name="twitter:description" content="Source coding, modulation, channel and demodulation as runnable console modules, with reproducible end-to-end tests.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">School Project</span>
+      <h1>Digital Communication System Simulator in C#</h1>
+      <p>An interactive simulator for the complete digital communication chain: text → binary → modulation → channel → demodulation → recovery. Every stage can be demonstrated on its own, or the whole end-to-end flow can be run in one go.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Project overview">
+      <h2>Project Overview</h2>
+      <p>The project takes the “signal modulation and demodulation” capstone from the course guide as its backbone and folds in practice from several earlier stages, including source coding and data structures. The whole system is built on the plain .NET base class library with no third-party dependencies, and a unit test suite with a fixed random seed reproduces identical results on any machine.</p>
+      <ul>
+      <li><strong>End-to-end chain</strong><span>From text input to recovered output, covering source coding, modulation, channel and demodulation.</span></li>
+      <li><strong>Stage-by-stage demos</strong><span>A console menu runs any single stage in isolation, which makes intermediate results easy to inspect.</span></li>
+      <li><strong>Reproducible results</strong><span>Unit tests use a fixed random seed, and more than fifty cases agree across machines.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="About this project">
+      <h2>About This Project</h2>
+      <div class="project-guide-grid">
+      <article><h3>What it sets out to do</h3><p>Modulation and demodulation are usually taught as abstract block diagrams. This project breaks the diagram into code that can be run and observed stage by stage, so the input and output of each link become concrete.</p></article>
+      <article><h3>How it is organised</h3><p>A console menu drives the program, each numbered entry demonstrating one module on its own; a separate end-to-end simulation strings the stages together into the full chain. The source-coding part implements Huffman coding, and the data-structure part hand-writes a linked-list queue.</p></article>
+      <article><h3>What it uses</h3><p>C# and .NET (targeting .NET 10), using only the base class library with no third-party NuGet dependencies; tests run on xUnit with the random seed fixed at 42.</p></article>
+      <article><h3>Scope and limits</h3><p>Aimed at teaching and demonstration, with the emphasis on explaining principles clearly and running each step through. It does not model realistic channel noise or hardware transmission.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Stages covered</h2>
+        <p>Each link runs on its own so its input and output can be examined.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-zipper"></i></span><h3>Source coding</h3><p>Implements Huffman coding: character frequencies are counted, a prefix code table is built, the compression ratio is computed, and decoding is verified to restore the original text.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>Custom data structures</h3><p>A hand-written linked-list queue, with enqueue and dequeue traced alongside the changing count, plus exception handling verified for dequeuing an empty queue.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-wave-square"></i></span><h3>Signal modulation</h3><p>Maps a binary sequence onto a transmittable signal form, the core stage of the whole chain.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-tower-broadcast"></i></span><h3>Channel simulation</h3><p>Models how the signal travels through the channel, bridging modulation and demodulation.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-rotate-left"></i></span><h3>Demodulation and recovery</h3><p>Recovers the binary sequence from the received signal and turns it back into text, checked against the original input.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-flask-vial"></i></span><h3>Reproducible tests</h3><p>End-to-end assertions under a fixed random seed, guaranteeing that the same input yields the same output on any machine.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Why the plain base class library</h2>
+        <p>The project deliberately limits its dependencies so that every stage stays visible in the code rather than hidden behind a framework.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-cubes"></i></span><h3>Zero third-party dependencies</h3><p>No NuGet package is pulled in beyond xUnit for the test project, so cloning the repository and installing the .NET SDK is enough to run it.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-book-open"></i></span><h3>Principles in plain sight</h3><p>Encoding, modulation and demodulation are all implemented inside the project and can be read alongside the course notes.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-terminal"></i></span><h3>Console interaction</h3><p>Demo entries are chosen by menu number, with no graphical interface needed and identical behaviour on macOS, Windows and Linux.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

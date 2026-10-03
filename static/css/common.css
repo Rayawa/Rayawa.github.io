@@ -972,6 +972,29 @@ section,
 
 
 /* ========================================
+   项目页底部返回入口
+   三语项目页、感谢页与交互页共用；gene / idv 不加载
+   subpage.css，因此基础定义放在这里。
+   ======================================== */
+
+.bottombar {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.bottombar a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bottombar a:hover {
+    color: var(--primary);
+}
+
+/* ========================================
    通用动画 Keyframes
    ======================================== */
 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>基于C#的数字通信系统模拟器 | Ray Chen</title>
+  <meta name="description" content="用 C#/.NET 实现的端到端数字通信模拟器，覆盖信源编码、调制、信道与解调全链路，含可复现单元测试。">
+  <meta name="keywords" content="C#, .NET, 数字通信, 信号调制, 解调, 霍夫曼编码, 链表队列, xUnit, 程序设计实践, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CommChain.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CommChain.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/CommChain.html">
+  <meta property="og:title" content="基于C#的数字通信系统模拟器 | Ray Chen">
+  <meta property="og:description" content="用 C#/.NET 实现的端到端数字通信模拟器，覆盖信源编码、调制、信道与解调全链路，含可复现单元测试。">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/projects/CommChain.html">
+  <meta name="twitter:title" content="基于C#的数字通信系统模拟器 | Ray Chen">
+  <meta name="twitter:description" content="用 C#/.NET 实现的端到端数字通信模拟器，覆盖信源编码、调制、信道与解调全链路，含可复现单元测试。">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+      
+      <span class="project-category">学校项目</span>
+      <h1>基于C#的数字通信系统模拟器</h1>
+      <p>把「文本 → 二进制 → 调制 → 信道 → 解调 → 还原」的完整数字通信链路做成交互式模拟器。每个环节可以单独演示，也可以一键跑通端到端流程。</p>
+    </section>
+
+    <section class="project-brief" aria-label="项目速览">
+      <h2>项目速览</h2>
+      <p>项目以课程指导书中「信号的调制与解调」综合项目为骨架，整合了信源编码、数据结构与算法等多个阶段的实践内容。整套系统用纯 .NET 基础类库实现，不引入任何第三方依赖，配合固定随机种子的单元测试，任何机器上都能复现同样的结果。</p>
+      <ul>
+      <li><strong>端到端链路</strong><span>从文本输入到还原输出，覆盖信源编码、调制、信道与解调各环节。</span></li>
+      <li><strong>逐模块演示</strong><span>控制台菜单可单独运行任一环节，便于观察中间结果。</span></li>
+      <li><strong>结果可复现</strong><span>单元测试使用固定随机种子，50 余条用例跨机器结果一致。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="关于这个项目">
+      <h2>关于这个项目</h2>
+      <div class="project-guide-grid">
+      <article><h3>它要解决什么</h3><p>通信原理课上讲授的调制解调流程通常是抽象的框图，这个项目把它拆成可以逐段运行、逐段观察的代码，让每个环节的输入输出都变得具体。</p></article>
+      <article><h3>怎么组织</h3><p>程序以控制台菜单驱动，每个编号对应一个可独立演示的模块；另提供端到端一键模拟，把各环节串起来跑完整链路。信源部分实现霍夫曼编码，数据结构部分手写链表队列。</p></article>
+      <article><h3>用到什么</h3><p>C# 与 .NET（目标框架 .NET 10），仅使用基础类库，无第三方 NuGet 依赖；测试使用 xUnit，固定随机种子为 42。</p></article>
+      <article><h3>边界</h3><p>面向课程教学与演示，重点在把原理讲清楚、把步骤跑通；不涉及真实信道噪声建模或硬件收发。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>覆盖的环节</h2>
+        <p>每一环都可以单独运行，观察它的输入与输出。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-zipper"></i></span><h3>信源编码</h3><p>实现霍夫曼编码：统计字符频率、构建前缀码表、计算压缩率，并验证解码可还原原文。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>自定义数据结构</h3><p>手写链表队列，观察入队出队过程与计数变化，并验证空队列出队的异常处理。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-wave-square"></i></span><h3>信号调制</h3><p>把二进制序列映射为可传输的信号形式，是整条链路的核心环节。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-tower-broadcast"></i></span><h3>信道模拟</h3><p>模拟信号在信道中的传递过程，作为调制与解调之间的过渡。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-rotate-left"></i></span><h3>解调与还原</h3><p>从接收到的信号恢复二进制序列，再还原为原始文本，与输入对照验证。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-flask-vial"></i></span><h3>可复现测试</h3><p>固定随机种子下的端到端断言，保证同样的输入在任何机器上得到同样的输出。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>为什么用纯基础类库</h2>
+        <p>项目在依赖上做了刻意的限制，让每个环节的实现都留在代码里，而不是藏在框架背后。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-cubes"></i></span><h3>零第三方依赖</h3><p>除测试项目引用 xUnit 外不引入任何 NuGet 包，克隆下来装好 .NET SDK 即可运行。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-book-open"></i></span><h3>原理可见</h3><p>编码、调制与解调的实现全部写在项目内，可以直接对照课程讲义阅读。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-terminal"></i></span><h3>控制台交互</h3><p>以菜单编号选择演示项，不需要图形界面，跨 macOS、Windows 与 Linux 一致。</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

@@ -72,7 +72,7 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html          # 英文书单页面
 │   │   └── piano.html          # 英文钢琴页面
-│   └── projects/               # 英文项目页（15 个，与中文版一一对应）
+│   └── projects/               # 英文项目页（19 个，与中文版一一对应）
 │
 ├── fr/                         # 法文版本目录（结构与英文版一致）
 │   ├── index.html
@@ -80,41 +80,48 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html
 │   │   └── piano.html
-│   └── projects/               # 法文项目页（15 个）
+│   └── projects/               # 法文项目页（19 个）
 │
 ├── life/                       # 中文生活页面
 │   ├── books.html              # 书单页面
 │   └── piano.html              # 钢琴页面
 │
-├── projects/                   # 中文项目页面（15 个）
-│   ├── ascend310.html          # 启智01 · 昇腾AI全栈
+├── projects/                   # 中文项目页面（19 个）
+│   ├── QiZhi01.html            # 启智01 · 昇腾AI全栈
 │   ├── AstraPlusCar.html       # AstraPlusCar · 智能小车
-│   ├── biology.html            # 生物学项目
+│   ├── Biology.html            # 生物学项目
 │   ├── gene.html               # 基因工程：农杆菌转化法交互实验室
 │   ├── Hi3861.html             # Hi3861 嵌入式开发
 │   ├── Hi3861-readme.html      # Hi3861 项目说明（渲染 OpenHarmony README）
 │   ├── idv.html                # 第五人格，启动！
-│   ├── ncut_papers.html        # 学校论文
-│   ├── RockPaperSissors.html   # 石头剪刀布检测
-│   ├── signal.html             # 基于光杠杆放大的微弱电信号测量系统
+│   ├── SchoolPapers.html       # 学校论文
+│   ├── RockPaperScissors.html  # 石头剪刀布检测
+│   ├── WeekSignal.html         # 基于光杠杆放大的微弱电信号测量系统
 │   ├── SmartShed.html          # 智慧大棚 SmartShed
-│   ├── spm.html                # Sweet Potato Mod
+│   ├── SPM.html                # Sweet Potato Mod
 │   ├── VideoTextGen.html       # VideoTextGen 本地视频生产工作区
+│   ├── PetSnap.html            # 基于 MindSpore 的猫狗识别
+│   ├── CarRent.html            # 基于链表的汽车租赁管理系统
+│   ├── CommChain.html          # 基于 C# 的数字通信系统模拟器
+│   ├── GaokaoQuery.html        # 高考成绩便捷查询工具
 │   ├── xxh.html                # XXH 情感契合度测试
 │   └── YoloSecurityPlatform.html  # 智能安防远程监控平台
 │
 └── static/                     # 静态资源（公共组件）
-    ├── css/                    # 样式文件（17 个）
-    │   ├── common.css              # 通用样式（导航、页脚、粒子背景等）
+    ├── css/                    # 样式文件（20 个）
+    │   ├── common.css              # 通用样式（导航、页脚、粒子背景、页面转场等）
     │   ├── subpage.css             # 子页面通用样式
+    │   ├── project-layout.css      # 项目页共用版式（速览/导览/分类标签）
+    │   ├── project-showcase.css    # ps-* 展示型项目页样式
     │   ├── markdown-page.css       # Markdown 渲染页样式
     │   ├── index.css               # 主页样式
     │   ├── 404.css                 # 404 页面样式
     │   ├── ascend310.css           # 昇腾项目样式
+    │   ├── astracar.css            # AstraPlusCar 项目样式
     │   ├── gene.css                # 基因工程项目样式
     │   ├── hi3861.css              # Hi3861 项目样式
     │   ├── hi3861-readme.css       # Hi3861 说明页样式
-    │   ├── rockpapersissors.css    # 石头剪刀布项目样式
+    │   ├── rockpaperscissors.css   # 石头剪刀布项目样式
     │   ├── signal.css              # 微弱电信号项目样式
     │   ├── smartshed.css           # 智慧大棚项目样式
     │   ├── spm.css                 # Sweet Potato Mod 样式

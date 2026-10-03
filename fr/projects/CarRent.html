@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Système de Gestion de Location de Voitures par Liste Chaînée | Ray Chen</title>
+  <meta name="description" content="Un système de gestion en ligne de commande écrit en C++11, sans conteneurs de la bibliothèque standard : véhicules, clients et locations sont organisés en listes simplement chaînées et persistés dans des fichiers binaires, avec statistiques, histogrammes ASCII et journal des opérations.">
+  <meta name="keywords" content="C++11, liste chaînée, location de voitures, structures de données, persistance binaire, ligne de commande, CMake, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/fr/projects/CarRent.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CarRent.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CarRent.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/fr/projects/CarRent.html">
+  <meta property="og:title" content="Système de Gestion de Location de Voitures par Liste Chaînée | Ray Chen">
+  <meta property="og:description" content="Un système en ligne de commande en C++11 où véhicules, clients et locations vivent dans des listes simplement chaînées écrites à la main et persistent en fichiers binaires.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/fr/projects/CarRent.html">
+  <meta name="twitter:title" content="Système de Gestion de Location de Voitures par Liste Chaînée | Ray Chen">
+  <meta name="twitter:description" content="Un système en ligne de commande en C++11 où véhicules, clients et locations vivent dans des listes simplement chaînées écrites à la main et persistent en fichiers binaires.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">Projet scolaire</span>
+      <h1>Système de gestion de location de voitures par liste chaînée</h1>
+      <p>Un système de gestion en ligne de commande écrit en C++11 qui n'utilise aucun conteneur de la bibliothèque standard : véhicules, clients et locations sont tous organisés en listes simplement chaînées, les données sont persistées dans des fichiers binaires, et le programme offre des synthèses statistiques, des histogrammes ASCII et un journal des opérations.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Aperçu du projet">
+      <h2>Aperçu du projet</h2>
+      <p>Le système s'articule autour de sept modules — informations sur les véhicules, clients, location et retour, requêtes, statistiques et paramètres système. Chaque structure de données est une liste simplement chaînée écrite à la main ; aucun vector ni map n'est utilisé. Les données sont écrites sur disque dans un format binaire personnalisé qui se restaure intégralement après redémarrage.</p>
+      <ul>
+      <li><strong>Structures de données écrites à la main</strong><span>Les nœuds sont gérés par des listes simplement chaînées de bout en bout, alloués et libérés dynamiquement sans recourir aux conteneurs de la bibliothèque standard.</span></li>
+      <li><strong>Sept modules fonctionnels</strong><span>Les modules véhicules, clients, location, retour, requêtes, statistiques et paramètres système forment une boucle métier complète.</span></li>
+      <li><strong>Une sortie statistique lisible</strong><span>Le module de statistiques restitue les données groupées sous forme d'histogrammes ASCII, avec export de rapports et journal des opérations.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Mettre les listes chaînées, la manipulation de fichiers et la conception modulaire du cours dans un scénario métier réaliste, et vérifier si ces fondamentaux peuvent réellement porter un système complet.</p></article>
+      <article><h3>Organisation</h3><p>Le programme s'articule autour de car_rent.cpp, qui rassemble toutes les constantes, structures, opérations sur listes et logique métier, tandis que sept modules de menu fournissent les points d'entrée. Les sous-modules sont inclus via #include, si bien que la compilation ne traite que main.cpp comme unité de traduction.</p></article>
+      <article><h3>Outils utilisés</h3><p>C++11 avec constexpr et nullptr, dépendant uniquement de cstdio, cstdlib, cstring et ctime ; les builds Make et CMake sont pris en charge ; l'interface et les commentaires sont en chinois, encodés en UTF-8.</p></article>
+      <article><h3>Portée et limites</h3><p>Il s'agit d'un projet de cours en ligne de commande, et les données résident dans des fichiers locaux plutôt que dans une base de données. L'accès concurrent et les scénarios multi-utilisateurs sortent de son périmètre.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Sept modules fonctionnels</h2>
+        <p>De la maintenance des données aux transactions métier, en passant par les statistiques et l'administration, les modules sont reliés par des données de liste partagées.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-car"></i></span><h3>Gestion des véhicules</h3><p>Créer, modifier, supprimer et consulter les fiches de véhicules, en tenant à jour les données de base des voitures louables.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-user"></i></span><h3>Gestion des clients</h3><p>Tenir à jour les informations des locataires, auxquelles les opérations de location et de retour se réfèrent ensuite.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-signature"></i></span><h3>Location et retour</h3><p>Traiter les opérations de location et de retour, en validant l'état du véhicule et en mettant à jour les deux côtés de l'enregistrement.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>Recherche d'informations</h3><p>Les requêtes catégorielles et la recherche floue localisent rapidement les enregistrements par véhicule, client ou critère de transaction.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-column"></i></span><h3>Synthèses statistiques</h3><p>Grouper et synthétiser par dimension, restitué en histogrammes ASCII pour que la distribution des données saute aux yeux.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-gear"></i></span><h3>Paramètres système</h3><p>Gestion du mot de passe et de la connexion, export de rapports, journal des opérations et effacement des données complètent l'administration.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Deux choix d'implémentation assumés</h2>
+        <p>Le projet fait des compromis réfléchis sur les structures de données et la persistance.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>Listes simplement chaînées de bout en bout</h3><p>Chaque nœud est alloué avec new et libéré avec delete ; l'insertion, la suppression et le parcours sont écrits à la main, ce qui constitue un exercice complet sur les listes et les pointeurs.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-hard-drive"></i></span><h3>Persistance en fichier binaire</h3><p>Les données sont écrites dans un agencement binaire personnalisé et restaurées selon le même agencement à la lecture, ce qui évite le coût et l'ambiguïté de l'analyse textuelle.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-shield-halved"></i></span><h3>Validation des entrées et tolérance aux erreurs</h3><p>Les dates, identifiants et enregistrements en double sont vérifiés, afin qu'une saisie invalide ne puisse corrompre la structure de liste ni les statistiques.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>Unité de traduction unique</h3><p>La logique centrale tient dans un seul fichier cpp, les sous-modules étant inclus par #include, ce qui facilite une lecture ligne à ligne lors de l'évaluation du cours.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-simple"></i></span><h3>Visualisation en ASCII</h3><p>Les histogrammes sont dessinés avec de simples caractères plutôt qu'avec une bibliothèque graphique, si bien que les statistiques s'affichent même en environnement purement textuel.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-clock-rotate-left"></i></span><h3>Journal des opérations</h3><p>Les actions clés laissent une trace, ce qui facilite la traçabilité des modifications de données.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

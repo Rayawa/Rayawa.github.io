@@ -681,6 +681,7 @@ function initSubpageReveal() {
         '.api-section', '.acknowledgments-section', '.license-section',
         '.tech-subsection', '.card-image', '.piano-card',
         '.project-brief', '.project-guide', '.project-footer-links',
+        '.bottombar',
         '.project-tool > .project-brief', '.project-tool > .project-guide',
         '.project-tool-content > .project-brief', '.project-tool-content > .project-guide'
     ].join(', ');

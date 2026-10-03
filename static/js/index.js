@@ -89,6 +89,10 @@ async function stabilizeLayoutDuring(task) {
 }
 
 function detectInitialLocale() {
+    // URL 路径优先：/en/ 与 /fr/ 的页面语言由路径决定，
+    // 避免 localStorage 里的旧偏好让英文页被判定成中文。
+    const fromPath = window.location.pathname.split('/').filter(Boolean)[0];
+    if (supportedLocales.includes(fromPath)) return fromPath;
     const fromQuery = new URLSearchParams(window.location.search).get('lang');
     if (fromQuery && supportedLocales.includes(fromQuery)) return fromQuery;
     const fromStorage = window.localStorage.getItem('rayawa_locale');

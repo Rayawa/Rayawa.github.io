@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>基于链表的汽车租赁管理系统 | Ray Chen</title>
+  <meta name="description" content="C++11 命令行汽车租赁管理系统，用单向链表管理车辆、用户与租车记录，二进制文件持久化，含统计与 ASCII 图表。">
+  <meta name="keywords" content="C++, C++11, 汽车租赁, 单向链表, 数据结构, 文件持久化, 管理系统, 课程设计, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CarRent.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CarRent.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/projects/CarRent.html">
+  <meta property="og:title" content="基于链表的汽车租赁管理系统 | Ray Chen">
+  <meta property="og:description" content="C++11 命令行汽车租赁管理系统，用单向链表管理车辆、用户与租车记录，二进制文件持久化，含统计与 ASCII 图表。">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/projects/CarRent.html">
+  <meta name="twitter:title" content="基于链表的汽车租赁管理系统 | Ray Chen">
+  <meta name="twitter:description" content="C++11 命令行汽车租赁管理系统，用单向链表管理车辆、用户与租车记录，二进制文件持久化，含统计与 ASCII 图表。">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+      
+      <span class="project-category">学校项目</span>
+      <h1>基于链表的汽车租赁管理系统</h1>
+      <p>一个不依赖任何标准库容器的 C++11 命令行管理系统：车辆、用户与租车记录全部用单向链表组织，数据以二进制文件持久化，并配有统计汇总、ASCII 柱状图与操作日志。</p>
+    </section>
+
+    <section class="project-brief" aria-label="项目速览">
+      <h2>项目速览</h2>
+      <p>系统围绕车辆信息、租车用户、租车与退车业务、信息查询、统计汇总和系统设置七个模块展开。所有数据结构都由手写单向链表实现，不使用 vector 或 map；数据通过自定义的二进制格式落盘，重启后可完整恢复。</p>
+      <ul>
+      <li><strong>手写数据结构</strong><span>全程使用单向链表管理节点，动态申请与释放，不依赖标准库容器。</span></li>
+      <li><strong>七个功能模块</strong><span>覆盖车辆、用户、租车、退车、查询、统计与系统设置，构成完整业务闭环。</span></li>
+      <li><strong>可读的统计输出</strong><span>统计模块以 ASCII 柱状图直观展示分组数据，并支持报表与操作日志。</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="关于这个项目">
+      <h2>关于这个项目</h2>
+      <div class="project-guide-grid">
+      <article><h3>它要解决什么</h3><p>把课堂上的链表、文件操作和模块化设计放进一个真实可用的业务场景，验证数据结构基础是否真的能撑起一套完整系统。</p></article>
+      <article><h3>怎么组织的</h3><p>程序以 car_rent.cpp 为核心，聚合全部常量、结构体、链表操作与业务逻辑，再由七个菜单模块分别实现各功能入口。通过 #include 拼接子模块，编译时只需处理 main.cpp 一个翻译单元。</p></article>
+      <article><h3>用到什么</h3><p>C++11（使用 constexpr 与 nullptr），仅依赖 cstdio、cstdlib、cstring、ctime 等标准头文件；构建方式支持 Make 与 CMake；界面与注释均为中文，UTF-8 编码。</p></article>
+      <article><h3>边界</h3><p>这是课程设计项目，界面为命令行形式，数据存储在本地文件而非数据库；并发访问与多用户场景不在设计范围内。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>七个功能模块</h2>
+        <p>从数据维护到业务办理，再到统计与系统管理，模块之间通过共享的链表数据串联。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-car"></i></span><h3>车辆信息管理</h3><p>录入、修改、删除与查看车辆记录，维护可租车辆的基础数据。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-user"></i></span><h3>租车用户管理</h3><p>维护租车人信息，为后续的租车与退车业务提供关联依据。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-signature"></i></span><h3>租车与退车</h3><p>办理租车与退车业务，校验车辆状态并同步更新双方的记录。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>信息查询</h3><p>支持分类查询与模糊搜索，按车辆、用户或记录条件快速定位。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-column"></i></span><h3>统计汇总</h3><p>按维度分组统计，并以 ASCII 柱状图输出，让数据分布一眼可见。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-gear"></i></span><h3>系统设置</h3><p>包含密码与登录、报表输出、操作日志与数据清空等管理功能。</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>实现上的两点选择</h2>
+        <p>项目在数据结构与持久化上做了刻意的取舍。</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>单向链表而非标准容器</h3><p>所有节点由 new 与 delete 手工管理，插入、删除与遍历全部自己实现，是链表与指针操作的完整练习。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-hard-drive"></i></span><h3>二进制文件持久化</h3><p>数据以自定义二进制结构写入文件，读取时按同样布局还原，避免文本解析的开销与歧义。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-shield-halved"></i></span><h3>输入校验与容错</h3><p>对日期、编号与重复数据做检查，避免非法输入破坏链表结构或统计结果。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>单翻译单元架构</h3><p>核心逻辑集中在一个 cpp 文件内，#include 拼接子模块，便于课程评审时逐行阅读。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-simple"></i></span><h3>ASCII 可视化</h3><p>不依赖图形库，用字符直接绘制柱状图，在纯命令行环境中也能呈现统计结果。</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-clock-rotate-left"></i></span><h3>操作日志</h3><p>关键操作留有记录，便于回溯数据变更。</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

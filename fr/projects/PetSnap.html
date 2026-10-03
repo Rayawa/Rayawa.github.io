@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Reconnaissance de Chats et Chiens avec MindSpore | Ray Chen</title>
+  <meta name="description" content="Une expérience de classification d'images de chats et de chiens construite sur MindSpore et MobileNetV2, déployée sur Android pour l'inférence embarquée via MindSpore Lite.">
+  <meta name="keywords" content="MindSpore, MobileNetV2, classification chats et chiens, apprentissage par transfert, MindSpore Lite, inférence embarquée, Android, apprentissage profond, Ascend, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/fr/projects/PetSnap.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/PetSnap.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/PetSnap.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/fr/projects/PetSnap.html">
+  <meta property="og:title" content="Reconnaissance de Chats et Chiens avec MindSpore | Ray Chen">
+  <meta property="og:description" content="Apprentissage par transfert avec MindSpore et MobileNetV2, converti avec MindSpore Lite et déployé sur un téléphone Android pour une inférence locale.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/fr/projects/PetSnap.html">
+  <meta name="twitter:title" content="Reconnaissance de Chats et Chiens avec MindSpore | Ray Chen">
+  <meta name="twitter:description" content="Apprentissage par transfert avec MindSpore et MobileNetV2, converti avec MindSpore Lite et déployé sur un téléphone Android pour une inférence locale.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">HarmonyOS et Ascend</span>
+      <h1>Reconnaissance de chats et de chiens avec MindSpore</h1>
+      <p>Une expérience complète d'apprentissage profond, de l'entraînement jusqu'au téléphone : apprentissage par transfert pour la classification binaire chats/chiens avec MindSpore et MobileNetV2, puis conversion au format MindSpore Lite et déploiement sur un appareil Android pour l'inférence embarquée.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Aperçu du projet">
+      <h2>Aperçu du projet</h2>
+      <p>Le projet part du jeu de données chats-et-chiens de Kaggle, passe par le nettoyage et la division des données, l'entraînement par transfert de MobileNetV2 et la conversion du modèle, puis installe le modèle .ms dans une application Android qui classe directement les photos de la galerie sur le téléphone. Toute la chaîne s'exécute localement, sans service d'inférence dans le cloud.</p>
+      <ul>
+      <li><strong>Apprentissage par transfert sur un réseau figé</strong><span>Le réseau MobileNetV2 reste figé tandis que seule la tête de classification est affinée, ce qui permet au modèle de converger même sur un petit jeu de données.</span></li>
+      <li><strong>Inférence sur l'appareil</strong><span>Le modèle est converti au format MindSpore Lite : l'inférence s'exécute donc localement sur le téléphone, sans connexion réseau.</span></li>
+      <li><strong>Un pipeline documenté en cinq étapes</strong><span>Le nettoyage des données, l'entraînement, la conversion et le déploiement disposent chacun de leurs notes et de leur configuration.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>Mener un modèle entraîné jusqu'au téléphone, en couvrant toute la chaîne, de la préparation des données à l'inférence embarquée.</p></article>
+      <article><h3>Fonctionnement</h3><p>Un classifieur MobileNetV2 est entraîné avec MindSpore sur un PC puis exporté au format intermédiaire MindIR, converti en modèle .ms avec le MindSpore Lite Converter, et enfin poussé via ADB pour que l'application Android le charge.</p></article>
+      <article><h3>Outils utilisés</h3><p>MindSpore 2.0 et MindSpore Lite Converter 2.0 ; MobileNetV2 comme modèle ; Kaggle Cats vs Dogs (PetImages) comme jeu de données ; opencv-python, matplotlib et Pillow parmi les dépendances.</p></article>
+      <article><h3>Portée et limites</h3><p>Il s'agit d'une expérience de cours destinée à comprendre l'apprentissage par transfert et le déploiement embarqué. La reconnaissance se limite à la classification binaire chats/chiens et ne s'étend pas à des distinctions de races plus fines.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Cinq étapes, des données au téléphone</h2>
+        <p>Chaque étape a des entrées et des sorties claires, ce qui permet de reproduire le pipeline dans l'ordre.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-broom"></i></span><h3>Nettoyage et division</h3><p>Les images corrompues ou anormales sont filtrées, puis l'ensemble est divisé en portions d'entraînement et de validation pour que des données sales ne pèsent pas sur l'entraînement.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-layer-group"></i></span><h3>Entraînement par transfert</h3><p>Un MobileNetV2 pré-entraîné est chargé avec ses poids de réseau figés et seule la tête de classification est entraînée, ce qui converge rapidement sur un petit jeu de données.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-export"></i></span><h3>Conversion du modèle</h3><p>La sortie d'entraînement est exportée en MindIR puis convertie par le MindSpore Lite Converter au format .ms que l'appareil peut charger.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-mobile-screen"></i></span><h3>Déploiement sur le téléphone</h3><p>Le modèle et ses ressources sont poussés via ADB dans l'application Android, et l'inférence s'exécute ensuite entièrement sur le téléphone.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-line"></i></span><h3>Observation des résultats</h3><p>Les photos de la galerie sont classées directement sur le téléphone, et les résultats sont comparés aux courbes de perte et de précision enregistrées pendant l'entraînement.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-circle-info"></i></span><h3>Ce qu'est cette expérience</h3><p>Une expérience de cours d'apprentissage profond centrée sur le lien entre entraînement et déploiement, sans ambition de repousser la précision de classification à sa limite.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>
