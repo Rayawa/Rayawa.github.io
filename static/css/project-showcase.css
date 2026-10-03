@@ -341,6 +341,18 @@
     line-height: 1.55;
 }
 
+.ps-card code,
+.ps-note code {
+    padding: 0.1em 0.42em;
+    border: 1px solid rgba(var(--showcase-accent-rgb), 0.3);
+    border-radius: 6px;
+    background: rgba(var(--showcase-accent-rgb), 0.11);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.86em;
+    overflow-wrap: anywhere;
+}
+
 .ps-stack {
     display: flex;
     flex-wrap: wrap;

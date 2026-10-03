@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TextVideoGen | Ray Chen</title>
+  <meta name="description" content="Espace local de production vidéo piloté par OpenCode : vous fournissez le script et les contraintes, les agents assurent propositions créatives, direction, storyboard, médias, fabrication, contrôles et reprises sur 13 étapes vérifiables.">
+  <meta name="keywords" content="TextVideoGen, VideoTextGen, OpenCode, automatisation vidéo, FFmpeg, Playwright, Voicebox, WhisperX, TypeScript, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/fr/projects/TextVideoGen.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/TextVideoGen.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/TextVideoGen.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/TextVideoGen.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/TextVideoGen.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/fr/projects/TextVideoGen.html">
+  <meta property="og:title" content="TextVideoGen | Ray Chen">
+  <meta property="og:description" content="Une chaîne vidéo IA locale, reproductible, révisable et vérifiable, avec le paquet source v0.1.0 publié.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/fr/projects/TextVideoGen.html">
+  <meta name="twitter:title" content="TextVideoGen | Ray Chen">
+  <meta name="twitter:description" content="Une chaîne vidéo IA locale, reproductible, révisable et vérifiable, avec le paquet source v0.1.0 publié.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="project-showcase video-project">
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+
+  <main class="page project-page">
+    <section class="project-intro ps-hero">
+      <div class="ps-hero-copy">
+        <span class="ps-eyebrow"><i class="fas fa-clapperboard"></i> Local · Reproductible · Vérifiable</span>
+        <h1>TextVideoGen</h1>
+        <p>Un espace local de production vidéo piloté par OpenCode. Vous ne fournissez que le script, l’objectif de communication et les contraintes métier ; les agents prennent en charge les propositions créatives, la direction, le storyboard, les médias, la fabrication, les contrôles et les reprises, pour que le public comprenne le contenu dès le premier visionnage — le code, les projets vidéo et l’environnement restant séparés.</p>
+        <div class="ps-actions">
+          <a class="ps-button" href="https://github.com/Rayawa/TextVideoGen" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a>
+          <a class="ps-button is-ghost" href="https://github.com/Rayawa/TextVideoGen/releases" target="_blank" rel="noopener"><i class="fas fa-box-open"></i> Version v0.1.0</a>
+          <a class="ps-button is-ghost" href="#pipeline"><i class="fas fa-route"></i> Explorer le pipeline</a>
+        </div>
+      </div>
+      <div class="ps-hero-visual is-vertical">
+        <img src="../../static/resources/textvideogen/first-screen.png" alt="Image verticale générée par TextVideoGen" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="project-brief" aria-label="Le projet en bref">
+
+      <h2>Le projet en bref</h2>
+      <p>TextVideoGen décompose la production vidéo locale en 13 étapes vérifiables : script, narration, alignement, traitement créatif, direction, storyboard, ressources, rendu scène par scène, composition, contrôle qualité, validation finale, reprise et livraison. Des contrats structurés consignent les entrées et sorties de chaque étape, si bien qu’une modification ne relance que les scènes concernées ; chaque scène peut prendre la forme d’une animation HTML/SVG, d’une image, d’un montage hybride ou d’un B-roll.</p>
+      <ul>
+      <li><strong>Reproductible en local</strong><span>Environnement d’exécution, code et film final sont gérés séparément.</span></li>
+      <li><strong>Reprise à l’échelle de la scène</strong><span>L’analyse d’impact et la vérification par empreinte permettent de réutiliser les scènes inchangées.</span></li>
+      <li><strong>Livraison sous contrôle</strong><span>Le contrôle qualité automatique et la validation humaine déterminent la version livrable.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
+      <div class="project-guide-grid">
+      <article><h3>Ce qu’il traite</h3><p>La vidéo générée souffre couramment de processus non vérifiables et de reprises complètes après une modification locale. TextVideoGen ne vous laisse responsable que du script, de l’objectif et des contraintes ; le reste revient aux agents, et la production est décomposée en étapes régies par des contrats, afin que les entrées, sorties, versions et décisions de validation de chaque étape restent traçables.</p></article>
+      <article><h3>Organisation de la chaîne</h3><p>Un contrat de projet est établi d’abord, puis les agents proposent deux ou trois traitements créatifs réalisables et en recommandent un. Narration, alignement temporel, direction, storyboard et ressources de scène s’enchaînent ensuite ; après le rendu scène par scène, le contrôle qualité technique s’exécute et une version livrable n’est produite qu’après validation humaine. En cas de modification, l’analyse d’impact intervient en premier.</p></article>
+      <article><h3>Ce qu’il utilise</h3><p>OpenCode orchestre les tâches multi-étapes ; Voicebox assure la narration, WhisperX l’alignement temporel, le rendu repose sur HTML / SVG Motion avec Playwright, et la composition sur FFmpeg. JSON Schema et les empreintes consignent les relations entrée-sortie.</p></article>
+      <article><h3>État actuel</h3><p>Le paquet source v0.1.0 est publié et l’espace de travail prend actuellement en charge macOS Apple Silicon. Les artefacts de génération historiques ont été supprimés lors du rangement ; les anciens projets ne conservent que leurs scripts sources et leurs journaux de nettoyage, et la fabrication repart de l’étape script.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-metrics" aria-label="Indicateurs du projet">
+      <div class="ps-metric"><strong>13 étapes</strong><span>Du script à la livraison</span></div>
+      <div class="ps-metric"><strong>4 formes de scène</strong><span>HTML · image · hybride · B-roll</span></div>
+      <div class="ps-metric"><strong>v0.1.0</strong><span>Premier paquet source</span></div>
+      <div class="ps-metric"><strong>macOS arm64</strong><span>Plateforme prise en charge</span></div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>La génération vidéo comme ingénierie</h2>
+        <p>Chaque étape possède des entrées explicites, des sorties structurées, des versions et des portes de validation.</p>
+      </div>
+      <div class="ps-grid-4">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box"></i></span><h3>Environnement isolé</h3><p>Node, pnpm, Python, uv, WhisperX, Chromium, FFmpeg et les modèles restent dans .videoenv.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>Contrats structurés</h3><p>Projets, storyboards, contrôles de mouvement, reprises et prompts sont encadrés par les JSON Schema de schemas/ et les prompts de prompts/.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-fingerprint"></i></span><h3>Traçabilité complète</h3><p>Appels de modèles, résultats d’étapes, décisions de validation et livraisons restent reliés à leurs entrées.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-scissors"></i></span><h3>Recalcul minimal</h3><p>L’analyse d’impact ne rerend que les scènes touchées ; le reste est vérifié par empreinte.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section" id="pipeline">
+      <div class="ps-section-head">
+        <h2>Pipeline de production</h2>
+        <p>GPT assure la création, la direction, le périmètre de reprise et la validation finale ; DeepSeek assure la mise en forme, les métadonnées et les vérifications préliminaires, dont les résultats doivent être revus.</p>
+      </div>
+      <div class="ps-stage-list">
+        <article class="ps-stage"><span>01—02</span><strong>Script + Voix</strong><p>Script structuré et narration Voicebox locale.</p></article>
+        <article class="ps-stage"><span>03—04</span><strong>Aligner + Créer</strong><p>Alignement WhisperX puis traitements créatifs des agents.</p></article>
+        <article class="ps-stage"><span>05—06</span><strong>Diriger + Storyboard</strong><p>Direction et storyboard liés au texte et aux médias.</p></article>
+        <article class="ps-stage"><span>07—08</span><strong>Médias + Rendu</strong><p>Ressources de scène enregistrées et rendu image par image.</p></article>
+        <article class="ps-stage"><span>09—10</span><strong>Composer + QA</strong><p>Assemblage par un seul filter graph et QA technique.</p></article>
+        <article class="ps-stage"><span>11—13</span><strong>Valider + Réviser + Livrer</strong><p>Validation humaine, reprise ciblée et livraison atomique.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>De HTML Motion à la vidéo</h2>
+        <p>Le rendu navigateur et la chaîne média FFmpeg combinent animation expressive et timing précis ; le moteur de rendu partagé est à 30 fps par défaut et passe à 60 fps pour les mouvements rapides.</p>
+      </div>
+      <div class="ps-flow">
+        <article class="ps-flow-step"><small>01 · Scène</small><h3>Contrat de scène</h3><p>Sous-titres, médias et signature visuelle.</p></article>
+        <article class="ps-flow-step"><small>02 · Navigateur</small><h3>Playwright</h3><p>Les scènes HTML / SVG deviennent un flux JPEG.</p></article>
+        <article class="ps-flow-step"><small>03 · Encoder</small><h3>FFmpeg</h3><p>image2pipe évite des milliers de fichiers.</p></article>
+        <article class="ps-flow-step"><small>04 · Composer</small><h3>Assemblage exact</h3><p>Un filter graph recale, joint et mixe l’audio.</p></article>
+        <article class="ps-flow-step"><small>05 · Vérifier</small><h3>QA automatisée</h3><p>Décodage, noir, gel, silence et durée A/V.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section" id="sample">
+      <div class="ps-section-head">
+        <h2>Sortie d’un exemple archivé</h2>
+        <p>Un exemple antérieur, « Les quatre étapes de l’apprentissage de l’anglais » : 1080 × 1920, 30 fps, 18 scènes. Ses artefacts de génération ont été supprimés lors du rangement et le projet est revenu à l’étape script ; les images et données de vérification ci-dessous constituent donc un enregistrement d’archive.</p>
+      </div>
+      <div class="ps-gallery">
+        <figure><img src="../../static/resources/textvideogen/first-screen.png" alt="Ouverture de la vidéo" loading="lazy"><figcaption>L’ouverture établit la hiérarchie et le système visuel.</figcaption></figure>
+        <figure><img src="../../static/resources/textvideogen/mid-scene.png" alt="Scène centrale de la vidéo" loading="lazy"><figcaption>Le motion design explique l’ordre entrée-vers-sortie.</figcaption></figure>
+        <figure><img src="../../static/resources/textvideogen/end-card.png" alt="Carte de fin de la vidéo" loading="lazy"><figcaption>Une carte finale stable conserve la pause prévue.</figcaption></figure>
+      </div>
+      <div class="ps-note"><strong>Preuves QA (archivées) :</strong> les 18 scènes sont présentes et ordonnées ; l’écart vidéo/audio est de 0,011667 s ; aucune erreur de décodage, image noire ou pause audio supérieure à 0,8 s ; neuf scènes modifiées ont été recalculées et neuf autres vérifiées par empreinte.</div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Prise en main et commandes courantes</h2>
+        <p>Tous les points d’entrée sont regroupés dans bin/, avec des commandes distinctes pour l’installation, les projets, les journaux, la livraison et le paquetage.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-download"></i></span><h3>Préparer l’environnement</h3><p><code>./bin/setup</code> installe l’environnement d’exécution, les dépendances, le navigateur et les modèles dans .videoenv ; <code>./bin/check-environment</code> se contente d’inspecter, sans inférence.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-folder-plus"></i></span><h3>Créer et produire</h3><p><code>./bin/new-project my-video "Titre"</code> crée la structure du projet, puis <code>./bin/opencode-video</code> confie la fabrication aux agents.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-clipboard-check"></i></span><h3>Journaliser et vérifier</h3><p><code>./bin/video-log</code> consigne les événements d’étape, et <code>./bin/pnpm-video check</code> regroupe les contrôles de types, d’environnement isolé et de Voicebox.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Livraison sûre et récupérabilité</h2>
+        <p>L’espace de travail se concentre sur la production ; le film final n’est déplacé vers le dossier Movies de macOS qu’après approbation.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-lock"></i></span><h3>Aucun écrasement</h3><p><code>./bin/deliver-video</code> n’écrase jamais une version existante et consigne le chemin cible, la taille du fichier et le SHA-256.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-right-arrow-left"></i></span><h3>Code et film séparés</h3><p>La vidéo finale sort du dépôt ; il ne reste qu’un enregistrement de livraison committable et la traçabilité complète de la production.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-rotate"></i></span><h3>Environnement reconstructible</h3><p>Supprimer .videoenv laisse le code source et les projets intacts ; relancer <code>./bin/setup</code> restaure l’environnement aux versions figées.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Paquets source publiés</h2>
+        <p><code>./bin/package-workspace</code> construit un paquet source sans projets privés ni environnement d’exécution ; celui de la v0.1.0 pèse environ 22 Mo.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-filter"></i></span><h3>Contenu publiable uniquement</h3><p>Le paquet contient le code, la configuration, les lockfiles, les ressources communes et les sources des Skills / plugins ; il exclut les métadonnées Git, les dépendances, les modèles, les caches, les journaux, les identifiants et les anciens projets.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-folder-tree"></i></span><h3>Dossier de sortie distinct</h3><p>Chaque exécution écrit dans .videoenv/tmp/packages/release-&lt;heure&gt;-&lt;aléa&gt;/ : les archives et empreintes précédentes ne sont jamais écrasées.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-fingerprint"></i></span><h3>Vérifier puis installer</h3><p>Un fichier SHA-256 accompagne l’archive ; décompressez-la dans un nouveau dossier puis lancez <code>./bin/setup</code> pour reconstruire l’environnement figé.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Technologies</h2><p>Modèles locaux, rendu navigateur et traitement média dans un même espace.</p></div>
+      <div class="ps-stack">
+        <span class="ps-tag">OpenCode</span><span class="ps-tag">TypeScript</span><span class="ps-tag">Node.js</span><span class="ps-tag">Python</span><span class="ps-tag">pnpm</span><span class="ps-tag">uv</span><span class="ps-tag">Voicebox</span><span class="ps-tag">WhisperX</span><span class="ps-tag">Playwright</span><span class="ps-tag">HTML / SVG Motion</span><span class="ps-tag">FFmpeg</span><span class="ps-tag">JSON Schema</span><span class="ps-tag">H.264 + AAC</span><span class="ps-tag">macOS arm64</span>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>
