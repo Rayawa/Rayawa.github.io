@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Simulateur de Système de Communication Numérique en C# | Ray Chen</title>
+  <meta name="description" content="Un simulateur interactif de toute la chaîne de communication numérique — texte vers binaire, modulation, canal, démodulation et restitution. Chaque étape s'exécute seule ou en flux de bout en bout.">
+  <meta name="keywords" content="C#, .NET, communication numérique, modulation, démodulation, codage de Huffman, file par liste chaînée, xUnit, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/fr/projects/CommChain.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CommChain.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CommChain.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CommChain.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/fr/projects/CommChain.html">
+  <meta property="og:title" content="Simulateur de Système de Communication Numérique en C# | Ray Chen">
+  <meta property="og:description" content="Codage de source, modulation, canal et démodulation en modules console exécutables, avec des tests de bout en bout reproductibles.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/fr/projects/CommChain.html">
+  <meta name="twitter:title" content="Simulateur de Système de Communication Numérique en C# | Ray Chen">
+  <meta name="twitter:description" content="Codage de source, modulation, canal et démodulation en modules console exécutables, avec des tests de bout en bout reproductibles.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">Projet scolaire</span>
+      <h1>Simulateur de système de communication numérique en C#</h1>
+      <p>Un simulateur interactif de la chaîne complète de communication numérique : texte → binaire → modulation → canal → démodulation → restitution. Chaque étape peut être démontrée seule, ou l'ensemble du flux peut être exécuté d'un seul coup.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Aperçu du projet">
+      <h2>Aperçu du projet</h2>
+      <p>Le projet prend pour ossature le projet de synthèse « modulation et démodulation du signal » du guide de cours, et y intègre la pratique de plusieurs étapes antérieures, dont le codage de source et les structures de données. L'ensemble repose sur la bibliothèque de base .NET, sans aucune dépendance tierce, et une suite de tests unitaires à graine aléatoire fixe reproduit des résultats identiques sur n'importe quelle machine.</p>
+      <ul>
+      <li><strong>Chaîne de bout en bout</strong><span>De la saisie de texte à la sortie restituée, en couvrant le codage de source, la modulation, le canal et la démodulation.</span></li>
+      <li><strong>Démonstration par module</strong><span>Un menu console exécute chaque étape isolément, ce qui facilite l'observation des résultats intermédiaires.</span></li>
+      <li><strong>Résultats reproductibles</strong><span>Les tests unitaires utilisent une graine aléatoire fixe, et plus de cinquante cas concordent d'une machine à l'autre.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>La modulation et la démodulation sont souvent enseignées sous forme de schémas abstraits. Ce projet découpe le schéma en code exécutable et observable étape par étape, de sorte que l'entrée et la sortie de chaque maillon deviennent concrètes.</p></article>
+      <article><h3>Organisation</h3><p>Un menu console pilote le programme, chaque entrée numérotée démontrant un module isolément ; une simulation de bout en bout relie par ailleurs les étapes en chaîne complète. La partie codage de source implémente le codage de Huffman, et la partie structures de données écrit à la main une file par liste chaînée.</p></article>
+      <article><h3>Outils utilisés</h3><p>C# et .NET (cible .NET 10), en n'utilisant que la bibliothèque de classes de base, sans dépendance NuGet tierce ; les tests reposent sur xUnit avec une graine aléatoire fixée à 42.</p></article>
+      <article><h3>Portée et limites</h3><p>Destiné à l'enseignement et à la démonstration, l'accent porte sur la clarté des principes et l'exécution de chaque étape ; le projet ne modélise ni le bruit réaliste du canal ni l'émission-réception matérielle.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Étapes couvertes</h2>
+        <p>Chaque maillon s'exécute seul, ce qui permet d'examiner son entrée et sa sortie.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-zipper"></i></span><h3>Codage de source</h3><p>Implémente le codage de Huffman : comptage des fréquences de caractères, construction d'une table de codes préfixes, calcul du taux de compression, et vérification que le décodage restaure le texte d'origine.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>Structures de données personnalisées</h3><p>Une file par liste chaînée écrite à la main, avec traçage de l'enfilement et du défilement en regard du compteur, et vérification de la gestion d'exception lors d'un défilement sur file vide.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-wave-square"></i></span><h3>Modulation du signal</h3><p>Projette une séquence binaire sur une forme de signal transmissible, étape centrale de toute la chaîne.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-tower-broadcast"></i></span><h3>Simulation du canal</h3><p>Modélise le trajet du signal dans le canal, entre modulation et démodulation.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-rotate-left"></i></span><h3>Démodulation et restitution</h3><p>Récupère la séquence binaire à partir du signal reçu et la retransforme en texte, en la comparant à l'entrée d'origine.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-flask-vial"></i></span><h3>Tests reproductibles</h3><p>Des assertions de bout en bout sous graine aléatoire fixe, garantissant qu'une même entrée produit la même sortie sur n'importe quelle machine.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Pourquoi la bibliothèque de base seule</h2>
+        <p>Le projet limite délibérément ses dépendances pour que chaque étape reste visible dans le code, au lieu de se cacher derrière un framework.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-cubes"></i></span><h3>Aucune dépendance tierce</h3><p>Aucun paquet NuGet n'est introduit en dehors de xUnit pour le projet de tests : cloner le dépôt et installer le SDK .NET suffit à le lancer.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-book-open"></i></span><h3>Des principes visibles</h3><p>Le codage, la modulation et la démodulation sont entièrement implémentés dans le projet et peuvent se lire en regard du support de cours.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-terminal"></i></span><h3>Interaction en console</h3><p>Les démonstrations se choisissent par numéro de menu, sans interface graphique, avec un comportement identique sous macOS, Windows et Linux.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

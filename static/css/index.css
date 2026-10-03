@@ -659,6 +659,7 @@ a.skill-link {
 }
 
 .project-image {
+    position: relative;
     height: 200px;
     width: 100%;
     object-fit: cover;
@@ -833,11 +834,15 @@ a.skill-link {
 
 .project-tags {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    /* 分类标签之后还会跟若干技术栈标签，用换行而不是横向滚动 ——
+       滚动会把末尾的标签裁掉，标签本身也就失去意义了。 */
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.42rem;
+    /* 与上方简介（或获奖行）拉开距离。相邻的 margin-bottom 会合并，
+       所以这里显式给上边距。 */
+    margin-top: 1.15rem;
+    margin-bottom: 0.5rem;
 }
 
 .project-award-row {
@@ -861,9 +866,9 @@ a.skill-link {
 .tag {
     background: rgba(99, 102, 241, 0.15);
     color: rgba(165, 180, 252, 0.9);
-    padding: 0.2rem 0.65rem;
+    padding: 0.16rem 0.56rem;
     border-radius: 20px;
-    font-size: 0.78rem;
+    font-size: 0.71rem;
     font-weight: 500;
     border: 1px solid rgba(99, 102, 241, 0.2);
     white-space: nowrap;
@@ -879,6 +884,57 @@ a.skill-link {
     text-decoration: none;
     font-weight: 650;
     white-space: nowrap;
+}
+
+/* 分类标签：项目所属的大类。
+   主要项目浮在预览图左上角，其他项目放在标题前 —— 两种都不额外占竖向空间。
+   卡片上的三级标签：分类 > 竞赛（青蓝描边）> 技术栈（半透明靛蓝）。 */
+.tag.tag-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.24rem 0.68rem;
+    background: rgba(11, 19, 37, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.tag.tag-category::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #7dd3fc;
+    box-shadow: 0 0 8px rgba(125, 211, 252, 0.85);
+    flex-shrink: 0;
+}
+
+/* 主要项目：浮在预览图左上角。压在图上，所以底色更透、描边更淡。 */
+.project-image > .tag-category {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    z-index: 2;
+    background: rgba(11, 19, 37, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+/* 其他项目：放在标题上方。注意不能塞进 .project-title ——
+   那个 h4 是 flex 容器，标签会变成 flex item 被排到同一行。 */
+.project-content > .tag-category {
+    display: flex;
+    width: fit-content;
+    margin-bottom: 0.6rem;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.62rem;
 }
 
 .tag.tag-award.award-link {

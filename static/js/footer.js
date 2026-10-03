@@ -24,10 +24,10 @@
             life: '生活',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: '华为应用市场看板',
-            projectAstra: 'AstraPlusCar · 智能小车',
+            projectAstra: 'AstraPlus智能小车',
             projectBio: '生物学项目',
-            projectSignal: '微弱电信号测量',
-            projectSmartShed: '智慧大棚 SmartShed',
+            projectSignal: '光杠杆微弱电信号测量',
+            projectSmartShed: 'Hi3861智慧大棚系统',
             lifeGallery: '摄影与生活',
             lifePiano: '钢琴',
             lifeDrawing: '绘画',
@@ -40,7 +40,7 @@
             life: 'Life',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: 'Harmony Gallery',
-            projectAstra: 'AstraPlusCar · Smart Vehicle',
+            projectAstra: 'AstraPlus Smart Vehicle',
             projectBio: 'Biology Projects',
             projectSignal: 'Weak Signal Measurement',
             projectSmartShed: 'SmartShed',
@@ -56,7 +56,7 @@
             life: 'Vie',
             copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
             projectHmdb: 'Gallery Huawei',
-            projectAstra: 'AstraPlusCar · Voiture intelligente',
+            projectAstra: 'AstraPlus Voiture intelligente',
             projectBio: 'Projets de biologie',
             projectSignal: 'Mesure de signaux faibles',
             projectSmartShed: 'SmartShed',
@@ -98,8 +98,8 @@
     var projectLinks = [
         { href: 'https://dashboard.rayawa.top', text: t.projectHmdb },
         { href: prefix + langPrefix + 'projects/AstraPlusCar.html', text: t.projectAstra },
-        { href: prefix + langPrefix + 'projects/biology.html', text: t.projectBio },
-        { href: prefix + langPrefix + 'projects/signal.html', text: t.projectSignal },
+        { href: prefix + langPrefix + 'projects/Biology.html', text: t.projectBio },
+        { href: prefix + langPrefix + 'projects/WeekSignal.html', text: t.projectSignal },
         { href: prefix + langPrefix + 'projects/SmartShed.html', text: t.projectSmartShed }
     ];
 

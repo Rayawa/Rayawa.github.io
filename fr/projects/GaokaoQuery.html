@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Outil de Consultation Groupée des Résultats du Gaokao | Ray Chen</title>
+  <meta name="description" content="Transforme la consultation manuelle répétitive des résultats d'admission en un pipeline par lots : le script lit une liste de noms, interroge, vérifie et organise les résultats automatiquement, puis exporte un tableau complet.">
+  <meta name="keywords" content="Python, Playwright, pandas, openpyxl, requête par lots, automatisation du navigateur, traitement de données, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/fr/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/GaokaoQuery.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/GaokaoQuery.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/fr/projects/GaokaoQuery.html">
+  <meta property="og:title" content="Outil de Consultation Groupée des Résultats du Gaokao | Ray Chen">
+  <meta property="og:description" content="Lire une liste de noms, interroger les résultats d'admission via Playwright, les vérifier et les organiser avec pandas, puis exporter une synthèse Excel.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/fr/projects/GaokaoQuery.html">
+  <meta name="twitter:title" content="Outil de Consultation Groupée des Résultats du Gaokao | Ray Chen">
+  <meta name="twitter:description" content="Lire une liste de noms, interroger les résultats d'admission via Playwright, les vérifier et les organiser avec pandas, puis exporter une synthèse Excel.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">Python</span>
+      <h1>Outil de consultation groupée des résultats du Gaokao</h1>
+      <p>Transforme le travail manuel et répétitif de consultation des résultats d'admission, entrée par entrée, en un pipeline par lots : le script lit une liste de noms, interroge, vérifie et organise les résultats automatiquement, puis exporte un tableau récapitulatif complet.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Aperçu du projet">
+      <h2>Aperçu du projet</h2>
+      <p>L'outil s'adresse aux scénarios de consultation en masse. Il utilise Playwright pour piloter un navigateur vers l'interface de consultation des résultats d'admission de l'Autorité des examens de Pékin, récupère les résultats un à un, structure les données avec pandas et écrit un fichier Excel via openpyxl. En cours de route, il vérifie la correspondance des noms et consigne séparément les cas de résultat absent ou de spécialité vide, pour produire un tableau récapitulatif vérifiable à la main.</p>
+      <ul>
+      <li><strong>Consultation par lots</strong><span>La liste de noms est lue depuis un tableur et toutes les requêtes s'exécutent en une seule passe, ce qui supprime le travail manuel répétitif.</span></li>
+      <li><strong>Des résultats vérifiables</strong><span>Les noms qui ne correspondent pas, les requêtes sans résultat et les spécialités vides sont signalés séparément pour permettre une relecture humaine.</span></li>
+      <li><strong>Dépendances préparées automatiquement</strong><span>Le premier lancement vérifie la présence de pandas, playwright et openpyxl et installe ce qui manque.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="À propos de ce projet">
+      <h2>À propos de ce projet</h2>
+      <div class="project-guide-grid">
+      <article><h3>Objectif</h3><p>La consultation des résultats d'admission demande de saisir les informations et de noter les résultats une entrée à la fois, ce qui devient source d'erreurs et d'oublis dès que la liste s'allonge. Cet outil réunit la requête, la vérification et l'organisation en une seule étape.</p></article>
+      <article><h3>Fonctionnement</h3><p>Le script vérifie d'abord que les dépendances sont présentes et installe ce qui manque ; il lit ensuite la liste à interroger et utilise Playwright pour piloter un navigateur vers l'interface de consultation, en enregistrant chaque résultat à mesure ; il écrit enfin le tout dans Excel. Chaque résultat est comparé au nom figurant dans la liste, et les écarts sont signalés séparément.</p></article>
+      <article><h3>Outils utilisés</h3><p>Écrit en Python ; Playwright pour l'automatisation du navigateur ; pandas pour le traitement des données ; openpyxl pour l'export du tableur.</p></article>
+      <article><h3>Portée et limites</h3><p>L'outil vise l'organisation par lots, et les résultats suivent ce que renvoie l'interface officielle ; une panne réseau ou une modification de l'interface nécessite une vérification manuelle. Les informations personnelles sont traitées uniquement en local et ne sont jamais transmises à l'extérieur.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Déroulement</h2>
+        <p>De la lecture de la liste à l'export du tableau, quatre étapes s'enchaînent.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box-open"></i></span><h3>Vérifier et préparer les dépendances</h3><p>Le premier lancement détecte si pandas, playwright et openpyxl sont disponibles et installe ce qui manque, pour qu'un problème d'environnement n'interrompe pas le déroulement.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-list-check"></i></span><h3>Lire la liste à interroger</h3><p>Les entrées à consulter sont chargées depuis un tableur et servent d'entrée à tout le lot.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>Interroger et vérifier une à une</h3><p>Un navigateur est piloté vers l'interface de consultation pour récupérer les résultats, et chacun est comparé au nom de la liste, les écarts étant signalés séparément.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-excel"></i></span><h3>Organiser et exporter</h3><p>pandas structure les résultats et openpyxl écrit un tableau récapitulatif Excel, directement consultable et vérifiable.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-triangle-exclamation"></i></span><h3>Anomalies consignées séparément</h3><p>Les résultats absents et les spécialités d'admission vides ne sont pas silencieusement écartés, mais classés dans leurs propres catégories.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-lock"></i></span><h3>Les données restent locales</h3><p>Tout le traitement se fait sur la machine locale ; ni la liste de noms ni les résultats ne sont envoyés à un service tiers.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

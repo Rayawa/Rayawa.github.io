@@ -295,3 +295,31 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* 项目页的分类标签：与首页卡片上的 .tag-category 同一套视觉。 */
+.project-page .project-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  margin-bottom: 1.25rem;
+  padding: 0.3rem 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.project-page .project-category::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7dd3fc;
+  box-shadow: 0 0 8px rgba(125, 211, 252, 0.85);
+  flex-shrink: 0;
+}

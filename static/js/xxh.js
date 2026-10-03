@@ -223,9 +223,10 @@
 
   var XXH_TEXT = {
     zh: {
-      heroTitle: '恋爱契合度测试',
+      heroTitle: 'xxh的感情契合度测试',
       heroDesc: '两人依次在同一设备上匿名作答，从价值观、生活方式和附加议题三个维度比较答案；提交后给出总分、分项分数与逐题明细。计分只在浏览器里完成，答案不会上传。',
       privacyNote: '所有答案仅在本地浏览器处理，不会上传。',
+      category: '网页',
       backToProjects: '返回项目列表',
       startBtn: '开始测试',
       personA: 'A',
@@ -271,6 +272,7 @@
     heroTitle: 'Relationship Compatibility Test',
     heroDesc: 'Two people answer anonymously on the same device, in turn. The answers are compared across three dimensions — values, lifestyle and extra topics — and you get a total score, per-dimension scores and a question-by-question breakdown. Scoring runs entirely in the browser; nothing is uploaded.',
     privacyNote: 'Answers are processed only in this browser and are not uploaded.',
+    category: 'Web',
     backToProjects: 'Back to projects',
     startBtn: 'Start test', personA: 'Person A', personB: 'Person B',
     roundLabel: 'Round {n}: {who}', submitBtn: 'Submit this round',
@@ -293,6 +295,7 @@
     heroTitle: 'Test de compatibilité amoureuse',
     heroDesc: 'Deux personnes répondent anonymement sur le même appareil, l’une après l’autre. Les réponses sont comparées selon trois dimensions — valeurs, mode de vie et questions complémentaires — puis un score total, des scores par dimension et le détail question par question sont affichés. Le calcul se fait entièrement dans le navigateur ; rien n’est envoyé.',
     privacyNote: 'Les réponses sont traitées uniquement dans ce navigateur, sans envoi.',
+    category: 'Web',
     backToProjects: 'Retour aux projets',
     startBtn: 'Commencer', personA: 'Personne A', personB: 'Personne B',
     roundLabel: 'Tour {n} : {who}', submitBtn: 'Valider ce tour',
@@ -389,12 +392,13 @@
     // 不再套「项目速览 / 用途与使用」那套导览框。
     app.innerHTML =
       '<section class="project-intro xxh-landing">' +
+        '<span class="project-category">' + (i18n.category || '') + '</span>' +
         '<h1 class="lang-fade-target" data-i18n="heroTitle">' + (i18n.heroTitle || '') + '</h1>' +
         '<p class="lang-fade-target" data-i18n="heroDesc">' + (i18n.heroDesc || '') + '</p>' +
         '<p class="xxh-privacy lang-fade-target" data-i18n="privacyNote">' + (i18n.privacyNote || '') + '</p>' +
-        '<div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> ' + (i18n.backToProjects || '') + '</a></div>' +
         '<button class="btn xxh-start-btn" id="xxh-start"><i class="fas fa-heart"></i> <span data-i18n="startBtn">' + (i18n.startBtn || '') + '</span></button>' +
-      '</section>';
+      '</section>' +
+      '<div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> ' + (i18n.backToProjects || '') + '</a></div>';
     document.getElementById('xxh-start').addEventListener('click', onStart);
   }
 

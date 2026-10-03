@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cat and Dog Recognition with MindSpore | Ray Chen</title>
+  <meta name="description" content="A cat-and-dog image classification experiment built on MindSpore and MobileNetV2, deployed to Android for on-device inference through MindSpore Lite.">
+  <meta name="keywords" content="MindSpore, MobileNetV2, cat and dog classification, transfer learning, MindSpore Lite, on-device inference, Android, deep learning, Ascend, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/en/projects/PetSnap.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/PetSnap.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/PetSnap.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/PetSnap.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/PetSnap.html">
+  <meta property="og:title" content="Cat and Dog Recognition with MindSpore | Ray Chen">
+  <meta property="og:description" content="MindSpore and MobileNetV2 transfer learning, converted with MindSpore Lite and deployed to an Android phone for local inference.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/PetSnap.html">
+  <meta name="twitter:title" content="Cat and Dog Recognition with MindSpore | Ray Chen">
+  <meta name="twitter:description" content="MindSpore and MobileNetV2 transfer learning, converted with MindSpore Lite and deployed to an Android phone for local inference.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">HarmonyOS &amp; Ascend</span>
+      <h1>Cat and Dog Recognition with MindSpore</h1>
+      <p>A complete deep-learning experiment that runs from training all the way onto a phone: transfer learning for cat-and-dog binary classification with MindSpore and MobileNetV2, followed by conversion to MindSpore Lite format and deployment to an Android device for on-device inference.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Project overview">
+      <h2>Project Overview</h2>
+      <p>The project starts from the Kaggle cats-and-dogs dataset, moves through data cleaning and splitting, MobileNetV2 transfer-learning training and model conversion, and finally ships the .ms model inside an Android app that classifies gallery photos directly on the phone. The whole chain runs locally and relies on no cloud inference service.</p>
+      <ul>
+      <li><strong>Transfer learning on a frozen backbone</strong><span>The MobileNetV2 backbone stays frozen while only the classification head is fine-tuned, so the model still converges on a small dataset.</span></li>
+      <li><strong>Inference on the device</strong><span>The model is converted to MindSpore Lite format, so inference runs locally on the phone without a network connection.</span></li>
+      <li><strong>A documented five-step pipeline</strong><span>Data cleaning, training, conversion and deployment each come with their own notes and configuration.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="About this project">
+      <h2>About This Project</h2>
+      <div class="project-guide-grid">
+      <article><h3>What it sets out to do</h3><p>Carry a trained model all the way onto a phone, covering the full chain from data preparation to on-device inference.</p></article>
+      <article><h3>How it works</h3><p>A MobileNetV2 classifier is trained with MindSpore on a PC and exported to the MindIR intermediate format, then converted into a .ms model with the MindSpore Lite Converter, and finally pushed over ADB for the Android app to load.</p></article>
+      <article><h3>What it uses</h3><p>MindSpore 2.0 and MindSpore Lite Converter 2.0; MobileNetV2 as the model; Kaggle Cats vs Dogs (PetImages) as the dataset; opencv-python, matplotlib and Pillow among the dependencies.</p></article>
+      <article><h3>Scope and limits</h3><p>This is a course experiment meant to build understanding of transfer learning and on-device deployment. Recognition covers cat-versus-dog binary classification and does not extend to finer breed distinctions.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Five steps from data to phone</h2>
+        <p>Each step has clear inputs and outputs, so the pipeline can be reproduced in order.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-broom"></i></span><h3>Cleaning and splitting</h3><p>Corrupted and anomalous images are filtered out, then the set is divided into training and validation portions so dirty data does not drag training down.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-layer-group"></i></span><h3>Transfer-learning training</h3><p>A pretrained MobileNetV2 is loaded with its backbone weights frozen and only the classification head is trained, which converges quickly on a small dataset.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-export"></i></span><h3>Model conversion</h3><p>The training output is exported to MindIR and then converted by the MindSpore Lite Converter into the .ms format the device can load.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-mobile-screen"></i></span><h3>Deployment to the phone</h3><p>The model and its supporting assets are pushed over ADB into the Android app, and inference then runs entirely on the phone.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-line"></i></span><h3>Reviewing results</h3><p>Gallery photos are classified directly on the phone, and the outcomes are checked against the loss and accuracy curves recorded during training.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-circle-info"></i></span><h3>What this experiment is</h3><p>A deep-learning course experiment focused on connecting training to deployment, with no ambition to push classification accuracy to its limit.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

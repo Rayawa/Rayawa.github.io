@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Linked-List Car Rental Management System | Ray Chen</title>
+  <meta name="description" content="A C++11 command-line management system built without standard library containers: vehicles, customers and rental records are organised as singly linked lists, persisted to binary files, with statistics, ASCII bar charts and an operation log.">
+  <meta name="keywords" content="C++11, linked list, car rental, data structures, binary file persistence, command line, CMake, Ray Chen">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://rayawa.top/en/projects/CarRent.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CarRent.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CarRent.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CarRent.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/CarRent.html">
+  <meta property="og:title" content="Linked-List Car Rental Management System | Ray Chen">
+  <meta property="og:description" content="A C++11 command-line system where vehicles, customers and rentals live in hand-written singly linked lists and persist to binary files.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/CarRent.html">
+  <meta name="twitter:title" content="Linked-List Car Rental Management System | Ray Chen">
+  <meta name="twitter:description" content="A C++11 command-line system where vehicles, customers and rentals live in hand-written singly linked lists and persist to binary files.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro hero-card">
+
+      <span class="project-category">School Project</span>
+      <h1>Linked-List Car Rental Management System</h1>
+      <p>A C++11 command-line management system that uses no standard library containers: vehicles, customers and rental records are all organised as singly linked lists, data is persisted to binary files, and the program ships with statistical summaries, ASCII bar charts and an operation log.</p>
+    </section>
+
+    <section class="project-brief" aria-label="Project overview">
+      <h2>Project Overview</h2>
+      <p>The system is built around seven modules — vehicle information, rental customers, renting and returning, information queries, statistics, and system settings. Every data structure is a hand-written singly linked list; no vector or map is involved. Data is written to disk in a custom binary format that restores completely after a restart.</p>
+      <ul>
+      <li><strong>Hand-written data structures</strong><span>Nodes are managed through singly linked lists throughout, allocated and freed dynamically without leaning on standard library containers.</span></li>
+      <li><strong>Seven functional modules</strong><span>Vehicle, customer, rental, return, query, statistics and system settings modules form a complete business loop.</span></li>
+      <li><strong>Readable statistics output</strong><span>The statistics module renders grouped data as ASCII bar charts, alongside report export and an operation log.</span></li>
+      </ul>
+    </section>
+
+    <section class="project-guide" aria-label="About this project">
+      <h2>About This Project</h2>
+      <div class="project-guide-grid">
+      <article><h3>What it sets out to do</h3><p>Put the linked lists, file handling and modular design from coursework into a realistic business scenario, and check whether those fundamentals can genuinely carry a complete system.</p></article>
+      <article><h3>How it is organised</h3><p>The program revolves around car_rent.cpp, which gathers all constants, structs, list operations and business logic, while seven menu modules provide the individual entry points. Submodules are pulled in with #include, so the build only handles main.cpp as a translation unit.</p></article>
+      <article><h3>What it uses</h3><p>C++11 with constexpr and nullptr, depending only on cstdio, cstdlib, cstring and ctime; Make and CMake builds are both supported; the interface and comments are in Chinese with UTF-8 encoding.</p></article>
+      <article><h3>Scope and limits</h3><p>This is a course design project with a command-line interface, and data lives in local files rather than a database. Concurrent access and multi-user scenarios sit outside its design scope.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Seven functional modules</h2>
+        <p>From data maintenance to business transactions, statistics and system administration, the modules are tied together by shared linked-list data.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-car"></i></span><h3>Vehicle records</h3><p>Create, edit, delete and view vehicle records, maintaining the base data for rentable cars.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-user"></i></span><h3>Rental customers</h3><p>Maintain renter information that later rental and return transactions refer back to.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-signature"></i></span><h3>Renting and returning</h3><p>Handle rental and return transactions, validating vehicle status and updating both sides of the record.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>Information queries</h3><p>Categorical queries and fuzzy search locate records quickly by vehicle, customer or transaction criteria.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-column"></i></span><h3>Statistics</h3><p>Group and summarise by dimension, rendered as ASCII bar charts so the distribution of the data is visible at a glance.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-gear"></i></span><h3>System settings</h3><p>Password and login handling, report export, the operation log and data clearing round out administration.</p></article>
+      </div>
+    </section>
+
+    <section class="ps-section">
+      <div class="ps-section-head">
+        <h2>Two deliberate implementation choices</h2>
+        <p>The project makes conscious trade-offs around data structures and persistence.</p>
+      </div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>Singly linked lists throughout</h3><p>Every node is allocated with new and released with delete; insertion, removal and traversal are all written by hand as a complete exercise in list and pointer work.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-hard-drive"></i></span><h3>Binary file persistence</h3><p>Data is written to file in a custom binary layout and restored in the same layout on read, sidestepping the cost and ambiguity of text parsing.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-shield-halved"></i></span><h3>Input validation and fault tolerance</h3><p>Dates, identifiers and duplicate records are checked so that invalid input cannot corrupt the list structure or the statistics.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>Single translation unit</h3><p>The core logic sits in one cpp file with submodules pulled in through #include, making it easy to read line by line during coursework review.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-simple"></i></span><h3>ASCII visualisation</h3><p>Bar charts are drawn with plain characters rather than a graphics library, so statistics still render in a pure command-line environment.</p></article>
+        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-clock-rotate-left"></i></span><h3>Operation log</h3><p>Key actions leave a trail, making data changes easy to trace.</p></article>
+      </div>
+    </section>
+
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

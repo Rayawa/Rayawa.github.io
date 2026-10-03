@@ -1,179 +1,169 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Calculateur de Rang Identity V | Ray Chen</title>
   <meta name="description" content="Objectif de saison : du palier 4V au palier 6V (1250 points)">
   <meta name="keywords" content="Identity V, IDV, calculateur de rang, points classés, jeu, outil, Ray Chen, Voyant, rang A">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <link rel="canonical" href="https://rayawa.top/fr/projects/idv.html">
 
+  <link rel="canonical" href="https://rayawa.top/fr/projects/idv.html">
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/idv.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/idv.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/idv.html">
-  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/fr/projects/idv.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/idv.html">
   <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/fr/projects/idv.html">
-  <meta property="og:title" content="Identity V, C'est Parti ! | Ray Chen">
+  <meta property="og:title" content="Calculateur de Rang Identity V | Ray Chen">
   <meta property="og:description" content="Objectif de saison : du palier 4V au palier 6V (1250 points)">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="1200">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Site Web de Ray Chen">
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/fr/projects/idv.html">
-  <meta name="twitter:title" content="Identity V, C'est Parti ! | Ray Chen">
+  <meta name="twitter:title" content="Calculateur de Rang Identity V | Ray Chen">
   <meta name="twitter:description" content="Objectif de saison : du palier 4V au palier 6V (1250 points)">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
-<script src="https://cdn.tailwindcss.com"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            // 第五人格主题配色
-            'idv-dark': '#1a1a2e',
-            'idv-primary': '#16213e',
-            'idv-secondary': '#0f3460',
-            'idv-accent': '#e94560',
-            'idv-highlight': '#f9a826',
-            'idv-bronze': '#cd7f32',
-            'idv-silver': '#c0c0c0',
-            'idv-gold': '#ffd700',
-            'rank-4': '#765d32', // 四阶
-            'rank-5': '#8a6d3b', // 五阶
-            'rank-6': '#f39c12', // 六阶
-            'rank-star': '#ffcc00', // 星星颜色
-            'rank-progress': '#3498db', // 进度条颜色
-            'rank-completed': '#2ecc71' // 已完成颜色
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          },
-          animation: {
-            'bounce-slow': 'bounce 2s infinite',
-            'pulse-slow': 'pulse 3s infinite',
-            'fade-in': 'fadeIn 0.5s ease-in',
-            'slide-in': 'slideIn 0.3s ease-out',
-            'star-glow': 'starGlow 1.5s ease-in-out infinite'
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0', transform: 'translateY(10px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' }
-            },
-            slideIn: {
-              '0%': { opacity: '0', transform: 'translateX(-10px)' },
-              '100%': { opacity: '1', transform: 'translateX(0)' }
-            },
-            starGlow: {
-              '0%, 100%': { opacity: 1, transform: 'scale(1)' },
-              '50%': { opacity: 0.8, transform: 'scale(1.1)' }
-            }
-          }
-        }
-      }
-    }
+  tailwind.config = {
+  theme: {
+  extend: {
+  colors: {
+  // 第五人格主题配色
+  'idv-dark': '#1a1a2e',
+  'idv-primary': '#16213e',
+  'idv-secondary': '#0f3460',
+  'idv-accent': '#e94560',
+  'idv-highlight': '#f9a826',
+  'idv-bronze': '#cd7f32',
+  'idv-silver': '#c0c0c0',
+  'idv-gold': '#ffd700',
+  'rank-4': '#765d32', // 四阶
+  'rank-5': '#8a6d3b', // 五阶
+  'rank-6': '#f39c12', // 六阶
+  'rank-star': '#ffcc00', // 星星颜色
+  'rank-progress': '#3498db', // 进度条颜色
+  'rank-completed': '#2ecc71' // 已完成颜色
+  },
+  fontFamily: {
+  sans: ['Inter', 'system-ui', 'sans-serif']
+  },
+  animation: {
+  'bounce-slow': 'bounce 2s infinite',
+  'pulse-slow': 'pulse 3s infinite',
+  'fade-in': 'fadeIn 0.5s ease-in',
+  'slide-in': 'slideIn 0.3s ease-out',
+  'star-glow': 'starGlow 1.5s ease-in-out infinite'
+  },
+  keyframes: {
+  fadeIn: {
+  '0%': { opacity: '0', transform: 'translateY(10px)' },
+  '100%': { opacity: '1', transform: 'translateY(0)' }
+  },
+  slideIn: {
+  '0%': { opacity: '0', transform: 'translateX(-10px)' },
+  '100%': { opacity: '1', transform: 'translateX(0)' }
+  },
+  starGlow: {
+  '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+  '50%': { opacity: 0.8, transform: 'scale(1.1)' }
+  }
+  }
+  }
+  }
+  }
   </script>
-  
   <style>
-      .glass {
-        background: rgba(26, 26, 46, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(15, 52, 96, 0.3);
-      }
-
-      .card-shadow {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      }
-
-      .btn-hover {
-        transition: all 0.3s;
-        transform: scale(1);
-      }
-      .btn-hover:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
-      .btn-hover:active {
-        transform: scale(0.95);
-      }
-
-      .input-focus {
-        transition: all 0.3s;
-      }
-      .input-focus:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
-        border-color: #e94560;
-      }
-
-      .number-animation {
-        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-
-      .progress-gradient {
-        background: linear-gradient(90deg, #0f3460 0%, #3498db 50%, #2ecc71 100%);
-      }
-
-      .history-item {
-        transition: all 0.3s;
-      }
-      .history-item:hover {
-        background-color: #16213e;
-      }
-
-      /* 段位星星样式 */
-      .rank-star {
-        color: #ffcc00;
-        text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
-      }
-
-      .star-empty {
-        color: #555;
-      }
-
-      /* 段位节点样式 */
-      .rank-node {
-        transition: all 0.3s ease;
-      }
-
-      .current-rank-node {
-        box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
-        border: 2px solid #e94560;
-      }
-
-      .completed-rank-node {
-        box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
-      }
-
-      .rank-4 .rank-circle {
-        background: linear-gradient(135deg, #765d32, #d4a99a);
-      }
-
-      .rank-5 .rank-circle {
-        background: linear-gradient(135deg, #8a6d3b, #e2c46a);
-      }
-
-      .rank-6 .rank-circle {
-        background: linear-gradient(135deg, #f39c12, #f9a826);
-      }
-      .fab-tools { display: none !important; }
-      /* 导航栏留白。写成 .project-tool .project-tool-content 是为盖过
-         common.css 里 .container 的 padding（同特指度、后加载者胜）。 */
-      .project-tool .project-tool-content { padding-top: 8.5rem; }
-    </style>
-    <link rel="stylesheet" href="/static/css/common.css">
-    <link rel="stylesheet" href="/static/css/project-layout.css">
+  .glass {
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(15, 52, 96, 0.3);
+  }
+  .card-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .btn-hover {
+  transition: all 0.3s;
+  transform: scale(1);
+  }
+  .btn-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  .btn-hover:active {
+  transform: scale(0.95);
+  }
+  .input-focus {
+  transition: all 0.3s;
+  }
+  .input-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+  border-color: #e94560;
+  }
+  .number-animation {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .progress-gradient {
+  background: linear-gradient(90deg, #0f3460 0%, #3498db 50%, #2ecc71 100%);
+  }
+  .history-item {
+  transition: all 0.3s;
+  }
+  .history-item:hover {
+  background-color: #16213e;
+  }
+  /* 段位星星样式 */
+  .rank-star {
+  color: #ffcc00;
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+  }
+  .star-empty {
+  color: #555;
+  }
+  /* 段位节点样式 */
+  .rank-node {
+  transition: all 0.3s ease;
+  }
+  .current-rank-node {
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+  border: 2px solid #e94560;
+  }
+  .completed-rank-node {
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+  }
+  .rank-4 .rank-circle {
+  background: linear-gradient(135deg, #765d32, #d4a99a);
+  }
+  .rank-5 .rank-circle {
+  background: linear-gradient(135deg, #8a6d3b, #e2c46a);
+  }
+  .rank-6 .rank-circle {
+  background: linear-gradient(135deg, #f39c12, #f9a826);
+  }
+  .fab-tools { display: none !important; }
+  /* 导航栏留白。写成 .project-tool .project-tool-content 是为盖过
+  common.css 里 .container 的 padding（同特指度、后加载者胜）。 */
+  .project-tool .project-tool-content { padding-top: 8.5rem; }
+  </style>
 </head>
 <body class="project-tool idv-page bg-gradient-to-br from-idv-dark to-idv-primary min-h-screen font-sans text-white">
   <div id="site-navbar"></div>
@@ -192,53 +182,53 @@
       <!-- 1. 顶部：结果展示区域 -->
       <div class="space-y-6 mb-8">
         <h2 class="text-xl font-semibold text-center mb-4 flex items-center justify-center">
-          <i class="fa fa-calculator mr-3 text-idv-accent"></i>计算结果
+          <i class="fa fa-calculator mr-3 text-idv-accent"></i>Results
         </h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
-          <!-- 剩余天数 -->
+          <!-- Days left -->
           <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-idv-highlight mb-2">
               <i class="fa fa-clock-o text-lg"></i>
             </div>
-            <p class="text-sm text-gray-300 mb-1">剩余天数</p>
+            <p class="text-sm text-gray-300 mb-1">Days left</p>
             <p id="daysRemaining" class="text-2xl font-bold text-white number-animation">70</p>
           </div>
           
-          <!-- 日均积分 -->
+          <!-- 日均Points -->
           <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-rank-completed mb-2">
               <i class="fa fa-calendar text-lg"></i>
             </div>
-            <p class="text-sm text-gray-300 mb-1">日均所需积分</p>
+            <p class="text-sm text-gray-300 mb-1">Points per day</p>
             <p id="dailyPoints" class="text-2xl font-bold text-white number-animation">14</p>
           </div>
           
-          <!-- 当前积分 -->
+          <!-- Current points -->
           <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-idv-highlight mb-2">
               <i class="fa fa-star text-lg"></i>
             </div>
-            <p class="text-sm text-gray-300 mb-1">当前积分</p>
+            <p class="text-sm text-gray-300 mb-1">Current points</p>
             <p id="currentPointsDisplay" class="text-2xl font-bold text-idv-highlight number-animation">0</p>
           </div>
           
-          <!-- 目标积分 -->
+          <!-- Target points -->
           <div class="bg-idv-primary/70 rounded-xl p-4 text-center hover:shadow-md transition-shadow duration-300">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-idv-secondary text-rank-progress mb-2">
               <i class="fa fa-flag text-lg"></i>
             </div>
-            <p class="text-sm text-gray-300 mb-1">目标积分</p>
+            <p class="text-sm text-gray-300 mb-1">Target points</p>
             <p id="totalPoints" class="text-2xl font-bold text-white number-animation">1250</p>
           </div>
         </div>
         
-        <!-- 积分进度条 -->
+        <!-- Points progress条 -->
         <div class="bg-idv-primary/70 rounded-xl p-4">
           <div class="flex justify-between items-center mb-2">
             <div>
-              <span class="text-sm font-medium text-gray-300">积分进度</span>
-              <span class="text-xs text-gray-400 ml-2">(当前积分/目标积分)</span>
+              <span class="text-sm font-medium text-gray-300">Points progress</span>
+              <span class="text-xs text-gray-400 ml-2">(current / target)</span>
             </div>
             <div class="flex items-center">
               <span id="progressPoints" class="text-sm font-medium text-gray-300 mr-2">0/1000</span>
@@ -250,7 +240,7 @@
           </div>
           <div class="flex justify-between mt-2">
             <span class="text-xs text-gray-400">0</span>
-            <span class="text-xs text-gray-400">目标积分 (1250)</span>
+            <span class="text-xs text-gray-400">Target points (1250)</span>
           </div>
         </div>
       </div>
@@ -259,11 +249,11 @@
       <div class="bg-idv-primary/70 rounded-xl p-6 mb-8">
         <div class="flex justify-between items-center mb-6">
           <h3 class="text-lg font-semibold text-gray-300">
-            <i class="fa fa-trophy mr-3 text-idv-highlight"></i>当前段位进度
+            <i class="fa fa-trophy mr-3 text-idv-highlight"></i>Current rank progress
           </h3>
           <div class="text-right">
-            <span id="currentRankDisplay" class="text-xl font-bold text-idv-highlight">四阶V</span>
-            <div class="text-sm text-gray-400">当前积分: <span id="rankPointsDisplay" class="font-medium">0</span></div>
+            <span id="currentRankDisplay" class="text-xl font-bold text-idv-highlight">IV-V</span>
+            <div class="text-sm text-gray-400">Current points: <span id="rankPointsDisplay" class="font-medium">0</span></div>
           </div>
         </div>
         
@@ -277,7 +267,7 @@
           
           <!-- 段位节点 -->
           <div class="relative flex justify-between">
-            <!-- 四阶V -->
+            <!-- IV-V -->
             <div class="rank-node rank-4 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">4V</span>
@@ -289,11 +279,11 @@
                   <span class="rank-star">★</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">四阶V</span>
+              <span class="text-xs text-gray-300 font-medium">IV-V</span>
               <span class="text-xs text-gray-400">0-100</span>
             </div>
             
-            <!-- 四阶IV -->
+            <!-- IV-IV -->
             <div class="rank-node rank-4 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">4IV</span>
@@ -305,11 +295,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">四阶IV</span>
+              <span class="text-xs text-gray-300 font-medium">IV-IV</span>
               <span class="text-xs text-gray-400">101-200</span>
             </div>
             
-            <!-- 四阶III -->
+            <!-- IV-III -->
             <div class="rank-node rank-4 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">4III</span>
@@ -321,11 +311,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">四阶III</span>
+              <span class="text-xs text-gray-300 font-medium">IV-III</span>
               <span class="text-xs text-gray-400">201-300</span>
             </div>
             
-            <!-- 四阶II -->
+            <!-- IV-II -->
             <div class="rank-node rank-4 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">4II</span>
@@ -337,11 +327,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">四阶II</span>
+              <span class="text-xs text-gray-300 font-medium">IV-II</span>
               <span class="text-xs text-gray-400">301-400</span>
             </div>
             
-            <!-- 四阶I -->
+            <!-- IV-I -->
             <div class="rank-node rank-4 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">4I</span>
@@ -353,11 +343,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">四阶I</span>
+              <span class="text-xs text-gray-300 font-medium">IV-I</span>
               <span class="text-xs text-gray-400">401-500</span>
             </div>
             
-            <!-- 五阶V -->
+            <!-- V-V -->
             <div class="rank-node rank-5 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">5V</span>
@@ -369,11 +359,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">五阶V</span>
+              <span class="text-xs text-gray-300 font-medium">V-V</span>
               <span class="text-xs text-gray-400">501-650</span>
             </div>
             
-            <!-- 五阶IV -->
+            <!-- V-IV -->
             <div class="rank-node rank-5 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">5IV</span>
@@ -385,11 +375,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">五阶IV</span>
+              <span class="text-xs text-gray-300 font-medium">V-IV</span>
               <span class="text-xs text-gray-400">651-800</span>
             </div>
             
-            <!-- 五阶III -->
+            <!-- V-III -->
             <div class="rank-node rank-5 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">5III</span>
@@ -401,11 +391,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">五阶III</span>
+              <span class="text-xs text-gray-300 font-medium">V-III</span>
               <span class="text-xs text-gray-400">801-950</span>
             </div>
             
-            <!-- 五阶II -->
+            <!-- V-II -->
             <div class="rank-node rank-5 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">5II</span>
@@ -417,11 +407,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">五阶II</span>
+              <span class="text-xs text-gray-300 font-medium">V-II</span>
               <span class="text-xs text-gray-400">951-1100</span>
             </div>
             
-            <!-- 五阶I -->
+            <!-- V-I -->
             <div class="rank-node rank-5 flex flex-col items-center w-20">
               <div class="rank-circle w-14 h-14 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-xs font-bold text-white">5I</span>
@@ -433,11 +423,11 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">五阶I</span>
+              <span class="text-xs text-gray-300 font-medium">V-I</span>
               <span class="text-xs text-gray-400">1101-1250</span>
             </div>
             
-            <!-- 六阶V (终点) -->
+            <!-- VI-V (终点) -->
             <div class="rank-node rank-6 flex flex-col items-center w-20">
               <div class="rank-circle w-16 h-16 rounded-full flex flex-col items-center justify-center mb-2 relative">
                 <span class="text-sm font-bold text-white">6V</span>
@@ -449,47 +439,47 @@
                   <span class="star-empty">☆</span>
                 </div>
               </div>
-              <span class="text-xs text-gray-300 font-medium">六阶V</span>
-              <span class="text-xs text-gray-400">目标</span>
+              <span class="text-xs text-gray-300 font-medium">VI-V</span>
+              <span class="text-xs text-gray-400">Target</span>
             </div>
           </div>
         </div>
         
         <!-- 段位说明 -->
         <div class="text-center text-sm text-gray-400">
-          <p>每个段位需要100积分，每20积分点亮一颗星星 (共5星)</p>
-          <p>当前进度: <span id="currentRankProgress" class="text-idv-highlight font-medium">0% (0/100)</span></p>
+          <p>Each rank needs 100 points; every 20 points lights one star (5 stars in total)</p>
+          <p>Current progress: <span id="currentRankProgress" class="text-idv-highlight font-medium">0% (0/100)</span></p>
         </div>
       </div>
       
-      <!-- 3. 积分调整区域 -->
+      <!-- 3. Points adjustment区域 -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <!-- 左侧：积分调整 -->
+        <!-- 左侧：Points adjustment -->
         <div class="bg-idv-primary/70 rounded-xl p-6">
           <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center">
-            <i class="fa fa-line-chart mr-3 text-idv-accent"></i>积分调整
+            <i class="fa fa-line-chart mr-3 text-idv-accent"></i>Points adjustment
           </h3>
           
-          <!-- 当前积分显示 -->
+          <!-- Current points显示 -->
           <div class="mb-6">
             <div class="flex items-center justify-between bg-idv-secondary rounded-lg p-4">
               <div>
                 <h4 class="text-sm font-medium text-gray-300 mb-1">
-                  <i class="fa fa-star mr-2 text-idv-highlight"></i>当前积分
+                  <i class="fa fa-star mr-2 text-idv-highlight"></i>Current points
                 </h4>
-                <p class="text-xs text-gray-400">手动调整当前积分</p>
+                <p class="text-xs text-gray-400">Adjust current points manually</p>
               </div>
               <div class="text-right">
                 <div class="text-3xl font-bold text-idv-highlight" id="manualPointsDisplay">0</div>
-                <div class="text-xs text-gray-400">积分</div>
+                <div class="text-xs text-gray-400">Points</div>
               </div>
             </div>
           </div>
           
-          <!-- 积分调整操作 -->
+          <!-- Points adjustment操作 -->
           <div class="space-y-4">
             <div class="space-y-3">
-              <label for="adjustInput" class="block text-sm font-medium text-gray-300">段位分输入</label>
+              <label for="adjustInput" class="block text-sm font-medium text-gray-300">Rank point input</label>
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                   <i class="fa fa-edit"></i>
@@ -498,7 +488,7 @@
                   type="number" 
                   id="adjustInput" 
                   class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus" 
-                  placeholder="输入调整值，如 +10 或 -3"
+                  placeholder="Enter an adjustment, e.g. +10 or -3"
                   value="+50"
                 >
               </div>
@@ -513,7 +503,7 @@
                 id="applyAdjustBtn" 
                 class="flex-1 bg-idv-accent hover:bg-idv-accent/90 text-white px-4 py-3 rounded-lg btn-hover flex items-center justify-center"
               >
-                <i class="fa fa-check mr-2"></i>提交调整
+                <i class="fa fa-check mr-2"></i>Apply adjustment
               </button>
               <button 
                 id="resetManualBtn" 
@@ -529,10 +519,10 @@
         <div class="bg-idv-primary/70 rounded-xl p-6">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-semibold text-gray-300 flex items-center">
-              <i class="fa fa-history mr-3 text-idv-accent"></i>调整历史记录
+              <i class="fa fa-history mr-3 text-idv-accent"></i>Adjustment history
             </h3>
             <div class="text-sm text-gray-400">
-              共 <span id="historyCount">0</span> 条记录
+              Total  <span id="historyCount">0</span>  records
             </div>
           </div>
           
@@ -540,19 +530,19 @@
             <!-- 历史记录将通过JavaScript动态添加 -->
             <div class="text-center py-8 text-gray-500" id="emptyHistoryMessage">
               <i class="fa fa-history text-3xl mb-3"></i>
-              <p>暂无调整记录</p>
-              <p class="text-xs mt-2">调整积分后，记录将显示在这里</p>
+              <p>No adjustments yet</p>
+              <p class="text-xs mt-2">Your records will appear here after you adjust points</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- 4. 底部：日期和目标设置 -->
+      <!-- 4. 底部：日期和Target设置 -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <!-- 开始日期选择 -->
+        <!-- Start date选择 -->
         <div class="space-y-4">
           <label for="startDate" class="block text-sm font-medium text-gray-300">
-            <i class="fa fa-calendar-check-o mr-2 text-rank-completed"></i>开始日期
+            <i class="fa fa-calendar-check-o mr-2 text-rank-completed"></i>Start date
           </label>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -566,10 +556,10 @@
           </div>
         </div>
         
-        <!-- 结束日期选择 -->
+        <!-- End date选择 -->
         <div class="space-y-4">
           <label for="endDate" class="block text-sm font-medium text-gray-300">
-            <i class="fa fa-calendar-times-o mr-2 text-idv-accent"></i>结束日期
+            <i class="fa fa-calendar-times-o mr-2 text-idv-accent"></i>End date
           </label>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -583,10 +573,10 @@
           </div>
         </div>
         
-        <!-- 目标积分输入 -->
+        <!-- Target points输入 -->
         <div class="space-y-4">
           <label for="targetPoints" class="block text-sm font-medium text-gray-300">
-            <i class="fa fa-bullseye mr-2 text-idv-highlight"></i>目标积分
+            <i class="fa fa-bullseye mr-2 text-idv-highlight"></i>Target points
           </label>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -596,7 +586,7 @@
               type="number" 
               id="targetPoints" 
               class="w-full pl-10 pr-4 py-3 rounded-lg bg-idv-secondary border border-idv-secondary text-white input-focus" 
-              placeholder="输入目标积分" 
+              placeholder="Saisissez les points cibles" 
               min="0"
               value="1250"
             >
@@ -610,7 +600,7 @@
           id="resetBtn" 
           class="bg-idv-secondary hover:bg-idv-primary text-white px-6 py-3 rounded-lg btn-hover flex items-center justify-center"
         >
-          <i class="fa fa-refresh mr-2"></i>重置计算器
+          <i class="fa fa-refresh mr-2"></i>Reset calculator
         </button>
       </div>
     </div>
@@ -624,6 +614,8 @@
     </div>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
+
+  <div id="site-footer"></div>
 
   <script>
     // DOM 元素
@@ -658,22 +650,22 @@
     
     // 历史记录数据
     let history = [];
-    // 当前积分（初始为0）
+    // Current points（初始为0）
     let currentPoints = 0;
     
     // 段位定义
     const rankDefinitions = [
-      { name: "四阶V", min: 0, max: 100, stars: 5, starValue: 20, color: "rank-4" },
-      { name: "四阶IV", min: 101, max: 200, stars: 5, starValue: 20, color: "rank-4" },
-      { name: "四阶III", min: 201, max: 300, stars: 5, starValue: 20, color: "rank-4" },
-      { name: "四阶II", min: 301, max: 400, stars: 5, starValue: 20, color: "rank-4" },
-      { name: "四阶I", min: 401, max: 500, stars: 5, starValue: 20, color: "rank-4" },
-      { name: "五阶V", min: 501, max: 650, stars: 5, starValue: 30, color: "rank-5" },
-      { name: "五阶IV", min: 651, max: 800, stars: 5, starValue: 30, color: "rank-5" },
-      { name: "五阶III", min: 801, max: 950, stars: 5, starValue: 30, color: "rank-5" },
-      { name: "五阶II", min: 951, max: 1100, stars: 5, starValue: 30, color: "rank-5" },
-      { name: "五阶I", min: 1101, max: 1250, stars: 5, starValue: 30, color: "rank-5" },
-      { name: "六阶V", min: 1251, max: Infinity, stars: 5, starValue: 30, color: "rank-6" }
+      { name: "IV-V", min: 0, max: 100, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "IV-IV", min: 101, max: 200, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "IV-III", min: 201, max: 300, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "IV-II", min: 301, max: 400, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "IV-I", min: 401, max: 500, stars: 5, starValue: 20, color: "rank-4" },
+      { name: "V-V", min: 501, max: 650, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "V-IV", min: 651, max: 800, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "V-III", min: 801, max: 950, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "V-II", min: 951, max: 1100, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "V-I", min: 1101, max: 1250, stars: 5, starValue: 30, color: "rank-5" },
+      { name: "VI-V", min: 1251, max: Infinity, stars: 5, starValue: 30, color: "rank-6" }
     ];
     
     // 初始化日期和计算
@@ -686,10 +678,10 @@
     endDateInput.addEventListener('change', calculatePoints);
     targetPointsInput.addEventListener('input', calculatePoints);
     
-    // 提交调整按钮
+    // Apply adjustment按钮
     applyAdjustBtn.addEventListener('click', applyAdjustment);
     
-    // 重置手动积分按钮
+    // 重置手动Points按钮
     resetManualBtn.addEventListener('click', resetManualPoints);
     
     // 重置按钮
@@ -711,36 +703,36 @@
     
     // 初始化日期
     function initializeDates() {
-      // 设置开始日期为2025/11/27
+      // 设置Start date为2025/11/27
       const startDate = new Date('2025-11-27');
       startDateInput.valueAsDate = startDate;
       
-      // 设置结束日期为2026/2/5
+      // 设置End date为2026/2/5
       const endDate = new Date('2026-02-05');
       endDateInput.valueAsDate = endDate;
       
-      // 设置目标积分为1250
+      // 设置Target points为1250
       targetPointsInput.value = 1250;
     }
     
     // 应用调整
     function applyAdjustment() {
       const adjustValue = parseInt(adjustInput.value) || 0;
-      const note = adjustValue > 0 ? '积分增加' : '积分减少';
+      const note = adjustValue > 0 ? 'Points added' : 'Points removed';
       
       if (adjustValue === 0) {
-        showNotification('请输入非零的调整值', 'error');
+        showNotification('Enter a non-zero adjustment', 'error');
         return;
       }
       
-      // 计算新积分
+      // 计算新Points
       const newPoints = Math.max(0, currentPoints + adjustValue);
       const pointsChange = newPoints - currentPoints;
       
       // 添加历史记录
       addHistoryRecord(pointsChange, note, newPoints);
       
-      // 更新当前积分
+      // 更新Current points
       currentPoints = newPoints;
       
       // 更新显示
@@ -750,8 +742,8 @@
       calculatePoints();
       
       // 显示成功消息
-      const action = adjustValue > 0 ? '增加' : '减少';
-      showNotification(`成功${action} ${Math.abs(adjustValue)} 积分`, 'success');
+      const action = adjustValue > 0 ? 'Add' : 'Remove';
+      showNotification(`${action}: ${Math.abs(adjustValue)} points applied`, 'success');
       
       // 清空输入框
       adjustInput.value = adjustValue > 0 ? '+50' : '-30';
@@ -805,14 +797,14 @@
               </div>
               <div>
                 <p class="text-sm font-medium ${record.adjustValue > 0 ? 'text-green-300' : 'text-red-300'}">
-                  ${record.adjustValue > 0 ? '+' : ''}${record.adjustValue} 积分
+                  ${record.adjustValue > 0 ? '+' : ''}${record.adjustValue} Points
                 </p>
                 <p class="text-xs text-gray-400">${record.note}</p>
               </div>
             </div>
             <div class="text-right flex items-center">
               <div class="mr-3">
-                <p class="text-sm font-medium text-gray-300">${record.newTotal} 积分</p>
+                <p class="text-sm font-medium text-gray-300">${record.newTotal} Points</p>
                 <p class="text-xs text-gray-500">${formatTime(record.timestamp)}</p>
               </div>
               <button class="delete-history-btn text-gray-400 hover:text-idv-accent p-1" data-id="${record.id}">
@@ -835,7 +827,7 @@
     
     // 删除单条历史记录
     function deleteHistoryRecord(recordId) {
-      if (!confirm('确定要删除这条记录吗？删除后积分将相应调整。')) {
+      if (!confirm('Delete this record? Your points will be adjusted accordingly.')) {
         return;
       }
       
@@ -849,13 +841,13 @@
       // 从历史记录中删除
       history.splice(recordIndex, 1);
       
-      // 重新计算当前积分：从0开始，按剩余记录重新计算
+      // 重新计算Current points：从0开始，按剩余记录重新计算
       let recalculatedPoints = 0;
       history.forEach(r => {
         recalculatedPoints += r.adjustValue;
       });
       
-      // 更新当前积分
+      // 更新Current points
       currentPoints = Math.max(0, recalculatedPoints);
       
       // 更新显示
@@ -864,7 +856,7 @@
       calculatePoints();
       
       // 显示通知
-      showNotification(`已删除记录，积分调整 ${adjustValue > 0 ? '减少' : '增加'} ${Math.abs(adjustValue)} 积分`, 'info');
+      showNotification(`Record deleted — points adjusted by ${adjustValue > 0 ? 'removing' : 'adding'} ${Math.abs(adjustValue)} points`, 'info');
       
       // 保存历史记录到本地存储
       saveHistory();
@@ -875,28 +867,28 @@
       const now = new Date();
       const recordDate = new Date(date);
       
-      // 如果是今天，显示时间
+      // 如果是Today ，显示时间
       if (recordDate.toDateString() === now.toDateString()) {
-        return `今天 ${recordDate.getHours().toString().padStart(2, '0')}:${recordDate.getMinutes().toString().padStart(2, '0')}`;
+        return `Today  ${recordDate.getHours().toString().padStart(2, '0')}:${recordDate.getMinutes().toString().padStart(2, '0')}`;
       }
       
-      // 如果是昨天，显示昨天
+      // 如果是Yesterday ，显示Yesterday 
       const yesterday = new Date(now);
       yesterday.setDate(yesterday.getDate() - 1);
       if (recordDate.toDateString() === yesterday.toDateString()) {
-        return `昨天 ${recordDate.getHours().toString().padStart(2, '0')}:${recordDate.getMinutes().toString().padStart(2, '0')}`;
+        return `Yesterday  ${recordDate.getHours().toString().padStart(2, '0')}:${recordDate.getMinutes().toString().padStart(2, '0')}`;
       }
       
       // 否则显示日期
       return `${recordDate.getMonth() + 1}/${recordDate.getDate()} ${recordDate.getHours().toString().padStart(2, '0')}:${recordDate.getMinutes().toString().padStart(2, '0')}`;
     }
     
-    // 重置手动积分
+    // 重置手动Points
     function resetManualPoints() {
       currentPoints = 0;
       updatePointsDisplay();
       calculatePoints();
-      showNotification('当前积分已重置为0', 'success');
+      showNotification('Points actuels réinitialisés à 0', 'success');
     }
     
     // 保存历史记录到本地存储
@@ -904,7 +896,7 @@
       try {
         localStorage.setItem('idvRankHistory', JSON.stringify(history));
       } catch (e) {
-        console.error('无法保存历史记录:', e);
+        console.error("Échec de l'enregistrement de l'historique :", e);
       }
     }
     
@@ -919,7 +911,7 @@
             record.timestamp = new Date(record.timestamp);
           });
           
-          // 重新计算当前积分
+          // 重新计算Current points
           currentPoints = 0;
           history.forEach(r => {
             currentPoints += r.adjustValue;
@@ -930,18 +922,18 @@
           updateHistoryDisplay();
         }
       } catch (e) {
-        console.error('无法加载历史记录:', e);
+        console.error("Échec du chargement de l'historique :", e);
       }
     }
     
-    // 更新积分显示
+    // 更新Points显示
     function updatePointsDisplay() {
       animateNumber(currentPointsDisplay, currentPoints);
       animateNumber(manualPointsDisplay, currentPoints);
       rankPointsDisplay.textContent = currentPoints;
     }
     
-    // 计算积分
+    // 计算Points
     function calculatePoints() {
       const startDate = new Date(startDateInput.value);
       const endDate = new Date(endDateInput.value);
@@ -950,21 +942,21 @@
       
       // 验证日期
       if (endDate <= startDate) {
-        showNotification('结束日期必须晚于开始日期', 'error');
+        showNotification('La date de fin doit être postérieure à la date de début', 'error');
         return;
       }
       
-      // 计算剩余天数（从今天到结束日期）
+      // 计算Days left（从Today 到End date）
       const timeDiff = endDate.getTime() - Math.max(startDate.getTime(), today.getTime());
       const daysRemaining = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
       
-      // 计算剩余积分
+      // 计算剩余Points
       const remainingPoints = Math.max(0, targetPoints - currentPoints);
       
-      // 计算日均积分
+      // 计算日均Points
       const dailyPoints = Math.ceil(remainingPoints / daysRemaining);
       
-      // 计算积分进度百分比
+      // 计算Points progress百分比
       let progressPercent = 0;
       if (targetPoints > 0) {
         progressPercent = Math.min(100, (currentPoints / targetPoints) * 100);
@@ -1009,12 +1001,12 @@
       requestAnimationFrame(updateNumber);
     }
     
-    // 重置计算器
+    // Reset calculator
     function resetCalculator() {
       // 重置日期
       initializeDates();
       
-      // 重置当前积分
+      // 重置Current points
       currentPoints = 0;
       updatePointsDisplay();
       
@@ -1025,7 +1017,7 @@
       
       // 重新计算
       calculatePoints();
-      showNotification('计算器已重置', 'success');
+      showNotification('Calculateur réinitialisé', 'success');
     }
     
     // 计算当前段位
@@ -1035,7 +1027,7 @@
           return rank;
         }
       }
-      return rankDefinitions[0]; // 默认返回四阶V
+      return rankDefinitions[0]; // 默认返回IV-V
     }
     
     // 更新段位显示
@@ -1054,7 +1046,7 @@
       const totalProgressPercent = (points / 1000) * 100;
       rankProgressBar.style.width = `${Math.min(100, totalProgressPercent)}%`;
       
-      // 更新当前段位进度文本
+      // 更新Current rank progress文本
       currentRankProgress.textContent = `${Math.round(rankProgress)}% (${points - currentRank.min}/${rankRange})`;
       
       // 更新所有段位节点的星星显示
@@ -1177,6 +1169,7 @@
   
   
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../../static/js/footer.js"></script>
     <script src="../../static/js/common.js"></script>
 </body>
 </html>

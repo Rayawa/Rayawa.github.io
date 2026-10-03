@@ -3,23 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>VideoTextGen | Ray Chen</title>
+  <title>文本视频生成流 | Ray Chen</title>
   <meta name="description" content="由 OpenCode 调度的本地视频生产工作区，覆盖脚本、配音、字幕对齐、分镜、渲染、合成、QA、返修与交付。">
   <meta name="keywords" content="VideoTextGen, OpenCode, 视频自动化, FFmpeg, Playwright, Voicebox, WhisperX, TypeScript, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
   <link rel="canonical" href="https://rayawa.top/projects/VideoTextGen.html">
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/VideoTextGen.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/VideoTextGen.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/VideoTextGen.html">
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/VideoTextGen.html">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/VideoTextGen.html">
-  <meta property="og:title" content="VideoTextGen | Ray Chen">
+  <meta property="og:title" content="文本视频生成流 | Ray Chen">
   <meta property="og:description" content="可复现、可审查、可局部返修的本地 AI 视频生产流水线。">
-  <meta property="og:image" content="https://rayawa.top/static/resources/videotextgen/first-screen.png">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Ray Chen's Website">
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://rayawa.top/static/resources/videotextgen/first-screen.png">
+  <meta name="twitter:url" content="https://rayawa.top/projects/VideoTextGen.html">
+  <meta name="twitter:title" content="文本视频生成流 | Ray Chen">
+  <meta name="twitter:description" content="可复现、可审查、可局部返修的本地 AI 视频生产流水线。">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -28,6 +41,9 @@
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body class="project-showcase video-project">
   <div id="site-navbar"></div>
@@ -37,8 +53,9 @@
   <main class="page project-page">
     <section class="project-intro ps-hero">
       <div class="ps-hero-copy">
+        <span class="project-category">AI工作流</span>
         <span class="ps-eyebrow"><i class="fas fa-clapperboard"></i> Local-first · Reproducible · Reviewable</span>
-        <h1>VideoTextGen</h1>
+        <h1>文本视频生成流</h1>
         <p>由 OpenCode 调度的本地视频生产工作区。它把创意提案、脚本、配音、字幕对齐、导演方案、分镜、素材、逐场景渲染、合成、QA、返修和交付统一进结构化流程，同时把运行环境、可提交源码与最终成片彼此隔离。</p>
         <div class="ps-actions">
           <a class="ps-button" href="#pipeline"><i class="fas fa-route"></i> 浏览生产流程</a>
