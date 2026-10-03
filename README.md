@@ -99,7 +99,7 @@ Rayawa.github.io/
 │   ├── WeekSignal.html         # 基于光杠杆放大的微弱电信号测量系统
 │   ├── SmartShed.html          # 智慧大棚 SmartShed
 │   ├── SPM.html                # Sweet Potato Mod
-│   ├── VideoTextGen.html       # VideoTextGen 本地视频生产工作区
+│   ├── TextVideoGen.html       # TextVideoGen 本地视频生产工作区
 │   ├── PetSnap.html            # 基于 MindSpore 的猫狗识别
 │   ├── CarRent.html            # 基于链表的汽车租赁管理系统
 │   ├── CommChain.html          # 基于 C# 的数字通信系统模拟器

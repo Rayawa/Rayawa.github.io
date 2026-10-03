@@ -714,9 +714,9 @@ a.skill-link {
     background-position: center 24%;
 }
 
-.project-image.videotextgen {
+.project-image.textvideogen {
     background-color: #f2eee3;
-    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.03), rgba(255, 99, 92, 0.08)), url('../resources/main_page/videotextgen.png');
+    background-image: linear-gradient(135deg, rgba(9, 18, 39, 0.03), rgba(255, 99, 92, 0.08)), url('../resources/main_page/textvideogen.png');
     background-position: center 11%;
     background-size: 100% auto;
 }
