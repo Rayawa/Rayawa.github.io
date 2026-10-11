@@ -732,6 +732,30 @@ a.skill-link {
     background-position: center;
 }
 
+.project-image.elvacos {
+    background-color: #102038;
+    background-image: url('../resources/main_page/elvacos.webp');
+}
+
+.project-image.complexsweeper {
+    background-color: #102038;
+    background-image: url('../resources/main_page/complexsweeper.webp');
+}
+
+.project-image.loci {
+    background-color: #102038;
+    background-image: url('../resources/main_page/loci.webp');
+}
+
+@media (max-width: 1023px) {
+    .projects-grid-main .project-image.elvacos,
+    .projects-grid-main .project-image.complexsweeper,
+    .projects-grid-main .project-image.loci {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
 .life-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -1,0 +1,85 @@
+.elvacos-project {
+    --showcase-accent: #c94a83;
+    --showcase-accent-rgb: 201, 74, 131;
+}
+
+.loci-project {
+    --showcase-accent: #3f8874;
+    --showcase-accent-rgb: 63, 136, 116;
+}
+
+.project-cover {
+    min-height: 0;
+}
+
+.project-cover img {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.app-screenshot {
+    max-width: 390px;
+    margin: 0 auto 2.6rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.app-screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.app-screenshot figcaption {
+    padding: 0.9rem 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.complex-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.complex-values span {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffbd65;
+    font: 700 1.5rem 'JetBrains Mono', monospace;
+}
+
+.complex-values span:nth-child(2) { color: #fb7185; }
+.complex-values span:nth-child(3) { color: #60a5fa; }
+.complex-values span:nth-child(4) { color: #c084fc; }
+
+.app-repo-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    color: #a8ccff;
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
+
+.app-repo-link:hover {
+    color: #fff;
+}
+
+.app-source-status {
+    display: inline-block;
+    margin-top: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
