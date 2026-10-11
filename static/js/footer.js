@@ -24,6 +24,10 @@
             life: '生活',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: '华为应用市场看板',
+            projectElvaCos: '绮秀 ElvaCos',
+            projectComplexSweeper: '复扫雷 ComplexSweeper',
+            projectLoci: 'Loci 地点记忆',
+            projectQiZhi: 'QiZhi01',
             projectAstra: 'AstraPlus智能小车',
             projectBio: '生物学项目',
             projectSignal: '光杠杆微弱电信号测量',
@@ -40,6 +44,10 @@
             life: 'Life',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
             projectHmdb: 'Harmony Gallery',
+            projectElvaCos: 'ElvaCos · Cosplay Planner',
+            projectComplexSweeper: 'ComplexSweeper · Complex Mines',
+            projectLoci: 'Loci · Place Memories',
+            projectQiZhi: 'QiZhi01',
             projectAstra: 'AstraPlus Smart Vehicle',
             projectBio: 'Biology Projects',
             projectSignal: 'Weak Signal Measurement',
@@ -56,6 +64,10 @@
             life: 'Vie',
             copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
             projectHmdb: 'Gallery Huawei',
+            projectElvaCos: 'ElvaCos · Organisation cosplay',
+            projectComplexSweeper: 'ComplexSweeper · Démineur complexe',
+            projectLoci: 'Loci · Mémoires de lieux',
+            projectQiZhi: 'QiZhi01',
             projectAstra: 'AstraPlus Voiture intelligente',
             projectBio: 'Projets de biologie',
             projectSignal: 'Mesure de signaux faibles',
@@ -98,9 +110,13 @@
     var projectLinks = [
         { href: 'https://dashboard.rayawa.top', text: t.projectHmdb },
         { href: prefix + langPrefix + 'projects/AstraPlusCar.html', text: t.projectAstra },
-        { href: prefix + langPrefix + 'projects/Biology.html', text: t.projectBio },
-        { href: prefix + langPrefix + 'projects/WeekSignal.html', text: t.projectSignal },
-        { href: prefix + langPrefix + 'projects/SmartShed.html', text: t.projectSmartShed }
+        { href: prefix + langPrefix + 'projects/ElvaCos.html', text: t.projectElvaCos },
+        { href: prefix + langPrefix + 'projects/WeakSignal.html', text: t.projectSignal },
+        { href: prefix + langPrefix + 'projects/QiZhi01.html', text: t.projectQiZhi },
+        { href: prefix + langPrefix + 'projects/ComplexSweeper.html', text: t.projectComplexSweeper },
+        { href: prefix + langPrefix + 'projects/SmartShed.html', text: t.projectSmartShed },
+        { href: prefix + langPrefix + 'projects/Loci.html', text: t.projectLoci },
+        { href: prefix + langPrefix + 'projects/Biology.html', text: t.projectBio }
     ];
 
     var lifeLinks = [

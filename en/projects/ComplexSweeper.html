@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ComplexSweeper · Complex Mines | Ray Chen</title>
+  <meta name="description" content="Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.">
+  <meta name="keywords" content="ComplexSweeper, HarmonyOS, Ray Chen, Rayawa">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/en/projects/ComplexSweeper.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/ComplexSweeper.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/ComplexSweeper.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/ComplexSweeper.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/ComplexSweeper.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/ComplexSweeper.html">
+  <meta property="og:title" content="ComplexSweeper · Complex Mines | Ray Chen">
+  <meta property="og:description" content="Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/ComplexSweeper.html">
+  <meta name="twitter:title" content="ComplexSweeper · Complex Mines | Ray Chen">
+  <meta name="twitter:description" content="Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/app-projects.css">
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="project-showcase complexsweeper-project">
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro ps-hero">
+      <div class="ps-hero-copy">
+        <span class="project-category">Game port</span>
+        <span class="ps-eyebrow">Complex Mines · Native Ports</span>
+        <h1>ComplexSweeper · Complex Mines</h1>
+        <p>Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.</p>
+        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub repository</a><a class="ps-button is-ghost" href="#platforms">Three platforms, one set of rules</a></div>
+      </div>
+      <div class="ps-hero-visual project-cover">
+        <img src="/static/resources/main_page/complexsweeper.webp" alt="Minimal illustration of a puzzle board with four flag colours and complex-number clues" width="1024" height="576" fetchpriority="high">
+      </div>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Minesweeper with complex mines</h2></div>
+      <div class="complex-values" aria-label="+1, −1, +i, −i"><span>+1</span><span>−1</span><span>+i</span><span>−i</span></div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><h3>Four mine types</h3><p>Positive and negative real and imaginary mines represent +1, −1, +i and −i. A cell shows the magnitude of the sum of all nearby mines.</p></article>
+        <article class="ps-card"><h3>Cancellation is not empty</h3><p>A +1 mine and a −i mine give √2. A +1 and a −1 cancel to 0. A blank means there are no nearby mines; a zero can hide cancelling pairs.</p></article>
+        <article class="ps-card"><h3>Winning and expanding</h3><p>Reveal every non-mine cell to win. Expansion requires the nearby flag count to match the actual mine count and the real-to-imaginary ratio to match the true ratio or its reciprocal. Flagged cells remain protected.</p></article>
+      </div>
+      <p class="ps-note">On phones, tap a covered cell to cycle flags and hold to reveal it. On macOS, left-click reveals and right-click flags. Select a revealed number to attempt expansion; select the face to restart. Three difficulties: 9×9 / 10 mines, 16×16 / 40 mines and 30×16 / 99 mines.</p>
+    </section>
+    <section class="ps-section" id="platforms">
+      <div class="ps-section-head"><h2>Three platforms, one set of rules</h2></div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><h3>HarmonyOS</h3><p>ArkTS + ArkUI with native navigation, pixel tiles, sound, haptics and local scores.</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener">GitHub repository <i class="fas fa-arrow-up-right-from-square"></i></a></article>
+        <article class="ps-card"><h3>Android</h3><p>Kotlin + Jetpack Compose with a native board and classic mine counters, SoundPool audio, haptics and SharedPreferences.</p><span class="app-source-status">Source not yet public</span></article>
+        <article class="ps-card"><h3>Apple</h3><p>Swift + SwiftUI in one multiplatform project for iOS, iPadOS and macOS, with separate touch and mouse controls.</p><span class="app-source-status">Source not yet public</span></article>
+      </div>
+      <p class="ps-note">All three ports use integer arithmetic and the mulberry32 generator. Board fingerprints for identical seeds check consistency between platforms. Only circular complex-number mode is ported; the upstream hyperbolic mode is not included.</p>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Original game and ports</h2></div>
+      <p class="ps-note">Qingyuexiao (Yueqing-Chen) created the original Zig + Win32 game, rules, atlas and audio; Rayawa maintains these three native ports. The ports are based on upstream v1.2.0 and their code is GPL-3.0. Original classic Minesweeper images belong to Microsoft; other additions and audio come from the upstream game. See each repository’s asset documentation for the specific licences.</p>
+      <a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">Original game by Qingyuexiao</a>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Technology</h2></div>
+      <div class="ps-stack"><span class="ps-tag">ArkTS / ArkUI</span><span class="ps-tag">Kotlin / Compose</span><span class="ps-tag">Swift / SwiftUI</span><span class="ps-tag">mulberry32</span><span class="ps-tag">GPL-3.0</span></div>
+    </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

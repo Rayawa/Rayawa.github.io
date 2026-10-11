@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Loci · Place Memories | Ray Chen</title>
+  <meta name="description" content="A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.">
+  <meta name="keywords" content="Loci, HarmonyOS, Ray Chen, Rayawa">
+  <meta name="author" content="Ray Chen">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rayawa.top/en/projects/Loci.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/Loci.html">
+  <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/Loci.html">
+  <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/Loci.html">
+  <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/Loci.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rayawa.top/en/projects/Loci.html">
+  <meta property="og:title" content="Loci · Place Memories | Ray Chen">
+  <meta property="og:description" content="A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ray Chen's Website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rayawa.top/en/projects/Loci.html">
+  <meta name="twitter:title" content="Loci · Place Memories | Ray Chen">
+  <meta name="twitter:description" content="A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/subpage.css">
+  <link rel="stylesheet" href="/static/css/project-showcase.css">
+  <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/app-projects.css">
+  <meta name="theme-color" content="#0b1325">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="project-showcase loci-project">
+  <div id="site-navbar"></div>
+  <script src="/static/js/navbar.js"></script>
+  <div id="particles-js"></div>
+  <main class="page project-page">
+    <section class="project-intro ps-hero">
+      <div class="ps-hero-copy">
+        <span class="project-category">HarmonyOS</span>
+        <span class="ps-eyebrow">Place + Visit · Local · HarmonyOS</span>
+        <h1>Loci · Place Memories</h1>
+        <p>A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.</p>
+        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub repository</a></div>
+      </div>
+      <div class="ps-hero-visual project-cover">
+        <img src="/static/resources/main_page/loci.webp" alt="Minimal illustration of a folded map, place flag and visit memories" width="1024" height="576" fetchpriority="high">
+      </div>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>One place, many visits</h2></div>
+      <div class="ps-grid-2">
+        <article class="ps-card"><h3>Place</h3><p>A stable place identity holds coordinates, place information and visit history. Returning to the same location links to the same Place.</p></article>
+        <article class="ps-card"><h3>Visit</h3><p>Each visit is a separate record with its own writing, mood and date. Returning or adding an earlier visit does not overwrite previous memories.</p></article>
+      </div>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Implemented features and next steps</h2></div>
+      <div class="ps-grid-3">
+        <article class="ps-card"><h3>History and filters</h3><p>Writing, moods, place history and filters are implemented. A local database stores the relationships between places and visits.</p></article>
+        <article class="ps-card"><h3>Data and interface</h3><p>ArkUI V2 views access data through ViewModels and Repositories. Place identity, coordinate and date rules live in the domain layer.</p></article>
+        <article class="ps-card"><h3>Start with place memories</h3><p>The first phase focuses on selecting places, recording, revisiting and restoring them. Photos, videos, audio, Trip, Track and Atlas are future work.</p></article>
+      </div>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Current status</h2></div>
+      <p class="ps-note">Still in development. Place data, ViewModels and preference storage have API 26 device tests, and navigation and settings have basic acceptance checks. Live maps and location, first markers, saving through the interface and the complete restart flow still await validation and depend on the app’s Map Kit configuration. Database validation does not establish a complete map workflow.</p>
+    </section>
+    <section class="ps-section">
+      <div class="ps-section-head"><h2>Technology</h2></div>
+      <div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI V2</span><span class="ps-tag">ArkData</span><span class="ps-tag">Map Kit</span><span class="ps-tag">Place + Visit</span></div>
+    </section>
+    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</body>
+</html>

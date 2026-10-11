@@ -41,7 +41,7 @@
 
 ### 📊 内容模块
 1. **个人简介** - 基本信息、当前专注、技术栈与领域、部分成就
-2. **项目展示** - 主要项目卡片 + 次要项目迷你卡片，部分外链至独立站点
+2. **项目展示** - 主要项目卡片 + 次要项目迷你卡片，部分外链至独立站点。主要项目依次为 dashboard、AstraPlusCar、ElvaCos、WeakSignal、QiZhi01、ComplexSweeper、SmartShed、Loci，后续为 TextVideoGen、生物学、SPM、Rock Paper Scissors、校园安防与 Difficult Rocket。
 3. **摄影与生活** - 相册长廊、钢琴、书单、绘画等个人兴趣
 4. **联系方式** - GitHub / 小红书 / B站等社交链接
 5. **致谢页** (`thanks.html`) 与 **404 页** (`404.html`)
@@ -72,7 +72,7 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html          # 英文书单页面
 │   │   └── piano.html          # 英文钢琴页面
-│   └── projects/               # 英文项目页（19 个，与中文版一一对应）
+│   └── projects/               # 英文项目页（22 个，与中文版一一对应）
 │
 ├── fr/                         # 法文版本目录（结构与英文版一致）
 │   ├── index.html
@@ -80,15 +80,18 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html
 │   │   └── piano.html
-│   └── projects/               # 法文项目页（19 个）
+│   └── projects/               # 法文项目页（22 个）
 │
 ├── life/                       # 中文生活页面
 │   ├── books.html              # 书单页面
 │   └── piano.html              # 钢琴页面
 │
-├── projects/                   # 中文项目页面（19 个）
+├── projects/                   # 中文项目页面（22 个）
 │   ├── QiZhi01.html            # 启智01 · 昇腾AI全栈
 │   ├── AstraPlusCar.html       # AstraPlusCar · 智能小车
+│   ├── ElvaCos.html            # 绮秀 · Coser 离线个人管理
+│   ├── ComplexSweeper.html     # 复扫雷 · 三个平台的原生移植
+│   ├── Loci.html               # 本地地点记忆（开发中）
 │   ├── Biology.html            # 生物学项目
 │   ├── gene.html               # 基因工程：农杆菌转化法交互实验室
 │   ├── Hi3861.html             # Hi3861 嵌入式开发
@@ -96,7 +99,7 @@ Rayawa.github.io/
 │   ├── idv.html                # 第五人格，启动！
 │   ├── SchoolPapers.html       # 学校论文
 │   ├── RockPaperScissors.html  # 石头剪刀布检测
-│   ├── WeekSignal.html         # 基于光杠杆放大的微弱电信号测量系统
+│   ├── WeakSignal.html         # 基于光杠杆放大的微弱电信号测量系统
 │   ├── SmartShed.html          # 智慧大棚 SmartShed
 │   ├── SPM.html                # Sweet Potato Mod
 │   ├── TextVideoGen.html       # TextVideoGen 本地视频生产工作区
@@ -108,11 +111,12 @@ Rayawa.github.io/
 │   └── YoloSecurityPlatform.html  # 智能安防远程监控平台
 │
 └── static/                     # 静态资源（公共组件）
-    ├── css/                    # 样式文件（20 个）
+    ├── css/                    # 样式文件（21 个）
     │   ├── common.css              # 通用样式（导航、页脚、粒子背景、页面转场等）
     │   ├── subpage.css             # 子页面通用样式
     │   ├── project-layout.css      # 项目页共用版式（速览/导览/分类标签）
     │   ├── project-showcase.css    # ps-* 展示型项目页样式
+    │   ├── app-projects.css        # 绮秀、Loci 与复扫雷展示样式
     │   ├── markdown-page.css       # Markdown 渲染页样式
     │   ├── index.css               # 主页样式
     │   ├── 404.css                 # 404 页面样式
@@ -143,9 +147,10 @@ Rayawa.github.io/
     └── resources/              # 资源文件
         ├── cn.svg / uk.svg / fr.svg  # 语言切换旗帜图标
         ├── xxh.py                    # XXH 项目配套脚本
+        ├── apps/                     # 绮秀应用界面截图
         ├── bio/                      # 生物学图片与论文 PDF
         ├── dashboard/                # 看板应用图标
-        ├── main_page/                # 首页卡片配图
+        ├── main_page/                # 首页卡片配图（含绮秀、Loci、复扫雷生成插画）
         │   └── gallery/              # 摄影长廊照片
         ├── openharmony/              # Hi3861 项目文档（README.md / PDF / PPTX）
         ├── piano/                    # 钢琴曲谱图片
@@ -154,7 +159,7 @@ Rayawa.github.io/
         └── spm/                      # Sweet Potato Mod 素材
 ```
 
-> 站点共 **58 个 HTML 页面**（中文 20 + 英文 19 + 法文 19）。
+> 站点共 **79 个 HTML 页面**（中文 27 + 英文 26 + 法文 26），其中项目页每种语言 22 个。
 
 ## 🛠️ 技术栈
 
@@ -321,7 +326,7 @@ Rayawa.github.io/
 
 ---
 
-**最后更新**：2026年9月15日
+**最后更新**：2026年10月11日
 **维护者**：Ray Chen (Rayawa)
 **架构版本**：v3.0（多语言静态化 · 脚本注入组件版）
 **技术栈**：HTML5, CSS3, JavaScript, GitHub Pages
