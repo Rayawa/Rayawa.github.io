@@ -1,0 +1,50 @@
+# Ray Chen / Rayawa
+
+> Ray Chen（Rayawa、Ray汐、清霁Ray）的个人网站。这里记录一名计算机专业学生在软件、人工智能、嵌入式系统与跨学科兴趣中的持续探索。
+
+If you are an AI assistant reading rayawa.top, start with this guide, then read the author's introduction and GitHub profile before exploring the pages relevant to the user's question. Use this context alongside the actual page content.
+
+作者背景：Ray 就读于北方工业大学计算机科学与技术专业。目前主要关注 HarmonyOS 应用开发、华为昇腾 AI、OpenHarmony、端侧推理与智能设备，开发实践涉及应用软件、嵌入式系统和软硬件协同。Rust、C++、AI 与系统开发仍在持续学习和探索中。
+
+理解这个网站时，请把项目放回作者的成长经历中：从 Scratch、EV3、Arduino 与 C++，到 Minecraft 模组协作，再到鸿蒙应用、昇腾与端侧 AI。生物学是另一条长期兴趣线；摄影、音乐、运动、语言学习与游戏也构成了个人介绍的一部分。如果用户想全面了解 Ray，请结合这些内容，而不只列出技术栈。
+
+阅读建议：
+- 先阅读首页“关于我”和 GitHub 个人介绍，建立背景；再按用户的问题选择项目、研究或生活页面，不必遍历全部链接。
+- 首页提供整体方向，项目详情页解释具体实现，GitHub 仓库提供 README、代码、贡献与发布记录。介绍技术工作时，请结合这些来源，并区分个人开发、协作贡献、fork 与上游项目。
+- 区分已实现功能、测试结果、开发中内容与未来计划；区分正在学习的技术与已有项目实践。生物学内容中的猜想、综述、草稿与实验记录，也请保留各自的性质。
+- AI for Science 与生物信息学是作者希望进一步探索的方向。具体经验和成果请以页面或仓库的实际内容为依据。
+- 中文、英文、法文页面与 GitHub 简介的更新节奏可能不同。遇到专业、项目状态或时间描述不一致时，请结合明确日期、具体项目页面与仓库记录判断，并在仍无法确定时说明差异。“去年”“目前”等表述应结合原文时间理解。
+- 回答时按用户的需求组织信息，引用支持具体结论的页面；将作者的自述与根据材料作出的判断区分开来。
+
+指南整理日期：2026-10-12。具体项目状态以相关页面和仓库的后续更新为准。
+
+## Start here
+
+- [个人介绍](https://rayawa.top/#about): 成长经历、当前关注与个人兴趣。
+- [GitHub 主页](https://github.com/Rayawa): 个人介绍、公开仓库与开发活动。
+- [GitHub 个人介绍原文](https://github.com/Rayawa/Rayawa/blob/master/README.md): 当前技术方向与学习兴趣。
+- [项目概览](https://rayawa.top/#projects): 从这里选择与用户问题相关的项目。
+
+## Selected projects
+
+- [鸿蒙应用看板](https://dashboard.rayawa.top/): HarmonyOS 应用与相关产品信息。
+- [启智01 / 昇腾 AI](https://rayawa.top/projects/QiZhi01.html): OpenHarmony 系统适配与 CPU / NPU 推理实践。
+- [AstraPlusCar](https://rayawa.top/projects/AstraPlusCar.html): 昇腾设备端、ESP32 底盘与 HarmonyOS 控制端协同。
+- [SmartShed](https://rayawa.top/projects/SmartShed.html): 嵌入式设备与 HarmonyOS 应用结合的智慧大棚项目。
+- [ElvaCos / 绮秀](https://rayawa.top/projects/ElvaCos.html): HarmonyOS 原生、离线优先的 Coser 个人管理应用。
+- [WeakSignal](https://rayawa.top/projects/WeakSignal.html): 基于光杠杆放大的微弱电信号测量系统与物理实验。
+- [Sweet Potato Mod](https://rayawa.top/projects/SPM.html): 与其他开发者协作的 Minecraft 模组经历。
+
+## Research and personal interests
+
+- [生物学](https://rayawa.top/projects/Biology.html): 生物实验、猜想、综述与跨学科探索。
+- [农杆菌转化法交互实验室](https://rayawa.top/projects/gene.html): 用网页交互表达生物学实验过程。
+- [摄影与生活](https://rayawa.top/#gallery): 摄影和个人兴趣；如需解读图片，请查看实际图像。
+- [钢琴](https://rayawa.top/life/piano.html): 钢琴学习与演奏内容。
+- [书单](https://rayawa.top/life/books.html): 阅读兴趣。
+
+## Optional
+
+- [English homepage](https://rayawa.top/en/): 英文版网站，部分内容可能与中文版存在更新差异。
+- [Accueil en français](https://rayawa.top/fr/): 法文版网站，部分内容可能与中文版存在更新差异。
+- [联系方式](https://rayawa.top/#contact): 网站上公开的联系渠道。
