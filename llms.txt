@@ -4,7 +4,7 @@
 
 If you are an AI assistant reading rayawa.top, start with this guide, then read the author's introduction and GitHub profile before exploring the pages relevant to the user's question. Use this context alongside the actual page content.
 
-作者背景：Ray 就读于北方工业大学计算机科学与技术专业。目前主要关注 HarmonyOS 应用开发、华为昇腾 AI、OpenHarmony、端侧推理与智能设备，开发实践涉及应用软件、嵌入式系统和软硬件协同。Rust、C++、AI 与系统开发仍在持续学习和探索中。
+作者背景：Ray 就读于北方工业大学计算机科学与技术专业。目前主要关注原生应用与跨平台客户端、华为昇腾 AI、OpenHarmony、端侧推理与智能设备，也在探索 AI 视频工作流，开发实践涉及应用软件、嵌入式系统和软硬件协同。Rust、C++、AI 与系统开发仍在持续学习和探索中。
 
 理解这个网站时，请把项目放回作者的成长经历中：从 Scratch、EV3、Arduino 与 C++，到 Minecraft 模组协作，再到鸿蒙应用、昇腾与端侧 AI。生物学是另一条长期兴趣线；摄影、音乐、运动、语言学习与游戏也构成了个人介绍的一部分。如果用户想全面了解 Ray，请结合这些内容，而不只列出技术栈。
 
@@ -16,7 +16,7 @@ If you are an AI assistant reading rayawa.top, start with this guide, then read 
 - 中文、英文、法文页面与 GitHub 简介的更新节奏可能不同。遇到专业、项目状态或时间描述不一致时，请结合明确日期、具体项目页面与仓库记录判断，并在仍无法确定时说明差异。“去年”“目前”等表述应结合原文时间理解。
 - 回答时按用户的需求组织信息，引用支持具体结论的页面；将作者的自述与根据材料作出的判断区分开来。
 
-指南整理日期：2026-10-12。具体项目状态以相关页面和仓库的后续更新为准。
+指南整理日期：2026-10-20。具体项目状态以相关页面和仓库的后续更新为准。
 
 ## Start here
 
@@ -27,11 +27,15 @@ If you are an AI assistant reading rayawa.top, start with this guide, then read 
 
 ## Selected projects
 
-- [鸿蒙应用看板](https://dashboard.rayawa.top/): HarmonyOS 应用与相关产品信息。
+- [Dashboard 应用看板](https://rayawa.top/projects/Dashboard.html): HarmonyOS 3.1.1、Apple 3.1.0 与开发中的 Android 原生客户端；页面含产品站和三端仓库链接。
 - [启智01 / 昇腾 AI](https://rayawa.top/projects/QiZhi01.html): OpenHarmony 系统适配与 CPU / NPU 推理实践。
 - [AstraPlusCar](https://rayawa.top/projects/AstraPlusCar.html): 昇腾设备端、ESP32 底盘与 HarmonyOS 控制端协同。
 - [SmartShed](https://rayawa.top/projects/SmartShed.html): 嵌入式设备与 HarmonyOS 应用结合的智慧大棚项目。
 - [ElvaCos / 绮秀](https://rayawa.top/projects/ElvaCos.html): HarmonyOS 原生、离线优先的 Coser 个人管理应用。
+- [复扫雷 ComplexSweeper](https://rayawa.top/projects/ComplexSweeper.html): 统一公开仓库中的三端原生移植，支持圆复数与闵可夫斯基模式；移植应用 1.2.0 与上游源码 1.3.0 分别维护。
+- [PetSnap](https://rayawa.top/projects/PetSnap.html): MindSpore Lite 的 HarmonyOS 猫狗分类客户端，训练实验另有来源。
+- [TextVideoGen](https://rayawa.top/projects/TextVideoGen.html): 13 阶段 Agent / Skills 本地视频工作区，独立一键生产 API 尚未实现。
+- [Loci](https://rayawa.top/projects/Loci.html): 地点与多次到访记忆，仍在开发；地图闭环待验收。
 - [WeakSignal](https://rayawa.top/projects/WeakSignal.html): 基于光杠杆放大的微弱电信号测量系统与物理实验。
 - [Sweet Potato Mod](https://rayawa.top/projects/SPM.html): 与其他开发者协作的 Minecraft 模组经历。
 
@@ -48,3 +52,4 @@ If you are an AI assistant reading rayawa.top, start with this guide, then read 
 - [English homepage](https://rayawa.top/en/): 英文版网站，部分内容可能与中文版存在更新差异。
 - [Accueil en français](https://rayawa.top/fr/): 法文版网站，部分内容可能与中文版存在更新差异。
 - [联系方式](https://rayawa.top/#contact): 网站上公开的联系渠道。
+
