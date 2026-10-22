@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ComplexSweeper · Démineur complexe | Ray Chen</title>
-  <meta name="description" content="Quatre types de mines, 24 valeurs possibles et une autre manière de raisonner sur le plateau. Les portages natifs pour HarmonyOS, Android et Apple du jeu libre de Qingyuexiao conservent son esthétique pixel et son mode à nombres complexes circulaires.">
+  <meta name="description" content="Portages natifs du démineur complexe de Qingyuexiao : modes circulaire et Minkowski, apparence couleur / monochrome et sources publiques HarmonyOS, Android et Apple dans un dépôt commun.">
   <meta name="keywords" content="ComplexSweeper, HarmonyOS, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/fr/projects/ComplexSweeper.html">
   <meta property="og:title" content="ComplexSweeper · Démineur complexe | Ray Chen">
-  <meta property="og:description" content="Quatre types de mines, 24 valeurs possibles et une autre manière de raisonner sur le plateau. Les portages natifs pour HarmonyOS, Android et Apple du jeu libre de Qingyuexiao conservent son esthétique pixel et son mode à nombres complexes circulaires.">
+  <meta property="og:description" content="Portages natifs du démineur complexe de Qingyuexiao : modes circulaire et Minkowski, apparence couleur / monochrome et sources publiques HarmonyOS, Android et Apple dans un dépôt commun.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/fr/projects/ComplexSweeper.html">
   <meta name="twitter:title" content="ComplexSweeper · Démineur complexe | Ray Chen">
-  <meta name="twitter:description" content="Quatre types de mines, 24 valeurs possibles et une autre manière de raisonner sur le plateau. Les portages natifs pour HarmonyOS, Android et Apple du jeu libre de Qingyuexiao conservent son esthétique pixel et son mode à nombres complexes circulaires.">
+  <meta name="twitter:description" content="Portages natifs du démineur complexe de Qingyuexiao : modes circulaire et Minkowski, apparence couleur / monochrome et sources publiques HarmonyOS, Android et Apple dans un dépôt commun.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,41 +49,25 @@
         <span class="project-category">Portage de jeu</span>
         <span class="ps-eyebrow">Complex Mines · Native Ports</span>
         <h1>ComplexSweeper · Démineur complexe</h1>
-        <p>Quatre types de mines, 24 valeurs possibles et une autre manière de raisonner sur le plateau. Les portages natifs pour HarmonyOS, Android et Apple du jeu libre de Qingyuexiao conservent son esthétique pixel et son mode à nombres complexes circulaires.</p>
-        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a><a class="ps-button is-ghost" href="#platforms">Trois plateformes, les mêmes règles</a></div>
+        <p>Portages natifs du démineur complexe de Qingyuexiao : modes circulaire et Minkowski, apparence couleur / monochrome et sources publiques HarmonyOS, Android et Apple dans un dépôt commun.</p>
+        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a><a class="ps-button is-ghost" href="#platforms">Trois plateformes, les mêmes règles</a></div>
       </div>
       <div class="ps-hero-visual project-cover">
         <img src="/static/resources/main_page/complexsweeper.webp" alt="Illustration épurée d’un plateau à quatre couleurs de drapeaux et indices complexes" width="1024" height="576" fetchpriority="high">
       </div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>Un démineur à mines complexes</h2></div>
-      <div class="complex-values" aria-label="+1, −1, +i, −i"><span>+1</span><span>−1</span><span>+i</span><span>−i</span></div>
+      <div class="ps-section-head"><h2>Deux modes, deux types d’indices</h2></div>
       <div class="ps-grid-3">
-        <article class="ps-card"><h3>Quatre types de mines</h3><p>Les mines réelles et imaginaires, positives ou négatives, représentent +1, −1, +i et −i. Une case affiche le module de la somme des mines voisines.</p></article>
-        <article class="ps-card"><h3>Annulation et case vide</h3><p>Une mine +1 et une mine −i donnent √2. +1 et −1 s’annulent et donnent 0. Une case vide indique l’absence de mines voisines ; un zéro peut cacher des paires qui s’annulent.</p></article>
-        <article class="ps-card"><h3>Victoire et ouverture</h3><p>Révéler toutes les cases sans mine pour gagner. L’ouverture exige le même nombre de drapeaux que de mines voisines et un rapport réel/imaginaire égal au rapport réel ou à son inverse. Les cases marquées restent protégées.</p></article>
+        <article class="ps-card"><h3>Circulaire · 24 valeurs</h3><p>Les quatre mines sont +1, −1, +i et −i. Une somme voisine a+bi affiche √(a²+b²) ; +1 et −i donnent √2. L’ouverture exige le bon nombre de drapeaux et le rapport réel/imaginaire exact ou son inverse.</p></article>
+        <article class="ps-card"><h3>Minkowski · 39 valeurs</h3><p>L’unité hyperbolique vérifie j² = +1, avec les mines +1, −1, +j et −j. Une somme a+bj affiche √(a²−b²), sous forme imaginaire si le résultat est négatif. L’ouverture stricte exige le bon nombre et les mêmes valeurs absolues des composantes réelle et j séparément.</p></article>
+        <article class="ps-card"><h3>Zéro ne signifie pas vide</h3><p>Les annulations peuvent donner 0 dans les deux modes ; +1 et +j donnent aussi 0 en mode Minkowski. Seuls les voisinages sans aucune mine se propagent automatiquement. Révéler toutes les cases sans mine permet de gagner.</p></article>
       </div>
-      <p class="ps-note">Sur téléphone, toucher une case couverte change le drapeau, un appui long la révèle. Sur macOS, clic gauche pour révéler, clic droit pour marquer. Sélectionner un nombre révélé tente une ouverture ; le visage relance la partie. Trois niveaux : 9×9 / 10 mines, 16×16 / 40 mines et 30×16 / 99 mines.</p>
+      <p class="ps-note">Sur écran tactile, toucher change le drapeau et maintenir 400 ms retire celui de la case puis la révèle ; la propagation évite les autres drapeaux. Sur macOS, clic gauche pour révéler, clic droit pour marquer ou ouvrir un nombre. La première case et ses huit voisines sont sûres. Difficultés : 9×9 / 10, 16×16 / 40 et 30×16 / 99 mines.</p>
     </section>
-    <section class="ps-section" id="platforms">
-      <div class="ps-section-head"><h2>Trois plateformes, les mêmes règles</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>HarmonyOS</h3><p>ArkTS + ArkUI : navigation native, tuiles pixel, sons, retour haptique et scores locaux.</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener">Dépôt GitHub <i class="fas fa-arrow-up-right-from-square"></i></a></article>
-        <article class="ps-card"><h3>Android</h3><p>Kotlin + Jetpack Compose : plateau et compteurs classiques, sons SoundPool, retour haptique et SharedPreferences.</p><span class="app-source-status">Code source non publié</span></article>
-        <article class="ps-card"><h3>Apple</h3><p>Swift + SwiftUI : un projet multiplateforme pour iOS, iPadOS et macOS, avec commandes tactiles et souris adaptées.</p><span class="app-source-status">Code source non publié</span></article>
-      </div>
-      <p class="ps-note">Les trois portages utilisent des calculs entiers et le générateur mulberry32. Des empreintes de plateau pour les mêmes graines vérifient leur cohérence. Seul le mode complexe circulaire est porté ; le mode hyperbolique de l’original ne l’est pas.</p>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>Jeu original et portages</h2></div>
-      <p class="ps-note">Qingyuexiao (Yueqing-Chen) a créé le jeu original Zig + Win32, ses règles, son atlas et ses sons ; Rayawa réalise ces trois portages natifs. Basés sur la version amont v1.2.0, leurs codes sont sous GPL-3.0. Les images originales du Démineur classique appartiennent à Microsoft ; les autres ajouts et sons viennent du jeu amont. Consulter la documentation des ressources de chaque dépôt pour les licences précises.</p>
-      <a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">Jeu original de Qingyuexiao</a>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>Technologies</h2></div>
-      <div class="ps-stack"><span class="ps-tag">ArkTS / ArkUI</span><span class="ps-tag">Kotlin / Compose</span><span class="ps-tag">Swift / SwiftUI</span><span class="ps-tag">mulberry32</span><span class="ps-tag">GPL-3.0</span></div>
-    </section>
+    <section class="ps-section" id="platforms"><div class="ps-section-head"><h2>Trois plateformes, les mêmes règles</h2></div><p class="ps-note">Les projets HarmonyOS, Android et Apple sont réunis dans un dépôt, avec ArkTS / ArkUI, Kotlin / Compose et Swift / SwiftUI. Des règles entières et empreintes à graine identique vérifient la cohérence ; interface, sons et retour haptique restent natifs à chaque plateforme.</p><div class="ps-actions"><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/HarmonyOS" target="_blank" rel="noopener">HarmonyOS <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/Android" target="_blank" rel="noopener">Android <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/Apple%20Platform" target="_blank" rel="noopener">Apple <i class="fas fa-arrow-up-right-from-square"></i></a></div></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Version & périmètre du portage</h2></div><p class="ps-note">Au 18 octobre 2026, le portage est en version 1.2.0, synchronisé sur f6b80bb (version source 1.3.0). Les deux modes enregistrent séparément records et victoires/défaites. Le choix couleur / monochrome conserve la partie et la préférence. Plateaux personnalisés, proportions imposées des mines, interrupteur sonore et fenêtre de records restent à porter.</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper/releases/tag/v1.2.0" target="_blank" rel="noopener">v1.2.0 <i class="fas fa-arrow-up-right-from-square"></i></a></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Qingyuexiao / Rayawa</h2></div><p class="ps-note">Qingyuexiao (Yueqing-Chen) a créé le jeu Zig / Win32, ses règles, son atlas et ses sons ; Rayawa maintient les trois portages natifs sous GPL-3.0. Les images originales du Démineur classique appartiennent à Microsoft ; les ajouts et sons conservent leurs licences amont, détaillées dans le dépôt.</p><a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">Complexweeper · Zig / Win32 <i class="fas fa-arrow-up-right-from-square"></i></a></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
   <div id="site-footer"></div>
@@ -92,3 +76,4 @@
   <script src="/static/js/common.js"></script>
 </body>
 </html>
+

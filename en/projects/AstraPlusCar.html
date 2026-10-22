@@ -100,7 +100,7 @@
       <h2>The device-side project</h2>
       <p class="astra-intro">The device side is built on Huawei’s official E2E sample, with an unmodified copy kept alongside for comparison.</p>
       <div class="astra-grid">
-        <article class="astra-card"><h3><i class="fas fa-code-compare"></i> Original and modified</h3><p>The original project is byte-identical to the official sample. The modified version adds a 3D structured-light camera and raises the capture resolution from 1280×720 to 1920×1080; the change touches only seven files, leaving the rest unchanged.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-code-compare"></i> Original and modified</h3><p>The original project is byte-identical to the official sample. An earlier modification added a structured-light camera and tested 1920×1080 capture. Current phone integration uses the capture, preview and snapshot sizes described below; the earlier camera experiment does not describe current runtime settings.</p></article>
         <article class="astra-card"><h3><i class="fas fa-brain"></i> On-board inference</h3><p>Recognition runs on the board using Ascend offline models, covering sign detection, lane-following regression and target tracking, with both pre- and post-processing included in the project.</p></article>
         <article class="astra-card"><h3><i class="fas fa-satellite-dish"></i> Lidar and mapping</h3><p>Includes an RPLIDAR test project built on ROS2, used to collect point clouds and verify the mapping pipeline.</p></article>
         <article class="astra-card"><h3><i class="fas fa-toolbox"></i> Supporting tools</h3><p>Ships with training and export code for the lane-following model, a lane-marking auto-labelling tool, and a separate ESP32-based vehicle firmware with a Chinese tutorial.</p></article>
@@ -111,16 +111,17 @@
       <h2>The phone control client</h2>
       <p class="astra-intro">The HarmonyOS application offers two layouts: portrait shows connection status, video, the lidar bar and the control pad in sequence; landscape lets the video fill the screen with joysticks and lidar bands overlaid.</p>
       <div class="astra-grid">
-        <article class="astra-card"><h3><i class="fas fa-video"></i> Video and lidar</h3><p>Video arrives as a single continuous stream, with a separate lidar bar beneath it showing left, front and right distances graded by warning level. With no echo the app shows “not measured” rather than treating it as a safe distance.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-video"></i> Video and lidar</h3><p>Bounded short MJPEG segments provide continuous preview with measured decode FPS: capture is 720p / 30 FPS, driving preview is 640×360, and snapshots retain 720p. Three-way radar shows the nearest valid echoes; missing or stale readings do not indicate a safe distance.</p></article>
         <article class="astra-card"><h3><i class="fas fa-gamepad"></i> Driving controls</h3><p>The four main directions are forward, turn left, back and turn right; the corners handle rotation and sideways movement. Only one action is active at a time while held, and sliding to a new direction stops first. The speed slider stays usable during movement.</p></article>
-        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> Fail-safe</h3><p>If video reception or decoding times out, the client drops control and stops the vehicle, then reconnects with backoff. Movement and speed changes are blocked until a fresh live frame arrives, and an old session cannot restore previous keys or actions.</p></article>
+        <article class="astra-card"><h3><i class="fas fa-shield-halved"></i> Fail-safe</h3><p>After 2 seconds without a fresh frame, the phone disconnects control and sends stop. A previously active video connection can recover up to three times at 0.5, 2 and 4 seconds; initial connection failures do not loop, and backgrounding or disconnecting cancels recovery. Motion and speed stay blocked until fresh frames arrive; old actions are never replayed. The independent 600 ms watchdog remains active. Voice and model modules show offline, and periodic wireless stalls remain unresolved.</p></article>
         <article class="astra-card"><h3><i class="fas fa-images"></i> Screenshots and gallery</h3><p>Screenshots are stored on the vehicle first, then downloaded into the app’s private gallery where they survive restarts. Images only reach the system album after the user explicitly downloads them and grants permission.</p></article>
       </div>
     </section>
 
+    <section class="astra-section"><h2>Connection recovery & control protection</h2><p class="astra-intro">After 2 seconds without a fresh frame, the phone disconnects control and sends stop. A previously active video connection can recover up to three times at 0.5, 2 and 4 seconds; initial connection failures do not loop, and backgrounding or disconnecting cancels recovery. Motion and speed stay blocked until fresh frames arrive; old actions are never replayed. The independent 600 ms watchdog remains active. Voice and model modules show offline, and periodic wireless stalls remain unresolved.</p></section>
     <section class="astra-section" id="status">
       <h2>Current status</h2>
-      <p class="astra-intro">Both sides have implementations and usage documentation. App builds and offline checks do not establish real vehicle behavior. Wheel direction, camera and lidar integration, WLAN access, and stop on control loss still require physical testing.</p>
+      <p class="astra-intro">Phone and vehicle have been integrated on the same WLAN, confirming video, three-way radar, snapshots and the private gallery. API checks cover movement commands, renewal, stop and rejection of old sessions. Later records add three recovery attempts and background cancellation. Periodic wireless stalls remain unresolved; wheel direction and ground driving still require observation.</p>
       <div class="astra-note">Stack: Python · ArkTS · HarmonyOS · Orange Pi AI Pro / Ascend · ESP32 · HTTP API · Serial · Camera · Lidar</div>
     </section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
@@ -128,3 +129,4 @@
   <div id="site-footer"></div><script src="/static/js/footer.js"></script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="/static/js/common.js"></script>
 </body>
 </html>
+

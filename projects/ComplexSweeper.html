@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>复扫雷 ComplexSweeper | Ray Chen</title>
-  <meta name="description" content="四种雷，24 种可达数值，一套不同于经典扫雷的推理规则。基于青月晓的开源原作，把圆复数模式移植到 HarmonyOS、Android 与 Apple 平台，以原生界面保留经典像素观感。">
+  <meta name="description" content="基于青月晓原作的三端原生复扫雷：圆复数与闵可夫斯基两种模式、彩色／黑白外观，以及 HarmonyOS、Android 和 Apple 平台的统一公开源码。">
   <meta name="keywords" content="ComplexSweeper, HarmonyOS, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/ComplexSweeper.html">
   <meta property="og:title" content="复扫雷 ComplexSweeper | Ray Chen">
-  <meta property="og:description" content="四种雷，24 种可达数值，一套不同于经典扫雷的推理规则。基于青月晓的开源原作，把圆复数模式移植到 HarmonyOS、Android 与 Apple 平台，以原生界面保留经典像素观感。">
+  <meta property="og:description" content="基于青月晓原作的三端原生复扫雷：圆复数与闵可夫斯基两种模式、彩色／黑白外观，以及 HarmonyOS、Android 和 Apple 平台的统一公开源码。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/ComplexSweeper.html">
   <meta name="twitter:title" content="复扫雷 ComplexSweeper | Ray Chen">
-  <meta name="twitter:description" content="四种雷，24 种可达数值，一套不同于经典扫雷的推理规则。基于青月晓的开源原作，把圆复数模式移植到 HarmonyOS、Android 与 Apple 平台，以原生界面保留经典像素观感。">
+  <meta name="twitter:description" content="基于青月晓原作的三端原生复扫雷：圆复数与闵可夫斯基两种模式、彩色／黑白外观，以及 HarmonyOS、Android 和 Apple 平台的统一公开源码。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,41 +49,25 @@
         <span class="project-category">游戏移植</span>
         <span class="ps-eyebrow">Complex Mines · Native Ports</span>
         <h1>复扫雷 ComplexSweeper</h1>
-        <p>四种雷，24 种可达数值，一套不同于经典扫雷的推理规则。基于青月晓的开源原作，把圆复数模式移植到 HarmonyOS、Android 与 Apple 平台，以原生界面保留经典像素观感。</p>
-        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a><a class="ps-button is-ghost" href="#platforms">三个平台，同一套规则</a></div>
+        <p>基于青月晓原作的三端原生复扫雷：圆复数与闵可夫斯基两种模式、彩色／黑白外观，以及 HarmonyOS、Android 和 Apple 平台的统一公开源码。</p>
+        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a><a class="ps-button is-ghost" href="#platforms">三个平台，同一套规则</a></div>
       </div>
       <div class="ps-hero-visual project-cover">
         <img src="/static/resources/main_page/complexsweeper.webp" alt="四色旗帜与复数线索棋盘的简约项目插画" width="1024" height="576" fetchpriority="high">
       </div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>扫雷，但雷是复数</h2></div>
-      <div class="complex-values" aria-label="+1, −1, +i, −i"><span>+1</span><span>−1</span><span>+i</span><span>−i</span></div>
+      <div class="ps-section-head"><h2>两种模式，两套线索</h2></div>
       <div class="ps-grid-3">
-        <article class="ps-card"><h3>四种雷</h3><p>正实雷、负实雷、正虚雷、负虚雷分别为 +1、−1、+i、−i。格子上的数是周围所有雷相加后所得复数的模长。</p></article>
-        <article class="ps-card"><h3>抵消不是空白</h3><p>周围一颗 +1 和一颗 −i，显示 √2；+1 与 −1 相互抵消，显示 0。空白表示周围完全没有雷，0 则可能藏着抵消对。</p></article>
-        <article class="ps-card"><h3>胜利与展开</h3><p>翻开所有非雷格即胜利。展开需要邻域旗帜数量与真实雷数相同，且实虚比例符合真实比例或其倒数；旗帜保护被标记的格子。</p></article>
+        <article class="ps-card"><h3>圆复数 · 24 种显示值</h3><p>四种雷为 +1、−1、+i、−i。邻域和为 a+bi 时显示 √(a²+b²)，+1 与 −i 得到 √2。展开要求旗数匹配，实虚比例与真实比例相同或互为倒数。</p></article>
+        <article class="ps-card"><h3>闵可夫斯基 · 39 种显示值</h3><p>双曲单位 j² = +1，四种雷为 +1、−1、+j、−j。邻域和为 a+bj 时显示 √(a²−b²)，负值以虚数形式显示。严格展开要求旗数匹配，且实部与 j 部的绝对值分别相等。</p></article>
+        <article class="ps-card"><h3>0 不等于没有雷</h3><p>两种模式都可能因抵消显示 0；双曲模式中 +1 与 +j 也会给出 0。只有周围完全无雷的空白格才会自动扩散，翻开所有非雷格即可获胜。</p></article>
       </div>
-      <p class="ps-note">手机轻点未翻开格子切换旗型，长按翻开；macOS 左键翻开、右键标记。点击已翻开的数字格尝试展开，点击人脸重开。三档难度：9×9 / 10 雷、16×16 / 40 雷、30×16 / 99 雷。</p>
+      <p class="ps-note">触屏轻点切换旗型，长按 400 ms 翻开并清除该格标记；连片展开仍跳过其他带标记格。macOS 左键翻开、右键标记或展开数字。首击九宫格安全；三档难度为 9×9 / 10 雷、16×16 / 40 雷、30×16 / 99 雷。</p>
     </section>
-    <section class="ps-section" id="platforms">
-      <div class="ps-section-head"><h2>三个平台，同一套规则</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>HarmonyOS</h3><p>ArkTS + ArkUI，原生导航与棋盘、像素贴图、音效、触觉反馈和本地战绩。</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener">GitHub 仓库 <i class="fas fa-arrow-up-right-from-square"></i></a></article>
-        <article class="ps-card"><h3>Android</h3><p>Kotlin + Jetpack Compose，原生棋盘与经典计雷器，使用 SoundPool、触觉反馈和 SharedPreferences。</p><span class="app-source-status">源码尚未公开</span></article>
-        <article class="ps-card"><h3>Apple</h3><p>Swift + SwiftUI，单一多平台工程覆盖 iOS、iPadOS 与 macOS；触屏与鼠标分别适配操作。</p><span class="app-source-status">源码尚未公开</span></article>
-      </div>
-      <p class="ps-note">三个移植版使用全整数运算与 mulberry32 随机数，并用相同种子的棋盘指纹检查规则一致性。只移植圆复数模式，未移植上游的双曲复数模式。</p>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>原作与移植</h2></div>
-      <p class="ps-note">原作由青月晓（Yueqing-Chen）以 Zig + Win32 开发，规则、图集与音效来自其开源项目；Rayawa 负责这三个平台的原生移植。移植基于上游 v1.2.0，代码按 GPL-3.0 发布。经典扫雷原始图像属于 Microsoft，其他新增素材与音效来自上游，具体授权见各仓库的素材说明。</p>
-      <a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">青月晓的原作</a>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>技术栈</h2></div>
-      <div class="ps-stack"><span class="ps-tag">ArkTS / ArkUI</span><span class="ps-tag">Kotlin / Compose</span><span class="ps-tag">Swift / SwiftUI</span><span class="ps-tag">mulberry32</span><span class="ps-tag">GPL-3.0</span></div>
-    </section>
+    <section class="ps-section" id="platforms"><div class="ps-section-head"><h2>三个平台，同一套规则</h2></div><p class="ps-note">HarmonyOS、Android 与 Apple 工程集中在同一仓库，分别使用 ArkTS / ArkUI、Kotlin / Compose、Swift / SwiftUI。三端使用整数规则与相同种子指纹验证一致性；原生界面、音频与触感由各平台独立实现。</p><div class="ps-actions"><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/HarmonyOS" target="_blank" rel="noopener">HarmonyOS <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/Android" target="_blank" rel="noopener">Android <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/Apple%20Platform" target="_blank" rel="noopener">Apple <i class="fas fa-arrow-up-right-from-square"></i></a></div></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>版本与移植范围</h2></div><p class="ps-note">截至 2026-10-18，移植应用为 1.2.0，同步原作 f6b80bb（源码版本 1.3.0）。两种模式分别保存最快纪录和胜负场次；彩色／黑白切换保留当前局面并保存偏好。自定义雷区、指定雷型配比、音效开关和独立纪录窗口尚未移植。</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper/releases/tag/v1.2.0" target="_blank" rel="noopener">v1.2.0 <i class="fas fa-arrow-up-right-from-square"></i></a></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Qingyuexiao / Rayawa</h2></div><p class="ps-note">青月晓（Yueqing-Chen）以 Zig / Win32 开发原作并提供规则、图集与音效；Rayawa 负责三端原生移植。移植代码按 GPL-3.0 发布；经典扫雷原始图像属于 Microsoft，新增图像与音效按原作授权，详情见仓库素材说明。</p><a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">Complexweeper · Zig / Win32 <i class="fas fa-arrow-up-right-from-square"></i></a></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
   <div id="site-footer"></div>
@@ -92,3 +76,4 @@
   <script src="/static/js/common.js"></script>
 </body>
 </html>
+

@@ -11,7 +11,8 @@
 .hero::before {
     content: '';
     position: absolute;
-    inset: -80px -40px -40px;
+    /* Keep the glow within the page width while allowing vertical parallax. */
+    inset: -80px 0 -40px;
     background: radial-gradient(ellipse 70% 60% at 50% calc(40% + var(--parallax-y)), rgba(99, 102, 241, 0.09), transparent 70%),
                 radial-gradient(ellipse 50% 50% at 80% calc(30% + var(--parallax-y) * 0.6), rgba(89, 212, 255, 0.06), transparent 70%);
     pointer-events: none;
@@ -267,6 +268,25 @@
 .floating-elements.is-tooltip-visible .star-tooltip {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+}
+
+@media (min-width: 1024px) {
+    /* Longer translations must stay inside the right edge of the hero. */
+    .star-tooltip {
+        left: auto;
+        right: 0;
+        transform: translateY(6px);
+    }
+
+    .star-tooltip::before {
+        left: auto;
+        right: 50px;
+        transform: rotate(45deg);
+    }
+
+    .floating-elements.is-tooltip-visible .star-tooltip {
+        transform: translateY(0);
+    }
 }
 
 .floating-elements:hover {
@@ -1832,9 +1852,9 @@ textarea.form-control {
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
-    /* 平板端：缩小 Hero 视差伪元素 */
+    /* 平板端：缩小纵向视差范围，背景不超出页面宽度 */
     .hero::before {
-        inset: -40px -20px -20px;
+        inset: -40px 0 -20px;
     }
 }
 
@@ -2080,3 +2100,4 @@ textarea.form-control {
         animation: none;
     }
 }
+
