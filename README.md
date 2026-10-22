@@ -72,7 +72,7 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html          # 英文书单页面
 │   │   └── piano.html          # 英文钢琴页面
-│   └── projects/               # 英文项目页（22 个，与中文版一一对应）
+│   └── projects/               # 英文项目页（23 个，与中文版一一对应）
 │
 ├── fr/                         # 法文版本目录（结构与英文版一致）
 │   ├── index.html
@@ -80,13 +80,14 @@ Rayawa.github.io/
 │   ├── life/
 │   │   ├── books.html
 │   │   └── piano.html
-│   └── projects/               # 法文项目页（22 个）
+│   └── projects/               # 法文项目页（23 个）
 │
 ├── life/                       # 中文生活页面
 │   ├── books.html              # 书单页面
 │   └── piano.html              # 钢琴页面
 │
-├── projects/                   # 中文项目页面（22 个）
+├── projects/                   # 中文项目页面（23 个）
+│   ├── Dashboard.html          # 看板三端客户端概览
 │   ├── QiZhi01.html            # 启智01 · 昇腾AI全栈
 │   ├── AstraPlusCar.html       # AstraPlusCar · 智能小车
 │   ├── ElvaCos.html            # 绮秀 · Coser 离线个人管理
@@ -109,6 +110,9 @@ Rayawa.github.io/
 │   ├── GaokaoQuery.html        # 高考成绩便捷查询工具
 │   ├── xxh.html                # XXH 情感契合度测试
 │   └── YoloSecurityPlatform.html  # 智能安防远程监控平台
+│
+├── docs/                       # 内容维护记录
+│   └── maintenance-2026-10-20.md
 │
 └── static/                     # 静态资源（公共组件）
     ├── css/                    # 样式文件（21 个）
@@ -159,7 +163,7 @@ Rayawa.github.io/
         └── spm/                      # Sweet Potato Mod 素材
 ```
 
-> 站点共 **79 个 HTML 页面**（中文 27 + 英文 26 + 法文 26），其中项目页每种语言 22 个。
+> 站点共 **82 个 HTML 页面**（中文 28 + 英文 27 + 法文 27），其中项目页每种语言 23 个。
 
 ## 🛠️ 技术栈
 
@@ -285,7 +289,7 @@ Rayawa.github.io/
 3. **路径修复**：自动修复所有静态资源和链接的相对路径
 4. **组件收敛**：导航栏与页脚由独立 HTML 片段改为脚本注入，消除多份副本
 5. **HTML 清理**：修复 HTML 标签和结构问题
-6. **看板外置**：华为应用市场看板迁移至独立站点 `dashboard.rayawa.top`，主站仅保留入口
+6. **看板外置**：华为应用市场看板迁移至独立站点 `dashboard.rayawa.top`，主站保留项目概览与直达入口
 7. **新增项目页**：扩充 SmartShed（智慧大棚）、RockPaperSissors（石头剪刀布检测）、ascend310（昇腾 AI 全栈）
 8. **信号项目改版**：补充原理图、接线图、灯箱浏览与项目文档资源
 
@@ -326,7 +330,19 @@ Rayawa.github.io/
 
 ---
 
-**最后更新**：2026年10月11日
+**最后更新**：2026年10月20日
 **维护者**：Ray Chen (Rayawa)
 **架构版本**：v3.0（多语言静态化 · 脚本注入组件版）
 **技术栈**：HTML5, CSS3, JavaScript, GitHub Pages
+
+
+## 2026-10-20 内容维护
+
+三语首页的当前专注与技术领域已按公开项目同步，保留手写个人介绍。新增
+`projects/Dashboard.html` 及英法版本，集中介绍 HarmonyOS、Apple 与 Android
+原生客户端；首页看板卡片指向该概览，概览保留产品站与三端源码直达入口。
+复扫雷更新为统一仓库、两种模式与 1.2.0 范围；PetSnap 更新为当前 HarmonyOS
+客户端；AstraPlusCar 同步短段视频与三次恢复，保留无线稳定性及实车验证边界。
+Loci 与 ElvaCos 的开发 / Beta 状态经核对后保留。
+
+依据与未完成能力见 [维护记录](docs/maintenance-2026-10-20.md)。

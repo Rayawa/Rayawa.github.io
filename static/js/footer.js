@@ -43,7 +43,7 @@
             projects: 'Projects',
             life: 'Life',
             copy: '&copy; 2026 Ray Chen. All Rights Reserved.',
-            projectHmdb: 'Harmony Gallery',
+            projectHmdb: 'Dashboard · App Market',
             projectElvaCos: 'ElvaCos · Cosplay Planner',
             projectComplexSweeper: 'ComplexSweeper · Complex Mines',
             projectLoci: 'Loci · Place Memories',
@@ -63,7 +63,7 @@
             projects: 'Projets',
             life: 'Vie',
             copy: '&copy; 2026 Ray Chen. Tous droits réservés.',
-            projectHmdb: 'Gallery Huawei',
+            projectHmdb: 'Dashboard · Marché des applications',
             projectElvaCos: 'ElvaCos · Organisation cosplay',
             projectComplexSweeper: 'ComplexSweeper · Démineur complexe',
             projectLoci: 'Loci · Mémoires de lieux',
@@ -108,7 +108,7 @@
         '@media(max-width:768px){.footer-content{align-items:flex-start;gap:.8rem}.footer-social-link{width:44px;height:44px}.copyright{gap:.2rem}}';
 
     var projectLinks = [
-        { href: 'https://dashboard.rayawa.top', text: t.projectHmdb },
+        { href: prefix + langPrefix + 'projects/Dashboard.html', text: t.projectHmdb },
         { href: prefix + langPrefix + 'projects/AstraPlusCar.html', text: t.projectAstra },
         { href: prefix + langPrefix + 'projects/ElvaCos.html', text: t.projectElvaCos },
         { href: prefix + langPrefix + 'projects/WeakSignal.html', text: t.projectSignal },
@@ -167,3 +167,4 @@
 
     container.innerHTML = html;
 })();
+

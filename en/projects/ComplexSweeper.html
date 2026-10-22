@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ComplexSweeper · Complex Mines | Ray Chen</title>
-  <meta name="description" content="Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.">
+  <meta name="description" content="Native ports of Qingyuexiao’s complex Minesweeper with circular and Minkowski modes, colour / monochrome themes, and public HarmonyOS, Android and Apple sources in one repository.">
   <meta name="keywords" content="ComplexSweeper, HarmonyOS, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/en/projects/ComplexSweeper.html">
   <meta property="og:title" content="ComplexSweeper · Complex Mines | Ray Chen">
-  <meta property="og:description" content="Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.">
+  <meta property="og:description" content="Native ports of Qingyuexiao’s complex Minesweeper with circular and Minkowski modes, colour / monochrome themes, and public HarmonyOS, Android and Apple sources in one repository.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/en/projects/ComplexSweeper.html">
   <meta name="twitter:title" content="ComplexSweeper · Complex Mines | Ray Chen">
-  <meta name="twitter:description" content="Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.">
+  <meta name="twitter:description" content="Native ports of Qingyuexiao’s complex Minesweeper with circular and Minkowski modes, colour / monochrome themes, and public HarmonyOS, Android and Apple sources in one repository.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,41 +49,25 @@
         <span class="project-category">Game port</span>
         <span class="ps-eyebrow">Complex Mines · Native Ports</span>
         <h1>ComplexSweeper · Complex Mines</h1>
-        <p>Four kinds of mines, 24 reachable values and a different way to reason about the board. Native HarmonyOS, Android and Apple ports of Qingyuexiao’s open-source game preserve its classic pixel style and circular complex-number mode.</p>
-        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub repository</a><a class="ps-button is-ghost" href="#platforms">Three platforms, one set of rules</a></div>
+        <p>Native ports of Qingyuexiao’s complex Minesweeper with circular and Minkowski modes, colour / monochrome themes, and public HarmonyOS, Android and Apple sources in one repository.</p>
+        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ComplexSweeper" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub repository</a><a class="ps-button is-ghost" href="#platforms">Three platforms, one set of rules</a></div>
       </div>
       <div class="ps-hero-visual project-cover">
         <img src="/static/resources/main_page/complexsweeper.webp" alt="Minimal illustration of a puzzle board with four flag colours and complex-number clues" width="1024" height="576" fetchpriority="high">
       </div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>Minesweeper with complex mines</h2></div>
-      <div class="complex-values" aria-label="+1, −1, +i, −i"><span>+1</span><span>−1</span><span>+i</span><span>−i</span></div>
+      <div class="ps-section-head"><h2>Two modes, two kinds of clues</h2></div>
       <div class="ps-grid-3">
-        <article class="ps-card"><h3>Four mine types</h3><p>Positive and negative real and imaginary mines represent +1, −1, +i and −i. A cell shows the magnitude of the sum of all nearby mines.</p></article>
-        <article class="ps-card"><h3>Cancellation is not empty</h3><p>A +1 mine and a −i mine give √2. A +1 and a −1 cancel to 0. A blank means there are no nearby mines; a zero can hide cancelling pairs.</p></article>
-        <article class="ps-card"><h3>Winning and expanding</h3><p>Reveal every non-mine cell to win. Expansion requires the nearby flag count to match the actual mine count and the real-to-imaginary ratio to match the true ratio or its reciprocal. Flagged cells remain protected.</p></article>
+        <article class="ps-card"><h3>Circular · 24 display values</h3><p>The four mines are +1, −1, +i and −i. A neighbourhood sum a+bi displays √(a²+b²); +1 and −i give √2. Expansion requires the correct flag count and the true real/imaginary ratio or its reciprocal.</p></article>
+        <article class="ps-card"><h3>Minkowski · 39 display values</h3><p>The hyperbolic unit satisfies j² = +1, with mines +1, −1, +j and −j. A sum a+bj displays √(a²−b²), using imaginary values for negative results. Strict expansion requires the correct count and matching absolute real and j components separately.</p></article>
+        <article class="ps-card"><h3>Zero is not empty</h3><p>Cancellation can produce 0 in either mode; +1 and +j also give 0 in Minkowski mode. Only genuinely empty neighbourhoods spread automatically. Reveal all non-mine cells to win.</p></article>
       </div>
-      <p class="ps-note">On phones, tap a covered cell to cycle flags and hold to reveal it. On macOS, left-click reveals and right-click flags. Select a revealed number to attempt expansion; select the face to restart. Three difficulties: 9×9 / 10 mines, 16×16 / 40 mines and 30×16 / 99 mines.</p>
+      <p class="ps-note">On touchscreens, tap to cycle flags and hold for 400 ms to clear that cell’s flag and reveal it; flood expansion still skips other flags. On macOS, left-click reveals and right-click flags or expands a number. The first cell and its eight neighbours are safe. Difficulties: 9×9 / 10, 16×16 / 40 and 30×16 / 99 mines.</p>
     </section>
-    <section class="ps-section" id="platforms">
-      <div class="ps-section-head"><h2>Three platforms, one set of rules</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>HarmonyOS</h3><p>ArkTS + ArkUI with native navigation, pixel tiles, sound, haptics and local scores.</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper-HarmonyOS" target="_blank" rel="noopener">GitHub repository <i class="fas fa-arrow-up-right-from-square"></i></a></article>
-        <article class="ps-card"><h3>Android</h3><p>Kotlin + Jetpack Compose with a native board and classic mine counters, SoundPool audio, haptics and SharedPreferences.</p><span class="app-source-status">Source not yet public</span></article>
-        <article class="ps-card"><h3>Apple</h3><p>Swift + SwiftUI in one multiplatform project for iOS, iPadOS and macOS, with separate touch and mouse controls.</p><span class="app-source-status">Source not yet public</span></article>
-      </div>
-      <p class="ps-note">All three ports use integer arithmetic and the mulberry32 generator. Board fingerprints for identical seeds check consistency between platforms. Only circular complex-number mode is ported; the upstream hyperbolic mode is not included.</p>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>Original game and ports</h2></div>
-      <p class="ps-note">Qingyuexiao (Yueqing-Chen) created the original Zig + Win32 game, rules, atlas and audio; Rayawa maintains these three native ports. The ports are based on upstream v1.2.0 and their code is GPL-3.0. Original classic Minesweeper images belong to Microsoft; other additions and audio come from the upstream game. See each repository’s asset documentation for the specific licences.</p>
-      <a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">Original game by Qingyuexiao</a>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>Technology</h2></div>
-      <div class="ps-stack"><span class="ps-tag">ArkTS / ArkUI</span><span class="ps-tag">Kotlin / Compose</span><span class="ps-tag">Swift / SwiftUI</span><span class="ps-tag">mulberry32</span><span class="ps-tag">GPL-3.0</span></div>
-    </section>
+    <section class="ps-section" id="platforms"><div class="ps-section-head"><h2>Three platforms, one set of rules</h2></div><p class="ps-note">HarmonyOS, Android and Apple projects share one repository, using ArkTS / ArkUI, Kotlin / Compose and Swift / SwiftUI respectively. Integer rules and identical-seed fingerprints check consistency; each platform implements its own native interface, audio and haptics.</p><div class="ps-actions"><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/HarmonyOS" target="_blank" rel="noopener">HarmonyOS <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/Android" target="_blank" rel="noopener">Android <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/ComplexSweeper/tree/main/Apple%20Platform" target="_blank" rel="noopener">Apple <i class="fas fa-arrow-up-right-from-square"></i></a></div></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Version & porting scope</h2></div><p class="ps-note">As of 18 October 2026, the port is version 1.2.0, aligned with upstream f6b80bb (source version 1.3.0). Both modes keep separate best times and win/loss records. Colour / monochrome switching preserves the game and saves the preference. Custom boards, specified mine proportions, a sound toggle and a separate records window remain unported.</p><a class="app-repo-link" href="https://github.com/Rayawa/ComplexSweeper/releases/tag/v1.2.0" target="_blank" rel="noopener">v1.2.0 <i class="fas fa-arrow-up-right-from-square"></i></a></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Qingyuexiao / Rayawa</h2></div><p class="ps-note">Qingyuexiao (Yueqing-Chen) created the Zig / Win32 original, rules, atlas and audio; Rayawa maintains the three native ports. Port code is GPL-3.0. Original classic Minesweeper images belong to Microsoft; additions and audio retain their upstream licences, documented in the repository.</p><a class="app-repo-link" href="https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game" target="_blank" rel="noopener">Complexweeper · Zig / Win32 <i class="fas fa-arrow-up-right-from-square"></i></a></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
   <div id="site-footer"></div>
@@ -92,3 +76,4 @@
   <script src="/static/js/common.js"></script>
 </body>
 </html>
+
