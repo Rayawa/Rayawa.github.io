@@ -26,10 +26,7 @@
 
     var navLinks = [
         { href: isHomepage ? '#' : prefix + langPrefix + 'index.html', text: texts.home, i18n: 'nav.home' },
-        { href: isHomepage ? '#about' : prefix + langPrefix + 'index.html#about', text: texts.about, i18n: 'nav.about' },
-        { href: isHomepage ? '#projects' : prefix + langPrefix + 'index.html#projects', text: texts.projects, i18n: 'nav.projects' },
-        { href: isHomepage ? '#gallery' : prefix + langPrefix + 'index.html#gallery', text: texts.gallery, i18n: 'nav.gallery' },
-        { href: isHomepage ? '#contact' : prefix + langPrefix + 'index.html#contact', text: texts.contact, i18n: 'nav.contact' }
+        { href: isHomepage ? '#projects' : prefix + langPrefix + 'index.html#projects', text: texts.projects, i18n: 'nav.projects' }
     ];
 
     var currentPage = path.replace(/\/$/, '');
@@ -46,7 +43,7 @@
         '<div class="container nav-container">' +
             '<a href="' + homeHref + '" class="logo">' +
                 '<i class="fas fa-code"></i> ' +
-                '<span>Ray Chen</span>' +
+                '<span>Projects</span>' +
             '</a>' +
             '<ul class="nav-links">' +
                 navLinks.map(function(l) {
