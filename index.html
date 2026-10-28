@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>项目目录</title>
-  <meta name="description" content="应用、嵌入式设备与研究项目的技术说明。">
+  <title>首页 | Ray Chen</title>
+  <meta name="description" content="计算机在读 | 专注人工智能前沿 | 跨界极客 | 影像爱好者">
+  <meta name="keywords" content="Ray Chen, 个人网站, 计算机科学与技术, 昇腾AI, 华为昇腾, Ascend, 人工智能, 前沿AI, 开源鸿蒙, OpenHarmony, HarmonyOS, 鸿蒙全栈开发, 神经网络, 机器学习, 深度学习, 全栈开发, Web开发, 后端, 生物学, 摄影, 鸿蒙应用看板, Hi3861嵌入式, Minecraft模组, 研究论文">
+  <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
 
@@ -15,19 +17,26 @@
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/">
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/">
-  <link rel="apple-touch-icon" href="https://rayawa.top/favicon.ico">
+  <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/">
-  <meta property="og:title" content="Project Documentation | Everything is possible by code.">
-  <meta property="og:description" content="应用、嵌入式设备与研究项目的技术说明。">
+  <meta property="og:title" content="Ray Chen | Everything is possible by code.">
+  <meta property="og:description" content="计算机在读 | 专注人工智能前沿 | 跨界极客 | 影像爱好者">
+  <meta property="og:image" content="https://rayawa.top/ray.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="480">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:site_name" content="Project Documentation">
+  <meta property="og:site_name" content="Ray Chen's Website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/">
-  <meta name="twitter:title" content="Project Documentation | Everything is possible by code.">
-  <meta name="twitter:description" content="应用、嵌入式设备与研究项目的技术说明。">
+  <meta name="twitter:title" content="Ray Chen | Everything is possible by code.">
+  <meta name="twitter:description" content="计算机在读 | 专注人工智能前沿 | 跨界极客 | 影像爱好者">
+  <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
+  <meta name="twitter:creator" content="@Rayawa">
+  <meta name="twitter:site" content="@Rayawa">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/common.css">
@@ -71,24 +80,182 @@
 
     <!-- 英雄区域 -->
     <section class="hero reveal-section" id="home">
-      <div class="container"><div class="hero-content">
-        <div class="hero-text reveal-seq">
-          <h1 class="reveal-item"><span class="gradient-text">项目目录</span></h1>
-          <p class="reveal-item">应用、嵌入式设备与研究项目的技术说明。</p>
-          <div class="btn-group reveal-item"><a href="#projects" class="btn"><i class="fas fa-code"></i> 查看项目</a></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text reveal-seq">
+                    <h1 class="reveal-item" >你好，这里是 <span class="gradient-text">Ray</span>！</h1>
+                    <p class="hero-aliases reveal-item">Ray汐 · 清霁Ray · Rayawa</p>
+                    <div class="hero-tags">
+                        <p class="tag-intro reveal-item"><strong >计算机在读 | 专注人工智能前沿 | 跨界极客 | 影像爱好者</strong></p>
+                        <p class="reveal-item"><span class="tag-label" >核心</span><span >原生应用开发、昇腾端侧 AI、OpenHarmony 与智能设备，持续探索人工智能的新进展。</span></p>
+                        <p class="reveal-item"><span class="tag-label" >支线</span><span >跨平台客户端、Web / API 与 AI 视频工作流；继续学习 Rust、C++ 与系统开发。</span></p>
+                        <p class="reveal-item"><span class="tag-label" >摄影</span><span >主要是风景摄影与无人机航拍，人像进修中......</span></p>
+                        <p class="reveal-item"><span class="tag-label" >生活</span><span >J'apprends le français；热爱听音乐；跑步骑行中；在提瓦特、罗德岛与塔卫二切换；音游在线，每天赚费沉底石头人（）。</span></p>
+                    </div>
+                    <div class="btn-group reveal-item">
+                        <a href="#projects" class="btn">
+                            <i class="fas fa-rocket"></i>
+                            <span >查看项目</span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            <span >联系我</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image reveal-item">
+                    <img src="ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
+                    <div class="avatar-quote" >Everything is possible by code.</div>
+                    <div class="floating-elements" id="heroStar" data-tooltip="致谢">
+                        <a href="thanks.html" class="star-link" title="致谢"><i class="fas fa-star"></i></a>
+                        <span class="star-tooltip" >致谢</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-image reveal-item" aria-hidden="true"><div class="glass-card" style="padding:4rem;border-radius:2rem;font-size:5rem;color:#a5b4fc">&lt;/&gt;</div></div>
-      </div></div>
     </section>
 
     <!-- 关于我 -->
+    <section class="about reveal-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >关于我</h2>
+                <p class="section-subtitle reveal-item" >跨越学科的边界，只为连接更广阔的世界。</p>
+            </div>
 
+            <div class="about-content">
+                <div class="about-text reveal-item" id="aboutTextBlock" ><h3>个人简介</h3>
+<p>欢迎来到我的个人主页，我是Ray～你可以在这里全面的了解我。我不是特别信MBTI这个东西，但是这个东西确实挺火的。听说能让人最快了解人的性格，我目前测的是INTP，仅供参考。</p>
+<p>我出生于 2007 年，目前就读于北方工业大学计算机科学与技术专业。虽然身在通信专业，但我目前投入精力最多、也最热爱的领域是软件开发。</p>
+<p>我从小就和编程结缘：从刚记事的时候就在玩Scratch之类的模块化编程，之后又接触了EV3机器人和Arduino UNO开发板，我一直沉浸其中。印象里用EV3做过很多好玩的机器人，比如颜色分类的、爬楼梯的小车、履带小车，最后还做了一个能还原三阶魔方的魔方机器人——记得当时颜色扫描不是很稳定。虽然现在那台机器已经开不了机，也落了一层灰，但这个魔方机器人我一直留到现在，没舍得拆。</p>
+<p>三四年级的时候，Arduino的C语言是我接触的第一个正经编程语言，也是人生第一次体验“嵌入式开发”。虽然起初只是做流水呼吸灯、抢答器这类小物件，但后来我成功做出了一辆带云台的超声波避障小车。这辆小车不仅登上了当年的校报，后来还捐赠给了学校进行展示。</p>
+<p>再后来，2018年我参加了丝绸之路国际青少年大赛机器人竞赛，做了一个智能鱼食投喂机。之后开始学C++并投身信息学奥赛。升入初中后，我又参与制做了一个烤地瓜模组的项目，还有人找我们签合同购买源码将模组上架网易版本。虽然那份合同现已过期，项目也因学业而搁置，但现在想起来还是充满回忆。</p>
+<p>高中几乎三年没碰代码，都在做生物学相关的研究。去年九月份，我踏入了鸿蒙的大门，成为了鸿蒙开发者，开始参与鸿蒙应用看板项目。转眼间半年过去了，这个项目也算是积累了一定的知名度。现在我也正持续推进这个项目的进度：鸿蒙应用看板App已经进入邀请测试阶段，预计很快就能上架；未来还计划将其扩展至 macOS 与 Android 平台。</p>
+<p>除了应用层，我目前也在钻研OpenHarmony Hi3861嵌入式开发。之前简单的做了一些开发板的单独开发，现在在做结合HarmonyOS应用的智慧大棚项目。我通过硬件实验，从底层逻辑理解设备侧能力与系统工程。最近开始学习机器学习，已经做了基本的回归预测和目标检测，未来打算继续深入。在网页开发上，我搭建了个人网站、模组站、第五人格站以及农杆菌转化法实验站点。现在的我，程序方面涉猎C、C++、Java、Rust、HTML、ArkTS、Swift和openGauss数据库。对我来说参与各种项目是一种我特别感兴趣的娱乐，未来我还会做更多的开发，全面提升自己的语言能力。</p>
+<p>生物学是我探索世界的另一扇窗。高中时期遇见的两位非常优秀的生物老师，是我与这门学科结缘的关键。她们不仅教会了我知识，更以卓越的专业素养，将我从一个单纯的爱好者，培养成了能够独立思考的研究者。在老师的指导下，我带领高中开创了首届PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇感兴趣话题的小论文，还和同学一起撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去阐述生物学也十分有趣。生物学或许是我的一种“遗憾美”，如果有机会，未来我也希望能向生物信息学方向探路。</p>
+<p>在代码之外，我热爱跑步与骑行，相机和无人机则是出门必备。对我而言，摄影的乐趣远不止于最后那张照片，更在于切换视角时的构图巧思、尝试不同的叙事风格，以及在既有基础上推陈出新的创作过程。</p>
+<p>在兴趣爱好方面，我以前有小号六级证书，但很明显现在不会吹了（）。初中时自学的钢琴，现在也能弹几首曲子。此外，我还喜欢模拟飞行和玩魔方：最喜欢的是四阶，其次是五魔方。音乐也是我人生中不可割舍的一部分。无论是在通勤路上，还是在编写代码、调试网页与硬件的专注时刻，音乐不仅是滤除杂音的背景，更是与我灵感同频的共振。我还是F1的铁杆观众，梅赛德斯奔驰AMG是我的主队，最喜欢的车手是刘易斯·汉密尔顿。虽然我依旧钟情于保时捷911与AMG这种纯粹的性能机器，但也时刻关注着国产新能源的前沿发展。</p>
+<p>我是一个重度的机圈与数码发烧友，周围很多同学朋友在换新设备的时候时常会找我导购。我日常反复横跳在苹果的硬核科技与华为的创新美学之间，只要有发布会，直播间里肯定少不了我，安卓阵营中最喜欢的则是vivo。电脑方面，我是ARM架构与Apple Silicon的忠实拥护者。虽然目前仍有诸多不便，但MacBook的超高续航比与轻便体验，精准切中了我对代码编写与影像创作的核心生产力要求。至于摄影，我喜欢哈苏、索尼与大疆，它们是我记录世界时不可或缺的延伸。</p>
+<p>游戏方面，我是Minecraft的老玩家，也算一名“原学家”（大概）。近期正在玩明日方舟和异环；同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline。在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）和若干B牌（虽然目前已退游）。皇室战争里我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
+<p>身为理科生，我却对世界文化怀有极强的好奇心，也很乐意了解各个国家的风土人情。中小学时期的英语演讲比赛与两年英国议会制辩论（BP）的经历，为我打下了坚实的语言基础。最近我也在学习法语。从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
+<p>无论是在 0 与 1 的代码世界里构建秩序，还是在双螺旋的生物蓝图中寻找规律，我始终相信，跨界的探索能让生命拥有更宽广的边界。如果你也对技术、生物或这个多元的世界充满好奇，欢迎随时与我交流。</p>
+<p>很高兴认识你，在这段名为“成长”的航程中。</p>
+<p style="text-align:right">——Ray<br>2026.10.3</p></div>
+
+                <div class="about-side">
+                    <div class="glass-card status-card reveal-item" id="statusCardBlock" ><h3 class="status-card-title">当前专注</h3>
+<div class="skills-grid">
+    <a href="projects/Dashboard.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div><div class="skill-name">原生应用与跨平台</div></div><p class="skill-description">应用看板持续迭代，推进 HarmonyOS、Apple 与 Android 原生客户端<br>绮秀、Loci 与复扫雷探索不同使用场景</p></a>
+    <a href="projects/AstraPlusCar.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-microchip"></i></div><div class="skill-name">端侧 AI 与智能设备</div></div><p class="skill-description">昇腾 310B · CANN / AscendCL · MindSpore Lite<br>OpenHarmony 系统适配、视觉推理与机器人软硬件协同</p></a>
+    <a href="projects/TextVideoGen.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-film"></i></div><div class="skill-name">AI 工作流</div></div><p class="skill-description">用 OpenCode 组织本地视频制作的创意、分镜、渲染与检查<br>持续探索模型与 Agent 在实际创作中的应用</p></a>
+    <a href="projects/Biology.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-seedling"></i></div><div class="skill-name">持续学习与交叉探索</div></div><p class="skill-description">继续学习 AI、Rust、C++ 与系统开发<br>关注 AI for Science 与生物信息学，作为后续探索方向</p></a>
+</div></div>
+
+                    <div class="glass-card side-card reveal-item" id="stackCardBlock" ><h3 class="status-card-title">技术栈与领域</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <div class="skill-name">程序语言</div>
+        </div>
+        <p class="skill-description">ArkTS · Swift · Kotlin · Python · C / C++ · Rust · Java · C# · JavaScript / HTML / CSS</p>
+    </div>
+    <a href="#projects" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="skill-name">产品与工程</div>
+        </div>
+        <p class="skill-description">ArkUI · SwiftUI · Jetpack Compose · OpenHarmony · CANN / AscendCL · MindSpore Lite · Web / API</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="skill-name">开源与协作</div>
+        </div>
+        <p class="skill-description">Dashboard · AstraPlusCar · ComplexSweeper · SmartShed · Sweet Potato Mod / Difficult Rocket 协作</p>
+    </div>
+    <a href="projects/Biology.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-flask"></i></div>
+            <div class="skill-name">生物学与交叉兴趣</div>
+        </div>
+        <p class="skill-description">PCR 实验 · 生物学猜想与综述 · 农杆菌转化法交互网页；AI for Science / 生物信息学仍在探索</p>
+    </a>
+</div></div>
+
+                    <div class="glass-card side-card reveal-item" id="roadmapCardBlock" ><h3 class="status-card-title">部分成就</h3>
+<div class="skills-grid">
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="skill-name">编程领域</div>
+        </div>
+        <p class="skill-description">EV3魔方机器人 · Arduino超声波避障小车 · 丝绸之路机器人大赛 · C++信息学奥赛 · Sweet Potato Mod · Difficult Rocket · 鸿蒙应用看板 · 昇腾310B 系统移植 · 开放原子大赛</p>
+    </div>
+    <a href="projects/Biology.html" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-microscope"></i></div>
+            <div class="skill-name">生物学领域</div>
+        </div>
+        <p class="skill-description">PCR实验项目 · 《关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想》 · 《卡尔文循环的分子生物学研究》 · 《酵母菌实验中平板变橙原因的分析与验证》 · 农杆菌转化法交互网页</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
+            <div class="skill-name">昇腾AI · 鸿蒙</div>
+        </div>
+        <p class="skill-description">昇腾310B 系统适配 · HarmonyOS应用开发 · OpenHarmony嵌入式开发 · openGauss数据库</p>
+    </div>
+        <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-trophy"></i></div>
+            <div class="skill-name">其他领域</div>
+        </div>
+        <p class="skill-description">Swift开发者 · 21世界英语全国中小学生英语演讲比赛 · 小号六级证书 · 英国议会制辩论比赛 · 原学家 · A疯眼 · 众多摄影与航拍作品</p>
+    </div>
+</div></div>
+
+                    <div class="glass-card side-card reveal-item" id="lifestyleCardBlock" ><h3 class="status-card-title">兴趣与生活</h3>
+<div class="skills-grid">
+    <a href="#gallery" class="skill-item skill-link">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-camera"></i></div>
+            <div class="skill-name">摄影</div>
+        </div>
+        <p class="skill-description">风景摄影 · 无人机航拍</p>
+    </a>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-running"></i></div>
+            <div class="skill-name">运动</div>
+        </div>
+        <p class="skill-description">跑步 · 骑行</p>
+    </div>
+        <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-music"></i></div>
+            <div class="skill-name">兴趣</div>
+        </div>
+        <p class="skill-description">听音乐 · 钢琴 · 小号 · 魔方 · 模拟飞行</p>
+    </div>
+    <div class="skill-item">
+        <div class="skill-header">
+            <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="skill-name">游戏</div>
+        </div>
+        <p class="skill-description">Minecraft · 第五人格 · 原神 · 明日方舟 · 异环 · 皇室战争 · 多端音游（Arcaea, Phigros为主）</p>
+    </div>
+</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 项目展示 -->
     <section class="projects reveal-section" id="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title reveal-item" >项目</h2>
+                <h2 class="section-title reveal-item" >我的项目</h2>
                 <p class="section-subtitle reveal-item" >把热爱写成项目，把项目做成长期作品。</p>
             </div>
 
@@ -102,7 +269,7 @@
                         <div class="project-image harmony"><span class="tag tag-category">鸿蒙</span></div>
                         <div class="project-content">
                             <h4 class="project-title">华为应用市场看板</h4>
-                            <p class="project-description">鸿蒙应用市场数据项目。原生客户端提供应用与元服务查询、筛选、趋势图和详情：HarmonyOS 已迭代至 3.1.1，Apple 客户端为 3.1.0，Android 原生版持续开发中。</p>
+                            <p class="project-description">与 Shenjack 协作的鸿蒙应用市场数据项目。原生客户端提供应用与元服务查询、筛选、趋势图和详情：HarmonyOS 已迭代至 3.1.1，Apple 客户端为 3.1.0，Android 原生版持续开发中。</p>
                             <div class="project-award-row">
                                 <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛获奖作品</span>
                             </div>
@@ -170,7 +337,7 @@
                         <div class="project-image complexsweeper"><span class="tag tag-category">游戏移植</span></div>
                         <div class="project-content">
                             <h4 class="project-title">复扫雷 ComplexSweeper</h4>
-                            <p class="project-description">基于上游项目的三端原生移植：圆复数与闵可夫斯基两种模式、三档难度和独立战绩。HarmonyOS、Android、iOS / iPadOS / macOS 源码已合并公开；1.2.0 支持彩色／黑白外观与长按清旗翻开。</p>
+                            <p class="project-description">基于青月晓原作的三端原生移植：圆复数与闵可夫斯基两种模式、三档难度和独立战绩。HarmonyOS、Android、iOS / iPadOS / macOS 源码已合并公开；1.2.0 支持彩色／黑白外观与长按清旗翻开。</p>
                             <div class="project-tags">
                                 <span class="tag">ArkTS</span>
                                 <span class="tag">Kotlin</span>
@@ -274,7 +441,7 @@
                         <div class="project-image dr"><span class="tag tag-category">Python</span></div>
                         <div class="project-content">
                             <h4 class="project-title">Difficult Rocket<i class="fas fa-external-link-alt external-link-icon"></i></h4>
-                            <p class="project-description">火箭模拟项目，以更轻量的方式探索类似 Simple Rockets 的玩法；这是一个侧重游戏制作与协作实践的项目。</p>
+                            <p class="project-description">与 @shenjack 协作的火箭模拟项目，以更轻量的方式探索类似 Simple Rockets 的玩法；这是一个侧重游戏制作与协作实践的项目。</p>
                             <div class="project-tags">
                                 <span class="tag">Rust</span>
                                 <span class="tag">火箭模拟器</span>
@@ -382,10 +549,57 @@
                             </div>
                         </div>
                     </a>
-
-
-
-
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <span class="tag tag-category">影片</span>
+                            <h4 class="project-title">《寿怡红群芳开夜宴》</h4>
+                            <p class="project-description">参与《红楼梦》剧组 2023 年末的翻拍活动，承担导演、摄影和剪辑工作，完整经历从现场拍摄到成片整理的创作流程。</p>
+                            <div class="project-tags">
+                                <span class="tag">导演</span>
+                                <span class="tag">摄影</span>
+                                <span class="tag">剪辑</span>
+                                <span class="tag">短片</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <span class="tag tag-category">InDesign</span>
+                            <h4 class="project-title">毕业纪念册</h4>
+                            <p class="project-description">使用 InDesign 反复打磨版式与内容，并为实体纪念册加入可访问网站的 NFC 标签；集体照与「送你一朵小红花」构成视觉记忆点。</p>
+                            <div class="project-tags">
+                                <span class="tag">InDesign</span>
+                                <span class="tag">版式设计</span>
+                                <span class="tag">NFC</span>
+                                <span class="tag">实体印刷</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <span class="tag tag-category">影片</span>
+                            <h4 class="project-title">whn生日</h4>
+                            <p class="project-description">为 2024 年 11 月的生日活动制作影像内容，参与分镜、拍摄与后期剪辑，把一次线下聚会整理成可留存的视频作品。</p>
+                            <div class="project-tags">
+                                <span class="tag">分镜</span>
+                                <span class="tag">拍摄</span>
+                                <span class="tag">剪辑</span>
+                                <span class="tag">纪念影像</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="projects/xxh.html" class="project-card project-card-mini reveal-item">
+                        <div class="project-content">
+                            <span class="tag tag-category">网页</span>
+                            <h4 class="project-title">xxh的感情契合度测试</h4>
+                            <p class="project-description">双人依次匿名答题，在浏览器本地比较价值观、生活方式和附加议题；结果提供总分、分项分数与题目明细，答案不会上传。</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">互动网页</span>
+                                <span class="tag">本地计分</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -393,12 +607,262 @@
     </section>
 
     <!-- 摄影与生活画廊 -->
+    <section class="gallery reveal-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >摄影与生活</h2>
+                <p class="section-subtitle reveal-item" >以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
+            </div>
 
+            <div class="gallery-carousel reveal-item" id="galleryCarousel">
+                <div class="gallery-track">
+                    <div class="gallery-slide active">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/DJI_0733.jpg" alt="摄影作品 1" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/DJI_0942.jpg" alt="摄影作品 2" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/IMG_20250701_181148.jpg" alt="摄影作品 3"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/IMG_20250723_174511.jpg" alt="摄影作品 4"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/IMG_20260210_171544.jpg" alt="摄影作品 5"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/IMG_20260212_155345.jpg" alt="摄影作品 6"
+                                decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg"
+                                alt="摄影作品 7" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg"
+                                alt="摄影作品 8" decoding="async">
+                        </a>
+                    </div>
+                    <div class="gallery-slide">
+                        <a class="gallery-slide-link"
+                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                            rel="noopener">
+                            <img src="static/resources/main_page/gallery/微信图片_20240529100845.jpg" alt="摄影作品 9"
+                                decoding="async">
+                        </a>
+                    </div>
+                </div>
+                <button class="gallery-nav prev" type="button" aria-label="上一张">‹</button>
+                <button class="gallery-nav next" type="button" aria-label="下一张">›</button>
+                <div class="gallery-dots" id="galleryDots"></div>
+            </div>
+
+            <div class="gallery-more reveal-item">
+                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                    rel="noopener" class="btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span >查看更多摄影作品</span>
+                </a>
+            </div>
+        </div>
+    </section>
     <!-- 生活 -->
+    <section class="projects reveal-section" id="life">
+        <div class="container">
+            <div class="projects-group">
+                <div class="life-grid">
+                    <a href="life/piano.html" class="life-card reveal-item">
+                        <div class="life-card-visual piano-visual"></div>
+                        <div class="life-card-body">
+                            <h4 class="life-card-title">钢琴</h4>
+                        </div>
+                    </a>
 
+                    <a href="life/books.html" class="life-card reveal-item">
+                        <div class="life-card-visual books-visual"></div>
+                        <div class="life-card-body">
+                            <h4 class="life-card-title">书单</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 联系我 -->
+    <section class="contact reveal-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-item" >联系我</h2>
+                <p class="section-subtitle reveal-item" >如果方向一致，我们就一起把它做成。</p>
+            </div>
 
+            <div class="contact-content">
+                <div class="contact-left">
+                    <div class="contact-info">
+                        <div class="contact-item reveal-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >电子邮件</h4>
+                                <p>rayawa.work@outlook.com</p>
+                                <p>rayawa.work@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item reveal-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >网站</h4>
+                                <p>rayawa.top</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-qq"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >QQ</h4>
+                                <p><a href="tencent://message/?uin=2265695808" class="qq-link">2265695808</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 >位置</h4>
+                                <p >北京，中国</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social-divider"></div>
+
+                    <div class="contact-social">
+                        <h4 class="contact-social-title" >我的链接</h4>
+                        <div class="contact-social-grid">
+                            <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
+                                class="social-card bilibili">
+                                <div class="social-icon">
+                                    <i class="fab fa-bilibili"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >Bilibili (Rayawa)</h4>
+                                    <p >摄影作品与项目更新进度</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://space.bilibili.com/524181098" target="_blank" rel="noopener"
+                                class="social-card bilibili-game">
+                                <div class="social-icon">
+                                    <i class="fab fa-bilibili"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >Bilibili (Ray汐)</h4>
+                                    <p >游戏与日常</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="social-card github">
+                                <div class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >GitHub</h4>
+                                    <p >代码与仓库入口</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+
+                            <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
+                                rel="noopener" class="social-card xiaohongshu">
+                                <div class="social-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="social-details">
+                                    <h4 >小红书</h4>
+                                    <p >我的全部摄影作品</p>
+                                </div>
+                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-header">
+                        <h3 class="form-title" >快捷消息</h3>
+                        <p class="form-subtitle" >项目合作 / 技术支持 / 摄影约稿 / Bug反馈 / 碎碎念</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" >姓名</label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
+                        <p class="form-hint" >请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" >邮箱</label>
+                        <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" required>
+                        <p class="form-hint" >请确认邮箱地址无误，这决定您能否收到回信</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" >消息</label>
+                        <textarea id="message" class="form-control" placeholder="请输入您的消息..." required></textarea>
+                        <p class="form-hint" >姓名不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
+                    </div>
+
+                    <button type="submit" class="btn contact-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        <span >发送消息</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- 页脚 -->
     <div id="site-footer"></div>
@@ -407,7 +871,7 @@
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script data-goatcounter="https://rayawa.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-
+    
     <script src="/static/js/footer.js"></script>
     <script src="/static/js/common.js"></script>
     <script src="/static/js/index.js"></script>
