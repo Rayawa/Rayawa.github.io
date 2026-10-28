@@ -6,9 +6,9 @@ English | [简体中文](README_zh.md)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![Last Commit](https://img.shields.io/github/last-commit/Rayawa/Rayawa.github.io)
-![Multilingual](https://img.shields.io/badge/多语言-中文|英文|法文-blue)
-![Responsive](https://img.shields.io/badge/响应式-网页优先-green)
-![Static](https://img.shields.io/badge/构建-零依赖静态站点-orange)
+![Multilingual](https://img.shields.io/badge/Languages-Chinese%20%7C%20English%20%7C%20French-blue)
+![Responsive](https://img.shields.io/badge/Responsive-Web%20first-green)
+![Static](https://img.shields.io/badge/Build-Zero%20dependency%20static%20site-orange)
 
 ## 🌐 Project overview
 
@@ -58,112 +58,112 @@ A personal portfolio website deployed on GitHub Pages, presenting technical proj
 
 ```
 Rayawa.github.io/
-├── index.html                  # 中文主页（默认语言，站点根）
-├── thanks.html                 # 致谢页面
-├── 404.html                    # 404 错误页面
-├── favicon.ico                 # 站点图标
-├── ray.jpg                     # 头像 / 社交分享图（OG Image）
-├── README.md                   # 项目说明文档
+├── index.html                  # Chinese home (default language, site root)
+├── thanks.html                 # Acknowledgments
+├── 404.html                    # 404 error page
+├── favicon.ico                 # Site icon
+├── ray.jpg                     # Portrait / social sharing image (OG Image)
+├── README.md                   # Project documentation
 │
 ├── .github/
 │   └── workflows/
-│       └── jekyll-gh-pages.yml # GitHub Pages 自动构建与部署工作流
+│       └── jekyll-gh-pages.yml # GitHub Pages automatic build and deployment workflow
 │
-├── en/                         # 英文版本目录（结构镜像根目录）
-│   ├── index.html              # 英文主页
-│   ├── thanks.html             # 英文致谢页面
+├── en/                         # English version (mirrors the root structure)
+│   ├── index.html              # English home
+│   ├── thanks.html             # English acknowledgments
 │   ├── life/
-│   │   ├── books.html          # 英文书单页面
-│   │   └── piano.html          # 英文钢琴页面
-│   └── projects/               # 英文项目页（23 个，与中文版一一对应）
+│   │   ├── books.html          # English reading list
+│   │   └── piano.html          # English piano page
+│   └── projects/               # English project pages (23, matching Chinese pages)
 │
-├── fr/                         # 法文版本目录（结构与英文版一致）
+├── fr/                         # French version (same structure as English)
 │   ├── index.html
 │   ├── thanks.html
 │   ├── life/
 │   │   ├── books.html
 │   │   └── piano.html
-│   └── projects/               # 法文项目页（23 个）
+│   └── projects/               # French project pages (23)
 │
-├── life/                       # 中文生活页面
-│   ├── books.html              # 书单页面
-│   └── piano.html              # 钢琴页面
+├── life/                       # Chinese life pages
+│   ├── books.html              # Reading list
+│   └── piano.html              # Piano page
 │
-├── projects/                   # 中文项目页面（23 个）
-│   ├── Dashboard.html          # 看板三端客户端概览
-│   ├── QiZhi01.html            # 启智01 · 昇腾AI全栈
-│   ├── AstraPlusCar.html       # AstraPlusCar · 智能小车
-│   ├── ElvaCos.html            # 绮秀 · Coser 离线个人管理
-│   ├── ComplexSweeper.html     # 复扫雷 · 三个平台的原生移植
-│   ├── Loci.html               # 本地地点记忆（开发中）
-│   ├── Biology.html            # 生物学项目
-│   ├── gene.html               # 基因工程：农杆菌转化法交互实验室
-│   ├── Hi3861.html             # Hi3861 嵌入式开发
-│   ├── Hi3861-readme.html      # Hi3861 项目说明（渲染 OpenHarmony README）
-│   ├── idv.html                # 第五人格，启动！
-│   ├── SchoolPapers.html       # 学校论文
-│   ├── RockPaperScissors.html  # 石头剪刀布检测
-│   ├── WeakSignal.html         # 基于光杠杆放大的微弱电信号测量系统
-│   ├── SmartShed.html          # 智慧大棚 SmartShed
+├── projects/                   # Chinese project pages (23)
+│   ├── Dashboard.html          # Overview of three Dashboard clients
+│   ├── QiZhi01.html            # QiZhi 01 · Ascend AI full stack
+│   ├── AstraPlusCar.html       # AstraPlusCar · Smart vehicle
+│   ├── ElvaCos.html            # ElvaCos · Offline personal management for cosplayers
+│   ├── ComplexSweeper.html     # ComplexSweeper · Native ports for three platforms
+│   ├── Loci.html               # Local place memories (in development)
+│   ├── Biology.html            # Biology projects
+│   ├── gene.html               # Genetic engineering: interactive Agrobacterium transformation lab
+│   ├── Hi3861.html             # Hi3861 embedded development
+│   ├── Hi3861-readme.html      # Hi3861 documentation (renders OpenHarmony README)
+│   ├── idv.html                # Identity V launcher
+│   ├── SchoolPapers.html       # School papers
+│   ├── RockPaperScissors.html  # Rock-paper-scissors detection
+│   ├── WeakSignal.html         # Weak electrical signal measurement using optical-lever amplification
+│   ├── SmartShed.html          # SmartShed smart greenhouse
 │   ├── SPM.html                # Sweet Potato Mod
-│   ├── TextVideoGen.html       # TextVideoGen 本地视频生产工作区
-│   ├── PetSnap.html            # 基于 MindSpore 的猫狗识别
-│   ├── CarRent.html            # 基于链表的汽车租赁管理系统
-│   ├── CommChain.html          # 基于 C# 的数字通信系统模拟器
-│   ├── GaokaoQuery.html        # 高考成绩便捷查询工具
-│   ├── xxh.html                # XXH 情感契合度测试
-│   └── YoloSecurityPlatform.html  # 智能安防远程监控平台
+│   ├── TextVideoGen.html       # TextVideoGen local video production workspace
+│   ├── PetSnap.html            # MindSpore-based cat/dog recognition
+│   ├── CarRent.html            # Linked-list car rental management
+│   ├── CommChain.html          # C# digital communication simulator
+│   ├── GaokaoQuery.html        # Gaokao result query tool
+│   ├── xxh.html                # XXH emotional compatibility test
+│   └── YoloSecurityPlatform.html  # Intelligent security remote monitoring platform
 │
-├── docs/                       # 内容维护记录
+├── docs/                       # Content maintenance records
 │   └── maintenance-2026-10-20.md
 │
-└── static/                     # 静态资源（公共组件）
-    ├── css/                    # 样式文件（21 个）
-    │   ├── common.css              # 通用样式（导航、页脚、粒子背景、页面转场等）
-    │   ├── subpage.css             # 子页面通用样式
-    │   ├── project-layout.css      # 项目页共用版式（速览/导览/分类标签）
-    │   ├── project-showcase.css    # ps-* 展示型项目页样式
-    │   ├── app-projects.css        # 绮秀、Loci 与复扫雷展示样式
-    │   ├── markdown-page.css       # Markdown 渲染页样式
-    │   ├── index.css               # 主页样式
-    │   ├── 404.css                 # 404 页面样式
-    │   ├── ascend310.css           # 昇腾项目样式
-    │   ├── astracar.css            # AstraPlusCar 项目样式
-    │   ├── gene.css                # 基因工程项目样式
-    │   ├── hi3861.css              # Hi3861 项目样式
-    │   ├── hi3861-readme.css       # Hi3861 说明页样式
-    │   ├── rockpaperscissors.css   # 石头剪刀布项目样式
-    │   ├── signal.css              # 微弱电信号项目样式
-    │   ├── smartshed.css           # 智慧大棚项目样式
-    │   ├── spm.css                 # Sweet Potato Mod 样式
-    │   ├── xxh.css                 # XXH 测试样式
-    │   ├── books.css               # 书单页面样式
-    │   ├── piano.css               # 钢琴页面样式
-    │   └── drawing.css             # 绘画主题样式（暂未被页面引用，预留）
+└── static/                     # Static assets (shared components)
+    ├── css/                    # Stylesheets (21)
+    │   ├── common.css              # Shared styles (navigation, footer, particles, transitions, etc.)
+    │   ├── subpage.css             # Shared subpage styles
+    │   ├── project-layout.css      # Shared project layouts (brief/guide/category tags)
+    │   ├── project-showcase.css    # ps-* showcase project styles
+    │   ├── app-projects.css        # ElvaCos, Loci, and ComplexSweeper showcase styles
+    │   ├── markdown-page.css       # Markdown rendering page styles
+    │   ├── index.css               # Home styles
+    │   ├── 404.css                 # 404 page styles
+    │   ├── ascend310.css           # Ascend project styles
+    │   ├── astracar.css            # AstraPlusCar project styles
+    │   ├── gene.css                # Genetic engineering project styles
+    │   ├── hi3861.css              # Hi3861 project styles
+    │   ├── hi3861-readme.css       # Hi3861 documentation page styles
+    │   ├── rockpaperscissors.css   # Rock-paper-scissors project styles
+    │   ├── signal.css              # Weak electrical signal project styles
+    │   ├── smartshed.css           # Smart greenhouse project styles
+    │   ├── spm.css                 # Sweet Potato Mod styles
+    │   ├── xxh.css                 # XXH test styles
+    │   ├── books.css               # Reading list styles
+    │   ├── piano.css               # Piano page styles
+    │   └── drawing.css             # Drawing theme styles (reserved, not referenced yet)
     │
-    ├── js/                     # JavaScript 文件（8 个）
-    │   ├── common.js               # 通用脚本（粒子背景、悬浮工具、页面转场与滚动揭示）
-    │   ├── navbar.js               # 导航栏动态注入（含多语言切换）
-    │   ├── footer.js               # 页脚动态注入
-    │   ├── index.js                # 主页脚本（加载动画、画廊轮播、联系表单、视差）
-    │   ├── gene.js                 # 基因工程交互实验室逻辑
-    │   ├── xxh.js                  # XXH 测试逻辑
-    │   ├── signal-lightbox.js      # 信号项目图片灯箱（键盘/前后切换）
-    │   └── hi3861-readme.js        # 拉取并渲染 OpenHarmony README.md
+    ├── js/                     # JavaScript files (8)
+    │   ├── common.js               # Shared scripts (particles, floating tools, transitions, scroll reveal)
+    │   ├── navbar.js               # Navigation injection with language switching
+    │   ├── footer.js               # Footer injection
+    │   ├── index.js                # Home script (loading, gallery carousel, contact form, parallax)
+    │   ├── gene.js                 # Genetic engineering interactive lab logic
+    │   ├── xxh.js                  # XXH test logic
+    │   ├── signal-lightbox.js      # Signal project lightbox (keyboard/previous/next)
+    │   └── hi3861-readme.js        # Fetch and render the OpenHarmony README.md
     │
-    └── resources/              # 资源文件
-        ├── cn.svg / uk.svg / fr.svg  # 语言切换旗帜图标
-        ├── xxh.py                    # XXH 项目配套脚本
-        ├── apps/                     # 绮秀应用界面截图
-        ├── bio/                      # 生物学图片与论文 PDF
-        ├── dashboard/                # 看板应用图标
-        ├── main_page/                # 首页卡片配图（含绮秀、Loci、复扫雷生成插画）
-        │   └── gallery/              # 摄影长廊照片
-        ├── openharmony/              # Hi3861 项目文档（README.md / PDF / PPTX）
-        ├── piano/                    # 钢琴曲谱图片
-        ├── rps/                      # 石头剪刀布演示 GIF
-        ├── signal/                   # 信号项目资料（.ino / .fzz / 原理图 / 报告）
-        └── spm/                      # Sweet Potato Mod 素材
+    └── resources/              # Resource files
+        ├── cn.svg / uk.svg / fr.svg  # Language-switch flag icons
+        ├── xxh.py                    # XXH supporting script
+        ├── apps/                     # ElvaCos app screenshots
+        ├── bio/                      # Biology images and paper PDFs
+        ├── dashboard/                # Dashboard app icon
+        ├── main_page/                # Home card images (including generated ElvaCos, Loci, ComplexSweeper illustrations)
+        │   └── gallery/              # Photography gallery
+        ├── openharmony/              # Hi3861 project documents (README.md / PDF / PPTX)
+        ├── piano/                    # Piano sheet-music images
+        ├── rps/                      # Rock-paper-scissors demo GIFs
+        ├── signal/                   # Signal project materials (.ino / .fzz / schematics / report)
+        └── spm/                      # Sweet Potato Mod assets
 ```
 
 > The site has **82 HTML pages** (28 Chinese + 27 English + 27 French), including 23 project pages per language.
@@ -192,7 +192,7 @@ Rayawa.github.io/
    and `hi3861-readme.js` reads Markdown through `fetch`, which fails under `file://`):
    ```bash
    python3 -m http.server 8000
-   # 或
+   # Or
    npx http-server -p 8000
    ```
 
