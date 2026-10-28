@@ -2,25 +2,31 @@
 
 English | [简体中文](README_zh.md)
 
-A multilingual static catalogue of application, embedded-system and research projects.
+A multilingual personal portfolio website for projects, photography and written work.
 
 ## Overview
 
-The site groups project descriptions, technical pages and shared static resources. Chinese, English and French pages use separate directories. The project landing pages focus on technical work and exclude biographies, personal portraits, classmate information and personal contact details.
+This static website presents technical projects, photography, articles and a personal introduction. Chinese, English and French pages are maintained in separate directories. Shared navigation, footer and interaction scripts support language switching and common page behavior.
+
+The repository contains the complete website source and media resources. GitHub Pages publishes the site from the default branch through the existing workflow.
 
 ## Technology and Dependencies
 
-HTML, CSS and JavaScript with GitHub Pages deployment. External fonts/icons and selected media are loaded by the pages. A static server is sufficient; no JavaScript package build is required.
+- HTML5, CSS3 and JavaScript, without an application backend or local package-build requirement.
+- Shared browser scripts for navigation, the footer, galleries and page interactions.
+- External fonts, icons and selected browser libraries loaded by the pages.
+- GitHub Pages/Jekyll for publishing; Python 3 is an optional local HTTP server.
 
 ## Repository Structure
 
-- `index.html` — default project catalogue
-- `en/` — English pages
-- `fr/` — French pages
-- `projects/` — project details
-- `static/css/` — shared styles
-- `static/js/` — navigation, footer and interactions
-- `static/resources/` — project assets
+- `index.html` — Chinese homepage.
+- `en/` and `fr/` — English and French pages.
+- `projects/` — project presentations and technical pages.
+- `life/` — photography, music and reading-related pages.
+- `static/css/` — shared and page-specific styles.
+- `static/js/` — navigation, footer and browser interactions.
+- `static/resources/` — images, documents and project media.
+- `.github/workflows/` — deployment workflow.
 
 ## Quick Start
 
@@ -30,6 +36,6 @@ Run a static server from the repository root:
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/`. No frontend compilation is required. Network access is needed for externally hosted resources.
+Open `http://localhost:8000/`, `/en/` or `/fr/`. A local server keeps root-relative resource paths working. Edit the corresponding language pages together and preview affected pages before publishing.
 
-Edit the corresponding language pages together and check relative asset paths. Shared navigation and footer code is under `static/js/`.
+The existing Chinese technical documentation is retained in [README_zh.md](README_zh.md).
