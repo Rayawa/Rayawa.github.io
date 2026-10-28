@@ -2,6 +2,7 @@
 
 [English](README.md) | 简体中文
 
+
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![Last Commit](https://img.shields.io/github/last-commit/Rayawa/Rayawa.github.io)
@@ -11,7 +12,7 @@
 
 ## 🌐 项目简介
 
-这是一个基于 GitHub Pages 部署的个人作品集网站，用于展示技术项目、摄影作品、文章与站点介绍。网站采用现代化的多语言架构，支持中文、英文、法文三种语言，采用响应式页面布局。
+这是一个基于 GitHub Pages 部署的个人作品集网站，展示 技术项目、个人作品和简介。网站采用现代化的多语言架构，支持中文、英文、法文三种语言，具有响应式设计和优雅的用户界面。
 
 **在线访问：** [https://rayawa.github.io](https://rayawa.github.io)
 **主域名：** [https://rayawa.top](https://rayawa.top)
