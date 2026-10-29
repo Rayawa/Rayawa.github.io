@@ -707,6 +707,11 @@ function initParticlePointerFollow() {
     let currentY = 0;
     const maxOffset = 38;
 
+    function resetFollow() {
+        targetX = targetY = currentX = currentY = 0;
+        layer.style.transform = 'translate3d(0, 0, 0)';
+    }
+
     function updateTarget(clientX, clientY) {
         const cx = window.innerWidth / 2;
         const cy = window.innerHeight / 2;
@@ -740,6 +745,13 @@ function initParticlePointerFollow() {
         targetX = 0;
         targetY = 0;
     }, { passive: true });
+
+    window.addEventListener('pointercancel', resetFollow, { passive: true });
+    window.addEventListener('touchcancel', resetFollow, { passive: true });
+    window.addEventListener('blur', resetFollow);
+    window.addEventListener('pagehide', resetFollow);
+    window.addEventListener('pageshow', resetFollow);
+    document.addEventListener('visibilitychange', resetFollow);
 
     animate();
 }

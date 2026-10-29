@@ -29,10 +29,10 @@ function initParticles() {
             },
         },
         interactivity: {
-            detect_on: 'window',
+            detect_on: 'canvas',
             events: {
-                onhover: { enable: !reducedMotion, mode: 'grab' },
-                onclick: { enable: !reducedMotion, mode: 'push' },
+                onhover: { enable: false, mode: 'grab' },
+                onclick: { enable: false, mode: 'push' },
             },
             modes: {
                 grab: {
@@ -60,21 +60,32 @@ function initParticleMagnetEffect() {
 
         var particles = instance.particles.array;
         var canvasEl = instance.canvas.el;
-        var pointer = { x: 0, y: 0, active: false };
+        var pointer = { x: 0, y: 0, clientX: 0, clientY: 0, active: false };
         var radius = 236;
         var strength = 0.0006;
-        var damping = 0.994;
+        var coreRadius = 64;
         var maxSpeed = 2.0;
         var sparseRadius = 96;
         var sparseThreshold = 1;
-        var minParticles = 40;
+        var initialCount = particles.length;
         var magneticPower = 0;
         var frame = 0;
-        var lastTime = 0;
+        var lastTime = null;
+        var animationFrame = 0;
+        var paused = false;
         var TARGET_FRAME_TIME = 16.67;
-        var isMobile = window.innerWidth <= 900;
-        var frameSkip = isMobile ? 2 : 1;
-        var slowStreak = 0;
+
+        function maxParticleCount() {
+            var number = instance.particles.number;
+            var density = number && number.density;
+            var base = initialCount;
+            if (density && density.enable) {
+                var area = instance.canvas.w * instance.canvas.h / 1000;
+                if (instance.tmp && instance.tmp.retina) area /= 2 * instance.canvas.pxratio;
+                base = Math.ceil(area * number.value / density.value_area);
+            }
+            return base + Math.min(24, Math.ceil(base * 0.35));
+        }
 
         function getOpacityValue(p) {
             if (p && p.opacity && typeof p.opacity.value === 'number') return p.opacity.value;
@@ -92,6 +103,7 @@ function initParticleMagnetEffect() {
         }
 
         function spawnParticleAt(x, y) {
+            if (particles.length >= maxParticleCount()) return;
             if (!instance.fn || !instance.fn.modes || typeof instance.fn.modes.pushParticles !== 'function') return;
             instance.fn.modes.pushParticles(1, { pos_x: x, pos_y: y });
             var p = particles[particles.length - 1];
@@ -120,23 +132,18 @@ function initParticleMagnetEffect() {
         function maintainSparseRegions() {
             var width = instance.canvas.w || canvasEl.width || window.innerWidth;
             var height = instance.canvas.h || canvasEl.height || window.innerHeight;
-            for (var i = 0; i < 2; i += 1) {
+            for (var i = 0; i < 1; i += 1) {
                 var x = Math.random() * width;
                 var y = Math.random() * height;
                 if (countParticlesNear(x, y, sparseRadius) <= sparseThreshold) {
                     spawnParticleAt(x, y);
                 }
             }
-            if (particles.length > minParticles && Math.random() < 0.1) {
-                var idx = Math.floor(Math.random() * particles.length);
-                var p = particles[idx];
-                if (p && !p.__fadeOut && !p.__fadeIn) {
-                    p.__fadeOut = true;
-                }
-            }
         }
 
         function setPointer(clientX, clientY) {
+            pointer.clientX = clientX;
+            pointer.clientY = clientY;
             var rect = canvasEl.getBoundingClientRect();
             if (rect.width <= 0 || rect.height <= 0) return;
             if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
@@ -156,28 +163,67 @@ function initParticleMagnetEffect() {
         window.addEventListener('touchmove', function(e) { var t = e.touches && e.touches[0]; if (t) setPointer(t.clientX, t.clientY); }, { passive: true });
         window.addEventListener('pointerleave', function() { pointer.active = false; }, { passive: true });
         window.addEventListener('touchend', function() { pointer.active = false; }, { passive: true });
+        window.addEventListener('pointercancel', resetPointer, { passive: true });
+        window.addEventListener('touchcancel', resetPointer, { passive: true });
+        window.addEventListener('blur', resetPointer);
+        window.addEventListener('resize', resetPointer);
+
+        function resetPointer() {
+            pointer.active = false;
+            magneticPower = 0;
+            lastTime = null;
+        }
+
+        function pause() {
+            paused = true;
+            cancelAnimationFrame(animationFrame);
+            animationFrame = 0;
+            resetPointer();
+        }
+
+        function resume() {
+            if (document.hidden) return;
+            paused = false;
+            resetPointer();
+            if (!animationFrame) animationFrame = requestAnimationFrame(tick);
+        }
+
+        window.addEventListener('pagehide', pause);
+        window.addEventListener('pageshow', resume);
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) pause();
+            else resume();
+        });
 
         function tick(timestamp) {
-            if (!lastTime) lastTime = timestamp;
+            animationFrame = 0;
+            if (paused || document.hidden) return;
+            particles = instance.particles.array;
+            if (lastTime === null) lastTime = timestamp - TARGET_FRAME_TIME;
             var elapsed = timestamp - lastTime;
-            lastTime = timestamp;
-
-            // 自适应帧跳过：连续慢帧则加重跳过
-            if (elapsed > 42) slowStreak = Math.min(slowStreak + 2, 8);
-            else if (elapsed > 28) slowStreak = Math.min(slowStreak + 1, 8);
-            else slowStreak = Math.max(slowStreak - 1, 0);
-            frameSkip = slowStreak >= 5 ? 3 : slowStreak >= 2 ? 2 : (isMobile ? 2 : 1);
-
-            frame += 1;
-            if (frame % frameSkip !== 0) {
-                requestAnimationFrame(tick);
+            var interval = window.innerWidth <= 900 ? TARGET_FRAME_TIME * 2 : TARGET_FRAME_TIME;
+            if (elapsed < interval - 0.1) {
+                animationFrame = requestAnimationFrame(tick);
                 return;
             }
-
+            lastTime = timestamp;
+            frame += 1;
             var deltaTime = Math.min(Math.max(elapsed / TARGET_FRAME_TIME, 0.1), 3.0);
+            // The home page moves the canvas; remap a stationary pointer as it moves.
+            if (pointer.active) setPointer(pointer.clientX, pointer.clientY);
             magneticPower += pointer.active
                 ? (1 - magneticPower) * 0.06 * deltaTime
                 : (0 - magneticPower) * 0.012 * deltaTime;
+
+            // Return to each particle's natural drift rather than damping it to a stop.
+            var recovery = 1 - Math.pow(0.985, deltaTime);
+            for (var n = 0; n < particles.length; n += 1) {
+                var drifting = particles[n];
+                if (typeof drifting.__driftVx !== 'number') drifting.__driftVx = drifting.vx || 0;
+                if (typeof drifting.__driftVy !== 'number') drifting.__driftVy = drifting.vy || 0;
+                drifting.vx += (drifting.__driftVx - drifting.vx) * recovery;
+                drifting.vy += (drifting.__driftVy - drifting.vy) * recovery;
+            }
 
             if (magneticPower > 0.001 && particles.length) {
                 for (var i = 0; i < particles.length; i += 1) {
@@ -189,7 +235,9 @@ function initParticleMagnetEffect() {
                     var dist = Math.sqrt(distSq);
                     if (dist > radius) continue;
                     var normalized = 1 - dist / radius;
-                    var pull = normalized * normalized * strength * magneticPower * deltaTime;
+                    // Repel inside the core so long hovers cannot collapse every line
+                    // onto the exact pointer position.
+                    var pull = normalized * normalized * strength * magneticPower * deltaTime * (dist - coreRadius) / dist;
                     p.vx += dx * pull;
                     p.vy += dy * pull;
                     var speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
@@ -205,10 +253,6 @@ function initParticleMagnetEffect() {
                 var pp = particles[j];
                 if (typeof pp.vx !== 'number') pp.vx = 0;
                 if (typeof pp.vy !== 'number') pp.vy = 0;
-                var dampFactor = Math.pow(damping, deltaTime);
-                pp.vx *= dampFactor;
-                pp.vy *= dampFactor;
-
                 if (pp.__generated && typeof pp.__ttl === 'number') {
                     pp.__ttl -= 1 * deltaTime;
                     if (pp.__ttl <= 0) pp.__fadeOut = true;
@@ -234,10 +278,10 @@ function initParticleMagnetEffect() {
                 maintainSparseRegions();
             }
 
-            requestAnimationFrame(tick);
+            animationFrame = requestAnimationFrame(tick);
         }
 
-        tick(0);
+        resume();
         return true;
     }
 
