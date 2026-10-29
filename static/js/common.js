@@ -42,6 +42,32 @@ function initParticles() {
             },
         },
     });
+    var instances = window.pJSDom || [];
+    var instance = instances.length && instances[instances.length - 1].pJS;
+    limitParticleLinks(instance);
+    if (reducedMotion && instance && instance.fn && instance.fn.particlesDraw) instance.fn.particlesDraw();
+}
+
+function limitParticleLinks(instance) {
+    if (!instance || !instance.fn || !instance.fn.interact || instance.fn.__rayawaLimitedLinks) return;
+    var draw = instance.fn.particlesDraw;
+    var link = instance.fn.interact.linkParticles;
+    if (typeof draw !== 'function' || typeof link !== 'function') return;
+    instance.fn.__rayawaLimitedLinks = true;
+    instance.fn.particlesDraw = function() {
+        instance.particles.array.forEach(function(p) { p.__rayawaLinks = 0; });
+        return draw.apply(this, arguments);
+    };
+    instance.fn.interact.linkParticles = function(a, b) {
+        if (a.__rayawaLinks >= 3 || b.__rayawaLinks >= 3) return;
+        var dx = a.x - b.x;
+        var dy = a.y - b.y;
+        var distance = instance.particles.line_linked.distance;
+        if (dx * dx + dy * dy >= distance * distance) return;
+        link.apply(this, arguments);
+        a.__rayawaLinks = (a.__rayawaLinks || 0) + 1;
+        b.__rayawaLinks = (b.__rayawaLinks || 0) + 1;
+    };
 }
 
 function initParticleMagnetEffect() {
@@ -60,7 +86,7 @@ function initParticleMagnetEffect() {
 
         var particles = instance.particles.array;
         var canvasEl = instance.canvas.el;
-        var pointer = { x: 0, y: 0, clientX: 0, clientY: 0, active: false };
+        var pointer = { x: 0, y: 0, clientX: 0, clientY: 0, movedAt: null, active: false };
         var radius = 236;
         var strength = 0.0006;
         var coreRadius = 64;
@@ -141,7 +167,8 @@ function initParticleMagnetEffect() {
             }
         }
 
-        function setPointer(clientX, clientY) {
+        function setPointer(clientX, clientY, remapOnly) {
+            if (!remapOnly) pointer.movedAt = null;
             pointer.clientX = clientX;
             pointer.clientY = clientY;
             var rect = canvasEl.getBoundingClientRect();
@@ -170,6 +197,7 @@ function initParticleMagnetEffect() {
 
         function resetPointer() {
             pointer.active = false;
+            pointer.movedAt = null;
             magneticPower = 0;
             lastTime = null;
         }
@@ -210,8 +238,11 @@ function initParticleMagnetEffect() {
             frame += 1;
             var deltaTime = Math.min(Math.max(elapsed / TARGET_FRAME_TIME, 0.1), 3.0);
             // The home page moves the canvas; remap a stationary pointer as it moves.
-            if (pointer.active) setPointer(pointer.clientX, pointer.clientY);
-            magneticPower += pointer.active
+            if (pointer.active) setPointer(pointer.clientX, pointer.clientY, true);
+            if (pointer.active && pointer.movedAt === null) pointer.movedAt = timestamp;
+            // A resting pointer must not keep collecting an entire screen of stars.
+            var attracting = pointer.active && timestamp - pointer.movedAt < 900;
+            magneticPower += attracting
                 ? (1 - magneticPower) * 0.06 * deltaTime
                 : (0 - magneticPower) * 0.012 * deltaTime;
 

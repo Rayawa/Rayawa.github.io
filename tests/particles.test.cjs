@@ -81,14 +81,20 @@ for (const width of [390, 1280]) {
     });
     test(`${width}px: long pointer dwell keeps particle and line density bounded`, () => {
         const h = harness({ width }); h.init();
+        const control = harness({ width }); control.init();
         h.dispatch('pointermove', { clientX: width / 2, clientY: 360 });
+        let hoveredNeighbors = 0;
+        let controlNeighbors = 0;
         for (let i = 0; i < 10; i++) {
-            h.step(1800);
+            h.step(1800); control.step(1800);
             assert.ok(h.instance.particles.array.length <= h.baseCount + 24,
                 `${h.instance.particles.array.length} particles exceeds ${h.baseCount + 24}`);
+            const near = p => Math.hypot(p.x - width / 2, p.y - 360) < 140;
+            hoveredNeighbors += h.instance.particles.array.filter(near).length;
+            controlNeighbors += control.instance.particles.array.filter(near).length;
         }
-        const center = h.instance.particles.array.filter(p => Math.hypot(p.x - width / 2, p.y - 360) < 28);
-        assert.ok(center.length <= 8, `${center.length} particles collapsed at the cursor`);
+        assert.ok(hoveredNeighbors <= controlNeighbors + 40,
+            `stationary pointer trapped ${hoveredNeighbors / 10} neighbors on average; control ${controlNeighbors / 10}`);
     });
 }
 
@@ -122,4 +128,40 @@ test('particle refresh uses the replacement array rather than old particles', ()
     assert.equal(replacement.__driftVx, 0.2);
     assert.equal(replacement.__driftVy, -0.3);
     assert.equal(h.activeLoops(), 1);
+});
+
+test('crowded particles keep at most three links each, reset per draw', () => {
+    const links = [];
+    const particles = Array.from({ length: 20 }, (_, i) => ({ x: i, y: 0 }));
+    const instance = {
+        particles: { array: particles, line_linked: { distance: 140 } },
+        fn: {
+            interact: { linkParticles(a, b) { links.push([a, b]); } },
+            particlesDraw() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) this.interact.linkParticles(particles[i], particles[j]);
+                }
+            },
+        },
+    };
+    const context = vm.createContext({});
+    vm.runInContext(source, context);
+    context.limitParticleLinks(instance);
+    context.limitParticleLinks(instance);
+    instance.fn.particlesDraw();
+    const firstFrame = links.length;
+    assert.ok(firstFrame > 0 && firstFrame <= 30);
+    assert.ok(particles.every(p => p.__rayawaLinks <= 3));
+    instance.fn.particlesDraw();
+    assert.equal(links.length, firstFrame * 2);
+});
+
+test('a stationary pointer releases particles back to natural drift', () => {
+    const h = harness(); h.init();
+    h.dispatch('pointermove', { clientX: 640, clientY: 360 });
+    h.step(1200);
+    for (const p of h.instance.particles.array.filter(p => typeof p.__driftVx === 'number')) {
+        assert.ok(Math.abs(p.vx - p.__driftVx) < 0.02);
+        assert.ok(Math.abs(p.vy - p.__driftVy) < 0.02);
+    }
 });
