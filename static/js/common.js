@@ -1,5 +1,5 @@
 function initParticles() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (typeof particlesJS === 'undefined') return;
     var el = document.getElementById('particles-js');
     if (!el) return;
@@ -19,7 +19,7 @@ function initParticles() {
                 width: 1,
             },
             move: {
-                enable: true,
+                enable: !reducedMotion,
                 speed: isMobile ? 2.5 : 3.5,
                 direction: 'none',
                 random: true,
@@ -29,10 +29,10 @@ function initParticles() {
             },
         },
         interactivity: {
-            detect_on: 'canvas',
+            detect_on: 'window',
             events: {
-                onhover: { enable: true, mode: 'grab' },
-                onclick: { enable: true, mode: 'push' },
+                onhover: { enable: !reducedMotion, mode: 'grab' },
+                onclick: { enable: !reducedMotion, mode: 'push' },
             },
             modes: {
                 grab: {
