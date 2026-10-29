@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>TextVideoGen 文本视频生成流 | Ray Chen</title>
-  <meta name="description" content="由 OpenCode 驱动的本地视频生产工作区：用户提供文稿与业务限制，Agent 承担创意提案、导演、分镜、素材、制作、检查与返修，覆盖 13 个可审查阶段。">
+  <title>TextVideoGen 本地视频工作区 | Ray Chen</title>
+  <meta name="description" content="TextVideoGen 是我在 OpenCode 中使用的本地视频制作工作区。文稿、配音、分镜和素材按阶段保存，用浏览器渲染动画，再由 FFmpeg 合成视频；改动时可以只重做相关场景。">
   <meta name="keywords" content="TextVideoGen, VideoTextGen, OpenCode, 视频自动化, FFmpeg, Playwright, Voicebox, WhisperX, TypeScript, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -19,8 +19,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/TextVideoGen.html">
-  <meta property="og:title" content="TextVideoGen 文本视频生成流 | Ray Chen">
-  <meta property="og:description" content="可复现、可审查、可局部返修的本地 AI 视频生产流水线，v0.1.0 源码发行包已发布。">
+  <meta property="og:title" content="TextVideoGen 本地视频工作区 | Ray Chen">
+  <meta property="og:description" content="TextVideoGen 是我在 OpenCode 中使用的本地视频制作工作区。文稿、配音、分镜和素材按阶段保存，用浏览器渲染动画，再由 FFmpeg 合成视频；改动时可以只重做相关场景。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -29,8 +29,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/TextVideoGen.html">
-  <meta name="twitter:title" content="TextVideoGen 文本视频生成流 | Ray Chen">
-  <meta name="twitter:description" content="可复现、可审查、可局部返修的本地 AI 视频生产流水线，v0.1.0 源码发行包已发布。">
+  <meta name="twitter:title" content="TextVideoGen 本地视频工作区 | Ray Chen">
+  <meta name="twitter:description" content="TextVideoGen 是我在 OpenCode 中使用的本地视频制作工作区。文稿、配音、分镜和素材按阶段保存，用浏览器渲染动画，再由 FFmpeg 合成视频；改动时可以只重做相关场景。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,8 +55,8 @@
       <div class="ps-hero-copy">
         <span class="project-category">AI工作流</span>
         <span class="ps-eyebrow"><i class="fas fa-clapperboard"></i> Local-first · Reproducible · Reviewable</span>
-        <h1>文本视频生成流</h1>
-        <p>由 OpenCode 驱动的本地视频生产工作区。用户只需提供文稿、传播目的与业务限制，创意提案、导演、分镜、素材、制作、检查与返修由 Agent 承担，让观众第一次观看就能理解内容；代码、视频项目与运行环境彼此隔离。</p>
+        <h1>TextVideoGen 本地视频工作区</h1>
+        <p>TextVideoGen 是我在 OpenCode 中使用的本地视频制作工作区。文稿、配音、分镜和素材按阶段保存，用浏览器渲染动画，再由 FFmpeg 合成视频；改动时可以只重做相关场景。</p>
         <div class="ps-actions">
           <a class="ps-button" href="https://github.com/Rayawa/TextVideoGen" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
           <a class="ps-button is-ghost" href="https://github.com/Rayawa/TextVideoGen/releases" target="_blank" rel="noopener"><i class="fas fa-box-open"></i> v0.1.0 发行包</a>
@@ -68,52 +68,13 @@
       </div>
     </section>
 
-    <section class="project-brief" aria-label="项目速览">
-
-      <h2>项目速览</h2>
-      <p>TextVideoGen 将本地视频制作拆分为 13 个可审查阶段：文稿、配音、时间对齐、创意提案、导演方案、分镜、素材、逐场景渲染、合成、质检、终审、返修与交付。结构化契约记录每个阶段的输入与输出，变更时仅重做受影响的场景；每个场景还可以按语义选择 HTML/SVG 动画、图片、混合画面或 B-roll。</p>
-      <ul>
-      <li><strong>本地可复现</strong><span>运行环境、代码与最终成片分离管理。</span></li>
-      <li><strong>按场景返修</strong><span>影响分析与哈希校验支持复用未变化的场景。</span></li>
-      <li><strong>交付有门禁</strong><span>自动 QA 与人工终审决定可交付版本。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>生成式视频的常见问题是过程难以复查、局部修改需要整体重跑。TextVideoGen 让用户只负责文稿、传播目的与业务限制，其余交给 Agent；制作流程被拆分为带契约的阶段，每一步的输入输出、版本与审查结论都可追溯。</p></article>
-      <article><h3>流程如何组织</h3><p>先建立项目契约，再由 Agent 提出 2–3 套可制作的创意方案并推荐其一；随后依次完成配音、时间对齐、导演方案、分镜与场景素材，逐场景渲染后运行技术 QA，人工终审通过才生成交付版本。发生变更时先进行影响分析。</p></article>
-      <article><h3>用到什么</h3><p>由 OpenCode 调度多阶段任务；配音使用 Voicebox，时间对齐使用 WhisperX，画面渲染基于 HTML / SVG Motion 与 Playwright，合成由 FFmpeg 完成；JSON Schema 与哈希值记录输入输出关系。</p></article>
-      <article><h3>当前进展</h3><p>v0.1.0 源码发行包已发布，工作区当前支持 macOS Apple Silicon。历史生成产物已在整理时清理，旧项目仅保留原始文稿与清理日志，重新制作从 script 阶段开始。</p></article>
-      </div>
-    </section>
-
-
-    <section class="ps-metrics" aria-label="项目指标">
-      <div class="ps-metric"><strong>13 阶段</strong><span>从文稿到交付</span></div>
-      <div class="ps-metric"><strong>4 种场景形态</strong><span>HTML · 图片 · 混合 · B-roll</span></div>
-      <div class="ps-metric"><strong>v0.1.0</strong><span>首个源码发行包</span></div>
-      <div class="ps-metric"><strong>macOS arm64</strong><span>当前支持的平台</span></div>
-    </section>
-
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>把“生成视频”变成工程</h2>
-        <p>每个阶段都有明确输入、结构化产物、版本与审查门禁，便于复现每次生成和审查过程。</p>
-      </div>
-      <div class="ps-grid-4">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box"></i></span><h3>运行环境隔离</h3><p>Node、pnpm、Python、uv、WhisperX、Chromium、FFmpeg 与模型全部进入 .videoenv，不污染全局环境。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>结构化契约</h3><p>项目、分镜、运动检查、返修与提示词由 schemas/ 下的 JSON Schema 与 prompts/ 共同约束。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-fingerprint"></i></span><h3>全链路溯源</h3><p>每次 provider 调用、阶段完成、审查结论和交付记录都会保留版本与输入关系。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-scissors"></i></span><h3>最小化返修</h3><p>先生成影响分析，只重做受变更影响的场景；未变化场景通过哈希验证直接复用。</p></article>
-      </div>
-    </section>
+    <section class="ps-section"><div class="ps-section-head"><h2>工作方式</h2></div><p class="ps-note">流程分为 13 个阶段，由 OpenCode 中的 Agent 与 Skills 执行。Voicebox 配音、WhisperX 对齐时间，Playwright 渲染 HTML/SVG 场景，FFmpeg 合成。JSON Schema 和日志记录各阶段产物，改动时据此判断要重做哪些场景。</p></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>当前状态</h2></div><p class="ps-note">当前支持 macOS Apple Silicon，已有 v0.1.0 源码发行包。制作仍需要在 OpenCode 中运行，独立的一键生产 API 尚未实现。源码包不包含私人项目、模型和运行环境；下方样例是历史归档。</p></section>
 
     <section class="ps-section" id="pipeline">
       <div class="ps-section-head">
         <h2>生产流水线</h2>
-        <p>GPT 负责创意、导演、返修范围与最终门禁；DeepSeek 负责整理、元数据与初检，结果必须复核。</p>
+        <p>默认由 GPT 处理创意、导演方案与返修，DeepSeek 整理素材信息并做初步检查。交付前再审核成片。</p>
       </div>
       <div class="ps-stage-list">
         <article class="ps-stage"><span>01—02</span><strong>Script + Voice</strong><p>文稿结构化，Voicebox 本地配音。</p></article>
@@ -121,7 +82,7 @@
         <article class="ps-stage"><span>05—06</span><strong>Director + Storyboard</strong><p>导演方案与分镜绑定文本和素材来源。</p></article>
         <article class="ps-stage"><span>07—08</span><strong>Assets + Render</strong><p>登记场景素材，逐场景按帧渲染。</p></article>
         <article class="ps-stage"><span>09—10</span><strong>Compose + QA</strong><p>单 filter graph 合成，运行技术质检。</p></article>
-        <article class="ps-stage"><span>11—13</span><strong>Review + Revise + Deliver</strong><p>人工终审、局部返修与原子化交付。</p></article>
+        <article class="ps-stage"><span>11—13</span><strong>Review + Revise + Deliver</strong><p>审核成片、修改相关场景，再导出交付版本。</p></article>
       </div>
     </section>
 
@@ -164,29 +125,9 @@
       </div>
     </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>安全交付与可恢复性</h2>
-        <p>工作区专注于生产过程，最终成片只在获得批准后移入 macOS Movies 目录。</p>
-      </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-lock"></i></span><h3>拒绝覆盖</h3><p><code>./bin/deliver-video</code> 不会覆盖同名版本，并写入目标路径、文件大小与 SHA-256 交付记录。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-right-arrow-left"></i></span><h3>代码与成片分离</h3><p>最终视频移出仓库，只留下可提交的交付记录和完整生产溯源。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-rotate"></i></span><h3>环境可重建</h3><p>删除 .videoenv 不影响源码和 projects；重新运行 <code>./bin/setup</code> 即可恢复固定版本环境。</p></article>
-      </div>
-    </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>源码发行包</h2>
-        <p><code>./bin/package-workspace</code> 生成不含私有项目与运行环境的源码包，v0.1.0 发行包约 22 MB。</p>
-      </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-filter"></i></span><h3>只含可发布内容</h3><p>包含代码、配置、lockfiles、公共素材与 Skills / 插件源码；排除 Git 元数据、依赖、模型、缓存、日志、凭证与旧项目。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-folder-tree"></i></span><h3>独立输出目录</h3><p>每次打包写入 .videoenv/tmp/packages/release-时间-随机值/，历史包与校验文件不会被覆盖。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-fingerprint"></i></span><h3>校验后安装</h3><p>随包输出 SHA-256 校验文件；解压到新目录后运行 <code>./bin/setup</code> 重建固定版本环境。</p></article>
-      </div>
-    </section>
+
+
 
     <section class="ps-section">
       <div class="ps-section-head"><h2>技术栈</h2><p>本地模型、浏览器渲染与媒体处理在统一工作区中协作。</p></div>

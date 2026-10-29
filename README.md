@@ -95,7 +95,7 @@ Rayawa.github.io/
 │   ├── AstraPlusCar.html       # AstraPlusCar · Smart vehicle
 │   ├── ElvaCos.html            # ElvaCos · Offline personal management for cosplayers
 │   ├── ComplexSweeper.html     # ComplexSweeper · Native ports for three platforms
-│   ├── Loci.html               # Local place memories (in development)
+│   ├── Loci.html               # Shiji daily time journal with place memories (in development)
 │   ├── Biology.html            # Biology projects
 │   ├── gene.html               # Genetic engineering: interactive Agrobacterium transformation lab
 │   ├── Hi3861.html             # Hi3861 embedded development
@@ -327,7 +327,7 @@ This project uses the MIT License.
 
 ---
 
-**Last updated**: October 20, 2026
+**Last updated**: October 29, 2026
 **Architecture version**: v3.0 (static multilingual content · script-injected components)
 **Technology stack**: HTML5, CSS3, JavaScript, GitHub Pages
 
@@ -342,3 +342,7 @@ client; AstraPlusCar reflects short video segments and three recovery attempts w
 Loci and ElvaCos retain their development / Beta status after verification.
 
 For supporting evidence and unfinished capabilities, see the [maintenance record](docs/maintenance-2026-10-20.md).
+
+## 2026-10-29 project refresh
+
+Updated Loci as Shiji, a daily time journal, and Dashboard HarmonyOS to 3.2.0. Refined ElvaCos and project descriptions across all three languages, removed repeated summaries, and checked repository visibility and renamed URLs. Private and unavailable repository links are omitted. See the [maintenance record](docs/maintenance-2026-10-29.md).

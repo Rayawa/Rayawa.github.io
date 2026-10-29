@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Plateforme de surveillance IA | Ray Chen</title>
-  <meta name="description" content="Plateforme de surveillance et d'alerte en temps réel avec Spring Boot, Vue 3, MySQL, FastAPI et YOLOv5.">
+  <meta name="description" content="Un projet de cours de surveillance. FastAPI et YOLOv5 analysent images et vidéos ; Spring Boot transforme les résultats en alertes, les enregistre dans MySQL et diffuse les mises à jour par WebSocket aux clients Web et HarmonyOS.">
   <meta name="keywords" content="Plateforme de surveillance IA, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/fr/projects/YoloSecurityPlatform.html">
   <meta property="og:title" content="Plateforme de surveillance IA | Ray Chen">
-  <meta property="og:description" content="Une boucle complète, de l'analyse visuelle YOLO au traitement des incidents en temps réel.">
+  <meta property="og:description" content="Un projet de cours de surveillance. FastAPI et YOLOv5 analysent images et vidéos ; Spring Boot transforme les résultats en alertes, les enregistre dans MySQL et diffuse les mises à jour par WebSocket aux clients Web et HarmonyOS.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/fr/projects/YoloSecurityPlatform.html">
   <meta name="twitter:title" content="Plateforme de surveillance IA | Ray Chen">
-  <meta name="twitter:description" content="Une boucle complète, de l'analyse visuelle YOLO au traitement des incidents en temps réel.">
+  <meta name="twitter:description" content="Un projet de cours de surveillance. FastAPI et YOLOv5 analysent images et vidéos ; Spring Boot transforme les résultats en alertes, les enregistre dans MySQL et diffuse les mises à jour par WebSocket aux clients Web et HarmonyOS.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,34 +48,14 @@
 <body class="project-showcase security-project">
   <div id="site-navbar"></div><script src="/static/js/navbar.js"></script><div id="particles-js"></div>
   <main class="page project-page">
-    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="ps-eyebrow"><i class="fas fa-shield-halved"></i> Vision IA · Full Stack · Temps réel</span><h1>Plateforme de surveillance IA</h1><p>Un système de sécurité complet qui relie détection visuelle, règles métier, stockage, diffusion instantanée et intervention humaine. Il analyse des images à la demande ou surveille en continu des dossiers d'images et de vidéos, transforme les résultats YOLOv5 en alertes et synchronise chaque changement sur le Web et HarmonyOS.</p><div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/YoloSecrityPlatform" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a><a class="ps-button is-ghost" href="#architecture"><i class="fas fa-diagram-project"></i> Voir le parcours</a></div></div><div class="ps-hero-visual"><img src="../../static/resources/main_page/security.png" alt="Tableau de bord de surveillance" fetchpriority="high"></div></section>
-
-    <section class="project-brief" aria-label="Le projet en bref">
-
-      <h2>Le projet en bref</h2>
-      <p>Il s’agit d’une plateforme de sécurité full-stack qui transforme la détection d’objets en alertes traitables, en fermant la boucle : reconnaissance IA, mapping par règles, persistance en base, diffusion WebSocket et traitement côté interface. La reconnaissance dispose de deux entrées : saisir une URL d’image à la main, ou déposer images et vidéos dans le dossier ai-watch, qu’un thread d’arrière-plan balaie toutes les 2 secondes en guise de caméra. Spring Boot, MySQL et WebSocket assurent l’état et la synchronisation temps réel, tandis que les clients web et HarmonyOS servent à la vérification et au traitement.</p>
-      <ul>
-      <li><strong>Deux entrées de reconnaissance</strong><span>Soumettre une image à la main, ou déposer des fichiers dans ai-watch pour un balayage et un archivage automatiques.</span></li>
-      <li><strong>Uniquement les alertes utiles</strong><span>Les classes du modèle sont converties en six types d’alertes métier ; les classes non reconnues sont consignées comme anomalies de reconnaissance et ignorées, ni stockées ni diffusées.</span></li>
-      <li><strong>Preuves archivées avec l’alerte</strong><span>Les images annotées à cadre de détection et les images vidéo assemblées sont conservées avec l’enregistrement d’alerte.</span></li>
-      </ul>
-    </section>
-    <section class="project-guide" aria-label="À propos de ce projet">
-      <h2>À propos de ce projet</h2>
-      <div class="project-guide-grid">
-      <article><h3>Ce qu’il traite</h3><p>Si les résultats de détection en surveillance s’arrêtent aux cadres englobants, ils ne peuvent pas soutenir le traitement ultérieur. Ce projet transforme la sortie du modèle en alertes métier et associe à chacune une preuve sur site et un état de traitement, formant un registre traçable.</p></article>
-      <article><h3>Circulation des données</h3><p>L’entrée manuelle transmet une URL d’image au service IA ; l’entrée par dossier fait balayer ai-watch toutes les 2 secondes par un thread d’arrière-plan, qui renvoie les résultats et archive les fichiers sources dans processed. Les résultats sont convertis par règles en anomalies de fumée/incendie, d’attroupement, d’intrusion, de véhicule, d’animal ou d’objet, puis diffusés en WebSocket une fois la transaction validée.</p></article>
-      <article><h3>Ce qu’il utilise</h3><p>L’inférence repose sur FastAPI avec YOLOv5 (un modèle COCO et un modèle feu/fumée) ; le côté métier sur Spring Boot 3.3 et MySQL 8, avec WebSocket pour la diffusion temps réel. Les interfaces sont construites avec Vue 3 et ArkTS / ArkWeb. Vue est servi en version statique locale directement par Spring Boot : le projet fonctionne dès le clonage ; un déploiement Docker en une commande est également fourni.</p></article>
-      <article><h3>État actuel</h3><p>Cinq pages sont implémentées — tableau de bord, équipements, enregistrements de reconnaissance IA, centre d’alertes en direct et historique de traitement — accompagnées d’un tutoriel d’explication du code. La qualité réelle de détection doit être évaluée selon le jeu de données, le seuil de confiance et l’environnement de déploiement utilisés.</p></article>
-      </div>
-    </section>
+    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="ps-eyebrow"><i class="fas fa-shield-halved"></i> Vision IA · Full Stack · Temps réel</span><h1>Plateforme de surveillance IA</h1><p>Un projet de cours de surveillance. FastAPI et YOLOv5 analysent images et vidéos ; Spring Boot transforme les résultats en alertes, les enregistre dans MySQL et diffuse les mises à jour par WebSocket aux clients Web et HarmonyOS.</p><div class="ps-actions"><a class="ps-button is-ghost" href="#architecture"><i class="fas fa-diagram-project"></i> Voir le parcours</a></div></div><div class="ps-hero-visual"><img src="../../static/resources/main_page/security.png" alt="Tableau de bord de surveillance" fetchpriority="high"></div></section>
     <section class="ps-metrics"><div class="ps-metric"><strong>5</strong><span>Vues principales</span></div><div class="ps-metric"><strong>6 types</strong><span>Règles d'alerte métier</span></div><div class="ps-metric"><strong>≈ 2 s</strong><span>Cycle de surveillance</span></div><div class="ps-metric"><strong>3 clients</strong><span>Web · OpenAPI · HarmonyOS</span></div></section>
 
 
     <section class="ps-section" id="screens">
       <div class="ps-section-head">
-        <h2>Deux écrans d’entrée</h2>
-        <p>L’interface d’administration est servie en fichiers statiques directement par Spring Boot : le projet fonctionne dès le clonage, sans environnement Node.js séparé.</p>
+        <h2>Captures d’écran</h2>
+        <p>L’interface d’administration comprend un tableau de surveillance et une page de connexion, servis par Spring Boot.</p>
       </div>
       <div class="ps-wide-shot">
         <img src="../../static/resources/security/dashboard.png" alt="Tableau de bord : équipements en ligne, alertes en attente et flux d’alertes en direct" loading="lazy">

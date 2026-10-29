@@ -49,28 +49,8 @@
       <div class="astra-kicker">Robotique · Systèmes embarqués · HarmonyOS</div>
       <h1>Astra<span>Plus</span>Car</h1>
       <p class="astra-lead">Une voiture intelligente reliant capteurs, logiciel embarqué et interface mobile. L’appareil collecte les données de la caméra et du lidar, puis pilote le châssis via un ESP32 ; une application HarmonyOS affiche l’image et envoie les commandes sur le réseau local.</p>
-      <div class="astra-actions"><a href="https://github.com/Rayawa/AstraPlusCar-src" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code embarqué</a><a href="https://github.com/Rayawa/AstraPlusCar-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> Application HarmonyOS</a></div>
+      <div class="astra-actions"><a href="https://github.com/Rayawa/AstraPlusCar-device" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code embarqué</a><a href="https://github.com/Rayawa/AstraPlusCar-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> Application HarmonyOS</a></div>
     </header>
-
-    <section class="project-brief" aria-label="Le projet en bref">
-
-      <h2>Le projet en bref</h2>
-      <p>AstraPlusCar est un système de véhicule piloté depuis un téléphone HarmonyOS. Le côté embarqué fonctionne sur un kit de développement Ascend auquel sont reliés une caméra et un lidar, et commande un châssis à roues Mecanum via un ESP32 ; le téléphone fournit l’aperçu vidéo, l’état du lidar et les commandes de conduite. Construit sur l’exemple E2E officiel de Huawei, le projet y apporte deux ajouts : le remplacement de la caméra par une caméra 3D à lumière structurée, et la mise au point d’un client de commande sur téléphone.</p>
-      <ul>
-      <li><strong>Répartition en trois niveaux</strong><span>Le téléphone assure l’interface et la commande, l’équipement Ascend la perception et les décisions, l’ESP32 l’exécution bas niveau.</span></li>
-      <li><strong>Trois modes autonomes</strong><span>Assistance par panneaux, suivi de voie et poursuite de cible, chacun reposant sur un modèle et une politique différents.</span></li>
-      <li><strong>Comportement sûr</strong><span>Arrêt au relâchement et chien de garde sur la liaison ; le véhicule ne poursuit pas sa dernière action après une coupure.</span></li>
-      </ul>
-    </section>
-    <section class="project-guide" aria-label="À propos de ce projet">
-      <h2>À propos de ce projet</h2>
-      <div class="project-guide-grid">
-      <article><h3>Ce qu’il traite</h3><p>Le projet porte sur la contrôlabilité lorsque téléphone, équipement Ascend et châssis coopèrent, et réalise deux modifications d’ingénierie sur l’exemple officiel : la connexion d’une caméra 3D à lumière structurée et la mise au point d’un client de commande sur téléphone.</p></article>
-      <article><h3>Comment le système coopère</h3><p>Le téléphone envoie une intention de conduite de haut niveau. L’équipement la reçoit, la combine avec l’état de la caméra, du lidar et du châssis, puis transmet l’action résultante à l’ESP32. Les données des capteurs circulent en sens inverse, ce qui maintient l’image et le relevé lidar à jour.</p></article>
-      <article><h3>Ce qu’il utilise</h3><p>Le côté embarqué est en Python sur un kit de développement Ascend, avec une inférence sur modèles hors ligne Ascend. Le côté téléphone est une application HarmonyOS écrite en ArkTS. Le châssis est un ESP32. Les deux communiquent en HTTP local et par liaison série.</p></article>
-      <article><h3>État actuel</h3><p>Le client téléphone a été installé sur un appareil réel et testé face au véhicule sur le même réseau : aperçu vidéo, lidar à trois directions, captures d’écran et galerie privée sont confirmés, tout comme la consultation d’état, les commandes de direction, le renouvellement et l’arrêt automatique en cas de coupure. Le comportement en conduite réelle reste à observer sur site.</p></article>
-      </div>
-    </section>
     <img class="astra-visual" src="../../static/resources/main_page/astracar.svg" alt="Schéma de la voiture AstraPlusCar et de son contrôleur mobile">
     <section class="astra-section" id="overview">
       <h2>Présentation</h2>

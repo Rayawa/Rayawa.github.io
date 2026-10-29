@@ -49,28 +49,8 @@
       <div class="astra-kicker">Robotics · Embedded Systems · HarmonyOS</div>
       <h1>Astra<span>Plus</span>Car</h1>
       <p class="astra-lead">A smart vehicle built across sensors, device software, and a phone interface. The device gathers camera and lidar data and controls the chassis through an ESP32; a HarmonyOS app previews the camera and sends driving commands over the local network.</p>
-      <div class="astra-actions"><a href="https://github.com/Rayawa/AstraPlusCar-src" target="_blank" rel="noopener"><i class="fab fa-github"></i> Device code</a><a href="https://github.com/Rayawa/AstraPlusCar-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> HarmonyOS app</a></div>
+      <div class="astra-actions"><a href="https://github.com/Rayawa/AstraPlusCar-device" target="_blank" rel="noopener"><i class="fab fa-github"></i> Device code</a><a href="https://github.com/Rayawa/AstraPlusCar-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> HarmonyOS app</a></div>
     </header>
-
-    <section class="project-brief" aria-label="At a glance">
-
-      <h2>At a glance</h2>
-      <p>AstraPlusCar is a smart vehicle system controlled from a HarmonyOS phone. The device side runs on an Ascend developer kit with a camera and lidar attached, driving a Mecanum-wheel chassis through an ESP32; the phone provides video preview, lidar status and driving controls. Built on Huawei’s official E2E sample, the project makes two additions: swapping the camera for a 3D structured-light camera, and completing a usable phone control client.</p>
-      <ul>
-      <li><strong>Three-tier division</strong><span>The phone handles interface and control, the Ascend device handles perception and decisions, the ESP32 handles low-level actuation.</span></li>
-      <li><strong>Three autonomous modes</strong><span>Sign-assisted driving, lane following and target tracking, each backed by a different model and behaviour policy.</span></li>
-      <li><strong>Fail-safe</strong><span>Release-to-stop plus a link watchdog; the vehicle does not continue its last action after a dropout.</span></li>
-      </ul>
-    </section>
-    <section class="project-guide" aria-label="About this project">
-      <h2>About this project</h2>
-      <div class="project-guide-grid">
-      <article><h3>What it addresses</h3><p>The project concerns controllability when the phone, the Ascend device and the chassis work together, and completes two engineering changes on top of the official sample: connecting a 3D structured-light camera, and building a phone control client for the vehicle.</p></article>
-      <article><h3>How the system cooperates</h3><p>The phone sends high-level driving intent. The device receives it, combines it with camera, lidar and chassis state, and passes the resulting action to the ESP32. Sensor data returns the other way, which keeps the video and lidar readout current.</p></article>
-      <article><h3>What it uses</h3><p>The device side is Python running on an Ascend developer kit, with inference on Ascend offline models. The phone side is a HarmonyOS application written in ArkTS. The chassis is an ESP32. The two connect over local HTTP and a serial link.</p></article>
-      <article><h3>Current status</h3><p>The phone client has been installed on a real device and tested against the physical car over the same network; video preview, three-direction lidar, screenshots and the private gallery are confirmed, as are the API-side status query, direction commands, renewal and automatic stop on link loss. On-vehicle driving behaviour still requires on-site observation.</p></article>
-      </div>
-    </section>
     <img class="astra-visual" src="../../static/resources/main_page/astracar.svg" alt="Diagram of the AstraPlusCar vehicle and phone controller">
     <section class="astra-section" id="overview">
       <h2>Overview</h2>
@@ -117,8 +97,6 @@
         <article class="astra-card"><h3><i class="fas fa-images"></i> Screenshots and gallery</h3><p>Screenshots are stored on the vehicle first, then downloaded into the app’s private gallery where they survive restarts. Images only reach the system album after the user explicitly downloads them and grants permission.</p></article>
       </div>
     </section>
-
-    <section class="astra-section"><h2>Connection recovery & control protection</h2><p class="astra-intro">After 2 seconds without a fresh frame, the phone disconnects control and sends stop. A previously active video connection can recover up to three times at 0.5, 2 and 4 seconds; initial connection failures do not loop, and backgrounding or disconnecting cancels recovery. Motion and speed stay blocked until fresh frames arrive; old actions are never replayed. The independent 600 ms watchdog remains active. Voice and model modules show offline, and periodic wireless stalls remain unresolved.</p></section>
     <section class="astra-section" id="status">
       <h2>Current status</h2>
       <p class="astra-intro">Phone and vehicle have been integrated on the same WLAN, confirming video, three-way radar, snapshots and the private gallery. API checks cover movement commands, renewal, stop and rejection of old sessions. Later records add three recovery attempts and background cancellation. Periodic wireless stalls remain unresolved; wheel direction and ground driving still require observation.</p>

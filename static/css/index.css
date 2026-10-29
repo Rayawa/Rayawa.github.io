@@ -763,8 +763,11 @@ a.skill-link {
 }
 
 .project-image.loci {
-    background-color: #102038;
-    background-image: url('../resources/main_page/loci.webp');
+    background-color: #e8f3fa;
+    background-image: url('../resources/apps/loci-foreground.png'), url('../resources/apps/loci-background.png');
+    background-size: auto 100%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media (max-width: 1023px) {

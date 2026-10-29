@@ -47,37 +47,16 @@
   <div id="particles-js"></div>
   <main class="page project-page astra-page">
     <header class="project-intro astra-hero">
-      
+
       <span class="project-category">鸿蒙与昇腾</span>
       <div class="astra-kicker">机器人 · 嵌入式 · HarmonyOS</div>
       <h1>AstraPlus<span>智能小车</span></h1>
       <p class="astra-lead">一辆从传感器到手机界面贯通的智能小车：设备端汇集相机和雷达数据，通过 ESP32 控制底盘；HarmonyOS 手机应用在同一局域网内预览画面并发送驾驶指令。</p>
       <div class="astra-actions">
-        <a href="https://github.com/Rayawa/AstraPlusCar-src" target="_blank" rel="noopener"><i class="fab fa-github"></i> 设备端代码</a>
+        <a href="https://github.com/Rayawa/AstraPlusCar-device" target="_blank" rel="noopener"><i class="fab fa-github"></i> 设备端代码</a>
         <a href="https://github.com/Rayawa/AstraPlusCar-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> HarmonyOS 应用</a>
       </div>
     </header>
-
-    <section class="project-brief" aria-label="项目速览">
-
-      <h2>项目速览</h2>
-      <p>AstraPlusCar 是一套以 HarmonyOS 手机为控制端的智能小车系统：设备端运行在昇腾开发者套件上，接入相机与激光雷达，经 ESP32 驱动麦克纳姆轮底盘；手机端负责画面预览、雷达状态与驾驶操控。项目在昇腾官方 E2E 样例的基础上做两件事——把相机换成 3D 结构光相机，以及补齐一套可用的手机遥控端。</p>
-      <ul>
-      <li><strong>三层分工</strong><span>手机负责界面与操控，昇腾设备端负责感知与决策，ESP32 负责底层执行。</span></li>
-      <li><strong>三套自动驾驶场景</strong><span>路标辅助、巡线、目标追踪，各自对应不同的模型与行为策略。</span></li>
-      <li><strong>失效保护</strong><span>松手即停，并设置失联看门狗；通信中断后车辆不会维持原有动作。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="关于这个项目">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>项目关注手机、昇腾设备端与底盘三层协同时的可控性，以及在官方样例基础上完成两项工程改造：接入 3D 结构光相机，并为小车补齐手机遥控端。</p></article>
-      <article><h3>系统如何协作</h3><p>手机端发出的是高层驾驶意图，设备端接收后结合相机、雷达与底盘状态，再将具体动作交由 ESP32 执行。传感器数据沿相反方向回传，画面与雷达状态因此可以实时刷新。</p></article>
-      <article><h3>用到什么</h3><p>设备端为 Python，运行于昇腾开发者套件，推理使用 Ascend 离线模型；手机端为 ArkTS 编写的 HarmonyOS 应用；底盘为 ESP32。三层之间分别通过局域网 HTTP 与串口通信。</p></article>
-      <article><h3>当前进展</h3><p>手机端已完成真机与实车联调，视频预览、三向雷达、截图与图库均确认可用，API 侧的状态、方向命令、续期与失联自动停车也已验证。实车行驶行为仍需现场观察。</p></article>
-      </div>
-    </section>
 
     <img class="astra-visual" src="../static/resources/main_page/astracar.svg" alt="AstraPlusCar 小车及手机控制示意图">
 
@@ -128,8 +107,6 @@
         <article class="astra-card"><h3><i class="fas fa-images"></i> 截图与图库</h3><p>截图先保存在车端，再下载到应用私有图库，重启后仍可查看；经用户主动下载并完成系统授权后，图片才进入系统相册。</p></article>
       </div>
     </section>
-
-    <section class="astra-section"><h2>连接恢复与控制保护</h2><p class="astra-intro">超过 2 秒无新画面会断开控制并发停车。已有有效视频的连接失联后，最多按 0.5、2、4 秒间隔恢复三次；初次连接失败不自动循环，退后台或主动断开会取消恢复。新画面前禁止运动与调速，不重放旧动作；车端 600 ms 看门狗独立生效。语音与模型模块仍显示离线，无线周期停顿尚未解决。</p></section>
     <section class="astra-section" id="status">
       <h2>当前进展</h2>
       <p class="astra-intro">手机端已与真实小车完成同 WLAN 联调，视频、三向雷达、截图与私有图库已确认；API 侧验证了运动指令、续期、停车与旧会话拒绝。最新记录补充三次恢复与后台取消；无线周期停顿仍未解决，实际轮向和落地行驶仍需现场观察。</p>

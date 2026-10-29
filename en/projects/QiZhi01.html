@@ -55,29 +55,10 @@
     <section class="project-intro ascend-hero">
       <span class="hero-badge">Ascend AI Full-Stack</span>
       <h1>Qizhi01 · Ascend AI Full-Stack<br><small style="font-size:0.45em;font-weight:300;color:rgba(255,255,255,0.6);">—— OpenHarmony on Ascend 310B, plus an NPU-powered X-ray app</small></h1>
-      <p>Ported OpenHarmony 5.0.3 to the Huawei Ascend 310B developer kit, then built Ascend X-Ray Expert — a HarmonyOS app that runs YOLOv5s on the NPU to analyze chest radiographs. From kernel patch adaptation to ArkUI, this project spans the complete embedded system stack.</p>
+      <p>An OpenHarmony 5.0.3 port for the QiZhi01 Ascend 310B kit, with an ArkTS chest X-ray analysis interface. The system work covers kernel, drivers and build tools; the app has MindSpore Lite CPU and CANN ACL NPU inference paths.</p>
       <div class="single-action">
-        <a class="button" href="https://github.com/Rayawa/Ascend310" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub Repo</a>
-      </div>
-    </section>
-
-    <section class="project-brief" aria-label="At a glance">
-
-      <h2>At a glance</h2>
-      <p>Qizhi01 covers the full chain from operating system to application: porting OpenHarmony 5.0.3 to the Huawei Ascend 310B development kit, then building an X-ray chest radiograph analysis application on top of that system. The first half is kernel, driver and build-chain adaptation; the second half is an ArkTS interface with YOLOv5s inference. To put the on-board NPU to actual use, the application implements both a CPU and an NPU inference path.</p>
-      <ul>
-      <li><strong>Full system adaptation</strong><span>Beyond the operating system itself, GPU, display, camera and audio all had to be brought up before an ArkUI application could run.</span></li>
-      <li><strong>Two inference paths</strong><span>MindSpore Lite handles CPU inference and CANN ACL handles NPU inference; both are verified on the board.</span></li>
-      <li><strong>Reproducible process</strong><span>43 patches, a one-command build script and a flashing tool make up the complete porting workflow.</span></li>
-      </ul>
-    </section>
-    <section class="project-guide" aria-label="About this project">
-      <h2>About this project</h2>
-      <div class="project-guide-grid">
-      <article><h3>What it addresses</h3><p>The Ascend 310B ships with a Linux SDK only, while the on-board NPU is worth using. The project verifies two things: whether OpenHarmony can run on this hardware, and whether NPU inference can be wired into a usable application on top of it.</p></article>
-      <article><h3>Hardware support added</h3><p>GPU support is implemented at the HAL layer on the open-source Panfrost driver; HDMI and dual-display output are working; USB/MIPI camera and ALSA audio are connected. bash and busybox were also ported to supply the tools the HDK installer depends on.</p></article>
-      <article><h3>What it uses</h3><p>The system side is OpenHarmony 5.0.3 compiled together with around 20 kernel modules. The application side uses ArkTS and ArkUI, with inference running through MindSpore Lite (CPU) and CANN ACL (NPU) on a YOLOv5s model.</p></article>
-      <article><h3>Current status</h3><p>The 43 patches are merged into the OpenHarmony mainline; the application runs on the board and completes five-class inference, with both the CPU and NPU paths verified. The X-ray classification is a technical demonstration and is not intended for clinical use.</p></article>
+        <a class="button" href="https://github.com/Rayawa/QiZhi01-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> App source</a>
+        <a class="button" href="https://github.com/Rayawa/QiZhi01-OpenHarmony" target="_blank" rel="noopener"><i class="fab fa-github"></i> System port source</a>
       </div>
     </section>
     <div class="as-chapter-wrap">
@@ -320,6 +301,7 @@
         </div>
       </section>
     </div>
+    <section class="ps-section"><div class="ps-section-head"><h2>Demonstration</h2></div><p class="ps-note">Chest X-ray classification demonstrates on-device inference and is not intended for clinical diagnosis.</p></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
 

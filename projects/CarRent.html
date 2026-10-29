@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>基于链表的汽车租赁管理系统 | Ray Chen</title>
-  <meta name="description" content="C++11 命令行汽车租赁管理系统，用单向链表管理车辆、用户与租车记录，二进制文件持久化，含统计与 ASCII 图表。">
+  <meta name="description" content="C++11 数据结构课程设计。在命令行中管理车辆、用户、租车与退车，练习手写单向链表和二进制文件读写，也做了统计图表和操作日志。">
   <meta name="keywords" content="C++, C++11, 汽车租赁, 单向链表, 数据结构, 文件持久化, 管理系统, 课程设计, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/CarRent.html">
   <meta property="og:title" content="基于链表的汽车租赁管理系统 | Ray Chen">
-  <meta property="og:description" content="C++11 命令行汽车租赁管理系统，用单向链表管理车辆、用户与租车记录，二进制文件持久化，含统计与 ASCII 图表。">
+  <meta property="og:description" content="C++11 数据结构课程设计。在命令行中管理车辆、用户、租车与退车，练习手写单向链表和二进制文件读写，也做了统计图表和操作日志。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/CarRent.html">
   <meta name="twitter:title" content="基于链表的汽车租赁管理系统 | Ray Chen">
-  <meta name="twitter:description" content="C++11 命令行汽车租赁管理系统，用单向链表管理车辆、用户与租车记录，二进制文件持久化，含统计与 ASCII 图表。">
+  <meta name="twitter:description" content="C++11 数据结构课程设计。在命令行中管理车辆、用户、租车与退车，练习手写单向链表和二进制文件读写，也做了统计图表和操作日志。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,30 +51,10 @@
   <div id="particles-js"></div>
   <main class="page project-page">
     <section class="project-intro hero-card">
-      
+
       <span class="project-category">学校项目</span>
       <h1>基于链表的汽车租赁管理系统</h1>
-      <p>一个不依赖任何标准库容器的 C++11 命令行管理系统：车辆、用户与租车记录全部用单向链表组织，数据以二进制文件持久化，并配有统计汇总、ASCII 柱状图与操作日志。</p>
-    </section>
-
-    <section class="project-brief" aria-label="项目速览">
-      <h2>项目速览</h2>
-      <p>系统围绕车辆信息、租车用户、租车与退车业务、信息查询、统计汇总和系统设置七个模块展开。所有数据结构都由手写单向链表实现，不使用 vector 或 map；数据通过自定义的二进制格式落盘，重启后可完整恢复。</p>
-      <ul>
-      <li><strong>手写数据结构</strong><span>全程使用单向链表管理节点，动态申请与释放，不依赖标准库容器。</span></li>
-      <li><strong>七个功能模块</strong><span>覆盖车辆、用户、租车、退车、查询、统计与系统设置，构成完整业务闭环。</span></li>
-      <li><strong>可读的统计输出</strong><span>统计模块以 ASCII 柱状图直观展示分组数据，并支持报表与操作日志。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="关于这个项目">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>把课堂上的链表、文件操作和模块化设计放进一个真实可用的业务场景，验证数据结构基础是否真的能撑起一套完整系统。</p></article>
-      <article><h3>怎么组织的</h3><p>程序以 car_rent.cpp 为核心，聚合全部常量、结构体、链表操作与业务逻辑，再由七个菜单模块分别实现各功能入口。通过 #include 拼接子模块，编译时只需处理 main.cpp 一个翻译单元。</p></article>
-      <article><h3>用到什么</h3><p>C++11（使用 constexpr 与 nullptr），仅依赖 cstdio、cstdlib、cstring、ctime 等标准头文件；构建方式支持 Make 与 CMake；界面与注释均为中文，UTF-8 编码。</p></article>
-      <article><h3>边界</h3><p>这是课程设计项目，界面为命令行形式，数据存储在本地文件而非数据库；并发访问与多用户场景不在设计范围内。</p></article>
-      </div>
+      <p>C++11 数据结构课程设计。在命令行中管理车辆、用户、租车与退车，练习手写单向链表和二进制文件读写，也做了统计图表和操作日志。</p>
     </section>
 
     <section class="ps-section">
@@ -94,7 +74,7 @@
 
     <section class="ps-section">
       <div class="ps-section-head">
-        <h2>实现上的两点选择</h2>
+        <h2>实现细节</h2>
         <p>项目在数据结构与持久化上做了刻意的取舍。</p>
       </div>
       <div class="ps-grid-3">
@@ -107,6 +87,7 @@
       </div>
     </section>
 
+    <section class="ps-section"><div class="ps-section-head"><h2>课程设计</h2></div><p class="ps-note">这是本地命令行课程项目，数据保存在文件中；没有实现并发访问或多人在线使用。</p></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
   <div id="site-footer"></div>

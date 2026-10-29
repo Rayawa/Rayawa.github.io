@@ -95,7 +95,7 @@ Rayawa.github.io/
 │   ├── AstraPlusCar.html       # AstraPlusCar · 智能小车
 │   ├── ElvaCos.html            # 绮秀 · Coser 离线个人管理
 │   ├── ComplexSweeper.html     # 复扫雷 · 三个平台的原生移植
-│   ├── Loci.html               # 本地地点记忆（开发中）
+│   ├── Loci.html               # 时迹每日时间记录与地点记忆（开发中）
 │   ├── Biology.html            # 生物学项目
 │   ├── gene.html               # 基因工程：农杆菌转化法交互实验室
 │   ├── Hi3861.html             # Hi3861 嵌入式开发
@@ -327,7 +327,7 @@ Rayawa.github.io/
 
 ---
 
-**最后更新**：2026年10月20日
+**最后更新**：2026年10月29日
 **架构版本**：v3.0（多语言静态化 · 脚本注入组件版）
 **技术栈**：HTML5, CSS3, JavaScript, GitHub Pages
 
@@ -342,3 +342,7 @@ Rayawa.github.io/
 Loci 与 ElvaCos 的开发 / Beta 状态经核对后保留。
 
 依据与未完成能力见 [维护记录](docs/maintenance-2026-10-20.md)。
+
+## 2026-10-29 项目更新
+
+Loci 更新为「时迹」每日时间记录，Dashboard 鸿蒙版更新至 3.2.0。三语同步精简 ElvaCos 与其他项目介绍、删除重复概述，核实仓库可见性和改名链接，移除私有及失效仓库入口。详见[维护记录](docs/maintenance-2026-10-29.md)。

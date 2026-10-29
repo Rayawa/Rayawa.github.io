@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>校园智能安防远程监控平台 | Ray Chen</title>
-  <meta name="description" content="基于 Spring Boot、Vue 3、MySQL、FastAPI 与 YOLOv5 的智能安防远程监控与实时告警平台。">
+  <meta name="description" content="实训课程中的安防监控项目。FastAPI 与 YOLOv5 识别图片和视频，Spring Boot 将结果转成告警并保存到 MySQL，再通过 WebSocket 推送到 Web 和 HarmonyOS 客户端，供查看与处理。">
   <meta name="keywords" content="YOLOv5, Spring Boot, Vue 3, MySQL, FastAPI, WebSocket, HarmonyOS, 智能安防, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/YoloSecurityPlatform.html">
   <meta property="og:title" content="校园智能安防远程监控平台 | Ray Chen">
-  <meta property="og:description" content="从 YOLO 视觉识别到 WebSocket 实时处置的完整安防告警闭环。">
+  <meta property="og:description" content="实训课程中的安防监控项目。FastAPI 与 YOLOv5 识别图片和视频，Spring Boot 将结果转成告警并保存到 MySQL，再通过 WebSocket 推送到 Web 和 HarmonyOS 客户端，供查看与处理。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/YoloSecurityPlatform.html">
   <meta name="twitter:title" content="校园智能安防远程监控平台 | Ray Chen">
-  <meta name="twitter:description" content="从 YOLO 视觉识别到 WebSocket 实时处置的完整安防告警闭环。">
+  <meta name="twitter:description" content="实训课程中的安防监控项目。FastAPI 与 YOLOv5 识别图片和视频，Spring Boot 将结果转成告警并保存到 MySQL，再通过 WebSocket 推送到 Web 和 HarmonyOS 客户端，供查看与处理。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,35 +56,14 @@
         <span class="project-category">学校项目</span>
         <span class="ps-eyebrow"><i class="fas fa-shield-halved"></i> AI Vision · Full Stack · Real-time</span>
         <h1>校园智能安防远程监控平台</h1>
-        <p>一个贯通视觉识别、规则判断、数据存储、实时推送与人工处置的全栈安防系统。平台既能手动分析图片，也能持续扫描图片与视频目录，以 YOLOv5 识别结果触发业务告警，并将状态变化实时同步到 Web 与 HarmonyOS 终端。</p>
+        <p>实训课程中的安防监控项目。FastAPI 与 YOLOv5 识别图片和视频，Spring Boot 将结果转成告警并保存到 MySQL，再通过 WebSocket 推送到 Web 和 HarmonyOS 客户端，供查看与处理。</p>
         <div class="ps-actions">
-          <a class="ps-button" href="https://github.com/Rayawa/YoloSecrityPlatform" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
+
           <a class="ps-button is-ghost" href="#architecture"><i class="fas fa-diagram-project"></i> 查看系统链路</a>
         </div>
       </div>
       <div class="ps-hero-visual">
         <img src="../static/resources/main_page/security.png" alt="智能安防平台监控大屏" fetchpriority="high">
-      </div>
-    </section>
-
-    <section class="project-brief" aria-label="项目速览">
-
-      <h2>项目速览</h2>
-      <p>这是一套将目标检测转化为可处置告警的全栈安防平台，走通「AI 识别 → 规则映射 → 数据库落盘 → WebSocket 实时推送 → 前端大屏处置」的完整闭环。识别有两个入口：手动填写图片地址，或把图片与视频投进 ai-watch 目录，由后台线程每 2 秒扫描一次模拟摄像头。Spring Boot、MySQL 与 WebSocket 负责状态保存与实时同步，Web 端与 HarmonyOS 客户端用于复核与处置。</p>
-      <ul>
-      <li><strong>两个识别入口</strong><span>手动填图发起识别，或向 ai-watch 投文件由后台自动扫描并归档。</span></li>
-      <li><strong>只推该推的告警</strong><span>模型类别经规则映射为六类业务告警；未归类的类别记为“目标识别异常”，跳过不入库也不推送。</span></li>
-      <li><strong>现场证据随告警归档</strong><span>检测框标注图与视频抽帧拼接图随告警记录一并保存。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>监控场景中的识别结果若只停留在检测框，难以支撑后续处置。本项目将模型输出映射为业务告警，并让每条告警都带有现场证据与处置状态，形成可追踪的台账。</p></article>
-      <article><h3>数据如何流转</h3><p>手动入口把图片地址转发给 AI 服务；目录入口由后台每 2 秒扫描 ai-watch，识别后主动推送结果并把源文件归档到 processed。检测结果经规则映射为烟火异常、人员聚集、人员闯入、车辆异常、动物进入或物品异常，事务落库后再通过 WebSocket 广播至各端。</p></article>
-      <article><h3>用到什么</h3><p>推理侧为 FastAPI 与 YOLOv5（COCO 与烟火双模型），业务侧为 Spring Boot 3.3 与 MySQL 8，实时推送使用 WebSocket；界面由 Vue 3 与 ArkTS / ArkWeb 构建。Vue 采用本地静态版本由 Spring Boot 直接托管，克隆即可运行；另提供 Docker 一键部署。</p></article>
-      <article><h3>当前进展</h3><p>监控大屏、设备信息、AI 识别记录、实时告警中心与告警处置记录五个页面均已实现，并附有代码详解教程。实际检测效果需结合所用数据集、置信度阈值与部署环境评估。</p></article>
       </div>
     </section>
 
@@ -98,8 +77,8 @@
 
     <section class="ps-section" id="screens">
       <div class="ps-section-head">
-        <h2>平台上手即用的两个界面</h2>
-        <p>管理端由 Spring Boot 直接托管静态页面，克隆下来即可运行，不需要额外的 Node.js 环境。</p>
+        <h2>界面截图</h2>
+        <p>管理端包含监控大屏和登录页，静态页面由 Spring Boot 托管。</p>
       </div>
       <div class="ps-wide-shot">
         <img src="../static/resources/security/dashboard.png" alt="监控大屏：在线设备、待处置告警与最新实时告警流" loading="lazy">
@@ -113,7 +92,7 @@
 
     <section class="ps-section" id="features">
       <div class="ps-section-head">
-        <h2>从识别到处置的告警闭环</h2>
+        <h2>告警功能</h2>
         <p>从“模型看见了什么”到“安保人员完成处置”，每一步都保留业务状态与现场证据。</p>
       </div>
       <div class="ps-grid-3">
@@ -128,7 +107,7 @@
 
     <section class="ps-section" id="architecture">
       <div class="ps-section-head">
-        <h2>一次告警的完整旅程</h2>
+        <h2>告警如何传递</h2>
         <p>浏览器主动提交与 ai-watch 自动扫描共享同一条后端业务链路。</p>
       </div>
       <div class="ps-flow">

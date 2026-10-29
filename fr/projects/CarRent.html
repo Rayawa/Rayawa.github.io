@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Système de Gestion de Location de Voitures par Liste Chaînée | Ray Chen</title>
-  <meta name="description" content="Un système de gestion en ligne de commande écrit en C++11, sans conteneurs de la bibliothèque standard : véhicules, clients et locations sont organisés en listes simplement chaînées et persistés dans des fichiers binaires, avec statistiques, histogrammes ASCII et journal des opérations.">
+  <title>Système de gestion de location de voitures par liste chaînée | Ray Chen</title>
+  <meta name="description" content="Un projet de cours de structures de données en C++11. Gestion en console des véhicules, clients et locations, avec listes simplement chaînées écrites à la main, fichiers binaires, graphiques textuels et journal d’opérations.">
   <meta name="keywords" content="C++11, liste chaînée, location de voitures, structures de données, persistance binaire, ligne de commande, CMake, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -19,8 +19,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/fr/projects/CarRent.html">
-  <meta property="og:title" content="Système de Gestion de Location de Voitures par Liste Chaînée | Ray Chen">
-  <meta property="og:description" content="Un système en ligne de commande en C++11 où véhicules, clients et locations vivent dans des listes simplement chaînées écrites à la main et persistent en fichiers binaires.">
+  <meta property="og:title" content="Système de gestion de location de voitures par liste chaînée | Ray Chen">
+  <meta property="og:description" content="Un projet de cours de structures de données en C++11. Gestion en console des véhicules, clients et locations, avec listes simplement chaînées écrites à la main, fichiers binaires, graphiques textuels et journal d’opérations.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -29,8 +29,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/fr/projects/CarRent.html">
-  <meta name="twitter:title" content="Système de Gestion de Location de Voitures par Liste Chaînée | Ray Chen">
-  <meta name="twitter:description" content="Un système en ligne de commande en C++11 où véhicules, clients et locations vivent dans des listes simplement chaînées écrites à la main et persistent en fichiers binaires.">
+  <meta name="twitter:title" content="Système de gestion de location de voitures par liste chaînée | Ray Chen">
+  <meta name="twitter:description" content="Un projet de cours de structures de données en C++11. Gestion en console des véhicules, clients et locations, avec listes simplement chaînées écrites à la main, fichiers binaires, graphiques textuels et journal d’opérations.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,27 +54,7 @@
 
       <span class="project-category">Projet scolaire</span>
       <h1>Système de gestion de location de voitures par liste chaînée</h1>
-      <p>Un système de gestion en ligne de commande écrit en C++11 qui n'utilise aucun conteneur de la bibliothèque standard : véhicules, clients et locations sont tous organisés en listes simplement chaînées, les données sont persistées dans des fichiers binaires, et le programme offre des synthèses statistiques, des histogrammes ASCII et un journal des opérations.</p>
-    </section>
-
-    <section class="project-brief" aria-label="Aperçu du projet">
-      <h2>Aperçu du projet</h2>
-      <p>Le système s'articule autour de sept modules — informations sur les véhicules, clients, location et retour, requêtes, statistiques et paramètres système. Chaque structure de données est une liste simplement chaînée écrite à la main ; aucun vector ni map n'est utilisé. Les données sont écrites sur disque dans un format binaire personnalisé qui se restaure intégralement après redémarrage.</p>
-      <ul>
-      <li><strong>Structures de données écrites à la main</strong><span>Les nœuds sont gérés par des listes simplement chaînées de bout en bout, alloués et libérés dynamiquement sans recourir aux conteneurs de la bibliothèque standard.</span></li>
-      <li><strong>Sept modules fonctionnels</strong><span>Les modules véhicules, clients, location, retour, requêtes, statistiques et paramètres système forment une boucle métier complète.</span></li>
-      <li><strong>Une sortie statistique lisible</strong><span>Le module de statistiques restitue les données groupées sous forme d'histogrammes ASCII, avec export de rapports et journal des opérations.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="À propos de ce projet">
-      <h2>À propos de ce projet</h2>
-      <div class="project-guide-grid">
-      <article><h3>Objectif</h3><p>Mettre les listes chaînées, la manipulation de fichiers et la conception modulaire du cours dans un scénario métier réaliste, et vérifier si ces fondamentaux peuvent réellement porter un système complet.</p></article>
-      <article><h3>Organisation</h3><p>Le programme s'articule autour de car_rent.cpp, qui rassemble toutes les constantes, structures, opérations sur listes et logique métier, tandis que sept modules de menu fournissent les points d'entrée. Les sous-modules sont inclus via #include, si bien que la compilation ne traite que main.cpp comme unité de traduction.</p></article>
-      <article><h3>Outils utilisés</h3><p>C++11 avec constexpr et nullptr, dépendant uniquement de cstdio, cstdlib, cstring et ctime ; les builds Make et CMake sont pris en charge ; l'interface et les commentaires sont en chinois, encodés en UTF-8.</p></article>
-      <article><h3>Portée et limites</h3><p>Il s'agit d'un projet de cours en ligne de commande, et les données résident dans des fichiers locaux plutôt que dans une base de données. L'accès concurrent et les scénarios multi-utilisateurs sortent de son périmètre.</p></article>
-      </div>
+      <p>Un projet de cours de structures de données en C++11. Gestion en console des véhicules, clients et locations, avec listes simplement chaînées écrites à la main, fichiers binaires, graphiques textuels et journal d’opérations.</p>
     </section>
 
     <section class="ps-section">
@@ -107,6 +87,7 @@
       </div>
     </section>
 
+    <section class="ps-section"><div class="ps-section-head"><h2>Projet de cours</h2></div><p class="ps-note">Un projet console local avec stockage dans des fichiers, sans accès concurrent ni utilisation en ligne à plusieurs.</p></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Retour aux projets</a></div>
   </main>
   <div id="site-footer"></div>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Loci 地点记忆 | Ray Chen</title>
-  <meta name="description" content="以 Place + Visit 为核心的 HarmonyOS 本地个人空间记忆应用。一个地点拥有稳定的身份，每次到访留下独立的文字、心情与时间，让熟悉的地方逐渐积累自己的故事。">
+  <title>时迹 Loci | Ray Chen</title>
+  <meta name="description" content="HarmonyOS 每日时间记录应用。记下起止时间和事项，按天或按周回看，用分类统计查看时间分配；也保留地点与到访记录。">
   <meta name="keywords" content="Loci, HarmonyOS, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -15,8 +15,8 @@
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/Loci.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/Loci.html">
-  <meta property="og:title" content="Loci 地点记忆 | Ray Chen">
-  <meta property="og:description" content="以 Place + Visit 为核心的 HarmonyOS 本地个人空间记忆应用。一个地点拥有稳定的身份，每次到访留下独立的文字、心情与时间，让熟悉的地方逐渐积累自己的故事。">
+  <meta property="og:title" content="时迹 Loci | Ray Chen">
+  <meta property="og:description" content="HarmonyOS 每日时间记录应用。记下起止时间和事项，按天或按周回看，用分类统计查看时间分配；也保留地点与到访记录。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -24,8 +24,8 @@
   <meta property="og:site_name" content="Ray Chen's Website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/Loci.html">
-  <meta name="twitter:title" content="Loci 地点记忆 | Ray Chen">
-  <meta name="twitter:description" content="以 Place + Visit 为核心的 HarmonyOS 本地个人空间记忆应用。一个地点拥有稳定的身份，每次到访留下独立的文字、心情与时间，让熟悉的地方逐渐积累自己的故事。">
+  <meta name="twitter:title" content="时迹 Loci | Ray Chen">
+  <meta name="twitter:description" content="HarmonyOS 每日时间记录应用。记下起止时间和事项，按天或按周回看，用分类统计查看时间分配；也保留地点与到访记录。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,40 +44,25 @@
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page project-page">
-    <section class="project-intro ps-hero">
-      <div class="ps-hero-copy">
-        <span class="project-category">鸿蒙</span>
-        <span class="ps-eyebrow">Place + Visit · Local · HarmonyOS</span>
-        <h1>Loci 地点记忆</h1>
-        <p>以 Place + Visit 为核心的 HarmonyOS 本地个人空间记忆应用。一个地点拥有稳定的身份，每次到访留下独立的文字、心情与时间，让熟悉的地方逐渐积累自己的故事。</p>
-        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a></div>
-      </div>
-      <div class="ps-hero-visual project-cover">
-        <img src="/static/resources/main_page/loci.webp" alt="折叠地图、地点旗帜与到访记忆的简约项目插画" width="1024" height="576" fetchpriority="high">
-      </div>
+    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="project-category">HarmonyOS</span><span class="ps-eyebrow">Loci · Daily Journal</span><h1>时迹 Loci</h1><p>HarmonyOS 每日时间记录应用。记下起止时间和事项，按天或按周回看，用分类统计查看时间分配；也保留地点与到访记录。</p><div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a></div></div><div class="ps-hero-visual loci-icon"><img src="/static/resources/apps/loci-foreground.png" alt="时迹 Loci" width="1024" height="1024" fetchpriority="high"></div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>一个地点，多次到访</h2></div>
+      <div class="ps-section-head"><h2>记录一天怎样度过</h2></div>
       <div class="ps-grid-2">
-        <article class="ps-card"><h3>Place · 地点</h3><p>一个稳定的地点身份，承载坐标、地点信息与到访历史。再次来到这里，仍然关联同一个 Place。</p></article>
-        <article class="ps-card"><h3>Visit · 到访</h3><p>每次到访创建独立记录，保存当时的文字、Mood 与日期。补记或重访不会覆盖此前的记忆。</p></article>
+        <article class="ps-card"><h3>时间与事项</h3><p>直接输入或粘贴多行「时间＋事项」，也可以用时间选择器编辑。支持分类、备注、跨夜记录、重叠时段和单个时间点。</p></article>
+        <article class="ps-card"><h3>按天、按周回看</h3><p>首页默认今天，可滑动日期或用日历跳转。列表按时间倒序显示，周视图用于回看多天记录，也可以设置每天的起床与睡觉时间。</p></article>
+        <article class="ps-card"><h3>时间统计</h3><p>分类饼图查看时间分配，单项周柱状图比较每天的记录。统计随选定日期变化。</p></article>
+        <article class="ps-card"><h3>地点与到访</h3><p>地点仍有独立入口，可以切换地图和地点列表。同一个地点下保留多次到访，各自记录文字、心情与日期。</p></article>
       </div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>当前实现与后续方向</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>地点历史与筛选</h3><p>文字、心情、地点历史与筛选已实现，地点与到访记录通过本地数据库关联保存。</p></article>
-        <article class="ps-card"><h3>数据与界面分层</h3><p>ArkUI V2 界面通过 ViewModel 与 Repository 访问数据，地点身份、坐标与日期规则集中在领域层。</p></article>
-        <article class="ps-card"><h3>先完成地点记忆</h3><p>首轮围绕选点、记录、重访与恢复推进。照片、视频、录音、旅程 Trip、轨迹 Track 和 Atlas 均为后续方向。</p></article>
-      </div>
+      <div class="ps-section-head"><h2>本地保存</h2></div><p class="ps-note">时间记录与地点数据存入本机 ArkData，数据库升级保留旧版地点与到访记录。四个主要入口是记录、地点、统计、我的。</p>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>当前进展</h2></div>
-      <p class="ps-note">项目仍在开发。地点数据、ViewModel 与偏好存储已有 API 26 真机测试，导航与设置已做基础验收；真实地图与定位、首次落旗、界面保存及重启恢复的完整流程仍待验收，当前依赖 Loci 的 Map Kit 应用配置。不能将已有数据库验证视为地图闭环完成。</p>
+      <div class="ps-section-head"><h2>开发进度</h2></div><p class="ps-note">目前仍在开发。时间记录、作息与新导航已写入应用，地图定位仍需完成服务配置与真机检查。华为账号页面已有代码，真实登录和云同步尚未完成。</p>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>技术栈</h2></div>
-      <div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI V2</span><span class="ps-tag">ArkData</span><span class="ps-tag">Map Kit</span><span class="ps-tag">Place + Visit</span></div>
+      <div class="ps-section-head"><h2>技术栈</h2></div><div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI V2</span><span class="ps-tag">ArkData</span><span class="ps-tag">Map Kit</span></div>
     </section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>

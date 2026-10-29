@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>高考成绩便捷查询工具 | Ray Chen</title>
-  <meta name="description" content="用 Playwright 自动查询北京教育考试院录取结果接口，再经 pandas 整理、openpyxl 导出表格的批处理脚本。">
+  <title>高考录取结果查询工具 | Ray Chen</title>
+  <meta name="description" content="以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。">
   <meta name="keywords" content="高考查询, Python, Playwright, pandas, openpyxl, 自动化, 北京教育考试院, 录取结果, 批处理, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -19,8 +19,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/GaokaoQuery.html">
-  <meta property="og:title" content="高考成绩便捷查询工具 | Ray Chen">
-  <meta property="og:description" content="用 Playwright 自动查询北京教育考试院录取结果接口，再经 pandas 整理、openpyxl 导出表格的批处理脚本。">
+  <meta property="og:title" content="高考录取结果查询工具 | Ray Chen">
+  <meta property="og:description" content="以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -29,8 +29,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/GaokaoQuery.html">
-  <meta name="twitter:title" content="高考成绩便捷查询工具 | Ray Chen">
-  <meta name="twitter:description" content="用 Playwright 自动查询北京教育考试院录取结果接口，再经 pandas 整理、openpyxl 导出表格的批处理脚本。">
+  <meta name="twitter:title" content="高考录取结果查询工具 | Ray Chen">
+  <meta name="twitter:description" content="以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,46 +51,14 @@
   <div id="particles-js"></div>
   <main class="page project-page">
     <section class="project-intro hero-card">
-      
+
       <span class="project-category">Python</span>
-      <h1>高考成绩便捷查询工具</h1>
-      <p>把逐个手动查询录取结果的重复劳动做成一条批处理流程：脚本读取名单表格，自动查询、核对并整理，最后导出成一份完整的成绩表。</p>
+      <h1>高考录取结果查询工具</h1>
+      <p>以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。</p>
     </section>
 
-    <section class="project-brief" aria-label="项目速览">
-      <h2>项目速览</h2>
-      <p>工具面向批量查询场景。它使用 Playwright 驱动浏览器访问北京教育考试院的录取结果查询接口，逐条获取结果，用 pandas 整理数据结构，再通过 openpyxl 写出 Excel 文件。过程中会核对姓名是否匹配，并对没有结果、专业为空等情况分别记录，最后输出一份可核对的汇总表。</p>
-      <ul>
-      <li><strong>批量而非逐条</strong><span>从表格读取名单，一次性完成全部查询，省去重复的手工操作。</span></li>
-      <li><strong>结果可核对</strong><span>对姓名不匹配、无查询结果、专业为空等情况分别标记，便于人工复核。</span></li>
-      <li><strong>自动准备依赖</strong><span>首次运行时自动检查并安装 pandas、playwright、openpyxl 等依赖。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="关于这个项目">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>录取结果查询需要逐个输入信息、逐个记录，条目一多就很容易出错或遗漏。这个工具把查询、校验与整理合并成一步。</p></article>
-      <article><h3>怎么运行的</h3><p>脚本先确认依赖是否齐全，缺失则自动安装；随后读取待查询名单，用 Playwright 驱动浏览器调用查询接口，逐条获取结果并记录；最后汇总写出 Excel。每条结果都会与名单中的姓名核对，不一致的单独标出。</p></article>
-      <article><h3>用到什么</h3><p>Python 编写；浏览器自动化使用 Playwright；数据处理使用 pandas；表格导出使用 openpyxl。</p></article>
-      <article><h3>边界</h3><p>工具面向批量整理场景，查询结果以官方接口返回为准；网络异常或接口变动时需要人工确认。个人信息仅在本机处理，不对外传输。</p></article>
-      </div>
-    </section>
-
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>工作流程</h2>
-        <p>从读取名单到输出表格，四个步骤依次执行。</p>
-      </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box-open"></i></span><h3>检查并准备依赖</h3><p>首次运行时检测 pandas、playwright、openpyxl 是否可用，缺少则自动安装，避免环境问题中断流程。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-list-check"></i></span><h3>读取待查询名单</h3><p>从表格载入需要查询的条目，作为整批处理的输入。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>逐条查询并核对</h3><p>驱动浏览器调用查询接口获取结果，并与名单中的姓名逐条比对，不一致的记录单独标记。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-excel"></i></span><h3>整理并导出</h3><p>用 pandas 整理结果结构，再由 openpyxl 写出 Excel 汇总表，便于直接查看与复核。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-triangle-exclamation"></i></span><h3>异常分别记录</h3><p>没有查询结果、录取专业为空等情况不会被静默丢弃，而是分别归类记录。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-lock"></i></span><h3>数据留在本机</h3><p>全部处理在本地完成，名单与结果不会上传到任何第三方服务。</p></article>
-      </div>
-    </section>
+    <section class="ps-section"><div class="ps-section-head"><h2>工作流程</h2></div><div class="ps-grid-2"><article class="ps-card"><h3>读取名单</h3><p>从 Excel 读取查询记录，可跳过已有结果，从指定位置继续，或重查未成功记录。</p></article><article class="ps-card"><h3>查询与核对</h3><p>通过浏览器查询录取结果，对照姓名，记录没有结果、专业为空或信息不匹配的情况。</p></article><article class="ps-card"><h3>写回与备份</h3><p>将院校、专业、批次及查询状态写回 Excel，定期保存，并在运行前后备份表格。</p></article><article class="ps-card"><h3>查询与保存的位置</h3><p>查询需要向官方查询站点提交相应考生信息，名单、结果表和日志保存在本机。</p></article></div></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>归档状态</h2></div><p class="ps-note">这是历史工具，查询入口和页面选择器未重新验证。恢复使用前需要检查网站变化；页面仅介绍当时的实现。</p></section>
 
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>

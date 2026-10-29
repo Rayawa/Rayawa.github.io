@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Loci · Place Memories | Ray Chen</title>
-  <meta name="description" content="A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.">
+  <title>Shiji · Loci | Ray Chen</title>
+  <meta name="description" content="A HarmonyOS daily time journal. Record activities and their start and end times, review days or weeks, and see time by category. Place and visit records remain available.">
   <meta name="keywords" content="Loci, HarmonyOS, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -15,8 +15,8 @@
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/Loci.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/en/projects/Loci.html">
-  <meta property="og:title" content="Loci · Place Memories | Ray Chen">
-  <meta property="og:description" content="A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.">
+  <meta property="og:title" content="Shiji · Loci | Ray Chen">
+  <meta property="og:description" content="A HarmonyOS daily time journal. Record activities and their start and end times, review days or weeks, and see time by category. Place and visit records remain available.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -24,8 +24,8 @@
   <meta property="og:site_name" content="Ray Chen's Website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/en/projects/Loci.html">
-  <meta name="twitter:title" content="Loci · Place Memories | Ray Chen">
-  <meta name="twitter:description" content="A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.">
+  <meta name="twitter:title" content="Shiji · Loci | Ray Chen">
+  <meta name="twitter:description" content="A HarmonyOS daily time journal. Record activities and their start and end times, review days or weeks, and see time by category. Place and visit records remain available.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,40 +44,25 @@
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
   <main class="page project-page">
-    <section class="project-intro ps-hero">
-      <div class="ps-hero-copy">
-        <span class="project-category">HarmonyOS</span>
-        <span class="ps-eyebrow">Place + Visit · Local · HarmonyOS</span>
-        <h1>Loci · Place Memories</h1>
-        <p>A local HarmonyOS personal memory app built around Place + Visit. A place keeps a stable identity while every visit has its own writing, mood and date, gradually giving familiar locations a personal history.</p>
-        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub repository</a></div>
-      </div>
-      <div class="ps-hero-visual project-cover">
-        <img src="/static/resources/main_page/loci.webp" alt="Minimal illustration of a folded map, place flag and visit memories" width="1024" height="576" fetchpriority="high">
-      </div>
+    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="project-category">HarmonyOS</span><span class="ps-eyebrow">Loci · Daily Journal</span><h1>Shiji · Loci</h1><p>A HarmonyOS daily time journal. Record activities and their start and end times, review days or weeks, and see time by category. Place and visit records remain available.</p><div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub repository</a></div></div><div class="ps-hero-visual loci-icon"><img src="/static/resources/apps/loci-foreground.png" alt="Shiji · Loci" width="1024" height="1024" fetchpriority="high"></div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>One place, many visits</h2></div>
+      <div class="ps-section-head"><h2>Keep a record of your day</h2></div>
       <div class="ps-grid-2">
-        <article class="ps-card"><h3>Place</h3><p>A stable place identity holds coordinates, place information and visit history. Returning to the same location links to the same Place.</p></article>
-        <article class="ps-card"><h3>Visit</h3><p>Each visit is a separate record with its own writing, mood and date. Returning or adding an earlier visit does not overwrite previous memories.</p></article>
+        <article class="ps-card"><h3>Times and activities</h3><p>Type or paste several lines of times and activities, or edit with the time picker. Add categories and notes; overnight entries, overlapping periods and single time points are supported.</p></article>
+        <article class="ps-card"><h3>Day and week views</h3><p>The journal opens on today. Swipe between dates or jump through the calendar, review entries in reverse time order, and set wake-up and bedtime for each day.</p></article>
+        <article class="ps-card"><h3>Time statistics</h3><p>A category pie chart shows where time went. Weekly bars compare one activity across days, using the selected date.</p></article>
+        <article class="ps-card"><h3>Places and visits</h3><p>Places have their own tab with map and list views. Each place can hold several visits, with separate notes, moods and dates.</p></article>
       </div>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>Implemented features and next steps</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>History and filters</h3><p>Writing, moods, place history and filters are implemented. A local database stores the relationships between places and visits.</p></article>
-        <article class="ps-card"><h3>Data and interface</h3><p>ArkUI V2 views access data through ViewModels and Repositories. Place identity, coordinate and date rules live in the domain layer.</p></article>
-        <article class="ps-card"><h3>Start with place memories</h3><p>The first phase focuses on selecting places, recording, revisiting and restoring them. Photos, videos, audio, Trip, Track and Atlas are future work.</p></article>
-      </div>
+      <div class="ps-section-head"><h2>Stored on the device</h2></div><p class="ps-note">ArkData stores time entries and places locally. Database migrations retain older place and visit records. The four main tabs are Journal, Places, Statistics and Profile.</p>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>Current status</h2></div>
-      <p class="ps-note">Still in development. Place data, ViewModels and preference storage have API 26 device tests, and navigation and settings have basic acceptance checks. Live maps and location, first markers, saving through the interface and the complete restart flow still await validation and depend on the app’s Map Kit configuration. Database validation does not establish a complete map workflow.</p>
+      <div class="ps-section-head"><h2>In development</h2></div><p class="ps-note">Time entries, daily routines and the new navigation are implemented. Maps and location still need service configuration and device checks. Huawei account screens exist; live sign-in and cloud sync are unfinished.</p>
     </section>
     <section class="ps-section">
-      <div class="ps-section-head"><h2>Technology</h2></div>
-      <div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI V2</span><span class="ps-tag">ArkData</span><span class="ps-tag">Map Kit</span><span class="ps-tag">Place + Visit</span></div>
+      <div class="ps-section-head"><h2>Technology</h2></div><div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI V2</span><span class="ps-tag">ArkData</span><span class="ps-tag">Map Kit</span></div>
     </section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>

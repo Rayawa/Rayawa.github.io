@@ -105,3 +105,20 @@
     object-fit: contain;
     border-radius: 24%;
 }
+
+.loci-icon {
+    min-height: 0;
+    aspect-ratio: 1;
+    width: min(100%, 320px);
+    justify-self: center;
+    border-radius: 24%;
+    background: url('../resources/apps/loci-background.png') center / cover;
+}
+
+.loci-icon img {
+    min-height: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+}

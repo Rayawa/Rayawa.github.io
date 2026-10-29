@@ -53,34 +53,14 @@
 
   <main class="page project-page">
     <section class="project-intro ascend-hero">
-      
+
       <span class="project-category">鸿蒙与昇腾</span>
       <span class="hero-badge">昇腾AI全栈</span>
       <h1>基于启智01与开源鸿蒙5.0.3的肺炎病灶检测<br><small style="font-size:0.45em;font-weight:300;color:rgba(255,255,255,0.6);">—— 昇腾 310B 上移植 OpenHarmony，并跑通 NPU 推理</small></h1>
-      <p>将 OpenHarmony 5.0.3 移植到华为昇腾310B开发套件，并在此基础上开发了 Ascend X-Ray Expert —— 一个利用 YOLOv5s 进行 X 光胸片分析的 HarmonyOS 应用。从内核补丁适配到 ArkUI 前端，贯穿了嵌入式系统的完整技术栈。</p>
+      <p>在启智01（昇腾310B）上移植 OpenHarmony 5.0.3，再用 ArkTS 编写 X 光胸片分析界面。系统侧适配内核、驱动和构建工具，应用侧分别接入 MindSpore Lite 的 CPU 推理与 CANN ACL 的 NPU 推理。</p>
       <div class="single-action">
-        <a class="button" href="https://github.com/Rayawa/Ascend310" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
-      </div>
-    </section>
-
-    <section class="project-brief" aria-label="项目速览">
-
-      <h2>项目速览</h2>
-      <p>启智01 覆盖从操作系统到应用层的完整链路：将 OpenHarmony 5.0.3 移植至华为昇腾 310B 开发套件，并在该系统之上实现 X 光胸片分析应用。项目前半部分为内核、驱动与构建链适配，后半部分为 ArkTS 界面与 YOLOv5s 推理。为使板载 NPU 得到实际使用，应用同时实现了 CPU 与 NPU 两条推理路径。</p>
-      <ul>
-      <li><strong>完整的系统适配</strong><span>除运行系统本身，还需打通 GPU、显示、相机与音频，ArkUI 应用方可正常使用。</span></li>
-      <li><strong>两条推理路径</strong><span>MindSpore Lite 承担 CPU 推理，CANN ACL 承担 NPU 推理，两者均已在板端验证。</span></li>
-      <li><strong>流程可复现</strong><span>43 个补丁、一键构建脚本与制卡工具构成完整的移植流程。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="关于这个项目">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>昇腾 310B 原厂仅提供 Linux SDK，而板载 NPU 具备使用价值。项目验证两点：能否在该硬件上运行 OpenHarmony，以及能否在系统之上将 NPU 推理接入可用的应用。</p></article>
-      <article><h3>补充了哪些硬件支持</h3><p>GPU 基于 Panfrost 开源驱动实现 HAL 层，HDMI 与双屏异显已打通，USB/MIPI 摄像头与 ALSA 音频已接通；同时移植 bash 与 busybox，以补齐 HDK 安装所需的工具链。</p></article>
-      <article><h3>用到什么</h3><p>系统侧为 OpenHarmony 5.0.3，连同约 20 个内核模块一并编译；应用侧采用 ArkTS 与 ArkUI，推理分别使用 MindSpore Lite（CPU）与 CANN ACL（NPU），模型为 YOLOv5s。</p></article>
-      <article><h3>当前进展</h3><p>43 个补丁已合入 OpenHarmony 主干，应用可在板端运行并完成五分类推理，CPU 与 NPU 两条路径均已验证。X 光分类属技术演示，不用于临床诊断。</p></article>
+        <a class="button" href="https://github.com/Rayawa/QiZhi01-HarmonyOS" target="_blank" rel="noopener"><i class="fab fa-github"></i> 应用源码</a>
+        <a class="button" href="https://github.com/Rayawa/QiZhi01-OpenHarmony" target="_blank" rel="noopener"><i class="fab fa-github"></i> 系统适配源码</a>
       </div>
     </section>
 
@@ -294,8 +274,8 @@
         <div class="as-grid">
           <div class="as-minicard" style="text-align:left;padding:1.2rem;">
             <i class="fas fa-layer-group" style="color:#a855f7;"></i>
-            <strong>端到端全栈</strong>
-            <p>从内核补丁编写、HAL 层适配到 ArkUI 应用开发，完整覆盖了嵌入式系统的全链路。</p>
+            <strong>系统与应用</strong>
+            <p>分别完成内核与驱动适配、HAL 接口和 ArkUI 应用。</p>
           </div>
           <div class="as-minicard" style="text-align:left;padding:1.2rem;">
             <i class="fas fa-code-branch" style="color:#06b6d4;"></i>
@@ -320,11 +300,12 @@
           <div class="as-minicard" style="text-align:left;padding:1.2rem;">
             <i class="fas fa-plug" style="color:#ec4899;"></i>
             <strong>NAPI 桥接</strong>
-            <p>C++ 编写的 CANN 推理引擎通过 NAPI 无缝接入 ArkTS 应用层。</p>
+            <p>C++ 编写的 CANN 推理引擎通过 NAPI 提供给 ArkTS 页面调用。</p>
           </div>
         </div>
       </section>
     </div>
+    <section class="ps-section"><div class="ps-section-head"><h2>演示用途</h2></div><p class="ps-note">胸片分类用于演示板端推理，不用于临床诊断。</p></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 

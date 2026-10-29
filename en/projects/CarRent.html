@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Linked-List Car Rental Management System | Ray Chen</title>
-  <meta name="description" content="A C++11 command-line management system built without standard library containers: vehicles, customers and rental records are organised as singly linked lists, persisted to binary files, with statistics, ASCII bar charts and an operation log.">
+  <meta name="description" content="A C++11 data-structures course project. Manage vehicles, customers, rentals and returns in a console, using hand-written singly linked lists and binary files, with text charts and an operation log.">
   <meta name="keywords" content="C++11, linked list, car rental, data structures, binary file persistence, command line, CMake, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/en/projects/CarRent.html">
   <meta property="og:title" content="Linked-List Car Rental Management System | Ray Chen">
-  <meta property="og:description" content="A C++11 command-line system where vehicles, customers and rentals live in hand-written singly linked lists and persist to binary files.">
+  <meta property="og:description" content="A C++11 data-structures course project. Manage vehicles, customers, rentals and returns in a console, using hand-written singly linked lists and binary files, with text charts and an operation log.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/en/projects/CarRent.html">
   <meta name="twitter:title" content="Linked-List Car Rental Management System | Ray Chen">
-  <meta name="twitter:description" content="A C++11 command-line system where vehicles, customers and rentals live in hand-written singly linked lists and persist to binary files.">
+  <meta name="twitter:description" content="A C++11 data-structures course project. Manage vehicles, customers, rentals and returns in a console, using hand-written singly linked lists and binary files, with text charts and an operation log.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,27 +54,7 @@
 
       <span class="project-category">School Project</span>
       <h1>Linked-List Car Rental Management System</h1>
-      <p>A C++11 command-line management system that uses no standard library containers: vehicles, customers and rental records are all organised as singly linked lists, data is persisted to binary files, and the program ships with statistical summaries, ASCII bar charts and an operation log.</p>
-    </section>
-
-    <section class="project-brief" aria-label="Project overview">
-      <h2>Project Overview</h2>
-      <p>The system is built around seven modules — vehicle information, rental customers, renting and returning, information queries, statistics, and system settings. Every data structure is a hand-written singly linked list; no vector or map is involved. Data is written to disk in a custom binary format that restores completely after a restart.</p>
-      <ul>
-      <li><strong>Hand-written data structures</strong><span>Nodes are managed through singly linked lists throughout, allocated and freed dynamically without leaning on standard library containers.</span></li>
-      <li><strong>Seven functional modules</strong><span>Vehicle, customer, rental, return, query, statistics and system settings modules form a complete business loop.</span></li>
-      <li><strong>Readable statistics output</strong><span>The statistics module renders grouped data as ASCII bar charts, alongside report export and an operation log.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="About this project">
-      <h2>About This Project</h2>
-      <div class="project-guide-grid">
-      <article><h3>What it sets out to do</h3><p>Put the linked lists, file handling and modular design from coursework into a realistic business scenario, and check whether those fundamentals can genuinely carry a complete system.</p></article>
-      <article><h3>How it is organised</h3><p>The program revolves around car_rent.cpp, which gathers all constants, structs, list operations and business logic, while seven menu modules provide the individual entry points. Submodules are pulled in with #include, so the build only handles main.cpp as a translation unit.</p></article>
-      <article><h3>What it uses</h3><p>C++11 with constexpr and nullptr, depending only on cstdio, cstdlib, cstring and ctime; Make and CMake builds are both supported; the interface and comments are in Chinese with UTF-8 encoding.</p></article>
-      <article><h3>Scope and limits</h3><p>This is a course design project with a command-line interface, and data lives in local files rather than a database. Concurrent access and multi-user scenarios sit outside its design scope.</p></article>
-      </div>
+      <p>A C++11 data-structures course project. Manage vehicles, customers, rentals and returns in a console, using hand-written singly linked lists and binary files, with text charts and an operation log.</p>
     </section>
 
     <section class="ps-section">
@@ -107,6 +87,7 @@
       </div>
     </section>
 
+    <section class="ps-section"><div class="ps-section-head"><h2>Course project</h2></div><p class="ps-note">A local console course project with file storage. Concurrent access and online multi-user operation are outside its scope.</p></section>
     <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to projects</a></div>
   </main>
   <div id="site-footer"></div>

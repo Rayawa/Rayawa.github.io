@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>TextVideoGen | Ray Chen</title>
-  <meta name="description" content="Espace local de production vidéo piloté par OpenCode : vous fournissez le script et les contraintes, les agents assurent propositions créatives, direction, storyboard, médias, fabrication, contrôles et reprises sur 13 étapes vérifiables.">
+  <meta name="description" content="TextVideoGen est mon espace local de création vidéo dans OpenCode. Textes, voix, storyboards et ressources sont conservés par étape. Le navigateur rend les animations, puis FFmpeg compose la vidéo ; chaque scène peut être révisée.">
   <meta name="keywords" content="TextVideoGen, VideoTextGen, OpenCode, automatisation vidéo, FFmpeg, Playwright, Voicebox, WhisperX, TypeScript, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/fr/projects/TextVideoGen.html">
   <meta property="og:title" content="TextVideoGen | Ray Chen">
-  <meta property="og:description" content="Une chaîne vidéo IA locale, reproductible, révisable et vérifiable, avec le paquet source v0.1.0 publié.">
+  <meta property="og:description" content="TextVideoGen est mon espace local de création vidéo dans OpenCode. Textes, voix, storyboards et ressources sont conservés par étape. Le navigateur rend les animations, puis FFmpeg compose la vidéo ; chaque scène peut être révisée.">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/fr/projects/TextVideoGen.html">
   <meta name="twitter:title" content="TextVideoGen | Ray Chen">
-  <meta name="twitter:description" content="Une chaîne vidéo IA locale, reproductible, révisable et vérifiable, avec le paquet source v0.1.0 publié.">
+  <meta name="twitter:description" content="TextVideoGen est mon espace local de création vidéo dans OpenCode. Textes, voix, storyboards et ressources sont conservés par étape. Le navigateur rend les animations, puis FFmpeg compose la vidéo ; chaque scène peut être révisée.">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +55,7 @@
       <div class="ps-hero-copy">
         <span class="ps-eyebrow"><i class="fas fa-clapperboard"></i> Local · Reproductible · Vérifiable</span>
         <h1>TextVideoGen</h1>
-        <p>Un espace local de production vidéo piloté par OpenCode. Vous ne fournissez que le script, l’objectif de communication et les contraintes métier ; les agents prennent en charge les propositions créatives, la direction, le storyboard, les médias, la fabrication, les contrôles et les reprises, pour que le public comprenne le contenu dès le premier visionnage — le code, les projets vidéo et l’environnement restant séparés.</p>
+        <p>TextVideoGen est mon espace local de création vidéo dans OpenCode. Textes, voix, storyboards et ressources sont conservés par étape. Le navigateur rend les animations, puis FFmpeg compose la vidéo ; chaque scène peut être révisée.</p>
         <div class="ps-actions">
           <a class="ps-button" href="https://github.com/Rayawa/TextVideoGen" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a>
           <a class="ps-button is-ghost" href="https://github.com/Rayawa/TextVideoGen/releases" target="_blank" rel="noopener"><i class="fas fa-box-open"></i> Version v0.1.0</a>
@@ -67,46 +67,8 @@
       </div>
     </section>
 
-    <section class="project-brief" aria-label="Le projet en bref">
-
-      <h2>Le projet en bref</h2>
-      <p>TextVideoGen décompose la production vidéo locale en 13 étapes vérifiables : script, narration, alignement, traitement créatif, direction, storyboard, ressources, rendu scène par scène, composition, contrôle qualité, validation finale, reprise et livraison. Des contrats structurés consignent les entrées et sorties de chaque étape, si bien qu’une modification ne relance que les scènes concernées ; chaque scène peut prendre la forme d’une animation HTML/SVG, d’une image, d’un montage hybride ou d’un B-roll.</p>
-      <ul>
-      <li><strong>Reproductible en local</strong><span>Environnement d’exécution, code et film final sont gérés séparément.</span></li>
-      <li><strong>Reprise à l’échelle de la scène</strong><span>L’analyse d’impact et la vérification par empreinte permettent de réutiliser les scènes inchangées.</span></li>
-      <li><strong>Livraison sous contrôle</strong><span>Le contrôle qualité automatique et la validation humaine déterminent la version livrable.</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="À propos de ce projet">
-      <h2>À propos de ce projet</h2>
-      <div class="project-guide-grid">
-      <article><h3>Ce qu’il traite</h3><p>La vidéo générée souffre couramment de processus non vérifiables et de reprises complètes après une modification locale. TextVideoGen ne vous laisse responsable que du script, de l’objectif et des contraintes ; le reste revient aux agents, et la production est décomposée en étapes régies par des contrats, afin que les entrées, sorties, versions et décisions de validation de chaque étape restent traçables.</p></article>
-      <article><h3>Organisation de la chaîne</h3><p>Un contrat de projet est établi d’abord, puis les agents proposent deux ou trois traitements créatifs réalisables et en recommandent un. Narration, alignement temporel, direction, storyboard et ressources de scène s’enchaînent ensuite ; après le rendu scène par scène, le contrôle qualité technique s’exécute et une version livrable n’est produite qu’après validation humaine. En cas de modification, l’analyse d’impact intervient en premier.</p></article>
-      <article><h3>Ce qu’il utilise</h3><p>OpenCode orchestre les tâches multi-étapes ; Voicebox assure la narration, WhisperX l’alignement temporel, le rendu repose sur HTML / SVG Motion avec Playwright, et la composition sur FFmpeg. JSON Schema et les empreintes consignent les relations entrée-sortie.</p></article>
-      <article><h3>État actuel</h3><p>Le paquet source v0.1.0 est publié et l’espace de travail prend actuellement en charge macOS Apple Silicon. Les artefacts de génération historiques ont été supprimés lors du rangement ; les anciens projets ne conservent que leurs scripts sources et leurs journaux de nettoyage, et la fabrication repart de l’étape script.</p></article>
-      </div>
-    </section>
-
-    <section class="ps-metrics" aria-label="Indicateurs du projet">
-      <div class="ps-metric"><strong>13 étapes</strong><span>Du script à la livraison</span></div>
-      <div class="ps-metric"><strong>4 formes de scène</strong><span>HTML · image · hybride · B-roll</span></div>
-      <div class="ps-metric"><strong>v0.1.0</strong><span>Premier paquet source</span></div>
-      <div class="ps-metric"><strong>macOS arm64</strong><span>Plateforme prise en charge</span></div>
-    </section>
-
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>La génération vidéo comme ingénierie</h2>
-        <p>Chaque étape possède des entrées explicites, des sorties structurées, des versions et des portes de validation.</p>
-      </div>
-      <div class="ps-grid-4">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-box"></i></span><h3>Environnement isolé</h3><p>Node, pnpm, Python, uv, WhisperX, Chromium, FFmpeg et les modèles restent dans .videoenv.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>Contrats structurés</h3><p>Projets, storyboards, contrôles de mouvement, reprises et prompts sont encadrés par les JSON Schema de schemas/ et les prompts de prompts/.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-fingerprint"></i></span><h3>Traçabilité complète</h3><p>Appels de modèles, résultats d’étapes, décisions de validation et livraisons restent reliés à leurs entrées.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-scissors"></i></span><h3>Recalcul minimal</h3><p>L’analyse d’impact ne rerend que les scènes touchées ; le reste est vérifié par empreinte.</p></article>
-      </div>
-    </section>
+    <section class="ps-section"><div class="ps-section-head"><h2>Fonctionnement</h2></div><p class="ps-note">Des agents et skills dans OpenCode exécutent 13 étapes. Voicebox produit la voix, WhisperX aligne les horaires, Playwright rend les scènes HTML/SVG et FFmpeg compose la vidéo. JSON Schema et journaux décrivent les sorties et aident à déterminer les scènes à refaire.</p></section>
+    <section class="ps-section"><div class="ps-section-head"><h2>État actuel</h2></div><p class="ps-note">Compatible actuellement avec macOS Apple Silicon, avec une version source v0.1.0. La production passe par OpenCode ; aucune API de production autonome en un clic n’est implémentée. Le paquet exclut projets privés, modèles et environnement d’exécution. L’exemple ci-dessous est une archive.</p></section>
 
     <section class="ps-section" id="pipeline">
       <div class="ps-section-head">
@@ -162,29 +124,9 @@
       </div>
     </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>Livraison sûre et récupérabilité</h2>
-        <p>L’espace de travail se concentre sur la production ; le film final n’est déplacé vers le dossier Movies de macOS qu’après approbation.</p>
-      </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-lock"></i></span><h3>Aucun écrasement</h3><p><code>./bin/deliver-video</code> n’écrase jamais une version existante et consigne le chemin cible, la taille du fichier et le SHA-256.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-right-arrow-left"></i></span><h3>Code et film séparés</h3><p>La vidéo finale sort du dépôt ; il ne reste qu’un enregistrement de livraison committable et la traçabilité complète de la production.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-rotate"></i></span><h3>Environnement reconstructible</h3><p>Supprimer .videoenv laisse le code source et les projets intacts ; relancer <code>./bin/setup</code> restaure l’environnement aux versions figées.</p></article>
-      </div>
-    </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>Paquets source publiés</h2>
-        <p><code>./bin/package-workspace</code> construit un paquet source sans projets privés ni environnement d’exécution ; celui de la v0.1.0 pèse environ 22 Mo.</p>
-      </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-filter"></i></span><h3>Contenu publiable uniquement</h3><p>Le paquet contient le code, la configuration, les lockfiles, les ressources communes et les sources des Skills / plugins ; il exclut les métadonnées Git, les dépendances, les modèles, les caches, les journaux, les identifiants et les anciens projets.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-folder-tree"></i></span><h3>Dossier de sortie distinct</h3><p>Chaque exécution écrit dans .videoenv/tmp/packages/release-&lt;heure&gt;-&lt;aléa&gt;/ : les archives et empreintes précédentes ne sont jamais écrasées.</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-fingerprint"></i></span><h3>Vérifier puis installer</h3><p>Un fichier SHA-256 accompagne l’archive ; décompressez-la dans un nouveau dossier puis lancez <code>./bin/setup</code> pour reconstruire l’environnement figé.</p></article>
-      </div>
-    </section>
+
+
 
     <section class="ps-section">
       <div class="ps-section-head"><h2>Technologies</h2><p>Modèles locaux, rendu navigateur et traitement média dans un même espace.</p></div>
