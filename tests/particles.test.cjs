@@ -2,10 +2,16 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const test = require('node:test');
+const { createHash } = require('node:crypto');
+const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
+const { execFileSync } = require('node:child_process');
+const referenceCommon = execFileSync('git', ['show', '59e3aaa:static/js/common.js'], { encoding: 'utf8' }).split('function initNavbarScroll')[0];
+const referenceIndex = execFileSync('git', ['show', '59e3aaa:static/js/index.js'], { encoding: 'utf8' });
+const currentIndex = fs.readFileSync('static/js/index.js', 'utf8');
 const source = fs.readFileSync('static/js/common.js', 'utf8').split('function initNavbarScroll')[0];
 
-function harness({ width = 1280, height = 720, reducedMotion = false } = {}) {
+function harness({ width = 1280, height = 720, reducedMotion = false, script = source } = {}) {
     let seed = 42;
     const random = () => ((seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 2 ** 32);
     const math = Object.create(Math);
@@ -50,9 +56,10 @@ function harness({ width = 1280, height = 720, reducedMotion = false } = {}) {
         cancelAnimationFrame: id => { frames.delete(id); },
         setInterval: () => 1, clearInterval() {},
     });
-    vm.runInContext(source, context);
+    vm.runInContext(script, context);
     return {
         instance, baseCount, canvas, document,
+        snapshot() { return JSON.parse(JSON.stringify(instance.particles.array)); },
         init() { context.initParticles(); context.initParticleMagnetEffect(); return config; },
         dispatch(name, event = {}) { for (const fn of listeners.get(name) || []) fn(event); },
         visibility(hidden) { document.hidden = hidden; for (const fn of documentListeners.get('visibilitychange') || []) fn(); },
@@ -71,97 +78,75 @@ function harness({ width = 1280, height = 720, reducedMotion = false } = {}) {
     };
 }
 
+const plain = value => JSON.parse(JSON.stringify(value));
+
 for (const width of [390, 1280]) {
-    test(`${width}px: only the custom magnet handles pointer interaction`, () => {
-        const h = harness({ width });
-        const config = h.init();
-        assert.equal(config.interactivity.events.onhover.enable, false);
-        assert.equal(config.interactivity.events.onclick.enable, false);
-        assert.equal(config.particles.line_linked.enable, true);
+    test(`${width}px: particle settings match 59e3aaa`, () => {
+        const actual = harness({ width });
+        const expected = harness({ width, script: referenceCommon });
+        assert.deepEqual(plain(actual.init()), plain(expected.init()));
     });
-    test(`${width}px: long pointer dwell keeps particle and line density bounded`, () => {
-        const h = harness({ width }); h.init();
-        const control = harness({ width }); control.init();
-        h.dispatch('pointermove', { clientX: width / 2, clientY: 360 });
-        let hoveredNeighbors = 0;
-        let controlNeighbors = 0;
-        for (let i = 0; i < 10; i++) {
-            h.step(1800); control.step(1800);
-            assert.ok(h.instance.particles.array.length <= h.baseCount + 24,
-                `${h.instance.particles.array.length} particles exceeds ${h.baseCount + 24}`);
-            const near = p => Math.hypot(p.x - width / 2, p.y - 360) < 140;
-            hoveredNeighbors += h.instance.particles.array.filter(near).length;
-            controlNeighbors += control.instance.particles.array.filter(near).length;
-        }
-        assert.ok(hoveredNeighbors <= controlNeighbors + 40,
-            `stationary pointer trapped ${hoveredNeighbors / 10} neighbors on average; control ${controlNeighbors / 10}`);
-    });
+    for (const kind of ['pointermove', 'touchmove']) {
+        test(`${width}px: ${kind} and sustained attraction match 59e3aaa`, () => {
+            const actual = harness({ width });
+            const expected = harness({ width, script: referenceCommon });
+            actual.init(); expected.init();
+            for (const point of [[width * 0.3, 240], [width * 0.7, 420]]) {
+                const event = kind === 'touchmove'
+                    ? { touches: [{ clientX: point[0], clientY: point[1] }] }
+                    : { clientX: point[0], clientY: point[1] };
+                actual.dispatch(kind, event); expected.dispatch(kind, event);
+                // More than 900 ms: attraction must retain the reference behavior.
+                actual.step(180); expected.step(180);
+                assert.equal(digest(actual.snapshot()), digest(expected.snapshot()));
+            }
+            actual.dispatch(kind === 'touchmove' ? 'touchend' : 'pointerleave');
+            expected.dispatch(kind === 'touchmove' ? 'touchend' : 'pointerleave');
+            actual.step(120); expected.step(120);
+            assert.equal(digest(actual.snapshot()), digest(expected.snapshot()));
+        });
+    }
 }
 
-test('reduced motion keeps the background static', () => {
-    const h = harness({ reducedMotion: true });
-    const config = h.init();
-    assert.equal(config.particles.move.enable, false);
-    assert.equal(config.interactivity.events.onclick.enable, false);
-    assert.equal(h.activeLoops(), 0);
+test('reduced-motion behavior matches 59e3aaa', () => {
+    const actual = harness({ reducedMotion: true });
+    const expected = harness({ reducedMotion: true, script: referenceCommon });
+    assert.equal(actual.init(), expected.init());
+    assert.equal(actual.activeLoops(), expected.activeLoops());
 });
 
-test('page hide and back restore pause and resume one magnet loop', () => {
-    const h = harness(); h.init(); h.step(5);
-    h.dispatch('pagehide');
-    assert.equal(h.activeLoops(), 0);
-    h.dispatch('pageshow', { persisted: true });
-    assert.equal(h.activeLoops(), 1);
-    h.dispatch('pageshow', { persisted: true });
-    assert.equal(h.activeLoops(), 1);
-    h.visibility(true);
-    assert.equal(h.activeLoops(), 0);
-    h.visibility(false);
-    assert.equal(h.activeLoops(), 1);
-});
-
-test('particle refresh uses the replacement array rather than old particles', () => {
-    const h = harness(); h.init(); h.step(2);
-    const replacement = { x: 10, y: 20, vx: 0.2, vy: -0.3, opacity: 0.42 };
-    h.instance.particles.array = [replacement];
-    h.step(2);
-    assert.equal(replacement.__driftVx, 0.2);
-    assert.equal(replacement.__driftVy, -0.3);
-    assert.equal(h.activeLoops(), 1);
-});
-
-test('crowded particles keep at most three links each, reset per draw', () => {
-    const links = [];
-    const particles = Array.from({ length: 20 }, (_, i) => ({ x: i, y: 0 }));
-    const instance = {
-        particles: { array: particles, line_linked: { distance: 140 } },
-        fn: {
-            interact: { linkParticles(a, b) { links.push([a, b]); } },
-            particlesDraw() {
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) this.interact.linkParticles(particles[i], particles[j]);
-                }
-            },
-        },
+function followHarness(script) {
+    const fn = script.slice(script.indexOf('function initParticlePointerFollow()'), script.indexOf('function initHeroParallax()'));
+    const listeners = new Map();
+    const layer = { style: {} };
+    let frame;
+    const window = {
+        innerWidth: 1280, innerHeight: 720,
+        matchMedia: () => ({ matches: false }),
+        addEventListener(name, callback) { listeners.set(name, callback); },
+        requestAnimationFrame(callback) { frame = callback; },
     };
-    const context = vm.createContext({});
-    vm.runInContext(source, context);
-    context.limitParticleLinks(instance);
-    context.limitParticleLinks(instance);
-    instance.fn.particlesDraw();
-    const firstFrame = links.length;
-    assert.ok(firstFrame > 0 && firstFrame <= 30);
-    assert.ok(particles.every(p => p.__rayawaLinks <= 3));
-    instance.fn.particlesDraw();
-    assert.equal(links.length, firstFrame * 2);
-});
+    const document = { getElementById: () => layer, addEventListener() {} };
+    vm.runInNewContext(fn + ';initParticlePointerFollow();', { window, document });
+    return {
+        dispatch(name, event) { listeners.get(name)(event); },
+        step() { for (let i = 0; i < 120; i++) { const next = frame; next(); } return layer.style.transform; },
+    };
+}
 
-test('a stationary pointer releases particles back to natural drift', () => {
-    const h = harness(); h.init();
-    h.dispatch('pointermove', { clientX: 640, clientY: 360 });
-    h.step(1200);
-    for (const p of h.instance.particles.array.filter(p => typeof p.__driftVx === 'number')) {
-        assert.ok(Math.abs(p.vx - p.__driftVx) < 0.02);
-        assert.ok(Math.abs(p.vy - p.__driftVy) < 0.02);
-    }
-});
+for (const kind of ['pointermove', 'touchmove']) {
+    test(`home background follows ${kind} exactly as 59e3aaa`, () => {
+        const actual = followHarness(currentIndex);
+        const expected = followHarness(referenceIndex);
+        const event = kind === 'touchmove'
+            ? { touches: [{ clientX: 1100, clientY: 500 }] }
+            : { clientX: 1100, clientY: 500 };
+        actual.dispatch(kind, event); expected.dispatch(kind, event);
+        const moved = actual.step();
+        assert.equal(moved, expected.step());
+        assert.notEqual(moved, 'translate3d(0px, 0px, 0)');
+        actual.dispatch(kind === 'touchmove' ? 'touchend' : 'pointerleave');
+        expected.dispatch(kind === 'touchmove' ? 'touchend' : 'pointerleave');
+        assert.equal(actual.step(), expected.step());
+    });
+}
