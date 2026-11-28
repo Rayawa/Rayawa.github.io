@@ -4,67 +4,181 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>高考录取结果查询工具 | Ray Chen</title>
-  <meta name="description" content="以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。">
-  <meta name="keywords" content="高考查询, Python, Playwright, pandas, openpyxl, 自动化, 北京教育考试院, 录取结果, 批处理, Ray Chen">
+  <meta name="description" content="用 Python 和 Playwright 辅助批量查询高考录取结果，将录取院校、专业、批次及状态安全写回 Excel 表格的历史工具。">
+  <meta name="keywords" content="Python, Playwright, pandas, openpyxl, Excel自动化, 批量查询, 历史归档, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-
   <link rel="canonical" href="https://rayawa.top/projects/GaokaoQuery.html">
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/GaokaoQuery.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/GaokaoQuery.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/GaokaoQuery.html">
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/GaokaoQuery.html">
   <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/GaokaoQuery.html">
   <meta property="og:title" content="高考录取结果查询工具 | Ray Chen">
-  <meta property="og:description" content="以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。">
+  <meta property="og:description" content="用 Python 和 Playwright 辅助批量查询高考录取结果，并将结果与备份写回 Excel 的历史归档工具。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="Ray Chen's Website">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/GaokaoQuery.html">
   <meta name="twitter:title" content="高考录取结果查询工具 | Ray Chen">
-  <meta name="twitter:description" content="以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。">
+  <meta name="twitter:description" content="用 Python 和 Playwright 辅助批量查询高考录取结果，并将结果与备份写回 Excel 的历史归档工具。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
-
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro hero-card">
 
-      <span class="project-category">Python</span>
-      <h1>高考录取结果查询工具</h1>
-      <p>以前写的高考录取结果查询脚本。从 Excel 读取名单，用 Playwright 辅助查询，再将录取院校、专业、批次和查询状态写回表格。项目现已归档。</p>
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>Python 工具</span>
+      <span>/</span>
+      <span>GaokaoQuery</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">Python 自动化脚本 · 历史归档</span>
+        <h1>高考录取结果查询工具</h1>
+        <p class="pe-lead">把反复复制准考证号、网页点查询再抄进表格的枯燥流程，交给一个省心稳妥的小助手。自动读入 Excel 名单、拉起可见浏览器配合人工确认，核对姓名无误后安稳写回每条录取去向。</p>
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">Python</span>
+        <span class="pe-tag is-key">Playwright</span>
+        <span class="pe-tag">pandas</span>
+        <span class="pe-tag">openpyxl</span>
+        <span class="pe-tag">Excel 批量回写</span>
+        <span class="pe-tag">断点续查与备份</span>
+      </div>
+      <span class="pe-meta-summary">历史归档（私有仓库）</span>
     </section>
 
-    <section class="ps-section"><div class="ps-section-head"><h2>工作流程</h2></div><div class="ps-grid-2"><article class="ps-card"><h3>读取名单</h3><p>从 Excel 读取查询记录，可跳过已有结果，从指定位置继续，或重查未成功记录。</p></article><article class="ps-card"><h3>查询与核对</h3><p>通过浏览器查询录取结果，对照姓名，记录没有结果、专业为空或信息不匹配的情况。</p></article><article class="ps-card"><h3>写回与备份</h3><p>将院校、专业、批次及查询状态写回 Excel，定期保存，并在运行前后备份表格。</p></article><article class="ps-card"><h3>查询与保存的位置</h3><p>查询需要向官方查询站点提交相应考生信息，名单、结果表和日志保存在本机。</p></article></div></section>
-    <section class="ps-section"><div class="ps-section-head"><h2>归档状态</h2></div><p class="ps-note">这是历史工具，查询入口和页面选择器未重新验证。恢复使用前需要检查网站变化；页面仅介绍当时的实现。</p></section>
+    <section class="pe-section" id="dataflow">
+      <div class="pe-section-head">
+        <h2>一条稳妥的数据流转链</h2>
+        <p class="pe-section-intro">采用“浏览器人工可见 + 读写全自动”的半自动策略，直接把表格字段约束和备份安全嵌进三个工作阶段里。</p>
+      </div>
 
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+      <div class="pe-dataflow">
+        <article class="pe-flow-card">
+          <div>
+            <span class="pe-status-pill">输入阶段</span>
+            <h3>Excel 名单读取</h3>
+            <p>从主表格读入待查名单，支持跳过已查记录、指定行号续跑或重查异常条目。</p>
+          </div>
+          <div class="pe-flow-fields">
+            <span class="pe-tag">准考证号</span>
+            <span class="pe-tag">考生号</span>
+            <span class="pe-tag">姓名</span>
+          </div>
+        </article>
+
+        <div class="pe-flow-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+
+        <article class="pe-flow-card">
+          <div>
+            <span class="pe-status-pill">查询阶段</span>
+            <h3>可见浏览器协同核对</h3>
+            <p>使用有头 Chromium 提交查询，遇图形验证码人工随手接管；抓回结果先比对姓名防串行，并细标“暂无结果 / 专业为空 / 不匹配”。</p>
+          </div>
+          <div class="pe-flow-fields">
+            <span class="pe-tag is-key">Playwright Chromium</span>
+            <span class="pe-tag">防串行核对</span>
+          </div>
+        </article>
+
+        <div class="pe-flow-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+
+        <article class="pe-flow-card">
+          <div>
+            <span class="pe-status-pill is-muted">落盘阶段</span>
+            <h3>安全回写与双重备份</h3>
+            <p>按周期写回工作簿并生成即时 .bak 与时间戳历史快照，断网中断也不丢进度。</p>
+          </div>
+          <div class="pe-flow-fields">
+            <span class="pe-tag">录取院校</span>
+            <span class="pe-tag">专业 / 批次</span>
+            <span class="pe-tag">查询状态</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pe-section" id="features">
+      <div class="pe-section-head">
+        <h2>实用贴心的细节与运行环境</h2>
+        <p class="pe-section-intro">既考虑到官网页面随时可能弹窗需要人工配合，也尽量把容错、依赖安装与历史归档全部打包妥当。</p>
+      </div>
+
+      <div class="pe-split">
+        <div class="pe-stack-list">
+          <div class="pe-stack-item">
+            <h3>名单自动续跑，中断也不用重来</h3>
+            <p>支持跳过已成功条目、从任意指定行号续跑，或者单独针对此前空白与失败的记录再跑一轮，大批名单也能分次从容查完。</p>
+          </div>
+          <div class="pe-stack-item">
+            <h3>可见浏览器协作，人工随时可接管</h3>
+            <p>保留有头 Chromium 界面而非盲目硬爬，一旦官方入口出现图形验证或临时弹窗，人工随手点过即可继续自动推进。</p>
+          </div>
+          <div class="pe-stack-item">
+            <h3>边查边存盘，运行前后双重备份</h3>
+            <p>启动前后自动留下即时备份与带时间戳的历史快照，查询过程中亦定期落盘保存，哪怕突然断网也不会丢失前功。</p>
+          </div>
+        </div>
+
+        <div class="pe-terminal">
+          <div class="pe-terminal-head">
+            <div class="pe-dots"><span></span><span></span><span></span></div>
+            <span class="pe-terminal-title">GaokaoQuery/ — 运行方式与目录</span>
+          </div>
+          <pre class="pe-terminal-body"><span class="pe-t-dim"># 历史运行环境初始化</span>
+$ python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+$ python -m pip install -r requirements.txt
+$ python -m playwright install chromium
+$ python main.py
+
+<span class="pe-t-accent">GaokaoQuery/</span>
+├── main.py             <span class="pe-t-dim"># 依赖自检、交互菜单、查询与写回主控</span>
+├── output.xlsx         <span class="pe-t-dim"># 输入名单与结果回写主表</span>
+├── output.xlsx.bak     <span class="pe-t-dim"># 运行前后自动生成的即时备份</span>
+├── backups/            <span class="pe-t-dim"># 带时间戳的历史 Excel 快照</span>
+├── logs/               <span class="pe-t-dim"># 本机运行日志</span>
+└── debug/              <span class="pe-t-dim"># 异常页面调试截图</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <aside class="pe-footnote">
+      说明：查询时需向官方查询站点提交考生信息，名单、结果表格、备份与日志均保存于本机。项目现已作为历史工具归档，源码中的页面选择器按当年站点结构编写，恢复使用前须先核对入口变化。
+    </aside>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
+
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

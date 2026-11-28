@@ -425,6 +425,8 @@ function prefersReducedMotion() {
 
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        // Editorial chapters use native fragments for deep links and history.
+        if (anchor.closest('.pe-page')) return;
         anchor.addEventListener('click', function(e) {
             var targetId = anchor.getAttribute('href');
             if (!targetId || targetId === '#') return;
@@ -722,7 +724,8 @@ function initSubpageReveal() {
             Array.from(projectPage.children).forEach(function(el) {
                 // xxh 落地页自带 xxh-landing-in 入场动画，叠加会导致重复动画
                 if (el.classList.contains('xxh-landing')) return;
-                if (el.matches(PROJECT_CHAPTERS)) {
+                if (el.matches(PROJECT_CHAPTERS) ||
+                    (projectPage.classList.contains('pe-page') && el.matches('.pe-breadcrumb, .pe-footnote'))) {
                     el.classList.add('subpage-reveal');
                 }
             });

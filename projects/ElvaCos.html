@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>绮秀 ElvaCos | Ray Chen</title>
-  <meta name="description" content="给 Coser 用的 HarmonyOS 个人管理应用。准备一个角色时，可以一起整理任务、服装道具、活动日期、参考图和花费，数据保存在本机。">
-  <meta name="keywords" content="ElvaCos, HarmonyOS, Ray Chen, Rayawa">
+  <meta name="description" content="给 Coser 用的 HarmonyOS 个人管理应用。准备一个角色时，一起整理计划、服装道具、漫展活动、参考图与真实花费，数据加密保存在本机。">
+  <meta name="keywords" content="ElvaCos, 绮秀, HarmonyOS, ArkTS, ArkUI, Cosplay, Ray Chen, Rayawa">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://rayawa.top/projects/ElvaCos.html">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/ElvaCos.html">
   <meta property="og:title" content="绮秀 ElvaCos | Ray Chen">
-  <meta property="og:description" content="给 Coser 用的 HarmonyOS 个人管理应用。准备一个角色时，可以一起整理任务、服装道具、活动日期、参考图和花费，数据保存在本机。">
+  <meta property="og:description" content="给 Coser 用的 HarmonyOS 个人管理应用。整理角色计划、衣柜、活动、照片与真实花费。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/ElvaCos.html">
   <meta name="twitter:title" content="绮秀 ElvaCos | Ray Chen">
-  <meta name="twitter:description" content="给 Coser 用的 HarmonyOS 个人管理应用。准备一个角色时，可以一起整理任务、服装道具、活动日期、参考图和花费，数据保存在本机。">
+  <meta name="twitter:description" content="给 Coser 用的 HarmonyOS 个人管理应用。整理角色计划、衣柜、活动、照片与真实花费。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,58 +33,157 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
-  <link rel="stylesheet" href="/static/css/app-projects.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="project-showcase elvacos-project">
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro ps-hero">
-      <div class="ps-hero-copy">
-        <span class="project-category">鸿蒙</span>
-        <span class="ps-eyebrow">Cosplay · Offline · HarmonyOS</span>
-        <h1>绮秀 ElvaCos</h1>
-        <p>给 Coser 用的 HarmonyOS 个人管理应用。准备一个角色时，可以一起整理任务、服装道具、活动日期、参考图和花费，数据保存在本机。</p>
-        <div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/ElvaCos" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a></div>
-      </div>
-      <div class="ps-hero-visual project-cover">
-        <img src="/static/resources/main_page/elvacos.webp" alt="粉色 Cos 衣装与准备清单的简约项目插画" width="1024" height="576" fetchpriority="high">
-      </div>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>准备一次出 Cos</h2></div>
-      <div class="ps-grid-2">
-        <article class="ps-card"><h3>角色与计划</h3><p>为角色的不同版本建立计划，列出准备任务和截止日期。任务完成、装备备齐和装包确认分开记录。</p></article>
-        <article class="ps-card"><h3>衣柜与活动</h3><p>服装和道具可以重复用于多个计划。活动有列表和月历，也可以关联计划或添加到系统日历。</p></article>
-        <article class="ps-card"><h3>照片与参考图</h3><p>从系统相册选择图片，按角色和计划整理参考图与成片，支持筛选、多选及处理状态标记。</p></article>
-        <article class="ps-card"><h3>花费与预算</h3><p>逐笔记下实际付款，按计划或分类查看支出和半年趋势。衣柜里的标价不会自动算进实际花费。</p></article>
-      </div>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>数据与界面</h2></div><p class="ps-note">使用首页、Cos、活动、衣柜、我的五个入口，提供五组配色和深浅色模式。文字记录存入加密数据库，照片存入应用私有目录。可导出元数据备份，但导出的 JSON 不包含照片。</p>
-    </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>当前版本</h2></div><p class="ps-note">1.0.0-beta.1，目前用于 Beta 测试，尚未在应用市场正式发行。核心功能可离线使用；华为账号登录尚未验证成功，云同步未实现，团队信息也只保存在本机。</p>
-    </section>
-    <figure class="app-screenshot">
-      <img src="/static/resources/apps/elvacos-expenses.png" alt="花费统计界面 · Beta 示例数据，展示实际付款、预算与月度趋势。" loading="lazy" width="1316" height="2832">
-      <figcaption>花费统计界面 · Beta 示例数据，展示实际付款、预算与月度趋势。</figcaption>
-    </figure>
-    <section class="ps-section">
 
-      <div class="ps-section-head"><h2>技术栈</h2></div>
-      <div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI</span><span class="ps-tag">RDB</span><span class="ps-tag">PhotoPicker</span><span class="ps-tag">Share Kit</span><span class="ps-tag">BackupExtension</span></div>
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>鸿蒙应用</span>
+      <span>/</span>
+      <span>绮秀 ElvaCos</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">HarmonyOS 个人管理应用 · 为 Coser 打造</span>
+        <h1>绮秀 ElvaCos</h1>
+        <p class="pe-lead">陪你从容准备每一次出场。专门为 Coser 设计的私密备展管家，把角色计划、衣柜道具、漫展日历、参考图集与账单花费井然有序地收进同一个离线应用里，让每份热爱都不慌不忙落地。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="#lookbook">浏览应用画面</a>
+            <a class="pe-btn" href="https://github.com/Rayawa/ElvaCos" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">HarmonyOS</span>
+        <span class="pe-tag is-key">ArkTS / ArkUI</span>
+        <span class="pe-tag is-key">加密 RDB</span>
+        <span class="pe-tag">PhotoPicker</span>
+        <span class="pe-tag">Share Kit</span>
+        <span class="pe-tag">BackupExtension</span>
+        <span class="pe-tag">离线优先</span>
+      </div>
+      <span class="pe-meta-summary">1.0.0-beta.1 · 五套配色 · 深浅色适配</span>
     </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <section class="pe-section" id="lookbook">
+      <div class="pe-section-head">
+        <h2>三屏并排视觉展台（预留截图位）</h2>
+        <p class="pe-section-intro">先用三组竖屏主视觉直观展现角色计划、衣柜日历与账单趋势，补入无状态栏的净图即可直接呈现画册感。</p>
+      </div>
+
+      <div class="pe-lookbook">
+        <div class="pe-shot-slot">
+          <div class="pe-placeholder is-phone">
+            <i class="fas fa-clipboard-check"></i>
+            <span class="pe-placeholder-title">角色计划与备展清单</span>
+            <span class="pe-placeholder-hint">建议提供 9:19 竖屏真实内容截图，建议隐藏顶部系统状态栏</span>
+            <code class="pe-placeholder-path">static/resources/apps/elvacos-plan.png</code>
+          </div>
+          <span class="pe-shot-caption">角色计划、任务进度与装包确认视图</span>
+        </div>
+
+        <div class="pe-shot-slot">
+          <div class="pe-placeholder is-phone">
+            <i class="fas fa-shirt"></i>
+            <span class="pe-placeholder-title">衣柜道具与漫展日历</span>
+            <span class="pe-placeholder-hint">建议提供 9:19 竖屏真实内容截图，建议隐藏顶部系统状态栏</span>
+            <code class="pe-placeholder-path">static/resources/apps/elvacos-wardrobe.png</code>
+          </div>
+          <span class="pe-shot-caption">服装道具复用库与活动月历视图</span>
+        </div>
+
+        <div class="pe-shot-slot">
+          <div class="pe-placeholder is-phone">
+            <i class="fas fa-wallet"></i>
+            <span class="pe-placeholder-title">花费统计与预算趋势</span>
+            <span class="pe-placeholder-hint">建议替换无状态栏的净图（或沿用新截图覆盖）</span>
+            <code class="pe-placeholder-path">static/resources/apps/elvacos-expenses.png</code>
+          </div>
+          <span class="pe-shot-caption">实际付款、预算对比与半年消费走势</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pe-section" id="features">
+      <div class="pe-section-head">
+        <h2>陪你准备每一次出 Cos</h2>
+        <p class="pe-section-intro">从起念立项到漫展归来，一条四步故事线把零碎的准备工作顺理成章串联起来。</p>
+      </div>
+
+      <div class="pe-storyboard">
+        <article class="pe-story-step">
+          <span class="pe-story-num">STEP 01 · 定计划</span>
+          <h3>角色计划清晰推进</h3>
+          <p>为心仪角色的每个造型版本建专属计划，待办任务、装备备齐与装包确认分开追踪，告别出门前漏带配件。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">STEP 02 · 配衣柜</span>
+          <h3>个人衣柜常备常新</h3>
+          <p>服装、假发、美瞳与道具一次入库管理，复出或新造型可直接关联复用，省心又不重复消费。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">STEP 03 · 排漫展</span>
+          <h3>漫展日程从容不迫</h3>
+          <p>列表与月历双视角自由切换，随时将活动关联到对应出 Cos 计划，并一键写入系统日历提醒。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">STEP 04 · 留成片与算账</span>
+          <h3>相册与账单井然有序</h3>
+          <p>按角色归档参考图与修图进度；定金尾款与约拍实付分开入账，配合预算与半年支出趋势，算清每一分热爱。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="pe-section" id="craft">
+      <div class="pe-section-head">
+        <h2>为隐私与顺手而设计</h2>
+        <p class="pe-section-intro">作为日常高频使用的私人工具，安全和舒适的手感同样重要。</p>
+      </div>
+
+      <div class="pe-ledger">
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">01</span>
+          <span class="pe-ledger-title">本机加密，离线安心使用</span>
+          <span class="pe-ledger-desc">全部文本与账单数据存入本机加密数据库，照片保存在应用私有沙箱目录，哪怕在漫展信号拥挤的现场也能流畅查阅。</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">02</span>
+          <span class="pe-ledger-title">五套主题配色与单手习惯</span>
+          <span class="pe-ledger-desc">提供五组配色与深浅色自适应，并支持根据喜好调节振动强度、系统材质等级以及左手/智感握持/右手操作模式。</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">03</span>
+          <span class="pe-ledger-title">随时备份与分享协作</span>
+          <span class="pe-ledger-desc">集成系统相册选择、Share Kit 与 BackupExtension，支持快速导出或恢复元数据 JSON 备份。</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="pe-footnote">
+      说明：导出的 JSON 元数据备份不包含照片本体；当前处于 1.0.0-beta.1 内测阶段，尚未正式上架应用市场，华为账号登录与云同步服务尚待实现。
+    </aside>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
+
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

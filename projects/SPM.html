@@ -35,128 +35,183 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/spm.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
 
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro hero-card">
-      
-      <span class="project-category">Minecraft</span>
-      <h1 >Sweet Potato Mod</h1>
-      <p >农业与魔法的完美结合！与@teddyxlandlee协作开发的Minecraft模组项目，添加了地瓜、农林台、研磨器、魔法锅、附魔作物等。</p>
-      <img class="hero-image" src="../static/resources/spm/title.png" alt="Sweet Potato Mod">
-      <div class="single-action">
-        <a class="button" href="https://featurehouse.github.io" target="_blank" rel="noopener" >Pigeonia Featurehouse 主页</a>
-        <a class="button-outline" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github spm-github-icon"></i><span >GitHub</span></a>
-        <a class="button-outline" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener" >下载链接</a>
+
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>Minecraft</span>
+      <span>/</span>
+      <span>Sweet Potato Mod</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">Minecraft · Fabric 模组 · 团队协作</span>
+        <h1>Sweet Potato Mod</h1>
+        <p class="pe-lead">把农业和魔法接在一起的 Minecraft Fabric 模组。与 @teddyxlandlee 及 Featurehouse 团队协作开发，围绕地瓜这一核心作物延伸出种植、研磨加工、魔法锅转换与附魔树等整套玩法，加入了农林台、研磨器、魔法锅与多种附魔作物。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="https://featurehouse.github.io" target="_blank" rel="noopener">Pigeonia Featurehouse 主页 <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a class="pe-btn" href="https://featurehouse.github.io/download.html" target="_blank" rel="noopener">下载模组</a>
+            <a class="pe-btn" href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">模组 Wiki</a>
+          </div>
+          <div class="pe-repo-row">
+            <span class="pe-repo-label">GitHub 源码与反馈：</span>
+            <a class="pe-repo-link" href="https://github.com/Featurehouse" target="_blank" rel="noopener"><i class="fab fa-github"></i> Featurehouse 组织</a>
+            <a class="pe-repo-link" href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener"><i class="fab fa-github"></i> Issues 反馈</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pe-hero-side">
+        <img class="pe-hero-banner" src="../static/resources/spm/title.png" alt="Sweet Potato Mod 标志横幅" fetchpriority="high">
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">Minecraft Fabric 1.16+</span>
+        <span class="pe-tag is-key">Java</span>
+        <span class="pe-tag">Fabric Loader ≥ 0.9.0</span>
+        <span class="pe-tag">Fabric API</span>
+        <span class="pe-tag">农业与魔法链路</span>
+      </div>
+      <span class="pe-meta-summary">当前版本 v1.5.1 · Featurehouse 团队协作维护</span>
+    </section>
+
+    <section class="pe-section" id="about">
+      <div class="pe-section-head">
+        <h2>关于这个模组</h2>
+        <p class="pe-section-intro">原版 Minecraft 的农业大多止步于收获与简单食用。Sweet Potato Mod 为作物补全了一条从种植到加工、附魔与转换的后续链路。</p>
+      </div>
+
+      <div class="pe-features">
+        <div class="pe-feature">
+          <h3>完整的作物与品种体系</h3>
+          <p>以地瓜为中心区分紫薯、红薯与白薯三个品类，进一步衍生出地瓜粉、地瓜皮等中间材料，让农场收获物成为后续合成的起点。</p>
+        </div>
+        <div class="pe-feature">
+          <h3>研磨与魔法转换</h3>
+          <p>研磨器负责把地瓜细磨为地瓜粉；在魔法锅下方 3×3 区域点燃灵魂火将其激活后，即可把三个任意品类的生地瓜转换为其他品类，或赋予随机附魔特性。</p>
+        </div>
+        <div class="pe-feature">
+          <h3>模组新增清单</h3>
+          <p>包含四种新增方块（魔法锅、研磨器、农林台与附魔树叶）、五种新增物品（地瓜、地瓜粉、地瓜皮、附魔树苗与附魔作物）以及一种自然生成结构「附魔树」，当前版本 1.5.1，历代改动均记录于团队 Wiki。</p>
+        </div>
+        <div class="pe-feature">
+          <h3>技术基础与获取</h3>
+          <p>基于 Minecraft Fabric 与 Java 构建，作物行为、方块逻辑与合成表由代码与数据包共同定义；可在 Featurehouse 下载页获取安装包并在团队 Wiki 查阅细节。</p>
+        </div>
       </div>
     </section>
 
-    <section class="project-brief" aria-label="项目速览">
+    <section class="pe-section" id="items">
+      <div class="pe-section-head">
+        <h2>新增方块与核心物品</h2>
+        <p class="pe-section-intro">以下四类要素构成了模组中最主要的种植、磨粉与附魔循环，标题可直接跳转至对应的 Wiki 说明页。</p>
+      </div>
 
-      <h2>项目速览</h2>
-      <p>Sweet Potato Mod 是与 Featurehouse 团队协作开发的 Minecraft 模组，围绕地瓜这一作物扩展出完整的种植、加工与附魔链路。模组新增紫薯、红薯、白薯三个品类及其衍生材料，提供研磨器用于加工，并以魔法锅实现作物转换与附魔；附魔树苗与附魔作物进一步改变了原有的生长机制。</p>
-      <ul>
-      <li><strong>农业玩法扩展</strong><span>紫薯、红薯、白薯三个品类与地瓜粉等衍生材料构成内容基础。</span></li>
-      <li><strong>加工与魔法链路</strong><span>研磨器承担加工，魔法锅经灵魂火激活后实现转换与附魔。</span></li>
-      <li><strong>团队协作项目</strong><span>由 Featurehouse 团队维护，作者、贡献者与问题反馈入口均已列出。</span></li>
+      <div class="pe-item-grid">
+        <article class="pe-item-card">
+          <div class="pe-item-sprite">
+            <img src="../static/resources/spm/sweet_potato.png" alt="地瓜" loading="lazy">
+          </div>
+          <div class="pe-item-body">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">地瓜</a></h3>
+            <p>本模组的核心类食物作物，分为紫薯、红薯和白薯，并可加工为地瓜粉、地瓜皮等三个延伸变种。</p>
+          </div>
+        </article>
+
+        <article class="pe-item-card">
+          <div class="pe-item-sprite">
+            <img src="../static/resources/spm/magic_cube.png" alt="魔法锅" loading="lazy">
+          </div>
+          <div class="pe-item-body">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">魔法锅</a></h3>
+            <p>散发黑色光泽的催化方块。在下方 3×3 区域点燃灵魂火激活魔法锅后，可将三个任意品类的生地瓜转化为其他品类或随机附魔成品。</p>
+          </div>
+        </article>
+
+        <article class="pe-item-card">
+          <div class="pe-item-sprite">
+            <img src="../static/resources/spm/Grinder.png" alt="研磨器" loading="lazy">
+          </div>
+          <div class="pe-item-body">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">研磨器</a></h3>
+            <p>内置石质磨盘的工作方块，专用于将收获的地瓜精细研磨为地瓜粉等加工原料。</p>
+          </div>
+        </article>
+
+        <article class="pe-item-card">
+          <div class="pe-item-sprite">
+            <img src="../static/resources/spm/enchanted_saplings.png" alt="附魔树苗和作物" loading="lazy">
+          </div>
+          <div class="pe-item-body">
+            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener">附魔树苗与作物</a></h3>
+            <p>带有附魔属性的种子与树苗，成熟速度明显快于原版树苗或农作物，并会长成附魔树与附魔作物。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pe-section" id="credits">
+      <div class="pe-section-head">
+        <h2>开发人员与致谢</h2>
+        <p class="pe-section-intro">由 Featurehouse 团队协作维护与更新的开源模组项目。</p>
+      </div>
+
+      <div class="pe-ledger">
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">01</span>
+          <span class="pe-ledger-title">作者</span>
+          <span class="pe-ledger-desc">Teddy Li (teddyxlandlee) · Ray Chen (Rayawa) · Peter Yang (Peteric)</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">02</span>
+          <span class="pe-ledger-title">贡献者</span>
+          <span class="pe-ledger-desc">Dennis Lin · Garay Shurlin · 2333tech · squid233 · YWsuoyi · Ironnoob73 · ACGaming</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">03</span>
+          <span class="pe-ledger-title">支持者</span>
+          <span class="pe-ledger-desc">Teacher Qiu Yuting · immibis · Zn_Ar</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="pe-footnote" aria-label="注意事项">
+      <strong>安装与使用注意事项：</strong>
+      <ul class="pe-list">
+        <li>目前该模组仅支持 Fabric 1.16+，更早游戏版本暂不支持。</li>
+        <li>加载本 Mod 需同时安装 Fabric Loader（版本不低于 0.9.0）与 Fabric API（建议使用最新版）。</li>
+        <li>如需将本模组加入多人服务器，请确保客户端与服务端同时完成安装。</li>
+        <li>未经原作者许可，请勿擅自转载本模组至其他平台，或将其内容打包进整合包中。</li>
+        <li>若发现 Bug 或有改进建议，欢迎前往 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener">GitHub Issues</a> 反馈。</li>
       </ul>
-    </section>
+    </aside>
 
-    <section class="project-guide" aria-label="用途与使用">
-      <h2>关于这个模组</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>原版 Minecraft 的农业玩法在收获后即告结束，作物缺少后续用途。该模组将地瓜扩展为一条持续加工的链路，使种植与合成、附魔产生关联。</p></article>
-      <article><h3>玩法内容</h3><p>地瓜分为紫薯、红薯、白薯三类，可加工为地瓜粉等材料。研磨器将地瓜研磨为地瓜粉；魔法锅需在其下方 3×3 区域点燃灵魂火激活，可将三个任意品类的生地瓜转换为其他品类或随机附魔。附魔树苗与附魔作物的生长速度快于原版对应作物。</p></article>
-      <article><h3>模组内容清单</h3><p>新增方块四种：魔法锅、研磨器、农林台与附魔树叶。新增物品五种：地瓜、地瓜粉、地瓜皮、附魔树苗与附魔作物。另生成一种结构「附魔树」。当前版本为 1.5.1，历史版本可在团队 Wiki 的版本页查阅。</p></article>
-      <article><h3>用到什么</h3><p>模组基于 Minecraft Fabric 与 Java 开发，新增的作物、方块与配方由模组代码与资源文件共同定义。运行需要 Fabric Loader 与 Fabric API。</p></article>
-      <article><h3>如何获取</h3><p>模组可通过 Featurehouse 下载页获取，具体玩法参见团队 Wiki，问题与建议提交至 GitHub Issues。支持的 Minecraft 版本与依赖要求以下载页说明为准。</p></article>
-      </div>
-    </section>
-
-
-    <section class="spm-section">
-      <h2 >新的内容</h2>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <img src="../static/resources/spm/sweet_potato.png" alt="地瓜">
-          <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >地瓜</a></h3>
-            <p >在本模组中添加的类食物。它分为紫薯、红薯和白薯，以及三个变种，有地瓜粉、地瓜皮等。</p>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img src="../static/resources/spm/magic_cube.png" alt="魔法锅">
-          <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >魔法锅</a></h3>
-            <p >魔法锅散发着黑色的光泽。你可以通过在它下方3×3区域内点燃灵魂火来激活魔法锅，将三个任意品类的生地瓜转换为其他品类或对其进行随机附魔。</p>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img src="../static/resources/spm/Grinder.png" alt="研磨器">
-          <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >研磨器</a></h3>
-            <p >研磨器有着一个磨盘，它的作用是将地瓜研磨为地瓜粉。</p>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img src="../static/resources/spm/enchanted_saplings.png" alt="附魔树苗和作物">
-          <div class="feature-card-text">
-            <h3><a href="https://featurehouse.github.io/spm/wiki/" target="_blank" rel="noopener" >附魔树苗和作物</a></h3>
-            <p >附魔树苗和作物的生长速度要快于原版树苗或作物，且会长成附魔树或附魔作物。</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="spm-section">
-      <h2 >开发人员</h2>
-      <div class="dev-section">
-        <h3 >作者</h3>
-        <div class="dev-list" >Teddy Li (teddyxlandlee) · Ray Chen (Rayawa) · Peter Yang (Peteric)</div>
-      </div>
-      <div class="dev-section">
-        <h3 >贡献者</h3>
-        <div class="dev-list" >Dennis Lin · Garay Shurlin · 2333tech · squid233 · YWsuoyi · Ironnoob73 · ACGaming</div>
-      </div>
-      <div class="dev-section">
-        <h3 >支持者</h3>
-        <div class="dev-list" >Teacher Qiu Yuting · immibis · Zn_Ar</div>
-      </div>
-    </section>
-
-    <section class="spm-section">
-      <h2 >注意事项</h2>
-      <ul class="notice-list">
-        <li >目前该模组仅支持 Fabric 1.16+，更早版本的玩家暂时不支持。</li>
-        <li >请不要在未经作者允许的情况下擅自转载本模组至其它平台！</li>
-        <li >加载本 Mod 需要 Fabric Loader 和 Fabric API。其中 Loader 的版本不能低于 0.9.0，API 最好为最新版。</li>
-        <li >不要在未经本模组作者允许的情况下擅自把 Mod 中的内容添加到你的整合包中！</li>
-        <li >如果您想把本模组添加至你的服务器中，请同时在客户端与服务端安装该 Mod。</li>
-        <li >如果您发现了模组中的 Bug 或对本模组有建议，烦请汇报至 <a href="https://github.com/Featurehouse/sweet_potato-issueTracker/issues" target="_blank" rel="noopener" class="spm-primary-link">GitHub Issues</a>。</li>
-      </ul>
-    </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
-    <div id="site-footer"></div>
-<script src="/static/vendor/particles.js/particles.min.js"></script>
-  
-  
+
+  <div id="site-footer"></div>
+  <script src="/static/vendor/particles.js/particles.min.js"></script>
   <script src="/static/js/footer.js"></script>
-<script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

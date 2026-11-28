@@ -9,14 +9,12 @@
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-
   <link rel="canonical" href="https://rayawa.top/projects/CarRent.html">
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CarRent.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CarRent.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CarRent.html">
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CarRent.html">
   <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/CarRent.html">
   <meta property="og:title" content="基于链表的汽车租赁管理系统 | Ray Chen">
@@ -26,73 +24,221 @@
   <meta property="og:image:height" content="480">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="Ray Chen's Website">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/CarRent.html">
   <meta name="twitter:title" content="基于链表的汽车租赁管理系统 | Ray Chen">
   <meta name="twitter:description" content="C++11 数据结构课程设计。在命令行中管理车辆、用户、租车与退车，练习手写单向链表和二进制文件读写，也做了统计图表和操作日志。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
-
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro hero-card">
 
-      <span class="project-category">学校项目</span>
-      <h1>基于链表的汽车租赁管理系统</h1>
-      <p>C++11 数据结构课程设计。在命令行中管理车辆、用户、租车与退车，练习手写单向链表和二进制文件读写，也做了统计图表和操作日志。</p>
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>课程设计</span>
+      <span>/</span>
+      <span>CarRent</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">C++11 · 数据结构课程设计</span>
+        <h1>基于链表的汽车租赁管理系统</h1>
+        <p class="pe-lead">一套用纯 C++11 打造的轻量汽车租赁门店管家。即使在没有图形界面、没有第三方数据库的命令行环境下，也能流畅管好车辆档案、客户信息、借还结算、经营图表与日志导出。</p>
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">C++11</span>
+        <span class="pe-tag is-key">单向链表</span>
+        <span class="pe-tag is-key">二进制持久化</span>
+        <span class="pe-tag">Make / CMake</span>
+        <span class="pe-tag">ASCII 柱状图</span>
+        <span class="pe-tag">XOR 口令校验</span>
+      </div>
+      <span class="pe-meta-summary">macOS · Linux · Windows (MinGW)</span>
     </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>七个功能模块</h2>
-        <p>从数据维护到业务办理，再到统计与系统管理，模块之间通过共享的链表数据串联。</p>
+    <section class="pe-section" id="terminal-demo">
+      <div class="pe-section-head">
+        <h2>终端工作台实景</h2>
+        <p class="pe-section-intro">先直接看程序在命令行里跑起来的样子：主菜单、ASCII 统计柱状图以及退车结算票据均按源码真实格式还原。</p>
       </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-car"></i></span><h3>车辆信息管理</h3><p>录入、修改、删除与查看车辆记录，维护可租车辆的基础数据。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-user"></i></span><h3>租车用户管理</h3><p>维护租车人信息，为后续的租车与退车业务提供关联依据。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-signature"></i></span><h3>租车与退车</h3><p>办理租车与退车业务，校验车辆状态并同步更新双方的记录。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-magnifying-glass"></i></span><h3>信息查询</h3><p>支持分类查询与模糊搜索，按车辆、用户或记录条件快速定位。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-column"></i></span><h3>统计汇总</h3><p>按维度分组统计，并以 ASCII 柱状图输出，让数据分布一眼可见。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-gear"></i></span><h3>系统设置</h3><p>包含密码与登录、报表输出、操作日志与数据清空等管理功能。</p></article>
+
+      <div class="pe-terminal" data-pe-terminal>
+        <div class="pe-terminal-head">
+          <div style="display:flex;align-items:center;gap:0.9rem;">
+            <div class="pe-dots"><span></span><span></span><span></span></div>
+            <span class="pe-terminal-title" data-terminal-title>./car_rent — mainMenu()</span>
+          </div>
+          <div class="pe-tabs" role="tablist" aria-label="终端输出切换">
+            <button type="button" class="pe-tab is-active" role="tab" aria-selected="true" data-target="menu">主菜单</button>
+            <button type="button" class="pe-tab" role="tab" aria-selected="false" data-target="chart">ASCII 柱状图</button>
+            <button type="button" class="pe-tab" role="tab" aria-selected="false" data-target="receipt">计费与日志</button>
+          </div>
+        </div>
+
+        <pre class="pe-terminal-body pe-terminal-pane is-active" data-pane="menu" data-title="./car_rent — mainMenu()">$ ./car_rent
+<span class="pe-t-dim">[loadAllData] vehicle.dat (12) · renter.dat (8) · rent.dat (19)</span>
+<span class="pe-t-ok">密码校验通过 (pwd.dat XOR 已验证)</span>
+
+<span class="pe-t-accent">================================================
+  汽车租赁管理系统   [2026-07-20 14:32:08]
+================================================</span>
+1.车辆管理 2.用户管理 3.租车办理 4.退车办理
+5.信息查询 6.统计汇总 7.系统设置 0.退出系统
+请选择: <span class="pe-t-warn">6</span></pre>
+
+        <pre class="pe-terminal-body pe-terminal-pane" data-pane="chart" data-title="./car_rent — menu6_statistics.cpp">车辆总数: 12  可租: 7  已租: 4
+用户总数: 8  租车记录: 19  进行中: 4  总收入: 14820.00
+
+<span class="pe-t-accent">--- 品牌分布 (drawBarChart: 比例缩放至 30 格) ---</span>
+  BYD        [  4] <span class="pe-t-ok">##############################</span>
+  Porsche    [  3] <span class="pe-t-ok">######################</span>
+  Mercedes   [  3] <span class="pe-t-ok">######################</span>
+  Toyota     [  2] <span class="pe-t-ok">###############</span>
+
+按回车继续...</pre>
+
+        <pre class="pe-terminal-body pe-terminal-pane" data-pane="receipt" data-title="./car_rent — menu4_return.cpp"><span class="pe-t-accent">----------- 退车结算收据 -----------</span>
+订单编号: #1019    车牌号: 京A·88412
+租车日期: 2026-07-10   预计归还: 2026-07-13
+实际归还: 2026-07-15   <span class="pe-t-warn">(超期 2 天 × 双倍日租)</span>
+正常天数: 3 × 320.00 =  960.00
+超期费用: 2 × 640.00 = 1280.00
+退还押金: 2000.00 (全额退还)
+<span class="pe-t-ok">实收总费用: 2240.00 元</span>
+<span class="pe-t-dim">[log.txt] 2026-07-15 16:08:11 RETURN id=1019 fee=2240.00</span></pre>
       </div>
     </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>实现细节</h2>
-        <p>项目在数据结构与持久化上做了刻意的取舍。</p>
+    <section class="pe-section" id="features">
+      <div class="pe-section-head">
+        <h2>一套程序管好租车门店</h2>
+        <p class="pe-section-intro">围绕真实门店运营的四段横向能力线，让每台车的去向、每位客户的记录和每一分租金都清清楚楚。</p>
       </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>单向链表而非标准容器</h3><p>所有节点由 new 与 delete 手工管理，插入、删除与遍历全部自己实现，是链表与指针操作的完整练习。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-hard-drive"></i></span><h3>二进制文件持久化</h3><p>数据以自定义二进制结构写入文件，读取时按同样布局还原，避免文本解析的开销与歧义。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-shield-halved"></i></span><h3>输入校验与容错</h3><p>对日期、编号与重复数据做检查，避免非法输入破坏链表结构或统计结果。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-code"></i></span><h3>单翻译单元架构</h3><p>核心逻辑集中在一个 cpp 文件内，#include 拼接子模块，便于课程评审时逐行阅读。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-chart-simple"></i></span><h3>ASCII 可视化</h3><p>不依赖图形库，用字符直接绘制柱状图，在纯命令行环境中也能呈现统计结果。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-clock-rotate-left"></i></span><h3>操作日志</h3><p>关键操作留有记录，便于回溯数据变更。</p></article>
+
+      <div class="pe-storyboard">
+        <article class="pe-story-step">
+          <span class="pe-story-num">01 · 档案管理</span>
+          <h3>车辆与客户井井有条</h3>
+          <p>车牌、品牌、车型、日租金、押金与客户驾照、身份证信息一站建档；录入时自动检查重复证件与车牌。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">02 · 借还计费</span>
+          <h3>自动算清每一笔账</h3>
+          <p>租车自动筛出可用车并打印凭条；退车按实际日期与闰年计算天数，超期双倍计费、押金全额退还。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">03 · 检索筛选</span>
+          <h3>一秒定位历史记录</h3>
+          <p>支持按品牌、车型、颜色、状态或日期区间精确筛选，也能输一个关键字跨表模糊匹配车辆与客户。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">04 · 图表报表</span>
+          <h3>命令行里的直观统计</h3>
+          <p>自动绘制 ASCII 柱状图呈现品牌、驾龄与月度走势，支持口令保护、操作日志与一键导出文本报表。</p>
+        </article>
       </div>
     </section>
 
-    <section class="ps-section"><div class="ps-section-head"><h2>课程设计</h2></div><p class="ps-note">这是本地命令行课程项目，数据保存在文件中；没有实现并发访问或多人在线使用。</p></section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+    <section class="pe-section" id="architecture">
+      <div class="pe-section-head">
+        <h2>本地文件分布与链表实现</h2>
+        <p class="pe-section-intro">作为数据结构大作业，项目刻意绕开了 STL 容器，直接用裸指针单向链表与五类物理文件完成全部持久化和统计。</p>
+      </div>
+
+      <div class="pe-file-blocks" aria-label="本地磁盘持久化文件">
+        <div class="pe-file-block">
+          <code>vehicle.dat</code>
+          <strong>车辆主档</strong>
+          <span>定长 struct 二进制块</span>
+        </div>
+        <div class="pe-file-block">
+          <code>renter.dat</code>
+          <strong>客户档案</strong>
+          <span>定长 struct 二进制块</span>
+        </div>
+        <div class="pe-file-block">
+          <code>rent.dat</code>
+          <strong>租借订单</strong>
+          <span>定长 struct 二进制块</span>
+        </div>
+        <div class="pe-file-block">
+          <code>pwd.dat</code>
+          <strong>登录口令</strong>
+          <span>XOR 异或加密存储</span>
+        </div>
+        <div class="pe-file-block">
+          <code>log.txt</code>
+          <strong>操作审计</strong>
+          <span>纯文本追加记录</span>
+        </div>
+      </div>
+
+      <div class="pe-split" style="margin-top:2rem;">
+        <div class="pe-prose">
+          <h3>手写链表与单翻译单元组织</h3>
+          <p>车辆（VehicleNode）、租客（RenterNode）和订单（RentNode）三条链表全部由 new / delete 动态管理，启动时按结构体块还原，退出时写回。</p>
+          <p>main.cpp 引入核心实现 car_rent.cpp，再按业务顺序拼接 menu1 至 menu7 七个子模块，配合 .clangd 配置保持良好的代码补全体验。</p>
+        </div>
+
+        <div class="pe-terminal">
+          <div class="pe-terminal-head">
+            <div class="pe-dots"><span></span><span></span><span></span></div>
+            <span class="pe-terminal-title">src/car_rent.cpp</span>
+          </div>
+          <pre class="pe-terminal-body"><span class="pe-t-dim">// 三条独立单向链表节点与全局头指针</span>
+<span class="pe-t-accent">struct</span> VehicleNode { Vehicle data; VehicleNode* next; };
+<span class="pe-t-accent">struct</span> RenterNode  { Renter  data; RenterNode*  next; };
+<span class="pe-t-accent">struct</span> RentNode    { RentRecord data; RentNode* next; };
+
+VehicleNode* vehicleHead = <span class="pe-t-warn">nullptr</span>;
+RenterNode*  renterHead  = <span class="pe-t-warn">nullptr</span>;
+RentNode*    rentHead    = <span class="pe-t-warn">nullptr</span>;
+
+<span class="pe-t-dim">// 无图形库条件下按最大值比例缩放绘制 ASCII 柱状图</span>
+<span class="pe-t-accent">void</span> drawBarChart(<span class="pe-t-accent">char</span> labels[][32], <span class="pe-t-accent">int</span> values[], <span class="pe-t-accent">int</span> n) {
+    <span class="pe-t-accent">int</span> mx = 0;
+    <span class="pe-t-accent">for</span> (<span class="pe-t-accent">int</span> i = 0; i &lt; n; i++)
+        <span class="pe-t-accent">if</span> (values[i] &gt; mx) mx = values[i];
+    <span class="pe-t-accent">for</span> (<span class="pe-t-accent">int</span> i = 0; i &lt; n; i++) {
+        printf(<span class="pe-t-ok">"  %-10s [%3d] "</span>, labels[i], values[i]);
+        <span class="pe-t-accent">int</span> bar = mx &gt; 0 ? values[i] * 30 / mx : 0;
+        <span class="pe-t-accent">for</span> (<span class="pe-t-accent">int</span> j = 0; j &lt; bar; j++) printf(<span class="pe-t-ok">"#"</span>);
+        printf(<span class="pe-t-ok">"\n"</span>);
+    }
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <aside class="pe-footnote">
+      说明：本地单机命令行课程设计，数据保存在工作目录的二进制文件中，未实现网络并发或多人同时读写；源码仓库目前为私有。
+    </aside>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
+
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
+  <script src="/static/js/project-editorial.js"></script>
 </body>
 </html>

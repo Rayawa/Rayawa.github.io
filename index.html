@@ -12,7 +12,7 @@
   <meta name="googlebot" content="index, follow">
 
   <link rel="canonical" href="https://rayawa.top/">
-  <link rel="describedby" href="/llms.txt">
+  <link rel="describedby" href="llms.txt">
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/">
@@ -37,845 +37,1090 @@
   <meta name="twitter:creator" content="@Rayawa">
   <meta name="twitter:site" content="@Rayawa">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/common.css">
-  <link rel="stylesheet" href="/static/css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/common.css">
+  <link rel="stylesheet" href="static/css/home.css">
   <link rel="prefetch" href="projects/QiZhi01.html">
   <link rel="prefetch" href="projects/Biology.html">
   <link rel="prefetch" href="projects/Dashboard.html">
   <link rel="prefetch" href="projects/SPM.html">
 
-  <meta name="theme-color" content="#0b1325">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="theme-color" content="#090a0b">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body class="is-homepage">
-    <!-- 加载画面 -->
-    <div id="loadingScreen" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-brand">
-                <span class="loading-logo" id="loadingLogo"></span><span class="loading-cursor"></span>
-            </div>
-            <div class="loading-ring-wrap">
-                <svg class="loading-ring" viewBox="0 0 80 80">
-                    <circle class="loading-ring-bg" cx="40" cy="40" r="36"/>
-                    <circle class="loading-ring-bar" id="loadingRing" cx="40" cy="40" r="36"/>
-                </svg>
-                <div class="loading-percent" id="loadingPercent">0</div>
-            </div>
-            <div class="loading-bar-wrap">
-                <div class="loading-bar" id="loadingBar"></div>
-            </div>
-            <div class="loading-hint">Loading...</div>
-        </div>
+<body class="is-homepage ray-home">
+  <!-- Opening Preloader -->
+  <div id="loadingScreen" class="loading-screen" role="status" aria-live="polite" aria-label="页面加载中">
+    <div class="loading-content">
+      <div class="loading-brand">
+        <span class="loading-logo" id="loadingLogo"></span><span class="loading-cursor" aria-hidden="true"></span>
+      </div>
+      <div class="loading-bar-wrap" aria-hidden="true">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+      <div class="loading-counter">
+        <span class="loading-percent" id="loadingPercent">0</span><span class="loading-pct-sign">%</span>
+      </div>
+      <p class="loading-hint" lang="en">Everything is possible by code.</p>
     </div>
+  </div>
 
-    <!-- 粒子背景 -->
-    <div id="particles-js"></div>
+  <div id="particles-js" aria-hidden="true"></div>
+  <a class="home-skip" href="#main-content">跳到主要内容</a>
 
-    <!-- 导航栏 -->
-    <div id="site-navbar"></div>
-    <script src="/static/js/navbar.js"></script>
+  <nav class="navbar is-visible home-nav" id="navbar" aria-label="主导航">
+    <div class="home-nav-inner">
+      <a class="home-wordmark" href="#home">RayChen<span aria-hidden="true">.</span></a>
+      <button class="home-menu-button" id="home-menu-button" type="button"
+        aria-label="菜单" aria-expanded="false" aria-controls="home-nav-links">
+        <span class="home-menu-icon" aria-hidden="true"></span>
+      </button>
+      <ul class="home-nav-links" id="home-nav-links">
+        <li><a href="#about">关于我</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#gallery">摄影与生活</a></li>
+        <li><a class="home-nav-contact" href="#contact" lang="en">Let’s Talk</a></li>
+      </ul>
+      <div class="home-languages" role="group" aria-label="切换语言">
+        <a href="index.html" hreflang="zh-CN" aria-current="page">中文</a>
+        <a href="en/index.html" lang="en" hreflang="en" aria-label="English">EN</a>
+        <a href="fr/index.html" lang="fr" hreflang="fr" aria-label="Français">FR</a>
+      </div>
+    </div>
+  </nav>
+  <div class="home-menu-scrim" id="home-menu-overlay" aria-hidden="true"></div>
 
-    <!-- 英雄区域 -->
-    <section class="hero reveal-section" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text reveal-seq">
-                    <h1 class="reveal-item" >你好，这里是 <span class="gradient-text">Ray</span>！</h1>
-                    <p class="hero-aliases reveal-item">Ray汐 · 清霁Ray · Rayawa</p>
-                    <div class="hero-tags">
-                        <p class="tag-intro reveal-item"><strong >计算机在读 | 专注人工智能前沿 | 跨界极客 | 影像爱好者</strong></p>
-                        <p class="reveal-item"><span class="tag-label" >核心</span><span >原生应用开发、昇腾端侧 AI、OpenHarmony 与智能设备，持续探索人工智能的新进展。</span></p>
-                        <p class="reveal-item"><span class="tag-label" >支线</span><span >跨平台客户端、Web / API 与 AI 视频工作流；继续学习 Rust、C++ 与系统开发。</span></p>
-                        <p class="reveal-item"><span class="tag-label" >摄影</span><span >主要是风景摄影与无人机航拍，人像进修中......</span></p>
-                        <p class="reveal-item"><span class="tag-label" >生活</span><span >J'apprends le français；热爱听音乐；跑步骑行中；在提瓦特、罗德岛与塔卫二切换；音游在线，每天赚费沉底石头人（）。</span></p>
-                    </div>
-                    <div class="btn-group reveal-item">
-                        <a href="#projects" class="btn">
-                            <i class="fas fa-rocket"></i>
-                            <span >查看项目</span>
-                        </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i>
-                            <span >联系我</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image reveal-item">
-                    <img src="ray.jpg" alt="Ray Chen" class="profile-img" fetchpriority="high" decoding="async">
-                    <div class="avatar-quote" >Everything is possible by code.</div>
-                    <div class="floating-elements" id="heroStar" data-tooltip="致谢">
-                        <a href="thanks.html" class="star-link" title="致谢"><i class="fas fa-star"></i></a>
-                        <span class="star-tooltip" >致谢</span>
-                    </div>
-                </div>
-            </div>
+  <main id="main-content" tabindex="-1">
+    <!-- Page 1: Hero Welcome -->
+    <section class="home-page home-welcome" id="home" aria-labelledby="welcome-title" data-home-scroll data-snap-stage="hero" data-snap-next="#overview">
+      <div class="home-welcome-stage" data-home-stage>
+        <div class="home-welcome-media">
+          <img class="home-welcome-image" src="static/resources/home/harbor-aerial.webp"
+            alt="" width="1920" height="1081" fetchpriority="high" decoding="async">
         </div>
+        <div class="home-welcome-inner">
+          <div class="home-welcome-copy" lang="en">
+            <h1 id="welcome-title">
+              <span class="home-motto-main">
+                <span class="motto-word" style="--motto-delay: 0.14s">Everything</span>
+                <span class="motto-word" style="--motto-delay: 0.42s">is possible</span>
+              </span>
+              <span class="home-motto-line">
+                <span class="motto-word motto-word-accent" style="--motto-delay: 0.72s">by code.</span>
+              </span>
+            </h1>
+          </div>
+          <a class="home-scroll-cue" href="#overview" aria-label="前往个人总览">
+            <span class="scroll-cue-track" aria-hidden="true">
+              <span class="scroll-cue-charge"></span>
+              <span class="scroll-cue-beam"></span>
+            </span>
+            <span class="scroll-cue-chevrons" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline class="cue-chev-1" points="6 7 12 13 18 7"></polyline>
+                <polyline class="cue-chev-2" points="6 13 12 19 18 13"></polyline>
+              </svg>
+            </span>
+          </a>
+          <a class="home-photo-credit" href="#gallery" lang="en">Whitsundays · Shot by Ray Chen</a>
+        </div>
+      </div>
     </section>
 
-    <!-- 关于我 -->
-    <section class="about reveal-section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title reveal-item" >关于我</h2>
-                <p class="section-subtitle reveal-item" >跨越学科的边界，只为连接更广阔的世界。</p>
-            </div>
+    <!-- Section 2: Personal Overview (Pure-Black Editorial + Circular Avatar + Focal Hierarchy) -->
+    <section class="home-page home-overview" id="overview" aria-labelledby="overview-title">
+      <div class="home-shell">
+        <div class="home-overview-top">
+          <div class="home-overview-intro">
+            <p class="home-kicker" data-reveal>个人总览</p>
+            <h2 class="home-overview-title" id="overview-title" data-reveal>
+              你好，这里是 <span>Ray</span>
+            </h2>
+            <p class="home-overview-tagline" data-reveal>计算机在读 · 专注人工智能前沿 · 跨界极客 · 影像爱好者</p>
+          </div>
 
-            <div class="about-content">
-                <div class="about-text reveal-item" id="aboutTextBlock" ><h3>个人简介</h3>
-<p>欢迎来到我的个人主页，我是Ray～你可以在这里全面的了解我。我不是特别信MBTI这个东西，但是这个东西确实挺火的。听说能让人最快了解人的性格，我目前测的是INTP，仅供参考。</p>
-<p>我出生于 2007 年，目前就读于北方工业大学计算机科学与技术专业。虽然身在通信专业，但我目前投入精力最多、也最热爱的领域是软件开发。</p>
-<p>我从小就和编程结缘：从刚记事的时候就在玩Scratch之类的模块化编程，之后又接触了EV3机器人和Arduino UNO开发板，我一直沉浸其中。印象里用EV3做过很多好玩的机器人，比如颜色分类的、爬楼梯的小车、履带小车，最后还做了一个能还原三阶魔方的魔方机器人——记得当时颜色扫描不是很稳定。虽然现在那台机器已经开不了机，也落了一层灰，但这个魔方机器人我一直留到现在，没舍得拆。</p>
-<p>三四年级的时候，Arduino的C语言是我接触的第一个正经编程语言，也是人生第一次体验“嵌入式开发”。虽然起初只是做流水呼吸灯、抢答器这类小物件，但后来我成功做出了一辆带云台的超声波避障小车。这辆小车不仅登上了当年的校报，后来还捐赠给了学校进行展示。</p>
-<p>再后来，2018年我参加了丝绸之路国际青少年大赛机器人竞赛，做了一个智能鱼食投喂机。之后开始学C++并投身信息学奥赛。升入初中后，我又参与制做了一个烤地瓜模组的项目，还有人找我们签合同购买源码将模组上架网易版本。虽然那份合同现已过期，项目也因学业而搁置，但现在想起来还是充满回忆。</p>
-<p>高中几乎三年没碰代码，都在做生物学相关的研究。去年九月份，我踏入了鸿蒙的大门，成为了鸿蒙开发者，开始参与鸿蒙应用看板项目。转眼间半年过去了，这个项目也算是积累了一定的知名度。现在我也正持续推进这个项目的进度：鸿蒙应用看板App已经进入邀请测试阶段，预计很快就能上架；未来还计划将其扩展至 macOS 与 Android 平台。</p>
-<p>除了应用层，我目前也在钻研OpenHarmony Hi3861嵌入式开发。之前简单的做了一些开发板的单独开发，现在在做结合HarmonyOS应用的智慧大棚项目。我通过硬件实验，从底层逻辑理解设备侧能力与系统工程。最近开始学习机器学习，已经做了基本的回归预测和目标检测，未来打算继续深入。在网页开发上，我搭建了个人网站、模组站、第五人格站以及农杆菌转化法实验站点。现在的我，程序方面涉猎C、C++、Java、Rust、HTML、ArkTS、Swift和openGauss数据库。对我来说参与各种项目是一种我特别感兴趣的娱乐，未来我还会做更多的开发，全面提升自己的语言能力。</p>
-<p>生物学是我探索世界的另一扇窗。高中时期遇见的两位非常优秀的生物老师，是我与这门学科结缘的关键。她们不仅教会了我知识，更以卓越的专业素养，将我从一个单纯的爱好者，培养成了能够独立思考的研究者。在老师的指导下，我带领高中开创了首届PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇感兴趣话题的小论文，还和同学一起撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去阐述生物学也十分有趣。生物学或许是我的一种“遗憾美”，如果有机会，未来我也希望能向生物信息学方向探路。</p>
-<p>在代码之外，我热爱跑步与骑行，相机和无人机则是出门必备。对我而言，摄影的乐趣远不止于最后那张照片，更在于切换视角时的构图巧思、尝试不同的叙事风格，以及在既有基础上推陈出新的创作过程。</p>
-<p>在兴趣爱好方面，我以前有小号六级证书，但很明显现在不会吹了（）。初中时自学的钢琴，现在也能弹几首曲子。此外，我还喜欢模拟飞行和玩魔方：最喜欢的是四阶，其次是五魔方。音乐也是我人生中不可割舍的一部分。无论是在通勤路上，还是在编写代码、调试网页与硬件的专注时刻，音乐不仅是滤除杂音的背景，更是与我灵感同频的共振。我还是F1的铁杆观众，梅赛德斯奔驰AMG是我的主队，最喜欢的车手是刘易斯·汉密尔顿。虽然我依旧钟情于保时捷911与AMG这种纯粹的性能机器，但也时刻关注着国产新能源的前沿发展。</p>
-<p>我是一个重度的机圈与数码发烧友，周围很多同学朋友在换新设备的时候时常会找我导购。我日常反复横跳在苹果的硬核科技与华为的创新美学之间，只要有发布会，直播间里肯定少不了我，安卓阵营中最喜欢的则是vivo。电脑方面，我是ARM架构与Apple Silicon的忠实拥护者。虽然目前仍有诸多不便，但MacBook的超高续航比与轻便体验，精准切中了我对代码编写与影像创作的核心生产力要求。至于摄影，我喜欢哈苏、索尼与大疆，它们是我记录世界时不可或缺的延伸。</p>
-<p>游戏方面，我是Minecraft的老玩家，也算一名“原学家”（大概）。近期正在玩明日方舟和异环；同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline。在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）和若干B牌（虽然目前已退游）。皇室战争里我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
-<p>身为理科生，我却对世界文化怀有极强的好奇心，也很乐意了解各个国家的风土人情。中小学时期的英语演讲比赛与两年英国议会制辩论（BP）的经历，为我打下了坚实的语言基础。最近我也在学习法语。从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
-<p>无论是在 0 与 1 的代码世界里构建秩序，还是在双螺旋的生物蓝图中寻找规律，我始终相信，跨界的探索能让生命拥有更宽广的边界。如果你也对技术、生物或这个多元的世界充满好奇，欢迎随时与我交流。</p>
-<p>很高兴认识你，在这段名为“成长”的航程中。</p>
-<p style="text-align:right">——Ray<br>2026.10.3</p></div>
-
-                <div class="about-side">
-                    <div class="glass-card status-card reveal-item" id="statusCardBlock" ><h3 class="status-card-title">当前专注</h3>
-<div class="skills-grid">
-    <a href="projects/Dashboard.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div><div class="skill-name">原生应用与跨平台</div></div><p class="skill-description">应用看板持续迭代，推进 HarmonyOS、Apple 与 Android 原生客户端<br>绮秀、Loci 与复扫雷探索不同使用场景</p></a>
-    <a href="projects/AstraPlusCar.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-microchip"></i></div><div class="skill-name">端侧 AI 与智能设备</div></div><p class="skill-description">昇腾 310B · CANN / AscendCL · MindSpore Lite<br>OpenHarmony 系统适配、视觉推理与机器人软硬件协同</p></a>
-    <a href="projects/TextVideoGen.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-film"></i></div><div class="skill-name">AI 工作流</div></div><p class="skill-description">用 OpenCode 组织本地视频制作的创意、分镜、渲染与检查<br>持续探索模型与 Agent 在实际创作中的应用</p></a>
-    <a href="projects/Biology.html" class="skill-item skill-link"><div class="skill-header"><div class="skill-icon"><i class="fas fa-seedling"></i></div><div class="skill-name">持续学习与交叉探索</div></div><p class="skill-description">继续学习 AI、Rust、C++ 与系统开发<br>关注 AI for Science 与生物信息学，作为后续探索方向</p></a>
-</div></div>
-
-                    <div class="glass-card side-card reveal-item" id="stackCardBlock" ><h3 class="status-card-title">技术栈与领域</h3>
-<div class="skills-grid">
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-code"></i></div>
-            <div class="skill-name">程序语言</div>
-        </div>
-        <p class="skill-description">ArkTS · Swift · Kotlin · Python · C / C++ · Rust · Java · C# · JavaScript / HTML / CSS</p>
-    </div>
-    <a href="#projects" class="skill-item skill-link">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-            <div class="skill-name">产品与工程</div>
-        </div>
-        <p class="skill-description">ArkUI · SwiftUI · Jetpack Compose · OpenHarmony · CANN / AscendCL · MindSpore Lite · Web / API</p>
-    </a>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
-            <div class="skill-name">开源与协作</div>
-        </div>
-        <p class="skill-description">Dashboard · AstraPlusCar · ComplexSweeper · SmartShed · Sweet Potato Mod / Difficult Rocket 协作</p>
-    </div>
-    <a href="projects/Biology.html" class="skill-item skill-link">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-flask"></i></div>
-            <div class="skill-name">生物学与交叉兴趣</div>
-        </div>
-        <p class="skill-description">PCR 实验 · 生物学猜想与综述 · 农杆菌转化法交互网页；AI for Science / 生物信息学仍在探索</p>
-    </a>
-</div></div>
-
-                    <div class="glass-card side-card reveal-item" id="roadmapCardBlock" ><h3 class="status-card-title">部分成就</h3>
-<div class="skills-grid">
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-            <div class="skill-name">编程领域</div>
-        </div>
-        <p class="skill-description">EV3魔方机器人 · Arduino超声波避障小车 · 丝绸之路机器人大赛 · C++信息学奥赛 · Sweet Potato Mod · Difficult Rocket · 鸿蒙应用看板 · 昇腾310B 系统移植 · 开放原子大赛</p>
-    </div>
-    <a href="projects/Biology.html" class="skill-item skill-link">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-microscope"></i></div>
-            <div class="skill-name">生物学领域</div>
-        </div>
-        <p class="skill-description">PCR实验项目 · 《关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想》 · 《卡尔文循环的分子生物学研究》 · 《酵母菌实验中平板变橙原因的分析与验证》 · 农杆菌转化法交互网页</p>
-    </a>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-mobile-screen-button"></i></div>
-            <div class="skill-name">昇腾AI · 鸿蒙</div>
-        </div>
-        <p class="skill-description">昇腾310B 系统适配 · HarmonyOS应用开发 · OpenHarmony嵌入式开发 · openGauss数据库</p>
-    </div>
-        <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-trophy"></i></div>
-            <div class="skill-name">其他领域</div>
-        </div>
-        <p class="skill-description">Swift开发者 · 21世界英语全国中小学生英语演讲比赛 · 小号六级证书 · 英国议会制辩论比赛 · 原学家 · A疯眼 · 众多摄影与航拍作品</p>
-    </div>
-</div></div>
-
-                    <div class="glass-card side-card reveal-item" id="lifestyleCardBlock" ><h3 class="status-card-title">兴趣与生活</h3>
-<div class="skills-grid">
-    <a href="#gallery" class="skill-item skill-link">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-camera"></i></div>
-            <div class="skill-name">摄影</div>
-        </div>
-        <p class="skill-description">风景摄影 · 无人机航拍</p>
-    </a>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-running"></i></div>
-            <div class="skill-name">运动</div>
-        </div>
-        <p class="skill-description">跑步 · 骑行</p>
-    </div>
-        <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-music"></i></div>
-            <div class="skill-name">兴趣</div>
-        </div>
-        <p class="skill-description">听音乐 · 钢琴 · 小号 · 魔方 · 模拟飞行</p>
-    </div>
-    <div class="skill-item">
-        <div class="skill-header">
-            <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
-            <div class="skill-name">游戏</div>
-        </div>
-        <p class="skill-description">Minecraft · 第五人格 · 原神 · 明日方舟 · 异环 · 皇室战争 · 多端音游（Arcaea, Phigros为主）</p>
-    </div>
-</div></div>
+          <aside class="home-overview-aside" data-reveal>
+            <figure class="home-portrait">
+              <div class="home-portrait-circle-wrap">
+                <div class="home-portrait-frame">
+                  <img src="ray.jpg" alt="Ray Chen 的头像" width="480" height="480" loading="lazy" decoding="async">
                 </div>
-            </div>
+                <div class="home-star-badge" id="heroStar">
+                  <a href="thanks.html" class="home-star-link" aria-label="查看致谢页面" title="致谢">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                  </a>
+                  <span class="home-star-tooltip">致谢</span>
+                </div>
+              </div>
+              <figcaption class="home-portrait-meta">
+                <p class="home-portrait-aliases">Ray汐 · 清霁Ray · Rayawa</p>
+                <p class="home-portrait-quote" lang="en">Everything is possible by code.</p>
+              </figcaption>
+            </figure>
+          </aside>
         </div>
+
+        <div class="home-identity-editorial">
+          <div class="home-identity-spotlight" data-reveal>
+            <div class="home-spotlight-head">
+              <span class="home-spotlight-num" aria-hidden="true">01</span>
+              <span class="home-kicker" lang="en">CORE</span>
+            </div>
+            <h3>核心</h3>
+            <p class="home-spotlight-lead">原生应用开发、昇腾端侧 AI、OpenHarmony 与智能设备，持续探索人工智能的新进展。</p>
+            <p class="home-spotlight-tags"><span lang="en">HarmonyOS</span> · 昇腾 Ascend AI · <span lang="en">OpenHarmony</span> · 人工智能前沿</p>
+            <div class="home-overview-actions">
+              <a class="home-editorial-pill" href="#projects">查看项目 <span aria-hidden="true">↓</span></a>
+              <a class="home-editorial-link" href="#contact">联系我 <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="home-identity-index">
+            <article class="home-identity-row" data-reveal>
+              <span class="home-identity-num" aria-hidden="true">02</span>
+              <div class="home-identity-body">
+                <div class="home-identity-row-head">
+                  <h3>支线</h3>
+                  <span class="home-identity-en" lang="en">SIDE</span>
+                </div>
+                <p>跨平台客户端、Web / API 与 AI 视频工作流；继续学习 Rust、C++ 与系统开发。</p>
+              </div>
+            </article>
+
+            <article class="home-identity-row" data-reveal>
+              <span class="home-identity-num" aria-hidden="true">03</span>
+              <div class="home-identity-body">
+                <div class="home-identity-row-head">
+                  <h3>摄影</h3>
+                  <span class="home-identity-en" lang="en">PHOTO</span>
+                  <a class="home-identity-jump" href="#gallery">作品集 <span aria-hidden="true">↗</span></a>
+                </div>
+                <p>主要是风景摄影与无人机航拍，人像进修中......</p>
+              </div>
+            </article>
+
+            <article class="home-identity-row" data-reveal>
+              <span class="home-identity-num" aria-hidden="true">04</span>
+              <div class="home-identity-body">
+                <div class="home-identity-row-head">
+                  <h3>生活</h3>
+                  <span class="home-identity-en" lang="en">LIFE</span>
+                </div>
+                <p>J'apprends le français；热爱听音乐；跑步骑行中；在提瓦特、罗德岛与塔卫二切换；音游在线，每天赚费沉底石头人（）。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="home-metrics-strip" aria-label="站点概览">
+          <div class="home-metric" data-reveal>
+            <span class="home-metric-num">25<span class="home-metric-plus">+</span></span>
+            <span class="home-metric-label">项目与个人创作（14 主要 · 11 课程与创作）</span>
+          </div>
+          <div class="home-metric" data-reveal>
+            <span class="home-metric-num">4</span>
+            <span class="home-metric-label">跨端与端侧生态（HarmonyOS · Apple · Android · Ascend）</span>
+          </div>
+          <div class="home-metric" data-reveal>
+            <span class="home-metric-num">12</span>
+            <span class="home-metric-label">精选摄影与无人机航拍作品</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 项目展示 -->
-    <section class="projects reveal-section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title reveal-item" >我的项目</h2>
-                <p class="section-subtitle reveal-item" >把热爱写成项目，把项目做成长期作品。</p>
-            </div>
-
-            <div class="projects-group">
-                <div class="projects-group-header">
-                    <h3 class="projects-group-title">主要项目</h3>
-                    <p class="projects-group-desc">我主导或主要参与的项目，覆盖鸿蒙与昇腾、AI 工作流、科研实验与开源协作。</p>
-                </div>
-                <div class="projects-grid projects-grid-main reveal-seq">
-                    <a href="projects/Dashboard.html" class="project-card reveal-item">
-                        <div class="project-image harmony"><span class="tag tag-category">鸿蒙</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">Dashboard应用看板</h4>
-                            <p class="project-description">与 Shenjack 合作的鸿蒙应用市场看板，可查询应用、查看版本和下载趋势。鸿蒙版已更新至 3.2.0，新增口碑榜；另有 Apple 原生客户端和开发中的 Android 版。</p>
-                            <div class="project-award-row">
-                                <span class="tag tag-award award-link" role="link" tabindex="0"  data-award-url="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0">开放原子大赛获奖作品</span>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Rust</span>
-                                <span class="tag">ArkTS</span>
-                                <span class="tag">数据可视化</span>
-                                <span class="tag">OpenAPI</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/AstraPlusCar.html" class="project-card reveal-item">
-                        <div class="project-image astracar"><span class="tag tag-category">鸿蒙与昇腾</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">AstraPlus智能小车</h4>
-                            <p class="project-description">连接昇腾设备端、ESP32 底盘与 HarmonyOS 手机控制端。设备端基于昇腾官方 E2E 样例，含路标辅助、巡线、目标追踪三套自动驾驶场景；手机端提供视频预览、三向雷达与驾驶操控，并有失联停车保护。</p>
-                            <div class="project-tags">
-                                <span class="tag">昇腾</span>
-                                <span class="tag">HarmonyOS</span>
-                                <span class="tag">ESP32</span>
-                                <span class="tag">机器人</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/ElvaCos.html" class="project-card reveal-item">
-                        <div class="project-image elvacos"><span class="tag tag-category">鸿蒙</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">绮秀 ElvaCos</h4>
-                            <p class="project-description">给 Coser 用的 HarmonyOS 应用：安排 Cos 计划，列准备和打包清单，整理活动、照片与花费。数据保存在本机，目前为 1.0.0-beta.1。</p>
-                            <div class="project-tags">
-                                <span class="tag">HarmonyOS</span>
-                                <span class="tag">ArkTS</span>
-                                <span class="tag">离线优先</span>
-                                <span class="tag">加密 RDB</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/WeakSignal.html" class="project-card reveal-item">
-                        <div class="project-image signal"><span class="tag tag-category">物理竞赛</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">基于光杠杆放大的微弱电信号测量系统</h4>
-                            <p class="project-description">物理竞赛项目。用线圈偏转和光杠杆把微弱电信号转为光点位移，再由 PSD 传感器和 ADS1115 采样，配合 Arduino 程序与 Python 工具做标定和分析。</p>
-                            <div class="project-tags">
-                                <span class="tag">Arduino</span>
-                                <span class="tag">光杠杆放大</span>
-                                <span class="tag">PSD传感器</span>
-                                <span class="tag">嵌入式</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/QiZhi01.html" class="project-card reveal-item">
-                        <div class="project-image ascend310"><span class="tag tag-category">鸿蒙与昇腾</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">基于启智01与开源鸿蒙5.0.3的肺炎病灶检测</h4>
-                            <p class="project-description">将 OpenHarmony 5.0.3 移植到昇腾 310B 开发套件，并在其上实现 X 光胸片肺炎病灶检测应用。<br>前半是内核、驱动与构建链适配（合入 43 个补丁），后半是 ArkTS 界面与 YOLOv5s 推理，CPU 与 NPU 两条路径均已验证。</p>
-                            <div class="project-tags">
-                                <span class="tag">昇腾310B</span>
-                                <span class="tag">OpenHarmony</span>
-                                <span class="tag">NPU推理</span>
-                                <span class="tag">YOLOv5</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/ComplexSweeper.html" class="project-card reveal-item">
-                        <div class="project-image complexsweeper"><span class="tag tag-category">游戏移植</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">复扫雷 ComplexSweeper</h4>
-                            <p class="project-description">基于青月晓原作的三端原生移植：圆复数与闵可夫斯基两种模式、三档难度和独立战绩。HarmonyOS、Android、iOS / iPadOS / macOS 源码已合并公开；1.2.0 支持彩色／黑白外观与长按清旗翻开。</p>
-                            <div class="project-tags">
-                                <span class="tag">ArkTS</span>
-                                <span class="tag">Kotlin</span>
-                                <span class="tag">SwiftUI</span>
-                                <span class="tag">复数扫雷</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/SmartShed.html" class="project-card reveal-item">
-                        <div class="project-image smartshed"><span class="tag tag-category">鸿蒙</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">基于Hi3861的智慧大棚系统</h4>
-                            <p class="project-description">两块 Hi3861 开发板采集大棚环境数据并控制灯、风扇和水泵，通过 EMQX 传递 MQTT 消息。HarmonyOS 应用用于查看读数、手动调节或按阈值自动控制。</p>
-                            <div class="project-tags">
-                                <span class="tag">OpenHarmony</span>
-                                <span class="tag">HarmonyOS</span>
-                                <span class="tag">MQTT</span>
-                                <span class="tag">物联网</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/Loci.html" class="project-card reveal-item">
-                        <div class="project-image loci"><span class="tag tag-category">鸿蒙</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">时迹 Loci</h4>
-                            <p class="project-description">记录每天的时间与事项，按天或按周回看，用图表查看时间分配。支持多行文本输入、跨夜记录，也保留地点与到访记忆。HarmonyOS 原生应用，开发中。</p>
-                            <div class="project-tags">
-                                <span class="tag">HarmonyOS</span>
-                                <span class="tag">ArkUI V2</span>
-                                <span class="tag">时间记录</span>
-                                <span class="tag">本地存储</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/TextVideoGen.html" class="project-card reveal-item">
-                        <div class="project-image textvideogen"><span class="tag tag-category">AI工作流</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">TextVideoGen 文本视频工作区</h4>
-                            <p class="project-description">在 OpenCode 中制作视频的本地工作区，包含配音、分镜、浏览器动画渲染和 FFmpeg 合成工具。修改时可重做部分场景，目前由 Agent 与 Skills 组织制作流程。</p>
-                            <div class="project-tags">
-                                <span class="tag">OpenCode</span>
-                                <span class="tag">TypeScript</span>
-                                <span class="tag">FFmpeg</span>
-                                <span class="tag">JSON Schema</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/Biology.html" class="project-card reveal-item">
-                        <div class="project-image bio"><span class="tag tag-category">生物学</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">生物学项目</h4>
-                            <p class="project-description">收录生物学方向的三类成果：一个留下完整记录的 PCR 课堂实验（设计、凝胶电泳结果与报告）、三篇研究文稿（朊病毒蛋白质猜想、卡尔文循环、酵母菌平板变橙分析），以及一个把农杆菌转化法做成可拖拽操作的交互网页。</p>
-                            <div class="project-tags">
-                                <span class="tag">PCR</span>
-                                <span class="tag">分子生物学</span>
-                                <span class="tag">研究论文</span>
-                                <span class="tag">凝胶电泳</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/SPM.html" class="project-card reveal-item">
-                        <div class="project-image spm"><span class="tag tag-category">Minecraft</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">Sweet Potato Mod</h4>
-                            <p class="project-description">与 Featurehouse 团队合作开发的 Minecraft 模组。加入地瓜种植、加工和附魔玩法，包含四个方块、五种物品及用灵魂火激活的魔法锅。版本 1.5.1。</p>
-                            <div class="project-tags">
-                                <span class="tag">Fabric</span>
-                                <span class="tag">Java</span>
-                                <span class="tag">模组开发</span>
-                                <span class="tag">资源包</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/RockPaperScissors.html" class="project-card reveal-item">
-                        <div class="project-image rps"><span class="tag tag-category">学校项目</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">Rock Paper Scissors</h4>
-                            <p class="project-description">暑期 Python 课程项目，主要用 YOLO11n 识别石头、剪刀、布三种手势。验证集 mAP50 为 0.940，测试集为 0.934；也收录了前期 Python 与机器学习练习。</p>
-                            <div class="project-tags">
-                                <span class="tag">YOLO11n</span>
-                                <span class="tag">机器学习</span>
-                                <span class="tag">Python</span>
-                                <span class="tag">随机森林</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/YoloSecurityPlatform.html" class="project-card reveal-item">
-                        <div class="project-image security"><span class="tag tag-category">学校项目</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">校园智能安防远程监控平台</h4>
-                            <p class="project-description">实训课程中的安防监控项目。YOLOv5 识别图片和视频，Spring Boot 保存告警并通过 WebSocket 推送，Web 与 HarmonyOS 客户端用于查看和处理。</p>
-                            <div class="project-tags">
-                                <span class="tag">YOLOv5</span>
-                                <span class="tag">Spring Boot</span>
-                                <span class="tag">WebSocket</span>
-                                <span class="tag">HarmonyOS</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://dr.shenjack.top/" target="_blank" rel="noopener" class="project-card reveal-item">
-                        <div class="project-image dr"><span class="tag tag-category">Python</span></div>
-                        <div class="project-content">
-                            <h4 class="project-title">Difficult Rocket<i class="fas fa-external-link-alt external-link-icon"></i></h4>
-                            <p class="project-description">与 @shenjack 协作的火箭模拟项目，以更轻量的方式探索类似 Simple Rockets 的玩法；这是一个侧重游戏制作与协作实践的项目。</p>
-                            <div class="project-tags">
-                                <span class="tag">Rust</span>
-                                <span class="tag">火箭模拟器</span>
-                                <span class="tag">物理模拟</span>
-                                <span class="tag">协作开发</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="projects-group">
-                <div class="projects-group-header">
-                    <h3 class="projects-group-title reveal-item">其他项目</h3>
-                    <p class="projects-group-desc reveal-item">课程项目、小工具与影音创作，多数是为自己或身边人做的。</p>
-                </div>
-                <div class="projects-grid projects-grid-compact reveal-seq">
-                    <a href="projects/PetSnap.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">鸿蒙与昇腾</span>
-                            <h4 class="project-title">基于MindSpore的猫狗识别</h4>
-                            <p class="project-description">从 MindSpore / MobileNetV2 迁移学习实验延伸到 HarmonyOS 原生应用。通过相册或拍照输入图片，使用 MindSpore Lite 在 CPU 本地完成猫狗分类，支持深浅色界面。</p>
-                            <div class="project-tags">
-                                <span class="tag">MindSpore</span>
-                                <span class="tag">MobileNetV2</span>
-                                <span class="tag">端侧推理</span>
-                                <span class="tag">迁移学习</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/CarRent.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">学校项目</span>
-                            <h4 class="project-title">基于链表的汽车租赁管理系统</h4>
-                            <p class="project-description">C++11 编写的命令行汽车租赁管理工具，用单向链表管理车辆、用户与租车记录，数据以二进制文件持久化。支持增删改查、租车退车、分类查询、分组统计、票据打印与操作日志。</p>
-                            <div class="project-tags">
-                                <span class="tag">C++11</span>
-                                <span class="tag">数据结构</span>
-                                <span class="tag">文件持久化</span>
-                                <span class="tag">单向链表</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/CommChain.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">学校项目</span>
-                            <h4 class="project-title">基于C#的数字通信系统模拟器</h4>
-                            <p class="project-description">C# 通信原理课程项目。在控制台逐步演示文本编码、信号调制、信道传递和解调还原，也可以连续运行各环节，查看输入与输出。</p>
-                            <div class="project-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">.NET</span>
-                                <span class="tag">数字通信</span>
-                                <span class="tag">xUnit</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/GaokaoQuery.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">Python</span>
-                            <h4 class="project-title">高考录取结果查询工具</h4>
-                            <p class="project-description">用 Python 和 Playwright 辅助查询录取结果，将院校、专业、批次及查询状态写回 Excel。历史项目已归档，查询入口未重新验证。</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Playwright</span>
-                                <span class="tag">pandas</span>
-                                <span class="tag">openpyxl</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/Hi3861.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">鸿蒙</span>
-                            <h4 class="project-title">Hi3861嵌入式开发</h4>
-                            <p class="project-description">以交通灯状态机、灯光与蜂鸣器联动、环境数据采集、自定义 AT 指令四条路径组织的 OpenHarmony 嵌入式练习，覆盖 GPIO、PWM、ADC、I²C 与 UART。</p>
-                            <div class="project-tags">
-                                <span class="tag">OpenHarmony</span>
-                                <span class="tag">GPIO</span>
-                                <span class="tag">PWM</span>
-                                <span class="tag">I²C</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/SchoolPapers.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">学校项目</span>
-                            <h4 class="project-title">学校论文</h4>
-                            <p class="project-description">按通信工程、HarmonyOS 应用与 Hi3861 嵌入式三个方向归档的课程论文与实验报告，共 8 篇，涵盖技术综述、应用设计与智慧场景原型。</p>
-                            <div class="project-tags">
-                                <span class="tag">通信工程</span>
-                                <span class="tag">HarmonyOS</span>
-                                <span class="tag">嵌入式</span>
-                                <span class="tag">课程论文</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/idv.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">网页</span>
-                            <h4 class="project-title">第五人格，启动！</h4>
-                            <p class="project-description">《第五人格》排位目标计算器：输入当前积分、目标段位与赛季日期，计算剩余天数与每日所需积分，并提供手动加减分与历史记录。</p>
-                            <div class="project-tags">
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">实用工具</span>
-                                <span class="tag">localStorage</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">影片</span>
-                            <h4 class="project-title">《寿怡红群芳开夜宴》</h4>
-                            <p class="project-description">参与《红楼梦》剧组 2023 年末的翻拍活动，承担导演、摄影和剪辑工作，完整经历从现场拍摄到成片整理的创作流程。</p>
-                            <div class="project-tags">
-                                <span class="tag">导演</span>
-                                <span class="tag">摄影</span>
-                                <span class="tag">剪辑</span>
-                                <span class="tag">短片</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">InDesign</span>
-                            <h4 class="project-title">毕业纪念册</h4>
-                            <p class="project-description">使用 InDesign 反复打磨版式与内容，并为实体纪念册加入可访问网站的 NFC 标签；集体照与「送你一朵小红花」构成视觉记忆点。</p>
-                            <div class="project-tags">
-                                <span class="tag">InDesign</span>
-                                <span class="tag">版式设计</span>
-                                <span class="tag">NFC</span>
-                                <span class="tag">实体印刷</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="javascript:void(0)" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">影片</span>
-                            <h4 class="project-title">whn生日</h4>
-                            <p class="project-description">为 2024 年 11 月的生日活动制作影像内容，参与分镜、拍摄与后期剪辑，把一次线下聚会整理成可留存的视频作品。</p>
-                            <div class="project-tags">
-                                <span class="tag">分镜</span>
-                                <span class="tag">拍摄</span>
-                                <span class="tag">剪辑</span>
-                                <span class="tag">纪念影像</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="projects/xxh.html" class="project-card project-card-mini reveal-item">
-                        <div class="project-content">
-                            <span class="tag tag-category">网页</span>
-                            <h4 class="project-title">xxh的感情契合度测试</h4>
-                            <p class="project-description">双人依次匿名答题，在浏览器本地比较价值观、生活方式和附加议题；结果提供总分、分项分数与题目明细，答案不会上传。</p>
-                            <div class="project-tags">
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">互动网页</span>
-                                <span class="tag">本地计分</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
+    <!-- Photography Transition 1: Three-Pillar Gateway -->
+    <section class="home-photo-bridge home-pillars" id="pillars" data-photo-bridge data-snap-stage="bridge" data-snap-next="#about" aria-label="三大内容篇章">
+      <div class="home-bridge-stage">
+        <div class="home-bridge-frame" aria-hidden="true">
+          <img src="static/resources/home/coral-reef.webp" alt="" width="1600" height="900" loading="lazy" decoding="async">
         </div>
+        <nav class="home-pillars-nav" aria-label="首页篇章入口">
+          <a class="home-pillar-link" href="#about">
+            <span class="pillar-num">01</span>
+            <span class="pillar-name">关于我</span>
+          </a>
+          <span class="pillar-dot" aria-hidden="true"></span>
+          <a class="home-pillar-link" href="#projects">
+            <span class="pillar-num">02</span>
+            <span class="pillar-name">项目</span>
+          </a>
+          <span class="pillar-dot" aria-hidden="true"></span>
+          <a class="home-pillar-link" href="#gallery">
+            <span class="pillar-num">03</span>
+            <span class="pillar-name">摄影与生活</span>
+          </a>
+        </nav>
+        <a class="home-scroll-cue" href="#about" aria-label="前往关于我">
+          <span class="scroll-cue-track" aria-hidden="true">
+            <span class="scroll-cue-charge"></span>
+            <span class="scroll-cue-beam"></span>
+          </span>
+          <span class="scroll-cue-chevrons" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline class="cue-chev-1" points="6 7 12 13 18 7"></polyline>
+              <polyline class="cue-chev-2" points="6 13 12 19 18 13"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
     </section>
 
-    <!-- 摄影与生活画廊 -->
-    <section class="gallery reveal-section" id="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title reveal-item" >摄影与生活</h2>
-                <p class="section-subtitle reveal-item" >以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
-            </div>
+    <!-- Chapter 01: About Me (PRIOR .services style) -->
+    <section class="home-page home-chapter home-chapter-about" id="about" aria-labelledby="about-title">
+      <div class="home-shell home-split-layout">
+        <header class="home-chapter-anchor">
+          <span class="home-chapter-num" aria-hidden="true">01</span>
+          <p class="home-kicker" lang="en">ABOUT ME</p>
+          <h2 class="home-chapter-title" id="about-title">关于我</h2>
+          <p class="home-chapter-subtitle">跨越学科的边界，只为连接更广阔的世界。</p>
+          <p class="home-chapter-meta">北方工业大学 · 计算机科学与技术</p>
+          <nav class="home-subnav" aria-label="关于我章节导航">
+            <a href="#about-focus">当前专注</a>
+            <a href="#about-summary">核心摘要</a>
+            <a href="#aboutTextBlock">个人自述与明细</a>
+          </nav>
+        </header>
 
-            <div class="gallery-carousel reveal-item" id="galleryCarousel">
-                <div class="gallery-track">
-                    <div class="gallery-slide active">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/DJI_0733.jpg" alt="摄影作品 1" decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/DJI_0942.jpg" alt="摄影作品 2" decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/IMG_20250701_181148.jpg" alt="摄影作品 3"
-                                decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/IMG_20250723_174511.jpg" alt="摄影作品 4"
-                                decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/IMG_20260210_171544.jpg" alt="摄影作品 5"
-                                decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/IMG_20260212_155345.jpg" alt="摄影作品 6"
-                                decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg"
-                                alt="摄影作品 7" decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg"
-                                alt="摄影作品 8" decoding="async">
-                        </a>
-                    </div>
-                    <div class="gallery-slide">
-                        <a class="gallery-slide-link"
-                            href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                            rel="noopener">
-                            <img src="static/resources/main_page/gallery/微信图片_20240529100845.jpg" alt="摄影作品 9"
-                                decoding="async">
-                        </a>
-                    </div>
+        <div class="home-about-body">
+          <!-- 1. 4 PRIOR Service Rows -->
+          <div class="home-about-block" id="about-focus">
+            <div class="home-subblock-head" data-reveal>
+              <span class="home-subblock-label" lang="en">CURRENT FOCUS</span>
+              <h3>当前专注</h3>
+            </div>
+            <div class="home-focus-list">
+              <article class="home-focus-item" data-focus-item>
+                <span class="home-focus-index" aria-hidden="true">01</span>
+                <div class="home-focus-content">
+                  <h4><a href="projects/Dashboard.html">原生应用与跨平台 <span aria-hidden="true">↗</span></a></h4>
+                  <p>应用看板持续迭代，推进 HarmonyOS、Apple 与 Android 原生客户端<br>绮秀、Loci 与复扫雷探索不同使用场景</p>
                 </div>
-                <button class="gallery-nav prev" type="button" aria-label="上一张">‹</button>
-                <button class="gallery-nav next" type="button" aria-label="下一张">›</button>
-                <div class="gallery-dots" id="galleryDots"></div>
-            </div>
-
-            <div class="gallery-more reveal-item">
-                <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                    rel="noopener" class="btn">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span >查看更多摄影作品</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- 生活 -->
-    <section class="projects reveal-section" id="life">
-        <div class="container">
-            <div class="projects-group">
-                <div class="life-grid">
-                    <a href="life/piano.html" class="life-card reveal-item">
-                        <div class="life-card-visual piano-visual"></div>
-                        <div class="life-card-body">
-                            <h4 class="life-card-title">钢琴</h4>
-                        </div>
-                    </a>
-
-                    <a href="life/books.html" class="life-card reveal-item">
-                        <div class="life-card-visual books-visual"></div>
-                        <div class="life-card-body">
-                            <h4 class="life-card-title">书单</h4>
-                        </div>
-                    </a>
+              </article>
+              <article class="home-focus-item" data-focus-item>
+                <span class="home-focus-index" aria-hidden="true">02</span>
+                <div class="home-focus-content">
+                  <h4><a href="projects/AstraPlusCar.html">端侧 AI 与智能设备 <span aria-hidden="true">↗</span></a></h4>
+                  <p>昇腾 310B · CANN / AscendCL · MindSpore Lite<br>OpenHarmony 系统适配、视觉推理与机器人软硬件协同</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系我 -->
-    <section class="contact reveal-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title reveal-item" >联系我</h2>
-                <p class="section-subtitle reveal-item" >如果方向一致，我们就一起把它做成。</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-left">
-                    <div class="contact-info">
-                        <div class="contact-item reveal-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 >电子邮件</h4>
-                                <p>rayawa.work@outlook.com</p>
-                                <p>rayawa.work@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item reveal-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 >网站</h4>
-                                <p>rayawa.top</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-qq"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 >QQ</h4>
-                                <p><a href="tencent://message/?uin=2265695808" class="qq-link">2265695808</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 >位置</h4>
-                                <p >北京，中国</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-social-divider"></div>
-
-                    <div class="contact-social">
-                        <h4 class="contact-social-title" >我的链接</h4>
-                        <div class="contact-social-grid">
-                            <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener"
-                                class="social-card bilibili">
-                                <div class="social-icon">
-                                    <i class="fab fa-bilibili"></i>
-                                </div>
-                                <div class="social-details">
-                                    <h4 >Bilibili (Rayawa)</h4>
-                                    <p >摄影作品与项目更新进度</p>
-                                </div>
-                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                            </a>
-
-                            <a href="https://space.bilibili.com/524181098" target="_blank" rel="noopener"
-                                class="social-card bilibili-game">
-                                <div class="social-icon">
-                                    <i class="fab fa-bilibili"></i>
-                                </div>
-                                <div class="social-details">
-                                    <h4 >Bilibili (Ray汐)</h4>
-                                    <p >游戏与日常</p>
-                                </div>
-                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                            </a>
-
-                            <a href="https://github.com/Rayawa" target="_blank" rel="noopener" class="social-card github">
-                                <div class="social-icon">
-                                    <i class="fab fa-github"></i>
-                                </div>
-                                <div class="social-details">
-                                    <h4 >GitHub</h4>
-                                    <p >代码与仓库入口</p>
-                                </div>
-                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                            </a>
-
-                            <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank"
-                                rel="noopener" class="social-card xiaohongshu">
-                                <div class="social-icon">
-                                    <i class="fas fa-camera"></i>
-                                </div>
-                                <div class="social-details">
-                                    <h4 >小红书</h4>
-                                    <p >我的全部摄影作品</p>
-                                </div>
-                                <span class="social-external-icon"><i class="fas fa-external-link-alt"></i></span>
-                            </a>
-                        </div>
-                    </div>
+              </article>
+              <article class="home-focus-item" data-focus-item>
+                <span class="home-focus-index" aria-hidden="true">03</span>
+                <div class="home-focus-content">
+                  <h4><a href="projects/TextVideoGen.html">AI 工作流 <span aria-hidden="true">↗</span></a></h4>
+                  <p>用 OpenCode 组织本地视频制作的创意、分镜、渲染与检查<br>持续探索模型与 Agent 在实际创作中的应用</p>
                 </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-header">
-                        <h3 class="form-title" >快捷消息</h3>
-                        <p class="form-subtitle" >项目合作 / 技术支持 / 摄影约稿 / Bug反馈 / 碎碎念</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" >姓名</label>
-                        <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
-                        <p class="form-hint" >请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" >邮箱</label>
-                        <input type="email" id="email" class="form-control" placeholder="请输入您的邮箱" required>
-                        <p class="form-hint" >请确认邮箱地址无误，这决定您能否收到回信</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" >消息</label>
-                        <textarea id="message" class="form-control" placeholder="请输入您的消息..." required></textarea>
-                        <p class="form-hint" >姓名不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
-                    </div>
-
-                    <button type="submit" class="btn contact-submit">
-                        <i class="fas fa-paper-plane"></i>
-                        <span >发送消息</span>
-                    </button>
-                </form>
+              </article>
+              <article class="home-focus-item" data-focus-item>
+                <span class="home-focus-index" aria-hidden="true">04</span>
+                <div class="home-focus-content">
+                  <h4><a href="projects/Biology.html">持续学习与交叉探索 <span aria-hidden="true">↗</span></a></h4>
+                  <p>继续学习 AI、Rust、C++ 与系统开发<br>关注 AI for Science 与生物信息学，作为后续探索方向</p>
+                </div>
+              </article>
             </div>
+          </div>
+
+          <!-- 2. Concise Core Highlights (Unified Clean Sans) -->
+          <div class="home-about-block" id="about-summary">
+            <div class="home-subblock-head" data-reveal>
+              <span class="home-subblock-label" lang="en">HIGHLIGHTS</span>
+              <h3>核心技术与轨迹</h3>
+            </div>
+            <dl class="home-ledger">
+              <div class="home-ledger-row" data-reveal>
+                <dt>程序与工程</dt>
+                <dd>ArkTS · Swift · Kotlin · Python · C / C++ · Rust · Java · C# · Web / API · ArkUI · SwiftUI · OpenHarmony · CANN / AscendCL</dd>
+              </div>
+              <div class="home-ledger-row" data-reveal>
+                <dt>开源与竞赛</dt>
+                <dd>鸿蒙应用看板 · 昇腾 310B 系统移植 · 开放原子大赛获奖 · EV3 魔方机器人 · 丝绸之路机器人大赛 · C++ 信息学奥赛 · Sweet Potato Mod</dd>
+              </div>
+              <div class="home-ledger-row" data-reveal>
+                <dt>学科交叉</dt>
+                <dd>PCR 课堂实验 · 分子生物学研究综述 · 农杆菌转化法交互网页 · 21 世纪英语演讲比赛 · 英国议会制辩论 · 法语学习</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- 3. Curated Intro + Clean Drawers for Full Bio & Complete Stack/Achievements -->
+          <div class="home-about-block home-bio-block" id="aboutTextBlock" data-reveal>
+            <div class="home-subblock-head">
+              <span class="home-subblock-label" lang="en">PROFILE &amp; ARCHIVE</span>
+              <h3>个人自述与完整明细</h3>
+            </div>
+            <div class="home-bio-prose">
+              <p>欢迎来到我的个人主页，我是Ray～你可以在这里全面的了解我。我不是特别信MBTI这个东西，但是这个东西确实挺火的。听说能让人最快了解人的性格，我目前测的是INTP，仅供参考。</p>
+              <p>我出生于 2007 年，目前就读于北方工业大学计算机科学与技术专业。虽然身在通信专业，但我目前投入精力最多、也最热爱的领域是软件开发。</p>
+            </div>
+
+            <div class="home-drawer-actions">
+              <button class="home-drawer-toggle" id="about-bio-toggle" type="button" aria-expanded="false" aria-controls="about-bio-full">
+                <span>阅读完整个人自述 · 2026.10.3</span>
+                <span class="home-drawer-symbol" aria-hidden="true">+</span>
+              </button>
+              <button class="home-drawer-toggle" id="about-details-toggle" type="button" aria-expanded="false" aria-controls="about-details-full">
+                <span>展开完整技术栈与成就明细</span>
+                <span class="home-drawer-symbol" aria-hidden="true">+</span>
+              </button>
+            </div>
+
+            <!-- Full 16-Paragraph Biography -->
+            <div class="home-drawer-panel" id="about-bio-full" hidden>
+              <div class="home-bio-prose">
+                <p>我从小就和编程结缘：从刚记事的时候就在玩Scratch之类的模块化编程，之后又接触了EV3机器人和Arduino UNO开发板，我一直沉浸其中。印象里用EV3做过很多好玩的机器人，比如颜色分类的、爬楼梯的小车、履带小车，最后还做了一个能还原三阶魔方的魔方机器人——记得当时颜色扫描不是很稳定。虽然现在那台机器已经开不了机，也落了一层灰，但这个魔方机器人我一直留到现在，没舍得拆。</p>
+                <p>三四年级的时候，Arduino的C语言是我接触的第一个正经编程语言，也是人生第一次体验“嵌入式开发”。虽然起初只是做流水呼吸灯、抢答器这类小物件，但后来我成功做出了一辆带云台的超声波避障小车。这辆小车不仅登上了当年的校报，后来还捐赠给了学校进行展示。</p>
+                <p>再后来，2018年我参加了丝绸之路国际青少年大赛机器人竞赛，做了一个智能鱼食投喂机。之后开始学C++并投身信息学奥赛。升入初中后，我又参与制做了一个烤地瓜模组的项目，还有人找我们签合同购买源码将模组上架网易版本。虽然那份合同现已过期，项目也因学业而搁置，但现在想起来还是充满回忆。</p>
+                <p>高中几乎三年没碰代码，都在做生物学相关的研究。去年九月份，我踏入了鸿蒙的大门，成为了鸿蒙开发者，开始参与鸿蒙应用看板项目。转眼间半年过去了，这个项目也算是积累了一定的知名度。现在我也正持续推进这个项目的进度：鸿蒙应用看板App已经进入邀请测试阶段，预计很快就能上架；未来还计划将其扩展至 macOS 与 Android 平台。</p>
+                <p>除了应用层，我目前也在钻研OpenHarmony Hi3861嵌入式开发。之前简单的做了一些开发板的单独开发，现在在做结合HarmonyOS应用的智慧大棚项目。我通过硬件实验，从底层逻辑理解设备侧能力与系统工程。最近开始学习机器学习，已经做了基本的回归预测和目标检测，未来打算继续深入。在网页开发上，我搭建了个人网站、模组站、第五人格站以及农杆菌转化法实验站点。现在的我，程序方面涉猎C、C++、Java、Rust、HTML、ArkTS、Swift和openGauss数据库。对我来说参与各种项目是一种我特别感兴趣的娱乐，未来我还会做更多的开发，全面提升自己的语言能力。</p>
+                <p>生物学是我探索世界的另一扇窗。高中时期遇见的两位非常优秀的生物老师，是我与这门学科结缘的关键。她们不仅教会了我知识，更以卓越的专业素养，将我从一个单纯的爱好者，培养成了能够独立思考的研究者。在老师的指导下，我带领高中开创了首届PCR实验，把高等的实验内容带到了高中课堂。我自己写了几篇感兴趣话题的小论文，还和同学一起撰写过一篇关于蛋白质在极特殊生物中作为遗传因子的设想。虽然现在因为主攻编程，碳同化综述和一些橙色平板研究项目的实验记录暂时搁置了，但我发现用代码去阐述生物学也十分有趣。生物学或许是我的一种“遗憾美”，如果有机会，未来我也希望能向生物信息学方向探路。</p>
+                <p>在代码之外，我热爱跑步与骑行，相机和无人机则是出门必备。对我而言，摄影的乐趣远不止于最后那张照片，更在于切换视角时的构图巧思、尝试不同的叙事风格，以及在既有基础上推陈出新的创作过程。</p>
+                <p>在兴趣爱好方面，我以前有小号六级证书，但很明显现在不会吹了（）。初中时自学的钢琴，现在也能弹几首曲子。此外，我还喜欢模拟飞行和玩魔方：最喜欢的是四阶，其次是五魔方。音乐也是我人生中不可割舍的一部分。无论是在通勤路上，还是在编写代码、调试网页与硬件的专注时刻，音乐不仅是滤除杂音的背景，更是与我灵感同频的共振。我还是F1的铁杆观众，梅赛德斯奔驰AMG是我的主队，最喜欢的车手是刘易斯·汉密尔顿。虽然我依旧钟情于保时捷911与AMG这种纯粹的性能机器，但也时刻关注着国产新能源的前沿发展。</p>
+                <p>我是一个重度的机圈与数码发烧友，周围很多同学朋友在换新设备的时候时常会找我导购。我日常反复横跳在苹果的硬核科技与华为的创新美学之间，只要有发布会，直播间里肯定少不了我，安卓阵营中最喜欢的则是vivo。电脑方面，我是ARM架构与Apple Silicon的忠实拥护者。虽然目前仍有诸多不便，但MacBook的超高续航比与轻便体验，精准切中了我对代码编写与影像创作的核心生产力要求。至于摄影，我喜欢哈苏、索尼与大疆，它们是我记录世界时不可或缺的延伸。</p>
+                <p>游戏方面，我是Minecraft的老玩家，也算一名“原学家”（大概）。近期正在玩明日方舟和异环；同时也活跃于Arcaea、Phigros等音游，有时候还打打milthm、舞萌、lanota、rizline。在第五人格中，我曾在36赛季打到巅峰七阶31星，拿到了三个疯眼A牌（最高A47）和若干B牌（虽然目前已退游）。皇室战争里我爱玩石头人体系，主力卡组是自己配的克隆石卡组。</p>
+                <p>身为理科生，我却对世界文化怀有极强的好奇心，也很乐意了解各个国家的风土人情。中小学时期的英语演讲比赛与两年英国议会制辩论（BP）的经历，为我打下了坚实的语言基础。最近我也在学习法语。从Cécile Corbel的空灵吟唱，到枫丹水国的浪漫景致；从《清涟》的悠扬旋律，到《罗密欧与朱丽叶》的经典对白——法语的魅力正不断驱使着我，向这门语言的更深处漫溯。</p>
+                <p>无论是在 0 与 1 的代码世界里构建秩序，还是在双螺旋的生物蓝图中寻找规律，我始终相信，跨界的探索能让生命拥有更宽广的边界。如果你也对技术、生物或这个多元的世界充满好奇，欢迎随时与我交流。</p>
+                <p>很高兴认识你，在这段名为“成长”的航程中。</p>
+                <p class="home-bio-sign">——Ray<br>2026.10.3</p>
+              </div>
+            </div>
+
+            <!-- Complete Tech Stack & Achievements Drawer -->
+            <div class="home-drawer-panel" id="about-details-full" hidden>
+              <div class="home-details-group" id="stackCardBlock">
+                <h4 class="home-details-heading">技术栈与领域</h4>
+                <dl class="home-ledger">
+                  <div class="home-ledger-row">
+                    <dt>程序语言</dt>
+                    <dd>ArkTS · Swift · Kotlin · Python · C / C++ · Rust · Java · C# · JavaScript / HTML / CSS</dd>
+                  </div>
+                  <div class="home-ledger-row">
+                    <dt><a href="#projects">产品与工程 <span aria-hidden="true">↗</span></a></dt>
+                    <dd>ArkUI · SwiftUI · Jetpack Compose · OpenHarmony · CANN / AscendCL · MindSpore Lite · Web / API</dd>
+                  </div>
+                  <div class="home-ledger-row">
+                    <dt>开源与协作</dt>
+                    <dd>Dashboard · AstraPlusCar · ComplexSweeper · SmartShed · Sweet Potato Mod / Difficult Rocket 协作</dd>
+                  </div>
+                  <div class="home-ledger-row">
+                    <dt><a href="projects/Biology.html">生物学与交叉兴趣 <span aria-hidden="true">↗</span></a></dt>
+                    <dd>PCR 实验 · 生物学猜想与综述 · 农杆菌转化法交互网页；AI for Science / 生物信息学仍在探索</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="home-details-group" id="roadmapCardBlock">
+                <h4 class="home-details-heading">部分成就</h4>
+                <dl class="home-ledger">
+                  <div class="home-ledger-row">
+                    <dt>编程领域</dt>
+                    <dd>EV3魔方机器人 · Arduino超声波避障小车 · 丝绸之路机器人大赛 · C++信息学奥赛 · Sweet Potato Mod · Difficult Rocket · 鸿蒙应用看板 · 昇腾310B 系统移植 · 开放原子大赛</dd>
+                  </div>
+                  <div class="home-ledger-row">
+                    <dt><a href="projects/Biology.html">生物学领域 <span aria-hidden="true">↗</span></a></dt>
+                    <dd>PCR实验项目 · 《关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想》 · 《卡尔文循环的分子生物学研究》 · 《酵母菌实验中平板变橙原因的分析与验证》 · 农杆菌转化法交互网页</dd>
+                  </div>
+                  <div class="home-ledger-row">
+                    <dt>昇腾AI · 鸿蒙</dt>
+                    <dd>昇腾310B 系统适配 · HarmonyOS应用开发 · OpenHarmony嵌入式开发 · openGauss数据库</dd>
+                  </div>
+                  <div class="home-ledger-row">
+                    <dt>其他领域</dt>
+                    <dd>Swift开发者 · 21世界英语全国中小学生英语演讲比赛 · 小号六级证书 · 英国议会制辩论比赛 · 原学家 · A疯眼 · 众多摄影与航拍作品</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 页脚 -->
-    <div id="site-footer"></div>
+    <!-- Photography Transition 2: About -> Projects -->
+    <section class="home-photo-bridge" id="bridge-projects" data-photo-bridge data-snap-stage="bridge" data-snap-next="#projects" aria-label="项目篇章过渡">
+      <div class="home-bridge-stage">
+        <div class="home-bridge-frame" aria-hidden="true">
+          <img src="static/resources/main_page/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg"
+            alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="home-bridge-copy">
+          <span class="home-bridge-num" aria-hidden="true">02</span>
+          <h2 class="home-bridge-heading">把热爱写成项目</h2>
+          <p class="home-bridge-sub">把项目做成长期作品。</p>
+        </div>
+        <a class="home-scroll-cue" href="#projects" aria-label="前往项目">
+          <span class="scroll-cue-track" aria-hidden="true">
+            <span class="scroll-cue-charge"></span>
+            <span class="scroll-cue-beam"></span>
+          </span>
+          <span class="scroll-cue-chevrons" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline class="cue-chev-1" points="6 7 12 13 18 7"></polyline>
+              <polyline class="cue-chev-2" points="6 13 12 19 18 13"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
 
-    <!-- JavaScript -->
-<script src="/static/vendor/particles.js/particles.min.js"></script>
-<script data-goatcounter="https://rayawa.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+    <!-- Chapter 02: Projects -->
+    <section class="home-page home-chapter home-chapter-projects" id="projects" aria-labelledby="projects-title">
+      <div class="home-shell">
+        <header class="home-projects-header">
+          <div class="home-projects-header-main">
+            <span class="home-chapter-num" aria-hidden="true">02</span>
+            <p class="home-kicker" lang="en">PROJECTS</p>
+            <h2 class="home-chapter-title" id="projects-title">项目</h2>
+            <p class="home-chapter-subtitle">把热爱写成项目，把项目做成长期作品。</p>
+          </div>
+          <div class="home-projects-header-side">
+            <p class="home-projects-desc">我主导或主要参与的项目，覆盖鸿蒙与昇腾、AI 工作流、科研实验与开源协作。</p>
+            <div class="home-project-filters" role="group" aria-label="筛选项目视图">
+              <button class="home-filter-btn is-active" type="button" data-project-tab="featured" aria-pressed="true">精选代表 (6)</button>
+              <button class="home-filter-btn" type="button" data-project-tab="all-main" aria-pressed="false">全部主要项目 (14)</button>
+              <button class="home-filter-btn" type="button" data-project-tab="harmony-ascend" aria-pressed="false">鸿蒙与昇腾</button>
+              <button class="home-filter-btn" type="button" data-project-tab="ai-science" aria-pressed="false">AI 与科研</button>
+              <button class="home-filter-btn" type="button" data-project-tab="archive" aria-pressed="false">课程与创作 (11)</button>
+            </div>
+            <p class="home-filter-status" id="home-project-count" aria-live="polite">当前展示 6 项代表作品，可切换全部 14 项主要项目与 11 项课程创作</p>
+          </div>
+        </header>
 
-    <script src="/static/js/footer.js"></script>
-    <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
-    <script src="/static/js/index.js?v=20261030-particles-59e3aaa"></script>
+        <!-- Part 1: Main Projects -->
+        <div class="home-projects-group" id="main-projects-group">
+          <div class="home-projects-showcase" id="main-projects-list">
+            <!-- 1. Dashboard (Featured Flagship 1) -->
+            <article class="home-project-card is-flagship" data-project-card data-featured="true" data-categories="harmony-ascend apps-games">
+              <a class="home-project-media" href="projects/Dashboard.html" aria-label="查看 Dashboard应用看板 详情">
+                <img src="static/resources/main_page/dashboard.png" alt="Dashboard应用看板项目封面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-work-num" aria-hidden="true">01</span>
+                  <span class="home-project-cat">鸿蒙</span>
+                </div>
+                <h4><a href="projects/Dashboard.html">Dashboard应用看板</a></h4>
+                <p class="home-project-desc">与 Shenjack 合作的鸿蒙应用市场看板，可查询应用、查看版本和下载趋势。鸿蒙版已更新至 3.2.0，新增口碑榜；另有 Apple 原生客户端和开发中的 Android 版。</p>
+                <a class="home-award-link" href="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0" target="_blank" rel="noopener">开放原子大赛获奖作品 <span aria-hidden="true">↗</span></a>
+                <p class="home-project-stack">Rust · ArkTS · 数据可视化 · OpenAPI</p>
+              </div>
+            </article>
+
+            <!-- 2. AstraPlusCar (Featured Flagship 2) -->
+            <article class="home-project-card is-flagship" data-project-card data-featured="true" data-categories="harmony-ascend ai-science engineering">
+              <a class="home-project-media is-astracar" href="projects/AstraPlusCar.html" aria-label="查看 AstraPlus智能小车 详情">
+                <img src="static/resources/main_page/astracar.svg" alt="AstraPlus智能小车系统示意图" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-work-num" aria-hidden="true">02</span>
+                  <span class="home-project-cat">鸿蒙与昇腾</span>
+                </div>
+                <h4><a href="projects/AstraPlusCar.html">AstraPlus智能小车</a></h4>
+                <p class="home-project-desc">连接昇腾设备端、ESP32 底盘与 HarmonyOS 手机控制端。设备端基于昇腾官方 E2E 样例，含路标辅助、巡线、目标追踪三套自动驾驶场景；手机端提供视频预览、三向雷达与驾驶操控，并有失联停车保护。</p>
+                <p class="home-project-stack">昇腾 · HarmonyOS · ESP32 · 机器人</p>
+              </div>
+            </article>
+
+            <!-- 3. QiZhi01 (Featured 3) -->
+            <article class="home-project-card" data-project-card data-featured="true" data-categories="harmony-ascend ai-science">
+              <a class="home-project-media" href="projects/QiZhi01.html" aria-label="查看 基于启智01与开源鸿蒙5.0.3的肺炎病灶检测 详情">
+                <img src="static/resources/main_page/ascend310.png" alt="基于启智01与开源鸿蒙5.0.3的肺炎病灶检测封面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">鸿蒙与昇腾</span>
+                </div>
+                <h4><a href="projects/QiZhi01.html">基于启智01与开源鸿蒙5.0.3的肺炎病灶检测</a></h4>
+                <p class="home-project-desc">将 OpenHarmony 5.0.3 移植到昇腾 310B 开发套件，并在其上实现 X 光胸片肺炎病灶检测应用。<br>前半是内核、驱动与构建链适配（合入 43 个补丁），后半是 ArkTS 界面与 YOLOv5s 推理，CPU 与 NPU 两条路径均已验证。</p>
+                <p class="home-project-stack">昇腾310B · OpenHarmony · NPU推理 · YOLOv5</p>
+              </div>
+            </article>
+
+            <!-- 4. ElvaCos (Featured 4) -->
+            <article class="home-project-card" data-project-card data-featured="true" data-categories="harmony-ascend apps-games">
+              <a class="home-project-media" href="projects/ElvaCos.html" aria-label="查看 绮秀 ElvaCos 详情">
+                <img src="static/resources/main_page/elvacos.webp" alt="绮秀 ElvaCos 应用封面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">鸿蒙</span>
+                </div>
+                <h4><a href="projects/ElvaCos.html">绮秀 ElvaCos</a></h4>
+                <p class="home-project-desc">给 Coser 用的 HarmonyOS 应用：安排 Cos 计划，列准备和打包清单，整理活动、照片与花费。数据保存在本机，目前为 1.0.0-beta.1。</p>
+                <p class="home-project-stack">HarmonyOS · ArkTS · 离线优先 · 加密 RDB</p>
+              </div>
+            </article>
+
+            <!-- 5. ComplexSweeper (Featured 5) -->
+            <article class="home-project-card" data-project-card data-featured="true" data-categories="harmony-ascend apps-games">
+              <a class="home-project-media" href="projects/ComplexSweeper.html" aria-label="查看 复扫雷 ComplexSweeper 详情">
+                <img src="static/resources/main_page/complexsweeper.webp" alt="复扫雷 ComplexSweeper 应用封面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">游戏移植</span>
+                </div>
+                <h4><a href="projects/ComplexSweeper.html">复扫雷 ComplexSweeper</a></h4>
+                <p class="home-project-desc">基于青月晓原作的三端原生移植：圆复数与闵可夫斯基两种模式、三档难度和独立战绩。HarmonyOS、Android、iOS / iPadOS / macOS 源码已合并公开；1.2.0 支持彩色／黑白外观与长按清旗翻开。</p>
+                <p class="home-project-stack">ArkTS · Kotlin · SwiftUI · 复数扫雷</p>
+              </div>
+            </article>
+
+            <!-- 6. TextVideoGen (Featured 6) -->
+            <article class="home-project-card" data-project-card data-featured="true" data-categories="ai-science">
+              <a class="home-project-media is-textvideogen" href="projects/TextVideoGen.html" aria-label="查看 TextVideoGen 文本视频工作区 详情">
+                <img src="static/resources/main_page/textvideogen.png" alt="TextVideoGen 文本视频工作区渲染画面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">AI工作流</span>
+                </div>
+                <h4><a href="projects/TextVideoGen.html">TextVideoGen 文本视频工作区</a></h4>
+                <p class="home-project-desc">在 OpenCode 中制作视频的本地工作区，包含配音、分镜、浏览器动画渲染和 FFmpeg 合成工具。修改时可重做部分场景，目前由 Agent 与 Skills 组织制作流程。</p>
+                <p class="home-project-stack">OpenCode · TypeScript · FFmpeg · JSON Schema</p>
+              </div>
+            </article>
+
+            <!-- 7. WeakSignal -->
+            <article class="home-project-card" data-project-card data-categories="engineering ai-science" hidden>
+              <a class="home-project-media is-contain-light" href="projects/WeakSignal.html" aria-label="查看 基于光杠杆放大的微弱电信号测量系统 详情">
+                <img src="static/resources/main_page/signal.png" alt="基于光杠杆放大的微弱电信号测量系统电路示意图" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">物理竞赛</span>
+                </div>
+                <h4><a href="projects/WeakSignal.html">基于光杠杆放大的微弱电信号测量系统</a></h4>
+                <p class="home-project-desc">物理竞赛项目。用线圈偏转和光杠杆把微弱电信号转为光点位移，再由 PSD 传感器和 ADS1115 采样，配合 Arduino 程序与 Python 工具做标定和分析。</p>
+                <p class="home-project-stack">Arduino · 光杠杆放大 · PSD传感器 · 嵌入式</p>
+              </div>
+            </article>
+
+            <!-- 8. SmartShed -->
+            <article class="home-project-card" data-project-card data-categories="harmony-ascend engineering" hidden>
+              <a class="home-project-media is-contain-light is-logo-pad" href="projects/SmartShed.html" aria-label="查看 基于Hi3861的智慧大棚系统 详情">
+                <img src="static/resources/main_page/openharmony.png" alt="OpenHarmony 标志" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">鸿蒙</span>
+                </div>
+                <h4><a href="projects/SmartShed.html">基于Hi3861的智慧大棚系统</a></h4>
+                <p class="home-project-desc">两块 Hi3861 开发板采集大棚环境数据并控制灯、风扇和水泵，通过 EMQX 传递 MQTT 消息。HarmonyOS 应用用于查看读数、手动调节或按阈值自动控制。</p>
+                <p class="home-project-stack">OpenHarmony · HarmonyOS · MQTT · 物联网</p>
+              </div>
+            </article>
+
+            <!-- 9. Loci -->
+            <article class="home-project-card" data-project-card data-categories="harmony-ascend apps-games" hidden>
+              <a class="home-project-media" href="projects/Loci.html" aria-label="查看 时迹 Loci 详情">
+                <img src="static/resources/main_page/loci.webp" alt="时迹 Loci 应用封面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">鸿蒙</span>
+                </div>
+                <h4><a href="projects/Loci.html">时迹 Loci</a></h4>
+                <p class="home-project-desc">记录每天的时间与事项，按天或按周回看，用图表查看时间分配。支持多行文本输入、跨夜记录，也保留地点与到访记忆。HarmonyOS 原生应用，开发中。</p>
+                <p class="home-project-stack">HarmonyOS · ArkUI V2 · 时间记录 · 本地存储</p>
+              </div>
+            </article>
+
+            <!-- 10. Biology -->
+            <article class="home-project-card" data-project-card data-categories="ai-science" hidden>
+              <a class="home-project-media is-contain-light" href="projects/Biology.html" aria-label="查看 生物学项目 详情">
+                <img src="static/resources/main_page/bio.png" alt="生物学项目分子生物学反应图示" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">生物学</span>
+                </div>
+                <h4><a href="projects/Biology.html">生物学项目</a></h4>
+                <p class="home-project-desc">收录生物学方向的三类成果：一个留下完整记录的 PCR 课堂实验（设计、凝胶电泳结果与报告）、三篇研究文稿（朊病毒蛋白质猜想、卡尔文循环、酵母菌平板变橙分析），以及一个把农杆菌转化法做成可拖拽操作的交互网页。</p>
+                <p class="home-project-stack">PCR · 分子生物学 · 研究论文 · 凝胶电泳</p>
+              </div>
+            </article>
+
+            <!-- 11. SPM -->
+            <article class="home-project-card" data-project-card data-categories="apps-games" hidden>
+              <a class="home-project-media" href="projects/SPM.html" aria-label="查看 Sweet Potato Mod 详情">
+                <img src="static/resources/main_page/spm.png" alt="Sweet Potato Mod 游戏内场景截图" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">Minecraft</span>
+                </div>
+                <h4><a href="projects/SPM.html">Sweet Potato Mod</a></h4>
+                <p class="home-project-desc">与 Featurehouse 团队合作开发的 Minecraft 模组。加入地瓜种植、加工和附魔玩法，包含四个方块、五种物品及用灵魂火激活的魔法锅。版本 1.5.1。</p>
+                <p class="home-project-stack">Fabric · Java · 模组开发 · 资源包</p>
+              </div>
+            </article>
+
+            <!-- 12. Rock Paper Scissors -->
+            <article class="home-project-card" data-project-card data-categories="ai-science engineering" hidden>
+              <a class="home-project-media" href="projects/RockPaperScissors.html" aria-label="查看 Rock Paper Scissors 详情">
+                <img src="static/resources/main_page/rps.png" alt="Rock Paper Scissors 手势识别项目封面" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">学校项目</span>
+                </div>
+                <h4><a href="projects/RockPaperScissors.html">Rock Paper Scissors</a></h4>
+                <p class="home-project-desc">暑期 Python 课程项目，主要用 YOLO11n 识别石头、剪刀、布三种手势。验证集 mAP50 为 0.940，测试集为 0.934；也收录了前期 Python 与机器学习练习。</p>
+                <p class="home-project-stack">YOLO11n · 机器学习 · Python · 随机森林</p>
+              </div>
+            </article>
+
+            <!-- 13. YoloSecurityPlatform -->
+            <article class="home-project-card" data-project-card data-categories="harmony-ascend ai-science engineering" hidden>
+              <a class="home-project-media is-security" href="projects/YoloSecurityPlatform.html" aria-label="查看 校园智能安防远程监控平台 详情">
+                <img src="static/resources/main_page/security.png" alt="校园智能安防远程监控平台界面截图" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">学校项目</span>
+                </div>
+                <h4><a href="projects/YoloSecurityPlatform.html">校园智能安防远程监控平台</a></h4>
+                <p class="home-project-desc">实训课程中的安防监控项目。YOLOv5 识别图片和视频，Spring Boot 保存告警并通过 WebSocket 推送，Web 与 HarmonyOS 客户端用于查看和处理。</p>
+                <p class="home-project-stack">YOLOv5 · Spring Boot · WebSocket · HarmonyOS</p>
+              </div>
+            </article>
+
+            <!-- 14. Difficult Rocket -->
+            <article class="home-project-card" data-project-card data-categories="apps-games engineering" hidden>
+              <a class="home-project-media" href="https://dr.shenjack.top/" target="_blank" rel="noopener" aria-label="访问 Difficult Rocket 外部网站">
+                <img src="static/resources/main_page/dr.png" alt="Difficult Rocket 火箭模拟截图" loading="lazy" decoding="async">
+              </a>
+              <div class="home-project-body">
+                <div class="home-project-meta">
+                  <span class="home-project-cat">Python</span>
+                </div>
+                <h4><a href="https://dr.shenjack.top/" target="_blank" rel="noopener">Difficult Rocket <span aria-hidden="true">↗</span></a></h4>
+                <p class="home-project-desc">与 @shenjack 协作的火箭模拟项目，以更轻量的方式探索类似 Simple Rockets 的玩法；这是一个侧重游戏制作与协作实践的项目。</p>
+                <p class="home-project-stack">Rust · 火箭模拟器 · 物理模拟 · 协作开发</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Part 2: Coursework & Personal Creations (Shown via tab or Show All button) -->
+        <div class="home-projects-group home-archive-group" id="archive-projects-group" hidden>
+          <div class="home-subblock-head">
+            <span class="home-subblock-label" lang="en">COURSEWORK &amp; CREATIONS</span>
+            <h3>课程项目与个人创作</h3>
+            <p class="home-subblock-desc">课程项目、小工具与影音创作，多数是为自己或身边人做的。</p>
+          </div>
+
+          <div class="home-archive-grid">
+            <article class="home-archive-item">
+              <span class="home-project-cat">鸿蒙与昇腾</span>
+              <h4><a href="projects/PetSnap.html">基于MindSpore的猫狗识别 <span aria-hidden="true">↗</span></a></h4>
+              <p>从 MindSpore / MobileNetV2 迁移学习实验延伸到 HarmonyOS 原生应用。通过相册或拍照输入图片，使用 MindSpore Lite 在 CPU 本地完成猫狗分类，支持深浅色界面。</p>
+              <p class="home-project-stack">MindSpore · MobileNetV2 · 端侧推理 · 迁移学习</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">学校项目</span>
+              <h4><a href="projects/CarRent.html">基于链表的汽车租赁管理系统 <span aria-hidden="true">↗</span></a></h4>
+              <p>C++11 编写的命令行汽车租赁管理工具，用单向链表管理车辆、用户与租车记录，数据以二进制文件持久化。支持增删改查、租车退车、分类查询、分组统计、票据打印与操作日志。</p>
+              <p class="home-project-stack">C++11 · 数据结构 · 文件持久化 · 单向链表</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">学校项目</span>
+              <h4><a href="projects/CommChain.html">基于C#的数字通信系统模拟器 <span aria-hidden="true">↗</span></a></h4>
+              <p>C# 通信原理课程项目。在控制台逐步演示文本编码、信号调制、信道传递和解调还原，也可以连续运行各环节，查看输入与输出。</p>
+              <p class="home-project-stack">C# · .NET · 数字通信 · xUnit</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">Python</span>
+              <h4><a href="projects/GaokaoQuery.html">高考录取结果查询工具 <span aria-hidden="true">↗</span></a></h4>
+              <p>用 Python 和 Playwright 辅助查询录取结果，将院校、专业、批次及查询状态写回 Excel。历史项目已归档，查询入口未重新验证。</p>
+              <p class="home-project-stack">Python · Playwright · pandas · openpyxl</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">鸿蒙</span>
+              <h4><a href="projects/Hi3861.html">Hi3861嵌入式开发 <span aria-hidden="true">↗</span></a></h4>
+              <p>以交通灯状态机、灯光与蜂鸣器联动、环境数据采集、自定义 AT 指令四条路径组织的 OpenHarmony 嵌入式练习，覆盖 GPIO、PWM、ADC、I²C 与 UART。</p>
+              <p class="home-project-stack">OpenHarmony · GPIO · PWM · I²C</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">学校项目</span>
+              <h4><a href="projects/SchoolPapers.html">学校论文 <span aria-hidden="true">↗</span></a></h4>
+              <p>按通信工程、HarmonyOS 应用与 Hi3861 嵌入式三个方向归档的课程论文与实验报告，共 8 篇，涵盖技术综述、应用设计与智慧场景原型。</p>
+              <p class="home-project-stack">通信工程 · HarmonyOS · 嵌入式 · 课程论文</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">网页</span>
+              <h4><a href="projects/idv.html">第五人格，启动！ <span aria-hidden="true">↗</span></a></h4>
+              <p>《第五人格》排位目标计算器：输入当前积分、目标段位与赛季日期，计算剩余天数与每日所需积分，并提供手动加减分与历史记录。</p>
+              <p class="home-project-stack">JavaScript · 实用工具 · localStorage</p>
+            </article>
+
+            <article class="home-archive-item is-static">
+              <span class="home-project-cat">影片</span>
+              <h4>《寿怡红群芳开夜宴》</h4>
+              <p>参与《红楼梦》剧组 2023 年末的翻拍活动，承担导演、摄影和剪辑工作，完整经历从现场拍摄到成片整理的创作流程。</p>
+              <p class="home-project-stack">导演 · 摄影 · 剪辑 · 短片</p>
+            </article>
+
+            <article class="home-archive-item is-static">
+              <span class="home-project-cat">InDesign</span>
+              <h4>毕业纪念册</h4>
+              <p>使用 InDesign 反复打磨版式与内容，并为实体纪念册加入可访问网站的 NFC 标签；集体照与「送你一朵小红花」构成视觉记忆点。</p>
+              <p class="home-project-stack">InDesign · 版式设计 · NFC · 实体印刷</p>
+            </article>
+
+            <article class="home-archive-item is-static">
+              <span class="home-project-cat">影片</span>
+              <h4>whn生日</h4>
+              <p>为 2024 年 11 月的生日活动制作影像内容，参与分镜、拍摄与后期剪辑，把一次线下聚会整理成可留存的视频作品。</p>
+              <p class="home-project-stack">分镜 · 拍摄 · 剪辑 · 纪念影像</p>
+            </article>
+
+            <article class="home-archive-item">
+              <span class="home-project-cat">网页</span>
+              <h4><a href="projects/xxh.html">xxh的感情契合度测试 <span aria-hidden="true">↗</span></a></h4>
+              <p>双人依次匿名答题，在浏览器本地比较价值观、生活方式和附加议题；结果提供总分、分项分数与题目明细，答案不会上传。</p>
+              <p class="home-project-stack">JavaScript · 互动网页 · 本地计分</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="home-projects-footer-cta" data-reveal>
+          <button class="home-editorial-link home-projects-more-btn" id="projects-show-all" type="button">
+            查看全部 25 个项目 <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photography Transition 3: Projects -> Photography & Life (PRIOR .cinematic homage) -->
+    <section class="home-photo-bridge is-cinematic" id="bridge-gallery" data-photo-bridge data-snap-stage="bridge" data-snap-next="#gallery" aria-label="摄影篇章过渡">
+      <div class="home-bridge-stage">
+        <div class="home-bridge-frame" aria-hidden="true">
+          <img src="static/resources/main_page/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg"
+            alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="home-bridge-copy">
+          <span class="home-bridge-num" aria-hidden="true">03</span>
+          <h2 class="home-bridge-heading">通信频谱之外的瞬间</h2>
+          <p class="home-bridge-sub">以俯瞰视角重构地表纹理。</p>
+        </div>
+        <div class="home-bridge-counter" aria-hidden="true">
+          <span class="home-bridge-count">00</span>
+          <span class="home-bridge-count-label">% 画面展开</span>
+        </div>
+        <a class="home-scroll-cue" href="#gallery" aria-label="前往摄影与生活">
+          <span class="scroll-cue-track" aria-hidden="true">
+            <span class="scroll-cue-charge"></span>
+            <span class="scroll-cue-beam"></span>
+          </span>
+          <span class="scroll-cue-chevrons" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline class="cue-chev-1" points="6 7 12 13 18 7"></polyline>
+              <polyline class="cue-chev-2" points="6 13 12 19 18 13"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Chapter 03: Photography & Life -->
+    <section class="home-page home-chapter home-chapter-gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="home-shell">
+        <header class="home-gallery-header">
+          <div class="home-gallery-header-main">
+            <span class="home-chapter-num" aria-hidden="true">03</span>
+            <p class="home-kicker" lang="en">PHOTOGRAPHY &amp; LIFE</p>
+            <h2 class="home-chapter-title" id="gallery-title">摄影与生活</h2>
+            <p class="home-chapter-subtitle">以俯瞰视角重构地表纹理，用快门捕捉通信频谱之外的瞬间。</p>
+          </div>
+          <a class="home-editorial-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+            在小红书查看更多摄影作品 <span aria-hidden="true">↗</span>
+          </a>
+        </header>
+
+        <!-- Cinema Photography Carousel -->
+        <div class="home-gallery-cinema" id="galleryCarousel" role="region" aria-label="摄影作品轮播" tabindex="0">
+          <div class="gallery-track">
+            <div class="gallery-slide active">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/IMG_20260210_171544.jpg" alt="蓝调夜色中的雪山渔村港湾与灯光倒影" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/home/beach-aerial.webp" width="1600" height="1067" alt="浅蓝海水环绕的沙洲和三艘小船" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/home/coral-reef.webp" width="1600" height="900" alt="清澈水面下的珊瑚礁" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/home/harbor-aerial.webp" width="1920" height="1081" alt="俯拍港湾的码头、船只与弧形防波堤" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/DJI_0733.jpg" alt="航拍秋色中的蜿蜒河道" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/DJI_0942.jpg" alt="航拍雪覆海岸与村落" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/IMG_20250701_181148.jpg" alt="光影间舒展的翠绿三叶草叶丛" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/IMG_20250723_174511.jpg" alt="夏日晚云、丁达尔光线与江岸天际线" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/IMG_20260212_155345.jpg" alt="粉紫色暮光下的雪山渔港与渔船倒影" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/dji_fly_20240529_190550_626_1716983652734_photo_optimized.jpg" alt="垂直航拍环形人行天桥与城市十字路网" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/dji_fly_20260211_211740_918_1770820121735_photo_optimized.jpg" alt="雪覆礁岸、白浪与翡翠海水交界线" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="gallery-slide">
+              <a class="gallery-slide-link" href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                <img src="static/resources/main_page/gallery/微信图片_20240529100845.jpg" alt="航拍沙丘脊线上蜿蜒前行的徒步队伍" loading="lazy" decoding="async">
+              </a>
+            </div>
+          </div>
+
+          <div class="home-gallery-bar">
+            <div class="home-gallery-meta">
+              <span class="home-photo-count" id="home-photo-count" aria-live="polite">01 / 12</span>
+              <span class="home-photo-caption" id="home-photo-caption">蓝调夜色中的雪山渔村港湾与灯光倒影</span>
+            </div>
+            <div class="gallery-dots" id="galleryDots" role="group" aria-label="选择照片"></div>
+            <div class="home-gallery-actions">
+              <button class="gallery-nav prev" type="button">上一张</button>
+              <button class="gallery-nav next" type="button">下一张</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Life & Interests -->
+        <section class="home-life" id="life" aria-labelledby="life-title">
+          <div class="home-subblock-head" data-reveal>
+            <span class="home-subblock-label" lang="en">BEYOND THE SCREEN</span>
+            <h3 id="life-title">生活与兴趣</h3>
+          </div>
+
+          <div class="home-life-pair">
+            <a class="home-life-feature" href="life/piano.html" data-reveal>
+              <div class="home-life-visual">
+                <img src="static/resources/main_page/piano.png" alt="钢琴与乐谱" loading="lazy" decoding="async">
+              </div>
+              <div class="home-life-copy">
+                <div class="home-life-heading-row">
+                  <h4>钢琴</h4>
+                  <span class="home-life-cta" aria-hidden="true">↗</span>
+                </div>
+                <p>自学钢琴，记录练习过的曲子。</p>
+              </div>
+            </a>
+            <a class="home-life-feature" href="life/books.html" data-reveal>
+              <div class="home-life-visual">
+                <img src="static/resources/main_page/books.png" alt="阅读与书单" loading="lazy" decoding="async">
+              </div>
+              <div class="home-life-copy">
+                <div class="home-life-heading-row">
+                  <h4>书单</h4>
+                  <span class="home-life-cta" aria-hidden="true">↗</span>
+                </div>
+                <p>收录读过或想读的书。</p>
+              </div>
+            </a>
+          </div>
+
+          <dl class="home-interests-ledger" id="lifestyleCardBlock">
+            <div class="home-interest-row" data-reveal>
+              <dt><a href="#galleryCarousel">摄影 <span aria-hidden="true">↗</span></a></dt>
+              <dd>风景摄影 · 无人机航拍</dd>
+            </div>
+            <div class="home-interest-row" data-reveal>
+              <dt>运动</dt>
+              <dd>跑步 · 骑行</dd>
+            </div>
+            <div class="home-interest-row" data-reveal>
+              <dt>兴趣</dt>
+              <dd>听音乐 · 钢琴 · 小号 · 魔方 · 模拟飞行</dd>
+            </div>
+            <div class="home-interest-row" data-reveal>
+              <dt>游戏</dt>
+              <dd>Minecraft · 第五人格 · 原神 · 明日方舟 · 异环 · 皇室战争 · 多端音游（Arcaea, Phigros为主）</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+    </section>
+
+    <!-- Photography Transition 4: Gallery -> Contact -->
+    <section class="home-photo-bridge is-quiet" id="bridge-contact" data-photo-bridge data-snap-stage="bridge" data-snap-next="#contact" aria-label="联系篇章过渡">
+      <div class="home-bridge-stage">
+        <div class="home-bridge-frame" aria-hidden="true">
+          <img src="static/resources/main_page/gallery/IMG_20260210_171544.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="home-bridge-copy">
+          <span class="home-bridge-num" aria-hidden="true">04</span>
+          <h2 class="home-bridge-heading">如果方向一致，我们就一起把它做成。</h2>
+        </div>
+        <a class="home-scroll-cue" href="#contact" aria-label="前往联系我">
+          <span class="scroll-cue-track" aria-hidden="true">
+            <span class="scroll-cue-charge"></span>
+            <span class="scroll-cue-beam"></span>
+          </span>
+          <span class="scroll-cue-chevrons" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline class="cue-chev-1" points="6 7 12 13 18 7"></polyline>
+              <polyline class="cue-chev-2" points="6 13 12 19 18 13"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Section: Let's Talk -->
+    <section class="home-page home-contact" id="contact" aria-labelledby="contact-title">
+      <div class="home-shell">
+        <header class="home-contact-header" data-reveal>
+          <p class="home-kicker" lang="en">CONTACT</p>
+          <h2 class="home-contact-title" id="contact-title" lang="en">Let’s Talk</h2>
+          <p class="home-contact-subtitle">项目合作 · 技术交流 · 摄影约稿 · 或者聊聊想法。</p>
+        </header>
+
+        <div class="home-contact-grid">
+          <div class="home-contact-left">
+            <div class="home-email-stack" data-reveal>
+              <a class="home-contact-email" href="mailto:rayawa.work@outlook.com">rayawa.work@outlook.com</a>
+              <a class="home-contact-email" href="mailto:rayawa.work@gmail.com">rayawa.work@gmail.com</a>
+            </div>
+
+            <p class="home-contact-meta" data-reveal>
+              <a href="https://rayawa.top/" target="_blank" rel="noopener">rayawa.top</a>
+              <span aria-hidden="true">·</span>
+              <a href="tencent://message/?uin=2265695808">QQ 2265695808</a>
+              <span aria-hidden="true">·</span>
+              <span>北京，中国</span>
+            </p>
+
+            <div class="home-social-block" data-reveal>
+              <h3 class="home-social-heading">我的链接</h3>
+              <ul class="home-social-list">
+                <li>
+                  <a href="https://space.bilibili.com/3546835039815692" target="_blank" rel="noopener">
+                    <strong>Bilibili · Rayawa</strong>
+                    <span>摄影作品与项目更新进度</span>
+                    <span class="home-social-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://space.bilibili.com/524181098" target="_blank" rel="noopener">
+                    <strong>Bilibili · Ray汐</strong>
+                    <span>游戏与日常</span>
+                    <span class="home-social-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/Rayawa" target="_blank" rel="noopener">
+                    <strong>GitHub</strong>
+                    <span>代码与仓库入口</span>
+                    <span class="home-social-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.xiaohongshu.com/user/profile/67468e02000000001d02f990" target="_blank" rel="noopener">
+                    <strong>小红书</strong>
+                    <span>我的全部摄影作品</span>
+                    <span class="home-social-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <form class="home-message-form" id="contactForm" aria-labelledby="message-title" data-reveal>
+            <div class="home-form-header">
+              <h3 id="message-title">快捷消息</h3>
+              <p>项目合作 / 技术支持 / 摄影约稿 / Bug反馈 / 碎碎念</p>
+            </div>
+            <div class="home-form-group">
+              <label for="name">姓名</label>
+              <input type="text" id="name" autocomplete="name" placeholder="请输入您的姓名" aria-describedby="name-hint" required>
+              <p class="home-form-hint" id="name-hint">请填写易被识别的姓名，否则可能被后端识别为垃圾邮件</p>
+            </div>
+            <div class="home-form-group">
+              <label for="email">邮箱</label>
+              <input type="email" id="email" autocomplete="email" placeholder="请输入您的邮箱" aria-describedby="email-hint" required>
+              <p class="home-form-hint" id="email-hint">请确认邮箱地址无误，这决定您能否收到回信</p>
+            </div>
+            <div class="home-form-group">
+              <label for="message">消息</label>
+              <textarea id="message" rows="4" aria-describedby="message-hint" placeholder="请输入您的消息..." required></textarea>
+              <p class="home-form-hint" id="message-hint">姓名不足以让我想起您是谁时，请补充说明，否则可能被后端误判为垃圾邮件</p>
+            </div>
+            <button type="submit">发送消息</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="home-shell home-footer-inner">
+      <a href="#home" class="home-wordmark">RayChen<span aria-hidden="true">.</span></a>
+      <p>© 2026 Ray Chen <span aria-hidden="true">·</span> <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2025153453号</a></p>
+      <div class="home-footer-right">
+        <nav aria-label="页脚">
+          <a href="thanks.html">致谢</a>
+          <a href="#home">返回顶部</a>
+        </nav>
+        <div class="home-footer-langs" aria-label="语言版本">
+          <a href="index.html" hreflang="zh-CN" aria-current="page">中文</a>
+          <a href="en/index.html" lang="en" hreflang="en">EN</a>
+          <a href="fr/index.html" lang="fr" hreflang="fr">FR</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script data-goatcounter="https://rayawa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="static/vendor/particles.js/particles.min.js"></script>
+  <script src="static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="static/js/index.js?v=20261030-particles-59e3aaa"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="static/js/home.js"></script>
 </body>
 
 </html>
-

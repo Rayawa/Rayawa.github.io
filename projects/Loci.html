@@ -33,42 +33,192 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
-  <link rel="stylesheet" href="/static/css/app-projects.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="project-showcase loci-project">
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="project-category">HarmonyOS</span><span class="ps-eyebrow">Loci · Daily Journal</span><h1>时迹 Loci</h1><p>HarmonyOS 每日时间记录应用。记下起止时间和事项，按天或按周回看，用分类统计查看时间分配；也保留地点与到访记录。</p><div class="ps-actions"><a class="ps-button" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a></div></div><div class="ps-hero-visual loci-icon"><img src="/static/resources/apps/loci-foreground.png" alt="时迹 Loci" width="1024" height="1024" fetchpriority="high"></div>
+
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>鸿蒙应用</span>
+      <span>/</span>
+      <span>时迹 Loci</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">HarmonyOS 原生应用 · 时间日记与足迹</span>
+        <h1>时迹 Loci</h1>
+        <p class="pe-lead">记录每一天怎样度过，留住每一处到访的心情。时迹是一款为日常而生的 HarmonyOS 原生记录应用——用记备忘录般的轻松方式留住时光流向，把散落的日子连成清晰轨迹。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="#parser-demo">体验多行文本解析</a>
+            <a class="pe-btn" href="#stream">沿着时间轴浏览</a>
+            <a class="pe-btn" href="https://github.com/Rayawa/Loci" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub 仓库</a>
+          </div>
+        </div>
+      </div>
+      <div class="pe-hero-side">
+        <img class="pe-app-badge is-loci" src="/static/resources/apps/loci-foreground.png" alt="时迹 Loci 双层分层图标" width="256" height="256" fetchpriority="high">
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">Stage / ArkTS</span>
+        <span class="pe-tag is-key">ArkUI V2</span>
+        <span class="pe-tag is-key">ArkData (Schema v4)</span>
+        <span class="pe-tag">Map Kit</span>
+        <span class="pe-tag">HdsNavigation / HdsTabs</span>
+        <span class="pe-tag">离线本地记录</span>
+      </div>
+      <span class="pe-meta-summary">API 20–26 · 四大主入口：记录 · 地点 · 统计 · 我的</span>
     </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>记录一天怎样度过</h2></div>
-      <div class="ps-grid-2">
-        <article class="ps-card"><h3>时间与事项</h3><p>直接输入或粘贴多行「时间＋事项」，也可以用时间选择器编辑。支持分类、备注、跨夜记录、重叠时段和单个时间点。</p></article>
-        <article class="ps-card"><h3>按天、按周回看</h3><p>首页默认今天，可滑动日期或用日历跳转。列表按时间倒序显示，周视图用于回看多天记录，也可以设置每天的起床与睡觉时间。</p></article>
-        <article class="ps-card"><h3>时间统计</h3><p>分类饼图查看时间分配，单项周柱状图比较每天的记录。统计随选定日期变化。</p></article>
-        <article class="ps-card"><h3>地点与到访</h3><p>地点仍有独立入口，可以切换地图和地点列表。同一个地点下保留多次到访，各自记录文字、心情与日期。</p></article>
+
+    <section class="pe-section" id="parser-demo">
+      <div class="pe-section-head">
+        <h2>把几句话直接变成时间轴</h2>
+        <p class="pe-section-intro">记录生活不该变成填表打卡。打开应用粘贴或输入一天的流水账，无需繁琐点选，立刻自动识别作息边界、跨夜时段与时间点。</p>
+      </div>
+
+      <div class="pe-loci-demo" id="loci-lab">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.65rem;gap:0.5rem;flex-wrap:wrap;">
+            <span class="pe-terminal-title">多行文本输入（支持中文冒号与跨夜）</span>
+            <div class="pe-tabs">
+              <button type="button" class="pe-tab" data-loci-preset="overnight">跨夜示例</button>
+              <button type="button" class="pe-tab" data-loci-preset="overlap">重叠与时间点</button>
+            </div>
+          </div>
+          <textarea id="loci-input" class="pe-loci-input" spellcheck="false" aria-label="输入多行时间与事项"></textarea>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.65rem;">
+            <span class="pe-terminal-title">解析预览（从晚到早排列）</span>
+          </div>
+          <div id="loci-timeline" class="pe-loci-timeline" aria-live="polite"></div>
+        </div>
       </div>
     </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>本地保存</h2></div><p class="ps-note">时间记录与地点数据存入本机 ArkData，数据库升级保留旧版地点与到访记录。四个主要入口是记录、地点、统计、我的。</p>
+
+    <section class="pe-section" id="stream">
+      <div class="pe-section-head">
+        <h2>沿着一条时间线，走进时迹的四个场景</h2>
+        <p class="pe-section-intro">从起床记下第一条计划，到周末翻看统计与重温去过的地点，每个场景都对应真机预留截图位。</p>
+      </div>
+
+      <div class="pe-stream">
+        <article class="pe-stream-row">
+          <div class="pe-stream-media">
+            <div class="pe-placeholder is-phone">
+              <i class="fas fa-calendar-day"></i>
+              <span class="pe-placeholder-title">每日时间轴（预留截图）</span>
+              <span class="pe-placeholder-hint">建议提供 9:19 竖屏真机截图，建议隐藏顶部系统状态栏</span>
+              <code class="pe-placeholder-path">static/resources/apps/loci-daily.png</code>
+            </div>
+          </div>
+          <div class="pe-stream-copy">
+            <span class="pe-stream-time">07:25 · 每日记录</span>
+            <h3>像写日记一样记录时间</h3>
+            <p>放下繁琐的起止下拉框，直接写下或粘贴几行时间与事项，应用就能帮你梳理好一天的流水账，连熬夜到凌晨的跨夜安排也顺理成章地归在今天。</p>
+          </div>
+        </article>
+
+        <article class="pe-stream-row is-reverse">
+          <div class="pe-stream-media">
+            <div class="pe-placeholder is-phone">
+              <i class="fas fa-table-columns"></i>
+              <span class="pe-placeholder-title">周视图时间网格（预留截图）</span>
+              <span class="pe-placeholder-hint">建议提供 9:19 竖屏真机截图，建议隐藏顶部系统状态栏</span>
+              <code class="pe-placeholder-path">static/resources/apps/loci-weekly.png</code>
+            </div>
+          </div>
+          <div class="pe-stream-copy">
+            <span class="pe-stream-time">周一至周日 · 节奏视图</span>
+            <h3>看见一整周的节奏</h3>
+            <p>既能按天细读当日的每一段经历，也能随时切到七日时间网格，一眼看清这周何时专注工作、何时熬夜赶路，让作息变化一目了然。</p>
+          </div>
+        </article>
+
+        <article class="pe-stream-row">
+          <div class="pe-stream-media">
+            <div class="pe-placeholder is-phone">
+              <i class="fas fa-chart-pie"></i>
+              <span class="pe-placeholder-title">统计与周柱图表（预留截图）</span>
+              <span class="pe-placeholder-hint">建议提供 9:19 竖屏真机截图，建议隐藏顶部系统状态栏</span>
+              <code class="pe-placeholder-path">static/resources/apps/loci-stats.png</code>
+            </div>
+          </div>
+          <div class="pe-stream-copy">
+            <span class="pe-stream-time">28h 40m · 时间分配</span>
+            <h3>清楚知道时间去了哪里</h3>
+            <p>分类占比饼图与单项周柱状图随日期实时联动，学习、开发、运动还是陪伴自己——每一分热爱的投入都能被诚实看见。</p>
+          </div>
+        </article>
+
+        <article class="pe-stream-row is-reverse">
+          <div class="pe-stream-media">
+            <div class="pe-placeholder is-phone">
+              <i class="fas fa-location-dot"></i>
+              <span class="pe-placeholder-title">地点与到访记忆（预留截图）</span>
+              <span class="pe-placeholder-hint">建议提供 9:19 竖屏真机截图，建议隐藏顶部系统状态栏</span>
+              <code class="pe-placeholder-path">static/resources/apps/loci-places.png</code>
+            </div>
+          </div>
+          <div class="pe-stream-copy">
+            <span class="pe-stream-time">18 处 · 足迹重逢</span>
+            <h3>把每处风景与心境一同收藏</h3>
+            <p>好地方总值得一次次重游。在独立的“地点”板块里，同一处坐标可以不断添上新的到访日记与心情，让每次经过都有回响。</p>
+          </div>
+        </article>
+      </div>
     </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>开发进度</h2></div><p class="ps-note">目前仍在开发。时间记录、作息与新导航已写入应用，地图定位仍需完成服务配置与真机检查。华为账号页面已有代码，真实登录和云同步尚未完成。</p>
+
+    <section class="pe-section" id="design-decisions">
+      <div class="pe-section-head">
+        <h2>贴合真实生活的细节</h2>
+        <p class="pe-section-intro">做产品时少一点工程傲慢，多考虑一点人真实的生活习惯，软件用起来才会越来越顺手。</p>
+      </div>
+
+      <div class="pe-ledger">
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">01</span>
+          <span class="pe-ledger-title">尊重你的真实作息</span>
+          <span class="pe-ledger-desc">不拿死板的 00:00 劈开你的夜晚。只要还没睡下，深夜的专注与漫步就依然属于今天。</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">02</span>
+          <span class="pe-ledger-title">不凑数，也不漏掉重叠时光</span>
+          <span class="pe-ledger-desc">时间点只记录瞬间，不会强行拉长成半小时；听课顺带回复消息这样的重叠时段也能坦然并存。</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">03</span>
+          <span class="pe-ledger-title">离线本地保存，记录始终属于你</span>
+          <span class="pe-ledger-desc">所有日记、作息与地点均存于本机 ArkData 数据库，跨版本升级平滑迁移，老数据一条不丢。</span>
+        </div>
+      </div>
     </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>技术栈</h2></div><div class="ps-stack"><span class="ps-tag">HarmonyOS</span><span class="ps-tag">ArkTS</span><span class="ps-tag">ArkUI V2</span><span class="ps-tag">ArkData</span><span class="ps-tag">Map Kit</span></div>
-    </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <aside class="pe-footnote">
+      说明：应用仍在持续迭代打磨中；时间记录、作息、周视图与统计已写入主工程，在线 Map Kit 定位仍待 AGC 配置与真机验证，华为账号与云同步能力尚未开通后台联调。
+    </aside>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
+
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
+  <script src="/static/js/project-editorial.js"></script>
 </body>
 </html>

@@ -35,130 +35,162 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
 
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro hero-card">
-      
-      <span class="project-category">学校项目</span>
-      <h1>学校论文</h1>
-      <p>收录我在通信工程、鸿蒙开发与嵌入式系统三个方向的课程论文与实验报告，按方向分成三组，共 8 篇——记录从理论学习到工程实践的路径。</p>
+
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>学校项目</span>
+      <span>/</span>
+      <span>学校论文</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">课程论文 · 实验报告归档</span>
+        <h1>学校论文</h1>
+        <p class="pe-lead">收录我在通信工程、鸿蒙应用开发与 OpenHarmony 嵌入式系统三个方向的课程论文与实验报告，按学科主线整理为三组、共 8 篇，记录从理论梳理到软硬件工程落地的完整过程。</p>
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">通信工程</span>
+        <span class="pe-tag is-key">HarmonyOS / ArkTS</span>
+        <span class="pe-tag is-key">OpenHarmony</span>
+        <span class="pe-tag">Hi3861 嵌入式</span>
+        <span class="pe-tag">物联网终端</span>
+      </div>
+      <span class="pe-meta-summary">3 个研究方向 · 共 8 篇课程论文与实验报告</span>
     </section>
 
-    <section class="thesis-archive">
-      <div class="section-header">
+    <section class="pe-section" id="comm-papers">
+      <div class="pe-section-head">
         <h2>专业课论文</h2>
-        <p>通信工程专业导论课程的实践总结与研究报告。</p>
+        <p class="pe-section-intro">通信工程专业导论课程的硬件实践总结与学科前景研究报告。</p>
       </div>
-      <div class="thesis-grid">
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">通信工程</span>
+
+      <div class="pe-pub-grid">
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag is-key">通信工程</span>
             </div>
-            <h3 class="project-title">通信工程专业导论实践总结报告</h3>
-            <p class="thesis-abstract">本报告记录了从基础焊接到Arduino编程，再到集成nRF24L01无线模块实现无人机遥控系统的全过程。通过"焊、编、控"的递进式训练，掌握了嵌入式软硬件协同开发的基本技能，并对通信工程的系统化工程思维有了初步实践与体会。</p>
+            <h3>通信工程专业导论实践总结报告</h3>
+            <p class="pe-pub-abstract">本报告记录了从基础电路焊接到 Arduino 编程，再到集成 nRF24L01 无线收发模块实现无人机遥控系统的完整实验过程。通过“焊、编、控”的递进式训练，掌握了嵌入式软硬件协同开发的基本技能，并对通信工程的系统化工程思维形成了初步实践体会。</p>
           </div>
         </article>
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">通信工程</span>
+
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag is-key">通信工程</span>
             </div>
-            <h3 class="project-title">通信工程专业导论研究报告</h3>
-            <p class="thesis-abstract">本文系统论述了通信工程的学科内涵与培养体系，重点分析了AI-RAN、6G等前沿技术进展及跨学科应用趋势。结合个人发展规划，强调了在技术快速更迭背景下，团队协作与终身学习能力对未来通信工程师职业素养的核心价值。</p>
+            <h3>通信工程专业导论研究报告</h3>
+            <p class="pe-pub-abstract">本文系统论述了通信工程的学科内涵与培养体系，重点分析了 AI-RAN、6G 等前沿技术进展及跨学科应用趋势。结合个人学习与职业规划，探讨在技术快速更迭背景下，团队协作与持续学习能力对通信工程师职业素养的核心价值。</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="thesis-archive">
-      <div class="section-header">
+    <section class="pe-section" id="harmony-papers">
+      <div class="pe-section-head">
         <h2>HarmonyOS 课程与参赛论文</h2>
-        <p>鸿蒙应用软件开发课程设计报告与应用看板介绍文档。</p>
+        <p class="pe-section-intro">围绕鸿蒙应用软件开发课程设计与开放原子赛事整理的工程介绍与架构分析报告。</p>
       </div>
-      <div class="thesis-grid">
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">HarmonyOS</span>
+
+      <div class="pe-pub-grid">
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag is-key">HarmonyOS</span>
             </div>
-            <h3 class="project-title">开放原子大赛应用看板介绍文档</h3>
-            <p class="thesis-abstract">该文档详细介绍了基于ArkTS开发的HarmonyOS效率工具——应用看板。系统通过卡片化布局集成App启动、系统状态监控与个性化组件，利用LocalStorage实现数据持久化，旨在为用户提供一个高度自定义且操作便捷的桌面聚合工作台。</p>
+            <h3>开放原子大赛应用看板介绍文档</h3>
+            <p class="pe-pub-abstract">该文档详细介绍了基于 ArkTS 开发的 HarmonyOS 效率工具——应用看板（Dashboard）。系统采用卡片化布局集成应用生态观察、状态监控与个性化浏览组件，利用 LocalStorage 与持久化缓存构建清晰的数据视图，打造便捷的桌面及移动端聚合工作台。</p>
           </div>
         </article>
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">HarmonyOS</span>
+
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag is-key">HarmonyOS</span>
             </div>
-            <h3 class="project-title">"鸿蒙应用软件开发"课设报告</h3>
-            <p class="thesis-abstract">本报告记录了"应用看板"App的完整开发流程。项目采用MVVM架构，实现了应用分类管理、动态UI渲染及交互功能。通过对Stage模型与声明式开发的研究，验证了鸿蒙系统在跨设备流转与高效资源调度方面的技术优势及工程实践价值。</p>
+            <h3>“鸿蒙应用软件开发”课设报告</h3>
+            <p class="pe-pub-abstract">本报告记录了应用看板 App 的完整课程设计开发历程。工程采用 MVVM 分层架构，实现应用分类管理、动态 UI 渲染与多维数据交互功能，并通过对 Stage 模型与 ArkUI 声明式开发的深入实践，验证了鸿蒙系统在跨设备接续流转与资源调度上的工程价值。</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="thesis-archive">
-      <div class="section-header">
+    <section class="pe-section" id="embedded-papers">
+      <div class="pe-section-head">
         <h2>OpenHarmony 嵌入式开发论文</h2>
-        <p>基于Hi3861控制器的智慧场景终端实现，涵盖交通、家居、农业与医疗四大领域。</p>
+        <p class="pe-section-intro">基于 Hi3861 控制器设计的智慧场景终端实现报告，分别面向交通、家居、农业与医疗四个典型应用领域。</p>
       </div>
-      <div class="thesis-grid">
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">嵌入式 · 交通</span>
+
+      <div class="pe-pub-grid">
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag">嵌入式 · 交通</span>
             </div>
-            <h3 class="project-title">基于 Hi3861 的嵌入式智慧交通终端实现</h3>
-            <p class="thesis-abstract">项目基于Hi3861控制器与交通灯扩展板，实现了红绿灯逻辑切换与禁鸣笛检测功能。通过PWM控制信号灯时长，并集成蜂鸣器模拟交通违规报警，验证了OpenHarmony在数字化交通管理与实时监控场景下的硬件调度能力。</p>
+            <h3>基于 Hi3861 的嵌入式智慧交通终端实现</h3>
+            <p class="pe-pub-abstract">基于 Hi3861 主控芯片与交通灯扩展板，实现了标准红绿灯状态机切换与禁鸣笛噪音识别告警功能。利用 PWM 控制信号灯相位时长，并结合蜂鸣器联动模拟交通违规提醒，验证了 OpenHarmony 在数字化交通管理场景中的硬件实时调度能力。</p>
           </div>
         </article>
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">嵌入式 · 家居</span>
+
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag">嵌入式 · 家居</span>
             </div>
-            <h3 class="project-title">基于 Hi3861 的嵌入式智慧家居终端实现</h3>
-            <p class="thesis-abstract">本实验设计了一套智能家居控制系统，利用Hi3861连接环境传感器与执行器。系统支持通过OLED屏幕实时显示室内温湿度，并根据环境参数自动调节灯光与风扇状态，展示了鸿蒙生态在全屋智能设备互联互通中的应用潜力。</p>
+            <h3>基于 Hi3861 的嵌入式智慧家居终端实现</h3>
+            <p class="pe-pub-abstract">设计并实现了一套室内环境智能控制终端，通过 Hi3861 连接温湿度传感器与执行器件。系统可在 OLED 屏幕上实时刷新环境读数，并依据设定参数自动调节灯光亮度与风扇状态，体现出鸿蒙生态在全屋设备互联与本地协同响应中的优势。</p>
           </div>
         </article>
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">嵌入式 · 农业</span>
+
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag">嵌入式 · 农业</span>
             </div>
-            <h3 class="project-title">基于 Hi3861 的嵌入式智慧农业终端实现</h3>
-            <p class="thesis-abstract">该报告探讨了OpenHarmony在精准农业中的应用，通过Hi3861实时采集土壤湿度与环境光照数据。系统配置了自动灌溉与补光逻辑，利用低功耗无线通信实现远程监测，为农业生产的智能化、自动化管理提供了硬件原型参考。</p>
+            <h3>基于 Hi3861 的嵌入式智慧农业终端实现</h3>
+            <p class="pe-pub-abstract">面向精准农业监测需求，利用 Hi3861 连续采集土壤湿度与环境光照强度数据，构建自动灌溉与智能补光执行逻辑。配合低功耗 Wi-Fi 无线通信完成远端数据上报，为小型农业生产的自动化监控提供了一套轻量级硬件原型方案。</p>
           </div>
         </article>
-        <article class="thesis-card thesis-published">
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">嵌入式 · 医疗</span>
+
+        <article class="pe-pub-card">
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag">嵌入式 · 医疗</span>
             </div>
-            <h3 class="project-title">基于 Hi3861 的嵌入式智慧医疗终端实现</h3>
-            <p class="thesis-abstract">项目聚焦于非接触式健康监测，利用Hi3861集成人体感应与血氧/心率模拟传感器。系统能够对异常体征进行预警并通过Wi-Fi上传数据，体现了OpenHarmony在个人健康保障与远程医疗辅助系统中的高可靠性开发优势。</p>
+            <h3>基于 Hi3861 的嵌入式智慧医疗终端实现</h3>
+            <p class="pe-pub-abstract">面向非接触式日常健康看护场景，借助 Hi3861 集成人体感应与血氧、心率模拟传感采集模块。当监测到异常体征波动时，系统即时发出本地告警并通过 Wi-Fi 同步上传记录，展示了 OpenHarmony 在个人健康监测终端上的稳定响应能力。</p>
           </div>
         </article>
       </div>
     </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
-    <div id="site-footer"></div>
-<script src="/static/js/footer.js"></script>
-    <script src="/static/vendor/particles.js/particles.min.js"></script>
-<script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="/static/vendor/particles.js/particles.min.js"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

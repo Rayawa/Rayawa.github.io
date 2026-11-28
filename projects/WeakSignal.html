@@ -35,576 +35,461 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/signal.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
 
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
 
-  <main class="page project-page signal-page">
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>物理竞赛与研究</span>
+      <span>/</span>
+      <span>基于光杠杆放大的微弱电信号测量系统</span>
+    </nav>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="project-intro signal-hero" id="top">
-      
-      <span class="project-category">物理竞赛</span>
-      <div class="signal-hero-eyebrow">
-        <i class="fas fa-flask"></i> 通信工程 · 物理实验创新项目
+    <header class="pe-hero" id="top">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">通信工程 · 物理实验创新项目</span>
+        <h1>基于光杠杆放大的微弱电信号测量系统</h1>
+        <p class="pe-hero-sub">Design &amp; Implementation of a Weak Electrical Signal Measurement System Based on Optical Lever Amplification</p>
+        <p class="pe-lead">针对微安级及更弱电信号直接电放大易受前端噪声淹没的问题，构建“电磁感应 → 机械偏转 → 光学放大 → 数字处理”的多级物理转换链路，实现从物理量到量化数字输出的完整测量、标定与误差分析。</p>
+
+        <div class="pe-hero-meta">
+          <span><i class="fas fa-users"></i> 陈梓睿 · 肖晓和 · 任金棚</span>
+          <span><i class="fas fa-building"></i> 北方工业大学</span>
+          <span><i class="far fa-calendar"></i> 2026 年 8 月</span>
+        </div>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> 阅读完整论文 (PDF)</a>
+            <a class="pe-btn" href="#files"><i class="fas fa-download"></i> 下载项目文件</a>
+            <a class="pe-btn" href="../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener"><i class="fas fa-table"></i> 实验器材表</a>
+          </div>
+        </div>
       </div>
-      <h1>
-        基于<span class="highlight">光杠杆放大</span>的<br>微弱电信号测量系统
-        <small>Design & Implementation of a Weak Electrical Signal Measurement System Based on Optical Lever Amplification</small>
-      </h1>
-      <p class="signal-hero-desc">
-        将难以直接测量的微弱电信号，通过<strong>电磁感应 → 机械偏转 → 光学放大 → 数字处理</strong>的多级转换链路，实现从物理量到数字量的完整检测与量化分析。
-      </p>
-      <div class="signal-hero-meta">
-        <span><i class="fas fa-users"></i> 陈梓睿 · 肖晓和 · 任金棚</span>
-        <span><i class="fas fa-building"></i> 北方工业大学</span>
-        <span><i class="far fa-calendar"></i> 2026 年 8 月</span>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术要素与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">微弱电信号测量</span>
+        <span class="pe-tag is-key">光杠杆光学放大</span>
+        <span class="pe-tag is-key">PSD 传感器</span>
+        <span class="pe-tag">法拉第电磁感应</span>
+        <span class="pe-tag">Si4713 射频调制</span>
+        <span class="pe-tag">AD8628 / ADS1115</span>
+        <span class="pe-tag">Arduino</span>
+        <span class="pe-tag">最小二乘标定</span>
       </div>
-      <div class="signal-hero-actions">
-        <a class="sig-btn sig-btn-primary" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
-          <i class="fas fa-book-open"></i> 阅读完整论文
-        </a>
-        <a class="sig-btn sig-btn-outline" href="#files">
-          <i class="fas fa-download"></i> 下载项目文件
-        </a>
-        <a class="sig-btn sig-btn-outline" href="../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener">
-          <i class="fas fa-table"></i> 实验器材表
-        </a>
-      </div>
+      <span class="pe-meta-summary">32 页完整论文 · 8 张原理/接线图（点击可放大）· 21 份工程与源码资源</span>
     </section>
 
-    <!-- ==================== QUICK NAV ==================== -->
-    <nav class="signal-nav" id="signalNav">
-      <div class="signal-nav-inner">
-        <a class="signal-nav-pill active" href="#abstract">摘要</a>
-        <a class="signal-nav-pill" href="#introduction">引言</a>
-        <a class="signal-nav-pill" href="#design">系统设计</a>
-        <a class="signal-nav-pill" href="#generation">发生模块</a>
-        <a class="signal-nav-pill" href="#reception">接收模块</a>
-        <a class="signal-nav-pill" href="#deflection">偏转模块</a>
-        <a class="signal-nav-pill" href="#processing">数据处理</a>
-        <a class="signal-nav-pill" href="#calibration">标定</a>
-        <a class="signal-nav-pill" href="#error">误差分析</a>
-        <a class="signal-nav-pill" href="#applications">应用</a>
-        <a class="signal-nav-pill" href="#files">文件</a>
+    <nav class="pe-toc" aria-label="论文章节快速跳转">
+      <div class="pe-toc-inner">
+        <a class="pe-toc-pill is-active" href="#abstract">摘要</a>
+        <a class="pe-toc-pill" href="#introduction">1 引言</a>
+        <a class="pe-toc-pill" href="#design">2 系统设计</a>
+        <a class="pe-toc-pill" href="#generation">3 发生模块</a>
+        <a class="pe-toc-pill" href="#reception">4 接收模块</a>
+        <a class="pe-toc-pill" href="#deflection">5 偏转模块</a>
+        <a class="pe-toc-pill" href="#processing">6 数据处理</a>
+        <a class="pe-toc-pill" href="#calibration">7 系统标定</a>
+        <a class="pe-toc-pill" href="#error">8 误差分析</a>
+        <a class="pe-toc-pill" href="#applications">9 应用案例</a>
+        <a class="pe-toc-pill" href="#conclusion">10 局限与展望</a>
+        <a class="pe-toc-pill" href="#files">项目文件</a>
       </div>
     </nav>
 
-    <!-- ==================== 摘要 ==================== -->
-    <section class="signal-abstract" id="abstract">
-      <div class="signal-abstract-text">
-        <h2>摘要</h2>
-        <p>针对微弱电信号幅值低、易受噪声影响且难以直接测量的问题，本文设计了一套基于光杠杆转换放大的微弱电信号测量系统。系统通过接收线圈获取外部微弱电磁信号，利用载流线圈在恒定磁场中的电磁作用，将感应电流变化转换为机械偏转响应，并结合光杠杆结构与PSD传感器实现微小角位移的光学放大检测。通过信号调理、模数转换和嵌入式数据处理实现信号采集与量化分析，同时利用专用标定模块建立输入电流与PSD输出之间的对应关系。本文对系统结构、工作原理及误差来源进行了分析，并提出实验验证方案。</p>
-        <div class="signal-abstract-keywords">
-          <span class="kw-label">关键词</span>
-          <span class="kw">微弱电信号</span>
-          <span class="kw">光杠杆</span>
-          <span class="kw">电磁转换</span>
-          <span class="kw">PSD传感器</span>
-          <span class="kw">嵌入式数据处理</span>
-        </div>
-        <div class="signal-abstract-actions">
-          <a class="sig-btn sig-btn-primary" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
-            <i class="fas fa-file-pdf"></i> 下载论文 (PDF · 32页)
-          </a>
-        </div>
-      </div>
-      <a class="signal-paper-preview" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener" title="点击查看论文">
-        <i class="fas fa-file-pdf"></i>
-        <span>完整论文 PDF</span>
-        <span style="font-size:0.7rem;margin-top:0.15rem;">32 页 · 点击预览</span>
-      </a>
-    </section>
-
-    <!-- ==================== §1 引言 ==================== -->
-    <section class="signal-section" id="introduction">
-      <div class="signal-section-header"><div class="signal-section-num">1</div><div><h2>引言</h2><p>以物理放大突破微弱信号测量中的前置噪声限制</p></div></div>
-      <div class="signal-card"><p>微安乃至更低量级的电信号容易被环境噪声淹没；单纯提高电子增益也会同步放大前端噪声。该系统先以电磁、机械与光学链路完成物理转换，再进行高精度数字采集：微小电流首先引起机械偏转，光杠杆随后将偏转转换为更易检测的光斑位移。</p><p>论文随后依次说明总体结构、各模块实现、标定与线性度验证、误差分析、应用边界和未来优化方向。</p></div>
-    </section>
-
-    <!-- ==================== §2 系统总体设计 ==================== -->
-    <section class="signal-section" id="design">
-      <div class="signal-section-header">
-        <div class="signal-section-num">2</div>
-        <div>
-          <h2>系统总体设计</h2>
-          <p>模块化架构与多级转换链路</p>
-        </div>
+    <!-- 摘要 -->
+    <section class="pe-section" id="abstract">
+      <div class="pe-section-head">
+        <h2>摘要与关键词</h2>
+        <p class="pe-section-intro">以物理级联转换代替纯粹电子高倍增益放大，从原理层面隔离前端运放偏置与工频噪声瓶颈。</p>
       </div>
 
-      <div class="signal-card">
-        <p>系统以长方体框架作为机械支撑，采用<strong>模块化设计</strong>将装置划分为四大功能模块。框架左侧安装悬吊式偏转结构，右侧布置激光发射、光斑检测及数据处理电路。信号接收模块与偏转模块采用由同一根连续铜线绕制的<strong>一体化线圈结构</strong>，减少连接损耗。装置整体采用电磁屏蔽结构，数据处理部分以金属屏蔽罩隔离，提高系统稳定性。</p>
-      </div>
-
-      <div class="signal-grid-2" style="margin-top:1rem;">
-        <figure class="signal-img-card"><img src="../static/resources/signal/system-architecture.png" alt="系统架构示意图" loading="lazy"><figcaption>图 1 系统架构示意图</figcaption></figure>
-        <figure class="signal-img-card"><img src="../static/resources/signal/system-flow.png" alt="系统流程示意图" loading="lazy"><figcaption>图 2 系统流程示意图</figcaption></figure>
-      </div>
-
-      <div class="signal-features" style="margin-top:1rem;">
-        <div class="signal-feature">
-          <i class="fas fa-broadcast-tower"></i>
-          <strong>微弱电信号发生模块</strong>
-          <span>Si4713 射频发射<br>计算机音频调制源</span>
+      <div class="pe-card-box pe-prose">
+        <p>针对微弱电信号幅值低、易受噪声影响且难以直接测量的问题，本文设计了一套基于光杠杆转换放大的微弱电信号测量系统。系统通过接收线圈获取外部微弱电磁信号，利用载流线圈在恒定磁场中的电磁作用，将感应电流变化转换为机械偏转响应，并结合光杠杆结构与 PSD 传感器实现微小角位移的光学放大检测。通过信号调理、模数转换和嵌入式数据处理实现信号采集与量化分析，同时利用专用标定模块建立输入电流与 PSD 输出之间的对应关系。本文对系统结构、工作原理及误差来源进行了分析，并提出实验验证方案。</p>
+        <div class="pe-tag-list" style="margin:0.85rem 0 1.15rem;">
+          <span class="pe-tag is-key">微弱电信号</span>
+          <span class="pe-tag is-key">光杠杆</span>
+          <span class="pe-tag">电磁转换</span>
+          <span class="pe-tag">PSD 传感器</span>
+          <span class="pe-tag">嵌入式数据处理</span>
         </div>
-        <div class="signal-feature">
-          <i class="fas fa-satellite-dish"></i>
-          <strong>信号接收模块</strong>
-          <span>多匝接收线圈 + 永磁体<br>法拉第电磁感应</span>
-        </div>
-        <div class="signal-feature">
-          <i class="fas fa-compass"></i>
-          <strong>偏转模块</strong>
-          <span>悬吊式偏转线圈 + 反射镜<br>光杠杆光学放大</span>
-        </div>
-        <div class="signal-feature">
-          <i class="fas fa-microchip"></i>
-          <strong>数据处理模块</strong>
-          <span>PSD + AD8628 + ADS1115<br>Arduino 数字采集与计算</span>
-        </div>
-      </div>
-
-      <div class="signal-flow-wrap">
-        <div class="signal-subhead">
-          <i class="fas fa-arrow-right"></i>
-          <h3>信号转换链路</h3>
-        </div>
-        <div class="signal-flow">
-          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-wave-square"></i></div><span class="step-label">微弱电信号<br>产生</span></div>
-          <span class="signal-flow-arrow">▸</span>
-          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-magnet"></i></div><span class="step-label">电磁感应<br>转换</span></div>
-          <span class="signal-flow-arrow">▸</span>
-          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-exchange-alt"></i></div><span class="step-label">磁电<br>转换</span></div>
-          <span class="signal-flow-arrow">▸</span>
-          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-undo-alt"></i></div><span class="step-label">机械<br>偏转</span></div>
-          <span class="signal-flow-arrow">▸</span>
-          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-lightbulb"></i></div><span class="step-label">光学<br>检测</span></div>
-          <span class="signal-flow-arrow">▸</span>
-          <div class="signal-flow-step"><div class="step-icon"><i class="fas fa-calculator"></i></div><span class="step-label">数据<br>处理</span></div>
-        </div>
-        <div class="signal-flow-caption">电信号 → 机械偏转 → 光学位移 → 数字输出</div>
-      </div>
-    </section>
-
-    <!-- ==================== §3 微弱电信号发生模块 ==================== -->
-    <section class="signal-section" id="generation">
-      <div class="signal-section-header">
-        <div class="signal-section-num">3</div>
-        <div>
-          <h2>微弱电信号发生模块</h2>
-          <p>稳定可控的测试信号源 — 计算机音频调制 + Si4713 射频发射</p>
-        </div>
-      </div>
-
-      <div class="signal-card">
-        <div class="signal-subhead">
-          <i class="fas fa-microchip"></i>
-          <h3>电路设计与实现</h3>
-        </div>
-        <p>发生模块由<strong>计算机音频输出接口</strong>、<strong>Arduino 控制单元</strong>以及<strong>Si4713 射频发射芯片</strong>组成。计算机生成幅值和频率可控的低频调制信号，经 3.5mm 音频接口输入 Si4713 的 LIN 与 RIN 输入端；Arduino 通过 I2C 接口对 Si4713 进行初始化与参数配置。Si4713 内部集成频率合成、调制控制及射频输出功能，将音频信号调制到指定射频载波并通过天线输出。</p>
-        <div class="signal-grid-2" style="margin-top:1rem;">
-          <figure class="signal-img-card">
-            <img src="../static/resources/signal/generator-wiring-diagram.png" alt="发生模块接线示意图" loading="lazy">
-            <figcaption>发生模块接线示意图</figcaption>
-          </figure>
-          <figure class="signal-img-card">
-            <img src="../static/resources/signal/generator-schematic.png" alt="发生模块电路原理图" loading="lazy">
-            <figcaption>发生模块电路原理图</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="signal-card" style="margin-top:1rem;">
-        <div class="signal-subhead">
-          <i class="fas fa-code"></i>
-          <h3>程序设计与实现</h3>
-        </div>
-        <p>低频调制信号由计算机 Python 脚本生成（100Hz 正弦波），Arduino 负责 Si4713 通信控制。相较于传统数字波形生成方式，该方案利用计算机音频输出实现高稳定性调制信号产生，提高了频率和幅值控制精度。</p>
-        <div class="signal-grid-2" style="margin-top:0.9rem;">
-          <a class="signal-file" href="../static/resources/signal/script.py" target="_blank" rel="noopener">
-            <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
-            <div class="signal-file-body">
-              <h4>100Hz 正弦波生成脚本</h4>
-              <span class="signal-file-ext">script.py</span>
-              <p>使用 sounddevice 库生成 100Hz 正弦调制信号</p>
-            </div>
-            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-          </a>
-          <a class="signal-file" href="../static/resources/signal/signal.ino" target="_blank" rel="noopener">
-            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-            <div class="signal-file-body">
-              <h4>发生模块 Arduino 程序</h4>
-              <span class="signal-file-ext">signal.ino</span>
-              <p>Si4713 初始化、参数配置、异常处理与串口状态报告</p>
-            </div>
-            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-          </a>
+        <div class="pe-actions">
+          <a class="pe-btn is-primary" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 下载完整论文 (PDF · 32 页 · 1.5 MB)</a>
         </div>
       </div>
     </section>
 
-    <!-- ==================== §4 信号接收模块 ==================== -->
-    <section class="signal-section" id="reception">
-      <div class="signal-section-header">
-        <div class="signal-section-num">4</div>
-        <div>
-          <h2>信号接收模块</h2>
-          <p>场电信号 → 电流信号 — 第一次转换</p>
-        </div>
+    <!-- 1 引言 -->
+    <section class="pe-section" id="introduction">
+      <div class="pe-section-head">
+        <h2>1 · 引言</h2>
+        <p class="pe-section-intro">以物理级联放大突破微弱信号测量中的前置电子噪声限制。</p>
       </div>
-      <div class="signal-card">
-        <p>接收模块采用<strong>轻量化、可移动式结构</strong>，由多匝绕制接收线圈与两侧磁极相对的钕铁硼强磁铁组成。线圈所在区域形成方向稳定的磁场环境。当外部微弱交变电流信号通过空间传播形成变化磁场时，线圈中磁通量变化，根据<strong>法拉第电磁感应定律</strong>产生感应电动势与感应电流。感应电流经闭合回路传输至偏转线圈，为后续磁电转换提供驱动电流。</p>
-        <p>接收线圈与偏转线圈采用<strong>一体化线圈结构</strong>（同一根连续铜线绕制），直接连接方式避免了传统分离式连接中接触电阻与连接稳定性对微弱信号传输的影响，显著提高系统灵敏度。</p>
+      <div class="pe-card-box pe-prose">
+        <p>微安乃至更低量级的电信号容易被环境电磁与热噪声淹没；若单纯依赖电子放大器提高增益，前端自身噪声与失调也会被同步放大。本系统先借助电磁、机械与光学链路完成高信噪比的物理位移转换，再由高精度 ADC 执行数字化采集：微小感应电流首先驱使悬吊线圈产生机械偏转，光杠杆随即把微小角位移几何放大为易检的光斑偏移。</p>
+        <p>下文依次说明系统总体结构、各功能模块硬件与软件实现、分级最小二乘标定、误差来源与不确定度评估、典型应用场景以及未来优化方向。</p>
       </div>
     </section>
 
-    <!-- ==================== §5 偏转模块 ==================== -->
-    <section class="signal-section" id="deflection">
-      <div class="signal-section-header">
-        <div class="signal-section-num">5</div>
-        <div>
-          <h2>偏转模块</h2>
-          <p>微弱信号物理放大的核心 — 安培力驱动 + 光杠杆放大</p>
-        </div>
+    <!-- 2 系统总体设计 -->
+    <section class="pe-section" id="design">
+      <div class="pe-section-head">
+        <h2>2 · 系统总体设计</h2>
+        <p class="pe-section-intro">长方体电磁屏蔽框架配合四大功能模块，点击下方任意原理图可进入大图浏览模式。</p>
       </div>
-      <div class="signal-card">
-        <p>偏转模块由<strong>悬吊式偏转线圈</strong>、永磁体、反射镜及机械支撑结构组成。偏转线圈通过两根细铜丝悬挂于框架上，反射镜固定于线圈并同步转动。来自右侧的准直激光射向反射镜，反射回右侧的一维 PSD 感光面上。</p>
-        <p>当感应电流 <em>I</em> 流经偏转线圈时，载流线圈在恒定磁场 <em>B</em> 中受安培力作用产生转动力矩，悬丝同时产生恢复力矩。平衡时反射镜偏转 θ，反射激光产生 2θ 角偏转，经距离 <em>D</em> 照射至 PSD。在小角度条件下（θ ≤ 5°），光斑位置 <em>x</em> 与电流 <em>I</em> 满足近似线性关系：</p>
-        <div class="signal-formula-block">I = (2kD / NB) · x &emsp; → &emsp; x ∝ I</div>
-        <p>其中 <em>k</em> 为悬丝等效扭转劲度系数，<em>N</em> 为线圈匝数。偏转模块实现了微弱电流到可观测光学位置信号的转换，为后续数字化检测奠定基础。</p>
+
+      <div class="pe-card-box pe-prose" style="margin-bottom:1.25rem;">
+        <p>装置以长方体支撑框架为基础，采用模块化结构划分为四大单元：框架左侧布置悬吊式偏转结构，右侧布置激光光源、一维 PSD 传感及高精度数据处理电路。其中信号接收模块与偏转模块由同一根连续铜线一体绕制而成（一体化线圈结构），省去焊点接触电阻与连接损耗；全装置设电磁屏蔽措施，数据处理板配备金属屏蔽罩以抑制空间干扰。</p>
+      </div>
+
+      <div class="pe-media-grid" style="margin-bottom:1.5rem;">
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/system-architecture.png" alt="系统架构示意图" width="1692" height="1620" loading="lazy">
+          <figcaption>图 1 系统架构示意图（点击放大查看）</figcaption>
+        </figure>
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/system-flow.png" alt="系统流程示意图" width="1272" height="1378" loading="lazy">
+          <figcaption>图 2 系统流程示意图（点击放大查看）</figcaption>
+        </figure>
+      </div>
+
+      <div class="pe-storyboard" style="margin-bottom:1.25rem;">
+        <article class="pe-story-step">
+          <span class="pe-story-num">MODULE 01</span>
+          <h3>微弱电信号发生模块</h3>
+          <p>Si4713 射频发射芯片配合计算机音频调制源（100Hz 正弦波），构造可控微弱场源。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">MODULE 02</span>
+          <h3>信号接收模块</h3>
+          <p>多匝一体化接收线圈结合两侧钕铁硼永磁体，遵循法拉第电磁感应产生驱动电流。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">MODULE 03</span>
+          <h3>偏转放大模块</h3>
+          <p>悬吊式偏转线圈驱动平面反射镜产生偏转角，通过光杠杆实现光学位移几何放大。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">MODULE 04</span>
+          <h3>数据处理模块</h3>
+          <p>PSD 光敏器件 + AD8628 低噪声调理 + ADS1115 16 位 ADC，交由 Arduino 量化计算。</p>
+        </article>
+      </div>
+
+      <div class="pe-ribbon" aria-label="物理到数字六级转换链路">
+        <div class="pe-ribbon-node">微弱电信号产生</div>
+        <span class="pe-ribbon-arrow"><i class="fas fa-arrow-right"></i></span>
+        <div class="pe-ribbon-node">电磁感应转换</div>
+        <span class="pe-ribbon-arrow"><i class="fas fa-arrow-right"></i></span>
+        <div class="pe-ribbon-node">磁电转矩响应</div>
+        <span class="pe-ribbon-arrow"><i class="fas fa-arrow-right"></i></span>
+        <div class="pe-ribbon-node">机械偏转</div>
+        <span class="pe-ribbon-arrow"><i class="fas fa-arrow-right"></i></span>
+        <div class="pe-ribbon-node">光学杠杆检测</div>
+        <span class="pe-ribbon-arrow"><i class="fas fa-arrow-right"></i></span>
+        <div class="pe-ribbon-node">嵌入式数字处理</div>
       </div>
     </section>
 
-    <!-- ==================== §6 数据处理模块 ==================== -->
-    <section class="signal-section" id="processing">
-      <div class="signal-section-header">
-        <div class="signal-section-num">6</div>
-        <div>
-          <h2>数据处理模块</h2>
-          <p>光学信号检测 · 数据转换 · 测量结果输出</p>
-        </div>
+    <!-- 3 微弱电信号发生模块 -->
+    <section class="pe-section" id="generation">
+      <div class="pe-section-head">
+        <h2>3 · 微弱电信号发生模块</h2>
+        <p class="pe-section-intro">以计算机声卡高稳定性正弦调制搭配 Si4713 射频芯片，构造幅值与频率精确可控的标准测试信号源。</p>
       </div>
 
-      <div class="signal-card">
-        <div class="signal-subhead">
-          <i class="fas fa-calculator"></i>
-          <h3>数据计算原理</h3>
-        </div>
-        <p><strong>归一化位置算子 P</strong> — PSD 双端输出 I<sub>a</sub>、I<sub>b</sub>。为消除激光功率波动与环境光影响，引入归一化算子：</p>
-        <div class="signal-formula-block">P = (I<sub>b</sub> − I<sub>a</sub>) / (I<sub>a</sub> + I<sub>b</sub>)&emsp;&emsp;−1 ≤ P ≤ 1</div>
-        <p>在系统工作范围内，P 与感应电流 I 满足线性关系，C 为转换系数（标定获得）：</p>
-        <div class="signal-formula-block">I = C · P + b</div>
-        <p style="margin-top:0.8rem;"><strong>信号频率 f</strong> — 连续采集 PSD 输出，过零检测确定周期：</p>
-        <div class="signal-formula-block">f = 1 / T = 1 / (t<sub>2</sub> − t<sub>1</sub>)</div>
-        <p style="margin-top:0.8rem;"><strong>电动势幅值 U</strong> — 接收与偏转线圈串联，LCR 电桥实测等效阻抗参数：</p>
-        <div class="signal-formula-block">U = I · |Z| = I · √(R² + (2πfL)²)</div>
+      <div class="pe-card-box pe-prose" style="margin-bottom:1.25rem;">
+        <h3>电路设计与实现</h3>
+        <p>发生模块由计算机音频输出接口、Arduino 控制单元以及 Si4713 射频发射芯片组成。计算机 Python 脚本（<code>script.py</code>，借助 <code>sounddevice</code> 库输出 100Hz 高纯度正弦波）经 3.5mm 音频口送入 Si4713 的 <code>LIN</code> / <code>RIN</code> 输入端；Arduino 通过 I²C 对 Si4713 完成初始化配置与频率锁定，经片内调制将信号辐射输出。</p>
       </div>
 
-      <div class="signal-card" style="margin-top:1rem;">
-        <div class="signal-subhead">
-          <i class="fas fa-microchip"></i>
-          <h3>电路设计与实现</h3>
-        </div>
-        <p>数据处理模块由 <strong>PSD 传感器</strong>、<strong>AD8628 低噪声调理电路</strong>、<strong>ADS1115 16位 ADC</strong> 及 <strong>Arduino</strong> 组成。PSD 利用横向光电效应产生两路差分光电流；AD8628 构成跨阻放大电路进行 I-V 转换（低输入偏置电流、低失调电压）；ADS1115 通过 I2C 与 Arduino 通信，完成高精度数字采样。</p>
-        <div class="signal-grid-2" style="margin-top:1rem;">
-          <figure class="signal-img-card">
-            <img src="../static/resources/signal/data-converter-wiring-diagram.png" alt="数据转换模块接线示意图" loading="lazy">
-            <figcaption>数据转换模块接线示意图</figcaption>
-          </figure>
-          <figure class="signal-img-card">
-            <img src="../static/resources/signal/data-converter-schematic.png" alt="数据转换模块电路原理图" loading="lazy">
-            <figcaption>数据转换模块电路原理图</figcaption>
-          </figure>
-        </div>
+      <div class="pe-media-grid" style="margin-bottom:1.25rem;">
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/generator-wiring-diagram.png" alt="发生模块接线示意图" width="1429" height="1097" loading="lazy">
+          <figcaption>发生模块接线示意图（点击放大查看）</figcaption>
+        </figure>
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/generator-schematic.png" alt="发生模块电路原理图" width="1260" height="727" loading="lazy">
+          <figcaption>发生模块电路原理图（点击放大查看）</figcaption>
+        </figure>
       </div>
 
-      <div class="signal-card" style="margin-top:1rem;">
-        <div class="signal-subhead">
-          <i class="fas fa-code"></i>
-          <h3>程序设计与实现</h3>
-        </div>
-        <p>程序采用<strong>模块化设计</strong>：环境光补偿降低背景光影响，滑动平均滤波（窗口 N=16）抑制随机噪声，过零检测计算信号频率。滤波后的数据用于光斑位置、电流、电压及频率参数的综合计算与串口输出。</p>
-        <a class="signal-file" href="../static/resources/signal/measure.ino" target="_blank" rel="noopener" style="margin-top:0.8rem;">
-          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-body">
-            <h4>测量模块 Arduino 程序</h4>
-            <span class="signal-file-ext">measure.ino</span>
-            <p>PSD 双通道采集、环境光补偿、滑动平均滤波、过零频率检测与参数转换输出</p>
+      <div class="pe-file-grid">
+        <a class="pe-file-card" href="../static/resources/signal/script.py" target="_blank" rel="noopener">
+          <div class="pe-file-icon"><i class="fab fa-python"></i></div>
+          <div class="pe-file-body">
+            <h4>100Hz 正弦波生成脚本</h4>
+            <span class="pe-file-ext">script.py</span>
+            <p>使用 sounddevice 库生成稳定可控的 100Hz 正弦调制信号</p>
           </div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
+          <span class="pe-file-dl"><i class="fas fa-download"></i></span>
+        </a>
+        <a class="pe-file-card" href="../static/resources/signal/signal.ino" target="_blank" rel="noopener">
+          <div class="pe-file-icon"><i class="fas fa-microchip"></i></div>
+          <div class="pe-file-body">
+            <h4>发生模块 Arduino 程序</h4>
+            <span class="pe-file-ext">signal.ino</span>
+            <p>Si4713 初始化、发射参数配置、异常处理与串口状态汇报</p>
+          </div>
+          <span class="pe-file-dl"><i class="fas fa-download"></i></span>
         </a>
       </div>
     </section>
 
-    <!-- ==================== §7 系统标定 ==================== -->
-    <section class="signal-section" id="calibration">
-      <div class="signal-section-header">
-        <div class="signal-section-num">7</div>
-        <div>
-          <h2>系统标定与量化模型</h2>
-          <p>建立输入电流与 PSD 输出的定量转换关系</p>
-        </div>
+    <!-- 4 信号接收模块 -->
+    <section class="pe-section" id="reception">
+      <div class="pe-section-head">
+        <h2>4 · 信号接收模块</h2>
+        <p class="pe-section-intro">场电信号 → 电流信号的第一次物理转换，采用一体化连续铜线绕组降低寄生接触损耗。</p>
+      </div>
+      <div class="pe-card-box pe-prose">
+        <p>接收模块采用轻量化、可移动式结构，由多匝绕制接收线圈与两侧磁极相对的钕铁硼强磁铁构成稳定工作磁场环境。当外界微弱交变电信号在空间激励起交变磁通量时，根据法拉第电磁感应定律，线圈闭合回路产生感应电动势与感应电流。</p>
+        <p>接收线圈与偏转线圈由同一根连续漆包铜线绕制而成（一体化线圈结构），省去分体焊接造成的接触电阻与接触热电动势，显著改善系统对微弱感应电流的灵敏度。</p>
+      </div>
+    </section>
+
+    <!-- 5 偏转模块 -->
+    <section class="pe-section" id="deflection">
+      <div class="pe-section-head">
+        <h2>5 · 偏转模块与光杠杆原理</h2>
+        <p class="pe-section-intro">物理放大的核心级联环节：安培力矩驱动悬吊反射镜，配合 2θ 光学杠杆效应将微弱电流放大为厘米级光斑位移。</p>
+      </div>
+      <div class="pe-card-box pe-prose">
+        <p>偏转模块包含两根细铜丝悬吊的偏转线圈、永磁体、同步转动反射镜与外框架。当感应电流 <em>I</em> 流经处于恒定磁场 <em>B</em> 中的 <em>N</em> 匝线圈时，载流线圈受安培力产生转动力矩，与悬丝扭转恢复力矩达成平衡并偏转角度 θ；来自右侧的准直激光投射到镜面后以 2θ 反射角传播距离 <em>D</em> 落在一维 PSD 感光面上。在小角度条件下（θ ≤ 5°），光斑偏移位置 <em>x</em> 与电流 <em>I</em> 呈现良好的线性正比关系：</p>
+        <div class="pe-formula">I = (2kD / NB) · x &emsp;→&emsp; x ∝ I</div>
+        <p>其中 <em>k</em> 为悬丝等效扭转劲度系数。偏转模块由此把微安量级电流转换并放大为高信噪比的光学位置信号。</p>
+      </div>
+    </section>
+
+    <!-- 6 数据处理模块 -->
+    <section class="pe-section" id="processing">
+      <div class="pe-section-head">
+        <h2>6 · 数据处理模块</h2>
+        <p class="pe-section-intro">利用归一化算子抑制激光功率起伏，配合 AD8628 跨阻调理与 ADS1115 16 位高精度采样反演电流、频率与电动势。</p>
       </div>
 
-      <div class="signal-card">
-        <div class="signal-subhead">
-          <i class="fas fa-balance-scale"></i>
-          <h3>标定原理</h3>
-        </div>
-        <p>偏转线圈回路中<strong>串联精密采样电阻</strong> R<sub>s</sub> = 220Ω，通过测量其两端电压获得实际电流 I = V<sub>R</sub> / R<sub>s</sub>。Arduino 输出不同占空比的 PWM 驱动信号，使线圈电流分 6 级逐步变化，每级采集 17 组 (I<sub>i</sub>, P<sub>i</sub>) 数据。累计 100 组后通过<strong>最小二乘拟合</strong>求解转换系数 C 与零点偏移量 b，并输出 R² 相关系数评估拟合质量。</p>
+      <div class="pe-card-box pe-prose" style="margin-bottom:1.25rem;">
+        <h3>核心数字计算模型</h3>
+        <p><strong>归一化位置算子 P</strong> — 采集 PSD 双端光电流输出 I<sub>a</sub>、I<sub>b</sub>，为消除激光器光强波动与背景环境光偏移引入归一化处理：</p>
+        <div class="pe-formula">P = (I<sub>b</sub> − I<sub>a</sub>) / (I<sub>a</sub> + I<sub>b</sub>) &emsp; (−1 ≤ P ≤ 1) &emsp;&emsp; I = C · P + b</div>
+        <p><strong>信号频率 f 与感应电动势幅值 U</strong> — 通过过零检测测定周期并结合 LCR 电桥实测的串联网圈等效阻抗参数求解电动势：</p>
+        <div class="pe-formula">f = 1 / (t<sub>2</sub> − t<sub>1</sub>) &emsp;&emsp; U = I · |Z| = I · √(R² + (2πfL)²)</div>
+        <p style="margin-top:0.85rem;">硬件链路围绕一维 PSD 传感器、AD8628 极低偏置电流/低失调电压运放（跨阻 I-V 调理）、ADS1115 16 位高精度 ADC 及 Arduino（环境光背景减除、N=16 滑动平均滤波与过零频率计算）完整落地。</p>
       </div>
 
-      <div class="signal-card" style="margin-top:1rem;">
-        <div class="signal-subhead">
-          <i class="fas fa-microchip"></i>
-          <h3>标定模块电路</h3>
+      <div class="pe-media-grid" style="margin-bottom:1.25rem;">
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/data-converter-wiring-diagram.png" alt="数据转换模块接线示意图" width="1852" height="1773" loading="lazy">
+          <figcaption>数据转换模块接线示意图（点击放大查看）</figcaption>
+        </figure>
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/data-converter-schematic.png" alt="数据转换模块电路原理图" width="1609" height="1142" loading="lazy">
+          <figcaption>数据转换模块电路原理图（点击放大查看）</figcaption>
+        </figure>
+      </div>
+
+      <div class="pe-file-grid">
+        <a class="pe-file-card" href="../static/resources/signal/measure.ino" target="_blank" rel="noopener">
+          <div class="pe-file-icon"><i class="fas fa-microchip"></i></div>
+          <div class="pe-file-body">
+            <h4>测量模块 Arduino 程序</h4>
+            <span class="pe-file-ext">measure.ino</span>
+            <p>PSD 双通道采集、环境光补偿、N=16 滑动平均滤波、过零检测及参数输出</p>
+          </div>
+          <span class="pe-file-dl"><i class="fas fa-download"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 7 系统标定 -->
+    <section class="pe-section" id="calibration">
+      <div class="pe-section-head">
+        <h2>7 · 系统标定与量化模型</h2>
+        <p class="pe-section-intro">不拆改测试硬件链路，仅切换标定固件即可采集百组样本最小二乘拟合转换系数 C 与零点偏移 b。</p>
+      </div>
+
+      <div class="pe-card-box pe-prose" style="margin-bottom:1.25rem;">
+        <p>在偏转线圈回路中串联精密采样电阻 R<sub>s</sub> = 220 Ω 以测算真实电流（I = V<sub>R</sub> / R<sub>s</sub>）。由 Arduino 输出 PWM 驱动使线圈电流分 6 级递增，每级采集 17 组共累计 100 组 (I<sub>i</sub>, P<sub>i</sub>) 标定数据，片上自动运行最小二乘法求解转换斜率 C 与零点截距 b，并同步打印线性拟合优度 R²。标定完成后仅需切换测量程序而无需变更硬件接线，避免重接线引入额外系统误差。</p>
+      </div>
+
+      <div class="pe-media-grid" style="margin-bottom:1.25rem;">
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/calibration-wiring-diagram.png" alt="标定模块接线示意图" width="1782" height="961" loading="lazy">
+          <figcaption>标定模块接线示意图（点击放大查看）</figcaption>
+        </figure>
+        <figure class="pe-figure signal-img-card">
+          <img src="../static/resources/signal/calibration-schematic.png" alt="标定模块电路原理图" width="1144" height="674" loading="lazy">
+          <figcaption>标定模块电路原理图（点击放大查看）</figcaption>
+        </figure>
+      </div>
+
+      <div class="pe-file-grid">
+        <a class="pe-file-card" href="../static/resources/signal/current.ino" target="_blank" rel="noopener">
+          <div class="pe-file-icon"><i class="fas fa-microchip"></i></div>
+          <div class="pe-file-body">
+            <h4>电流输出程序</h4>
+            <span class="pe-file-ext">current.ino</span>
+            <p>七档 PWM 控制、按键切换档位与采样电阻压降实测</p>
+          </div>
+          <span class="pe-file-dl"><i class="fas fa-download"></i></span>
+        </a>
+        <a class="pe-file-card" href="../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
+          <div class="pe-file-icon"><i class="fas fa-microchip"></i></div>
+          <div class="pe-file-body">
+            <h4>转换系数计算程序</h4>
+            <span class="pe-file-ext">calibrate.ino</span>
+            <p>ADS1115 双通道分级采样与最小二乘拟合自动输出标定系数</p>
+          </div>
+          <span class="pe-file-dl"><i class="fas fa-download"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 8 误差分析 -->
+    <section class="pe-section" id="error">
+      <div class="pe-section-head">
+        <h2>8 · 误差分析与不确定度评估</h2>
+        <p class="pe-section-intro">综合磁电非理想分布、悬丝机械非线性及模拟/ADC 量化噪声构建合成不确定度模型并提出针对性抑制策略。</p>
+      </div>
+
+      <div class="pe-contrast-pair" style="margin-bottom:1rem;">
+        <div class="pe-contrast-box">
+          <h3>主要误差来源</h3>
+          <ul class="pe-list">
+            <li><strong>磁场不均匀</strong>：永磁体空间分布非理想，影响安培力与偏转角对应线性度。</li>
+            <li><strong>机械结构误差</strong>：悬丝弹性滞后、安装偏心与反射镜贴合倾角经光杠杆放大。</li>
+            <li><strong>模拟电路与 ADC 量化</strong>：运放失调/温漂、ADC 基准波动与 LSB 量化极限。</li>
+            <li><strong>环境扰动</strong>：空间 EMI 耦合、空气对流与环境温湿度长时漂移。</li>
+          </ul>
         </div>
-        <p>标定模块由<strong>电流输出部分</strong>（PWM 驱动 + 采样电阻）和<strong>转换系数计算部分</strong>（复用数据处理硬件）组成。标定过程<strong>无需改变硬件连接</strong>，仅需切换 Arduino 运行程序即可在标定与测量模式间转换，保证信号传输路径一致性，避免额外设备引入系统误差。</p>
-        <div class="signal-grid-2" style="margin-top:1rem;">
-          <figure class="signal-img-card">
-            <img src="../static/resources/signal/calibration-wiring-diagram.png" alt="标定模块接线示意图" loading="lazy">
-            <figcaption>标定模块接线示意图</figcaption>
-          </figure>
-          <figure class="signal-img-card">
-            <img src="../static/resources/signal/calibration-schematic.png" alt="标定模块电路原理图" loading="lazy">
-            <figcaption>标定模块电路原理图</figcaption>
-          </figure>
-        </div>
-        <div class="signal-grid-2" style="margin-top:0.8rem;">
-          <a class="signal-file" href="../static/resources/signal/current.ino" target="_blank" rel="noopener">
-            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-            <div class="signal-file-body">
-              <h4>电流输出程序</h4>
-              <span class="signal-file-ext">current.ino</span>
-              <p>七档 PWM 亮度控制、按键切换档位、采样电阻电流测量</p>
-            </div>
-            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-          </a>
-          <a class="signal-file" href="../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
-            <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-            <div class="signal-file-body">
-              <h4>转换系数计算程序</h4>
-              <span class="signal-file-ext">calibrate.ino</span>
-              <p>ADS1115 双通道采集、分级标定、最小二乘拟合自动输出推荐标定值</p>
-            </div>
-            <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-          </a>
+
+        <div class="pe-contrast-box">
+          <h3>不确定度合成与精度提升策略</h3>
+          <ul class="pe-list">
+            <li><strong>A 类与 B 类评定</strong>：结合重复测量统计方差与仪器精度指标按传播律合成扩展不确定度。</li>
+            <li><strong>硬件层面</strong>：增设透明防风罩、优化机械支撑刚度、缩短高阻模拟线缆并加强金属屏蔽。</li>
+            <li><strong>软件与流程</strong>：启用滑动平均滤波、剔除离散异常值、实验前光路对准零点校准与定期基线检查。</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ==================== §8 误差分析 ==================== -->
-    <section class="signal-section" id="error">
-      <div class="signal-section-header">
-        <div class="signal-section-num">8</div>
-        <div>
-          <h2>误差分析</h2>
-          <p>误差来源梳理 · 不确定度评估模型 · 精度提升策略</p>
-        </div>
+    <!-- 9 应用案例 -->
+    <section class="pe-section" id="applications">
+      <div class="pe-section-head">
+        <h2>9 · 典型应用场景验证</h2>
+        <p class="pe-section-intro">将装置从电磁场信号延伸至光电管及光电敏感材料微弱光电流定量测试。</p>
       </div>
-      <div class="signal-grid-2">
-        <div class="signal-card">
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.8rem;"><i class="fas fa-exclamation-triangle" style="color:var(--sig-amber);"></i> 误差来源</h3>
-          <p style="font-size:0.88rem;"><strong>磁场不均匀</strong> — 永磁体空间分布非理想，影响安培力与偏转角对应关系<br>
-          <strong>机械结构误差</strong> — 悬丝材料特性、反射镜安装角度的微小变化被光学放大<br>
-          <strong>模拟电路误差</strong> — 运放失调电压、偏置电流、温漂；反馈元件参数变化<br>
-          <strong>ADC 量化误差</strong> — 参考电压波动与采样噪声限制系统分辨能力<br>
-          <strong>环境干扰</strong> — 外部 EMI 空间耦合、温度变化造成长期漂移</p>
-        </div>
-        <div class="signal-card">
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.8rem;"><i class="fas fa-chart-line" style="color:var(--sig-cyan);"></i> 不确定度评估</h3>
-          <p style="font-size:0.88rem;"><strong>A 类</strong> — 多次重复测量统计分析，反映空气扰动、机械微振动、电路随机噪声<br>
-          <strong>B 类</strong> — 基于仪器精度与标定参数误差评估（ADC 精度、放大电路参数、转换系数不确定性）<br>
-          <strong>合成标准不确定度</strong> — 各独立误差分量按传播规律合成<br>
-          <strong>扩展不确定度</strong> — 包含因子 × 合成不确定度，表示置信概率下的误差范围</p>
-        </div>
-      </div>
-      <div class="signal-card" style="margin-top:0.8rem;">
-        <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-shield-alt" style="color:var(--sig-green);"></i> 精度提升策略</h3>
-        <p style="font-size:0.88rem;"><strong>硬件：</strong>增加防风结构、优化支撑方式、缩短模拟信号路径、加强屏蔽措施。<strong>软件：</strong>滑动平均滤波、异常值剔除、合理匹配采样参数。<strong>流程：</strong>实验前完成光路调整与零点校准，长时间测量中定期检查系统基准状态。</p>
+
+      <div class="pe-storyboard is-3">
+        <article class="pe-story-step">
+          <span class="pe-story-num">CASE 01</span>
+          <h3>光电效应光电流测量</h3>
+          <p>将光电管输出直接接入线圈，恒定频率下改变光强观测光斑位移，相比指针检流计显著改善微小电流可读性。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">CASE 02</span>
+          <h3>最低检测限标定实验</h3>
+          <p>借助可调衰减光源递减输入电流直至逼近背景噪声底，连续采集零输入漂移以定量标定系统有效检测门限。</p>
+        </article>
+        <article class="pe-story-step">
+          <span class="pe-story-num">CASE 03</span>
+          <h3>材料光电特性对比</h3>
+          <p>在恒定光强照射下替换不同待测光电材料，定量横向比对其光生电流响应幅度、瞬态稳定性及温度规律。</p>
+        </article>
       </div>
     </section>
 
-    <!-- ==================== §9 应用案例 ==================== -->
-    <section class="signal-section" id="applications">
-      <div class="signal-section-header">
-        <div class="signal-section-num">9</div>
-        <div>
-          <h2>应用案例与效果分析</h2>
-          <p>典型实验场景验证系统检测能力</p>
-        </div>
+    <!-- 10 结论、局限性与展望 -->
+    <section class="pe-section" id="conclusion">
+      <div class="pe-section-head">
+        <h2>10 · 结论、局限性与展望</h2>
+        <p class="pe-section-intro">客观界定物理杠杆装置在灵敏度、线性动态范围及抗扰环境上的适用边界。</p>
       </div>
-      <div class="signal-grid-3">
-        <div class="signal-card">
-          <i class="fas fa-sun" style="font-size:1.6rem;color:var(--sig-amber);display:block;margin-bottom:0.6rem;"></i>
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.5rem;">光电效应实验</h3>
-          <p style="font-size:0.88rem;">光电管输出端连接系统输入端，微弱光电流流经接收与偏转结构。保持入射光频率不变，改变光强度记录光斑位置变化，验证对光电流变化的检测能力。相比传统指针式检测，光杠杆结构提高了微小位移的可观测性。</p>
-        </div>
-        <div class="signal-card">
-          <i class="fas fa-search" style="font-size:1.6rem;color:var(--sig-cyan);display:block;margin-bottom:0.6rem;"></i>
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.5rem;">微弱光电信号检测</h3>
-          <p style="font-size:0.88rem;">采用可调节光源逐步降低输入信号强度，记录 PSD 输出变化，确定系统有效检测限。长时间采集零输入状态数据，分析系统零点漂移和背景噪声水平，为优化结构参数提供依据。</p>
-        </div>
-        <div class="signal-card">
-          <i class="fas fa-flask" style="font-size:1.6rem;color:#a78bfa;display:block;margin-bottom:0.6rem;"></i>
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.5rem;">材料光电特性测试</h3>
-          <p style="font-size:0.88rem;">待测光电材料置于稳定光源下产生光生电流并接入系统。通过检测光斑位置变化，对不同材料输出电流进行定量比较，分析响应强度、稳定性及变化规律。</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- ==================== §10-11 局限性与展望 ==================== -->
-    <section class="signal-section" id="conclusion">
-      <div class="signal-section-header">
-        <div class="signal-section-num" style="background:linear-gradient(135deg, var(--sig-amber), #d97706);">10</div>
-        <div>
-          <h2>结论、局限性与展望</h2>
-          <p>系统边界认知与未来优化方向</p>
-        </div>
+      <div class="pe-card-box pe-prose" style="margin-bottom:1.25rem;">
+        <p>系统通过一体式接收-偏转线圈、光学反射杠杆与一维 PSD 完成了“电 → 机 → 光 → 数”四级联转换架构，并借助软硬件一体化标定构建起定量反演模型，适用于大学物理实验创新与微弱低频电磁信号检测教学实验平台。</p>
       </div>
-      <div class="signal-card" style="margin-bottom:0.8rem;"><p>系统以接收线圈、偏转线圈、光杠杆与 PSD 构成完整的“电 - 机 - 光 - 数”测量链路，并通过标定建立输入电流与 PSD 输出的量化关系。模块化实现与数字滤波使其适合作为微弱信号测量和物理实验的可复现实验平台。</p></div>
-      <div class="signal-grid-2">
-        <div class="signal-card">
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-exclamation-circle" style="color:var(--sig-amber);"></i> 系统局限性</h3>
-          <p style="font-size:0.88rem;">
-            <strong>灵敏度与速度矛盾</strong> — 降低机械刚度提高灵敏度但牺牲动态响应<br>
-            <strong>有限线性范围</strong> — 过大信号导致光斑超出 PSD 有效检测区域<br>
-            <strong>频率响应受限</strong> — 机械惯性限制，适用于低频或准静态信号<br>
-            <strong>环境敏感</strong> — 依赖实验室受控环境，气流、振动、温度均产生扰动<br>
-            <strong>光路需校准</strong> — 装置移动后需重新调整光路
-          </p>
+
+      <div class="pe-contrast-pair">
+        <div class="pe-contrast-box">
+          <h3>系统已知局限性</h3>
+          <ul class="pe-list">
+            <li><strong>灵敏度与带宽权衡</strong>：降低悬丝劲度可抬高灵敏度，但同时放慢机械阻尼稳定速度。</li>
+            <li><strong>有限线性区</strong>：过大信号将使反射光斑逸出 PSD 有效光敏面边界。</li>
+            <li><strong>低频响应受限</strong>：受机械转动惯量限制，最适用于低频或准静态物理量测量。</li>
+            <li><strong>环境与对准要求</strong>：对气流、桌面振动及移机后的激光零点重对准较敏感。</li>
+          </ul>
         </div>
-        <div class="signal-card">
-          <h3 style="color:#fff;font-size:1rem;margin:0 0 0.6rem;"><i class="fas fa-rocket" style="color:var(--sig-green);"></i> 未来展望</h3>
-          <p style="font-size:0.88rem;">
-            <strong>结构优化</strong> — 优化悬线材料、降低运动部件质量、改进阻尼设计<br>
-            <strong>磁场优化</strong> — 提高工作区磁场均匀性，改善电流-响应线性关系<br>
-            <strong>处理升级</strong> — 更高性能嵌入式平台，完善的数字滤波与自动校准<br>
-            <strong>前端优化</strong> — 更低噪声器件、更稳定参考源、温度补偿措施<br>
-            <strong>应用拓展</strong> — 多通道接收、低照度光检测、弱电磁环境分析
-          </p>
+
+        <div class="pe-contrast-box">
+          <h3>后续优化方向</h3>
+          <ul class="pe-list">
+            <li><strong>微机械减重与阻尼</strong>：优选低滞后细悬丝材料、减轻反射动子质量并改进空气/涡流阻尼。</li>
+            <li><strong>匀强磁场结构</strong>：采用聚磁磁轭提升气隙磁场均匀度，扩展线性区间上限。</li>
+            <li><strong>嵌入式与前端升级</strong>：引入更低噪声斩波零漂前端、高分辨率同步 ADC 及自动零点校准算法。</li>
+            <li><strong>场景拓展</strong>：推广至多通道微磁感应阵列、微弱照度对比及低频生物电磁检测。</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 项目文件 ==================== -->
-    <section class="signal-files-section" id="files">
-      <div class="signal-files-header">
-        <div class="signal-files-badge"><i class="fas fa-folder-open"></i></div>
-        <div>
-          <h2>项目文件</h2>
-          <p>全部设计文档、电路工程、程序代码与实验资源</p>
-        </div>
+    <!-- 项目文件 -->
+    <section class="pe-section" id="files">
+      <div class="pe-section-head">
+        <h2>项目工程与资源下载</h2>
+        <p class="pe-section-intro">收录完整论文 PDF、演示 PPTX、3 套 Fritzing 电路工程、4 份 Arduino 固件源码、Python 信号脚本及所有高清示意图原图（共 21 份文件）。</p>
       </div>
-      <div class="signal-files-grid">
-        <a class="signal-file" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener">
-          <div class="signal-file-icon pdf"><i class="fas fa-file-pdf"></i></div>
-          <div class="signal-file-body"><h4>完整论文</h4><span class="signal-file-ext">doc.pdf · 1.5 MB</span><p>32 页完整论文</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/generator-circuit.fzz" target="_blank" rel="noopener">
-          <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>发生模块电路工程</h4><span class="signal-file-ext">generator-circuit.fzz</span><p>Si4713 射频发射模块 Fritzing 项目</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/data-converter-circuit.fzz" target="_blank" rel="noopener">
-          <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>数据转换模块电路工程</h4><span class="signal-file-ext">data-converter-circuit.fzz</span><p>PSD + AD8628 + ADS1115 Fritzing 项目</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/calibration-circuit.fzz" target="_blank" rel="noopener">
-          <div class="signal-file-icon fzz"><i class="fas fa-project-diagram"></i></div>
-          <div class="signal-file-body"><h4>标定模块电路工程</h4><span class="signal-file-ext">calibration-circuit.fzz</span><p>PWM 驱动 + 采样电阻检测 Fritzing 项目</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/signal.ino" target="_blank" rel="noopener">
-          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-body"><h4>发生模块程序</h4><span class="signal-file-ext">signal.ino</span><p>Si4713 初始化配置与射频发射控制</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/measure.ino" target="_blank" rel="noopener">
-          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-body"><h4>测量模块程序</h4><span class="signal-file-ext">measure.ino</span><p>PSD 数据采集、补偿、滤波与参数计算</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/current.ino" target="_blank" rel="noopener">
-          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-body"><h4>电流源模块程序</h4><span class="signal-file-ext">current.ino</span><p>七档 PWM 亮度控制与电流测量</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/calibrate.ino" target="_blank" rel="noopener">
-          <div class="signal-file-icon ino"><i class="fas fa-microchip"></i></div>
-          <div class="signal-file-body"><h4>标定模块程序</h4><span class="signal-file-ext">calibrate.ino</span><p>分级标定采样与最小二乘拟合自动输出</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/script.py" target="_blank" rel="noopener">
-          <div class="signal-file-icon py"><i class="fab fa-python"></i></div>
-          <div class="signal-file-body"><h4>信号生成脚本</h4><span class="signal-file-ext">script.py</span><p>Python sounddevice 100Hz 正弦波生成</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener">
-          <div class="signal-file-icon xlsx"><i class="fas fa-table"></i></div>
-          <div class="signal-file-body"><h4>实验器材表</h4><span class="signal-file-ext">equipment-list.xlsx</span><p>全部器材清单与规格参数明细</p></div>
-          <div class="signal-file-dl"><i class="fas fa-download"></i></div>
-        </a>
-        <a class="signal-file" href="../static/resources/signal/demo.pptx" download><div class="signal-file-icon"><i class="fas fa-file-powerpoint"></i></div><div class="signal-file-body"><h4>项目演示文稿</h4><span class="signal-file-ext">demo.pptx</span><p>项目汇报与演示材料</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/system-architecture.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>系统架构图</h4><span class="signal-file-ext">system-architecture.png</span><p>图 1 的原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/system-flow.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>系统流程图</h4><span class="signal-file-ext">system-flow.png</span><p>图 2 的原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/system-architecture.xmind" download><div class="signal-file-icon"><i class="fas fa-sitemap"></i></div><div class="signal-file-body"><h4>系统架构思维导图</h4><span class="signal-file-ext">system-architecture.xmind</span><p>可编辑 XMind 源文件</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/system-flow.xmind" download><div class="signal-file-icon"><i class="fas fa-sitemap"></i></div><div class="signal-file-body"><h4>系统流程思维导图</h4><span class="signal-file-ext">system-flow.xmind</span><p>可编辑 XMind 源文件</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/generator-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>发生模块接线图</h4><span class="signal-file-ext">generator-wiring-diagram.png</span><p>发生模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/generator-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>发生模块原理图</h4><span class="signal-file-ext">generator-schematic.png</span><p>发生模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/data-converter-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>数据转换模块接线图</h4><span class="signal-file-ext">data-converter-wiring-diagram.png</span><p>数据转换模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/data-converter-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>数据转换模块原理图</h4><span class="signal-file-ext">data-converter-schematic.png</span><p>数据转换模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/calibration-wiring-diagram.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>标定模块接线图</h4><span class="signal-file-ext">calibration-wiring-diagram.png</span><p>标定模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
-        <a class="signal-file" href="../static/resources/signal/calibration-schematic.png" download><div class="signal-file-icon"><i class="fas fa-image"></i></div><div class="signal-file-body"><h4>标定模块原理图</h4><span class="signal-file-ext">calibration-schematic.png</span><p>标定模块原始图片</p></div><div class="signal-file-dl"><i class="fas fa-download"></i></div></a>
+
+      <div class="pe-file-grid">
+        <a class="pe-file-card" href="../static/resources/signal/doc.pdf" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-file-pdf"></i></div><div class="pe-file-body"><h4>完整论文</h4><span class="pe-file-ext">doc.pdf · 1.5 MB</span><p>32 页完整设计论文</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/equipment-list.xlsx" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-table"></i></div><div class="pe-file-body"><h4>实验器材表</h4><span class="pe-file-ext">equipment-list.xlsx</span><p>全部器材清单与规格参数明细</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/demo.pptx" download><div class="pe-file-icon"><i class="fas fa-file-powerpoint"></i></div><div class="pe-file-body"><h4>项目演示文稿</h4><span class="pe-file-ext">demo.pptx</span><p>答辩汇报与项目演示幻灯片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/script.py" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fab fa-python"></i></div><div class="pe-file-body"><h4>信号生成脚本</h4><span class="pe-file-ext">script.py</span><p>Python sounddevice 100Hz 正弦波发生程序</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/generator-circuit.fzz" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-project-diagram"></i></div><div class="pe-file-body"><h4>发生模块电路工程</h4><span class="pe-file-ext">generator-circuit.fzz</span><p>Si4713 射频发射模块 Fritzing 工程</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/data-converter-circuit.fzz" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-project-diagram"></i></div><div class="pe-file-body"><h4>数据转换模块电路工程</h4><span class="pe-file-ext">data-converter-circuit.fzz</span><p>PSD + AD8628 + ADS1115 Fritzing 工程</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/calibration-circuit.fzz" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-project-diagram"></i></div><div class="pe-file-body"><h4>标定模块电路工程</h4><span class="pe-file-ext">calibration-circuit.fzz</span><p>PWM 驱动 + 采样电阻检测 Fritzing 工程</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/signal.ino" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-microchip"></i></div><div class="pe-file-body"><h4>发生模块 Arduino 程序</h4><span class="pe-file-ext">signal.ino</span><p>Si4713 初始化配置与射频发射控制</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/measure.ino" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-microchip"></i></div><div class="pe-file-body"><h4>测量模块 Arduino 程序</h4><span class="pe-file-ext">measure.ino</span><p>PSD 数据采集、环境光补偿与滤波输出</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/current.ino" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-microchip"></i></div><div class="pe-file-body"><h4>电流源模块程序</h4><span class="pe-file-ext">current.ino</span><p>七档 PWM 输出切换与电流测量</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/calibrate.ino" target="_blank" rel="noopener"><div class="pe-file-icon"><i class="fas fa-microchip"></i></div><div class="pe-file-body"><h4>标定模块程序</h4><span class="pe-file-ext">calibrate.ino</span><p>分级标定采样与最小二乘拟合求解</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/system-architecture.xmind" download><div class="pe-file-icon"><i class="fas fa-sitemap"></i></div><div class="pe-file-body"><h4>系统架构思维导图</h4><span class="pe-file-ext">system-architecture.xmind</span><p>可编辑 XMind 源文件</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/system-flow.xmind" download><div class="pe-file-icon"><i class="fas fa-sitemap"></i></div><div class="pe-file-body"><h4>系统流程思维导图</h4><span class="pe-file-ext">system-flow.xmind</span><p>可编辑 XMind 源文件</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/system-architecture.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>系统架构图</h4><span class="pe-file-ext">system-architecture.png</span><p>图 1 原始高分辨率图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/system-flow.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>系统流程图</h4><span class="pe-file-ext">system-flow.png</span><p>图 2 原始高分辨率图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/generator-wiring-diagram.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>发生模块接线图</h4><span class="pe-file-ext">generator-wiring-diagram.png</span><p>发生模块原始接线图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/generator-schematic.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>发生模块原理图</h4><span class="pe-file-ext">generator-schematic.png</span><p>发生模块原始原理图图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/data-converter-wiring-diagram.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>数据转换模块接线图</h4><span class="pe-file-ext">data-converter-wiring-diagram.png</span><p>数据转换模块原始接线图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/data-converter-schematic.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>数据转换模块原理图</h4><span class="pe-file-ext">data-converter-schematic.png</span><p>数据转换模块原始原理图图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/calibration-wiring-diagram.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>标定模块接线图</h4><span class="pe-file-ext">calibration-wiring-diagram.png</span><p>标定模块原始接线图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
+        <a class="pe-file-card" href="../static/resources/signal/calibration-schematic.png" download><div class="pe-file-icon"><i class="fas fa-image"></i></div><div class="pe-file-body"><h4>标定模块原理图</h4><span class="pe-file-ext">calibration-schematic.png</span><p>标定模块原始原理图图片</p></div><span class="pe-file-dl"><i class="fas fa-download"></i></span></a>
       </div>
     </section>
 
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
   <script src="/static/js/signal-lightbox.js"></script>
-  <script>
-    /* Quick-nav active state on scroll */
-    (function() {
-      const nav = document.getElementById('signalNav');
-      if (!nav) return;
-      const pills = nav.querySelectorAll('.signal-nav-pill');
-      const sections = [];
-      pills.forEach(p => {
-        const id = p.getAttribute('href');
-        if (id && id.startsWith('#')) {
-          const el = document.getElementById(id.substring(1));
-          if (el) sections.push({ el, p });
-        }
-      });
-      if (!sections.length) return;
-      const observer = new IntersectionObserver(entries => {
-        let active = null;
-        entries.forEach(e => { if (e.isIntersecting) active = sections.find(s => s.el === e.target); });
-        if (active) {
-          pills.forEach(p => p.classList.remove('active'));
-          active.p.classList.add('active');
-        }
-      }, { rootMargin: '-30% 0px -60% 0px' });
-      sections.forEach(s => observer.observe(s.el));
-    })();
-  </script>
+  <script src="/static/js/project-editorial.js"></script>
 </body>
 </html>

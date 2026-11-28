@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
@@ -43,38 +43,56 @@
   <link rel="stylesheet" href="/static/css/markdown-page.css">
   <link rel="stylesheet" href="/static/css/hi3861-readme.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
 
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
-
   <div id="particles-js"></div>
 
-  <main class="page project-page md-page">
-    <section class="project-intro hero-card">
-      <h1>Hi3861 README</h1>
-      <p>Hi3861 系列实验的完整手册，按交通灯、炫彩灯、环境监测与自定义 AT 指令四个模块组织，涵盖硬件连接、程序文件与编译步骤。</p>
-<div class="single-action">
-        <a class="button" href="https://github.com/Rayawa/Hi3861-Embbed" target="_blank" rel="noopener"><i class="fab fa-github md-github-icon"></i> GitHub</a>
-        <a class="button" href="../static/resources/openharmony/README.md" target="_blank" rel="noopener">打开原始 Markdown</a>
-        <a class="button-outline" href="Hi3861.html">返回 Hi3861 页面</a>
-      </div>
-    </section>
+  <main class="page project-page pe-page md-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <a href="Hi3861.html">Hi3861 嵌入式开发</a>
+      <span>/</span>
+      <span>完整 README 文档</span>
+    </nav>
 
-    <section class="md-wrap">
+    <header class="pe-hero" style="margin-bottom:2rem;">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">OpenHarmony · 实验完整手册</span>
+        <h1>Hi3861 README</h1>
+        <p class="pe-lead">Hi3861 系列嵌入式实验完整开发手册，按红绿灯、炫彩灯、环境监测与自定义 AT 指令四个模块组织，详述硬件接线、核心源码文件与编译烧录流程。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="Hi3861.html"><i class="fas fa-arrow-left"></i> 返回 Hi3861 项目页</a>
+            <a class="pe-btn" href="../static/resources/openharmony/README.md" target="_blank" rel="noopener">打开原始 Markdown</a>
+          </div>
+          <div class="pe-repo-row">
+            <span class="pe-repo-label">GitHub 源码：</span>
+            <a class="pe-repo-link" href="https://github.com/Rayawa/Hi3861-Embbed" target="_blank" rel="noopener"><i class="fab fa-github"></i> Rayawa/Hi3861-Embbed</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="pe-md-shell">
       <article id="mdContainer" class="markdown-body"></article>
     </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 
   <div id="site-footer"></div>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
   <script src="/static/js/hi3861-readme.js"></script>
-    <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

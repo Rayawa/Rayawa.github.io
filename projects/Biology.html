@@ -35,162 +35,193 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
 
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro hero-card">
-      
-      <span class="project-category">生物学</span>
-      <h1>生物学项目</h1>
-      <p>这里放着我生物学方向的三类东西：一个真的做过并留下完整记录的 PCR 课堂实验、三篇研究文稿，以及一个把农杆菌转化法做成可拖拽操作的交互网页。下面按「实验 → 论文 → 交互」排列，每件都可以点开原文。</p>
-    </section>
 
-    <section class="pcr-lab">
-      <div class="section-header">
-        <h2>PCR实验项目</h2>
-        <p>在高中首届开创PCR实验，将高等生物实验带入高中生物课堂。<br>通过预实验与模板量实验探索最适合课堂实验的试剂剂量。</p>
-      </div>
-      <div class="pcr-content">
-        <div class="pcr-result">
-          <div class="gel-display">
-            <div class="display-frame">
-              <img src="../static/resources/bio/pcr.jpg" alt="PCR凝胶电泳结果" loading="lazy">
-            </div>
-            <div class="gel-caption">凝胶电泳结果显示清晰条带，目的基因扩增成功。<br>与标准样对比长度约600bp，符合实验预期</div>
-          </div>
-        </div>
-        <div class="pcr-docs">
-          <div class="doc-card">
-            <div class="doc-icon">
-              <i class="fas fa-drafting-compass"></i>
-            </div>
-            <div class="doc-content">
-              <h3>实验设计方案</h3>
-              <p>详细的PCR实验设计，包括引物设计、温度循环参数和反应体系优化。在高中生物课堂可以落地，供以后的实验参考。</p>
-              <div class="single-action">
-                <a class="button button-outline" href="../static/resources/bio/pcr_design.pdf" target="_blank" rel="noopener">实验设计</a>
-              </div>
-            </div>
-          </div>
-          <div class="doc-card">
-            <div class="doc-icon">
-              <i class="fas fa-clipboard-check"></i>
-            </div>
-            <div class="doc-content">
-              <h3>最终实验报告</h3>
-              <p>完整的实验记录、数据分析和结论，验证了实验设计的有效性。</p>
-              <div class="single-action">
-                <a class="button" href="../static/resources/bio/pcr_report.pdf" target="_blank" rel="noopener">实验报告</a>
-              </div>
-            </div>
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>生物学</span>
+      <span>/</span>
+      <span>生物学项目</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">分子生物学 · 实验记录 · 交互教学</span>
+        <h1>生物学项目</h1>
+        <p class="pe-lead">汇集生物学方向的实验实践与独立探索：包含一次亲手做完并完整留档的课堂 PCR 扩增实验、三篇围绕分子机制与微生物现象撰写的研究文稿，以及一个可拖拽操作的农杆菌转化法交互网页。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="gene.html">进入农杆菌模拟网页 <i class="fas fa-arrow-right"></i></a>
+            <a class="pe-btn" href="#pcr">PCR 实验记录</a>
+            <a class="pe-btn" href="#papers">论文书架</a>
           </div>
         </div>
       </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="研究内容与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">PCR 分子实验</span>
+        <span class="pe-tag is-key">朊病毒与遗传物质</span>
+        <span class="pe-tag">C3 卡尔文循环</span>
+        <span class="pe-tag">酿酒酵母对照实验</span>
+        <span class="pe-tag">农杆菌转化交互实验室</span>
+      </div>
+      <span class="pe-meta-summary">1 项课堂实验 · 3 篇文稿（含 PDF 原文）· 1 个交互模拟网页</span>
     </section>
 
-    <section class="thesis-archive">
-      <div class="section-header">
+    <section class="pe-section" id="pcr">
+      <div class="pe-section-head">
+        <h2>PCR 实验项目</h2>
+        <p class="pe-section-intro">在高中首届开创 PCR 实验，将分子生物学基础操作引入高中生物课堂；通过预实验与模板量梯度测试，摸索适合课堂实操的试剂剂量与反应参数。</p>
+      </div>
+
+      <div class="pe-split">
+        <figure class="pe-figure">
+          <img src="../static/resources/bio/pcr.jpg" alt="PCR 凝胶电泳结果" fetchpriority="high">
+          <figcaption>凝胶电泳结果显示清晰条带，目的基因扩增成功；与标准样对比长度约 600 bp，符合实验预期。</figcaption>
+        </figure>
+
+        <div class="pe-stack-list">
+          <div class="pe-stack-item">
+            <h3>实验设计方案</h3>
+            <p>梳理完整的 PCR 课堂实验流程，涵盖引物设计思路、变性-退火-延伸温度循环参数设置及反应体系优化，便于在中学实验室条件下稳定复现。</p>
+            <div class="pe-pub-actions" style="margin-top:0.85rem;">
+              <a class="pe-btn" href="../static/resources/bio/pcr_design.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 查看实验设计 (PDF)</a>
+            </div>
+          </div>
+
+          <div class="pe-stack-item">
+            <h3>最终实验报告</h3>
+            <p>汇总实际操作记录、梯度对比数据与电泳条带分析结论，完整验证实验设计的可行性与课堂重现稳定性。</p>
+            <div class="pe-pub-actions" style="margin-top:0.85rem;">
+              <a class="pe-btn is-primary" href="../static/resources/bio/pcr_report.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 阅读实验报告 (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pe-section" id="papers">
+      <div class="pe-section-head">
         <h2>论文书架</h2>
-        <p>研究与思考的记录，包含已成篇论文和进行中的草稿。</p>
+        <p class="pe-section-intro">围绕遗传机制、碳同化过程与微生物异常显色展开的思考与实证记录，收录已定稿文章与持续修订中的文稿。</p>
       </div>
-      <div class="thesis-featured">
-        <article class="thesis-card thesis-published thesis-with-image">
-          <div class="thesis-image-wrap">
-            <img src="../static/resources/bio/prion.jpeg" alt="朊病毒蛋白论文" loading="lazy">
+
+      <div class="pe-pub-grid is-single">
+        <article class="pe-pub-card has-media">
+          <div class="pe-pub-thumb">
+            <img src="../static/resources/bio/prion.jpeg" alt="朊病毒蛋白论文插图" loading="lazy">
           </div>
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">已成篇</span>
-              <span class="thesis-date">2024.6.23</span>
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag is-key">已成篇</span>
+              <span class="pe-pub-date">2024.6.23</span>
             </div>
             <h3>关于蛋白质在极特殊极特殊生物中作为遗传物质的猜想</h3>
-            <p class="thesis-abstract">基于朊病毒的自我复制特性与逆转录机制，探讨蛋白质作为原始遗传载体的可能性，并把"中心法则"在极端情形下的边界作为讨论对象。</p>
-            <dl class="thesis-facts">
-              <div><dt>研究问题</dt><dd>蛋白质能否像 DNA、RNA 一样，成为极特殊生物的遗传物质？</dd></div>
-              <div><dt>方法</dt><dd>理论分析。逐一检验同位素标记、离心、减法原理、序列测定这四种经典证明思路在逆转录病毒上是否仍然成立，并结合蛋白质与病毒的溯源假说展开论证。</dd></div>
-              <div><dt>结论</dt><dd>提出假说：逆转录酶作为逆转录病毒的遗传物质时，其作用离不开 RNA；并推测蛋白质可能曾在非生物与生物的过渡期充当过类似遗传物质的角色。作者同时指出该问题在学术界至今仍有争论。</dd></div>
+            <p class="pe-pub-abstract">基于朊病毒的自我复制特性与逆转录机制，探讨蛋白质作为原始遗传载体的可能性，并以“中心法则”在极端情形下的边界作为讨论对象。</p>
+            <dl class="pe-dl">
+              <div class="pe-dl-row"><dt>研究问题</dt><dd>蛋白质能否像 DNA、RNA 一样，成为极特殊生物的遗传物质？</dd></div>
+              <div class="pe-dl-row"><dt>研究方法</dt><dd>理论分析：逐一检验同位素标记、密度梯度离心、减法原理与序列测定四种经典证明思路在逆转录病毒上是否成立，并结合蛋白质与病毒溯源假说展开论证。</dd></div>
+              <div class="pe-dl-row"><dt>核心结论</dt><dd>提出假说认为逆转录酶参与遗传信息传递时依然离不开 RNA，同时推测蛋白质可能在非生物向生物过渡阶段充当过类遗传载体；文中亦明确指出该议题在学界尚存争议。</dd></div>
             </dl>
-            <div class="thesis-actions">
-              <a class="button" href="../static/resources/bio/prion.pdf" target="_blank" rel="noopener">阅读论文</a>
+            <div class="pe-pub-actions">
+              <a class="pe-btn is-primary" href="../static/resources/bio/prion.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open"></i> 阅读论文 (PDF)</a>
             </div>
           </div>
         </article>
       </div>
-      <div class="thesis-grid">
-        <article class="thesis-card thesis-draft thesis-with-image">
-          <div class="thesis-image-wrap">
-            <img src="../static/resources/bio/c3.png" alt="C3植物光合作用论文" loading="lazy">
+
+      <div class="pe-pub-grid">
+        <article class="pe-pub-card has-media-top">
+          <div class="pe-pub-thumb">
+            <img src="../static/resources/bio/c3.png" alt="C3 植物光合作用论文示意图" loading="lazy">
           </div>
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">草稿</span>
-              <span class="thesis-date">2024.6.8</span>
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag">草稿</span>
+              <span class="pe-pub-date">2024.6.8</span>
             </div>
-            <h3>C3植物卡尔文循环分子生物学研究</h3>
-            <p class="thesis-abstract">从分子生物学角度梳理卡尔文循环这一核心碳固定途径：把反应历程逐步拆开，对关键反应以分子结构图的形式呈现其变化过程，并分析糖的生成路径。</p>
-            <dl class="thesis-facts">
-              <div><dt>研究问题</dt><dd>卡尔文循环（光合作用暗反应）的每一步具体怎么走，糖又是怎么产生的？</dd></div>
-              <div><dt>方法</dt><dd>文献梳理配合分子结构图。按反应顺序还原碳同化历程，对关键步骤画出分子结构变化，再分析糖的生成过程。</dd></div>
-              <div><dt>产出</dt><dd>把复杂的碳同化途径整理成清晰、可引用的流程，便于后续分子生物学研究对照使用。文稿仍在修订中。</dd></div>
+            <h3>C3 植物卡尔文循环分子生物学研究</h3>
+            <p class="pe-pub-abstract">从分子生物学视角逐步拆解卡尔文循环这一核心碳固定路径，针对关键催化反应绘制分子结构变化示意图，分析糖类产物的生成去向。</p>
+            <dl class="pe-dl">
+              <div class="pe-dl-row"><dt>研究问题</dt><dd>卡尔文循环（光合作用暗反应）每一步具体如何转化，糖类产物又是如何生成的？</dd></div>
+              <div class="pe-dl-row"><dt>研究方法</dt><dd>文献梳理配合分子结构绘图，按反应序列还原碳同化历程并标注关键中间产物。</dd></div>
+              <div class="pe-dl-row"><dt>阶段产出</dt><dd>将复杂碳同化途径梳理为清晰可对照的流程图解，供后续学习引用；文稿仍在持续修订。</dd></div>
             </dl>
-            <div class="thesis-actions">
-              <a class="button button-outline" href="../static/resources/bio/c3.pdf" target="_blank" rel="noopener">查看草稿</a>
+            <div class="pe-pub-actions">
+              <a class="pe-btn" href="../static/resources/bio/c3.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 查看草稿 (PDF)</a>
             </div>
           </div>
         </article>
-        <article class="thesis-card thesis-draft thesis-with-image">
-          <div class="thesis-image-wrap">
-            <img src="../static/resources/bio/saccharomyces.jpg" alt="酿酒酵母橙色平板实验论文" loading="lazy">
+
+        <article class="pe-pub-card has-media-top">
+          <div class="pe-pub-thumb">
+            <img src="../static/resources/bio/saccharomyces.jpg" alt="酿酒酵母橙色平板实验" loading="lazy">
           </div>
-          <div class="thesis-body">
-            <div class="thesis-header">
-              <span class="thesis-badge">草稿</span>
-              <span class="thesis-date">2026.03.08</span>
+          <div class="pe-pub-body">
+            <div class="pe-pub-head">
+              <span class="pe-tag">草稿</span>
+              <span class="pe-pub-date">2026.03.08</span>
             </div>
             <h3>酵母菌实验中平板变橙原因的分析与验证</h3>
-            <p class="thesis-abstract">针对微生物培养中偶发的培养基异常变色现象，通过控制变量实验逐一排查致色来源，并借此整理实验室误差分析与质量控制的思路。</p>
-            <dl class="thesis-facts">
-              <div><dt>现象</dt><dd>课程实验中酵母菌先长出正常的乳白色菌落，一段时间后菌落被橙色覆盖，直至整个培养基都变为橙色。</dd></div>
-              <div><dt>方法</dt><dd>先分析并逐一排除四类可能（生长条件变化、突变、代谢产物与外泌物、杂菌污染），再设计控制变量实验：更换菌种、分批稀释、大烧瓶与小烧杯对照、密封与不密封对照、平板划线与稀释涂布对照。</dd></div>
-              <div><dt>进展</dt><dd>已排除酵母菌自身代谢产物致色的可能（含量过低、络合反应均不足以使整板显色）；杂菌污染方向的排查仍在进行，文稿尚未收尾。</dd></div>
+            <p class="pe-pub-abstract">针对微生物培养中偶发的培养基异常变橙现象，设计控制变量对比实验逐一排查致色来源，沉淀实验室误差排查与质量控制方法。</p>
+            <dl class="pe-dl">
+              <div class="pe-dl-row"><dt>实验现象</dt><dd>酵母菌初期生长出正常的乳白色菌落，随后菌落表面逐渐出现橙色并蔓延至整块培养基。</dd></div>
+              <div class="pe-dl-row"><dt>排查方法</dt><dd>梳理生长条件变化、突变、代谢外泌物与杂菌污染四类诱因，设计更换菌种、分批稀释、大小容器、密封与否及划线涂布等多组对照实验。</dd></div>
+              <div class="pe-dl-row"><dt>当前进展</dt><dd>已基本排除酵母自身代谢产物单独导致整板显色的可能（浓度与络合效应均不足），杂菌污染方向的对比排查仍在进行中。</dd></div>
             </dl>
-            <div class="thesis-actions">
-              <a class="button button-outline" href="../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener">查看草稿</a>
+            <div class="pe-pub-actions">
+              <a class="pe-btn" href="../static/resources/bio/saccharomyces.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> 查看草稿 (PDF)</a>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="hero-interactive">
-      <div class="interactive-content">
-        <div class="interactive-image">
+    <section class="pe-section" id="interactive">
+      <div class="pe-section-head">
+        <h2>交互式基因工程教学网页</h2>
+        <p class="pe-section-intro">将原本停留在课本插图中的农杆菌转化步骤拆解为网页交互体验，按实验流程一步步动手操作。</p>
+      </div>
+
+      <div class="pe-split">
+        <figure class="pe-figure">
           <img src="../static/resources/bio/agrobacterium.jpg" alt="农杆菌转化示意图" loading="lazy">
-          <div class="image-frame"></div>
-        </div>
-        <div class="interactive-text">
-          <h2>交互式开发探索生物学过程</h2>
-          <p class="interactive-desc">将复杂的基因工程流程转化为直观的网页交互，让学习变得生动有趣。农杆菌转化法网页展示了如何用代码构建生物学教学工具。</p>
-          <a class="button button-large" href="gene.html">进入模拟网页</a>
+          <figcaption>农杆菌 Ti 质粒 T-DNA 转移与棉花受体转化示意</figcaption>
+        </figure>
+        <div class="pe-prose">
+          <h3>用拖拽操作走完农杆菌转化全流程</h3>
+          <p>网页将“提取苏云金芽孢杆菌（Bt）目的基因 → 酶切连接构建表达载体 → 导入农杆菌与棉花细胞 → 检测与抗虫鉴定”做成四阶段交互实验台，误操作时会弹出分子机制提示，把抽象的课本概念转化为可动手验证的过程。</p>
+          <div class="pe-actions" style="margin-top:1.2rem;">
+            <a class="pe-btn is-primary" href="gene.html">进入模拟网页 <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
-    <div id="site-footer"></div>
-<script src="/static/js/footer.js"></script>
-    <script src="/static/vendor/particles.js/particles.min.js"></script>
-<script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+
+  <div id="site-footer"></div>
+  <script src="/static/js/footer.js"></script>
+  <script src="/static/vendor/particles.js/particles.min.js"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

@@ -33,48 +33,190 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
-  <link rel="stylesheet" href="/static/css/app-projects.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="project-showcase dashboard-project">
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro ps-hero"><div class="ps-hero-copy"><span class="project-category">HarmonyOS · Apple · Android</span><span class="ps-eyebrow">Dashboard · Native Clients</span><h1>Dashboard 应用看板</h1><p>与 Shenjack 协作的鸿蒙应用市场数据项目，围绕公开应用与元服务数据，提供原生查询、筛选、统计图表、详情和系统分享。</p><div class="ps-actions"><a class="ps-button is-ghost" href="https://dashboard.rayawa.top" target="_blank" rel="noopener">Dashboard <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/dashboard" target="_blank" rel="noopener">HarmonyOS <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/dashboard_apple" target="_blank" rel="noopener">Apple <i class="fas fa-arrow-up-right-from-square"></i></a><a class="ps-button is-ghost" href="https://github.com/Rayawa/dashboard_android" target="_blank" rel="noopener">Android <i class="fas fa-arrow-up-right-from-square"></i></a></div></div><div class="ps-hero-visual dashboard-icon"><img src="/static/resources/dashboard/app_icon.png" alt="Dashboard" width="256" height="256" fetchpriority="high"></div></section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>从市场概况到单个应用</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>查看整体变化</h3><p>查看应用与元服务数量、SDK 与评分分布、API 历史及服务端允许展示的排行榜。数据来自共同后端，展示范围随服务端配置变化。</p></article>
-        <article class="ps-card"><h3>查找与比较</h3><p>按名称、包名、App ID 或分享链接查找应用，浏览筛选、排序、分页列表，查看应用信息、截图与趋势。具体功能和字段以各客户端实现为准。</p></article>
-        <article class="ps-card"><h3>原生页面与网页入口</h3><p>业务浏览由平台原生页面完成，S站与外部文档保留网页入口。HarmonyOS、Apple 与 Android 分别适配各自的导航、窗口与系统能力。</p></article>
+
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>鸿蒙与跨平台</span>
+      <span>/</span>
+      <span>Dashboard 应用看板</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">多端原生应用 · 市场数据分析</span>
+        <h1>Dashboard 应用看板</h1>
+        <p class="pe-lead">随身掌握鸿蒙应用生态的每一次脉动。与 Shenjack 协作构建的全平台原生市场看板，把海量公开应用与元服务的上架动态、版本演进和口碑趋势，装进清爽顺手的手机、平板与桌面客户端。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="https://dashboard.rayawa.top" target="_blank" rel="noopener">官方网站 <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <a class="pe-btn" href="https://shenjack.top:10003/dashboard" target="_blank" rel="noopener">网页版预览 <i class="fas fa-globe"></i></a>
+            <a class="pe-btn" href="https://appgallery.huawei.com/apptest/6jFjJQD5dZa" target="_blank" rel="noopener">HarmonyOS 邀测</a>
+          </div>
+          <div class="pe-repo-row">
+            <span class="pe-repo-label">GitHub 源码：</span>
+            <a class="pe-repo-link" href="https://github.com/Rayawa/dashboard" target="_blank" rel="noopener"><i class="fab fa-github"></i> HarmonyOS</a>
+            <a class="pe-repo-link" href="https://github.com/Rayawa/dashboard_apple" target="_blank" rel="noopener"><i class="fab fa-github"></i> Apple</a>
+            <a class="pe-repo-link" href="https://github.com/Rayawa/dashboard_android" target="_blank" rel="noopener"><i class="fab fa-github"></i> Android</a>
+          </div>
+        </div>
+      </div>
+      <div class="pe-hero-side">
+        <img class="pe-app-badge" src="/static/resources/dashboard/app_icon.png" alt="Dashboard 应用图标" width="256" height="256" fetchpriority="high">
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">ArkTS / ArkUI</span>
+        <span class="pe-tag is-key">SwiftUI / Swift Charts</span>
+        <span class="pe-tag is-key">Kotlin / Jetpack Compose</span>
+        <span class="pe-tag">Rust 后端 (/api/v0)</span>
+        <span class="pe-tag">数据可视化</span>
+        <span class="pe-tag">跨设备接续</span>
+        <span class="pe-tag">离线缓存</span>
+      </div>
+      <span class="pe-meta-summary">HarmonyOS 3.2.0 · Apple 3.1.0 · Android 开发中</span>
+    </section>
+
+    <section class="pe-section" id="showcase">
+      <div class="pe-section-head">
+        <h2>功能与画面联动导览</h2>
+        <p class="pe-section-intro">选择一项功能，预览区会同步切换到对应的产品视图，方便对照功能说明与界面。</p>
+      </div>
+
+      <div class="pe-linked-showcase" data-pe-linked>
+        <div class="pe-feature-rail" role="tablist" aria-label="功能与画面联动切换">
+          <button type="button" class="pe-rail-item is-active" role="tab" aria-selected="true" data-target="overview">
+            <h3>一眼看懂鸿蒙生态脉搏</h3>
+            <p>应用、元服务、开发者与专题规模实时更新，配合直观的 SDK 分布图与 API 版本曲线，生态推进到了哪一步打开即刻知晓。</p>
+          </button>
+          <button type="button" class="pe-rail-item" role="tab" aria-selected="false" data-target="search">
+            <h3>毫秒定位心仪应用</h3>
+            <p>支持按应用名、包名、App ID 乃至直接粘贴分享链接直达，配合多条件筛选、自定义排序与分页，让上万条应用数据轻盈好找。</p>
+          </button>
+          <button type="button" class="pe-rail-item" role="tab" aria-selected="false" data-target="analytics">
+            <h3>热门榜单与趋势洞见</h3>
+            <p>从总下载榜、1/7/30 天增长黑马，到综合样本门槛与评价窗口的口碑榜，帮你捕捉市场里真正脱颖而出的长期口碑变化。</p>
+          </button>
+          <button type="button" class="pe-rail-item" role="tab" aria-selected="false" data-target="detail">
+            <h3>多端原生，随时接续</h3>
+            <p>告别粗糙网页套壳，三端均以平台原生图表呈现单应用走势；支持离线快照回退、一碰传、隔空传送及跨设备无缝接续。</p>
+          </button>
+        </div>
+
+        <div class="pe-linked-stage">
+          <div class="pe-stage">
+            <div class="pe-stage-bar">
+              <span class="pe-terminal-title">界面预览（预留精选截图位）</span>
+              <span class="pe-terminal-title">HarmonyOS · Apple · Android</span>
+            </div>
+
+            <div class="pe-stage-viewport">
+              <div class="pe-stage-frame is-active" data-frame="overview" data-caption="首页生态总览截图位（16:9 宽屏）：展示应用/元服务总量、同步状态与最近收录动态。">
+                <div class="pe-placeholder is-wide">
+                  <i class="far fa-image"></i>
+                  <span class="pe-placeholder-title">首页生态总览（预留截图）</span>
+                  <span class="pe-placeholder-hint">建议提供 16:9 横屏平板/桌面或拼接净图，建议隐藏顶部系统状态栏</span>
+                  <code class="pe-placeholder-path">static/resources/dashboard/shot-overview.png</code>
+                </div>
+              </div>
+              <div class="pe-stage-frame" data-frame="search" data-caption="总表筛选与排行截图位（16:9 宽屏）：展示搜索、过滤排序及多列应用总表。">
+                <div class="pe-placeholder is-wide">
+                  <i class="fas fa-table-list"></i>
+                  <span class="pe-placeholder-title">总表筛选与排行（预留截图）</span>
+                  <span class="pe-placeholder-hint">建议提供 16:9 宽屏或折叠屏净图，建议隐藏顶部系统状态栏</span>
+                  <code class="pe-placeholder-path">static/resources/dashboard/shot-list.png</code>
+                </div>
+              </div>
+              <div class="pe-stage-frame" data-frame="analytics" data-caption="SDK 与 API 趋势截图位（16:9 宽屏）：展示目标 SDK、最低 SDK 饼图与 API 占比历史曲线。">
+                <div class="pe-placeholder is-wide">
+                  <i class="fas fa-chart-pie"></i>
+                  <span class="pe-placeholder-title">SDK 分布与 API 趋势（预留截图）</span>
+                  <span class="pe-placeholder-hint">建议提供 16:9 横屏图表页净图，建议隐藏顶部系统状态栏</span>
+                  <code class="pe-placeholder-path">static/resources/dashboard/shot-trends.png</code>
+                </div>
+              </div>
+              <div class="pe-stage-frame" data-frame="detail" data-caption="应用详情与增长榜截图位（9:19 竖屏）：展示单应用趋势曲线或 3.2.0 口碑/增长榜单真机净图。">
+                <div class="pe-placeholder is-phone">
+                  <i class="fas fa-mobile-screen"></i>
+                  <span class="pe-placeholder-title">应用详情 / 增长榜（预留截图）</span>
+                  <span class="pe-placeholder-hint">建议提供 9:19 竖屏真机截图，建议隐藏顶部系统状态栏</span>
+                  <code class="pe-placeholder-path">static/resources/dashboard/shot-detail.png</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="pe-stage-caption" data-stage-caption>
+              首页生态总览截图位（16:9 宽屏）：展示应用/元服务总量、同步状态与最近收录动态。
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>客户端进展</h2></div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><h3>HarmonyOS · 3.2.0</h3><p>ArkTS / ArkUI 原生客户端，目标 API 26、最低 API 20。3.2.0 新增口碑榜，可选报告窗口、样本门槛和排序；同时优化详情加载、图表、搜索分页和缓存。保留系统分享与跨设备接续。</p></article>
-        <article class="ps-card"><h3>Apple · 3.1.0</h3><p>SwiftUI / Swift Charts 客户端覆盖 iPhone、iPad 与 macOS。原生列表、组合搜索、详情与图表，共用 API；使用 NavigationSplitView、系统分享和离线缓存。</p></article>
-        <article class="ps-card"><h3>Android · 开发中</h3><p>Kotlin / Jetpack Compose 原生客户端，已有首页、应用列表、搜索和详情，最低 Android 12（API 31），仍在开发。</p></article>
+
+    <section class="pe-section" id="clients">
+      <div class="pe-section-head">
+        <h2>多端原生版本</h2>
+        <p class="pe-section-intro">共用由 Shenjack 维护的 <code>harmony_get_market</code> 后端接口，在三大原生生态各自延续最自然的操作手感和视觉质感。</p>
+      </div>
+
+      <div class="pe-table-wrap">
+        <table class="pe-table">
+          <thead>
+            <tr>
+              <th>平台</th>
+              <th>当前状态</th>
+              <th>技术选型</th>
+              <th>适配情况与亮点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>HarmonyOS</strong><br><span style="color:var(--pe-subtle);font-family:var(--pe-mono);font-size:0.75rem;">top.rayawa.dashboard</span></td>
+              <td><span class="pe-status-pill">v3.2.0</span><br><span style="font-size:0.78rem;color:var(--pe-subtle);">API 20–26</span></td>
+              <td>ArkTS · ArkUI · HdsNavigation / HdsTabs</td>
+              <td>覆盖手机、平板与 2in1 形态；新增口碑榜，支持双指缩放趋势图、一碰传分享与跨设备接续浏览。</td>
+            </tr>
+            <tr>
+              <td><strong>Apple</strong><br><span style="color:var(--pe-subtle);font-family:var(--pe-mono);font-size:0.75rem;">top.rayawa.dashboard.apple</span></td>
+              <td><span class="pe-status-pill">v3.1.0</span><br><span style="font-size:0.78rem;color:var(--pe-subtle);">iPhone · iPad · macOS</span></td>
+              <td>SwiftUI · Swift Charts · URLSession</td>
+              <td>零第三方依赖纯原生开发，针对 iPad 与 macOS 适配分栏布局，提供图表拖拽选点与离线缓存提示。</td>
+            </tr>
+            <tr>
+              <td><strong>Android</strong><br><span style="color:var(--pe-subtle);font-family:var(--pe-mono);font-size:0.75rem;">top.rayawa.dashboard.android</span></td>
+              <td><span class="pe-status-pill is-muted">开发中</span><br><span style="font-size:0.78rem;color:var(--pe-subtle);">Min API 31</span></td>
+              <td>Kotlin · Jetpack Compose</td>
+              <td>已完成首页、列表浏览、搜索与详情主流程，榜单与图表能力持续完善中。</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
-    <section class="ps-section">
-      <div class="ps-section-head"><h2>数据与协作</h2></div>
-      <div class="ps-grid-2">
-        <article class="ps-card"><h3>共同后端</h3><p>看板由 Rayawa 与 Shenjack 协作开发。客户端使用 harmony_get_market 的 /api/v0 接口，复用 Shenjack 的市场数据后端，以各平台的原生界面展示。</p></article>
-        <article class="ps-card"><h3>缓存与数据时效</h3><p>HarmonyOS 与 Apple 客户端在网络失败时可回退到旧缓存并提示时间。市场信息来自公开网络，仅供参考，不能保证完整、实时或准确；各端隐私处理以各自政策为准。</p></article>
-      </div>
-    </section>
-    <p class="ps-note">更新于 2026-10-29。</p>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <aside class="pe-footnote">
+      说明：所有应用数据采集自公开网络并随服务端配置动态展示，仅供参考，不代表官方完整或实时统计；断网时客户端会提示并回退至本地缓存快照。本项目亦曾参与开放原子开源大赛并获相应奖项（<a href="https://competition.openatom.tech/competitionInfo?id=b8259a23b45fe3f76caffd970a3a962b#heading-5-0" target="_blank" rel="noopener">赛事公示</a>）。更新于 2026-10-29。
+    </aside>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
+
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
+  <script src="/static/js/project-editorial.js"></script>
 </body>
 </html>
-

@@ -35,209 +35,271 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/hi3861.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
 
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
-
   <div id="particles-js"></div>
 
-  <main class="page project-page hi-page">
-    <section class="project-intro hi-hero">
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>鸿蒙</span>
+      <span>/</span>
+      <span>Hi3861 嵌入式开发</span>
+    </nav>
 
-      <span class="project-category">鸿蒙</span>
-      <div class="hi-hero-badge">OpenHarmony · GPIO · PWM · I²C · UART</div>
-      <h1>Hi3861嵌入式开发</h1>
-      <p class="hi-hero-desc">基于 OpenHarmony 的 Hi3861 嵌入式开发项目，覆盖红绿灯、炫彩灯、环境监测与 AT 指令四大模块。</p>
-      <div class="hi-hero-actions">
-        <a class="button" href="https://github.com/Rayawa/Hi3861-Embbed" target="_blank" rel="noopener">进入 GitHub 仓库</a>
-        <a class="button-outline" href="Hi3861-readme.html">查看 README</a>
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">OpenHarmony · LiteOS-M · C 嵌入式开发</span>
+        <h1>Hi3861 嵌入式开发</h1>
+        <p class="pe-lead">基于 OpenHarmony LiteOS-M 的 Hi3861 开发板嵌入式实验集，按红绿灯板、炫彩灯板、环境监测板与自定义 AT 指令四条可独立运行的实验路径组织，涵盖从单外设驱动到多任务调度的完整学习链路。</p>
+
+        <div class="pe-links-stack">
+          <div class="pe-actions">
+            <a class="pe-btn is-primary" href="Hi3861-readme.html">在线阅读完整 README <i class="fas fa-book-open"></i></a>
+            <a class="pe-btn" href="#modules">浏览四个模块</a>
+          </div>
+          <div class="pe-repo-row">
+            <span class="pe-repo-label">GitHub 源码：</span>
+            <a class="pe-repo-link" href="https://github.com/Rayawa/Hi3861-Embbed" target="_blank" rel="noopener"><i class="fab fa-github"></i> Rayawa/Hi3861-Embbed</a>
+          </div>
+        </div>
       </div>
-      <div class="hi-overview-grid">
-        <article class="hi-overview-card">
-          <div class="hi-overview-index">01</div>
-          <h2>红绿灯板开发</h2>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">OpenHarmony / LiteOS-M</span>
+        <span class="pe-tag is-key">C 语言</span>
+        <span class="pe-tag is-key">GPIO / PWM / I²C / ADC / UART</span>
+        <span class="pe-tag">CMSIS-RTOS2</span>
+        <span class="pe-tag">HiAT Framework</span>
+        <span class="pe-tag">GN / Ninja / hb</span>
+        <span class="pe-tag">HiBurn</span>
+      </div>
+      <span class="pe-meta-summary">4 个可独立运行与对照源码的场景模块</span>
+    </section>
+
+    <section class="pe-section" id="modules">
+      <div class="pe-section-head">
+        <h2>四条实验路径与工程结构</h2>
+        <p class="pe-section-intro">先掌握单个外设的控制，再与传感器或串口框架组合为完整场景。每个模块均对应独立源码文件与渐进练习序列，复现实物运行效果需搭配相应板卡与传感器套件。</p>
+      </div>
+
+      <div class="pe-storyboard" style="margin-bottom:1.75rem;">
+        <a class="pe-story-step" href="#mod-1">
+          <span class="pe-story-num">01 · GPIO</span>
+          <h3>红绿灯板开发</h3>
           <p>三色 LED 与 S3 按钮协同，完成灯控、并发与按钮交互综合实验。</p>
-        </article>
-        <article class="hi-overview-card">
-          <div class="hi-overview-index">02</div>
-          <h2>炫彩灯板开发</h2>
-          <p>蜂鸣器、RGB 灯、光敏与人体红外传感器融合，实现音乐可视化与感应照明。</p>
-        </article>
-        <article class="hi-overview-card">
-          <div class="hi-overview-index">03</div>
-          <h2>环境监测板开发</h2>
-          <p>基于 MQ 2、AHT20、OLED 的环境参数采集、显示与阈值报警。</p>
-        </article>
-        <article class="hi-overview-card">
-          <div class="hi-overview-index">04</div>
-          <h2>AT 指令开发</h2>
-          <p>扩展自定义 AT 命令，完成开发板串口通信与计算结果返回。</p>
-        </article>
+        </a>
+        <a class="pe-story-step" href="#mod-2">
+          <span class="pe-story-num">02 · PWM + ADC</span>
+          <h3>炫彩灯板开发</h3>
+          <p>蜂鸣器、RGB 灯、光敏与人体红外传感器融合，实现音乐律动与感应照明。</p>
+        </a>
+        <a class="pe-story-step" href="#mod-3">
+          <span class="pe-story-num">03 · I2C + ADC</span>
+          <h3>环境监测板开发</h3>
+          <p>基于 MQ 2、AHT20 与 SSD1306 OLED 的环境参数采集、显示与阈值报警。</p>
+        </a>
+        <a class="pe-story-step" href="#mod-4">
+          <span class="pe-story-num">04 · UART / HiAT</span>
+          <h3>AT 指令开发</h3>
+          <p>在 OpenHarmony AT 框架扩展自定义命令，实现串口通信与计算返回。</p>
+        </a>
       </div>
-    </section>
 
-    <section class="project-brief" aria-label="项目速览">
+      <div class="pe-split">
+        <div class="pe-prose">
+          <h3>源码目录组织</h3>
+          <p>工程目录围绕“业务演示（<code>rayawa/</code>）与底层依赖分组”展开：所有自主编写的四条实验路径集中位于 <code>Hi3861/rayawa/</code> 子目录下，与官方外设库、服务框架解耦，并通过 <code>BUILD.gn</code> 按需激活编译。</p>
+          <p>查阅时按页面模块顺序选择目标扩展板，核对硬件引脚映射后再打开对应源码文件或在线 README，即可对照完成编译与串口调试。</p>
+        </div>
 
-      <h2>项目速览</h2>
-      <p>本项目将 Hi3861 上的 OpenHarmony 嵌入式练习组织为四条路径：交通灯状态机、灯光与蜂鸣器联动、环境数据采集，以及自定义 AT 指令。每条路径均先实现单个外设控制，再与其它模块组合，四个场景合计覆盖输入、处理与输出三类任务。</p>
-      <ul>
-      <li><strong>四条路径</strong><span>交通、灯光、环境与 AT 指令，由单点控制逐步过渡到多任务协同。</span></li>
-      <li><strong>可独立运行的场景</strong><span>每条路径都是一个完整可演示的场景，可直接观察运行结果。</span></li>
-      <li><strong>源码可对照</strong><span>每条路径对应独立的程序文件，README 可在线查阅。</span></li>
-      </ul>
-    </section>
-
-    <section class="project-guide" aria-label="关于这个项目">
-      <h2>关于这个项目</h2>
-      <div class="project-guide-grid">
-      <article><h3>它要解决什么</h3><p>嵌入式学习中常见的情况是各外设分别掌握，但缺少将其组织为完整系统的经验。本项目以四个可独立运行的场景，将 GPIO、PWM、传感器与串口通信按难度排列为一条学习路径。</p></article>
-      <article><h3>四条路径的内容</h3><p>交通灯以状态机控制红绿灯切换并检测违规鸣笛；炫彩灯通过 PWM 生成灯效并与蜂鸣器联动；环境监测通过 ADC 与 I²C 采集温湿度与光照，并显示于 OLED；AT 指令则将串口扩展为可自定义的命令接口。</p></article>
-      <article><h3>用到什么</h3><p>Hi3861 开发板与 OpenHarmony LiteOS-M，使用 C 语言开发，涉及 GPIO、PWM、ADC、I²C 与 OLED 显示屏，以及 UART 串口通信。</p></article>
-      <article><h3>如何查阅</h3><p>按页面中的模块顺序选择开发板，核对引脚与外设后进入对应 README，查看源码目录与编译流程。页面另提供完整 README 的在线阅读页；复现实物效果需要对应的板卡与器件。</p></article>
-      </div>
-    </section>
-
-
-    <section class="hi-panel">
-      <div class="hi-panel-head">
-        <h2>项目结构</h2>
-        <p>目录组织遵循模块化设计，功能分区清晰，便于逐步激活与验证。</p>
-      </div>
-      <pre class="hi-tree">Hi3861/
+        <div class="pe-terminal">
+          <div class="pe-terminal-head">
+            <div class="pe-dots"><span></span><span></span><span></span></div>
+            <span class="pe-terminal-title">Hi3861 / 源码目录结构</span>
+          </div>
+          <pre class="pe-terminal-body">Hi3861/
 ├── rayawa/
 │   ├── hello/
-│   ├── traffic_light/
-│   ├── colorful_light/
-│   ├── environment/
-│   └── at_command/
+│   ├── traffic_light/     <span class="pe-t-dim"># 模块一：红绿灯状态机与按键</span>
+│   ├── colorful_light/    <span class="pe-t-dim"># 模块二：音乐可视化与感应灯效</span>
+│   ├── environment/       <span class="pe-t-dim"># 模块三：AHT20 / MQ-2 / OLED 监测</span>
+│   └── at_command/        <span class="pe-t-dim"># 模块四：自定义 AT+CALC 命令</span>
 ├── demolink/
 ├── iothardware/
 ├── samgr/
 └── startup/</pre>
-    </section>
-
-    <section class="hi-module hi-module-traffic">
-      <div class="hi-module-head">
-        <span class="hi-module-index">01</span>
-        <div>
-          <h2>模块一 ｜ 红绿灯板开发</h2>
-          <p>聚焦 GPIO 输出与按键输入协同，形成从基础灯控到状态机联动的完整实验链路。</p>
         </div>
       </div>
-      <div class="hi-module-grid">
-        <article class="hi-card">
-          <h3>硬件配置</h3>
-          <div><ul><li>三色 LED：GPIO_10 红灯，GPIO_11 绿灯，GPIO_12 黄灯</li><li>控制按键：GPIO_8，S3 按钮</li></ul></div>
-        </article>
-        <article class="hi-card">
-          <h3>开发项目</h3>
-          <div><ol><li><code>light.c</code>：基础灯控，单灯开关与组合控制</li><li><code>traffic.c</code>：交通灯时序循环与任务调度</li><li><code>ability.c</code>：多线程并发与任务同步</li><li><code>button.c</code>：按键检测、消抖与输入处理</li><li><code>control.c</code>：按钮控制红绿灯综合项目</li></ol></div>
-        </article>
-      </div>
-      <article class="hi-card hi-path-card">
-        <h3>学习路径</h3>
-        <p>light.c → traffic.c → ability.c → button.c → control.c</p>
-      </article>
     </section>
 
-    <section class="hi-module hi-module-colorful">
-      <div class="hi-module-head">
-        <span class="hi-module-index">02</span>
-        <div>
-          <h2>模块二 ｜ 炫彩灯板开发</h2>
-          <p>围绕声音、灯光与感知融合，构建从器件驱动到场景联动的实验体系。</p>
+    <section class="pe-section" id="mod-1">
+      <div class="pe-section-head">
+        <h2>模块一 · 红绿灯板开发</h2>
+        <p class="pe-section-intro">聚焦 GPIO 输出与按键输入协同，构建从基础电平点亮到多线程任务调度与按键消抖联动的完整实验链路。</p>
+      </div>
+
+      <div class="pe-contrast-pair">
+        <div class="pe-contrast-box">
+          <h3>硬件配置与学习路径</h3>
+          <ul class="pe-list">
+            <li>三色 LED：<code>GPIO_10</code> 红灯，<code>GPIO_11</code> 绿灯，<code>GPIO_12</code> 黄灯</li>
+            <li>控制按键：<code>GPIO_8</code>，S3 功能按钮</li>
+          </ul>
+          <p style="margin-top:0.85rem;">学习顺序：<code>light.c → traffic.c → ability.c → button.c → control.c</code></p>
+        </div>
+
+        <div class="pe-contrast-box">
+          <h3>开发文件清单</h3>
+          <ol class="pe-list">
+            <li><code>light.c</code>：基础灯控，单灯开关与组合状态点亮</li>
+            <li><code>traffic.c</code>：标准交通灯时序循环与任务调度</li>
+            <li><code>ability.c</code>：多线程并发控制与任务同步</li>
+            <li><code>button.c</code>：按键状态检测、消抖处理与事件捕获</li>
+            <li><code>control.c</code>：按钮干预红绿灯切换综合实验</li>
+          </ol>
         </div>
       </div>
-      <div class="hi-module-grid">
-        <article class="hi-card">
-          <h3>硬件配置</h3>
-          <div><ul><li>三色 LED：PWM1 红色，PWM2 绿色，PWM3 黄色</li><li>蜂鸣器：PWM0</li><li>人体传感器：ADC 通道 3</li><li>光敏电阻：ADC 输入</li></ul></div>
-        </article>
-        <article class="hi-card">
-          <h3>开发项目</h3>
-          <div><ol><li><code>beep.c</code>：蜂鸣器频率与音效控制</li><li><code>music.c</code>：旋律播放与节奏控制</li><li><code>led.c</code>：音乐与三色灯同步显示</li><li><code>human_sensor.c</code>：人体红外热释电传感器采样</li><li><code>photosensitive.c</code>：光敏采样与环境光判断</li><li><code>human_sensor_light.c</code>：夜晚感应人体自动亮灯</li></ol></div>
-        </article>
-      </div>
-      <article class="hi-card hi-path-card">
-        <h3>学习路径</h3>
-        <p>beep.c → music.c → led.c → human_sensor.c → photosensitive.c → human_sensor_light.c</p>
-      </article>
     </section>
 
-    <section class="hi-module hi-module-environment">
-      <div class="hi-module-head">
-        <span class="hi-module-index">03</span>
-        <div>
-          <h2>模块三 ｜ 环境监测板开发</h2>
-          <p>通过多传感器协同与 OLED 可视化，完成环境参数监测与超阈值告警。</p>
+    <section class="pe-section" id="mod-2">
+      <div class="pe-section-head">
+        <h2>模块二 · 炫彩灯板开发</h2>
+        <p class="pe-section-intro">结合声音波形、PWM 调光与红外/光照环境感知，搭建从单一器件驱动到多传感器场景联动的实验序列。</p>
+      </div>
+
+      <div class="pe-contrast-pair">
+        <div class="pe-contrast-box">
+          <h3>硬件配置与学习路径</h3>
+          <ul class="pe-list">
+            <li>三色 LED：<code>PWM1</code> 红色，<code>PWM2</code> 绿色，<code>PWM3</code> 黄色</li>
+            <li>无源蜂鸣器：<code>PWM0</code> 音频驱动</li>
+            <li>人体红外传感器：<code>ADC 通道 3</code></li>
+            <li>光敏电阻：<code>ADC 输入</code>（环境亮度判定）</li>
+          </ul>
+          <p style="margin-top:0.85rem;">学习顺序：<code>beep.c → music.c → led.c → human_sensor.c → photosensitive.c → human_sensor_light.c</code></p>
+        </div>
+
+        <div class="pe-contrast-box">
+          <h3>开发文件清单</h3>
+          <ol class="pe-list">
+            <li><code>beep.c</code>：蜂鸣器占空比与频率发声控制</li>
+            <li><code>music.c</code>：音符编码旋律播放与节拍控制</li>
+            <li><code>led.c</code>：音乐播放同步驱动三色 RGB 律动</li>
+            <li><code>human_sensor.c</code>：人体红外热释电信号 ADC 采样</li>
+            <li><code>photosensitive.c</code>：光敏电阻ADC采样与昼夜阈值判断</li>
+            <li><code>human_sensor_light.c</code>：夜间暗光环境下人体感应自动亮灯</li>
+          </ol>
         </div>
       </div>
-      <div class="hi-module-grid">
-        <article class="hi-card">
-          <h3>硬件配置</h3>
-          <div><ul><li>MQ 2 燃气传感器：ADC 通道 5</li><li>AHT20 温湿度传感器：I2C</li><li>OLED 显示屏：SSD1306，I2C</li><li>火焰传感器与蜂鸣器告警模块</li></ul></div>
-        </article>
-        <article class="hi-card">
-          <h3>开发项目</h3>
-          <div><ol><li><code>mq2_demo.c</code>：燃气浓度采样</li><li><code>aht20.c/.h</code>：温湿度驱动实现</li><li><code>aht20_demo.c</code>：温湿度采集演示</li><li><code>oled_ssd1306.c/.h</code>：OLED 显示驱动</li><li><code>oled_demo.c</code>：显示渲染演示</li><li><code>enrionment_demo.c</code>：综合监测与报警</li></ol></div>
-        </article>
-      </div>
-      <article class="hi-card">
-        <h3>技术特性</h3>
-        <div><ul><li>I2C 总线复用：AHT20 与 OLED 协同通信</li><li>ADC 采样：可燃气体与环境信号数字化</li><li>实时显示：OLED 周期刷新关键参数</li><li>阈值报警：参数超限触发蜂鸣器告警</li></ul></div>
-      </article>
     </section>
 
-    <section class="hi-module hi-module-at">
-      <div class="hi-module-head">
-        <span class="hi-module-index">04</span>
-        <div>
-          <h2>模块四 ｜ AT 指令开发</h2>
-          <p>在 OpenHarmony AT 框架上扩展命令，形成参数解析、执行与结果回传闭环。</p>
+    <section class="pe-section" id="mod-3">
+      <div class="pe-section-head">
+        <h2>模块三 · 环境监测板开发</h2>
+        <p class="pe-section-intro">面向多传感器总线复用与 OLED 图形渲染：实现 I²C 总线共享下的温湿度采集、可燃气体 ADC 监测及超阈值报警。</p>
+      </div>
+
+      <div class="pe-contrast-pair">
+        <div class="pe-contrast-box">
+          <h3>硬件配置与技术特性</h3>
+          <ul class="pe-list">
+            <li>MQ-2 燃气传感器：<code>ADC 通道 5</code>，可燃气体浓度数字化采样</li>
+            <li>AHT20 温湿度传感器：<code>I²C</code> 接口高精度温湿度读取</li>
+            <li>OLED 显示屏：SSD1306，<code>I²C</code> 总线复用与周期画面刷新</li>
+            <li>火焰传感器与蜂鸣器：监测参数超限时触发声光报警</li>
+          </ul>
+        </div>
+
+        <div class="pe-contrast-box">
+          <h3>开发文件清单</h3>
+          <ol class="pe-list">
+            <li><code>mq2_demo.c</code>：MQ-2 可燃气体浓度 ADC 采样演示</li>
+            <li><code>aht20.c / .h</code>：AHT20 温湿度传感器底层驱动</li>
+            <li><code>aht20_demo.c</code>：周期采集温度与相对湿度输出</li>
+            <li><code>oled_ssd1306.c / .h</code>：SSD1306 字库与显存刷新驱动</li>
+            <li><code>oled_demo.c</code>：OLED 文本与图形界面渲染测试</li>
+            <li><code>enrionment_demo.c</code>：多传感融合监测与超限联动告警</li>
+          </ol>
         </div>
       </div>
-      <div class="hi-module-grid">
-        <article class="hi-card">
-          <h3>开发项目</h3>
-          <div><ol><li><code>cal.c</code>：自定义 <code>AT+CALC=a,b</code> 指令</li><li>支持和、差、积、商四类结果输出</li><li>包含参数校验与除零保护逻辑</li></ol></div>
-        </article>
-        <article class="hi-card">
-          <h3>通信示例</h3>
-          <div><p>输入命令：</p><div class="hi-snippet">AT+CALC=12,3</div><p>返回结果：</p><div class="hi-snippet">+CALC:Sum=15
+    </section>
+
+    <section class="pe-section" id="mod-4">
+      <div class="pe-section-head">
+        <h2>模块四 · AT 指令开发</h2>
+        <p class="pe-section-intro">在 OpenHarmony AT（HiAT）框架基础上注册自定义串口命令，打通上位机指令下发、参数校验与格式化回传闭环。</p>
+      </div>
+
+      <div class="pe-split">
+        <div class="pe-prose">
+          <h3>自定义计算指令</h3>
+          <p><code>cal.c</code> 注册并实现自定义串口指令 <code>AT+CALC=a,b</code>：接收两个整型参数后完成参数合法性检验与除零保护，依次计算和、差、积、商四项运算结果并通过串口规范回传。</p>
+        </div>
+
+        <div class="pe-terminal">
+          <div class="pe-terminal-head">
+            <div class="pe-dots"><span></span><span></span><span></span></div>
+            <span class="pe-terminal-title">UART Serial · 115200 8N1</span>
+          </div>
+          <pre class="pe-terminal-body"><span class="pe-t-dim">&gt; 输入指令</span>
+AT+CALC=12,3
+
+<span class="pe-t-dim">&lt; 返回结果</span>
+<span class="pe-t-ok">+CALC:Sum=15
 +CALC:Diff=9
 +CALC:Prod=36
 +CALC:Quot=4
-OK</div></div>
-        </article>
+OK</span></pre>
+        </div>
       </div>
     </section>
 
-    <section class="hi-panel hi-panel-double">
-      <article class="hi-card">
-        <h2>编译与使用流程</h2>
-        <div><ol><li>编辑 <code>rayawa/BUILD.gn</code> 激活目标模块</li><li>编辑模块内部 <code>BUILD.gn</code> 激活目标源码</li><li>在 OpenHarmony 根目录执行 <code>hb build</code></li><li>使用 HiBurn 烧录到 Hi3861 开发板</li><li>串口参数设置为 115200，8N1，观察运行输出</li></ol></div>
-      </article>
-      <article class="hi-card">
-        <h2>技术栈</h2>
-        <div><ul><li>硬件接口：GPIO、PWM、I2C、ADC</li><li>系统框架：OpenHarmony、CMSIS RTOS2、HiAT Framework</li><li>构建工具：GN、Ninja、hb</li><li>调试与烧录：HiBurn、串口终端</li><li>版本管理：Git</li></ul></div>
-      </article>
+    <section class="pe-section" id="build">
+      <div class="pe-section-head">
+        <h2>编译、烧录与技术栈</h2>
+        <p class="pe-section-intro">基于 OpenHarmony GN/Ninja 构建系统、CMSIS-RTOS2 与 HiBurn 工具完成固件构建与串口调试。</p>
+      </div>
+
+      <div class="pe-ledger">
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">01</span>
+          <span class="pe-ledger-title">激活目标模块</span>
+          <span class="pe-ledger-desc">编辑根目录 <code>rayawa/BUILD.gn</code> 启用对应实验模块，再进入模块内 <code>BUILD.gn</code> 指定需参与编译的具体 <code>.c</code> 源码文件。</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">02</span>
+          <span class="pe-ledger-title">全量构建与烧录</span>
+          <span class="pe-ledger-desc">在 OpenHarmony 源码根目录运行 <code>hb build</code>（GN + Ninja）生成固件镜像，使用 HiBurn 工具烧录至 Hi3861 开发板。</span>
+        </div>
+        <div class="pe-ledger-row">
+          <span class="pe-ledger-num">03</span>
+          <span class="pe-ledger-title">串口日志观测</span>
+          <span class="pe-ledger-desc">打开串口调试终端，通信参数配置为 <code>115200, 8N1</code>，观察芯片启动状态、传感器读数或交互验证自定义 AT 指令回包。</span>
+        </div>
+      </div>
     </section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
 
   <div id="site-footer"></div>
-<script src="/static/js/footer.js"></script>
+  <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-<script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
 </body>
 </html>

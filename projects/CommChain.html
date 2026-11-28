@@ -4,92 +4,193 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>基于C#的数字通信系统模拟器 | Ray Chen</title>
-  <meta name="description" content="C# 程序设计课程项目。用控制台菜单演示文本编码、调制、信道传递与解调，可以单独运行每个环节，也可以从文本输入一直运行到还原结果。">
-  <meta name="keywords" content="C#, .NET, 数字通信, 信号调制, 解调, 霍夫曼编码, 链表队列, xUnit, 程序设计实践, Ray Chen">
+  <meta name="description" content="C# 程序设计实践综合项目。零第三方依赖实现从霍夫曼信源编码、CRC-8、汉明码(7,4)、Dijkstra 路由到 ASK/FSK 调制解调的 9 阶段数字通信链路。">
+  <meta name="keywords" content="C#, .NET, 数字通信, 霍夫曼编码, 汉明码, CRC-8, ASK, FSK, Dijkstra, xUnit, Ray Chen">
   <meta name="author" content="Ray Chen">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-
   <link rel="canonical" href="https://rayawa.top/projects/CommChain.html">
   <link rel="alternate" hreflang="zh-CN" href="https://rayawa.top/projects/CommChain.html">
   <link rel="alternate" hreflang="en" href="https://rayawa.top/en/projects/CommChain.html">
   <link rel="alternate" hreflang="fr" href="https://rayawa.top/fr/projects/CommChain.html">
   <link rel="alternate" hreflang="x-default" href="https://rayawa.top/projects/CommChain.html">
   <link rel="apple-touch-icon" href="https://rayawa.top/ray.jpg">
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rayawa.top/projects/CommChain.html">
   <meta property="og:title" content="基于C#的数字通信系统模拟器 | Ray Chen">
-  <meta property="og:description" content="C# 程序设计课程项目。用控制台菜单演示文本编码、调制、信道传递与解调，可以单独运行每个环节，也可以从文本输入一直运行到还原结果。">
+  <meta property="og:description" content="C# 程序设计实践综合项目。零第三方依赖实现 9 阶段数字通信链路与 50+ xUnit 可复现单元测试。">
   <meta property="og:image" content="https://rayawa.top/ray.jpg">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="480">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="Ray Chen's Website">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rayawa.top/projects/CommChain.html">
   <meta name="twitter:title" content="基于C#的数字通信系统模拟器 | Ray Chen">
-  <meta name="twitter:description" content="C# 程序设计课程项目。用控制台菜单演示文本编码、调制、信道传递与解调，可以单独运行每个环节，也可以从文本输入一直运行到还原结果。">
+  <meta name="twitter:description" content="C# 程序设计实践综合项目。零第三方依赖实现 9 阶段数字通信链路与 50+ xUnit 可复现单元测试。">
   <meta name="twitter:image" content="https://rayawa.top/ray.jpg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/subpage.css">
-  <link rel="stylesheet" href="/static/css/project-showcase.css">
   <link rel="stylesheet" href="/static/css/project-layout.css">
-
+  <link rel="stylesheet" href="/static/css/project-editorial.css">
   <meta name="theme-color" content="#0b1325">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body>
+<body class="project-editorial">
   <div id="site-navbar"></div>
   <script src="/static/js/navbar.js"></script>
   <div id="particles-js"></div>
-  <main class="page project-page">
-    <section class="project-intro hero-card">
 
-      <span class="project-category">学校项目</span>
-      <h1>基于C#的数字通信系统模拟器</h1>
-      <p>C# 程序设计课程项目。用控制台菜单演示文本编码、调制、信道传递与解调，可以单独运行每个环节，也可以从文本输入一直运行到还原结果。</p>
+  <main class="page project-page pe-page">
+    <nav class="pe-breadcrumb" aria-label="面包屑导航">
+      <a href="../index.html#projects">项目</a>
+      <span>/</span>
+      <span>通信工程</span>
+      <span>/</span>
+      <span>CommChain</span>
+    </nav>
+
+    <header class="pe-hero">
+      <div class="pe-hero-main">
+        <span class="pe-category-label">C# / .NET 10 · 通信工程实践项目</span>
+        <h1>基于 C# 的数字通信系统模拟器</h1>
+        <p class="pe-lead">把课本里的抽象通信原理，变成屏幕上一步步看得见的信号旅程。输入一句文字，就能亲眼看着它被霍夫曼压缩、打上校验帧、穿过最短路由与模拟噪声信道，最终在另一端准确无误地还原回来。</p>
+      </div>
+    </header>
+
+    <section class="pe-overview-bar" aria-label="技术栈与标签纵览">
+      <div class="pe-tag-list">
+        <span class="pe-tag is-key">C# / .NET 10</span>
+        <span class="pe-tag is-key">零第三方依赖</span>
+        <span class="pe-tag">Huffman · CRC-8</span>
+        <span class="pe-tag">Hamming (7,4)</span>
+        <span class="pe-tag">Dijkstra / Floyd</span>
+        <span class="pe-tag">ASK / FSK</span>
+        <span class="pe-tag">xUnit (50+ 用例)</span>
+      </div>
+      <span class="pe-meta-summary">dotnet run --project src/CommChain.App</span>
     </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>覆盖的环节</h2>
-        <p>每一环都可以单独运行，观察它的输入与输出。</p>
+    <section class="pe-section" id="workbench">
+      <div class="pe-section-head">
+        <h2>把通信原理变成看得见的信号旅程</h2>
+        <p class="pe-section-intro">不依赖任何第三方算法包，左侧看它能带你做什么实验，右侧直接切换三档信道误码仿真输出对照。</p>
       </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-file-zipper"></i></span><h3>信源编码</h3><p>实现霍夫曼编码：统计字符频率、构建前缀码表、计算压缩率，并验证解码可还原原文。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-link"></i></span><h3>自定义数据结构</h3><p>手写链表队列，观察入队出队过程与计数变化，并验证空队列出队的异常处理。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-wave-square"></i></span><h3>信号调制</h3><p>把二进制序列映射为可传输的信号形式，是整条链路的核心环节。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-tower-broadcast"></i></span><h3>信道模拟</h3><p>模拟信号在信道中的传递过程，作为调制与解调之间的过渡。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-arrow-rotate-left"></i></span><h3>解调与还原</h3><p>从接收到的信号恢复二进制序列，再还原为原始文本，与输入对照验证。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-flask-vial"></i></span><h3>可复现测试</h3><p>测试使用固定随机种子，对照各环节的输入与输出。</p></article>
+
+      <div class="pe-split">
+        <div class="pe-stack-list">
+          <div class="pe-stack-item">
+            <h3>从文本到比特的压缩之旅</h3>
+            <p>输入一段话即可自动统计字频、画出前缀码表并算出相对 8-bit 定长编码节省的比特率，让熵编码不再停留在公式纸面上。</p>
+          </div>
+          <div class="pe-stack-item">
+            <h3>亲手制造错码，看纠错与校验接力</h3>
+            <p>既能用 CRC-8 揪出被篡改的数据包，也能给 7 位汉明码手动翻转任意一比特，亲眼看着接收端算出校验子把错误原地掰正。</p>
+          </div>
+          <div class="pe-stack-item">
+            <h3>看得见的路由路径与 ASCII 波形</h3>
+            <p>从拓扑配置文件自动规划出最短传输路径，并直接把 0/1 比特流调制后的 ASK 振幅与 FSK 频率波动在控制台画出来。</p>
+          </div>
+          <div class="pe-stack-item">
+            <h3>三档噪声压测，结果可复现</h3>
+            <p>一键启动全链路仿真，从零干扰、单错自愈到高频双错触发 CRC 丢帧保护全过程清晰呈现；50 多项固定种子单测保证每次验证稳妥一致。</p>
+          </div>
+        </div>
+
+        <div class="pe-terminal" data-pe-terminal>
+          <div class="pe-terminal-head">
+            <div style="display:flex;align-items:center;gap:0.9rem;">
+              <div class="pe-dots"><span></span><span></span><span></span></div>
+              <span class="pe-terminal-title" data-terminal-title>dotnet run — 档位 0 (无差错)</span>
+            </div>
+            <div class="pe-tabs" role="tablist" aria-label="错误档位切换">
+              <button type="button" class="pe-tab is-active" role="tab" aria-selected="true" data-target="tier0">档位 0</button>
+              <button type="button" class="pe-tab" role="tab" aria-selected="false" data-target="tier1">档位 1</button>
+              <button type="button" class="pe-tab" role="tab" aria-selected="false" data-target="tier2">档位 2</button>
+            </div>
+          </div>
+
+          <pre class="pe-terminal-body pe-terminal-pane is-active" data-pane="tier0" data-title="dotnet run — 档位 0 (无差错)">$ dotnet run --project src/CommChain.App
+<span class="pe-t-dim">&gt; 菜单 [8] 完整链路 | 错误档位: 0 (无差错)</span>
+
+[Stage 2] 霍夫曼压缩率 61.4% (META × 1, DATA × 3)
+[Stage 4] Dijkstra 路由: 0 -&gt; 2 -&gt; 5 -&gt; 7 (总权重 11)
+[Stage 6] 物理信道: BER = 0.0000，噪声包过滤 4 个
+[Stage 7] 汉明纠错: 0   CRC 丢帧: 0
+
+<span class="pe-t-ok">[验证通过] 还原文本与原输入 100% 一致</span></pre>
+
+          <pre class="pe-terminal-body pe-terminal-pane" data-pane="tier1" data-title="dotnet run — 档位 1 (少量可纠)">$ dotnet run --project src/CommChain.App
+<span class="pe-t-dim">&gt; 菜单 [8] 完整链路 | 错误档位: 1 (少量可纠)</span>
+
+[Stage 6] 信道注入单比特翻转 (每 7-bit 块 ≤ 1 bit)
+[Stage 7] <span class="pe-t-accent">汉明码 (7,4) 算出校验子 → 修复 6 处单错</span>
+[Stage 7] CRC-8 校验全部通过（失败帧: 0）
+
+<span class="pe-t-ok">[验证通过] 汉明码 100% 自愈，文本无损恢复</span></pre>
+
+          <pre class="pe-terminal-body pe-terminal-pane" data-pane="tier2" data-title="dotnet run — 档位 2 (高频超限)">$ dotnet run --project src/CommChain.App
+<span class="pe-t-dim">&gt; 菜单 [8] 完整链路 | 错误档位: 2 (高频超限)</span>
+
+[Stage 6] 信道高频干扰：部分块出现 ≥2 bit 连续翻转
+[Stage 7] <span class="pe-t-warn">汉明纠错超限失效 → 残余误码透传至链路层</span>
+[Stage 7] <span class="pe-t-err">CRC-8 兜底触发：检出 2 个坏帧并主动丢弃</span>
+
+<span class="pe-t-warn">[校验兜底生效] 宁可丢帧也不输出被篡改的错误文本</span></pre>
+        </div>
       </div>
     </section>
 
-    <section class="ps-section">
-      <div class="ps-section-head">
-        <h2>为什么用纯基础类库</h2>
-        <p>项目在依赖上做了刻意的限制，让每个环节的实现都留在代码里，而不是藏在框架背后。</p>
+    <section class="pe-section" id="pipeline">
+      <div class="pe-section-head">
+        <h2>九阶段端到端通信链路</h2>
+        <p class="pe-section-intro">在完整链路模式下，原始文本会沿着类似 OSI 分层的结构依次穿越下面五个关键处理层。</p>
       </div>
-      <div class="ps-grid-3">
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-cubes"></i></span><h3>零第三方依赖</h3><p>除测试项目引用 xUnit 外不引入任何 NuGet 包，克隆下来装好 .NET SDK 即可运行。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-book-open"></i></span><h3>原理可见</h3><p>编码、调制与解调的实现全部写在项目内，可以直接对照课程讲义阅读。</p></article>
-        <article class="ps-card"><span class="ps-card-icon"><i class="fas fa-terminal"></i></span><h3>控制台交互</h3><p>以菜单编号选择演示项，不需要图形界面，跨 macOS、Windows 与 Linux 一致。</p></article>
+
+      <div class="pe-pipeline">
+        <div class="pe-pipe-step">
+          <span class="pe-pipe-layer">表示层 · Stage 2</span>
+          <span class="pe-pipe-name">霍夫曼信源编码</span>
+          <span class="pe-pipe-detail">统计字符频次后建树生成前缀码，压缩比特流并将码表与有效位长打进 META 帧一并发送。</span>
+        </div>
+        <div class="pe-pipe-step">
+          <span class="pe-pipe-layer">链路层 · Stage 3</span>
+          <span class="pe-pipe-name">组帧与 CRC-8 (0x07)</span>
+          <span class="pe-pipe-detail">封装帧头 [type / source / dest / seq / len] 与载荷，尾部附加 CRC-8 校验字节形成 META 与 DATA 帧。</span>
+        </div>
+        <div class="pe-pipe-step">
+          <span class="pe-pipe-layer">网络层 · Stage 4</span>
+          <span class="pe-pipe-name">队列分流与 Dijkstra 路由</span>
+          <span class="pe-pipe-detail">将业务帧和随机背景噪声包混合入队，再按目的 ID 分流并依据拓扑文件计算最短路径。</span>
+        </div>
+        <div class="pe-pipe-step">
+          <span class="pe-pipe-layer">物理层 · Stage 5–6</span>
+          <span class="pe-pipe-name">汉明码 (7,4) + ASK/FSK</span>
+          <span class="pe-pipe-detail">每 4 位数据编为 7 位汉明码字，经 FSK 或 ASK 调制后送入信道并按所选档位注入比特翻转干扰。</span>
+        </div>
+        <div class="pe-pipe-step">
+          <span class="pe-pipe-layer">接收端 · Stage 7–9</span>
+          <span class="pe-pipe-name">纠错、拆帧与还原校验</span>
+          <span class="pe-pipe-detail">解调并利用校验子修复单比特错，由 CRC-8 过滤双错坏帧与噪声包，最后解码文本并打印压缩率、BER 与纠错统计。</span>
+        </div>
       </div>
     </section>
 
-    <section class="ps-section"><div class="ps-section-head"><h2>课程演示</h2></div><p class="ps-note">使用 C# / .NET 10 基础类库实现，xUnit 用于测试。用于观察通信步骤，不连接真实收发硬件。</p></section>
-    <div class="bottombar"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
+    <aside class="pe-footnote">
+      说明：纯软件数字通信教学仿真程序，不连接真实射频或串口硬件；测试项目基于 xUnit 与固定随机种子 42 编写了 50 余项可复现用例。
+    </aside>
+
+    <div class="bottombar" style="margin-top:2.5rem;"><a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 返回项目列表</a></div>
   </main>
+
   <div id="site-footer"></div>
   <script src="/static/js/footer.js"></script>
   <script src="/static/vendor/particles.js/particles.min.js"></script>
-  <script src="/static/js/common.js?v=20261030-particles-59e3aaa"></script>
+  <script src="/static/js/common.js?v=20261122-editorial"></script>
+  <script src="/static/js/project-editorial.js"></script>
 </body>
 </html>
